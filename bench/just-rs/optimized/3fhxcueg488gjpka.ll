@@ -10416,17 +10416,17 @@ define internal fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes
   %.sroa.0.sroa.7.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
   %.sroa.0.sroa.8.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 57
   %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 58
-  %.sroa.0.sroa.424.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.0.sroa.525.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %.sroa.0.sroa.626.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 17
-  %.sroa.0.sroa.727.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
-  %.sroa.0.sroa.828.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 57
-  %.sroa.0.sroa.929.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 58
+  %.sroa.0.sroa.425.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.0.sroa.526.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.0.sroa.627.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 17
+  %.sroa.0.sroa.728.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
+  %.sroa.0.sroa.829.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 57
+  %.sroa.0.sroa.930.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 58
   br label %28
 
-28:                                               ; preds = %71, %.lr.ph.i
-  %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %72, %71 ]
-  %29 = phi ptr [ %8, %.lr.ph.i ], [ %30, %71 ]
+28:                                               ; preds = %69, %.lr.ph.i
+  %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %70, %69 ]
+  %29 = phi ptr [ %8, %.lr.ph.i ], [ %30, %69 ]
   %30 = getelementptr inbounds i8, ptr %29, i64 24
   %31 = getelementptr i8, ptr %29, i64 8
   %.val7.i = load ptr, ptr %31, align 8, !noalias !1430, !nonnull !17, !noundef !17
@@ -10499,12 +10499,12 @@ define internal fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes
   store i8 %50, ptr %.sroa.0.sroa.9.0..sroa_idx.i.i.i.i, align 2, !noalias !1458
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !1454
   store ptr %35, ptr %2, align 8, !alias.scope !1460, !noalias !1464
-  store i64 %36, ptr %.sroa.0.sroa.424.0..sroa_idx.i.i.i.i, align 8, !alias.scope !1460, !noalias !1464
-  store i8 %53, ptr %.sroa.0.sroa.525.0..sroa_idx.i.i.i.i, align 8, !alias.scope !1460, !noalias !1464
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.626.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i10.i.i.i.i, i64 39, i1 false), !alias.scope !1460, !noalias !1459
-  store i8 %57, ptr %.sroa.0.sroa.727.0..sroa_idx.i.i.i.i, align 8, !alias.scope !1460, !noalias !1464
-  store i8 %58, ptr %.sroa.0.sroa.828.0..sroa_idx.i.i.i.i, align 1, !alias.scope !1460, !noalias !1464
-  store i8 %56, ptr %.sroa.0.sroa.929.0..sroa_idx.i.i.i.i, align 2, !alias.scope !1460, !noalias !1464
+  store i64 %36, ptr %.sroa.0.sroa.425.0..sroa_idx.i.i.i.i, align 8, !alias.scope !1460, !noalias !1464
+  store i8 %53, ptr %.sroa.0.sroa.526.0..sroa_idx.i.i.i.i, align 8, !alias.scope !1460, !noalias !1464
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.0.sroa.627.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i10.i.i.i.i, i64 39, i1 false), !alias.scope !1460, !noalias !1459
+  store i8 %57, ptr %.sroa.0.sroa.728.0..sroa_idx.i.i.i.i, align 8, !alias.scope !1460, !noalias !1464
+  store i8 %58, ptr %.sroa.0.sroa.829.0..sroa_idx.i.i.i.i, align 1, !alias.scope !1460, !noalias !1464
+  store i8 %56, ptr %.sroa.0.sroa.930.0..sroa_idx.i.i.i.i, align 2, !alias.scope !1460, !noalias !1464
   %59 = call noundef i8 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h7f948120107186feE.llvm.11107275065492906757(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %2), !range !1465, !noalias !1466
   %60 = icmp eq i8 %59, 3
   br i1 %60, label %61, label %"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.i"
@@ -10519,16 +10519,16 @@ define internal fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes
   br label %"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.i"
 
 64:                                               ; preds = %38
-  %65 = icmp samesign ult i8 %.pre19.i, 3
-  %66 = load i8, ptr %25, align 8, !range !1441, !alias.scope !1472, !noalias !1440, !noundef !17
-  %67 = icmp samesign ult i8 %66, 3
-  %68 = xor i1 %65, %67
-  br i1 %68, label %46, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i.i"
+  %switch.i.i.i.i.i.i.i = icmp samesign ult i8 %.pre19.i, 3
+  %65 = load i8, ptr %25, align 8, !range !1441, !alias.scope !1472, !noalias !1440, !noundef !17
+  %switch.i.i.i14.i.i.i.i = icmp samesign ult i8 %65, 3
+  %66 = xor i1 %switch.i.i.i.i.i.i.i, %switch.i.i.i14.i.i.i.i
+  br i1 %66, label %46, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i.i": ; preds = %64
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %33, ptr nonnull readonly align 1 %35, i64 %34), !alias.scope !1475, !noalias !1479
-  %69 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %69, label %"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.thread.i", label %46
+  %67 = icmp eq i32 %bcmp.i.i.i.i.i, 0
+  br i1 %67, label %"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.thread.i", label %46
 
 "_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.5.i10.i.i.i.i)
@@ -10541,30 +10541,30 @@ define internal fastcc { i64, i64 } @"_ZN4just8justfile8Justfile14public_recipes
   %.0.i.i.i.i.i.i = phi i8 [ %.04.i.i.i.i.i.i, %61 ], [ %59, %"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.exit13.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !1454
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !1454
-  %70 = icmp eq i8 %.0.i.i.i.i.i.i, 0
+  %68 = icmp eq i8 %.0.i.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.5.i10.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.5.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1431
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !1431
-  br i1 %70, label %.loopexit, label %71
+  br i1 %68, label %.loopexit, label %69
 
-71:                                               ; preds = %"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.i"
-  %72 = add nuw nsw i64 %.015.i, 1
-  %73 = icmp eq ptr %30, %11
-  br i1 %73, label %.loopexit6, label %28
+69:                                               ; preds = %"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.i"
+  %70 = add nuw nsw i64 %.015.i, 1
+  %71 = icmp eq ptr %30, %11
+  br i1 %71, label %.loopexit6, label %28
 
-.loopexit6:                                       ; preds = %71, %0
+.loopexit6:                                       ; preds = %69, %0
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.65a1302fbefe9d26ff9f0d4b4a319f5d.57) #26
   unreachable
 
 .loopexit:                                        ; preds = %"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.i", %"_ZN4just8justfile8Justfile14public_recipes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha57ba717d115f1d3E.exit.thread.i"
-  %74 = icmp ult i64 %.015.i, %10
-  call void @llvm.assume(i1 %74)
-  %75 = getelementptr inbounds i8, ptr %.0.val1, i64 200
-  %76 = load i64, ptr %75, align 8, !noundef !17
-  %77 = insertvalue { i64, i64 } poison, i64 %.015.i, 0
-  %78 = insertvalue { i64, i64 } %77, i64 %76, 1
-  ret { i64, i64 } %78
+  %72 = icmp ult i64 %.015.i, %10
+  call void @llvm.assume(i1 %72)
+  %73 = getelementptr inbounds i8, ptr %.0.val1, i64 200
+  %74 = load i64, ptr %73, align 8, !noundef !17
+  %75 = insertvalue { i64, i64 } poison, i64 %.015.i, 0
+  %76 = insertvalue { i64, i64 } %75, i64 %74, 1
+  ret { i64, i64 } %76
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

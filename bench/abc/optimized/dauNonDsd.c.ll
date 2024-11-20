@@ -1878,9 +1878,9 @@ define noalias noundef ptr @Dau_DecFindSets_int(ptr nocapture noundef readonly %
   %notmask.i.us = shl nsw i64 -1, %46
   %47 = xor i64 %notmask.i.us, -1
   %48 = sub nsw i64 6, %34
+  %.not68203.us = icmp samesign ult i64 %indvars.iv229, 3
   %wide.trip.count145.i124.us = zext nneg i32 %41 to i64
   %49 = trunc nsw i64 %48 to i32
-  %brmerge213 = icmp samesign ult i64 %indvars.iv229, 3
   %50 = trunc nsw i64 %48 to i32
   br label %51
 
@@ -2085,7 +2085,7 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntGrow.exit.i.
   br label %.loopexit188.us
 
 .loopexit:                                        ; preds = %75, %96
-  br i1 %brmerge213, label %.loopexit188.us, label %.lr.ph206.us
+  br i1 %.not68203.us, label %.loopexit188.us, label %.lr.ph206.us
 
 .lr.ph206.us:                                     ; preds = %.loopexit, %.loopexit186.us
   %.064204.us = phi i32 [ %137, %.loopexit186.us ], [ 1, %.loopexit ]

@@ -13987,8 +13987,8 @@ default.unreachable:                              ; preds = %29
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !1003, !noundef !7
-  %or.cond = icmp samesign ult i64 %2, 2
-  br i1 %or.cond, label %3, label %"_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.llvm.3683678558897460461.exit"
+  %switch.not.i = icmp samesign ult i64 %2, 2
+  br i1 %switch.not.i, label %3, label %"_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.llvm.3683678558897460461.exit"
 
 "_ZN4core3ptr123drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$17h261aa8317f0f7460E.llvm.3683678558897460461.exit": ; preds = %3, %1
   ret void
@@ -73449,8 +73449,8 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1c9271c0aa392826E(p
   %19 = getelementptr inbounds i8, ptr %12, i64 23
   %20 = getelementptr inbounds i8, ptr %12, i64 8
   %21 = getelementptr inbounds i8, ptr %13, i64 32
-  %.sroa.5.0..sroa_idx72 = getelementptr inbounds i8, ptr %11, i64 8
-  %.sroa.8.0..sroa_idx74 = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.5.0..sroa_idx71 = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.8.0..sroa_idx73 = getelementptr inbounds i8, ptr %11, i64 16
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
   %.sroa.625.0..sroa_idx26 = getelementptr inbounds i8, ptr %14, i64 8
   %.sroa.728.0..sroa_idx29 = getelementptr inbounds i8, ptr %14, i64 16
@@ -73459,16 +73459,16 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1c9271c0aa392826E(p
 
 ._crit_edge:                                      ; preds = %50, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
-  br label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit70"
+  br label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit69"
 
-"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit70": ; preds = %154, %148, %._crit_edge
+"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit69": ; preds = %154, %148, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   ret void
 
 22:                                               ; preds = %.lr.ph, %50
-  %.049140 = phi i64 [ 0, %.lr.ph ], [ %.1, %50 ]
+  %.049139 = phi i64 [ 0, %.lr.ph ], [ %.1, %50 ]
   %23 = load ptr, ptr %15, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }], ptr %23, i64 0, i64 %.049140
+  %24 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }], ptr %23, i64 0, i64 %.049139
   %25 = load i64, ptr %24, align 8, !range !1057, !alias.scope !12620, !noundef !7
   %trunc.i = trunc nuw i64 %25 to i1
   br i1 %trunc.i, label %26, label %.critedge
@@ -73483,11 +73483,11 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1c9271c0aa392826E(p
   %.pr = load i64, ptr %14, align 8, !alias.scope !12623
   br label %.body
 
-.body:                                            ; preds = %.bodythread-pre-split, %.thread81
-  %29 = phi i64 [ %.pr, %.bodythread-pre-split ], [ %72, %.thread81 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.pn.ph, %.bodythread-pre-split ], [ %155, %.thread81 ]
-  %or.cond.i = icmp samesign ult i64 %29, 2
-  br i1 %or.cond.i, label %30, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit"
+.body:                                            ; preds = %.bodythread-pre-split, %.thread80
+  %29 = phi i64 [ %.pr, %.bodythread-pre-split ], [ %72, %.thread80 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.pn.ph, %.bodythread-pre-split ], [ %155, %.thread80 ]
+  %switch.not.i.i = icmp samesign ult i64 %29, 2
+  br i1 %switch.not.i.i, label %30, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit"
 
 30:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.3683678558897460461"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
@@ -73517,14 +73517,14 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1c9271c0aa392826E(p
   br i1 %35, label %37, label %.critedge
 
 .critedge:                                        ; preds = %22, %31, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit"
-  %36 = add nuw i64 %.049140, 1
+  %36 = add nuw i64 %.049139, 1
   br label %50
 
 37:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !12630, !noalias !12633, !noundef !7
-  %.not.i57 = icmp ult i64 %.049140, %38
+  %.not.i57 = icmp ult i64 %.049139, %38
   br i1 %.not.i57, label %39, label %49
 
 39:                                               ; preds = %37
@@ -73559,14 +73559,14 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1c9271c0aa392826E(p
   br label %53
 
 49:                                               ; preds = %37
-  invoke void @_ZN4ecow3vec13out_of_bounds17hb6ef9e8b4463fd82E(i64 noundef %.049140, i64 noundef %38) #60
+  invoke void @_ZN4ecow3vec13out_of_bounds17hb6ef9e8b4463fd82E(i64 noundef %.049139, i64 noundef %38) #60
           to label %.noexc60 unwind label %.loopexit.split-lp
 
 .noexc60:                                         ; preds = %49
   unreachable
 
-50:                                               ; preds = %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit68", %.critedge
-  %.1 = phi i64 [ %.049140, %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit68" ], [ %36, %.critedge ]
+50:                                               ; preds = %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit67", %.critedge
+  %.1 = phi i64 [ %.049139, %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit67" ], [ %36, %.critedge ]
   %51 = load i64, ptr %16, align 8, !noundef !7
   %52 = icmp ult i64 %.1, %51
   br i1 %52, label %22, label %._crit_edge
@@ -73574,10 +73574,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1c9271c0aa392826E(p
 53:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i", %.noexc58
   %54 = phi i64 [ %38, %.noexc58 ], [ %46, %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i" ]
   %55 = phi ptr [ %40, %.noexc58 ], [ %45, %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i" ]
-  %56 = getelementptr inbounds { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }, ptr %55, i64 %.049140
+  %56 = getelementptr inbounds { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }, ptr %55, i64 %.049139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %56, i64 72, i1 false)
   %57 = getelementptr inbounds i8, ptr %56, i64 72
-  %58 = xor i64 %.049140, -1
+  %58 = xor i64 %.049139, -1
   %59 = add i64 %54, %58
   %60 = mul i64 %59, 72
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %56, ptr nonnull align 8 %57, i64 %60, i1 false)
@@ -73589,8 +73589,8 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1c9271c0aa392826E(p
   %64 = icmp ne i64 %63, 0
   %65 = load i8, ptr %19, align 1, !alias.scope !12638
   %66 = icmp sgt i8 %65, -1
-  %or.cond.i61 = select i1 %64, i1 %66, i1 false
-  br i1 %or.cond.i61, label %67, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$typst..foundations..str..Str$GT$$GT$17h6b359cdff70ab02eE.llvm.3683678558897460461.exit"
+  %or.cond.i = select i1 %64, i1 %66, i1 false
+  br i1 %or.cond.i, label %67, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$typst..foundations..str..Str$GT$$GT$17h6b359cdff70ab02eE.llvm.3683678558897460461.exit"
 
 67:                                               ; preds = %53
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
@@ -73621,7 +73621,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1c9271c0aa392826E(p
 74:                                               ; preds = %71
   %75 = getelementptr inbounds i8, ptr %9, i64 40
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !12651
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.5.0..sroa_idx72, i64 16, i1 false), !noalias !12645
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.5.0..sroa_idx71, i64 16, i1 false), !noalias !12645
   %76 = getelementptr inbounds i8, ptr %9, i64 56
   store i8 0, ptr %76, align 8, !alias.scope !12654, !noalias !12657
   store i64 %70, ptr %9, align 8, !alias.scope !12654, !noalias !12657
@@ -73798,17 +73798,17 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1c9271c0aa392826E(p
   unreachable
 
 145:                                              ; preds = %71
-  %.sroa.5.0.copyload73 = load ptr, ptr %.sroa.5.0..sroa_idx72, align 8, !alias.scope !12677
-  %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx74, align 8, !alias.scope !12677
+  %.sroa.5.0.copyload72 = load ptr, ptr %.sroa.5.0..sroa_idx71, align 8, !alias.scope !12677
+  %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx73, align 8, !alias.scope !12677
   %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !12677
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   %146 = load i64, ptr %14, align 8, !range !1003, !alias.scope !12678, !noundef !7
-  %or.cond.i66 = icmp samesign ult i64 %146, 2
-  br i1 %or.cond.i66, label %147, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit68"
+  %switch.not.i.i65 = icmp samesign ult i64 %146, 2
+  br i1 %switch.not.i.i65, label %147, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit67"
 
 147:                                              ; preds = %145
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.3683678558897460461"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
-          to label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit68" unwind label %.thread81
+          to label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit67" unwind label %.thread80
 
 148:                                              ; preds = %92
   %149 = load ptr, ptr %5, align 8, !noalias !12662, !nonnull !7, !noundef !7
@@ -73824,25 +73824,25 @@ define hidden void @_ZN5typst11foundations4args4Args5named17h1c9271c0aa392826E(p
   store i64 5, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   %153 = load i64, ptr %14, align 8, !range !1003, !alias.scope !12681, !noundef !7
-  %or.cond.i69 = icmp samesign ult i64 %153, 2
-  br i1 %or.cond.i69, label %154, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit70"
+  %switch.not.i.i68 = icmp samesign ult i64 %153, 2
+  br i1 %switch.not.i.i68, label %154, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit69"
 
 154:                                              ; preds = %148
   call void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.3683678558897460461"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
-  br label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit70"
+  br label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit69"
 
-.thread81:                                        ; preds = %147
+.thread80:                                        ; preds = %147
   %155 = landingpad { ptr, i32 }
           cleanup
   store i64 %72, ptr %14, align 8
-  store ptr %.sroa.5.0.copyload73, ptr %.sroa.625.0..sroa_idx26, align 8
+  store ptr %.sroa.5.0.copyload72, ptr %.sroa.625.0..sroa_idx26, align 8
   store i64 %.sroa.8.0.copyload, ptr %.sroa.728.0..sroa_idx29, align 8
   store i64 %.sroa.11.0.copyload, ptr %.sroa.8.0..sroa_idx31, align 8
   br label %.body
 
-"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit68": ; preds = %145, %147
+"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit67": ; preds = %145, %147
   store i64 %72, ptr %14, align 8
-  store ptr %.sroa.5.0.copyload73, ptr %.sroa.625.0..sroa_idx26, align 8
+  store ptr %.sroa.5.0.copyload72, ptr %.sroa.625.0..sroa_idx26, align 8
   store i64 %.sroa.8.0.copyload, ptr %.sroa.728.0..sroa_idx29, align 8
   store i64 %.sroa.11.0.copyload, ptr %.sroa.8.0..sroa_idx31, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
@@ -109519,9 +109519,9 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hdc8b9a731212bcd8E(p
   %19 = getelementptr inbounds i8, ptr %12, i64 23
   %20 = getelementptr inbounds i8, ptr %12, i64 8
   %21 = getelementptr inbounds i8, ptr %13, i64 32
-  %.sroa.5.0..sroa_idx70 = getelementptr inbounds i8, ptr %11, i64 8
-  %.sroa.872.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
-  %.sroa.1173.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
+  %.sroa.5.0..sroa_idx69 = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.871.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.1172.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
   %.sroa.624.0..sroa_idx25 = getelementptr inbounds i8, ptr %14, i64 8
   %.sroa.727.0..sroa_idx28 = getelementptr inbounds i8, ptr %14, i64 16
   %.sroa.8.0..sroa_idx30 = getelementptr inbounds i8, ptr %14, i64 24
@@ -109529,16 +109529,16 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hdc8b9a731212bcd8E(p
 
 ._crit_edge:                                      ; preds = %50, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %14, i64 112, i1 false)
-  br label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit68"
+  br label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit67"
 
-"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit68": ; preds = %154, %148, %._crit_edge
+"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit67": ; preds = %154, %148, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %14)
   ret void
 
 22:                                               ; preds = %.lr.ph, %50
-  %.047131 = phi i64 [ 0, %.lr.ph ], [ %.1, %50 ]
+  %.047130 = phi i64 [ 0, %.lr.ph ], [ %.1, %50 ]
   %23 = load ptr, ptr %15, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }], ptr %23, i64 0, i64 %.047131
+  %24 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }], ptr %23, i64 0, i64 %.047130
   %25 = load i64, ptr %24, align 8, !range !1057, !alias.scope !18396, !noundef !7
   %trunc.i = trunc nuw i64 %25 to i1
   br i1 %trunc.i, label %26, label %.critedge
@@ -109553,11 +109553,11 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hdc8b9a731212bcd8E(p
   %.pr = load i64, ptr %14, align 8, !alias.scope !18399
   br label %.body
 
-.body:                                            ; preds = %.bodythread-pre-split, %.thread77
-  %29 = phi i64 [ %.pr, %.bodythread-pre-split ], [ %72, %.thread77 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn.pn.ph, %.bodythread-pre-split ], [ %155, %.thread77 ]
-  %or.cond.i = icmp samesign ult i64 %29, 2
-  br i1 %or.cond.i, label %30, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
+.body:                                            ; preds = %.bodythread-pre-split, %.thread76
+  %29 = phi i64 [ %.pr, %.bodythread-pre-split ], [ %72, %.thread76 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.pn.ph, %.bodythread-pre-split ], [ %155, %.thread76 ]
+  %switch.not.i.i = icmp samesign ult i64 %29, 2
+  br i1 %switch.not.i.i, label %30, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit"
 
 30:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %14)
@@ -109587,14 +109587,14 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hdc8b9a731212bcd8E(p
   br i1 %35, label %37, label %.critedge
 
 .critedge:                                        ; preds = %22, %31, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit"
-  %36 = add nuw i64 %.047131, 1
+  %36 = add nuw i64 %.047130, 1
   br label %50
 
 37:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   %38 = load i64, ptr %16, align 8, !alias.scope !18406, !noalias !18409, !noundef !7
-  %.not.i55 = icmp ult i64 %.047131, %38
+  %.not.i55 = icmp ult i64 %.047130, %38
   br i1 %.not.i55, label %39, label %49
 
 39:                                               ; preds = %37
@@ -109629,14 +109629,14 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hdc8b9a731212bcd8E(p
   br label %53
 
 49:                                               ; preds = %37
-  invoke void @_ZN4ecow3vec13out_of_bounds17hb6ef9e8b4463fd82E(i64 noundef %.047131, i64 noundef %38) #60
+  invoke void @_ZN4ecow3vec13out_of_bounds17hb6ef9e8b4463fd82E(i64 noundef %.047130, i64 noundef %38) #60
           to label %.noexc58 unwind label %.loopexit.split-lp
 
 .noexc58:                                         ; preds = %49
   unreachable
 
-50:                                               ; preds = %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit66", %.critedge
-  %.1 = phi i64 [ %.047131, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit66" ], [ %36, %.critedge ]
+50:                                               ; preds = %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit65", %.critedge
+  %.1 = phi i64 [ %.047130, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit65" ], [ %36, %.critedge ]
   %51 = load i64, ptr %16, align 8, !noundef !7
   %52 = icmp ult i64 %.1, %51
   br i1 %52, label %22, label %._crit_edge
@@ -109644,10 +109644,10 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hdc8b9a731212bcd8E(p
 53:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i", %.noexc56
   %54 = phi i64 [ %38, %.noexc56 ], [ %46, %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i" ]
   %55 = phi ptr [ %40, %.noexc56 ], [ %45, %"_ZN4core3ptr75drop_in_place$LT$ecow..vec..EcoVec$LT$typst..foundations..args..Arg$GT$$GT$17h658679766419872cE.exit.i.i" ]
-  %56 = getelementptr inbounds { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }, ptr %55, i64 %.047131
+  %56 = getelementptr inbounds { { i64, [2 x i64] }, { { i8, [31 x i8] }, i64 }, i64 }, ptr %55, i64 %.047130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %56, i64 72, i1 false)
   %57 = getelementptr inbounds i8, ptr %56, i64 72
-  %58 = xor i64 %.047131, -1
+  %58 = xor i64 %.047130, -1
   %59 = add i64 %54, %58
   %60 = mul i64 %59, 72
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %56, ptr nonnull align 8 %57, i64 %60, i1 false)
@@ -109659,8 +109659,8 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hdc8b9a731212bcd8E(p
   %64 = icmp ne i64 %63, 0
   %65 = load i8, ptr %19, align 1, !alias.scope !18414
   %66 = icmp sgt i8 %65, -1
-  %or.cond.i59 = select i1 %64, i1 %66, i1 false
-  br i1 %or.cond.i59, label %67, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$typst..foundations..str..Str$GT$$GT$17h6b359cdff70ab02eE.llvm.3683678558897460461.exit"
+  %or.cond.i = select i1 %64, i1 %66, i1 false
+  br i1 %or.cond.i, label %67, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$typst..foundations..str..Str$GT$$GT$17h6b359cdff70ab02eE.llvm.3683678558897460461.exit"
 
 67:                                               ; preds = %53
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
@@ -109692,7 +109692,7 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hdc8b9a731212bcd8E(p
 74:                                               ; preds = %71
   %75 = getelementptr inbounds i8, ptr %9, i64 40
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !18427
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.5.0..sroa_idx70, i64 16, i1 false), !noalias !18421
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.5.0..sroa_idx69, i64 16, i1 false), !noalias !18421
   %76 = getelementptr inbounds i8, ptr %9, i64 56
   store i8 0, ptr %76, align 8, !alias.scope !18430, !noalias !18433
   store i64 %70, ptr %9, align 8, !alias.scope !18430, !noalias !18433
@@ -109869,17 +109869,17 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hdc8b9a731212bcd8E(p
   unreachable
 
 145:                                              ; preds = %71
-  %.sroa.5.0.copyload71 = load ptr, ptr %.sroa.5.0..sroa_idx70, align 8, !alias.scope !18453
-  %.sroa.872.0.copyload = load i64, ptr %.sroa.872.0..sroa_idx, align 8, !alias.scope !18453
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.1173.0..sroa_idx, i64 88, i1 false)
+  %.sroa.5.0.copyload70 = load ptr, ptr %.sroa.5.0..sroa_idx69, align 8, !alias.scope !18453
+  %.sroa.871.0.copyload = load i64, ptr %.sroa.871.0..sroa_idx, align 8, !alias.scope !18453
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.1172.0..sroa_idx, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11)
   %146 = load i64, ptr %14, align 8, !range !1003, !alias.scope !18454, !noundef !7
-  %or.cond.i64 = icmp samesign ult i64 %146, 2
-  br i1 %or.cond.i64, label %147, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit66"
+  %switch.not.i.i63 = icmp samesign ult i64 %146, 2
+  br i1 %switch.not.i.i63, label %147, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit65"
 
 147:                                              ; preds = %145
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %14)
-          to label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit66" unwind label %.thread77
+          to label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit65" unwind label %.thread76
 
 148:                                              ; preds = %92
   %149 = load ptr, ptr %5, align 8, !noalias !18438, !nonnull !7, !noundef !7
@@ -109896,26 +109896,26 @@ define hidden void @_ZN5typst11foundations4args4Args5named17hdc8b9a731212bcd8E(p
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   %153 = load i64, ptr %14, align 8, !range !1003, !alias.scope !18457, !noundef !7
-  %or.cond.i67 = icmp samesign ult i64 %153, 2
-  br i1 %or.cond.i67, label %154, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit68"
+  %switch.not.i.i66 = icmp samesign ult i64 %153, 2
+  br i1 %switch.not.i.i66, label %154, label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit67"
 
 154:                                              ; preds = %148
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %14)
-  br label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit68"
+  br label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit67"
 
-.thread77:                                        ; preds = %147
+.thread76:                                        ; preds = %147
   %155 = landingpad { ptr, i32 }
           cleanup
   store i64 %72, ptr %14, align 8
-  store ptr %.sroa.5.0.copyload71, ptr %.sroa.624.0..sroa_idx25, align 8
-  store i64 %.sroa.872.0.copyload, ptr %.sroa.727.0..sroa_idx28, align 8
+  store ptr %.sroa.5.0.copyload70, ptr %.sroa.624.0..sroa_idx25, align 8
+  store i64 %.sroa.871.0.copyload, ptr %.sroa.727.0..sroa_idx28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.8.0..sroa_idx30, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.8, i64 88, i1 false)
   br label %.body
 
-"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit66": ; preds = %145, %147
+"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h3587b4fd87760396E.exit65": ; preds = %145, %147
   store i64 %72, ptr %14, align 8
-  store ptr %.sroa.5.0.copyload71, ptr %.sroa.624.0..sroa_idx25, align 8
-  store i64 %.sroa.872.0.copyload, ptr %.sroa.727.0..sroa_idx28, align 8
+  store ptr %.sroa.5.0.copyload70, ptr %.sroa.624.0..sroa_idx25, align 8
+  store i64 %.sroa.871.0.copyload, ptr %.sroa.727.0..sroa_idx28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.8.0..sroa_idx30, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.8, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
@@ -156152,8 +156152,8 @@ define void @"_ZN5typst5model9reference1_50_$LT$impl$u20$typst..model..reference
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27503)
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load i64, ptr %4, align 8, !range !1003, !alias.scope !27506, !noalias !27503, !noundef !7
-  %or.cond.i.i = icmp samesign ult i64 %5, 2
-  br i1 %or.cond.i.i, label %6, label %8
+  %switch.not.i.i.i = icmp samesign ult i64 %5, 2
+  br i1 %switch.not.i.i.i, label %6, label %8
 
 6:                                                ; preds = %3
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.3683678558897460461"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
@@ -156301,8 +156301,8 @@ define void @"_ZN5typst5model9reference1_50_$LT$impl$u20$typst..model..reference
 define void @"_ZN5typst5model9reference1_50_$LT$impl$u20$typst..model..reference..RefElem$GT$15push_supplement17hf5718bf37654755fE"(ptr noalias noundef align 8 dereferenceable(104) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8, !range !1003, !alias.scope !27555, !noundef !7
-  %or.cond.i = icmp samesign ult i64 %4, 2
-  br i1 %or.cond.i, label %5, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit"
+  %switch.not.i.i = icmp samesign ult i64 %4, 2
+  br i1 %switch.not.i.i, label %5, label %"_ZN4core3ptr151drop_in_place$LT$core..option..Option$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..model..reference..Supplement$GT$$GT$$GT$$GT$17h341bc52e7bb717d4E.llvm.3683678558897460461.exit"
 
 5:                                                ; preds = %2
   invoke void @"_ZN4core3ptr56drop_in_place$LT$typst..model..reference..Supplement$GT$17h5b3e662528e5166dE.llvm.3683678558897460461"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)

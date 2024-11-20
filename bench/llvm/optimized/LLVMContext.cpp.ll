@@ -1008,9 +1008,9 @@ define dso_local void @_ZN4llvm11LLVMContext8diagnoseERKNS_14DiagnosticInfoE(ptr
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -18
-  %spec.select4.i.i.i.i.i.i.i.i = icmp ult i32 %6, -9
+  %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %6, -9
   %.pre33 = load ptr, ptr %0, align 8
-  br i1 %spec.select4.i.i.i.i.i.i.i.i, label %11, label %7
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %11, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %.pre33, i64 144
@@ -1052,8 +1052,8 @@ define dso_local void @_ZN4llvm11LLVMContext8diagnoseERKNS_14DiagnosticInfoE(ptr
 26:                                               ; preds = %21
   %27 = load i32, ptr %4, align 8
   %28 = add i32 %27, -18
-  %spec.select4.i.i.i.i.i.i.i.i.i = icmp ult i32 %28, -9
-  br i1 %spec.select4.i.i.i.i.i.i.i.i.i, label %_ZL19isDiagnosticEnabledRKN4llvm14DiagnosticInfoE.exit.thread, label %29
+  %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i32 %28, -9
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %_ZL19isDiagnosticEnabledRKN4llvm14DiagnosticInfoE.exit.thread, label %29
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %1, align 8
@@ -1087,8 +1087,8 @@ _ZL19isDiagnosticEnabledRKN4llvm14DiagnosticInfoE.exit.thread: ; preds = %26, %3
 _ZL19isDiagnosticEnabledRKN4llvm14DiagnosticInfoE.exit.thread28: ; preds = %29, %_ZL19isDiagnosticEnabledRKN4llvm14DiagnosticInfoE.exit, %_ZL19isDiagnosticEnabledRKN4llvm14DiagnosticInfoE.exit.thread, %11
   %46 = load i32, ptr %4, align 8
   %47 = add i32 %46, -18
-  %spec.select4.i.i.i.i.i.i.i.i.i15 = icmp ult i32 %47, -9
-  br i1 %spec.select4.i.i.i.i.i.i.i.i.i15, label %_ZL19isDiagnosticEnabledRKN4llvm14DiagnosticInfoE.exit19.thread, label %48
+  %spec.select.i.i.i.i.i.i.i.i.i15 = icmp ult i32 %47, -9
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i15, label %_ZL19isDiagnosticEnabledRKN4llvm14DiagnosticInfoE.exit19.thread, label %48
 
 48:                                               ; preds = %_ZL19isDiagnosticEnabledRKN4llvm14DiagnosticInfoE.exit.thread28
   %49 = load ptr, ptr %1, align 8
