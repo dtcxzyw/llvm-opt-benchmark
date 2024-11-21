@@ -16837,102 +16837,87 @@ define internal fastcc void @llvm_emit_slice_values(ptr noundef %0, ptr nocaptur
 llvm_emit_trap_negative.exit:                     ; preds = %176, %164, %150, %148
   %186 = load i8, ptr %18, align 4
   %187 = and i8 %186, 4
-  %.not146 = icmp eq i8 %187, 0
   %.lobit = lshr exact i8 %187, 2
   store i8 %.lobit, ptr %5, align 1
-  br i1 %.not142, label %230, label %188
+  br i1 %.not142, label %221, label %188
 
 188:                                              ; preds = %llvm_emit_trap_negative.exit
+  %.not146 = icmp eq i8 %187, 0
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %27)
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %11) #10
   %189 = load ptr, ptr %27, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
-  br i1 %.not141, label %192, label %200
+  br i1 %.not146, label %199, label %.thread
 
-192:                                              ; preds = %188
-  %193 = getelementptr inbounds i8, ptr %9, i64 16
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %11, i64 16
-  %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %1, i64 8
-  %198 = load i64, ptr %197, align 8
-  %199 = call fastcc ptr @llvm_emit_sub_int(ptr noundef %0, ptr noundef %191, ptr noundef %194, ptr noundef %196, i64 %198)
-  store ptr %199, ptr %195, align 8
-  call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %11) #10
-  br label %200
+.thread:                                          ; preds = %188
+  %192 = getelementptr inbounds i8, ptr %8, i64 16
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds i8, ptr %11, i64 16
+  %195 = load ptr, ptr %194, align 8
+  %196 = getelementptr inbounds i8, ptr %1, i64 8
+  %197 = load i64, ptr %196, align 8
+  %198 = call fastcc ptr @llvm_emit_add_int(ptr noundef %0, ptr noundef %191, ptr noundef %193, ptr noundef %195, i64 %197)
+  store ptr %198, ptr %194, align 8
+  br label %226
 
-200:                                              ; preds = %192, %188
-  br i1 %.not146, label %208, label %.thread
+199:                                              ; preds = %188
+  %200 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 336), align 8
+  %.not147 = icmp eq i32 %200, 0
+  br i1 %.not147, label %226, label %201
 
-.thread:                                          ; preds = %200
-  %201 = getelementptr inbounds i8, ptr %8, i64 16
-  %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %11, i64 16
-  %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %1, i64 8
-  %206 = load i64, ptr %205, align 8
-  %207 = call fastcc ptr @llvm_emit_add_int(ptr noundef %0, ptr noundef %191, ptr noundef %202, ptr noundef %204, i64 %206)
-  store ptr %207, ptr %203, align 8
-  br label %235
-
-208:                                              ; preds = %200
-  %209 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 336), align 8
-  %.not147 = icmp eq i32 %209, 0
-  br i1 %.not147, label %235, label %210
-
-210:                                              ; preds = %208
+201:                                              ; preds = %199
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %8) #10
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %11) #10
-  %211 = getelementptr inbounds i8, ptr %8, i64 8
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %11, i64 8
-  %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %8, i64 16
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %11, i64 16
-  %218 = load ptr, ptr %217, align 8
-  call void @llvm_emit_int_comp_raw(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %212, ptr noundef %214, ptr noundef %216, ptr noundef %218, i32 noundef 14)
-  %219 = getelementptr inbounds i8, ptr %1, i64 8
-  %220 = load i64, ptr %219, align 8
-  call void @llvm_emit_panic_if_true(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull @.str.157, i64 %220, ptr noundef nonnull @.str.158, ptr noundef nonnull %8, ptr noundef nonnull %11) #10
-  %221 = getelementptr inbounds i8, ptr %9, i64 16
-  %222 = load ptr, ptr %221, align 8
-  %.not148 = icmp eq ptr %222, null
-  br i1 %.not148, label %235, label %223
+  %202 = getelementptr inbounds i8, ptr %8, i64 8
+  %203 = load ptr, ptr %202, align 8
+  %204 = getelementptr inbounds i8, ptr %11, i64 8
+  %205 = load ptr, ptr %204, align 8
+  %206 = getelementptr inbounds i8, ptr %8, i64 16
+  %207 = load ptr, ptr %206, align 8
+  %208 = getelementptr inbounds i8, ptr %11, i64 16
+  %209 = load ptr, ptr %208, align 8
+  call void @llvm_emit_int_comp_raw(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %203, ptr noundef %205, ptr noundef %207, ptr noundef %209, i32 noundef 14)
+  %210 = getelementptr inbounds i8, ptr %1, i64 8
+  %211 = load i64, ptr %210, align 8
+  call void @llvm_emit_panic_if_true(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull @.str.157, i64 %211, ptr noundef nonnull @.str.158, ptr noundef nonnull %8, ptr noundef nonnull %11) #10
+  %212 = getelementptr inbounds i8, ptr %9, i64 16
+  %213 = load ptr, ptr %212, align 8
+  %.not148 = icmp eq ptr %213, null
+  br i1 %.not148, label %226, label %214
 
-223:                                              ; preds = %210
+214:                                              ; preds = %201
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %9) #10
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %11) #10
-  %224 = getelementptr inbounds i8, ptr %9, i64 8
-  %225 = load ptr, ptr %224, align 8
-  %226 = load ptr, ptr %213, align 8
-  %227 = load ptr, ptr %221, align 8
-  %228 = load ptr, ptr %217, align 8
-  call void @llvm_emit_int_comp_raw(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %225, ptr noundef %226, ptr noundef %227, ptr noundef %228, i32 noundef 16)
-  %229 = load i64, ptr %219, align 8
-  call void @llvm_emit_panic_if_true(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull @.str.159, i64 %229, ptr noundef nonnull @.str.160, ptr noundef nonnull %11, ptr noundef nonnull %9) #10
-  br label %235
+  %215 = getelementptr inbounds i8, ptr %9, i64 8
+  %216 = load ptr, ptr %215, align 8
+  %217 = load ptr, ptr %204, align 8
+  %218 = load ptr, ptr %212, align 8
+  %219 = load ptr, ptr %208, align 8
+  call void @llvm_emit_int_comp_raw(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %216, ptr noundef %217, ptr noundef %218, ptr noundef %219, i32 noundef 16)
+  %220 = load i64, ptr %210, align 8
+  call void @llvm_emit_panic_if_true(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull @.str.159, i64 %220, ptr noundef nonnull @.str.160, ptr noundef nonnull %11, ptr noundef nonnull %9) #10
+  br label %226
 
-230:                                              ; preds = %llvm_emit_trap_negative.exit
-  %231 = getelementptr inbounds i8, ptr %9, i64 16
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr %232, ptr %233, align 8
-  %234 = load ptr, ptr @type_usz, align 8
+221:                                              ; preds = %llvm_emit_trap_negative.exit
+  %222 = getelementptr inbounds i8, ptr %9, i64 16
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr %223, ptr %224, align 8
+  %225 = load ptr, ptr @type_usz, align 8
   store i8 1, ptr %5, align 1
-  br label %235
+  br label %226
 
-235:                                              ; preds = %.thread, %208, %223, %210, %230
-  %.0126 = phi ptr [ %191, %223 ], [ %191, %210 ], [ %191, %208 ], [ %234, %230 ], [ %191, %.thread ]
-  %236 = getelementptr inbounds i8, ptr %11, i64 16
-  %237 = load ptr, ptr %236, align 8
-  call void @llvm_value_set(ptr noundef nonnull %4, ptr noundef %237, ptr noundef %.0126) #10
-  %238 = getelementptr inbounds i8, ptr %8, i64 16
-  %239 = load ptr, ptr %238, align 8
-  call void @llvm_value_set(ptr noundef nonnull %3, ptr noundef %239, ptr noundef %86) #10
-  %240 = call i32 @type_abi_alignment(ptr noundef nonnull %.0) #10
-  call void @llvm_value_set_address(ptr noundef nonnull %2, ptr noundef %.0132, ptr noundef nonnull %.0, i32 noundef %240) #10
+226:                                              ; preds = %.thread, %199, %214, %201, %221
+  %.0126 = phi ptr [ %191, %214 ], [ %191, %201 ], [ %191, %199 ], [ %225, %221 ], [ %191, %.thread ]
+  %227 = getelementptr inbounds i8, ptr %11, i64 16
+  %228 = load ptr, ptr %227, align 8
+  call void @llvm_value_set(ptr noundef nonnull %4, ptr noundef %228, ptr noundef %.0126) #10
+  %229 = getelementptr inbounds i8, ptr %8, i64 16
+  %230 = load ptr, ptr %229, align 8
+  call void @llvm_value_set(ptr noundef nonnull %3, ptr noundef %230, ptr noundef %86) #10
+  %231 = call i32 @type_abi_alignment(ptr noundef nonnull %.0) #10
+  call void @llvm_value_set_address(ptr noundef nonnull %2, ptr noundef %.0132, ptr noundef nonnull %.0, i32 noundef %231) #10
   ret void
 }
 

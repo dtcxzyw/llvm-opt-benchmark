@@ -25151,7 +25151,7 @@ io_flush_buffer_sync.exit:                        ; preds = %45, %43, %42, %.thr
 
 .thread84.thread:                                 ; preds = %68
   %69 = call i32 @fclose(ptr noundef nonnull %9)
-  br label %112
+  br label %111
 
 maygvl_fclose.exit:                               ; preds = %68
   %70 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @nogvl_fclose, ptr noundef nonnull %9, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #24
@@ -25163,88 +25163,86 @@ maygvl_fclose.exit:                               ; preds = %68
   br i1 %or.cond92, label %.thread84.sink.split, label %.thread84
 
 75:                                               ; preds = %66
-  %76 = icmp sgt i32 %7, -1
-  %or.cond7 = select i1 %or.cond3.not, i1 %76, i1 false
-  br i1 %or.cond7, label %77, label %.thread84
+  br i1 %or.cond3.not, label %76, label %.thread84
 
-77:                                               ; preds = %75
-  %78 = lshr i32 %11, 1
-  %.lobit = and i32 %78, 1
-  %79 = xor i32 %.lobit, 1
-  %80 = or i32 %79, %1
+76:                                               ; preds = %75
+  %77 = lshr i32 %11, 1
+  %.lobit = and i32 %77, 1
+  %78 = xor i32 %.lobit, 1
+  %79 = or i32 %78, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %7, ptr %4, align 4
-  %.not.i73 = icmp eq i32 %80, 0
-  br i1 %.not.i73, label %83, label %81
+  %.not.i73 = icmp eq i32 %79, 0
+  br i1 %.not.i73, label %82, label %80
 
-81:                                               ; preds = %77
-  %82 = call i32 @close(i32 noundef %7) #24
+80:                                               ; preds = %76
+  %81 = call i32 @close(i32 noundef %7) #24
   br label %maygvl_close.exit
 
-83:                                               ; preds = %77
-  %84 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @nogvl_close, ptr noundef nonnull %4, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #24
-  %85 = ptrtoint ptr %84 to i64
-  %86 = trunc i64 %85 to i32
+82:                                               ; preds = %76
+  %83 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @nogvl_close, ptr noundef nonnull %4, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #24
+  %84 = ptrtoint ptr %83 to i64
+  %85 = trunc i64 %84 to i32
   br label %maygvl_close.exit
 
-maygvl_close.exit:                                ; preds = %81, %83
-  %.0.i74 = phi i32 [ %82, %81 ], [ %86, %83 ]
+maygvl_close.exit:                                ; preds = %80, %82
+  %.0.i74 = phi i32 [ %81, %80 ], [ %85, %82 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %87 = icmp slt i32 %.0.i74, 0
-  br i1 %87, label %88, label %.thread84
+  %86 = icmp slt i32 %.0.i74, 0
+  br i1 %86, label %87, label %.thread84
 
-88:                                               ; preds = %maygvl_close.exit
-  %89 = icmp eq i64 %.159, 4
-  %90 = icmp eq i32 %1, 0
-  %or.cond14.not = and i1 %90, %89
+87:                                               ; preds = %maygvl_close.exit
+  %88 = icmp eq i64 %.159, 4
+  %89 = icmp eq i32 %1, 0
+  %or.cond14.not = and i1 %89, %88
   br i1 %or.cond14.not, label %.thread84.sink.split, label %.thread84
 
-.thread84.sink.split:                             ; preds = %88, %maygvl_fclose.exit
-  %91 = call ptr @rb_errno_ptr() #24
-  %92 = load i32, ptr %91, align 4
-  %93 = sext i32 %92 to i64
-  %94 = shl nsw i64 %93, 1
-  %95 = or disjoint i64 %94, 1
+.thread84.sink.split:                             ; preds = %87, %maygvl_fclose.exit
+  %90 = call ptr @rb_errno_ptr() #24
+  %91 = load i32, ptr %90, align 4
+  %92 = sext i32 %91 to i64
+  %93 = shl nsw i64 %92, 1
+  %94 = or disjoint i64 %93, 1
   br label %.thread84
 
-.thread84:                                        ; preds = %.thread84.sink.split, %maygvl_fclose.exit, %maygvl_close.exit, %88, %75
-  %.4 = phi i64 [ %.159, %75 ], [ %.159, %88 ], [ %.159, %maygvl_close.exit ], [ %.159, %maygvl_fclose.exit ], [ %95, %.thread84.sink.split ]
-  %96 = icmp eq i64 %.4, 4
-  %97 = icmp ne i32 %1, 0
-  %or.cond9 = or i1 %97, %96
-  br i1 %or.cond9, label %112, label %98
+.thread84:                                        ; preds = %.thread84.sink.split, %maygvl_fclose.exit, %maygvl_close.exit, %87, %75
+  %.4 = phi i64 [ %.159, %75 ], [ %.159, %87 ], [ %.159, %maygvl_close.exit ], [ %.159, %maygvl_fclose.exit ], [ %94, %.thread84.sink.split ]
+  %95 = icmp eq i64 %.4, 4
+  %96 = icmp ne i32 %1, 0
+  %or.cond9 = or i1 %96, %95
+  br i1 %or.cond9, label %111, label %97
 
-98:                                               ; preds = %.thread84
-  %99 = and i64 %.4, 1
-  %.not.i75 = icmp eq i64 %99, 0
-  br i1 %.not.i75, label %100, label %rb_integer_type_p.exit.thread
+97:                                               ; preds = %.thread84
+  %98 = and i64 %.4, 1
+  %.not.i75 = icmp eq i64 %98, 0
+  br i1 %.not.i75, label %99, label %rb_integer_type_p.exit.thread
 
-100:                                              ; preds = %98
-  %101 = and i64 %.4, 6
-  %102 = icmp ne i64 %101, 0
-  %103 = icmp eq i64 %.4, 0
-  %104 = or i1 %103, %102
-  br i1 %104, label %rb_integer_type_p.exit.thread89, label %rb_integer_type_p.exit
+99:                                               ; preds = %97
+  %100 = and i64 %.4, 6
+  %101 = icmp ne i64 %100, 0
+  %102 = icmp eq i64 %.4, 0
+  %103 = or i1 %102, %101
+  br i1 %103, label %rb_integer_type_p.exit.thread89, label %rb_integer_type_p.exit
 
-rb_integer_type_p.exit:                           ; preds = %100
-  %105 = inttoptr i64 %.4 to ptr
-  %106 = load i64, ptr %105, align 8
-  %107 = and i64 %106, 31
-  %108 = icmp eq i64 %107, 10
-  br i1 %108, label %rb_integer_type_p.exit.thread, label %rb_integer_type_p.exit.thread89
+rb_integer_type_p.exit:                           ; preds = %99
+  %104 = inttoptr i64 %.4 to ptr
+  %105 = load i64, ptr %104, align 8
+  %106 = and i64 %105, 31
+  %107 = icmp eq i64 %106, 10
+  br i1 %107, label %rb_integer_type_p.exit.thread, label %rb_integer_type_p.exit.thread89
 
-rb_integer_type_p.exit.thread:                    ; preds = %98, %rb_integer_type_p.exit
-  %109 = call fastcc i32 @rb_num2int_inline(i64 noundef %.4)
-  %110 = getelementptr inbounds i8, ptr %0, i64 32
-  %111 = load i64, ptr %110, align 8
-  call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.fptr_finalize_flush, i32 noundef %109, i64 noundef %111) #26
+rb_integer_type_p.exit.thread:                    ; preds = %97, %rb_integer_type_p.exit
+  %108 = call fastcc i32 @rb_num2int_inline(i64 noundef %.4)
+  %109 = getelementptr inbounds i8, ptr %0, i64 32
+  %110 = load i64, ptr %109, align 8
+  call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.fptr_finalize_flush, i32 noundef %108, i64 noundef %110) #26
   unreachable
 
-rb_integer_type_p.exit.thread89:                  ; preds = %100, %rb_integer_type_p.exit
+rb_integer_type_p.exit.thread89:                  ; preds = %99, %rb_integer_type_p.exit
   call void @rb_exc_raise(i64 noundef %.4) #26
   unreachable
 
-112:                                              ; preds = %.thread84.thread, %.thread84
+111:                                              ; preds = %.thread84.thread, %.thread84
   ret void
 }
 

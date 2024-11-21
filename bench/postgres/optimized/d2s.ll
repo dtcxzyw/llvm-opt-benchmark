@@ -41,8 +41,8 @@ define dso_local i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr noc
   br label %16
 
 16:                                               ; preds = %15, %.thread
-  %.lobit39 = lshr i64 %3, 63
-  %17 = getelementptr i8, ptr %1, i64 %.lobit39
+  %.lobit38 = lshr i64 %3, 63
+  %17 = getelementptr i8, ptr %1, i64 %.lobit38
   br i1 %9, label %18, label %20
 
 18:                                               ; preds = %16
@@ -67,9 +67,9 @@ define dso_local i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr noc
   %27 = xor i64 %notmask.i, -1
   %28 = and i64 %5, %27
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %.thread32, label %32
+  br i1 %29, label %.thread31, label %32
 
-.thread32:                                        ; preds = %24
+.thread31:                                        ; preds = %24
   %30 = or disjoint i64 %5, 4503599627370496
   %31 = lshr i64 %30, %26
   br label %199
@@ -269,24 +269,22 @@ multipleOfPowerOf5.exit156.i:                     ; preds = %.preheader187.i
   br i1 %.not145.i, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %163 = xor i1 %158, true
+  %163 = icmp ne i8 %159, 5
+  %164 = xor i1 %158, true
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %.1167.lcssa.i = phi i64 [ %.1167.ph.i, %.preheader.i ], [ %153, %._crit_edge.loopexit.i ]
-  %.0123.lcssa.i = phi i8 [ 0, %.preheader.i ], [ %159, %._crit_edge.loopexit.i ]
+  %.0123.lcssa.i = phi i1 [ true, %.preheader.i ], [ %163, %._crit_edge.loopexit.i ]
   %.0117.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %160, %._crit_edge.loopexit.i ]
-  %.1114.in.lcssa.i = phi i1 [ false, %.preheader.i ], [ %163, %._crit_edge.loopexit.i ]
+  %.1114.in.lcssa.i = phi i1 [ false, %.preheader.i ], [ %164, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi i64 [ %.1.ph.i, %.preheader.i ], [ %155, %._crit_edge.loopexit.i ]
-  %164 = icmp ne i8 %.0123.lcssa.i, 5
-  %or.cond.i22 = select i1 %.1114.in.lcssa.i, i1 true, i1 %164
   %165 = and i64 %.1.lcssa.i, 1
   %166 = icmp ne i64 %165, 0
-  %or.cond148.i = select i1 %or.cond.i22, i1 true, i1 %166
   %167 = icmp eq i64 %.1.lcssa.i, %.1167.lcssa.i
-  %168 = icmp ugt i8 %.0123.lcssa.i, 4
-  %169 = select i1 %or.cond148.i, i1 %168, i1 false
-  %170 = select i1 %167, i1 true, i1 %169
+  %168 = select i1 %167, i1 true, i1 %.1114.in.lcssa.i
+  %169 = select i1 %168, i1 true, i1 %.0123.lcssa.i
+  %170 = select i1 %169, i1 true, i1 %166
   br label %194
 
 .thread.i:                                        ; preds = %145, %143, %multipleOfPowerOf5.exit156.i, %multipleOfPowerOf5.exit.i, %42
@@ -357,74 +355,74 @@ multipleOfPowerOf5.exit156.i:                     ; preds = %.preheader187.i
   %198 = icmp ugt i64 %196, 9999999999999999
   br i1 %198, label %decimalLength.exit.i, label %199
 
-199:                                              ; preds = %.thread32, %194
-  %.sroa.0.037 = phi i64 [ %31, %.thread32 ], [ %196, %194 ]
-  %.sroa.3.035 = phi i32 [ 0, %.thread32 ], [ %197, %194 ]
-  %200 = icmp samesign ugt i64 %.sroa.0.037, 999999999999999
+199:                                              ; preds = %.thread31, %194
+  %.sroa.0.036 = phi i64 [ %31, %.thread31 ], [ %196, %194 ]
+  %.sroa.3.034 = phi i32 [ 0, %.thread31 ], [ %197, %194 ]
+  %200 = icmp samesign ugt i64 %.sroa.0.036, 999999999999999
   br i1 %200, label %decimalLength.exit.i, label %201
 
 201:                                              ; preds = %199
-  %202 = icmp samesign ugt i64 %.sroa.0.037, 99999999999999
+  %202 = icmp samesign ugt i64 %.sroa.0.036, 99999999999999
   br i1 %202, label %decimalLength.exit.i, label %203
 
 203:                                              ; preds = %201
-  %204 = icmp samesign ugt i64 %.sroa.0.037, 9999999999999
+  %204 = icmp samesign ugt i64 %.sroa.0.036, 9999999999999
   br i1 %204, label %decimalLength.exit.i, label %205
 
 205:                                              ; preds = %203
-  %206 = icmp samesign ugt i64 %.sroa.0.037, 999999999999
+  %206 = icmp samesign ugt i64 %.sroa.0.036, 999999999999
   br i1 %206, label %decimalLength.exit.i, label %207
 
 207:                                              ; preds = %205
-  %208 = icmp samesign ugt i64 %.sroa.0.037, 99999999999
+  %208 = icmp samesign ugt i64 %.sroa.0.036, 99999999999
   br i1 %208, label %decimalLength.exit.i, label %209
 
 209:                                              ; preds = %207
-  %210 = icmp samesign ugt i64 %.sroa.0.037, 9999999999
+  %210 = icmp samesign ugt i64 %.sroa.0.036, 9999999999
   br i1 %210, label %decimalLength.exit.i, label %211
 
 211:                                              ; preds = %209
-  %212 = icmp samesign ugt i64 %.sroa.0.037, 999999999
+  %212 = icmp samesign ugt i64 %.sroa.0.036, 999999999
   br i1 %212, label %decimalLength.exit.i, label %213
 
 213:                                              ; preds = %211
-  %214 = icmp samesign ugt i64 %.sroa.0.037, 99999999
+  %214 = icmp samesign ugt i64 %.sroa.0.036, 99999999
   br i1 %214, label %decimalLength.exit.i, label %215
 
 215:                                              ; preds = %213
-  %216 = icmp samesign ugt i64 %.sroa.0.037, 9999999
+  %216 = icmp samesign ugt i64 %.sroa.0.036, 9999999
   br i1 %216, label %decimalLength.exit.i, label %217
 
 217:                                              ; preds = %215
-  %218 = icmp samesign ugt i64 %.sroa.0.037, 999999
+  %218 = icmp samesign ugt i64 %.sroa.0.036, 999999
   br i1 %218, label %decimalLength.exit.i, label %219
 
 219:                                              ; preds = %217
-  %220 = icmp samesign ugt i64 %.sroa.0.037, 99999
+  %220 = icmp samesign ugt i64 %.sroa.0.036, 99999
   br i1 %220, label %decimalLength.exit.i, label %221
 
 221:                                              ; preds = %219
-  %222 = icmp samesign ugt i64 %.sroa.0.037, 9999
+  %222 = icmp samesign ugt i64 %.sroa.0.036, 9999
   br i1 %222, label %decimalLength.exit.i, label %223
 
 223:                                              ; preds = %221
-  %224 = icmp samesign ugt i64 %.sroa.0.037, 999
+  %224 = icmp samesign ugt i64 %.sroa.0.036, 999
   br i1 %224, label %decimalLength.exit.i, label %225
 
 225:                                              ; preds = %223
-  %226 = icmp samesign ugt i64 %.sroa.0.037, 99
+  %226 = icmp samesign ugt i64 %.sroa.0.036, 99
   br i1 %226, label %decimalLength.exit.i, label %227
 
 227:                                              ; preds = %225
-  %228 = icmp samesign ugt i64 %.sroa.0.037, 9
+  %228 = icmp samesign ugt i64 %.sroa.0.036, 9
   %..i.i = select i1 %228, i32 2, i32 1
   br label %decimalLength.exit.i
 
 decimalLength.exit.i:                             ; preds = %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %194
-  %.sroa.0.038 = phi i64 [ %196, %194 ], [ %.sroa.0.037, %199 ], [ %.sroa.0.037, %201 ], [ %.sroa.0.037, %203 ], [ %.sroa.0.037, %205 ], [ %.sroa.0.037, %207 ], [ %.sroa.0.037, %209 ], [ %.sroa.0.037, %211 ], [ %.sroa.0.037, %213 ], [ %.sroa.0.037, %215 ], [ %.sroa.0.037, %217 ], [ %.sroa.0.037, %219 ], [ %.sroa.0.037, %221 ], [ %.sroa.0.037, %223 ], [ %.sroa.0.037, %225 ], [ %.sroa.0.037, %227 ]
-  %.sroa.3.036 = phi i32 [ %197, %194 ], [ %.sroa.3.035, %199 ], [ %.sroa.3.035, %201 ], [ %.sroa.3.035, %203 ], [ %.sroa.3.035, %205 ], [ %.sroa.3.035, %207 ], [ %.sroa.3.035, %209 ], [ %.sroa.3.035, %211 ], [ %.sroa.3.035, %213 ], [ %.sroa.3.035, %215 ], [ %.sroa.3.035, %217 ], [ %.sroa.3.035, %219 ], [ %.sroa.3.035, %221 ], [ %.sroa.3.035, %223 ], [ %.sroa.3.035, %225 ], [ %.sroa.3.035, %227 ]
+  %.sroa.0.037 = phi i64 [ %196, %194 ], [ %.sroa.0.036, %199 ], [ %.sroa.0.036, %201 ], [ %.sroa.0.036, %203 ], [ %.sroa.0.036, %205 ], [ %.sroa.0.036, %207 ], [ %.sroa.0.036, %209 ], [ %.sroa.0.036, %211 ], [ %.sroa.0.036, %213 ], [ %.sroa.0.036, %215 ], [ %.sroa.0.036, %217 ], [ %.sroa.0.036, %219 ], [ %.sroa.0.036, %221 ], [ %.sroa.0.036, %223 ], [ %.sroa.0.036, %225 ], [ %.sroa.0.036, %227 ]
+  %.sroa.3.035 = phi i32 [ %197, %194 ], [ %.sroa.3.034, %199 ], [ %.sroa.3.034, %201 ], [ %.sroa.3.034, %203 ], [ %.sroa.3.034, %205 ], [ %.sroa.3.034, %207 ], [ %.sroa.3.034, %209 ], [ %.sroa.3.034, %211 ], [ %.sroa.3.034, %213 ], [ %.sroa.3.034, %215 ], [ %.sroa.3.034, %217 ], [ %.sroa.3.034, %219 ], [ %.sroa.3.034, %221 ], [ %.sroa.3.034, %223 ], [ %.sroa.3.034, %225 ], [ %.sroa.3.034, %227 ]
   %.0.i.i = phi i32 [ 17, %194 ], [ 16, %199 ], [ 15, %201 ], [ 14, %203 ], [ 13, %205 ], [ 12, %207 ], [ 11, %209 ], [ 10, %211 ], [ 9, %213 ], [ 8, %215 ], [ 7, %217 ], [ 6, %219 ], [ 5, %221 ], [ 4, %223 ], [ 3, %225 ], [ %..i.i, %227 ]
-  %229 = add i32 %.0.i.i, %.sroa.3.036
+  %229 = add i32 %.0.i.i, %.sroa.3.035
   %230 = add i32 %229, -1
   br i1 %4, label %231, label %232
 
@@ -435,8 +433,8 @@ decimalLength.exit.i:                             ; preds = %227, %225, %223, %2
 232:                                              ; preds = %231, %decimalLength.exit.i
   %.0123.i = phi i32 [ 1, %231 ], [ 0, %decimalLength.exit.i ]
   %233 = add i32 %229, 3
-  %or.cond.i23 = icmp ult i32 %233, 19
-  br i1 %or.cond.i23, label %234, label %382
+  %or.cond.i22 = icmp ult i32 %233, 19
+  br i1 %or.cond.i22, label %234, label %382
 
 234:                                              ; preds = %232
   %235 = zext nneg i32 %.0123.i to i64
@@ -450,7 +448,7 @@ decimalLength.exit.i:                             ; preds = %227, %225, %223, %2
   br label %243
 
 240:                                              ; preds = %234
-  %241 = icmp slt i32 %.sroa.3.036, 0
+  %241 = icmp slt i32 %.sroa.3.035, 0
   br i1 %241, label %243, label %242
 
 242:                                              ; preds = %240
@@ -459,13 +457,13 @@ decimalLength.exit.i:                             ; preds = %227, %225, %223, %2
 
 243:                                              ; preds = %242, %240, %238
   %.0.i140.i = phi i32 [ %239, %238 ], [ 0, %242 ], [ 1, %240 ]
-  %.not.i.i = icmp ult i64 %.sroa.0.038, 4294967296
+  %.not.i.i = icmp ult i64 %.sroa.0.037, 4294967296
   br i1 %.not.i.i, label %279, label %244
 
 244:                                              ; preds = %243
-  %245 = udiv i64 %.sroa.0.038, 100000000
+  %245 = udiv i64 %.sroa.0.037, 100000000
   %.neg.i.i = mul i64 %245, 4194967296
-  %246 = add i64 %.neg.i.i, %.sroa.0.038
+  %246 = add i64 %.neg.i.i, %.sroa.0.037
   %247 = trunc i64 %246 to i32
   %248 = urem i32 %247, 10000
   %249 = udiv i32 %247, 10000
@@ -508,7 +506,7 @@ decimalLength.exit.i:                             ; preds = %227, %225, %223, %2
 
 279:                                              ; preds = %244, %243
   %.0110.i.i = phi i32 [ 8, %244 ], [ 0, %243 ]
-  %.0109.i.i = phi i64 [ %245, %244 ], [ %.sroa.0.038, %243 ]
+  %.0109.i.i = phi i64 [ %245, %244 ], [ %.sroa.0.037, %243 ]
   %280 = trunc i64 %.0109.i.i to i32
   %281 = icmp ugt i32 %280, 9999
   br i1 %281, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -671,8 +669,8 @@ decimalLength.exit.i:                             ; preds = %227, %225, %223, %2
   br label %to_chars_df.exit.i
 
 377:                                              ; preds = %343
-  %378 = sub i32 2, %.sroa.3.036
-  %379 = icmp slt i32 %.sroa.3.036, 0
+  %378 = sub i32 2, %.sroa.3.035
+  %379 = icmp slt i32 %.sroa.3.035, 0
   %spec.select.i.i = select i1 %379, i32 %378, i32 %229
   br label %to_chars_df.exit.i
 
@@ -684,31 +682,31 @@ to_chars_df.exit.i:                               ; preds = %377, %373
   br label %copy_special_str.exit
 
 382:                                              ; preds = %232
-  %383 = icmp eq i32 %.sroa.3.036, 0
-  %384 = and i64 %.sroa.0.038, 1
+  %383 = icmp eq i32 %.sroa.3.035, 0
+  %384 = and i64 %.sroa.0.037, 1
   %385 = icmp eq i64 %384, 0
   %or.cond164.i = and i1 %383, %385
-  br i1 %or.cond164.i, label %.lr.ph.i27, label %.loopexit.i
+  br i1 %or.cond164.i, label %.lr.ph.i26, label %.loopexit.i
 
-.lr.ph.i27:                                       ; preds = %382, %389
-  %.1125153.i = phi i64 [ %386, %389 ], [ %.sroa.0.038, %382 ]
+.lr.ph.i26:                                       ; preds = %382, %389
+  %.1125153.i = phi i64 [ %386, %389 ], [ %.sroa.0.037, %382 ]
   %.1128152.i = phi i32 [ %390, %389 ], [ %.0.i.i, %382 ]
   %386 = udiv i64 %.1125153.i, 10
-  %.neg.i28 = mul i64 %386, 4294967286
-  %387 = add i64 %.neg.i28, %.1125153.i
+  %.neg.i27 = mul i64 %386, 4294967286
+  %387 = add i64 %.neg.i27, %.1125153.i
   %388 = and i64 %387, 4294967294
-  %.not.i29 = icmp eq i64 %388, 0
-  br i1 %.not.i29, label %389, label %.loopexit.i
+  %.not.i28 = icmp eq i64 %388, 0
+  br i1 %.not.i28, label %389, label %.loopexit.i
 
-389:                                              ; preds = %.lr.ph.i27
+389:                                              ; preds = %.lr.ph.i26
   %390 = add i32 %.1128152.i, -1
   %391 = and i64 %386, 1
   %392 = icmp eq i64 %391, 0
-  br i1 %392, label %.lr.ph.i27, label %.loopexit.i, !llvm.loop !7
+  br i1 %392, label %.lr.ph.i26, label %.loopexit.i, !llvm.loop !7
 
-.loopexit.i:                                      ; preds = %389, %.lr.ph.i27, %382
-  %.0127.i = phi i32 [ %.0.i.i, %382 ], [ %390, %389 ], [ %.1128152.i, %.lr.ph.i27 ]
-  %.0124.i = phi i64 [ %.sroa.0.038, %382 ], [ %386, %389 ], [ %.1125153.i, %.lr.ph.i27 ]
+.loopexit.i:                                      ; preds = %389, %.lr.ph.i26, %382
+  %.0127.i = phi i32 [ %.0.i.i, %382 ], [ %390, %389 ], [ %.1128152.i, %.lr.ph.i26 ]
+  %.0124.i = phi i64 [ %.sroa.0.037, %382 ], [ %386, %389 ], [ %.1125153.i, %.lr.ph.i26 ]
   %.not137.i = icmp ult i64 %.0124.i, 4294967296
   br i1 %.not137.i, label %428, label %393
 
@@ -761,7 +759,7 @@ to_chars_df.exit.i:                               ; preds = %377, %373
   %.2126.i = phi i64 [ %394, %393 ], [ %.0124.i, %.loopexit.i ]
   %429 = trunc i64 %.2126.i to i32
   %430 = icmp ugt i32 %429, 9999
-  br i1 %430, label %.lr.ph160.i, label %._crit_edge.i24
+  br i1 %430, label %.lr.ph160.i, label %._crit_edge.i23
 
 .lr.ph160.i:                                      ; preds = %428
   %431 = zext nneg i32 %.0123.i to i64
@@ -795,15 +793,15 @@ to_chars_df.exit.i:                               ; preds = %377, %373
   store i16 %452, ptr %449, align 1
   %453 = add i32 %.1131159.i, 4
   %454 = icmp ugt i32 %.0133158.i, 99999999
-  br i1 %454, label %435, label %._crit_edge.i24, !llvm.loop !8
+  br i1 %454, label %435, label %._crit_edge.i23, !llvm.loop !8
 
-._crit_edge.i24:                                  ; preds = %435, %428
+._crit_edge.i23:                                  ; preds = %435, %428
   %.0133.lcssa.i = phi i32 [ %429, %428 ], [ %436, %435 ]
   %.1131.lcssa.i = phi i32 [ %.0130.i, %428 ], [ %453, %435 ]
   %455 = icmp samesign ugt i32 %.0133.lcssa.i, 99
   br i1 %455, label %456, label %472
 
-456:                                              ; preds = %._crit_edge.i24
+456:                                              ; preds = %._crit_edge.i23
   %.lhs.trunc.i = trunc nuw i32 %.0133.lcssa.i to i16
   %457 = urem i16 %.lhs.trunc.i, 100
   %458 = shl nuw nsw i16 %457, 1
@@ -824,9 +822,9 @@ to_chars_df.exit.i:                               ; preds = %377, %373
   %471 = or disjoint i32 %.1131.lcssa.i, 2
   br label %472
 
-472:                                              ; preds = %456, %._crit_edge.i24
-  %.1134.i = phi i32 [ %.zext142.i, %456 ], [ %.0133.lcssa.i, %._crit_edge.i24 ]
-  %.2132.i = phi i32 [ %471, %456 ], [ %.1131.lcssa.i, %._crit_edge.i24 ]
+472:                                              ; preds = %456, %._crit_edge.i23
+  %.1134.i = phi i32 [ %.zext142.i, %456 ], [ %.0133.lcssa.i, %._crit_edge.i23 ]
+  %.2132.i = phi i32 [ %471, %456 ], [ %.1131.lcssa.i, %._crit_edge.i23 ]
   %473 = icmp samesign ugt i32 %.1134.i, 9
   br i1 %473, label %474, label %487
 
@@ -877,17 +875,17 @@ to_chars_df.exit.i:                               ; preds = %377, %373
   %503 = getelementptr i8, ptr %1, i64 %502
   %504 = sub i32 1, %229
   %spec.select = select i1 %501, i8 45, i8 43
-  %spec.select73 = select i1 %501, i32 %504, i32 %230
+  %spec.select72 = select i1 %501, i32 %504, i32 %230
   store i8 %spec.select, ptr %503, align 1
-  %.2.i25 = add i32 %.1.i, 2
-  %505 = icmp sgt i32 %spec.select73, 99
+  %.2.i24 = add i32 %.1.i, 2
+  %505 = icmp sgt i32 %spec.select72, 99
   br i1 %505, label %506, label %521
 
 506:                                              ; preds = %497
-  %507 = urem i32 %spec.select73, 10
-  %508 = sext i32 %.2.i25 to i64
+  %507 = urem i32 %spec.select72, 10
+  %508 = sext i32 %.2.i24 to i64
   %509 = getelementptr i8, ptr %1, i64 %508
-  %510 = udiv i32 %spec.select73, 10
+  %510 = udiv i32 %spec.select72, 10
   %511 = shl nuw nsw i32 %510, 1
   %512 = zext nneg i32 %511 to i64
   %513 = getelementptr i8, ptr @DIGIT_TABLE, i64 %512
@@ -903,9 +901,9 @@ to_chars_df.exit.i:                               ; preds = %377, %373
   br label %copy_special_str.exit
 
 521:                                              ; preds = %497
-  %522 = sext i32 %.2.i25 to i64
+  %522 = sext i32 %.2.i24 to i64
   %523 = getelementptr i8, ptr %1, i64 %522
-  %524 = shl i32 %spec.select73, 1
+  %524 = shl i32 %spec.select72, 1
   %525 = sext i32 %524 to i64
   %526 = getelementptr i8, ptr @DIGIT_TABLE, i64 %525
   %527 = load i16, ptr %526, align 2

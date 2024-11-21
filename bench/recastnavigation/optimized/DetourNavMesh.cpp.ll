@@ -2843,9 +2843,9 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %6
   %103 = icmp sgt i32 %12, 0
   br i1 %103, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %148
-  %.095132 = phi ptr [ %.1, %148 ], [ %8, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ]
-  %.098131 = phi i32 [ %.199126, %148 ], [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ]
+.lr.ph:                                           ; preds = %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread
+  %.095132 = phi ptr [ %135, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %8, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ]
+  %.098131 = phi i32 [ %.199127, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ]
   %104 = getelementptr inbounds i8, ptr %.095132, i64 6
   %105 = load i16, ptr %104, align 2
   %106 = icmp ugt i16 %71, %105
@@ -2877,226 +2877,202 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %6
   %123 = icmp ugt i16 %77, %122
   br i1 %123, label %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread, label %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit
 
-_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread: ; preds = %119
-  %124 = getelementptr inbounds i8, ptr %.095132, i64 12
-  %125 = load i32, ptr %124, align 4
-  %126 = icmp sgt i32 %125, -1
-  br label %138
-
 _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %119
-  %127 = getelementptr inbounds i8, ptr %.095132, i64 4
-  %128 = load i16, ptr %127, align 2
-  %129 = icmp uge i16 %86, %128
-  %spec.select16.i = select i1 %129, i1 %120, i1 false
-  %130 = getelementptr inbounds i8, ptr %.095132, i64 12
-  %131 = load i32, ptr %130, align 4
-  %132 = icmp sgt i32 %131, -1
-  %brmerge.demorgan = and i1 %spec.select16.i, %132
-  %133 = icmp slt i32 %.098131, %5
-  %or.cond = select i1 %brmerge.demorgan, i1 %133, i1 false
-  br i1 %or.cond, label %.thread, label %138
+  %124 = getelementptr inbounds i8, ptr %.095132, i64 4
+  %125 = load i16, ptr %124, align 2
+  %126 = icmp uge i16 %86, %125
+  %spec.select16.i = select i1 %126, i1 %120, i1 false
+  %127 = getelementptr inbounds i8, ptr %.095132, i64 12
+  %128 = load i32, ptr %127, align 4
+  %129 = icmp sgt i32 %128, -1
+  %brmerge.demorgan = and i1 %spec.select16.i, %129
+  %130 = icmp slt i32 %.098131, %5
+  %or.cond = select i1 %brmerge.demorgan, i1 %130, i1 false
+  br i1 %or.cond, label %.thread, label %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread
 
 .thread:                                          ; preds = %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit
-  %134 = or i32 %102, %131
-  %135 = add nsw i32 %.098131, 1
-  %136 = sext i32 %.098131 to i64
-  %137 = getelementptr inbounds i32, ptr %4, i64 %136
-  store i32 %134, ptr %137, align 4
-  br label %142
+  %131 = or i32 %102, %128
+  %132 = add nsw i32 %.098131, 1
+  %133 = sext i32 %.098131 to i64
+  %134 = getelementptr inbounds i32, ptr %4, i64 %133
+  store i32 %131, ptr %134, align 4
+  br label %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread
 
-138:                                              ; preds = %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit
-  %139 = phi i1 [ %126, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %132, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ]
-  %140 = phi i32 [ %125, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %131, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ]
-  %141 = phi i1 [ false, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %spec.select16.i, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ]
-  %brmerge105 = or i1 %141, %139
-  br i1 %brmerge105, label %142, label %144
-
-142:                                              ; preds = %.thread, %138
-  %.199127 = phi i32 [ %135, %.thread ], [ %.098131, %138 ]
-  %143 = getelementptr inbounds i8, ptr %.095132, i64 16
-  br label %148
-
-144:                                              ; preds = %138
-  %145 = sub nsw i32 0, %140
-  %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds %struct.dtBVNode, ptr %.095132, i64 %146
-  br label %148
-
-148:                                              ; preds = %144, %142
-  %.199126 = phi i32 [ %.199127, %142 ], [ %.098131, %144 ]
-  %.1 = phi ptr [ %143, %142 ], [ %147, %144 ]
-  %149 = icmp ult ptr %.1, %14
-  br i1 %149, label %.lr.ph, label %.loopexit, !llvm.loop !36
+_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread: ; preds = %119, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit, %.thread
+  %.199127 = phi i32 [ %132, %.thread ], [ %.098131, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ], [ %.098131, %119 ]
+  %135 = getelementptr inbounds i8, ptr %.095132, i64 16
+  %136 = icmp ult ptr %135, %14
+  br i1 %136, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109: ; preds = %6
-  %150 = getelementptr inbounds i8, ptr %0, i64 80
-  %151 = load ptr, ptr %150, align 8
-  %152 = ptrtoint ptr %1 to i64
-  %153 = ptrtoint ptr %151 to i64
-  %154 = sub i64 %152, %153
-  %155 = sdiv exact i64 %154, 104
-  %156 = trunc i64 %155 to i32
-  %157 = load i32, ptr %1, align 8
-  %158 = getelementptr inbounds i8, ptr %0, i64 96
-  %159 = load i32, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 92
-  %161 = load i32, ptr %160, align 4
-  %162 = add i32 %161, %159
-  %163 = shl i32 %157, %162
-  %164 = shl i32 %156, %159
-  %165 = or i32 %164, %163
-  %166 = getelementptr inbounds i8, ptr %1, i64 8
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 24
-  %169 = load i32, ptr %168, align 4
-  %170 = icmp sgt i32 %169, 0
-  br i1 %170, label %.lr.ph149, label %.loopexit
+  %137 = getelementptr inbounds i8, ptr %0, i64 80
+  %138 = load ptr, ptr %137, align 8
+  %139 = ptrtoint ptr %1 to i64
+  %140 = ptrtoint ptr %138 to i64
+  %141 = sub i64 %139, %140
+  %142 = sdiv exact i64 %141, 104
+  %143 = trunc i64 %142 to i32
+  %144 = load i32, ptr %1, align 8
+  %145 = getelementptr inbounds i8, ptr %0, i64 96
+  %146 = load i32, ptr %145, align 8
+  %147 = getelementptr inbounds i8, ptr %0, i64 92
+  %148 = load i32, ptr %147, align 4
+  %149 = add i32 %148, %146
+  %150 = shl i32 %144, %149
+  %151 = shl i32 %143, %146
+  %152 = or i32 %151, %150
+  %153 = getelementptr inbounds i8, ptr %1, i64 8
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 24
+  %156 = load i32, ptr %155, align 4
+  %157 = icmp sgt i32 %156, 0
+  br i1 %157, label %.lr.ph149, label %.loopexit
 
 .lr.ph149:                                        ; preds = %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109
-  %171 = getelementptr inbounds i8, ptr %1, i64 16
-  %172 = getelementptr inbounds i8, ptr %1, i64 24
-  %173 = getelementptr inbounds i8, ptr %2, i64 4
-  %174 = getelementptr inbounds i8, ptr %3, i64 4
-  %175 = getelementptr inbounds i8, ptr %2, i64 8
-  %176 = getelementptr inbounds i8, ptr %3, i64 8
-  br label %177
+  %158 = getelementptr inbounds i8, ptr %1, i64 16
+  %159 = getelementptr inbounds i8, ptr %1, i64 24
+  %160 = getelementptr inbounds i8, ptr %2, i64 4
+  %161 = getelementptr inbounds i8, ptr %3, i64 4
+  %162 = getelementptr inbounds i8, ptr %2, i64 8
+  %163 = getelementptr inbounds i8, ptr %3, i64 8
+  br label %164
 
-177:                                              ; preds = %.lr.ph149, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
-  %178 = phi ptr [ %167, %.lr.ph149 ], [ %248, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ]
+164:                                              ; preds = %.lr.ph149, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
+  %165 = phi ptr [ %154, %.lr.ph149 ], [ %235, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ]
   %indvars.iv159 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next160, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ]
   %.096147 = phi i32 [ 0, %.lr.ph149 ], [ %.197, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ]
-  %179 = load ptr, ptr %171, align 8
-  %180 = getelementptr inbounds %struct.dtPoly, ptr %179, i64 %indvars.iv159
-  %181 = getelementptr inbounds i8, ptr %180, i64 31
-  %182 = load i8, ptr %181, align 1
-  %.mask = and i8 %182, -64
-  %183 = icmp eq i8 %.mask, 64
-  br i1 %183, label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread, label %184
+  %166 = load ptr, ptr %158, align 8
+  %167 = getelementptr inbounds %struct.dtPoly, ptr %166, i64 %indvars.iv159
+  %168 = getelementptr inbounds i8, ptr %167, i64 31
+  %169 = load i8, ptr %168, align 1
+  %.mask = and i8 %169, -64
+  %170 = icmp eq i8 %.mask, 64
+  br i1 %170, label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread, label %171
 
-184:                                              ; preds = %177
-  %185 = load ptr, ptr %172, align 8
-  %186 = getelementptr inbounds i8, ptr %180, i64 4
-  %187 = load i16, ptr %186, align 4
-  %188 = zext i16 %187 to i64
-  %.idx = mul nuw nsw i64 %188, 12
-  %189 = getelementptr inbounds i8, ptr %185, i64 %.idx
-  %190 = load float, ptr %189, align 4
-  %191 = getelementptr inbounds i8, ptr %189, i64 4
-  %192 = load float, ptr %191, align 4
-  %193 = getelementptr inbounds i8, ptr %189, i64 8
-  %194 = load float, ptr %193, align 4
-  %195 = getelementptr inbounds i8, ptr %180, i64 30
-  %196 = load i8, ptr %195, align 2
-  %197 = icmp ugt i8 %196, 1
-  br i1 %197, label %.lr.ph140.preheader, label %._crit_edge
+171:                                              ; preds = %164
+  %172 = load ptr, ptr %159, align 8
+  %173 = getelementptr inbounds i8, ptr %167, i64 4
+  %174 = load i16, ptr %173, align 4
+  %175 = zext i16 %174 to i64
+  %.idx = mul nuw nsw i64 %175, 12
+  %176 = getelementptr inbounds i8, ptr %172, i64 %.idx
+  %177 = load float, ptr %176, align 4
+  %178 = getelementptr inbounds i8, ptr %176, i64 4
+  %179 = load float, ptr %178, align 4
+  %180 = getelementptr inbounds i8, ptr %176, i64 8
+  %181 = load float, ptr %180, align 4
+  %182 = getelementptr inbounds i8, ptr %167, i64 30
+  %183 = load i8, ptr %182, align 2
+  %184 = icmp ugt i8 %183, 1
+  br i1 %184, label %.lr.ph140.preheader, label %._crit_edge
 
-.lr.ph140.preheader:                              ; preds = %184
-  %wide.trip.count = zext i8 %196 to i64
+.lr.ph140.preheader:                              ; preds = %171
+  %wide.trip.count = zext i8 %183 to i64
   br label %.lr.ph140
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
   %indvars.iv = phi i64 [ 1, %.lr.ph140.preheader ], [ %indvars.iv.next, %.lr.ph140 ]
-  %.sroa.0.0138 = phi float [ %190, %.lr.ph140.preheader ], [ %214, %.lr.ph140 ]
-  %.sroa.4.0137 = phi float [ %192, %.lr.ph140.preheader ], [ %216, %.lr.ph140 ]
-  %.sroa.8.0136 = phi float [ %194, %.lr.ph140.preheader ], [ %218, %.lr.ph140 ]
-  %.sroa.0113.0135 = phi float [ %190, %.lr.ph140.preheader ], [ %204, %.lr.ph140 ]
-  %.sroa.4115.0134 = phi float [ %192, %.lr.ph140.preheader ], [ %208, %.lr.ph140 ]
-  %.sroa.8117.0133 = phi float [ %194, %.lr.ph140.preheader ], [ %212, %.lr.ph140 ]
-  %198 = getelementptr inbounds [6 x i16], ptr %186, i64 0, i64 %indvars.iv
-  %199 = load i16, ptr %198, align 2
-  %200 = zext i16 %199 to i64
-  %.idx102 = mul nuw nsw i64 %200, 12
-  %201 = getelementptr inbounds i8, ptr %185, i64 %.idx102
-  %202 = load float, ptr %201, align 4
-  %203 = fcmp olt float %.sroa.0113.0135, %202
-  %204 = select i1 %203, float %.sroa.0113.0135, float %202
-  %205 = getelementptr inbounds i8, ptr %201, i64 4
-  %206 = load float, ptr %205, align 4
-  %207 = fcmp olt float %.sroa.4115.0134, %206
-  %208 = select i1 %207, float %.sroa.4115.0134, float %206
-  %209 = getelementptr inbounds i8, ptr %201, i64 8
-  %210 = load float, ptr %209, align 4
-  %211 = fcmp olt float %.sroa.8117.0133, %210
-  %212 = select i1 %211, float %.sroa.8117.0133, float %210
-  %213 = fcmp ogt float %.sroa.0.0138, %202
-  %214 = select i1 %213, float %.sroa.0.0138, float %202
-  %215 = fcmp ogt float %.sroa.4.0137, %206
-  %216 = select i1 %215, float %.sroa.4.0137, float %206
-  %217 = fcmp ogt float %.sroa.8.0136, %210
-  %218 = select i1 %217, float %.sroa.8.0136, float %210
+  %.sroa.0.0138 = phi float [ %177, %.lr.ph140.preheader ], [ %201, %.lr.ph140 ]
+  %.sroa.4.0137 = phi float [ %179, %.lr.ph140.preheader ], [ %203, %.lr.ph140 ]
+  %.sroa.8.0136 = phi float [ %181, %.lr.ph140.preheader ], [ %205, %.lr.ph140 ]
+  %.sroa.0113.0135 = phi float [ %177, %.lr.ph140.preheader ], [ %191, %.lr.ph140 ]
+  %.sroa.4115.0134 = phi float [ %179, %.lr.ph140.preheader ], [ %195, %.lr.ph140 ]
+  %.sroa.8117.0133 = phi float [ %181, %.lr.ph140.preheader ], [ %199, %.lr.ph140 ]
+  %185 = getelementptr inbounds [6 x i16], ptr %173, i64 0, i64 %indvars.iv
+  %186 = load i16, ptr %185, align 2
+  %187 = zext i16 %186 to i64
+  %.idx102 = mul nuw nsw i64 %187, 12
+  %188 = getelementptr inbounds i8, ptr %172, i64 %.idx102
+  %189 = load float, ptr %188, align 4
+  %190 = fcmp olt float %.sroa.0113.0135, %189
+  %191 = select i1 %190, float %.sroa.0113.0135, float %189
+  %192 = getelementptr inbounds i8, ptr %188, i64 4
+  %193 = load float, ptr %192, align 4
+  %194 = fcmp olt float %.sroa.4115.0134, %193
+  %195 = select i1 %194, float %.sroa.4115.0134, float %193
+  %196 = getelementptr inbounds i8, ptr %188, i64 8
+  %197 = load float, ptr %196, align 4
+  %198 = fcmp olt float %.sroa.8117.0133, %197
+  %199 = select i1 %198, float %.sroa.8117.0133, float %197
+  %200 = fcmp ogt float %.sroa.0.0138, %189
+  %201 = select i1 %200, float %.sroa.0.0138, float %189
+  %202 = fcmp ogt float %.sroa.4.0137, %193
+  %203 = select i1 %202, float %.sroa.4.0137, float %193
+  %204 = fcmp ogt float %.sroa.8.0136, %197
+  %205 = select i1 %204, float %.sroa.8.0136, float %197
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph140, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %.lr.ph140, %184
-  %.sroa.8117.0.lcssa = phi float [ %194, %184 ], [ %212, %.lr.ph140 ]
-  %.sroa.4115.0.lcssa = phi float [ %192, %184 ], [ %208, %.lr.ph140 ]
-  %.sroa.0113.0.lcssa = phi float [ %190, %184 ], [ %204, %.lr.ph140 ]
-  %.sroa.8.0.lcssa = phi float [ %194, %184 ], [ %218, %.lr.ph140 ]
-  %.sroa.4.0.lcssa = phi float [ %192, %184 ], [ %216, %.lr.ph140 ]
-  %.sroa.0.0.lcssa = phi float [ %190, %184 ], [ %214, %.lr.ph140 ]
-  %219 = load float, ptr %2, align 4
-  %220 = fcmp ogt float %219, %.sroa.0.0.lcssa
-  br i1 %220, label %225, label %221
+._crit_edge:                                      ; preds = %.lr.ph140, %171
+  %.sroa.8117.0.lcssa = phi float [ %181, %171 ], [ %199, %.lr.ph140 ]
+  %.sroa.4115.0.lcssa = phi float [ %179, %171 ], [ %195, %.lr.ph140 ]
+  %.sroa.0113.0.lcssa = phi float [ %177, %171 ], [ %191, %.lr.ph140 ]
+  %.sroa.8.0.lcssa = phi float [ %181, %171 ], [ %205, %.lr.ph140 ]
+  %.sroa.4.0.lcssa = phi float [ %179, %171 ], [ %203, %.lr.ph140 ]
+  %.sroa.0.0.lcssa = phi float [ %177, %171 ], [ %201, %.lr.ph140 ]
+  %206 = load float, ptr %2, align 4
+  %207 = fcmp ogt float %206, %.sroa.0.0.lcssa
+  br i1 %207, label %212, label %208
 
-221:                                              ; preds = %._crit_edge
-  %222 = load float, ptr %3, align 4
-  %223 = fcmp olt float %222, %.sroa.0113.0.lcssa
-  br i1 %223, label %225, label %224
+208:                                              ; preds = %._crit_edge
+  %209 = load float, ptr %3, align 4
+  %210 = fcmp olt float %209, %.sroa.0113.0.lcssa
+  br i1 %210, label %212, label %211
 
-224:                                              ; preds = %221
-  br label %225
+211:                                              ; preds = %208
+  br label %212
 
-225:                                              ; preds = %224, %221, %._crit_edge
-  %226 = phi i1 [ true, %224 ], [ false, %221 ], [ false, %._crit_edge ]
-  %227 = load float, ptr %173, align 4
-  %228 = fcmp ogt float %227, %.sroa.4.0.lcssa
-  br i1 %228, label %233, label %229
+212:                                              ; preds = %211, %208, %._crit_edge
+  %213 = phi i1 [ true, %211 ], [ false, %208 ], [ false, %._crit_edge ]
+  %214 = load float, ptr %160, align 4
+  %215 = fcmp ogt float %214, %.sroa.4.0.lcssa
+  br i1 %215, label %220, label %216
 
-229:                                              ; preds = %225
-  %230 = load float, ptr %174, align 4
-  %231 = fcmp olt float %230, %.sroa.4115.0.lcssa
-  br i1 %231, label %233, label %232
+216:                                              ; preds = %212
+  %217 = load float, ptr %161, align 4
+  %218 = fcmp olt float %217, %.sroa.4115.0.lcssa
+  br i1 %218, label %220, label %219
 
-232:                                              ; preds = %229
-  br label %233
+219:                                              ; preds = %216
+  br label %220
 
-233:                                              ; preds = %232, %229, %225
-  %234 = phi i1 [ %226, %232 ], [ false, %229 ], [ false, %225 ]
-  %235 = load float, ptr %175, align 4
-  %236 = fcmp ogt float %235, %.sroa.8.0.lcssa
-  br i1 %236, label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread, label %237
+220:                                              ; preds = %219, %216, %212
+  %221 = phi i1 [ %213, %219 ], [ false, %216 ], [ false, %212 ]
+  %222 = load float, ptr %162, align 4
+  %223 = fcmp ogt float %222, %.sroa.8.0.lcssa
+  br i1 %223, label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread, label %224
 
-237:                                              ; preds = %233
-  %238 = load float, ptr %176, align 4
-  %239 = fcmp uge float %238, %.sroa.8117.0.lcssa
-  %240 = icmp slt i32 %.096147, %5
-  %241 = and i1 %234, %239
-  %or.cond129 = select i1 %241, i1 %240, i1 false
-  br i1 %or.cond129, label %242, label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
+224:                                              ; preds = %220
+  %225 = load float, ptr %163, align 4
+  %226 = fcmp uge float %225, %.sroa.8117.0.lcssa
+  %227 = icmp slt i32 %.096147, %5
+  %228 = and i1 %221, %226
+  %or.cond129 = select i1 %228, i1 %227, i1 false
+  br i1 %or.cond129, label %229, label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
 
-242:                                              ; preds = %237
-  %243 = trunc nuw nsw i64 %indvars.iv159 to i32
-  %244 = or i32 %165, %243
-  %245 = add nsw i32 %.096147, 1
-  %246 = sext i32 %.096147 to i64
-  %247 = getelementptr inbounds i32, ptr %4, i64 %246
-  store i32 %244, ptr %247, align 4
-  %.pre = load ptr, ptr %166, align 8
+229:                                              ; preds = %224
+  %230 = trunc nuw nsw i64 %indvars.iv159 to i32
+  %231 = or i32 %152, %230
+  %232 = add nsw i32 %.096147, 1
+  %233 = sext i32 %.096147 to i64
+  %234 = getelementptr inbounds i32, ptr %4, i64 %233
+  store i32 %231, ptr %234, align 4
+  %.pre = load ptr, ptr %153, align 8
   br label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
 
-_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %233, %237, %242, %177
-  %248 = phi ptr [ %178, %177 ], [ %.pre, %242 ], [ %178, %237 ], [ %178, %233 ]
-  %.197 = phi i32 [ %.096147, %177 ], [ %245, %242 ], [ %.096147, %237 ], [ %.096147, %233 ]
+_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %220, %224, %229, %164
+  %235 = phi ptr [ %165, %164 ], [ %.pre, %229 ], [ %165, %224 ], [ %165, %220 ]
+  %.197 = phi i32 [ %.096147, %164 ], [ %232, %229 ], [ %.096147, %224 ], [ %.096147, %220 ]
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
-  %249 = getelementptr inbounds i8, ptr %248, i64 24
-  %250 = load i32, ptr %249, align 4
-  %251 = sext i32 %250 to i64
-  %252 = icmp slt i64 %indvars.iv.next160, %251
-  br i1 %252, label %177, label %.loopexit, !llvm.loop !38
+  %236 = getelementptr inbounds i8, ptr %235, i64 24
+  %237 = load i32, ptr %236, align 4
+  %238 = sext i32 %237 to i64
+  %239 = icmp slt i64 %indvars.iv.next160, %238
+  br i1 %239, label %164, label %.loopexit, !llvm.loop !38
 
-.loopexit:                                        ; preds = %148, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109
-  %.093 = phi i32 [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109 ], [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ], [ %.197, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ], [ %.199126, %148 ]
+.loopexit:                                        ; preds = %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109
+  %.093 = phi i32 [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit109 ], [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ], [ %.197, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ], [ %.199127, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ]
   ret i32 %.093
 }
 

@@ -981,7 +981,7 @@ define range(i32 0, 2) i32 @polyOverlap(double %0, double %1, ptr nocapture noun
   %or.cond7.not.i.not64 = select i1 %or.cond.not10.i.not67, i1 true, i1 %42
   %43 = fcmp ugt double %36, %33
   %narrow.i.not = select i1 %or.cond7.not.i.not64, i1 true, i1 %43
-  br i1 %narrow.i.not, label %257, label %44
+  br i1 %narrow.i.not, label %252, label %44
 
 44:                                               ; preds = %6
   %45 = getelementptr inbounds i8, ptr %2, i64 48
@@ -995,7 +995,7 @@ define range(i32 0, 2) i32 @polyOverlap(double %0, double %1, ptr nocapture noun
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 1
   %.not41 = icmp eq i32 %51, 0
-  br i1 %.not41, label %52, label %257
+  br i1 %.not41, label %52, label %252
 
 52:                                               ; preds = %48, %44
   %53 = and i32 %46, 2
@@ -1025,7 +1025,7 @@ define range(i32 0, 2) i32 @polyOverlap(double %0, double %1, ptr nocapture noun
   %71 = fmul double %70, 2.500000e-01
   %72 = fcmp ule double %69, %71
   %. = zext i1 %72 to i32
-  br label %257
+  br label %252
 
 73:                                               ; preds = %54, %52
   %74 = load ptr, ptr @tp1, align 8
@@ -1153,11 +1153,11 @@ transCopy.exit54:                                 ; preds = %transCopy.exit54.lo
   %134 = shl nsw i32 %127, 1
   br label %135
 
-135:                                              ; preds = %218, %transCopy.exit54
-  %.075.i = phi i32 [ 0, %transCopy.exit54 ], [ %.176.i, %218 ]
-  %.073.i = phi i32 [ 0, %transCopy.exit54 ], [ %.174.i, %218 ]
-  %.071.i = phi i32 [ 0, %transCopy.exit54 ], [ %.172.i, %218 ]
-  %.070.i = phi i32 [ 0, %transCopy.exit54 ], [ %.1.i, %218 ]
+135:                                              ; preds = %213, %transCopy.exit54
+  %.075.i = phi i32 [ 0, %transCopy.exit54 ], [ %.176.i, %213 ]
+  %.073.i = phi i32 [ 0, %transCopy.exit54 ], [ %.174.i, %213 ]
+  %.071.i = phi i32 [ 0, %transCopy.exit54 ], [ %.172.i, %213 ]
+  %.070.i = phi i32 [ 0, %transCopy.exit54 ], [ %.1.i, %213 ]
   %136 = add i32 %129, %.070.i
   %137 = srem i32 %136, %128
   %138 = add i32 %130, %.071.i
@@ -1229,116 +1229,107 @@ transCopy.exit54:                                 ; preds = %transCopy.exit54.lo
   %195 = add nsw i32 %.073.i, 1
   %196 = add nsw i32 %.070.i, 1
   %197 = srem i32 %196, %128
-  br label %218
+  br label %213
 
 198:                                              ; preds = %190
   %199 = fcmp ult double %166, 0.000000e+00
-  br i1 %199, label %209, label %200
+  br i1 %199, label %204, label %200
 
 200:                                              ; preds = %198
-  br i1 %192, label %201, label %205
+  %201 = add nsw i32 %.075.i, 1
+  %202 = add nsw i32 %.071.i, 1
+  %203 = srem i32 %202, %127
+  br label %213
 
-201:                                              ; preds = %200
-  %202 = add nsw i32 %.073.i, 1
-  %203 = add nsw i32 %.070.i, 1
-  %204 = srem i32 %203, %128
-  br label %218
+204:                                              ; preds = %198
+  br i1 %193, label %205, label %209
 
-205:                                              ; preds = %200
+205:                                              ; preds = %204
   %206 = add nsw i32 %.075.i, 1
   %207 = add nsw i32 %.071.i, 1
   %208 = srem i32 %207, %127
-  br label %218
+  br label %213
 
-209:                                              ; preds = %198
-  br i1 %193, label %210, label %214
+209:                                              ; preds = %204
+  %210 = add nsw i32 %.073.i, 1
+  %211 = add nsw i32 %.070.i, 1
+  %212 = srem i32 %211, %128
+  br label %213
 
-210:                                              ; preds = %209
-  %211 = add nsw i32 %.075.i, 1
-  %212 = add nsw i32 %.071.i, 1
-  %213 = srem i32 %212, %127
-  br label %218
-
-214:                                              ; preds = %209
-  %215 = add nsw i32 %.073.i, 1
-  %216 = add nsw i32 %.070.i, 1
-  %217 = srem i32 %216, %128
-  br label %218
-
-218:                                              ; preds = %214, %210, %205, %201, %194
-  %.176.i = phi i32 [ %.075.i, %201 ], [ %206, %205 ], [ %211, %210 ], [ %.075.i, %214 ], [ %.075.i, %194 ]
-  %.174.i = phi i32 [ %202, %201 ], [ %.073.i, %205 ], [ %.073.i, %210 ], [ %215, %214 ], [ %195, %194 ]
-  %.172.i = phi i32 [ %.071.i, %201 ], [ %208, %205 ], [ %213, %210 ], [ %.071.i, %214 ], [ %.071.i, %194 ]
-  %.1.i = phi i32 [ %204, %201 ], [ %.070.i, %205 ], [ %.070.i, %210 ], [ %217, %214 ], [ %197, %194 ]
-  %219 = icmp slt i32 %.174.i, %128
-  %220 = icmp slt i32 %.176.i, %127
-  %or.cond77.i = select i1 %219, i1 true, i1 %220
-  %221 = icmp slt i32 %.174.i, %133
-  %or.cond79.i = select i1 %or.cond77.i, i1 %221, i1 false
-  %222 = icmp slt i32 %.176.i, %134
-  %or.cond81.i = select i1 %or.cond79.i, i1 %222, i1 false
-  br i1 %or.cond81.i, label %135, label %223
+213:                                              ; preds = %209, %205, %200, %194
+  %.176.i = phi i32 [ %201, %200 ], [ %206, %205 ], [ %.075.i, %209 ], [ %.075.i, %194 ]
+  %.174.i = phi i32 [ %.073.i, %200 ], [ %.073.i, %205 ], [ %210, %209 ], [ %195, %194 ]
+  %.172.i = phi i32 [ %203, %200 ], [ %208, %205 ], [ %.071.i, %209 ], [ %.071.i, %194 ]
+  %.1.i = phi i32 [ %.070.i, %200 ], [ %.070.i, %205 ], [ %212, %209 ], [ %197, %194 ]
+  %214 = icmp slt i32 %.174.i, %128
+  %215 = icmp slt i32 %.176.i, %127
+  %or.cond77.i = select i1 %214, i1 true, i1 %215
+  %216 = icmp slt i32 %.174.i, %133
+  %or.cond79.i = select i1 %or.cond77.i, i1 %216, i1 false
+  %217 = icmp slt i32 %.176.i, %134
+  %or.cond81.i = select i1 %or.cond79.i, i1 %217, i1 false
+  br i1 %or.cond81.i, label %135, label %218
 
 edgesIntersect.exit:                              ; preds = %135
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %257
+  br label %252
 
-223:                                              ; preds = %218
+218:                                              ; preds = %213
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %224 = load ptr, ptr @tp1, align 8
-  %225 = load double, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %224, i64 8
-  %227 = load double, ptr %226, align 8
-  %228 = load double, ptr %12, align 8
-  %229 = load double, ptr %35, align 8
-  %230 = load double, ptr %13, align 8
-  %231 = load double, ptr %38, align 8
-  %232 = fcmp ole double %225, %230
-  %233 = fcmp oge double %225, %228
-  %or.cond.not10.i56 = select i1 %232, i1 %233, i1 false
-  %234 = fcmp ole double %227, %231
-  %or.cond7.not.i57 = select i1 %or.cond.not10.i56, i1 %234, i1 false
-  %235 = fcmp oge double %227, %229
-  %spec.select.i = select i1 %or.cond7.not.i57, i1 %235, i1 false
-  br i1 %spec.select.i, label %236, label %240
+  %219 = load ptr, ptr @tp1, align 8
+  %220 = load double, ptr %219, align 8
+  %221 = getelementptr inbounds i8, ptr %219, i64 8
+  %222 = load double, ptr %221, align 8
+  %223 = load double, ptr %12, align 8
+  %224 = load double, ptr %35, align 8
+  %225 = load double, ptr %13, align 8
+  %226 = load double, ptr %38, align 8
+  %227 = fcmp ole double %220, %225
+  %228 = fcmp oge double %220, %223
+  %or.cond.not10.i56 = select i1 %227, i1 %228, i1 false
+  %229 = fcmp ole double %222, %226
+  %or.cond7.not.i57 = select i1 %or.cond.not10.i56, i1 %229, i1 false
+  %230 = fcmp oge double %222, %224
+  %spec.select.i = select i1 %or.cond7.not.i57, i1 %230, i1 false
+  br i1 %spec.select.i, label %231, label %235
 
-236:                                              ; preds = %223
-  %237 = load ptr, ptr @tp2, align 8
-  %238 = load i32, ptr %112, align 8
-  %239 = call fastcc i32 @inPoly(ptr noundef %237, i32 noundef %238, double %225, double %227)
-  %.not45 = icmp eq i32 %239, 0
-  br i1 %.not45, label %240, label %257
+231:                                              ; preds = %218
+  %232 = load ptr, ptr @tp2, align 8
+  %233 = load i32, ptr %112, align 8
+  %234 = call fastcc i32 @inPoly(ptr noundef %232, i32 noundef %233, double %220, double %222)
+  %.not45 = icmp eq i32 %234, 0
+  br i1 %.not45, label %235, label %252
 
-240:                                              ; preds = %236, %223
-  %241 = load ptr, ptr @tp2, align 8
-  %242 = load double, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %241, i64 8
-  %244 = load double, ptr %243, align 8
-  %245 = load double, ptr %10, align 8
-  %246 = load double, ptr %29, align 8
-  %247 = load double, ptr %11, align 8
-  %248 = load double, ptr %32, align 8
-  %249 = fcmp ole double %242, %247
-  %250 = fcmp oge double %242, %245
-  %or.cond.not10.i58 = select i1 %249, i1 %250, i1 false
-  %251 = fcmp ole double %244, %248
-  %or.cond7.not.i59 = select i1 %or.cond.not10.i58, i1 %251, i1 false
-  %252 = fcmp oge double %244, %246
-  %spec.select.i60 = select i1 %or.cond7.not.i59, i1 %252, i1 false
-  br i1 %spec.select.i60, label %253, label %257
+235:                                              ; preds = %231, %218
+  %236 = load ptr, ptr @tp2, align 8
+  %237 = load double, ptr %236, align 8
+  %238 = getelementptr inbounds i8, ptr %236, i64 8
+  %239 = load double, ptr %238, align 8
+  %240 = load double, ptr %10, align 8
+  %241 = load double, ptr %29, align 8
+  %242 = load double, ptr %11, align 8
+  %243 = load double, ptr %32, align 8
+  %244 = fcmp ole double %237, %242
+  %245 = fcmp oge double %237, %240
+  %or.cond.not10.i58 = select i1 %244, i1 %245, i1 false
+  %246 = fcmp ole double %239, %243
+  %or.cond7.not.i59 = select i1 %or.cond.not10.i58, i1 %246, i1 false
+  %247 = fcmp oge double %239, %241
+  %spec.select.i60 = select i1 %or.cond7.not.i59, i1 %247, i1 false
+  br i1 %spec.select.i60, label %248, label %252
 
-253:                                              ; preds = %240
-  %254 = load ptr, ptr @tp1, align 8
-  %255 = load i32, ptr %98, align 8
-  %256 = call fastcc i32 @inPoly(ptr noundef %254, i32 noundef %255, double %242, double %244)
-  br label %257
+248:                                              ; preds = %235
+  %249 = load ptr, ptr @tp1, align 8
+  %250 = load i32, ptr %98, align 8
+  %251 = call fastcc i32 @inPoly(ptr noundef %249, i32 noundef %250, double %237, double %239)
+  br label %252
 
-257:                                              ; preds = %edgesIntersect.exit, %236, %253, %240, %58, %48, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %48 ], [ %., %58 ], [ 1, %236 ], [ 1, %edgesIntersect.exit ], [ 0, %240 ], [ %256, %253 ]
+252:                                              ; preds = %edgesIntersect.exit, %231, %248, %235, %58, %48, %6
+  %.0 = phi i32 [ 0, %6 ], [ 1, %48 ], [ %., %58 ], [ 1, %231 ], [ 1, %edgesIntersect.exit ], [ 0, %235 ], [ %251, %248 ]
   ret i32 %.0
 }
 

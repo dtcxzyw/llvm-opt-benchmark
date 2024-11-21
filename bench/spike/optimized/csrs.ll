@@ -1524,21 +1524,19 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typem(ptr noca
   %7 = and i32 %6, 4
   %8 = icmp ne i32 %7, 0
   %9 = and i32 %6, 2
-  %.not44 = icmp eq i32 %9, 0
+  %.not44 = icmp ne i32 %9, 0
   %10 = and i32 %6, 1
-  %.not = icmp eq i32 %10, 0
+  %.not = icmp ne i32 %10, 0
   %11 = icmp slt i8 %5, 0
   %12 = icmp eq i64 %2, 3
   %13 = icmp eq i32 %1, 0
   %14 = icmp eq i32 %1, 2
-  %15 = icmp ne i32 %1, 1
-  %.not45 = xor i1 %13, true
-  %brmerge = select i1 %.not45, i1 true, i1 %.not
-  %brmerge47 = select i1 %15, i1 true, i1 %.not44
-  %or.cond = select i1 %brmerge, i1 %brmerge47, i1 false
+  %15 = icmp eq i32 %1, 1
+  %brmerge.not = select i1 %13, i1 %.not, i1 false
+  %brmerge47.not76 = select i1 %15, i1 %.not44, i1 false
+  %or.cond.not = select i1 %brmerge.not, i1 true, i1 %brmerge47.not76
   %16 = select i1 %14, i1 %8, i1 false
-  %not.or.cond = xor i1 %or.cond, true
-  %spec.select67 = select i1 %not.or.cond, i1 true, i1 %16
+  %spec.select67 = select i1 %or.cond.not, i1 true, i1 %16
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 2144
@@ -1549,13 +1547,13 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typem(ptr noca
   %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(48) %20) #28
   %25 = and i64 %24, 1
   %.not72 = icmp eq i64 %25, 0
-  br i1 %.not72, label %40, label %26
+  br i1 %.not72, label %38, label %26
 
 26:                                               ; preds = %3
   %27 = and i32 %6, 7
   %brmerge50.not = icmp eq i32 %27, 7
   %brmerge52.not = select i1 %brmerge50.not, i1 %11, i1 false
-  br i1 %brmerge52.not, label %44, label %28
+  br i1 %brmerge52.not, label %42, label %28
 
 28:                                               ; preds = %26
   %29 = and i32 %6, 3
@@ -1567,38 +1565,27 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t9access_okE11access_typem(ptr noca
   %brmerge54.not = select i1 %not., i1 %8, i1 false
   %switch = icmp ult i32 %1, 2
   %or.cond68 = and i1 %switch, %brmerge54.not
-  br i1 %or.cond68, label %37, label %34
+  br i1 %or.cond68, label %35, label %34
 
 34:                                               ; preds = %28
-  %brmerge56 = select i1 %11, i1 true, i1 %8
-  br i1 %brmerge56, label %36, label %35
-
-35:                                               ; preds = %34
-  %.not58 = xor i1 %12, true
-  %brmerge59 = or i1 %15, %.not58
-  %or.cond71 = xor i1 %13, %brmerge59
-  br i1 %or.cond71, label %36, label %37
-
-36:                                               ; preds = %35, %34
   %brmerge62.not74 = and i1 %14, %11
   %brmerge66.not = and i1 %13, %11
-  %spec.select = and i1 %12, %8
-  %spec.select69 = select i1 %brmerge66.not, i1 %spec.select, i1 %brmerge62.not74
-  br label %37
+  %spec.select69 = select i1 %brmerge66.not, i1 %12, i1 %brmerge62.not74
+  br label %35
 
-37:                                               ; preds = %36, %28, %35
-  %38 = phi i1 [ true, %35 ], [ true, %28 ], [ %spec.select69, %36 ]
-  %39 = select i1 %30, i1 %38, i1 %33
-  br label %44
+35:                                               ; preds = %34, %28
+  %36 = phi i1 [ true, %28 ], [ %spec.select69, %34 ]
+  %37 = select i1 %30, i1 %36, i1 %33
+  br label %42
 
-40:                                               ; preds = %3
-  %41 = xor i1 %11, true
-  %42 = select i1 %12, i1 %41, i1 false
-  %43 = select i1 %42, i1 true, i1 %spec.select67
-  br label %44
+38:                                               ; preds = %3
+  %39 = xor i1 %11, true
+  %40 = select i1 %12, i1 %39, i1 false
+  %41 = select i1 %40, i1 true, i1 %spec.select67
+  br label %42
 
-44:                                               ; preds = %26, %40, %37
-  %.0 = phi i1 [ %39, %37 ], [ %43, %40 ], [ %13, %26 ]
+42:                                               ; preds = %26, %38, %35
+  %.0 = phi i1 [ %37, %35 ], [ %41, %38 ], [ %13, %26 ]
   ret i1 %.0
 }
 

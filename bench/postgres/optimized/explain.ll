@@ -2889,84 +2889,62 @@ define dso_local void @ExplainPrintTriggers(ptr nocapture noundef %0, ptr nocapt
   br i1 %.not.i, label %list_length.exit.thread, label %.lr.ph
 
 list_length.exit.thread:                          ; preds = %2
-  %.not = icmp eq ptr %8, null
-  %11 = icmp ne ptr %10, null
-  br i1 %.not, label %._crit_edge64, label %.lr.ph62
+  %11 = icmp ne ptr %8, null
+  %12 = icmp ne ptr %10, null
+  %spec.select77 = select i1 %11, i1 true, i1 %12
+  br label %._crit_edge57
 
 .lr.ph:                                           ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %13, 1
-  %15 = icmp ne ptr %8, null
-  %or.cond = select i1 %14, i1 true, i1 %15
-  %16 = icmp ne ptr %10, null
-  %spec.select = select i1 %or.cond, i1 true, i1 %16
-  %17 = getelementptr inbounds i8, ptr %6, i64 4
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
-  %19 = load i32, ptr %17, align 4
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph59, label %._crit_edge57
+  %13 = getelementptr inbounds i8, ptr %6, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp sgt i32 %14, 1
+  %16 = icmp ne ptr %8, null
+  %or.cond = select i1 %15, i1 true, i1 %16
+  %17 = icmp ne ptr %10, null
+  %spec.select = select i1 %or.cond, i1 true, i1 %17
+  %18 = getelementptr inbounds i8, ptr %6, i64 4
+  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  %20 = load i32, ptr %18, align 4
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph59, label %._crit_edge57
 
-._crit_edge57:                                    ; preds = %.lr.ph59, %.lr.ph
-  br i1 %15, label %.lr.ph62, label %._crit_edge64
-
-.lr.ph62:                                         ; preds = %list_length.exit.thread, %._crit_edge57
-  %spec.select8385 = phi i1 [ true, %list_length.exit.thread ], [ %spec.select, %._crit_edge57 ]
-  %21 = getelementptr inbounds i8, ptr %8, i64 4
-  %22 = getelementptr inbounds i8, ptr %8, i64 16
-  %23 = load i32, ptr %21, align 4
-  %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph66, label %._crit_edge64
-
-.lr.ph66:                                         ; preds = %.lr.ph62, %.lr.ph66
-  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph66 ], [ 0, %.lr.ph62 ]
-  %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr %union.ListCell, ptr %25, i64 %indvars.iv75
-  %27 = load ptr, ptr %26, align 8
-  tail call fastcc void @report_triggers(ptr noundef %27, i1 noundef zeroext %spec.select8385, ptr noundef %0)
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %28 = load i32, ptr %21, align 4
-  %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %indvars.iv.next76, %29
-  br i1 %30, label %.lr.ph66, label %._crit_edge64
+._crit_edge57:                                    ; preds = %.lr.ph59, %list_length.exit.thread, %.lr.ph
+  %spec.select78 = phi i1 [ %spec.select77, %list_length.exit.thread ], [ %spec.select, %.lr.ph ], [ %spec.select, %.lr.ph59 ]
+  %22 = getelementptr inbounds i8, ptr %10, i64 4
+  %.not44 = icmp eq ptr %10, null
+  br i1 %.not44, label %._crit_edge68, label %.lr.ph67
 
 .lr.ph59:                                         ; preds = %.lr.ph, %.lr.ph59
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph59 ], [ 0, %.lr.ph ]
-  %31 = load ptr, ptr %18, align 8
-  %32 = getelementptr %union.ListCell, ptr %31, i64 %indvars.iv
-  %33 = load ptr, ptr %32, align 8
-  tail call fastcc void @report_triggers(ptr noundef %33, i1 noundef zeroext %spec.select, ptr noundef %0)
+  %23 = load ptr, ptr %19, align 8
+  %24 = getelementptr %union.ListCell, ptr %23, i64 %indvars.iv
+  %25 = load ptr, ptr %24, align 8
+  tail call fastcc void @report_triggers(ptr noundef %25, i1 noundef zeroext %spec.select, ptr noundef %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = load i32, ptr %17, align 4
-  %35 = sext i32 %34 to i64
-  %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph59, label %._crit_edge57
+  %26 = load i32, ptr %18, align 4
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next, %27
+  br i1 %28, label %.lr.ph59, label %._crit_edge57
 
-._crit_edge64:                                    ; preds = %.lr.ph66, %list_length.exit.thread, %.lr.ph62, %._crit_edge57
-  %spec.select8384 = phi i1 [ %11, %list_length.exit.thread ], [ %spec.select8385, %.lr.ph62 ], [ %spec.select, %._crit_edge57 ], [ %spec.select8385, %.lr.ph66 ]
-  %37 = getelementptr inbounds i8, ptr %10, i64 4
-  %.not44 = icmp eq ptr %10, null
-  br i1 %.not44, label %._crit_edge70, label %.lr.ph69
+.lr.ph67:                                         ; preds = %._crit_edge57
+  %29 = getelementptr inbounds i8, ptr %10, i64 16
+  %30 = load i32, ptr %22, align 4
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %.lr.ph71, label %._crit_edge68
 
-.lr.ph69:                                         ; preds = %._crit_edge64
-  %38 = getelementptr inbounds i8, ptr %10, i64 16
-  %39 = load i32, ptr %37, align 4
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph73, label %._crit_edge70
+.lr.ph71:                                         ; preds = %.lr.ph67, %.lr.ph71
+  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.lr.ph71 ], [ 0, %.lr.ph67 ]
+  %32 = load ptr, ptr %29, align 8
+  %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv73
+  %34 = load ptr, ptr %33, align 8
+  tail call fastcc void @report_triggers(ptr noundef %34, i1 noundef zeroext %spec.select78, ptr noundef %0)
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %35 = load i32, ptr %22, align 4
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %indvars.iv.next74, %36
+  br i1 %37, label %.lr.ph71, label %._crit_edge68
 
-.lr.ph73:                                         ; preds = %.lr.ph69, %.lr.ph73
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.lr.ph73 ], [ 0, %.lr.ph69 ]
-  %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr %union.ListCell, ptr %41, i64 %indvars.iv78
-  %43 = load ptr, ptr %42, align 8
-  tail call fastcc void @report_triggers(ptr noundef %43, i1 noundef zeroext %spec.select8384, ptr noundef %0)
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %44 = load i32, ptr %37, align 4
-  %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next79, %45
-  br i1 %46, label %.lr.ph73, label %._crit_edge70
-
-._crit_edge70:                                    ; preds = %.lr.ph73, %.lr.ph69, %._crit_edge64
+._crit_edge68:                                    ; preds = %.lr.ph71, %.lr.ph67, %._crit_edge57
   tail call void @ExplainCloseGroup(ptr noundef nonnull @.str.37, ptr nonnull poison, i1 noundef zeroext false, ptr noundef %0)
   ret void
 }

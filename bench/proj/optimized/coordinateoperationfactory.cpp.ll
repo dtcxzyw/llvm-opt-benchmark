@@ -11891,7 +11891,7 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19Coordi
 
 304:                                              ; preds = %.thread365, %292
   %305 = phi i1 [ %242, %.thread365 ], [ %294, %292 ]
-  %306 = phi i1 [ %241, %.thread365 ], [ %293, %292 ]
+  %306 = phi i1 [ %241, %.thread365 ], [ false, %292 ]
   br i1 %45, label %307, label %384
 
 307:                                              ; preds = %304

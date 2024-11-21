@@ -395,34 +395,11 @@ lor.lhs.false42:                                  ; preds = %lor.lhs.false30
   %cmp55 = icmp eq i32 %call4, 10
   %5 = and i1 %or.cond13, %cmp55
   %or.cond15 = and i1 %cmp27, %5
-  br i1 %or.cond15, label %cleanup, label %lor.lhs.false56
-
-lor.lhs.false56:                                  ; preds = %lor.lhs.false42
-  %cmp59 = icmp eq i32 %call4, 12
-  %6 = and i32 %sub.i, -17
-  %or.cond1665 = icmp eq i32 %6, 8
-  %or.cond60 = and i1 %or.cond1665, %cmp59
-  br i1 %or.cond60, label %cleanup, label %lor.lhs.false64
-
-lor.lhs.false64:                                  ; preds = %lor.lhs.false56
-  %cmp65 = icmp eq i32 %sub.i, 31
-  br i1 %cmp65, label %land.lhs.true70, label %lor.lhs.false66
-
-lor.lhs.false66:                                  ; preds = %lor.lhs.false64
-  %cmp67 = icmp eq i32 %sub.i, 30
-  %cmp69 = icmp eq i32 %cond.i, 6
-  %or.cond18 = and i1 %cmp69, %cmp67
-  %or.cond19 = and i1 %or.cond18, %cmp59
-  br i1 %or.cond19, label %cleanup, label %if.end
-
-land.lhs.true70:                                  ; preds = %lor.lhs.false64
-  br i1 %cmp59, label %cleanup, label %if.end
-
-if.end:                                           ; preds = %land.lhs.true70, %lor.lhs.false66
+  %not.or.cond15 = xor i1 %or.cond15, true
   br label %cleanup
 
-cleanup:                                          ; preds = %entry, %land.lhs.true70, %lor.lhs.false, %lor.lhs.false14, %lor.lhs.false22, %lor.lhs.false30, %lor.lhs.false42, %lor.lhs.false56, %lor.lhs.false66, %if.end
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %lor.lhs.false66 ], [ false, %lor.lhs.false56 ], [ false, %lor.lhs.false42 ], [ false, %lor.lhs.false30 ], [ false, %lor.lhs.false22 ], [ false, %lor.lhs.false14 ], [ false, %lor.lhs.false ], [ false, %land.lhs.true70 ], [ false, %entry ]
+cleanup:                                          ; preds = %lor.lhs.false42, %entry, %lor.lhs.false, %lor.lhs.false14, %lor.lhs.false22, %lor.lhs.false30
+  %retval.0 = phi i1 [ false, %lor.lhs.false30 ], [ false, %lor.lhs.false22 ], [ false, %lor.lhs.false14 ], [ false, %lor.lhs.false ], [ false, %entry ], [ %not.or.cond15, %lor.lhs.false42 ]
   ret i1 %retval.0
 }
 

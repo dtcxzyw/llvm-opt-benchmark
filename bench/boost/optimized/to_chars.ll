@@ -689,7 +689,7 @@ _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %152, 
   %228 = icmp ne i128 %.2172.i, %.2180.i
   %229 = and i1 %26, %.3186.lcssa.i
   %or.cond240.i = or i1 %229, %228
-  br i1 %or.cond240.i, label %230, label %237
+  br i1 %or.cond240.i, label %230, label %235
 
 230:                                              ; preds = %.loopexit.i
   %231 = and i128 %.2172.i, 1
@@ -698,26 +698,24 @@ _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %152, 
   %234 = icmp eq i8 %.1165.i, 5
   %or.cond4.i = select i1 %233, i1 %234, i1 false
   %or.cond202.i = and i1 %232, %or.cond4.i
-  %235 = icmp samesign ugt i8 %.1165.i, 4
   %not.or.cond202.i = xor i1 %or.cond202.i, true
-  %236 = select i1 %not.or.cond202.i, i1 %235, i1 false
-  br label %237
+  br label %235
 
-237:                                              ; preds = %230, %.loopexit.i
-  %238 = phi i1 [ %236, %230 ], [ true, %.loopexit.i ]
-  %239 = zext i1 %238 to i128
-  %240 = add i128 %.2172.i, %239
-  %241 = add nsw i32 %.1167.i, %.0182.i
-  store i128 %240, ptr %0, align 16, !tbaa !6, !alias.scope !3
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %241, ptr %242, align 16, !tbaa !13, !alias.scope !3
+235:                                              ; preds = %230, %.loopexit.i
+  %236 = phi i1 [ %not.or.cond202.i, %230 ], [ true, %.loopexit.i ]
+  %237 = zext i1 %236 to i128
+  %238 = add i128 %.2172.i, %237
+  %239 = add nsw i32 %.1167.i, %.0182.i
+  store i128 %238, ptr %0, align 16, !tbaa !6, !alias.scope !3
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %239, ptr %240, align 16, !tbaa !13, !alias.scope !3
   br label %_ZN5boost8charconv6detail3ryuL25generic_binary_to_decimalEojjb.exit
 
-_ZN5boost8charconv6detail3ryuL25generic_binary_to_decimalEojjb.exit: ; preds = %17, %20, %237
+_ZN5boost8charconv6detail3ryuL25generic_binary_to_decimalEojjb.exit: ; preds = %17, %20, %235
   %.lobit = lshr i80 %11, 79
-  %243 = trunc nuw nsw i80 %.lobit to i8
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 %243, ptr %244, align 4, !tbaa !20, !alias.scope !3
+  %241 = trunc nuw nsw i80 %.lobit to i8
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 %241, ptr %242, align 4, !tbaa !20, !alias.scope !3
   ret void
 }
 

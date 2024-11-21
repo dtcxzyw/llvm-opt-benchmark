@@ -26110,18 +26110,11 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %34
   %47 = load i32, ptr %5, align 4
   %48 = icmp eq i32 %47, 33
   %or.cond3 = select i1 %or.cond, i1 %48, i1 false
-  br i1 %or.cond3, label %.critedge, label %49
-
-49:                                               ; preds = %44
-  %50 = icmp eq i32 %45, 33
-  %or.cond5 = select i1 %2, i1 %50, i1 false
-  %51 = icmp eq i32 %47, 32
-  %or.cond7 = select i1 %or.cond5, i1 %51, i1 false
-  %. = select i1 %or.cond7, ptr %1, ptr null
+  %spec.select = select i1 %or.cond3, ptr %1, ptr null
   br label %.critedge
 
-.critedge:                                        ; preds = %39, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_zero_intENS_11ConstantIntELb1EE5matchINS_5ValueEEEbPT_.exit.i.i, %13, %49, %44, %_ZNK4llvm5APInt6isZeroEv.exit, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %_ZNK4llvm5APInt6isZeroEv.exit ], [ %1, %44 ], [ %., %49 ], [ null, %13 ], [ null, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_zero_intENS_11ConstantIntELb1EE5matchINS_5ValueEEEbPT_.exit.i.i ], [ null, %39 ]
+.critedge:                                        ; preds = %44, %39, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_zero_intENS_11ConstantIntELb1EE5matchINS_5ValueEEEbPT_.exit.i.i, %13, %_ZNK4llvm5APInt6isZeroEv.exit, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %_ZNK4llvm5APInt6isZeroEv.exit ], [ null, %13 ], [ null, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_zero_intENS_11ConstantIntELb1EE5matchINS_5ValueEEEbPT_.exit.i.i ], [ null, %39 ], [ %spec.select, %44 ]
   ret ptr %.0
 }
 

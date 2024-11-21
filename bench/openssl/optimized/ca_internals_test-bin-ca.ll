@@ -1671,17 +1671,14 @@ if.then729:                                       ; preds = %if.end725
 if.end731:                                        ; preds = %if.end725
   %call732 = call ptr @OPENSSL_sk_new_null() #12
   %cmp733 = icmp eq ptr %call732, null
-  br i1 %cmp733, label %if.then735, label %if.end737
+  br i1 %cmp733, label %if.then735, label %if.then740
 
 if.then735:                                       ; preds = %if.end731
   %87 = load ptr, ptr @bio_err, align 8
   %call736 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %87, ptr noundef nonnull @.str.200) #12
   br label %if.then1233
 
-if.end737:                                        ; preds = %if.end731
-  br i1 %tobool267, label %if.then740, label %if.end765
-
-if.then740:                                       ; preds = %if.end737
+if.then740:                                       ; preds = %if.end731
   %88 = load ptr, ptr %serial, align 8
   %89 = load i64, ptr %days, align 8
   %90 = load i64, ptr %certopt, align 8
@@ -1715,13 +1712,11 @@ if.then761:                                       ; preds = %if.end756
   %call762 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %96, ptr noundef nonnull @.str.200) #12
   br label %if.then1233
 
-if.end765:                                        ; preds = %if.end747, %if.end756, %if.end737
-  %total.0 = phi i32 [ 1, %if.end756 ], [ 1, %if.end747 ], [ 0, %if.end737 ]
-  %total_done.0 = phi i32 [ 1, %if.end756 ], [ 0, %if.end747 ], [ 0, %if.end737 ]
+if.end765:                                        ; preds = %if.end747, %if.end756
+  %total_done.0 = phi i32 [ 1, %if.end756 ], [ 0, %if.end747 ]
   br i1 %tobool269, label %if.then768, label %if.end793
 
 if.then768:                                       ; preds = %if.end765
-  %inc769 = add nuw nsw i32 %total.0, 1
   %97 = load i32, ptr %certformat, align 4
   %98 = load ptr, ptr %passin, align 8
   %99 = load ptr, ptr %serial, align 8
@@ -1759,7 +1754,7 @@ if.then789:                                       ; preds = %if.end784
   br label %if.then1233
 
 if.end793:                                        ; preds = %if.end775, %if.end784, %if.end765
-  %total.1 = phi i32 [ %inc769, %if.end784 ], [ %inc769, %if.end775 ], [ %total.0, %if.end765 ]
+  %total.1 = phi i32 [ 2, %if.end784 ], [ 2, %if.end775 ], [ 1, %if.end765 ]
   %total_done.1 = phi i32 [ %inc779, %if.end784 ], [ %total_done.0, %if.end775 ], [ %total_done.0, %if.end765 ]
   %cmp794.not = icmp eq ptr %infile.0, null
   br i1 %cmp794.not, label %if.end821, label %if.then796
@@ -1916,7 +1911,7 @@ land.lhs.true891:                                 ; preds = %if.end885
   br i1 %tobool893.not, label %if.then1233, label %if.end895
 
 if.end895:                                        ; preds = %land.lhs.true891, %if.end885
-  %call896 = call i32 @save_index(ptr noundef nonnull %call369, ptr noundef nonnull @.str.171, ptr noundef %call374) #12
+  %call896 = call i32 @save_index(ptr noundef nonnull %call369, ptr noundef nonnull @.str.171, ptr noundef nonnull %call374) #12
   %tobool897.not = icmp eq i32 %call896, 0
   br i1 %tobool897.not, label %if.then1233, label %if.end900
 

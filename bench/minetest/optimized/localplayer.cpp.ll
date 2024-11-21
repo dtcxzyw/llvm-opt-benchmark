@@ -6606,14 +6606,10 @@ if.end389:                                        ; preds = %if.else384, %if.the
   br label %if.end415
 
 if.else390:                                       ; preds = %lor.lhs.false364
-  br i1 %tobool304.not, label %lor.lhs.false392, label %if.then405
+  br i1 %tobool304.not, label %lor.lhs.false397, label %if.then405
 
-lor.lhs.false392:                                 ; preds = %if.else390
+lor.lhs.false397:                                 ; preds = %if.else390
   %.not549 = xor i1 %spec.select, true
-  %brmerge550 = or i1 %tobool360.not, %.not549
-  br i1 %brmerge550, label %lor.lhs.false397, label %if.then405
-
-lor.lhs.false397:                                 ; preds = %lor.lhs.false392
   %in_liquid_stable401 = getelementptr inbounds i8, ptr %this, i64 436
   %136 = load i8, ptr %in_liquid_stable401, align 4, !range !74
   %tobool402.not = icmp eq i8 %136, 0
@@ -6621,7 +6617,7 @@ lor.lhs.false397:                                 ; preds = %lor.lhs.false392
   %brmerge553 = or i1 %or.cond551, %.not549
   br i1 %brmerge553, label %if.else409, label %if.then405
 
-if.then405:                                       ; preds = %lor.lhs.false397, %lor.lhs.false392, %if.else390
+if.then405:                                       ; preds = %lor.lhs.false397, %if.else390
   %movement_acceleration_fast406 = getelementptr inbounds i8, ptr %this, i64 96
   %137 = load float, ptr %movement_acceleration_fast406, align 8, !tbaa !234
   %mul407 = fmul nsz float %137, 1.000000e+01

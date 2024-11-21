@@ -272,10 +272,6 @@ $_ZZN4node23ArrayBufferViewContentsIcLm64EE9ReadValueEN2v85LocalINS2_5ValueEEEE4
 @_ZZN4node6crypto10CipherBase4InitERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_0 = internal constant %"struct.node::AssertionInfo" { ptr @.str.43, ptr @.str.44, ptr @.str.41 }, align 8
 @.str.43 = private unnamed_addr constant [38 x i8] c"../../src/crypto/crypto_cipher.cc:457\00", align 1
 @.str.44 = private unnamed_addr constant [57 x i8] c"args[2]->IsInt32() && args[2].As<Int32>()->Value() == -1\00", align 1
-@_ZZN4node6crypto10CipherBase6InitIvEPKcRKNS0_10ByteSourceERKNS0_25ArrayBufferOrViewContentsIhEEjE4args = internal constant %"struct.node::AssertionInfo" { ptr @.str.45, ptr @.str.46, ptr @.str.47 }, align 8
-@.str.45 = private unnamed_addr constant [38 x i8] c"../../src/crypto/crypto_cipher.cc:493\00", align 1
-@.str.46 = private unnamed_addr constant [7 x i8] c"has_iv\00", align 1
-@.str.47 = private unnamed_addr constant [136 x i8] c"void node::crypto::CipherBase::InitIv(const char *, const ByteSource &, const ArrayBufferOrViewContents<unsigned char> &, unsigned int)\00", align 1
 @_ZZN4node6crypto10CipherBase6InitIvERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args = internal constant %"struct.node::AssertionInfo" { ptr @.str.48, ptr @.str.49, ptr @.str.50 }, align 8
 @.str.48 = private unnamed_addr constant [38 x i8] c"../../src/crypto/crypto_cipher.cc:516\00", align 1
 @.str.49 = private unnamed_addr constant [23 x i8] c"(args.Length()) >= (4)\00", align 1
@@ -6973,26 +6969,12 @@ if.then20:                                        ; preds = %if.end13
 if.end22:                                         ; preds = %if.end13
   %call23 = call i32 @EVP_CIPHER_get_nid(ptr noundef nonnull %call3) #19
   %cmp24 = icmp eq i32 %call23, 1018
-  br i1 %cmp24, label %do.body, label %if.end22.if.end40_crit_edge
-
-if.end22.if.end40_crit_edge:                      ; preds = %if.end22
-  %.pre = load i64, ptr %length_.i, align 8
-  br label %if.end40
-
-do.body:                                          ; preds = %if.end22
-  br i1 %cmp8.not, label %do.body31, label %do.end34
-
-do.body31:                                        ; preds = %do.body
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto10CipherBase6InitIvEPKcRKNS0_10ByteSourceERKNS0_25ArrayBufferOrViewContentsIhEEjE4args) #19
-  call void @abort() #20
-  unreachable
-
-do.end34:                                         ; preds = %do.body
   %13 = load i64, ptr %length_.i, align 8
   %cmp36 = icmp ugt i64 %13, 12
-  br i1 %cmp36, label %if.then37, label %if.end40
+  %or.cond39 = select i1 %cmp24, i1 %cmp36, i1 false
+  br i1 %or.cond39, label %if.then37, label %if.end40
 
-if.then37:                                        ; preds = %do.end34
+if.then37:                                        ; preds = %if.end22
   %14 = load ptr, ptr %realm_.i, align 8
   %env_.i.i30 = getelementptr inbounds i8, ptr %14, i64 176
   %15 = load ptr, ptr %env_.i.i30, align 8
@@ -7002,21 +6984,20 @@ if.then37:                                        ; preds = %do.end34
   %call6.i.i33 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr %call.i.i32) #19
   br label %cleanup
 
-if.end40:                                         ; preds = %if.end22.if.end40_crit_edge, %do.end34
-  %17 = phi i64 [ %.pre, %if.end22.if.end40_crit_edge ], [ %13, %do.end34 ]
-  %18 = load ptr, ptr %key_buf, align 8
+if.end40:                                         ; preds = %if.end22
+  %17 = load ptr, ptr %key_buf, align 8
   %size_.i = getelementptr inbounds i8, ptr %key_buf, i64 16
-  %19 = load i64, ptr %size_.i, align 8
-  %conv43 = trunc i64 %19 to i32
-  %cmp.i34 = icmp eq i64 %17, 0
+  %18 = load i64, ptr %size_.i, align 8
+  %conv43 = trunc i64 %18 to i32
+  %cmp.i34 = icmp eq i64 %13, 0
   %data_.i = getelementptr inbounds i8, ptr %iv_buf, i64 24
-  %20 = load ptr, ptr %data_.i, align 8
+  %19 = load ptr, ptr %data_.i, align 8
   %offset_.i = getelementptr inbounds i8, ptr %iv_buf, i64 8
-  %21 = load i64, ptr %offset_.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %20, i64 %21
+  %20 = load i64, ptr %offset_.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 %20
   %retval.0.i35 = select i1 %cmp.i34, ptr %iv_buf, ptr %add.ptr.i
-  %conv46 = trunc i64 %17 to i32
-  call void @_ZN4node6crypto10CipherBase10CommonInitEPKcPK13evp_cipher_stPKhiS8_ij(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %cipher_type, ptr noundef nonnull %call3, ptr noundef %18, i32 noundef %conv43, ptr noundef %retval.0.i35, i32 noundef %conv46, i32 noundef %auth_tag_len)
+  %conv46 = trunc i64 %13 to i32
+  call void @_ZN4node6crypto10CipherBase10CommonInitEPKcPK13evp_cipher_stPKhiS8_ij(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %cipher_type, ptr noundef nonnull %call3, ptr noundef %17, i32 noundef %conv43, ptr noundef %retval.0.i35, i32 noundef %conv46, i32 noundef %auth_tag_len)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end40, %if.then37, %if.then20, %if.then11, %if.then

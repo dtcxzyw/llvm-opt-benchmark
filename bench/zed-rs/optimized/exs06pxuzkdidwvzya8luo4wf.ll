@@ -62409,7 +62409,7 @@ define hidden void @_ZN8wasmtime7runtime9component4func7options7Options7realloc1
   %24 = or i64 %4, %5
   %25 = or i64 %24, %7
   %or.cond87 = icmp ult i64 %25, 4294967296
-  br i1 %or.cond87, label %26, label %104
+  br i1 %or.cond87, label %26, label %103
 
 26:                                               ; preds = %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12180)
@@ -62500,12 +62500,12 @@ define hidden void @_ZN8wasmtime7runtime9component4func7options7Options7realloc1
   %70 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %46, ptr %70, align 8
   store ptr null, ptr %0, align 8
-  br label %103
+  br label %102
 
 71:                                               ; preds = %67
   %72 = urem i32 %.sroa.039.0.copyload.i, %6
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %75, label %87
+  br i1 %73, label %75, label %86
 
 74:                                               ; preds = %67
   call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h1bfa65ef1309b877E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7043433c665689d16e2e33166735f21.177) #43
@@ -62524,63 +62524,62 @@ define hidden void @_ZN8wasmtime7runtime9component4func7options7Options7realloc1
   %84 = select i1 %.not, i1 true, i1 %83
   %.not85 = icmp ult i64 %82, %7
   %85 = select i1 %84, i1 true, i1 %.not85
-  %86 = select i1 %85, i1 true, i1 %83
-  br i1 %86, label %94, label %101
+  br i1 %85, label %93, label %100
 
-87:                                               ; preds = %71
+86:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
   store ptr @anon.e7043433c665689d16e2e33166735f21.181, ptr %11, align 8
-  %88 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 1, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %11, i64 32
-  store ptr null, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %11, i64 24
-  store i64 0, ptr %91, align 8
-  %92 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias nocapture noundef align 8 dereferenceable(48) %11)
+  %87 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 1, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %11, i64 32
+  store ptr null, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %11, i64 24
+  store i64 0, ptr %90, align 8
+  %91 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias nocapture noundef align 8 dereferenceable(48) %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %92, ptr %93, align 8
+  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %91, ptr %92, align 8
   store ptr null, ptr %0, align 8
-  br label %103
+  br label %102
 
-94:                                               ; preds = %75
+93:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   store ptr @anon.e7043433c665689d16e2e33166735f21.179, ptr %10, align 8
-  %95 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 1, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr null, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %10, i64 24
-  store i64 0, ptr %98, align 8
-  %99 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias nocapture noundef align 8 dereferenceable(48) %10)
+  %94 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 1, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr null, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %10, i64 24
+  store i64 0, ptr %97, align 8
+  %98 = call fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias nocapture noundef align 8 dereferenceable(48) %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  %100 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %99, ptr %100, align 8
+  %99 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %98, ptr %99, align 8
   store ptr null, ptr %0, align 8
-  br label %103
+  br label %102
 
-101:                                              ; preds = %75
-  %102 = getelementptr inbounds i8, ptr %80, i64 %76
-  store ptr %102, ptr %0, align 8
+100:                                              ; preds = %75
+  %101 = getelementptr inbounds i8, ptr %80, i64 %76
+  store ptr %101, ptr %0, align 8
   %.sroa.440.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %7, ptr %.sroa.440.0..sroa_idx, align 8
   %.sroa.541.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %76, ptr %.sroa.541.0..sroa_idx, align 8
-  br label %103
+  br label %102
 
-103:                                              ; preds = %104, %101, %94, %87, %69
+102:                                              ; preds = %103, %100, %93, %86, %69
   ret void
 
-104:                                              ; preds = %23
-  %105 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h372a2257a2033f8aE"()
-  %106 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %105, ptr %106, align 8
+103:                                              ; preds = %23
+  %104 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h372a2257a2033f8aE"()
+  %105 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %104, ptr %105, align 8
   store ptr null, ptr %0, align 8
-  br label %103
+  br label %102
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

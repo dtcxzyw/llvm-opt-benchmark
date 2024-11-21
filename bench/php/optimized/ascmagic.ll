@@ -19,9 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [29 x i8] c", with very long lines (%zu)\00", align 1
 @.str.9 = private unnamed_addr constant [7 x i8] c", with\00", align 1
 @.str.10 = private unnamed_addr constant [4 x i8] c" no\00", align 1
-@.str.11 = private unnamed_addr constant [6 x i8] c" CRLF\00", align 1
 @.str.12 = private unnamed_addr constant [2 x i8] c",\00", align 1
-@.str.13 = private unnamed_addr constant [4 x i8] c" CR\00", align 1
 @.str.14 = private unnamed_addr constant [4 x i8] c" LF\00", align 1
 @.str.15 = private unnamed_addr constant [5 x i8] c" NEL\00", align 1
 @.str.16 = private unnamed_addr constant [18 x i8] c" line terminators\00", align 1
@@ -412,124 +410,124 @@ encode_utf8.exit:                                 ; preds = %126
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %151
-  %163 = icmp eq i32 %spec.select227, 0
-  %164 = icmp eq i32 %.1192, 0
+  %163 = icmp eq i64 %.2186, 0
+  %164 = icmp eq i32 %spec.select227, 0
+  %165 = icmp eq i32 %.1192, 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.0193.lcssa = phi i1 [ true, %.preheader ], [ %163, %._crit_edge.loopexit ]
-  %.0191.lcssa = phi i1 [ true, %.preheader ], [ %164, %._crit_edge.loopexit ]
+  %.0193.lcssa = phi i1 [ true, %.preheader ], [ %164, %._crit_edge.loopexit ]
+  %.0191.lcssa = phi i1 [ true, %.preheader ], [ %165, %._crit_edge.loopexit ]
   %.0187.lcssa = phi i64 [ 0, %.preheader ], [ %.2189, %._crit_edge.loopexit ]
-  %.0184.lcssa = phi i64 [ 0, %.preheader ], [ %.2186, %._crit_edge.loopexit ]
+  %.0184.lcssa = phi i1 [ true, %.preheader ], [ %163, %._crit_edge.loopexit ]
   %.0182.lcssa = phi i64 [ 0, %.preheader ], [ %.1183, %._crit_edge.loopexit ]
   %.0180.lcssa = phi i64 [ 0, %.preheader ], [ %.1181, %._crit_edge.loopexit ]
   %.0175.lcssa = phi i64 [ 0, %.preheader ], [ %.1176, %._crit_edge.loopexit ]
-  %165 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str) #8
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %encode_utf8.exit.thread, label %167
+  %166 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str) #8
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %encode_utf8.exit.thread, label %168
 
-167:                                              ; preds = %._crit_edge
-  %168 = call i64 @file_printedlen(ptr noundef %0) #6
+168:                                              ; preds = %._crit_edge
+  %169 = call i64 @file_printedlen(ptr noundef %0) #6
   %.not211 = icmp eq i32 %15, 0
-  br i1 %.not211, label %183, label %169
+  br i1 %.not211, label %184, label %170
 
-169:                                              ; preds = %167
-  %170 = and i32 %14, 16
-  %.not218 = icmp eq i32 %170, 0
-  br i1 %.not218, label %259, label %171
+170:                                              ; preds = %168
+  %171 = and i32 %14, 16
+  %.not218 = icmp eq i32 %171, 0
+  br i1 %.not218, label %241, label %172
 
-171:                                              ; preds = %169
-  %.not219 = icmp eq i64 %168, 0
-  br i1 %.not219, label %180, label %172
+172:                                              ; preds = %170
+  %.not219 = icmp eq i64 %169, 0
+  br i1 %.not219, label %181, label %173
 
-172:                                              ; preds = %171
-  %173 = load i32, ptr %13, align 4
-  %174 = and i32 %173, 32
-  %175 = icmp eq i32 %174, 0
-  br i1 %175, label %encode_utf8.exit.thread, label %176
+173:                                              ; preds = %172
+  %174 = load i32, ptr %13, align 4
+  %175 = and i32 %174, 32
+  %176 = icmp eq i32 %175, 0
+  br i1 %176, label %encode_utf8.exit.thread, label %177
 
-176:                                              ; preds = %172
+177:                                              ; preds = %173
   %.not220 = icmp eq i32 %.0196, 0
-  br i1 %.not220, label %180, label %177
+  br i1 %.not220, label %181, label %178
 
-177:                                              ; preds = %176
-  %178 = call i32 @file_separator(ptr noundef nonnull %0) #6
-  %179 = icmp eq i32 %178, -1
-  br i1 %179, label %encode_utf8.exit.thread, label %180
+178:                                              ; preds = %177
+  %179 = call i32 @file_separator(ptr noundef nonnull %0) #6
+  %180 = icmp eq i32 %179, -1
+  br i1 %180, label %encode_utf8.exit.thread, label %181
 
-180:                                              ; preds = %176, %177, %171
-  %181 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.1) #6
-  %182 = icmp eq i32 %181, -1
-  br i1 %182, label %encode_utf8.exit.thread, label %259
+181:                                              ; preds = %177, %178, %172
+  %182 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.1) #6
+  %183 = icmp eq i32 %182, -1
+  br i1 %183, label %encode_utf8.exit.thread, label %241
 
-183:                                              ; preds = %167
-  %.not212 = icmp eq i64 %168, 0
-  br i1 %.not212, label %191, label %184
+184:                                              ; preds = %168
+  %.not212 = icmp eq i64 %169, 0
+  br i1 %.not212, label %192, label %185
 
-184:                                              ; preds = %183
-  %185 = call i32 @file_replace(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #6
-  switch i32 %185, label %191 [
-    i32 0, label %186
+185:                                              ; preds = %184
+  %186 = call i32 @file_replace(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #6
+  switch i32 %186, label %192 [
+    i32 0, label %187
     i32 -1, label %encode_utf8.exit.thread
   ]
 
-186:                                              ; preds = %184
-  %187 = call i32 @file_replace(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3) #6
-  switch i32 %187, label %191 [
-    i32 0, label %188
+187:                                              ; preds = %185
+  %188 = call i32 @file_replace(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3) #6
+  switch i32 %188, label %192 [
+    i32 0, label %189
     i32 -1, label %encode_utf8.exit.thread
   ]
 
-188:                                              ; preds = %186
-  %189 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.3) #6
-  %190 = icmp eq i32 %189, -1
-  br i1 %190, label %encode_utf8.exit.thread, label %191
+189:                                              ; preds = %187
+  %190 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.3) #6
+  %191 = icmp eq i32 %190, -1
+  br i1 %191, label %encode_utf8.exit.thread, label %192
 
-191:                                              ; preds = %186, %188, %184, %183
-  %.not213 = phi i1 [ true, %184 ], [ true, %188 ], [ true, %183 ], [ false, %186 ]
-  %192 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %4) #6
-  %193 = icmp eq i32 %192, -1
-  br i1 %193, label %encode_utf8.exit.thread, label %194
+192:                                              ; preds = %187, %189, %185, %184
+  %.not213 = phi i1 [ true, %185 ], [ true, %189 ], [ true, %184 ], [ false, %187 ]
+  %193 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %4) #6
+  %194 = icmp eq i32 %193, -1
+  br i1 %194, label %encode_utf8.exit.thread, label %195
 
-194:                                              ; preds = %191
-  %195 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %5) #6
-  %196 = icmp eq i32 %195, -1
-  br i1 %196, label %encode_utf8.exit.thread, label %197
+195:                                              ; preds = %192
+  %196 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %5) #6
+  %197 = icmp eq i32 %196, -1
+  br i1 %197, label %encode_utf8.exit.thread, label %198
 
-197:                                              ; preds = %194
-  br i1 %.not213, label %201, label %198
+198:                                              ; preds = %195
+  br i1 %.not213, label %202, label %199
 
-198:                                              ; preds = %197
-  %199 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.7) #6
-  %200 = icmp eq i32 %199, -1
-  br i1 %200, label %encode_utf8.exit.thread, label %201
+199:                                              ; preds = %198
+  %200 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.7) #6
+  %201 = icmp eq i32 %200, -1
+  br i1 %201, label %encode_utf8.exit.thread, label %202
 
-201:                                              ; preds = %198, %197
+202:                                              ; preds = %199, %198
   %.not214 = icmp eq i64 %.0175.lcssa, 0
-  br i1 %.not214, label %205, label %202
+  br i1 %.not214, label %206, label %203
 
-202:                                              ; preds = %201
-  %203 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i64 noundef %.0175.lcssa) #6
-  %204 = icmp eq i32 %203, -1
-  br i1 %204, label %encode_utf8.exit.thread, label %205
+203:                                              ; preds = %202
+  %204 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i64 noundef %.0175.lcssa) #6
+  %205 = icmp eq i32 %204, -1
+  br i1 %205, label %encode_utf8.exit.thread, label %206
 
-205:                                              ; preds = %202, %201
-  %206 = icmp eq i64 %.0187.lcssa, 0
-  %207 = icmp eq i64 %.0182.lcssa, 0
-  %or.cond = select i1 %206, i1 %207, i1 false
-  %208 = icmp eq i64 %.0180.lcssa, 0
-  %or.cond3 = select i1 %or.cond, i1 %208, i1 false
-  %209 = icmp eq i64 %.0184.lcssa, 0
-  %or.cond5 = select i1 %or.cond3, i1 %209, i1 false
+206:                                              ; preds = %203, %202
+  %207 = icmp eq i64 %.0187.lcssa, 0
+  %208 = icmp eq i64 %.0182.lcssa, 0
+  %or.cond = select i1 %207, i1 %208, i1 false
+  %209 = icmp eq i64 %.0180.lcssa, 0
+  %or.cond3 = select i1 %or.cond, i1 %209, i1 false
+  %or.cond5 = select i1 %or.cond3, i1 %.0184.lcssa, i1 false
   %210 = icmp ne i64 %.0187.lcssa, 0
   %or.cond7 = select i1 %or.cond5, i1 true, i1 %210
   %211 = icmp ne i64 %.0182.lcssa, 0
   %or.cond9 = select i1 %or.cond7, i1 true, i1 %211
   %212 = icmp ne i64 %.0180.lcssa, 0
   %or.cond11 = select i1 %or.cond9, i1 true, i1 %212
-  br i1 %or.cond11, label %213, label %251
+  br i1 %or.cond11, label %213, label %233
 
-213:                                              ; preds = %205
+213:                                              ; preds = %206
   %214 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.9) #6
   %215 = icmp eq i32 %214, -1
   br i1 %215, label %encode_utf8.exit.thread, label %216
@@ -543,102 +541,65 @@ encode_utf8.exit:                                 ; preds = %126
   br i1 %219, label %encode_utf8.exit.thread, label %.critedge
 
 220:                                              ; preds = %216
-  br i1 %210, label %221, label %229
+  br i1 %.0184.lcssa, label %228, label %221
 
 221:                                              ; preds = %220
-  %222 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.11) #6
+  %222 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.14) #6
   %223 = icmp eq i32 %222, -1
   br i1 %223, label %encode_utf8.exit.thread, label %224
 
 224:                                              ; preds = %221
-  %225 = icmp ne i64 %.0184.lcssa, 0
-  %or.cond19 = select i1 %211, i1 true, i1 %225
-  %or.cond21 = select i1 %or.cond19, i1 true, i1 %212
-  br i1 %or.cond21, label %226, label %.critedge
+  br i1 %212, label %225, label %.critedge
 
-226:                                              ; preds = %224
-  %227 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.12) #6
-  %228 = icmp eq i32 %227, -1
-  br i1 %228, label %encode_utf8.exit.thread, label %229
+225:                                              ; preds = %224
+  %226 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.12) #6
+  %227 = icmp eq i32 %226, -1
+  br i1 %227, label %encode_utf8.exit.thread, label %.thread231
 
-229:                                              ; preds = %226, %220
-  br i1 %211, label %230, label %238
+228:                                              ; preds = %220
+  br i1 %212, label %.thread231, label %.critedge
 
-230:                                              ; preds = %229
-  %231 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.13) #6
+.thread231:                                       ; preds = %225, %228
+  %229 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.15) #6
+  %230 = icmp eq i32 %229, -1
+  br i1 %230, label %encode_utf8.exit.thread, label %.critedge
+
+.critedge:                                        ; preds = %224, %228, %.thread231, %217
+  %231 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.16) #6
   %232 = icmp eq i32 %231, -1
   br i1 %232, label %encode_utf8.exit.thread, label %233
 
-233:                                              ; preds = %230
-  %234 = icmp ne i64 %.0184.lcssa, 0
-  %or.cond23 = select i1 %234, i1 true, i1 %212
-  br i1 %or.cond23, label %235, label %.critedge
+233:                                              ; preds = %.critedge, %206
+  br i1 %.0193.lcssa, label %237, label %234
 
-235:                                              ; preds = %233
-  %236 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.12) #6
-  %237 = icmp eq i32 %236, -1
-  br i1 %237, label %encode_utf8.exit.thread, label %238
+234:                                              ; preds = %233
+  %235 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.17) #6
+  %236 = icmp eq i32 %235, -1
+  br i1 %236, label %encode_utf8.exit.thread, label %237
 
-238:                                              ; preds = %235, %229
-  br i1 %209, label %246, label %239
+237:                                              ; preds = %234, %233
+  br i1 %.0191.lcssa, label %241, label %238
 
-239:                                              ; preds = %238
-  %240 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.14) #6
-  %241 = icmp eq i32 %240, -1
-  br i1 %241, label %encode_utf8.exit.thread, label %242
+238:                                              ; preds = %237
+  %239 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.18) #6
+  %240 = icmp eq i32 %239, -1
+  br i1 %240, label %encode_utf8.exit.thread, label %241
 
-242:                                              ; preds = %239
-  br i1 %212, label %243, label %.critedge
-
-243:                                              ; preds = %242
-  %244 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.12) #6
-  %245 = icmp eq i32 %244, -1
-  br i1 %245, label %encode_utf8.exit.thread, label %.thread231
-
-246:                                              ; preds = %238
-  br i1 %212, label %.thread231, label %.critedge
-
-.thread231:                                       ; preds = %243, %246
-  %247 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.15) #6
-  %248 = icmp eq i32 %247, -1
-  br i1 %248, label %encode_utf8.exit.thread, label %.critedge
-
-.critedge:                                        ; preds = %233, %224, %242, %246, %.thread231, %217
-  %249 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.16) #6
-  %250 = icmp eq i32 %249, -1
-  br i1 %250, label %encode_utf8.exit.thread, label %251
-
-251:                                              ; preds = %.critedge, %205
-  br i1 %.0193.lcssa, label %255, label %252
-
-252:                                              ; preds = %251
-  %253 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.17) #6
-  %254 = icmp eq i32 %253, -1
-  br i1 %254, label %encode_utf8.exit.thread, label %255
-
-255:                                              ; preds = %252, %251
-  br i1 %.0191.lcssa, label %259, label %256
-
-256:                                              ; preds = %255
-  %257 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.18) #6
-  %258 = icmp eq i32 %257, -1
-  br i1 %258, label %encode_utf8.exit.thread, label %259
-
-259:                                              ; preds = %255, %256, %169, %180
+241:                                              ; preds = %237, %238, %170, %181
   br label %encode_utf8.exit.thread
 
-encode_utf8.exit.thread:                          ; preds = %85, %76, %66, %55, %45, %36, %172, %._crit_edge, %140, %256, %252, %.critedge, %.thread231, %243, %239, %235, %230, %226, %221, %217, %213, %202, %198, %194, %191, %184, %186, %188, %180, %177, %259, %137
-  %.0198 = phi i32 [ %139, %137 ], [ %.1199, %177 ], [ %.1199, %180 ], [ 1, %259 ], [ %.1199, %191 ], [ %.1199, %194 ], [ %.1199, %198 ], [ %.1199, %202 ], [ %.1199, %213 ], [ %.1199, %217 ], [ %.1199, %.critedge ], [ %.1199, %252 ], [ %.1199, %256 ], [ %.1199, %221 ], [ %.1199, %226 ], [ %.1199, %230 ], [ %.1199, %235 ], [ %.1199, %239 ], [ %.1199, %243 ], [ %.1199, %.thread231 ], [ %.1199, %184 ], [ %.1199, %186 ], [ %.1199, %188 ], [ 0, %140 ], [ 0, %._crit_edge ], [ 1, %172 ], [ 0, %36 ], [ 0, %45 ], [ 0, %55 ], [ 0, %66 ], [ 0, %76 ], [ 0, %85 ]
-  %.0 = phi ptr [ %26, %137 ], [ %.1, %177 ], [ %.1, %180 ], [ %.1, %259 ], [ %.1, %191 ], [ %.1, %194 ], [ %.1, %198 ], [ %.1, %202 ], [ %.1, %213 ], [ %.1, %217 ], [ %.1, %.critedge ], [ %.1, %252 ], [ %.1, %256 ], [ %.1, %221 ], [ %.1, %226 ], [ %.1, %230 ], [ %.1, %235 ], [ %.1, %239 ], [ %.1, %243 ], [ %.1, %.thread231 ], [ %.1, %184 ], [ %.1, %186 ], [ %.1, %188 ], [ %.1, %140 ], [ %.1, %._crit_edge ], [ %.1, %172 ], [ %26, %36 ], [ %26, %45 ], [ %26, %55 ], [ %26, %66 ], [ %26, %76 ], [ %26, %85 ]
+encode_utf8.exit.thread:                          ; preds = %85, %76, %66, %55, %45, %36, %173, %._crit_edge, %140, %238, %234, %.critedge, %.thread231, %225, %221, %217, %213, %203, %199, %195, %192, %185, %187, %189, %181, %178, %241, %137
+  %.0198 = phi i32 [ %139, %137 ], [ %.1199, %178 ], [ %.1199, %181 ], [ 1, %241 ], [ %.1199, %192 ], [ %.1199, %195 ], [ %.1199, %199 ], [ %.1199, %203 ], [ %.1199, %213 ], [ %.1199, %217 ], [ %.1199, %.critedge ], [ %.1199, %234 ], [ %.1199, %238 ], [ %.1199, %221 ], [ %.1199, %225 ], [ %.1199, %.thread231 ], [ %.1199, %185 ], [ %.1199, %187 ], [ %.1199, %189 ], [ 0, %140 ], [ 0, %._crit_edge ], [ 1, %173 ], [ 0, %36 ], [ 0, %45 ], [ 0, %55 ], [ 0, %66 ], [ 0, %76 ], [ 0, %85 ]
+  %.0 = phi ptr [ %26, %137 ], [ %.1, %178 ], [ %.1, %181 ], [ %.1, %241 ], [ %.1, %192 ], [ %.1, %195 ], [ %.1, %199 ], [ %.1, %203 ], [ %.1, %213 ], [ %.1, %217 ], [ %.1, %.critedge ], [ %.1, %234 ], [ %.1, %238 ], [ %.1, %221 ], [ %.1, %225 ], [ %.1, %.thread231 ], [ %.1, %185 ], [ %.1, %187 ], [ %.1, %189 ], [ %.1, %140 ], [ %.1, %._crit_edge ], [ %.1, %173 ], [ %26, %36 ], [ %26, %45 ], [ %26, %55 ], [ %26, %66 ], [ %26, %76 ], [ %26, %85 ]
   %.not223 = icmp eq ptr %.0, null
-  br i1 %.not223, label %.thread234, label %260
+  br i1 %.not223, label %.thread234, label %242
 
-260:                                              ; preds = %encode_utf8.exit.thread
+242:                                              ; preds = %encode_utf8.exit.thread
   call void @_efree(ptr noundef nonnull %.0) #6
   br label %.thread234
 
-.thread234:                                       ; preds = %19, %7, %28, %260, %encode_utf8.exit.thread
-  %.0198238 = phi i32 [ %.0198, %260 ], [ %.0198, %encode_utf8.exit.thread ], [ -1, %28 ], [ 0, %7 ], [ 0, %19 ]
+.thread234:                                       ; preds = %19, %7, %28, %242, %encode_utf8.exit.thread
+  %.0198238 = phi i32 [ %.0198, %242 ], [ %.0198, %encode_utf8.exit.thread ], [ -1, %28 ], [ 0, %7 ], [ 0, %19 ]
   ret i32 %.0198238
 }
 

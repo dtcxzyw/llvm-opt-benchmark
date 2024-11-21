@@ -6140,7 +6140,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
 
 22:                                               ; preds = %20
   %23 = tail call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
-  br label %289
+  br label %284
 
 24:                                               ; preds = %20
   %25 = and i32 %13, 64
@@ -6185,7 +6185,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %50 = load i32, ptr %4, align 4
   %51 = or i32 %50, 128
   store i32 %51, ptr %4, align 4
-  br label %289
+  br label %284
 
 52:                                               ; preds = %44, %40, %36
   %53 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6196,7 +6196,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   store i16 0, ptr %55, align 2
   %56 = or disjoint i8 %17, 64
   store i8 %56, ptr %53, align 4
-  br label %289
+  br label %284
 
 57:                                               ; preds = %5
   %58 = load i32, ptr %1, align 4
@@ -6264,7 +6264,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %93 = load i32, ptr %4, align 4
   %94 = or i32 %93, 16
   store i32 %94, ptr %4, align 4
-  br label %283
+  br label %278
 
 95:                                               ; preds = %88
   %96 = icmp sgt i32 %62, 0
@@ -6533,7 +6533,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %220 = load i32, ptr %4, align 4
   %221 = or i32 %220, 16
   store i32 %221, ptr %4, align 4
-  br label %289
+  br label %284
 
 222:                                              ; preds = %215, %207
   %.3247 = phi ptr [ null, %207 ], [ %218, %215 ]
@@ -6667,46 +6667,40 @@ decGetDigits.exit:                                ; preds = %263, %265, %.loopex
   %274 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %275 = load i32, ptr %274, align 4
   %276 = add nsw i32 %275, %273
-  %277 = icmp slt i32 %273, 0
-  %278 = icmp slt i32 %275, 0
-  %279 = icmp sgt i32 %276, 0
-  %280 = select i1 %277, i1 %278, i1 false
-  %281 = select i1 %280, i1 %279, i1 false
-  %.0241 = select i1 %281, i32 -1999999998, i32 %276
-  %282 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.0241, ptr %282, align 4
+  %277 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %276, ptr %277, align 4
   call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.0242407, i32 noundef %.1.i, ptr noundef %6, ptr noundef %4)
   call fastcc void @decFinalize(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %6, ptr noundef %4)
-  br label %283
+  br label %278
 
-283:                                              ; preds = %decGetDigits.exit, %92
+278:                                              ; preds = %decGetDigits.exit, %92
   %.1259 = phi ptr [ %.0258, %92 ], [ %.2260401, %decGetDigits.exit ]
   %.1255 = phi ptr [ %.0254, %92 ], [ %.2256403, %decGetDigits.exit ]
   %.1245 = phi ptr [ %.0244, %92 ], [ %.2246405, %decGetDigits.exit ]
   %.not292 = icmp eq ptr %.1245, null
-  br i1 %.not292, label %285, label %284
+  br i1 %.not292, label %280, label %279
 
-284:                                              ; preds = %283
+279:                                              ; preds = %278
   call void @free(ptr noundef nonnull %.1245) #18
-  br label %285
+  br label %280
 
-285:                                              ; preds = %284, %283
+280:                                              ; preds = %279, %278
   %.not293 = icmp eq ptr %.1255, null
-  br i1 %.not293, label %287, label %286
+  br i1 %.not293, label %282, label %281
 
-286:                                              ; preds = %285
+281:                                              ; preds = %280
   call void @free(ptr noundef nonnull %.1255) #18
-  br label %287
+  br label %282
 
-287:                                              ; preds = %286, %285
+282:                                              ; preds = %281, %280
   %.not294 = icmp eq ptr %.1259, null
-  br i1 %.not294, label %289, label %288
+  br i1 %.not294, label %284, label %283
 
-288:                                              ; preds = %287
+283:                                              ; preds = %282
   call void @free(ptr noundef nonnull %.1259) #18
-  br label %289
+  br label %284
 
-289:                                              ; preds = %.thread313, %287, %288, %52, %49, %22
+284:                                              ; preds = %.thread313, %282, %283, %52, %49, %22
   ret ptr %0
 }
 

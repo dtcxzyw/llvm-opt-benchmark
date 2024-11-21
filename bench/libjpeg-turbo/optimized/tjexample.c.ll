@@ -722,7 +722,6 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %314 = add i32 %310, %313
   %315 = sdiv i32 %314, %spec.select273
   store i32 %315, ptr %5, align 4
-  %spec.select274 = select i1 %283, i32 %268, i32 %.0206.lcssa
   store i32 3, ptr %7, align 4
   %316 = sext i32 %312 to i64
   %317 = sext i32 %315 to i64
@@ -782,7 +781,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %349 = phi i32 [ %.pre336, %341 ], [ %315, %333 ]
   %350 = phi i32 [ %.pre, %341 ], [ %312, %333 ]
   %.1216 = phi ptr [ %336, %341 ], [ %320, %333 ]
-  %.3 = phi i32 [ %.4, %341 ], [ %spec.select274, %333 ]
+  %.3 = phi i32 [ %.4, %341 ], [ %268, %333 ]
   %351 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef nonnull %168, i32 noundef %350, i32 noundef %349)
   %352 = call i32 @strcasecmp(ptr noundef nonnull %168, ptr noundef nonnull @.str.26) #14
   %.not242 = icmp eq i32 %352, 0

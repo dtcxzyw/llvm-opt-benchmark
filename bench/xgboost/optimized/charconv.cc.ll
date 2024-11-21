@@ -6,11 +6,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.xgboost::detail::MantissaInteval" = type { i32, i32, i32, i32 }
 
+$_ZN7xgboost6detail17PowerBaseComputer14Binary2DecimalENS0_18UnsignedFloatBase2E = comdat any
+
 $_ZN7xgboost6detail10RyuPrinter16PrintBase10FloatENS0_19UnsignedFloatBase10EbPc = comdat any
 
 $_ZN7xgboost6detail17PowerBaseComputer13ToDecimalBaseEbjNS0_15MantissaIntevalEPS2_PbS4_ = comdat any
-
-$_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresentationEbbhbNS0_15MantissaIntevalE = comdat any
 
 $_ZN7xgboost6detail14RyuPowLogUtils18kFloatPow5InvSplitE = comdat any
 
@@ -35,104 +35,235 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN7xgboost6detail16ToCharsFloatImplEfPc(float noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = alloca %"struct.xgboost::detail::MantissaInteval", align 8
-  %4 = alloca i8, align 1
-  %5 = alloca i8, align 1
-  %6 = bitcast float %0 to i32
-  %.lobit.i = lshr i32 %6, 31
-  %7 = and i32 %6, 8388607
-  %8 = lshr i32 %6, 23
-  %9 = and i32 %8, 255
-  %10 = icmp eq i32 %9, 255
-  %11 = or i32 %9, %7
-  %12 = icmp eq i32 %11, 0
-  %or.cond = or i1 %10, %12
-  br i1 %or.cond, label %13, label %25
+  %3 = bitcast float %0 to i32
+  %.lobit.i = lshr i32 %3, 31
+  %4 = and i32 %3, 8388607
+  %5 = lshr i32 %3, 23
+  %6 = and i32 %5, 255
+  %7 = icmp eq i32 %6, 255
+  %8 = or i32 %6, %4
+  %9 = icmp eq i32 %8, 0
+  %or.cond = or i1 %7, %9
+  br i1 %or.cond, label %10, label %22
 
-13:                                               ; preds = %2
-  %14 = trunc nuw i32 %.lobit.i to i1
-  %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %16, label %15
+10:                                               ; preds = %2
+  %11 = trunc nuw i32 %.lobit.i to i1
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %13, label %12
 
-15:                                               ; preds = %13
+12:                                               ; preds = %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
   br label %_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit
 
-16:                                               ; preds = %13
-  br i1 %14, label %17, label %18
+13:                                               ; preds = %10
+  br i1 %11, label %14, label %15
 
-17:                                               ; preds = %16
+14:                                               ; preds = %13
   store i8 45, ptr %1, align 1
-  br label %18
+  br label %15
 
-18:                                               ; preds = %17, %16
-  %.not9.i = icmp eq i32 %9, 0
-  %19 = zext nneg i32 %.lobit.i to i64
-  %20 = getelementptr inbounds i8, ptr %1, i64 %19
-  br i1 %.not9.i, label %23, label %21
+15:                                               ; preds = %14, %13
+  %.not9.i = icmp eq i32 %6, 0
+  %16 = zext nneg i32 %.lobit.i to i64
+  %17 = getelementptr inbounds i8, ptr %1, i64 %16
+  br i1 %.not9.i, label %20, label %18
 
-21:                                               ; preds = %18
-  store i64 8751735898823355977, ptr %20, align 1
-  %22 = select i1 %14, i32 9, i32 8
+18:                                               ; preds = %15
+  store i64 8751735898823355977, ptr %17, align 1
+  %19 = select i1 %11, i32 9, i32 8
   br label %_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit
 
-23:                                               ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %20, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
-  %24 = select i1 %14, i32 4, i32 3
+20:                                               ; preds = %15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %17, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
+  %21 = select i1 %11, i32 4, i32 3
   br label %_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit
 
-25:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %26 = icmp eq i32 %9, 0
-  %27 = or disjoint i32 %7, 8388608
-  %28 = add nsw i32 %9, -152
-  %.0.i7 = select i1 %26, i32 %7, i32 %27
-  %narrow = select i1 %26, i32 -151, i32 %28
-  %.sroa.012.0.i = zext i32 %narrow to i64
-  %29 = and i32 %.0.i7, 1
-  %30 = icmp eq i32 %29, 0
-  %31 = shl nuw nsw i32 %.0.i7, 2
-  %32 = or disjoint i32 %31, 2
-  %33 = icmp ne i32 %7, 0
-  %34 = icmp samesign ult i32 %9, 2
-  %35 = or i1 %33, %34
-  %36 = zext i1 %35 to i32
-  %37 = xor i32 %36, -1
-  %38 = add nsw i32 %31, %37
-  store i8 0, ptr %4, align 1
-  store i8 0, ptr %5, align 1
-  %.sroa.3.0.insert.ext.i = zext i32 %38 to i64
-  %.sroa.3.0.insert.shift.i = shl nuw i64 %.sroa.3.0.insert.ext.i, 32
-  %.sroa.012.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.shift.i, %.sroa.012.0.i
-  %.sroa.6.8.insert.ext.i = zext nneg i32 %32 to i64
-  %.sroa.6.8.insert.shift.i = shl nuw nsw i64 %.sroa.6.8.insert.ext.i, 32
-  %.sroa.4.8.insert.ext.i = zext nneg i32 %31 to i64
-  %.sroa.4.8.insert.insert.i = or disjoint i64 %.sroa.6.8.insert.shift.i, %.sroa.4.8.insert.ext.i
-  %39 = call noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13ToDecimalBaseEbjNS0_15MantissaIntevalEPS2_PbS4_(i1 noundef zeroext %30, i32 noundef %36, i64 %.sroa.012.0.insert.insert.i, i64 %.sroa.4.8.insert.insert.i, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
-  %40 = load i8, ptr %4, align 1
-  %41 = trunc i8 %40 to i1
-  %42 = load i8, ptr %5, align 1
-  %43 = trunc i8 %42 to i1
-  %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %44 = call i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresentationEbbhbNS0_15MantissaIntevalE(i1 noundef zeroext %41, i1 noundef zeroext %43, i8 noundef zeroext %39, i1 noundef zeroext %30, i64 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %45 = trunc nuw i32 %.lobit.i to i1
-  %46 = call noundef i32 @_ZN7xgboost6detail10RyuPrinter16PrintBase10FloatENS0_19UnsignedFloatBase10EbPc(i64 %44, i1 noundef zeroext %45, ptr noundef %1) #11
+22:                                               ; preds = %2
+  %.sroa.4.0.insert.ext = zext nneg i32 %6 to i64
+  %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext, 32
+  %.sroa.0.0.insert.ext = zext nneg i32 %4 to i64
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
+  %23 = tail call i64 @_ZN7xgboost6detail17PowerBaseComputer14Binary2DecimalENS0_18UnsignedFloatBase2E(i64 %.sroa.0.0.insert.insert) #10
+  %24 = trunc nuw i32 %.lobit.i to i1
+  %25 = tail call noundef i32 @_ZN7xgboost6detail10RyuPrinter16PrintBase10FloatENS0_19UnsignedFloatBase10EbPc(i64 %23, i1 noundef zeroext %24, ptr noundef %1) #10
   br label %_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit
 
-_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit: ; preds = %23, %21, %15, %25
-  %.0 = phi i32 [ %46, %25 ], [ 3, %15 ], [ %22, %21 ], [ %24, %23 ]
+_ZN7xgboost6detail10RyuPrinter17PrintSpecialFloatEbNS0_18UnsignedFloatBase2EPc.exit: ; preds = %20, %18, %12, %22
+  %.0 = phi i32 [ %25, %22 ], [ 3, %12 ], [ %19, %18 ], [ %21, %20 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr i64 @_ZN7xgboost6detail17PowerBaseComputer14Binary2DecimalENS0_18UnsignedFloatBase2E(i64 %0) local_unnamed_addr #3 comdat align 2 {
+  %2 = alloca %"struct.xgboost::detail::MantissaInteval", align 8
+  %3 = alloca i8, align 1
+  %4 = alloca i8, align 1
+  %.sroa.013.0.extract.trunc = trunc i64 %0 to i32
+  %5 = icmp ult i64 %0, 4294967296
+  %.sroa.416.0.extract.shift = lshr i64 %0, 32
+  %6 = add nuw nsw i64 %.sroa.416.0.extract.shift, 4294967144
+  %7 = or i32 %.sroa.013.0.extract.trunc, 8388608
+  %8 = and i64 %6, 4294967295
+  %.0 = select i1 %5, i32 %.sroa.013.0.extract.trunc, i32 %7
+  %.sroa.012.0 = select i1 %5, i64 4294967145, i64 %8
+  %9 = and i32 %.0, 1
+  %10 = icmp eq i32 %9, 0
+  %11 = shl i32 %.0, 2
+  %12 = or disjoint i32 %11, 2
+  %13 = icmp ne i32 %.sroa.013.0.extract.trunc, 0
+  %14 = icmp ult i64 %0, 8589934592
+  %15 = or i1 %14, %13
+  %16 = zext i1 %15 to i32
+  %17 = xor i32 %16, -1
+  %18 = add i32 %11, %17
+  store i8 0, ptr %3, align 1
+  store i8 0, ptr %4, align 1
+  %.sroa.3.0.insert.ext = zext i32 %18 to i64
+  %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
+  %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.012.0
+  %.sroa.6.8.insert.ext = zext i32 %12 to i64
+  %.sroa.6.8.insert.shift = shl nuw i64 %.sroa.6.8.insert.ext, 32
+  %.sroa.4.8.insert.ext = zext i32 %11 to i64
+  %.sroa.4.8.insert.insert = or disjoint i64 %.sroa.6.8.insert.shift, %.sroa.4.8.insert.ext
+  %19 = call noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13ToDecimalBaseEbjNS0_15MantissaIntevalEPS2_PbS4_(i1 noundef zeroext %10, i32 noundef %16, i64 %.sroa.012.0.insert.insert, i64 %.sroa.4.8.insert.insert, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+  %20 = load i8, ptr %3, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = load i8, ptr %4, align 1
+  %23 = trunc i8 %22 to i1
+  %.sroa.0.0.copyload = load i64, ptr %2, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.2.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload, 32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
+  %.sroa.14.8.extract.trunc.i = trunc i64 %.sroa.2.0.copyload to i32
+  %.sroa.29.8.extract.shift.i = lshr i64 %.sroa.2.0.copyload, 32
+  %.sroa.29.8.extract.trunc.i = trunc nuw i64 %.sroa.29.8.extract.shift.i to i32
+  %brmerge.i = or i1 %21, %23
+  %24 = udiv i32 %.sroa.29.8.extract.trunc.i, 10
+  %25 = udiv i32 %.sroa.2.0.extract.trunc.i, 10
+  %26 = icmp samesign ugt i32 %24, %25
+  br i1 %brmerge.i, label %.preheader64.i, label %.preheader65.i
+
+.preheader65.i:                                   ; preds = %1
+  br i1 %26, label %.lr.ph.i, label %67
+
+.preheader64.i:                                   ; preds = %1
+  br i1 %26, label %.lr.ph77.i, label %._crit_edge78.i
+
+.lr.ph77.i:                                       ; preds = %.preheader64.i, %.lr.ph77.i
+  %27 = phi i32 [ %39, %.lr.ph77.i ], [ %25, %.preheader64.i ]
+  %28 = phi i32 [ %38, %.lr.ph77.i ], [ %24, %.preheader64.i ]
+  %.04676.i = phi i32 [ %37, %.lr.ph77.i ], [ 0, %.preheader64.i ]
+  %.sroa.14.075.i = phi i32 [ %36, %.lr.ph77.i ], [ %.sroa.14.8.extract.trunc.i, %.preheader64.i ]
+  %.04774.i = phi i8 [ %35, %.lr.ph77.i ], [ %19, %.preheader64.i ]
+  %.052.in73.i = phi i1 [ %33, %.lr.ph77.i ], [ %23, %.preheader64.i ]
+  %.055.in72.i = phi i1 [ %31, %.lr.ph77.i ], [ %21, %.preheader64.i ]
+  %.sroa.2.071.i = phi i32 [ %27, %.lr.ph77.i ], [ %.sroa.2.0.extract.trunc.i, %.preheader64.i ]
+  %29 = urem i32 %.sroa.2.071.i, 10
+  %30 = icmp eq i32 %29, 0
+  %31 = and i1 %.055.in72.i, %30
+  %32 = icmp eq i8 %.04774.i, 0
+  %33 = and i1 %.052.in73.i, %32
+  %34 = urem i32 %.sroa.14.075.i, 10
+  %35 = trunc nuw nsw i32 %34 to i8
+  %36 = udiv i32 %.sroa.14.075.i, 10
+  %37 = add nuw nsw i32 %.04676.i, 1
+  %38 = udiv i32 %28, 10
+  %39 = udiv i32 %27, 10
+  %40 = icmp samesign ugt i32 %38, %39
+  br i1 %40, label %.lr.ph77.i, label %._crit_edge78.i, !llvm.loop !4
+
+._crit_edge78.i:                                  ; preds = %.lr.ph77.i, %.preheader64.i
+  %.sroa.2.0.lcssa.i = phi i32 [ %.sroa.2.0.extract.trunc.i, %.preheader64.i ], [ %27, %.lr.ph77.i ]
+  %.055.in.lcssa.i = phi i1 [ %21, %.preheader64.i ], [ %31, %.lr.ph77.i ]
+  %.052.in.lcssa.i = phi i1 [ %23, %.preheader64.i ], [ %33, %.lr.ph77.i ]
+  %.047.lcssa.i = phi i8 [ %19, %.preheader64.i ], [ %35, %.lr.ph77.i ]
+  %.sroa.14.0.lcssa.i = phi i32 [ %.sroa.14.8.extract.trunc.i, %.preheader64.i ], [ %36, %.lr.ph77.i ]
+  %.046.lcssa.i = phi i32 [ 0, %.preheader64.i ], [ %37, %.lr.ph77.i ]
+  %41 = urem i32 %.sroa.2.0.lcssa.i, 10
+  %42 = icmp eq i32 %41, 0
+  %or.cond97.i = select i1 %.055.in.lcssa.i, i1 %42, i1 false
+  br i1 %or.cond97.i, label %.lr.ph90.i, label %.loopexit.i
+
+.lr.ph90.i:                                       ; preds = %._crit_edge78.i, %.lr.ph90.i
+  %.289.i = phi i32 [ %49, %.lr.ph90.i ], [ %.046.lcssa.i, %._crit_edge78.i ]
+  %.sroa.14.288.i = phi i32 [ %47, %.lr.ph90.i ], [ %.sroa.14.0.lcssa.i, %._crit_edge78.i ]
+  %.24987.i = phi i8 [ %46, %.lr.ph90.i ], [ %.047.lcssa.i, %._crit_edge78.i ]
+  %.25486.i = phi i1 [ %44, %.lr.ph90.i ], [ %.052.in.lcssa.i, %._crit_edge78.i ]
+  %.sroa.2.285.i = phi i32 [ %48, %.lr.ph90.i ], [ %.sroa.2.0.lcssa.i, %._crit_edge78.i ]
+  %43 = icmp eq i8 %.24987.i, 0
+  %44 = select i1 %43, i1 %.25486.i, i1 false
+  %45 = urem i32 %.sroa.14.288.i, 10
+  %46 = trunc nuw nsw i32 %45 to i8
+  %47 = udiv i32 %.sroa.14.288.i, 10
+  %48 = udiv i32 %.sroa.2.285.i, 10
+  %49 = add nuw nsw i32 %.289.i, 1
+  %50 = urem i32 %48, 10
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %.lr.ph90.i, label %.loopexit.i, !llvm.loop !6
+
+.loopexit.i:                                      ; preds = %.lr.ph90.i, %._crit_edge78.i
+  %.sroa.2.1.i = phi i32 [ %.sroa.2.0.lcssa.i, %._crit_edge78.i ], [ %48, %.lr.ph90.i ]
+  %.153.in.i = phi i1 [ %.052.in.lcssa.i, %._crit_edge78.i ], [ %44, %.lr.ph90.i ]
+  %.148.i = phi i8 [ %.047.lcssa.i, %._crit_edge78.i ], [ %46, %.lr.ph90.i ]
+  %.sroa.14.1.i = phi i32 [ %.sroa.14.0.lcssa.i, %._crit_edge78.i ], [ %47, %.lr.ph90.i ]
+  %.1.i = phi i32 [ %.046.lcssa.i, %._crit_edge78.i ], [ %49, %.lr.ph90.i ]
+  %52 = icmp eq i8 %.148.i, 5
+  %or.cond.i = select i1 %.153.in.i, i1 %52, i1 false
+  %53 = and i32 %.sroa.14.1.i, 1
+  %54 = icmp eq i32 %53, 0
+  %or.cond61.i = and i1 %or.cond.i, %54
+  %55 = icmp ne i32 %.sroa.14.1.i, %.sroa.2.1.i
+  %56 = and i1 %10, %.055.in.lcssa.i
+  %or.cond63.i = or i1 %56, %55
+  %57 = select i1 %or.cond63.i, i1 %or.cond61.i, i1 false
+  %narrow.i = xor i1 %57, true
+  br label %_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresentationEbbhbNS0_15MantissaIntevalE.exit
+
+.lr.ph.i:                                         ; preds = %.preheader65.i, %.lr.ph.i
+  %58 = phi i32 [ %64, %.lr.ph.i ], [ %25, %.preheader65.i ]
+  %59 = phi i32 [ %63, %.lr.ph.i ], [ %24, %.preheader65.i ]
+  %.467.i = phi i32 [ %62, %.lr.ph.i ], [ 0, %.preheader65.i ]
+  %.sroa.14.366.i = phi i32 [ %60, %.lr.ph.i ], [ %.sroa.14.8.extract.trunc.i, %.preheader65.i ]
+  %60 = udiv i32 %.sroa.14.366.i, 10
+  %61 = urem i32 %.sroa.14.366.i, 10
+  %62 = add nuw nsw i32 %.467.i, 1
+  %63 = udiv i32 %59, 10
+  %64 = udiv i32 %58, 10
+  %65 = icmp samesign ugt i32 %63, %64
+  br i1 %65, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i
+  %66 = trunc nuw nsw i32 %61 to i8
+  br label %67
+
+67:                                               ; preds = %._crit_edge.i, %.preheader65.i
+  %.sroa.2.3.lcssa.i = phi i32 [ %58, %._crit_edge.i ], [ %.sroa.2.0.extract.trunc.i, %.preheader65.i ]
+  %.451.lcssa.i = phi i8 [ %66, %._crit_edge.i ], [ %19, %.preheader65.i ]
+  %.sroa.14.3.lcssa.i = phi i32 [ %60, %._crit_edge.i ], [ %.sroa.14.8.extract.trunc.i, %.preheader65.i ]
+  %.4.lcssa.i = phi i32 [ %62, %._crit_edge.i ], [ 0, %.preheader65.i ]
+  %68 = icmp eq i32 %.sroa.14.3.lcssa.i, %.sroa.2.3.lcssa.i
+  %69 = icmp ugt i8 %.451.lcssa.i, 4
+  %70 = select i1 %68, i1 true, i1 %69
+  br label %_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresentationEbbhbNS0_15MantissaIntevalE.exit
+
+_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresentationEbbhbNS0_15MantissaIntevalE.exit: ; preds = %.loopexit.i, %67
+  %.sink124.i = phi i1 [ %70, %67 ], [ %narrow.i, %.loopexit.i ]
+  %.sroa.14.3.lcssa.sink.i = phi i32 [ %.sroa.14.3.lcssa.i, %67 ], [ %.sroa.14.1.i, %.loopexit.i ]
+  %.3.i = phi i32 [ %.4.lcssa.i, %67 ], [ %.1.i, %.loopexit.i ]
+  %71 = zext i1 %.sink124.i to i32
+  %72 = add i32 %.sroa.14.3.lcssa.sink.i, %71
+  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
+  %73 = add nsw i32 %.3.i, %.sroa.0.0.extract.trunc.i
+  %.sroa.245.0.insert.ext.i = zext i32 %73 to i64
+  %.sroa.245.0.insert.shift.i = shl nuw i64 %.sroa.245.0.insert.ext.i, 32
+  %.sroa.044.0.insert.ext.i = zext i32 %72 to i64
+  %.sroa.044.0.insert.insert.i = or disjoint i64 %.sroa.245.0.insert.shift.i, %.sroa.044.0.insert.ext.i
+  ret i64 %.sroa.044.0.insert.insert.i
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZN7xgboost6detail10RyuPrinter16PrintBase10FloatENS0_19UnsignedFloatBase10EbPc(i64 %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -214,7 +345,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   store i16 %27, ptr %24, align 1
   %28 = add i32 %.06686, 4
   %.not = icmp ult i32 %.06487, 100000000
-  br i1 %.not, label %._crit_edge, label %tailrecurse.i71.preheader, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %tailrecurse.i71.preheader, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %tailrecurse.i71.preheader, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit
   %.066.lcssa = phi i32 [ 0, %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit ], [ %28, %tailrecurse.i71.preheader ]
@@ -359,7 +490,7 @@ tailrecurse.i19.preheader:                        ; preds = %tailrecurse.i19.pre
   store i8 %14, ptr %17, align 1
   %18 = add i32 %.01828, -2
   %.not = icmp ult i64 %.029, 10000
-  br i1 %.not, label %_ZN7xgboost6detail4TensEj.exit._crit_edge, label %tailrecurse.i19.preheader, !llvm.loop !6
+  br i1 %.not, label %_ZN7xgboost6detail4TensEj.exit._crit_edge, label %tailrecurse.i19.preheader, !llvm.loop !9
 
 _ZN7xgboost6detail4TensEj.exit._crit_edge:        ; preds = %tailrecurse.i19.preheader, %3
   %.0.lcssa = phi i64 [ %2, %3 ], [ %7, %tailrecurse.i19.preheader ]
@@ -458,7 +589,7 @@ tailrecurse.i19.preheader.i:                      ; preds = %tailrecurse.i19.pre
   store i8 %30, ptr %33, align 1
   %34 = add i32 %.018.i12, -2
   %.not.i = icmp ult i64 %.0.i13, 10000
-  br i1 %.not.i, label %_ZN7xgboost6detail4TensEj.exit.i._crit_edge, label %tailrecurse.i19.preheader.i, !llvm.loop !6
+  br i1 %.not.i, label %_ZN7xgboost6detail4TensEj.exit.i._crit_edge, label %tailrecurse.i19.preheader.i, !llvm.loop !9
 
 _ZN7xgboost6detail4TensEj.exit.i._crit_edge:      ; preds = %tailrecurse.i19.preheader.i, %19
   %.0.i.lcssa = phi i64 [ %2, %19 ], [ %23, %tailrecurse.i19.preheader.i ]
@@ -553,7 +684,7 @@ define { ptr, i32 } @_ZN7xgboost6detail17FromCharFloatImplEPKciPf(ptr noundef %0
   %.1 = phi i32 [ %.0230, %13 ], [ %spec.select191, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread.thread, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.critedge.thread.thread, label %.lr.ph, !llvm.loop !10
 
 25:                                               ; preds = %15
   %26 = trunc nuw nsw i64 %indvars.iv to i32
@@ -616,7 +747,7 @@ define { ptr, i32 } @_ZN7xgboost6detail17FromCharFloatImplEPKciPf(ptr noundef %0
   %indvars.iv.next265 = add nsw i64 %indvars.iv264, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next265 to i32
   %exitcond267.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond267.not, label %.critedge.thread, label %.lr.ph238, !llvm.loop !8
+  br i1 %exitcond267.not, label %.critedge.thread, label %.lr.ph238, !llvm.loop !11
 
 .critedge:                                        ; preds = %5, %37, %25
   %.0161219 = phi i32 [ %.0161228, %25 ], [ %.0161228, %37 ], [ 0, %5 ]
@@ -765,7 +896,7 @@ define { ptr, i32 } @_ZN7xgboost6detail17FromCharFloatImplEPKciPf(ptr noundef %0
   %130 = add i32 %.068.i.i, 1
   %131 = urem i32 %129, 5
   %.not.i.i = icmp eq i32 %131, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit, !llvm.loop !9
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit, !llvm.loop !12
 
 _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %.lr.ph.i.i, %127
   %.06.lcssa.i.i = phi i32 [ 0, %127 ], [ %130, %.lr.ph.i.i ]
@@ -970,7 +1101,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %77 = add i32 %.068.i.i, 1
   %78 = urem i32 %76, 5
   %.not.i.i = icmp eq i32 %78, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit, !llvm.loop !9
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit, !llvm.loop !12
 
 _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %.lr.ph.i.i
   %79 = icmp uge i32 %77, %13
@@ -993,7 +1124,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %.lr.p
   %85 = add i32 %.068.i.i87, 1
   %86 = urem i32 %84, 5
   %.not.i.i88 = icmp eq i32 %86, 0
-  br i1 %.not.i.i88, label %.lr.ph.i.i85, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit89, !llvm.loop !9
+  br i1 %.not.i.i88, label %.lr.ph.i.i85, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit89, !llvm.loop !12
 
 _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit89: ; preds = %.lr.ph.i.i85, %82
   %.06.lcssa.i.i84 = phi i32 [ 0, %82 ], [ %85, %.lr.ph.i.i85 ]
@@ -1014,7 +1145,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit89: ; preds = %.lr
   %92 = add i32 %.068.i.i94, 1
   %93 = urem i32 %91, 5
   %.not.i.i95 = icmp eq i32 %93, 0
-  br i1 %.not.i.i95, label %.lr.ph.i.i92, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96, !llvm.loop !9
+  br i1 %.not.i.i95, label %.lr.ph.i.i92, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96, !llvm.loop !12
 
 _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr.ph.i.i92, %89
   %.06.lcssa.i.i91 = phi i32 [ 0, %89 ], [ %92, %.lr.ph.i.i92 ]
@@ -1141,140 +1272,6 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   ret i8 %.1
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresentationEbbhbNS0_15MantissaIntevalE(i1 noundef zeroext %0, i1 noundef zeroext %1, i8 noundef zeroext %2, i1 noundef zeroext %3, i64 %4, i64 %5) local_unnamed_addr #3 comdat align 2 {
-  %.sroa.2.0.extract.shift = lshr i64 %4, 32
-  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
-  %.sroa.14.8.extract.trunc = trunc i64 %5 to i32
-  %.sroa.29.8.extract.shift = lshr i64 %5, 32
-  %.sroa.29.8.extract.trunc = trunc nuw i64 %.sroa.29.8.extract.shift to i32
-  %brmerge = or i1 %0, %1
-  %7 = udiv i32 %.sroa.29.8.extract.trunc, 10
-  %8 = udiv i32 %.sroa.2.0.extract.trunc, 10
-  %9 = icmp samesign ugt i32 %7, %8
-  br i1 %brmerge, label %.preheader64, label %.preheader65
-
-.preheader65:                                     ; preds = %6
-  br i1 %9, label %.lr.ph, label %51
-
-.preheader64:                                     ; preds = %6
-  br i1 %9, label %.lr.ph77, label %._crit_edge78
-
-.lr.ph77:                                         ; preds = %.preheader64, %.lr.ph77
-  %10 = phi i32 [ %22, %.lr.ph77 ], [ %8, %.preheader64 ]
-  %11 = phi i32 [ %21, %.lr.ph77 ], [ %7, %.preheader64 ]
-  %.04676 = phi i32 [ %20, %.lr.ph77 ], [ 0, %.preheader64 ]
-  %.sroa.14.075 = phi i32 [ %19, %.lr.ph77 ], [ %.sroa.14.8.extract.trunc, %.preheader64 ]
-  %.04774 = phi i8 [ %18, %.lr.ph77 ], [ %2, %.preheader64 ]
-  %.052.in73 = phi i1 [ %16, %.lr.ph77 ], [ %1, %.preheader64 ]
-  %.055.in72 = phi i1 [ %14, %.lr.ph77 ], [ %0, %.preheader64 ]
-  %.sroa.2.071 = phi i32 [ %10, %.lr.ph77 ], [ %.sroa.2.0.extract.trunc, %.preheader64 ]
-  %12 = urem i32 %.sroa.2.071, 10
-  %13 = icmp eq i32 %12, 0
-  %14 = and i1 %.055.in72, %13
-  %15 = icmp eq i8 %.04774, 0
-  %16 = and i1 %.052.in73, %15
-  %17 = urem i32 %.sroa.14.075, 10
-  %18 = trunc nuw nsw i32 %17 to i8
-  %19 = udiv i32 %.sroa.14.075, 10
-  %20 = add nuw nsw i32 %.04676, 1
-  %21 = udiv i32 %11, 10
-  %22 = udiv i32 %10, 10
-  %23 = icmp samesign ugt i32 %21, %22
-  br i1 %23, label %.lr.ph77, label %._crit_edge78, !llvm.loop !10
-
-._crit_edge78:                                    ; preds = %.lr.ph77, %.preheader64
-  %.sroa.2.0.lcssa = phi i32 [ %.sroa.2.0.extract.trunc, %.preheader64 ], [ %10, %.lr.ph77 ]
-  %.055.in.lcssa = phi i1 [ %0, %.preheader64 ], [ %14, %.lr.ph77 ]
-  %.052.in.lcssa = phi i1 [ %1, %.preheader64 ], [ %16, %.lr.ph77 ]
-  %.047.lcssa = phi i8 [ %2, %.preheader64 ], [ %18, %.lr.ph77 ]
-  %.sroa.14.0.lcssa = phi i32 [ %.sroa.14.8.extract.trunc, %.preheader64 ], [ %19, %.lr.ph77 ]
-  %.046.lcssa = phi i32 [ 0, %.preheader64 ], [ %20, %.lr.ph77 ]
-  %24 = urem i32 %.sroa.2.0.lcssa, 10
-  %25 = icmp eq i32 %24, 0
-  %or.cond97 = select i1 %.055.in.lcssa, i1 %25, i1 false
-  br i1 %or.cond97, label %.lr.ph90, label %.loopexit
-
-.lr.ph90:                                         ; preds = %._crit_edge78, %.lr.ph90
-  %.289 = phi i32 [ %32, %.lr.ph90 ], [ %.046.lcssa, %._crit_edge78 ]
-  %.sroa.14.288 = phi i32 [ %30, %.lr.ph90 ], [ %.sroa.14.0.lcssa, %._crit_edge78 ]
-  %.24987 = phi i8 [ %29, %.lr.ph90 ], [ %.047.lcssa, %._crit_edge78 ]
-  %.25486 = phi i1 [ %27, %.lr.ph90 ], [ %.052.in.lcssa, %._crit_edge78 ]
-  %.sroa.2.285 = phi i32 [ %31, %.lr.ph90 ], [ %.sroa.2.0.lcssa, %._crit_edge78 ]
-  %26 = icmp eq i8 %.24987, 0
-  %27 = select i1 %26, i1 %.25486, i1 false
-  %28 = urem i32 %.sroa.14.288, 10
-  %29 = trunc nuw nsw i32 %28 to i8
-  %30 = udiv i32 %.sroa.14.288, 10
-  %31 = udiv i32 %.sroa.2.285, 10
-  %32 = add nuw nsw i32 %.289, 1
-  %33 = urem i32 %31, 10
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.lr.ph90, label %.loopexit, !llvm.loop !11
-
-.loopexit:                                        ; preds = %.lr.ph90, %._crit_edge78
-  %.sroa.2.1 = phi i32 [ %.sroa.2.0.lcssa, %._crit_edge78 ], [ %31, %.lr.ph90 ]
-  %.153.in = phi i1 [ %.052.in.lcssa, %._crit_edge78 ], [ %27, %.lr.ph90 ]
-  %.148 = phi i8 [ %.047.lcssa, %._crit_edge78 ], [ %29, %.lr.ph90 ]
-  %.sroa.14.1 = phi i32 [ %.sroa.14.0.lcssa, %._crit_edge78 ], [ %30, %.lr.ph90 ]
-  %.1 = phi i32 [ %.046.lcssa, %._crit_edge78 ], [ %32, %.lr.ph90 ]
-  %35 = icmp eq i8 %.148, 5
-  %or.cond = select i1 %.153.in, i1 %35, i1 false
-  %36 = and i32 %.sroa.14.1, 1
-  %37 = icmp eq i32 %36, 0
-  %or.cond61 = and i1 %or.cond, %37
-  %38 = icmp ne i32 %.sroa.14.1, %.sroa.2.1
-  %39 = and i1 %3, %.055.in.lcssa
-  %or.cond63 = or i1 %38, %39
-  %40 = icmp ugt i8 %.148, 4
-  %not.or.cond61 = xor i1 %or.cond61, true
-  %41 = select i1 %not.or.cond61, i1 %40, i1 false
-  %not.or.cond63 = xor i1 %or.cond63, true
-  %narrow = select i1 %not.or.cond63, i1 true, i1 %41
-  br label %55
-
-.lr.ph:                                           ; preds = %.preheader65, %.lr.ph
-  %42 = phi i32 [ %48, %.lr.ph ], [ %8, %.preheader65 ]
-  %43 = phi i32 [ %47, %.lr.ph ], [ %7, %.preheader65 ]
-  %.467 = phi i32 [ %46, %.lr.ph ], [ 0, %.preheader65 ]
-  %.sroa.14.366 = phi i32 [ %44, %.lr.ph ], [ %.sroa.14.8.extract.trunc, %.preheader65 ]
-  %44 = udiv i32 %.sroa.14.366, 10
-  %45 = urem i32 %.sroa.14.366, 10
-  %46 = add nuw nsw i32 %.467, 1
-  %47 = udiv i32 %43, 10
-  %48 = udiv i32 %42, 10
-  %49 = icmp samesign ugt i32 %47, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !12
-
-._crit_edge:                                      ; preds = %.lr.ph
-  %50 = trunc nuw nsw i32 %45 to i8
-  br label %51
-
-51:                                               ; preds = %._crit_edge, %.preheader65
-  %.sroa.2.3.lcssa = phi i32 [ %42, %._crit_edge ], [ %.sroa.2.0.extract.trunc, %.preheader65 ]
-  %.451.lcssa = phi i8 [ %50, %._crit_edge ], [ %2, %.preheader65 ]
-  %.sroa.14.3.lcssa = phi i32 [ %44, %._crit_edge ], [ %.sroa.14.8.extract.trunc, %.preheader65 ]
-  %.4.lcssa = phi i32 [ %46, %._crit_edge ], [ 0, %.preheader65 ]
-  %52 = icmp eq i32 %.sroa.14.3.lcssa, %.sroa.2.3.lcssa
-  %53 = icmp ugt i8 %.451.lcssa, 4
-  %54 = select i1 %52, i1 true, i1 %53
-  br label %55
-
-55:                                               ; preds = %51, %.loopexit
-  %.sink124 = phi i1 [ %54, %51 ], [ %narrow, %.loopexit ]
-  %.sroa.14.3.lcssa.sink = phi i32 [ %.sroa.14.3.lcssa, %51 ], [ %.sroa.14.1, %.loopexit ]
-  %.3 = phi i32 [ %.4.lcssa, %51 ], [ %.1, %.loopexit ]
-  %56 = zext i1 %.sink124 to i32
-  %57 = add i32 %.sroa.14.3.lcssa.sink, %56
-  %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
-  %58 = add nsw i32 %.3, %.sroa.0.0.extract.trunc
-  %.sroa.245.0.insert.ext = zext i32 %58 to i64
-  %.sroa.245.0.insert.shift = shl nuw i64 %.sroa.245.0.insert.ext, 32
-  %.sroa.044.0.insert.ext = zext i32 %57 to i64
-  %.sroa.044.0.insert.insert = or disjoint i64 %.sroa.245.0.insert.shift, %.sroa.044.0.insert.ext
-  ret i64 %.sroa.044.0.insert.insert
-}
-
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1286,18 +1283,12 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_charconv.cc() #8 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1308,9 +1299,8 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: w
 attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

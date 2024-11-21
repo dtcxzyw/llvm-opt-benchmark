@@ -204,84 +204,63 @@ define hidden range(i32 -2147483648, 2147467136) i32 @mbedtls_rsa_complete(ptr n
   %or.cond7.not = xor i1 %or.cond7, true
   %or.cond9 = and i1 %12, %or.cond7.not
   %spec.select110 = select i1 %or.cond9, i1 %15, i1 false
-  %.not112 = xor i1 %12, true
-  %not.or.cond13 = and i1 %or.cond, %.not112
-  %spec.select107 = select i1 %not.or.cond13, i1 %15, i1 false
-  %or.cond19 = or i1 %or.cond7, %12
-  %not.or.cond19 = xor i1 %or.cond19, true
   %25 = select i1 %or.cond, i1 true, i1 %or.cond7.not
-  %26 = select i1 %12, i1 %25, i1 %or.cond
-  %spec.select108 = select i1 %26, i1 %15, i1 false
-  %27 = zext i1 %spec.select108 to i32
-  %28 = select i1 %26, i1 true, i1 %not.or.cond19
-  %or.cond23 = select i1 %28, i1 %15, i1 false
-  br i1 %or.cond23, label %29, label %54
+  %spec.select108 = select i1 %25, i1 %15, i1 false
+  %26 = zext i1 %spec.select108 to i32
+  br i1 %spec.select108, label %27, label %47
 
-29:                                               ; preds = %1
+27:                                               ; preds = %1
   %or.cond25 = select i1 %.not, i1 %6, i1 false
   %or.cond27 = select i1 %or.cond25, i1 %9, i1 false
-  br i1 %or.cond27, label %30, label %37
+  br i1 %or.cond27, label %28, label %35
 
-30:                                               ; preds = %29
-  %31 = tail call i32 @mbedtls_mpi_mul_mpi(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %7) #14
-  %.not103 = icmp eq i32 %31, 0
-  br i1 %.not103, label %34, label %32
+28:                                               ; preds = %27
+  %29 = tail call i32 @mbedtls_mpi_mul_mpi(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %7) #14
+  %.not103 = icmp eq i32 %29, 0
+  br i1 %.not103, label %32, label %30
 
-32:                                               ; preds = %30
-  %33 = add nsw i32 %31, -16512
-  br label %54
+30:                                               ; preds = %28
+  %31 = add nsw i32 %29, -16512
+  br label %47
 
-34:                                               ; preds = %30
-  %35 = tail call i64 @mbedtls_mpi_size(ptr noundef nonnull %2) #14
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %35, ptr %36, align 8
-  br label %37
+32:                                               ; preds = %28
+  %33 = tail call i64 @mbedtls_mpi_size(ptr noundef nonnull %2) #14
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %33, ptr %34, align 8
+  br label %35
 
-37:                                               ; preds = %34, %29
-  br i1 %spec.select110, label %38, label %42
+35:                                               ; preds = %32, %27
+  br i1 %spec.select110, label %36, label %40
 
-38:                                               ; preds = %37
-  %39 = tail call i32 @mbedtls_rsa_deduce_primes(ptr noundef nonnull %2, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %4, ptr noundef nonnull %7) #14
-  %.not105 = icmp eq i32 %39, 0
-  br i1 %.not105, label %47, label %40
+36:                                               ; preds = %35
+  %37 = tail call i32 @mbedtls_rsa_deduce_primes(ptr noundef nonnull %2, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %4, ptr noundef nonnull %7) #14
+  %.not105 = icmp eq i32 %37, 0
+  br i1 %.not105, label %40, label %38
 
-40:                                               ; preds = %38
-  %41 = add nsw i32 %39, -16512
-  br label %54
+38:                                               ; preds = %36
+  %39 = add nsw i32 %37, -16512
+  br label %47
 
-42:                                               ; preds = %37
-  br i1 %spec.select107, label %43, label %47
-
-43:                                               ; preds = %42
-  %44 = tail call i32 @mbedtls_rsa_deduce_private_exponent(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %10) #14
-  %.not104 = icmp eq i32 %44, 0
-  br i1 %.not104, label %47, label %45
-
-45:                                               ; preds = %43
-  %46 = add nsw i32 %44, -16512
-  br label %54
-
-47:                                               ; preds = %42, %43, %38
+40:                                               ; preds = %35, %36
   %or.cond29.not117 = select i1 %18, i1 true, i1 %21
   %or.cond31.not114 = select i1 %or.cond29.not117, i1 true, i1 %24
-  %or.cond109.not = select i1 %spec.select108, i1 %or.cond31.not114, i1 false
-  br i1 %or.cond109.not, label %48, label %52
+  br i1 %or.cond31.not114, label %41, label %45
 
-48:                                               ; preds = %47
-  %49 = tail call i32 @mbedtls_rsa_deduce_crt(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %16, ptr noundef nonnull %19, ptr noundef nonnull %22) #14
-  %.not106 = icmp eq i32 %49, 0
-  br i1 %.not106, label %52, label %50
+41:                                               ; preds = %40
+  %42 = tail call i32 @mbedtls_rsa_deduce_crt(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %16, ptr noundef nonnull %19, ptr noundef nonnull %22) #14
+  %.not106 = icmp eq i32 %42, 0
+  br i1 %.not106, label %45, label %43
 
-50:                                               ; preds = %48
-  %51 = add nsw i32 %49, -16512
-  br label %54
+43:                                               ; preds = %41
+  %44 = add nsw i32 %42, -16512
+  br label %47
 
-52:                                               ; preds = %48, %47
-  %53 = tail call fastcc i32 @rsa_check_context(ptr noundef %0, i32 noundef %27)
-  br label %54
+45:                                               ; preds = %41, %40
+  %46 = tail call fastcc i32 @rsa_check_context(ptr noundef %0, i32 noundef %26)
+  br label %47
 
-54:                                               ; preds = %1, %52, %50, %45, %40, %32
-  %.0 = phi i32 [ %33, %32 ], [ %41, %40 ], [ %53, %52 ], [ %51, %50 ], [ %46, %45 ], [ -16512, %1 ]
+47:                                               ; preds = %1, %45, %43, %38, %30
+  %.0 = phi i32 [ %31, %30 ], [ %39, %38 ], [ %46, %45 ], [ %44, %43 ], [ -16512, %1 ]
   ret i32 %.0
 }
 
@@ -290,8 +269,6 @@ declare i32 @mbedtls_mpi_cmp_int(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @mbedtls_mpi_mul_mpi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @mbedtls_rsa_deduce_primes(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-declare i32 @mbedtls_rsa_deduce_private_exponent(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @mbedtls_rsa_deduce_crt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

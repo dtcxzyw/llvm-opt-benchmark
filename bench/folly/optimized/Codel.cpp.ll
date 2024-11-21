@@ -207,9 +207,7 @@ entry:
   %cmp.i.i = icmp sge i64 %retval.sroa.0.0.copyload.i, %retval.sroa.0.0.copyload.i17
   %cmp.i.i18 = icmp slt i64 %retval.sroa.0.0.copyload.i, 1
   %or.cond = or i1 %cmp.i.i18, %cmp.i.i
-  %cmp.i.i19 = icmp slt i64 %retval.sroa.0.0.copyload.i17, 1
-  %or.cond24 = or i1 %cmp.i.i19, %or.cond
-  br i1 %or.cond24, label %if.then, label %if.end
+  br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #9

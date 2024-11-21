@@ -2358,12 +2358,12 @@ if.end.us.i.i.i.i.i:                              ; preds = %if.end11.us.i.i.i.i
 if.then5.us.i.i.i.i.i:                            ; preds = %if.end.us.i.i.i.i.i
   %and7.us.i.i.i.i.i = and i32 %93, %.sink.i251.i.i
   %94 = zext nneg i32 %and7.us.i.i.i.i.i to i64
-  %gep346.i.i = getelementptr i32, ptr %invariant.gep.i.i.i.i, i64 %94
-  %add.ptr.i.us.i.i.i.i.i = getelementptr inbounds i32, ptr %gep346.i.i, i64 %idx.ext.i.i.i.i.i.i
+  %gep348.i.i = getelementptr i32, ptr %invariant.gep.i.i.i.i, i64 %94
+  %add.ptr.i.us.i.i.i.i.i = getelementptr inbounds i32, ptr %gep348.i.i, i64 %idx.ext.i.i.i.i.i.i
   br label %land.rhs.i.us.i.i.i.i.i
 
 land.rhs.i.us.i.i.i.i.i:                          ; preds = %while.body.i.us.i.i.i.i.i, %if.then5.us.i.i.i.i.i
-  %p.addr.07.i.us.i.i.i.i.i = phi ptr [ %incdec.ptr.i.us.i.i.i.i.i, %while.body.i.us.i.i.i.i.i ], [ %gep346.i.i, %if.then5.us.i.i.i.i.i ]
+  %p.addr.07.i.us.i.i.i.i.i = phi ptr [ %incdec.ptr.i.us.i.i.i.i.i, %while.body.i.us.i.i.i.i.i ], [ %gep348.i.i, %if.then5.us.i.i.i.i.i ]
   %95 = load i32, ptr %p.addr.07.i.us.i.i.i.i.i, align 4
   %cmp1.i.us.i.i.i.i.i = icmp eq i32 %95, %91
   br i1 %cmp1.i.us.i.i.i.i.i, label %while.body.i.us.i.i.i.i.i, label %_ZN6icu_7512_GLOBAL__N_115allValuesSameAsEPKjij.exit.loopexit.us.i.i.i.i.i
@@ -2415,7 +2415,7 @@ _ZNK6icu_7512_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i: ; pred
   %or.cond77.not191215.i.i.i = and i1 %.not192.fr.i.i.i, %cmp21214.i.i.i
   %cmp26216.i.i.i = icmp slt i32 %retval.0.i115.i.i.i, %fastLength.1.i.i.i
   %or.cond78217.i.i.i = select i1 %or.cond77.not191215.i.i.i, i1 %cmp26216.i.i.i, i1 false
-  br i1 %or.cond78217.i.i.i, label %land.rhs.preheader.i.i.i, label %while.end.i.i.i
+  br i1 %or.cond78217.i.i.i, label %land.rhs.preheader.i.i.i, label %if.then32.i.i.i
 
 land.rhs.preheader.i.i.i:                         ; preds = %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i
   %sub.i121.i.i.i = sub nuw nsw i32 %newDataLength.1236.i.i.i, %blockLength.1.i.i.i
@@ -2480,13 +2480,11 @@ _ZN6icu_7512_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i: ; preds = %for.co
   %or.cond78.i.i.i = select i1 %cmp21.i.i.i, i1 %cmp26.i.i.i, i1 false
   br i1 %or.cond78.i.i.i, label %land.rhs.i.i.i, label %while.end.i.i.i, !llvm.loop !31
 
-while.end.i.i.i:                                  ; preds = %_ZN6icu_7512_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i
-  %n.0.lcssa.i.i.i = phi i32 [ %retval.0.i115.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i ], [ %block.017.i.i.i.i, %_ZN6icu_7512_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i ]
-  %cmp21.lcssa.i.i.i = phi i1 [ %cmp21214.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i ], [ %cmp21.i.i.i, %_ZN6icu_7512_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i ]
-  br i1 %cmp21.lcssa.i.i.i, label %if.then32.i.i.i, label %if.else.i106.i.i
+while.end.i.i.i:                                  ; preds = %_ZN6icu_7512_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i
+  br i1 %cmp21.i.i.i, label %if.then32.i.i.i, label %if.else.i106.i.i
 
-if.then32.i.i.i:                                  ; preds = %_ZN6icu_7512_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i, %while.end.i.i.i
-  %n.0.lcssa276.i.i.i = phi i32 [ %n.0.lcssa.i.i.i, %while.end.i.i.i ], [ %n.0218.i.i.i, %_ZN6icu_7512_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i ]
+if.then32.i.i.i:                                  ; preds = %_ZN6icu_7512_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i, %while.end.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i
+  %n.0.lcssa276.i.i.i = phi i32 [ %block.017.i.i.i.i, %while.end.i.i.i ], [ %retval.0.i115.i.i.i, %_ZNK6icu_7512_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i ], [ %n.0218.i.i.i, %_ZN6icu_7512_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i ]
   store i32 %n.0.lcssa276.i.i.i, ptr %arrayidx19.i.i.i, align 4
   br label %for.inc96.i.i.i
 

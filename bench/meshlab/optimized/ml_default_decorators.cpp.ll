@@ -5105,7 +5105,7 @@ define void @_ZN23MLDefaultMeshDecorators27cleanSelectionDecoratorDataER9MeshMod
   %8 = alloca %class.MLRenderingFaceSelectionAction, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %71, label %11
+  br i1 %10, label %68, label %11
 
 11:                                               ; preds = %4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
@@ -5158,12 +5158,12 @@ define void @_ZN23MLDefaultMeshDecorators27cleanSelectionDecoratorDataER9MeshMod
 34:                                               ; preds = %32, %30
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  br label %73
+  br label %70
 
 35:                                               ; preds = %37, %29, %14
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %69
 
 37:                                               ; preds = %29, %26
   %38 = load i32, ptr %21, align 8
@@ -5177,9 +5177,8 @@ define void @_ZN23MLDefaultMeshDecorators27cleanSelectionDecoratorDataER9MeshMod
           to label %43 unwind label %46
 
 43:                                               ; preds = %39
-  %or.cond5 = select i1 %3, i1 %27, i1 false
   %44 = icmp eq i32 %42, 0
-  %or.cond7 = and i1 %or.cond5, %44
+  %or.cond7 = and i1 %3, %44
   br i1 %or.cond7, label %45, label %48
 
 45:                                               ; preds = %43
@@ -5190,7 +5189,7 @@ define void @_ZN23MLDefaultMeshDecorators27cleanSelectionDecoratorDataER9MeshMod
   %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
-  br label %72
+  br label %69
 
 48:                                               ; preds = %45, %43
   %49 = or i32 %42, %25
@@ -5198,63 +5197,56 @@ define void @_ZN23MLDefaultMeshDecorators27cleanSelectionDecoratorDataER9MeshMod
   br i1 %or.cond9, label %50, label %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerMeshAttributeIP18MLSelectionBuffersEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESH_SH_E22PerMeshAttributeHandleIT_EE.exit
 
 50:                                               ; preds = %48
-  %51 = icmp eq ptr %20, null
-  br i1 %51, label %53, label %52
-
-52:                                               ; preds = %50
   call void @_ZN18MLSelectionBuffersD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %20) #25
   call void @_ZdlPv(ptr noundef nonnull %20) #24
-  br label %53
-
-53:                                               ; preds = %52, %50
-  %54 = getelementptr inbounds i8, ptr %1, i64 904
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 888
-  %.not13.i = icmp eq ptr %55, %56
+  %51 = getelementptr inbounds i8, ptr %1, i64 904
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %1, i64 888
+  %.not13.i = icmp eq ptr %52, %53
   br i1 %.not13.i, label %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerMeshAttributeIP18MLSelectionBuffersEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESH_SH_E22PerMeshAttributeHandleIT_EE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %53, %69
-  %.sroa.06.014.i = phi ptr [ %70, %69 ], [ %55, %53 ]
-  %57 = getelementptr inbounds i8, ptr %.sroa.06.014.i, i64 32
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, %15
-  br i1 %59, label %60, label %69
+.lr.ph.i:                                         ; preds = %50, %66
+  %.sroa.06.014.i = phi ptr [ %67, %66 ], [ %52, %50 ]
+  %54 = getelementptr inbounds i8, ptr %.sroa.06.014.i, i64 32
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, %15
+  br i1 %56, label %57, label %66
 
-60:                                               ; preds = %.lr.ph.i
-  %61 = load ptr, ptr %58, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(16) %58) #25
-  %64 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.06.014.i, ptr noundef nonnull align 8 dereferenceable(32) %56) #25
-  %65 = getelementptr inbounds i8, ptr %64, i64 40
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %65) #25
-  call void @_ZdlPv(ptr noundef nonnull %64) #24
-  %66 = getelementptr inbounds i8, ptr %1, i64 920
-  %67 = load i64, ptr %66, align 8
-  %68 = add i64 %67, -1
-  store i64 %68, ptr %66, align 8
+57:                                               ; preds = %.lr.ph.i
+  %58 = load ptr, ptr %55, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8
+  call void %60(ptr noundef nonnull align 8 dereferenceable(16) %55) #25
+  %61 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.06.014.i, ptr noundef nonnull align 8 dereferenceable(32) %53) #25
+  %62 = getelementptr inbounds i8, ptr %61, i64 40
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #25
+  call void @_ZdlPv(ptr noundef nonnull %61) #24
+  %63 = getelementptr inbounds i8, ptr %1, i64 920
+  %64 = load i64, ptr %63, align 8
+  %65 = add i64 %64, -1
+  store i64 %65, ptr %63, align 8
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerMeshAttributeIP18MLSelectionBuffersEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESH_SH_E22PerMeshAttributeHandleIT_EE.exit
 
-69:                                               ; preds = %.lr.ph.i
-  %70 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.014.i) #27
-  %.not.i = icmp eq ptr %70, %56
+66:                                               ; preds = %.lr.ph.i
+  %67 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.014.i) #27
+  %.not.i = icmp eq ptr %67, %53
   br i1 %.not.i, label %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerMeshAttributeIP18MLSelectionBuffersEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESH_SH_E22PerMeshAttributeHandleIT_EE.exit, label %.lr.ph.i, !llvm.loop !106
 
-_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerMeshAttributeIP18MLSelectionBuffersEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESH_SH_E22PerMeshAttributeHandleIT_EE.exit: ; preds = %69, %60, %53, %48
+_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerMeshAttributeIP18MLSelectionBuffersEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESH_SH_E22PerMeshAttributeHandleIT_EE.exit: ; preds = %66, %57, %50, %48
   call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
   call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #25
-  br label %71
+  br label %68
 
-71:                                               ; preds = %4, %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerMeshAttributeIP18MLSelectionBuffersEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESH_SH_E22PerMeshAttributeHandleIT_EE.exit
+68:                                               ; preds = %4, %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerMeshAttributeIP18MLSelectionBuffersEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESH_SH_E22PerMeshAttributeHandleIT_EE.exit
   ret void
 
-72:                                               ; preds = %46, %35
+69:                                               ; preds = %46, %35
   %.pn35 = phi { ptr, i32 } [ %47, %46 ], [ %36, %35 ]
   call void @_ZN7QActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #25
-  br label %73
+  br label %70
 
-73:                                               ; preds = %72, %34
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %72 ], [ %.pn, %34 ]
+70:                                               ; preds = %69, %34
+  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %69 ], [ %.pn, %34 ]
   resume { ptr, i32 } %.pn35.pn
 }
 

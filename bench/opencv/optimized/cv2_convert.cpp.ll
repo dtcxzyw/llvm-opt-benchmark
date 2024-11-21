@@ -201,8 +201,8 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv3MatEEbP7_objectRT_RK7ArgI
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ17GetNumpyAllocatorvE15gNumpyAllocator) #13
   br label %_Z17GetNumpyAllocatorv.exit
 
-common.resume:                                    ; preds = %57, %76, %141, %209, %388, %411, %31
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %.pn243, %57 ], [ %.pn, %76 ], [ %142, %141 ], [ %389, %388 ], [ %412, %411 ], [ %210, %209 ]
+common.resume:                                    ; preds = %57, %76, %141, %209, %388, %408, %31
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %.pn243, %57 ], [ %.pn, %76 ], [ %142, %141 ], [ %389, %388 ], [ %409, %408 ], [ %210, %209 ]
   resume { ptr, i32 } %common.resume.op
 
 31:                                               ; preds = %28
@@ -998,51 +998,41 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit282.thread: ; preds = %390, 
   br i1 %exitcond328.not, label %_ZL10_Py_DECREFP7_object.exit, label %371, !llvm.loop !9
 
 ._crit_edge314.thread:                            ; preds = %339, %._crit_edge314
-  %399 = icmp eq i32 %.0209, 0
-  br i1 %399, label %400, label %401
+  %399 = getelementptr i8, ptr %.0190, i64 16
+  %.0190.val265 = load ptr, ptr %399, align 8
+  call void @_ZN2cv3MatC1EiPKiiPvPKm(ptr noundef nonnull align 8 dereferenceable(96) %17, i32 noundef %.0209, ptr noundef nonnull %14, i32 noundef %.1212, ptr noundef %.0190.val265, ptr noundef nonnull %15)
+  %400 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %17)
+          to label %401 unwind label %408
 
-400:                                              ; preds = %._crit_edge314.thread
-  store i32 1, ptr %14, align 16
-  store i64 %.0208, ptr %15, align 16
-  br label %401
-
-401:                                              ; preds = %400, %._crit_edge314.thread
-  %.1210 = phi i32 [ 1, %400 ], [ %.0209, %._crit_edge314.thread ]
-  %402 = getelementptr i8, ptr %.0190, i64 16
-  %.0190.val265 = load ptr, ptr %402, align 8
-  call void @_ZN2cv3MatC1EiPKiiPvPKm(ptr noundef nonnull align 8 dereferenceable(96) %17, i32 noundef %.1210, ptr noundef nonnull %14, i32 noundef %.1212, ptr noundef %.0190.val265, ptr noundef nonnull %15)
-  %403 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %17)
-          to label %404 unwind label %411
-
-404:                                              ; preds = %401
+401:                                              ; preds = %._crit_edge314.thread
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #13
-  %405 = call noundef nonnull align 8 dereferenceable(16) ptr @_Z17GetNumpyAllocatorv()
-  %406 = call noundef ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiPm(ptr noundef nonnull align 8 dereferenceable(16) %405, ptr noundef nonnull %.0190, i32 noundef %.1210, ptr noundef nonnull %14, i32 noundef %.1212, ptr noundef nonnull %15)
-  %407 = getelementptr inbounds i8, ptr %1, i64 56
-  store ptr %406, ptr %407, align 8
+  %402 = call noundef nonnull align 8 dereferenceable(16) ptr @_Z17GetNumpyAllocatorv()
+  %403 = call noundef ptr @_ZNK14NumpyAllocator8allocateEP7_objectiPKiiPm(ptr noundef nonnull align 8 dereferenceable(16) %402, ptr noundef nonnull %.0190, i32 noundef %.0209, ptr noundef nonnull %14, i32 noundef %.1212, ptr noundef nonnull %15)
+  %404 = getelementptr inbounds i8, ptr %1, i64 56
+  store ptr %403, ptr %404, align 8
   call void @_ZN2cv3Mat6addrefEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
-  br i1 %310, label %413, label %408
+  br i1 %310, label %410, label %405
 
-408:                                              ; preds = %404
-  %409 = load i64, ptr %.0190, align 8
-  %410 = add nsw i64 %409, 1
-  store i64 %410, ptr %.0190, align 8
-  br label %413
+405:                                              ; preds = %401
+  %406 = load i64, ptr %.0190, align 8
+  %407 = add nsw i64 %406, 1
+  store i64 %407, ptr %.0190, align 8
+  br label %410
 
-411:                                              ; preds = %401
-  %412 = landingpad { ptr, i32 }
+408:                                              ; preds = %._crit_edge314.thread
+  %409 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #13
   br label %common.resume
 
-413:                                              ; preds = %408, %404
-  %414 = call noundef nonnull align 8 dereferenceable(16) ptr @_Z17GetNumpyAllocatorv()
-  %415 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr %414, ptr %415, align 8
+410:                                              ; preds = %405, %401
+  %411 = call noundef nonnull align 8 dereferenceable(16) ptr @_Z17GetNumpyAllocatorv()
+  %412 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr %411, ptr %412, align 8
   br label %_ZL10_Py_DECREFP7_object.exit
 
-_ZL10_Py_DECREFP7_object.exit:                    ; preds = %181, %396, %_ZN2cv3MataSERKNS_7MatExprE.exit, %_ZN2cv3MataSERKNS_7MatExprE.exit280, %244, %243, %20, %_Z17GetNumpyAllocatorv.exit, %413, %393, %314, %290, %213, %208, %196, %187, %178, %71, %52
-  %.0 = phi i1 [ true, %52 ], [ true, %71 ], [ false, %178 ], [ false, %213 ], [ false, %290 ], [ false, %314 ], [ false, %393 ], [ true, %413 ], [ false, %208 ], [ false, %196 ], [ false, %187 ], [ true, %_Z17GetNumpyAllocatorv.exit ], [ true, %20 ], [ false, %243 ], [ false, %244 ], [ true, %_ZN2cv3MataSERKNS_7MatExprE.exit280 ], [ true, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ true, %396 ], [ true, %181 ]
+_ZL10_Py_DECREFP7_object.exit:                    ; preds = %181, %396, %_ZN2cv3MataSERKNS_7MatExprE.exit, %_ZN2cv3MataSERKNS_7MatExprE.exit280, %244, %243, %20, %_Z17GetNumpyAllocatorv.exit, %410, %393, %314, %290, %213, %208, %196, %187, %178, %71, %52
+  %.0 = phi i1 [ true, %52 ], [ true, %71 ], [ false, %178 ], [ false, %213 ], [ false, %290 ], [ false, %314 ], [ false, %393 ], [ true, %410 ], [ false, %208 ], [ false, %196 ], [ false, %187 ], [ true, %_Z17GetNumpyAllocatorv.exit ], [ true, %20 ], [ false, %243 ], [ false, %244 ], [ true, %_ZN2cv3MataSERKNS_7MatExprE.exit280 ], [ true, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ true, %396 ], [ true, %181 ]
   ret i1 %.0
 }
 
