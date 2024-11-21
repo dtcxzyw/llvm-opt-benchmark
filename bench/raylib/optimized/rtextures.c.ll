@@ -34939,16 +34939,16 @@ stbir__get_max_split.exit:                        ; preds = %.lr.ph.i, %9
   br label %53
 
 47:                                               ; preds = %32
-  %48 = add nsw i64 %17, -11
-  %49 = icmp ult i64 %48, 6
+  %48 = add i32 %2, -11
+  %49 = icmp ult i32 %48, 6
   %or.cond9 = select i1 %49, i1 %39, i1 false
   %or.cond11 = and i1 %40, %or.cond9
   br i1 %or.cond11, label %53, label %50
 
 50:                                               ; preds = %47
-  %51 = add nsw i64 %20, -11
-  %52 = icmp ult i64 %51, 6
-  %or.cond15 = select i1 %or.cond, i1 %52, i1 false
+  %51 = add i32 %3, -11
+  %52 = icmp ult i32 %51, 6
+  %or.cond15 = and i1 %52, %or.cond
   br label %53
 
 53:                                               ; preds = %50, %47, %41, %42, %29

@@ -99,9 +99,8 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDa
   br label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread
 
 20:                                               ; preds = %3
-  %21 = zext i8 %12 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %21, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %21 = add i8 %12, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %21, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %22, label %49
 
 22:                                               ; preds = %20

@@ -5436,9 +5436,8 @@ define dso_local noundef zeroext i1 @_ZN5clang5arcmt5trans16MigrationContext16is
   %25 = load ptr, ptr %24, align 16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i8, ptr %26, align 16
-  %28 = zext i8 %27 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %28, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %28 = add i8 %27, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %28, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %29, label %33
 
 29:                                               ; preds = %20

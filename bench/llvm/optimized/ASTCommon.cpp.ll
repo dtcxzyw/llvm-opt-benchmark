@@ -495,25 +495,26 @@ _ZNK5clang4Decl21getLexicalDeclContextEv.exit24:  ; preds = %84, %85
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i23, i64 8
   %89 = load i16, ptr %88, align 8
   %90 = and i16 %89, 127
-  %91 = zext nneg i16 %90 to i32
-  %92 = add nsw i32 %91, -55
-  %93 = icmp ult i32 %92, 4
-  %94 = icmp eq i16 %90, 17
-  %spec.select.i25 = or i1 %94, %93
-  br i1 %spec.select.i25, label %95, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit
+  switch i16 %90, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit [
+    i16 58, label %91
+    i16 57, label %91
+    i16 56, label %91
+    i16 55, label %91
+    i16 17, label %91
+  ]
 
-95:                                               ; preds = %_ZNK5clang4Decl21getLexicalDeclContextEv.exit24
-  %96 = load i32, ptr %2, align 4
-  %97 = and i32 %96, 127
-  %98 = add nsw i32 %97, -55
-  %99 = icmp ult i32 %98, 5
-  %100 = add nsw i32 %97, -46
-  %101 = icmp ult i32 %100, 3
-  %102 = select i1 %99, i1 true, i1 %101
+91:                                               ; preds = %_ZNK5clang4Decl21getLexicalDeclContextEv.exit24, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit24, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit24, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit24, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit24
+  %92 = load i32, ptr %2, align 4
+  %93 = and i32 %92, 127
+  %94 = add nsw i32 %93, -55
+  %95 = icmp ult i32 %94, 5
+  %96 = add nsw i32 %93, -46
+  %97 = icmp ult i32 %96, 3
+  %98 = select i1 %95, i1 true, i1 %97
   br label %_ZNK5clang7VarDecl13isStaticLocalEv.exit
 
-_ZNK5clang7VarDecl13isStaticLocalEv.exit:         ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i.i.i, %64, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i, %54, %51, %47, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit24, %82, %25, %95, %78, %28, %23
-  %.0 = phi i1 [ %spec.select.i21, %78 ], [ %102, %95 ], [ %.not13, %23 ], [ %.not12, %28 ], [ true, %25 ], [ false, %82 ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit24 ], [ false, %51 ], [ false, %47 ], [ true, %54 ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i ], [ true, %64 ], [ %spec.select.i.i.i.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i.i ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i ]
+_ZNK5clang7VarDecl13isStaticLocalEv.exit:         ; preds = %_ZNK5clang4Decl21getLexicalDeclContextEv.exit24, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i.i, %64, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i, %54, %51, %47, %82, %25, %91, %78, %28, %23
+  %.0 = phi i1 [ %spec.select.i21, %78 ], [ %98, %91 ], [ %.not13, %23 ], [ %.not12, %28 ], [ true, %25 ], [ false, %82 ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit24 ], [ false, %51 ], [ false, %47 ], [ true, %54 ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i ], [ true, %64 ], [ %spec.select.i.i.i.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i.i ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i ]
   ret i1 %.0
 }
 

@@ -13658,9 +13658,8 @@ tailrecurse.backedge:                             ; preds = %46, %53, %51
   br i1 %or.cond, label %53, label %tailrecurse.backedge
 
 53:                                               ; preds = %51
-  %54 = zext i8 %45 to i32
-  %55 = add nsw i32 %54, -7
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %55, -5
+  %54 = add i8 %45, -7
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %54, -5
   %.not47 = or i1 %.not84, %switch.i.i.i.i.i.i.i.i.i
   br i1 %.not47, label %.fold.split, label %tailrecurse.backedge
 

@@ -352,10 +352,10 @@ define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(pt
   %29 = add nsw i32 %.095191.i, -1
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %131, %26
-  %.095.be.i = phi i32 [ %134, %131 ], [ %29, %26 ]
-  %.091.be.i = phi ptr [ %.1.i, %131 ], [ %27, %26 ]
-  %.0.be.i = phi ptr [ %133, %131 ], [ %28, %26 ]
+.backedge.i:                                      ; preds = %127, %26
+  %.095.be.i = phi i32 [ %130, %127 ], [ %29, %26 ]
+  %.091.be.i = phi ptr [ %.1.i, %127 ], [ %27, %26 ]
+  %.0.be.i = phi ptr [ %129, %127 ], [ %28, %26 ]
   %30 = icmp sgt i32 %.095.be.i, 0
   br i1 %30, label %.lr.ph.i, label %shift_jis_20042euc_jis_2004.exit, !llvm.loop !6
 
@@ -383,11 +383,11 @@ define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(pt
   store i8 -114, ptr %.091195.i, align 1
   %40 = getelementptr i8, ptr %.091195.i, i64 2
   store i8 %20, ptr %39, align 1
-  br label %131
+  br label %127
 
 41:                                               ; preds = %35
   %42 = icmp eq i32 %32, 2
-  br i1 %42, label %43, label %131
+  br i1 %42, label %43, label %127
 
 43:                                               ; preds = %41
   %44 = getelementptr i8, ptr %.0197.i, i64 1
@@ -396,7 +396,7 @@ define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(pt
   %47 = icmp ne i8 %20, -128
   %48 = icmp samesign ult i8 %20, -96
   %or.cond5.i = and i1 %47, %48
-  br i1 %or.cond5.i, label %49, label %63
+  br i1 %or.cond5.i, label %49, label %62
 
 49:                                               ; preds = %43
   %50 = add nsw i32 %46, -64
@@ -405,246 +405,242 @@ define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(pt
 
 get_ten.exit.thread133.i:                         ; preds = %49
   %51 = add nsw i32 %46, -63
-  br label %59
+  br label %58
 
 52:                                               ; preds = %49
-  %53 = add nsw i32 %46, -128
-  %or.cond3.i.i = icmp ult i32 %53, 31
-  br i1 %or.cond3.i.i, label %get_ten.exit.i, label %54
+  %or.cond3.i.i = icmp slt i8 %45, -97
+  br i1 %or.cond3.i.i, label %get_ten.exit.i, label %53
 
-54:                                               ; preds = %52
-  %55 = add nsw i32 %46, -159
-  %or.cond5.i.i = icmp ult i32 %55, 94
-  %56 = add nsw i32 %46, -158
+53:                                               ; preds = %52
+  %54 = add i8 %45, 97
+  %or.cond5.i.i = icmp ult i8 %54, 94
+  %55 = add nsw i32 %46, -158
   br i1 %or.cond5.i.i, label %get_ten.exit.i, label %get_ten.exit.thread.i
 
-get_ten.exit.i:                                   ; preds = %54, %52
-  %.sink.i.neg.i = phi i32 [ -1, %52 ], [ 0, %54 ]
-  %.0.i.i = phi i32 [ %50, %52 ], [ %56, %54 ]
-  %57 = icmp slt i32 %.0.i.i, 0
-  br i1 %57, label %get_ten.exit.thread.i, label %59
+get_ten.exit.i:                                   ; preds = %53, %52
+  %.sink.i.neg.i = phi i32 [ -1, %52 ], [ 0, %53 ]
+  %.0.i.i = phi i32 [ %50, %52 ], [ %55, %53 ]
+  %56 = icmp slt i32 %.0.i.i, 0
+  br i1 %56, label %get_ten.exit.thread.i, label %58
 
-get_ten.exit.thread.i:                            ; preds = %get_ten.exit.i, %54
-  br i1 %.not, label %58, label %shift_jis_20042euc_jis_2004.exit
+get_ten.exit.thread.i:                            ; preds = %get_ten.exit.i, %53
+  br i1 %.not, label %57, label %shift_jis_20042euc_jis_2004.exit
 
-58:                                               ; preds = %get_ten.exit.thread.i
+57:                                               ; preds = %get_ten.exit.thread.i
   tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #5
   unreachable
 
-59:                                               ; preds = %get_ten.exit.i, %get_ten.exit.thread133.i
+58:                                               ; preds = %get_ten.exit.i, %get_ten.exit.thread133.i
   %.0.i137.i = phi i32 [ %51, %get_ten.exit.thread133.i ], [ %.0.i.i, %get_ten.exit.i ]
   %.sink.i136.neg.i = phi i32 [ -1, %get_ten.exit.thread133.i ], [ %.sink.i.neg.i, %get_ten.exit.i ]
-  %60 = shl nuw nsw i32 %21, 1
-  %61 = add nsw i32 %60, -256
-  %62 = add nsw i32 %61, %.sink.i136.neg.i
-  br label %124
+  %59 = shl nuw nsw i32 %21, 1
+  %60 = add nsw i32 %59, -256
+  %61 = add nsw i32 %60, %.sink.i136.neg.i
+  br label %120
 
-63:                                               ; preds = %43
-  %64 = and i8 %20, -16
-  %or.cond7.i = icmp eq i8 %64, -32
-  br i1 %or.cond7.i, label %65, label %79
+62:                                               ; preds = %43
+  %63 = and i8 %20, -16
+  %or.cond7.i = icmp eq i8 %63, -32
+  br i1 %or.cond7.i, label %64, label %77
 
-65:                                               ; preds = %63
-  %66 = add nsw i32 %46, -64
-  %or.cond.i104.i = icmp ult i32 %66, 63
-  br i1 %or.cond.i104.i, label %get_ten.exit110.thread141.i, label %68
+64:                                               ; preds = %62
+  %65 = add nsw i32 %46, -64
+  %or.cond.i104.i = icmp ult i32 %65, 63
+  br i1 %or.cond.i104.i, label %get_ten.exit110.thread141.i, label %67
 
-get_ten.exit110.thread141.i:                      ; preds = %65
-  %67 = add nsw i32 %46, -63
-  br label %75
+get_ten.exit110.thread141.i:                      ; preds = %64
+  %66 = add nsw i32 %46, -63
+  br label %73
 
-68:                                               ; preds = %65
-  %69 = add nsw i32 %46, -128
-  %or.cond3.i105.i = icmp ult i32 %69, 31
-  br i1 %or.cond3.i105.i, label %get_ten.exit110.i, label %70
+67:                                               ; preds = %64
+  %or.cond3.i105.i = icmp slt i8 %45, -97
+  br i1 %or.cond3.i105.i, label %get_ten.exit110.i, label %68
 
-70:                                               ; preds = %68
-  %71 = add nsw i32 %46, -159
-  %or.cond5.i106.i = icmp ult i32 %71, 94
-  %72 = add nsw i32 %46, -158
+68:                                               ; preds = %67
+  %69 = add i8 %45, 97
+  %or.cond5.i106.i = icmp ult i8 %69, 94
+  %70 = add nsw i32 %46, -158
   br i1 %or.cond5.i106.i, label %get_ten.exit110.i, label %get_ten.exit110.thread.i
 
-get_ten.exit110.i:                                ; preds = %70, %68
-  %.sink.i108.neg.i = phi i32 [ -1, %68 ], [ 0, %70 ]
-  %.0.i109.i = phi i32 [ %66, %68 ], [ %72, %70 ]
-  %73 = icmp slt i32 %.0.i109.i, 0
-  br i1 %73, label %get_ten.exit110.thread.i, label %75
+get_ten.exit110.i:                                ; preds = %68, %67
+  %.sink.i108.neg.i = phi i32 [ -1, %67 ], [ 0, %68 ]
+  %.0.i109.i = phi i32 [ %65, %67 ], [ %70, %68 ]
+  %71 = icmp slt i32 %.0.i109.i, 0
+  br i1 %71, label %get_ten.exit110.thread.i, label %73
 
-get_ten.exit110.thread.i:                         ; preds = %get_ten.exit110.i, %70
-  br i1 %.not, label %74, label %shift_jis_20042euc_jis_2004.exit
+get_ten.exit110.thread.i:                         ; preds = %get_ten.exit110.i, %68
+  br i1 %.not, label %72, label %shift_jis_20042euc_jis_2004.exit
 
-74:                                               ; preds = %get_ten.exit110.thread.i
+72:                                               ; preds = %get_ten.exit110.thread.i
   tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #5
   unreachable
 
-75:                                               ; preds = %get_ten.exit110.i, %get_ten.exit110.thread141.i
-  %.0.i109145.i = phi i32 [ %67, %get_ten.exit110.thread141.i ], [ %.0.i109.i, %get_ten.exit110.i ]
+73:                                               ; preds = %get_ten.exit110.i, %get_ten.exit110.thread141.i
+  %.0.i109145.i = phi i32 [ %66, %get_ten.exit110.thread141.i ], [ %.0.i109.i, %get_ten.exit110.i ]
   %.sink.i108144.neg.i = phi i32 [ -1, %get_ten.exit110.thread141.i ], [ %.sink.i108.neg.i, %get_ten.exit110.i ]
-  %76 = shl nuw nsw i32 %21, 1
-  %77 = add nsw i32 %76, -384
-  %78 = add nsw i32 %77, %.sink.i108144.neg.i
-  br label %124
+  %74 = shl nuw nsw i32 %21, 1
+  %75 = add nsw i32 %74, -384
+  %76 = add nsw i32 %75, %.sink.i108144.neg.i
+  br label %120
 
-79:                                               ; preds = %63
-  %80 = and i8 %20, -4
-  %or.cond9.i = icmp eq i8 %80, -16
-  br i1 %or.cond9.i, label %81, label %101
+77:                                               ; preds = %62
+  %78 = and i8 %20, -4
+  %or.cond9.i = icmp eq i8 %78, -16
+  br i1 %or.cond9.i, label %79, label %98
 
-81:                                               ; preds = %79
-  %82 = add nsw i32 %46, -64
-  %or.cond.i111.i = icmp ult i32 %82, 63
-  br i1 %or.cond.i111.i, label %get_ten.exit117.thread149.i, label %84
+79:                                               ; preds = %77
+  %80 = add nsw i32 %46, -64
+  %or.cond.i111.i = icmp ult i32 %80, 63
+  br i1 %or.cond.i111.i, label %get_ten.exit117.thread149.i, label %82
 
-get_ten.exit117.thread149.i:                      ; preds = %81
-  %83 = add nsw i32 %46, -63
-  br label %91
+get_ten.exit117.thread149.i:                      ; preds = %79
+  %81 = add nsw i32 %46, -63
+  br label %88
 
-84:                                               ; preds = %81
-  %85 = add nsw i32 %46, -128
-  %or.cond3.i112.i = icmp ult i32 %85, 31
-  br i1 %or.cond3.i112.i, label %get_ten.exit117.i, label %86
+82:                                               ; preds = %79
+  %or.cond3.i112.i = icmp slt i8 %45, -97
+  br i1 %or.cond3.i112.i, label %get_ten.exit117.i, label %83
 
-86:                                               ; preds = %84
-  %87 = add nsw i32 %46, -159
-  %or.cond5.i113.i = icmp ult i32 %87, 94
-  %88 = add nsw i32 %46, -158
+83:                                               ; preds = %82
+  %84 = add i8 %45, 97
+  %or.cond5.i113.i = icmp ult i8 %84, 94
+  %85 = add nsw i32 %46, -158
   br i1 %or.cond5.i113.i, label %get_ten.exit117.i, label %get_ten.exit117.thread.i
 
-get_ten.exit117.i:                                ; preds = %86, %84
-  %.sink.i115.i = phi i32 [ 1, %84 ], [ 0, %86 ]
-  %.0.i116.i = phi i32 [ %82, %84 ], [ %88, %86 ]
-  %89 = icmp slt i32 %.0.i116.i, 0
-  br i1 %89, label %get_ten.exit117.thread.i, label %91
+get_ten.exit117.i:                                ; preds = %83, %82
+  %.sink.i115.i = phi i32 [ 1, %82 ], [ 0, %83 ]
+  %.0.i116.i = phi i32 [ %80, %82 ], [ %85, %83 ]
+  %86 = icmp slt i32 %.0.i116.i, 0
+  br i1 %86, label %get_ten.exit117.thread.i, label %88
 
-get_ten.exit117.thread.i:                         ; preds = %get_ten.exit117.i, %86
-  br i1 %.not, label %90, label %shift_jis_20042euc_jis_2004.exit
+get_ten.exit117.thread.i:                         ; preds = %get_ten.exit117.i, %83
+  br i1 %.not, label %87, label %shift_jis_20042euc_jis_2004.exit
 
-90:                                               ; preds = %get_ten.exit117.thread.i
+87:                                               ; preds = %get_ten.exit117.thread.i
   tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #5
   unreachable
 
-91:                                               ; preds = %get_ten.exit117.i, %get_ten.exit117.thread149.i
-  %.0.i116153.i = phi i32 [ %83, %get_ten.exit117.thread149.i ], [ %.0.i116.i, %get_ten.exit117.i ]
+88:                                               ; preds = %get_ten.exit117.i, %get_ten.exit117.thread149.i
+  %.0.i116153.i = phi i32 [ %81, %get_ten.exit117.thread149.i ], [ %.0.i116.i, %get_ten.exit117.i ]
   %.sink.i115152.i = phi i32 [ 1, %get_ten.exit117.thread149.i ], [ %.sink.i115.i, %get_ten.exit117.i ]
-  %92 = icmp eq i32 %.sink.i115152.i, 0
-  switch i8 %20, label %99 [
-    i8 -16, label %93
-    i8 -15, label %95
-    i8 -14, label %97
+  %89 = icmp eq i32 %.sink.i115152.i, 0
+  switch i8 %20, label %96 [
+    i8 -16, label %90
+    i8 -15, label %92
+    i8 -14, label %94
   ]
 
-93:                                               ; preds = %91
-  %94 = select i1 %92, i32 8, i32 1
-  br label %122
+90:                                               ; preds = %88
+  %91 = select i1 %89, i32 8, i32 1
+  br label %118
 
-95:                                               ; preds = %91
-  %96 = select i1 %92, i32 4, i32 3
-  br label %122
+92:                                               ; preds = %88
+  %93 = select i1 %89, i32 4, i32 3
+  br label %118
 
-97:                                               ; preds = %91
-  %98 = select i1 %92, i32 12, i32 5
-  br label %122
+94:                                               ; preds = %88
+  %95 = select i1 %89, i32 12, i32 5
+  br label %118
 
-99:                                               ; preds = %91
-  %100 = select i1 %92, i32 14, i32 13
-  br label %122
+96:                                               ; preds = %88
+  %97 = select i1 %89, i32 14, i32 13
+  br label %118
 
-101:                                              ; preds = %79
-  %102 = add nsw i8 %20, 12
-  %or.cond11.i = icmp ult i8 %102, 9
-  br i1 %or.cond11.i, label %103, label %120
+98:                                               ; preds = %77
+  %99 = add nsw i8 %20, 12
+  %or.cond11.i = icmp ult i8 %99, 9
+  br i1 %or.cond11.i, label %100, label %116
 
-103:                                              ; preds = %101
-  %104 = add nsw i32 %46, -64
-  %or.cond.i118.i = icmp ult i32 %104, 63
-  br i1 %or.cond.i118.i, label %get_ten.exit124.thread157.i, label %106
+100:                                              ; preds = %98
+  %101 = add nsw i32 %46, -64
+  %or.cond.i118.i = icmp ult i32 %101, 63
+  br i1 %or.cond.i118.i, label %get_ten.exit124.thread157.i, label %103
 
-get_ten.exit124.thread157.i:                      ; preds = %103
-  %105 = add nsw i32 %46, -63
-  br label %113
+get_ten.exit124.thread157.i:                      ; preds = %100
+  %102 = add nsw i32 %46, -63
+  br label %109
 
-106:                                              ; preds = %103
-  %107 = add nsw i32 %46, -128
-  %or.cond3.i119.i = icmp ult i32 %107, 31
-  br i1 %or.cond3.i119.i, label %get_ten.exit124.i, label %108
+103:                                              ; preds = %100
+  %or.cond3.i119.i = icmp slt i8 %45, -97
+  br i1 %or.cond3.i119.i, label %get_ten.exit124.i, label %104
 
-108:                                              ; preds = %106
-  %109 = add nsw i32 %46, -159
-  %or.cond5.i120.i = icmp ult i32 %109, 94
-  %110 = add nsw i32 %46, -158
+104:                                              ; preds = %103
+  %105 = add i8 %45, 97
+  %or.cond5.i120.i = icmp ult i8 %105, 94
+  %106 = add nsw i32 %46, -158
   br i1 %or.cond5.i120.i, label %get_ten.exit124.i, label %get_ten.exit124.thread.i
 
-get_ten.exit124.i:                                ; preds = %108, %106
-  %.sink.i122.i = phi i32 [ 1, %106 ], [ 0, %108 ]
-  %.0.i123.i = phi i32 [ %104, %106 ], [ %110, %108 ]
-  %111 = icmp slt i32 %.0.i123.i, 0
-  br i1 %111, label %get_ten.exit124.thread.i, label %113
+get_ten.exit124.i:                                ; preds = %104, %103
+  %.sink.i122.i = phi i32 [ 1, %103 ], [ 0, %104 ]
+  %.0.i123.i = phi i32 [ %101, %103 ], [ %106, %104 ]
+  %107 = icmp slt i32 %.0.i123.i, 0
+  br i1 %107, label %get_ten.exit124.thread.i, label %109
 
-get_ten.exit124.thread.i:                         ; preds = %get_ten.exit124.i, %108
-  br i1 %.not, label %112, label %shift_jis_20042euc_jis_2004.exit
+get_ten.exit124.thread.i:                         ; preds = %get_ten.exit124.i, %104
+  br i1 %.not, label %108, label %shift_jis_20042euc_jis_2004.exit
 
-112:                                              ; preds = %get_ten.exit124.thread.i
+108:                                              ; preds = %get_ten.exit124.thread.i
   tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #5
   unreachable
 
-113:                                              ; preds = %get_ten.exit124.i, %get_ten.exit124.thread157.i
-  %.0.i123161.i = phi i32 [ %105, %get_ten.exit124.thread157.i ], [ %.0.i123.i, %get_ten.exit124.i ]
+109:                                              ; preds = %get_ten.exit124.i, %get_ten.exit124.thread157.i
+  %.0.i123161.i = phi i32 [ %102, %get_ten.exit124.thread157.i ], [ %.0.i123.i, %get_ten.exit124.i ]
   %.sink.i122160.i = phi i32 [ 1, %get_ten.exit124.thread157.i ], [ %.sink.i122.i, %get_ten.exit124.i ]
-  %114 = icmp eq i8 %20, -12
-  %115 = icmp eq i32 %.sink.i122160.i, 1
-  %or.cond13.i = and i1 %114, %115
-  br i1 %or.cond13.i, label %122, label %116
+  %110 = icmp eq i8 %20, -12
+  %111 = icmp eq i32 %.sink.i122160.i, 1
+  %or.cond13.i = and i1 %110, %111
+  br i1 %or.cond13.i, label %118, label %112
 
-116:                                              ; preds = %113
-  %117 = shl nuw nsw i32 %21, 1
-  %118 = add nsw i32 %117, -410
-  %119 = sub nsw i32 %118, %.sink.i122160.i
-  br label %122
+112:                                              ; preds = %109
+  %113 = shl nuw nsw i32 %21, 1
+  %114 = add nsw i32 %113, -410
+  %115 = sub nsw i32 %114, %.sink.i122160.i
+  br label %118
 
-120:                                              ; preds = %101
-  br i1 %.not, label %121, label %shift_jis_20042euc_jis_2004.exit
+116:                                              ; preds = %98
+  br i1 %.not, label %117, label %shift_jis_20042euc_jis_2004.exit
 
-121:                                              ; preds = %120
+117:                                              ; preds = %116
   tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #5
   unreachable
 
-122:                                              ; preds = %116, %113, %99, %97, %95, %93
-  %.094.ph.i = phi i32 [ 15, %113 ], [ %119, %116 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ]
-  %.093.ph.i = phi i32 [ %.0.i123161.i, %113 ], [ %.0.i123161.i, %116 ], [ %.0.i116153.i, %93 ], [ %.0.i116153.i, %95 ], [ %.0.i116153.i, %97 ], [ %.0.i116153.i, %99 ]
-  %123 = getelementptr i8, ptr %.091195.i, i64 1
+118:                                              ; preds = %112, %109, %96, %94, %92, %90
+  %.094.ph.i = phi i32 [ 15, %109 ], [ %115, %112 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ]
+  %.093.ph.i = phi i32 [ %.0.i123161.i, %109 ], [ %.0.i123161.i, %112 ], [ %.0.i116153.i, %90 ], [ %.0.i116153.i, %92 ], [ %.0.i116153.i, %94 ], [ %.0.i116153.i, %96 ]
+  %119 = getelementptr i8, ptr %.091195.i, i64 1
   store i8 -113, ptr %.091195.i, align 1
-  br label %124
+  br label %120
 
-124:                                              ; preds = %122, %75, %59
-  %.093166.i = phi i32 [ %.093.ph.i, %122 ], [ %.0.i137.i, %59 ], [ %.0.i109145.i, %75 ]
-  %.094164.i = phi i32 [ %.094.ph.i, %122 ], [ %62, %59 ], [ %78, %75 ]
-  %.2.i = phi ptr [ %123, %122 ], [ %.091195.i, %59 ], [ %.091195.i, %75 ]
-  %125 = trunc i32 %.094164.i to i8
-  %126 = add i8 %125, -96
-  %127 = getelementptr i8, ptr %.2.i, i64 1
-  store i8 %126, ptr %.2.i, align 1
-  %128 = trunc i32 %.093166.i to i8
-  %129 = add i8 %128, -96
-  %130 = getelementptr i8, ptr %.2.i, i64 2
-  store i8 %129, ptr %127, align 1
-  br label %131
+120:                                              ; preds = %118, %73, %58
+  %.093166.i = phi i32 [ %.093.ph.i, %118 ], [ %.0.i137.i, %58 ], [ %.0.i109145.i, %73 ]
+  %.094164.i = phi i32 [ %.094.ph.i, %118 ], [ %61, %58 ], [ %76, %73 ]
+  %.2.i = phi ptr [ %119, %118 ], [ %.091195.i, %58 ], [ %.091195.i, %73 ]
+  %121 = trunc i32 %.094164.i to i8
+  %122 = add i8 %121, -96
+  %123 = getelementptr i8, ptr %.2.i, i64 1
+  store i8 %122, ptr %.2.i, align 1
+  %124 = trunc i32 %.093166.i to i8
+  %125 = add i8 %124, -96
+  %126 = getelementptr i8, ptr %.2.i, i64 2
+  store i8 %125, ptr %123, align 1
+  br label %127
 
-131:                                              ; preds = %124, %41, %38
-  %.1.i = phi ptr [ %40, %38 ], [ %130, %124 ], [ %.091195.i, %41 ]
-  %132 = zext nneg i32 %32 to i64
-  %133 = getelementptr i8, ptr %.0197.i, i64 %132
-  %134 = sub nsw i32 %.095191.i, %32
+127:                                              ; preds = %120, %41, %38
+  %.1.i = phi ptr [ %40, %38 ], [ %126, %120 ], [ %.091195.i, %41 ]
+  %128 = zext nneg i32 %32 to i64
+  %129 = getelementptr i8, ptr %.0197.i, i64 %128
+  %130 = sub nsw i32 %.095191.i, %32
   br label %.backedge.i
 
-shift_jis_20042euc_jis_2004.exit:                 ; preds = %.backedge.i, %1, %24, %33, %get_ten.exit.thread.i, %get_ten.exit110.thread.i, %get_ten.exit117.thread.i, %get_ten.exit124.thread.i, %120
-  %.091183.i = phi ptr [ %.091195.i, %120 ], [ %.091195.i, %get_ten.exit124.thread.i ], [ %.091195.i, %get_ten.exit117.thread.i ], [ %.091195.i, %get_ten.exit110.thread.i ], [ %.091195.i, %get_ten.exit.thread.i ], [ %.091195.i, %33 ], [ %.091195.i, %24 ], [ %8, %1 ], [ %.091.be.i, %.backedge.i ]
-  %.0175.i = phi ptr [ %.0197.i, %120 ], [ %.0197.i, %get_ten.exit124.thread.i ], [ %.0197.i, %get_ten.exit117.thread.i ], [ %.0197.i, %get_ten.exit110.thread.i ], [ %.0197.i, %get_ten.exit.thread.i ], [ %.0197.i, %33 ], [ %.0197.i, %24 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
+shift_jis_20042euc_jis_2004.exit:                 ; preds = %.backedge.i, %1, %24, %33, %get_ten.exit.thread.i, %get_ten.exit110.thread.i, %get_ten.exit117.thread.i, %get_ten.exit124.thread.i, %116
+  %.091183.i = phi ptr [ %.091195.i, %116 ], [ %.091195.i, %get_ten.exit124.thread.i ], [ %.091195.i, %get_ten.exit117.thread.i ], [ %.091195.i, %get_ten.exit110.thread.i ], [ %.091195.i, %get_ten.exit.thread.i ], [ %.091195.i, %33 ], [ %.091195.i, %24 ], [ %8, %1 ], [ %.091.be.i, %.backedge.i ]
+  %.0175.i = phi ptr [ %.0197.i, %116 ], [ %.0197.i, %get_ten.exit124.thread.i ], [ %.0197.i, %get_ten.exit117.thread.i ], [ %.0197.i, %get_ten.exit110.thread.i ], [ %.0197.i, %get_ten.exit.thread.i ], [ %.0197.i, %33 ], [ %.0197.i, %24 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
   store i8 0, ptr %.091183.i, align 1
-  %135 = ptrtoint ptr %.0175.i to i64
-  %136 = sub i64 %135, %4
-  %sext = shl i64 %136, 32
-  %137 = ashr exact i64 %sext, 32
-  ret i64 %137
+  %131 = ptrtoint ptr %.0175.i to i64
+  %132 = sub i64 %131, %4
+  %sext = shl i64 %132, 32
+  %133 = ashr exact i64 %sext, 32
+  ret i64 %133
 }
 
 ; Function Attrs: noreturn

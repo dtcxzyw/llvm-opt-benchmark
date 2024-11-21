@@ -6123,12 +6123,12 @@ define internal fastcc void @dissect_homeplug_av_tone_map_carrier(ptr noundef %0
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr [16 x i8], ptr @dissect_homeplug_av_tone_map_carrier.map_carrier2modbits, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
-  %29 = add nsw i64 %22, -1
-  %.not60 = icmp ult i64 %29, 8
+  %29 = add nsw i32 %21, -1
+  %.not60 = icmp ult i32 %29, 8
   %30 = zext i1 %.not60 to i16
   %spec.select62 = add i16 %.05464, %30
-  %31 = add nsw i64 %26, -1
-  %.not61 = icmp ult i64 %31, 8
+  %31 = add nsw i32 %25, -1
+  %.not61 = icmp ult i32 %31, 8
   %32 = zext i1 %.not61 to i16
   %.2 = add i16 %spec.select62, %32
   %33 = getelementptr [16 x i8], ptr @dissect_homeplug_av_tone_map_carrier.map_carrier2modbitsSnr, i64 0, i64 %22

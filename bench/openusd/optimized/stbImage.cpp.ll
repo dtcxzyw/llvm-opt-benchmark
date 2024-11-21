@@ -8084,16 +8084,16 @@ _ZL20stbir__get_max_splitii.exit.i.i:             ; preds = %.lr.ph.i.i.i, %sele
   br label %512
 
 506:                                              ; preds = %491
-  %507 = add nsw i64 %481, -11
-  %508 = icmp ult i64 %507, 6
+  %507 = add i32 %468, -11
+  %508 = icmp ult i32 %507, 6
   %or.cond9.i6.i = select i1 %508, i1 %498, i1 false
   %or.cond11.i.i = and i1 %499, %or.cond9.i6.i
   br i1 %or.cond11.i.i, label %512, label %509
 
 509:                                              ; preds = %506
-  %510 = add nsw i64 %484, -11
-  %511 = icmp ult i64 %510, 6
-  %or.cond15.i7.i = select i1 %or.cond.i4.i, i1 %511, i1 false
+  %510 = add i32 %470, -11
+  %511 = icmp ult i32 %510, 6
+  %or.cond15.i7.i = and i1 %511, %or.cond.i4.i
   br label %512
 
 512:                                              ; preds = %509, %506, %501, %500, %_ZL20stbir__get_max_splitii.exit.i.i

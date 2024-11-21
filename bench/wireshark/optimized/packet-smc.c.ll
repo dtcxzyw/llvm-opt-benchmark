@@ -818,13 +818,13 @@ define internal i32 @dissect_smcr_infiniband(ptr noundef %0, ptr nocapture nound
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %129, ptr noundef %0, i32 noundef 32, i32 noundef 1, i32 noundef 0) #3
   %131 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef 32) #3
   %132 = and i8 %131, 15
-  %133 = zext nneg i8 %132 to i32
-  %134 = add nsw i32 %133, -1
-  %or.cond.i.i = icmp ult i32 %134, 5
-  br i1 %or.cond.i.i, label %135, label %137
+  %133 = add nsw i8 %132, -1
+  %or.cond.i.i = icmp ult i8 %133, 5
+  br i1 %or.cond.i.i, label %134, label %137
 
-135:                                              ; preds = %114
-  %136 = shl nuw nsw i32 128, %133
+134:                                              ; preds = %114
+  %135 = zext nneg i8 %132 to i32
+  %136 = shl nuw nsw i32 128, %135
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %130, ptr noundef nonnull @.str.361, i32 noundef %136) #3
   br label %disect_smcr_translate_qp_mtu.exit.i
 
@@ -832,7 +832,7 @@ define internal i32 @dissect_smcr_infiniband(ptr noundef %0, ptr nocapture nound
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %130, ptr noundef nonnull @.str.362) #3
   br label %disect_smcr_translate_qp_mtu.exit.i
 
-disect_smcr_translate_qp_mtu.exit.i:              ; preds = %137, %135
+disect_smcr_translate_qp_mtu.exit.i:              ; preds = %137, %134
   %138 = load i32, ptr @hf_smcr_add_link_initial_psn, align 4
   %139 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %138, ptr noundef %0, i32 noundef 33, i32 noundef 3, i32 noundef 0) #3
   %brmerge102.i = select i1 %.not100.i, i1 true, i1 %.not.i
@@ -1760,13 +1760,13 @@ disect_smc_uncompress_size.exit.i98:              ; preds = %318, %315
   %320 = tail call ptr @proto_tree_add_item(ptr noundef %310, i32 noundef %319, ptr noundef %0, i32 noundef 50, i32 noundef 1, i32 noundef 0) #3
   %321 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef 50) #3
   %322 = and i8 %321, 15
-  %323 = zext nneg i8 %322 to i32
-  %324 = add nsw i32 %323, -1
-  %or.cond.i.i = icmp ult i32 %324, 5
-  br i1 %or.cond.i.i, label %325, label %327
+  %323 = add nsw i8 %322, -1
+  %or.cond.i.i = icmp ult i8 %323, 5
+  br i1 %or.cond.i.i, label %324, label %327
 
-325:                                              ; preds = %disect_smc_uncompress_size.exit.i98
-  %326 = shl nuw nsw i32 128, %323
+324:                                              ; preds = %disect_smc_uncompress_size.exit.i98
+  %325 = zext nneg i8 %322 to i32
+  %326 = shl nuw nsw i32 128, %325
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %320, ptr noundef nonnull @.str.361, i32 noundef %326) #3
   br label %disect_smcr_translate_qp_mtu.exit.i
 
@@ -1774,7 +1774,7 @@ disect_smc_uncompress_size.exit.i98:              ; preds = %318, %315
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %320, ptr noundef nonnull @.str.362) #3
   br label %disect_smcr_translate_qp_mtu.exit.i
 
-disect_smcr_translate_qp_mtu.exit.i:              ; preds = %327, %325
+disect_smcr_translate_qp_mtu.exit.i:              ; preds = %327, %324
   %328 = load i32, ptr @hf_smc_reserved, align 4
   %329 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %328, ptr noundef %0, i32 noundef 51, i32 noundef 1, i32 noundef 0) #3
   %330 = load i32, ptr @hf_smcr_accept_server_rmb_virtual_address, align 4
@@ -1952,13 +1952,13 @@ disect_smc_uncompress_size.exit.i104:             ; preds = %464, %461
   %466 = tail call ptr @proto_tree_add_item(ptr noundef %456, i32 noundef %465, ptr noundef %0, i32 noundef 50, i32 noundef 1, i32 noundef 0) #3
   %467 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef 50) #3
   %468 = and i8 %467, 15
-  %469 = zext nneg i8 %468 to i32
-  %470 = add nsw i32 %469, -1
-  %or.cond.i.i105 = icmp ult i32 %470, 5
-  br i1 %or.cond.i.i105, label %471, label %473
+  %469 = add nsw i8 %468, -1
+  %or.cond.i.i105 = icmp ult i8 %469, 5
+  br i1 %or.cond.i.i105, label %470, label %473
 
-471:                                              ; preds = %disect_smc_uncompress_size.exit.i104
-  %472 = shl nuw nsw i32 128, %469
+470:                                              ; preds = %disect_smc_uncompress_size.exit.i104
+  %471 = zext nneg i8 %468 to i32
+  %472 = shl nuw nsw i32 128, %471
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %466, ptr noundef nonnull @.str.361, i32 noundef %472) #3
   br label %disect_smcr_translate_qp_mtu.exit.i106
 
@@ -1966,7 +1966,7 @@ disect_smc_uncompress_size.exit.i104:             ; preds = %464, %461
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %466, ptr noundef nonnull @.str.362) #3
   br label %disect_smcr_translate_qp_mtu.exit.i106
 
-disect_smcr_translate_qp_mtu.exit.i106:           ; preds = %473, %471
+disect_smcr_translate_qp_mtu.exit.i106:           ; preds = %473, %470
   %474 = load i32, ptr @hf_smc_reserved, align 4
   %475 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %474, ptr noundef %0, i32 noundef 51, i32 noundef 1, i32 noundef 0) #3
   %476 = load i32, ptr @hf_smcr_confirm_client_rmb_virtual_address, align 4

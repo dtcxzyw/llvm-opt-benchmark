@@ -33138,15 +33138,15 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 .lr.ph.i..critedge.i_crit_edge:                   ; preds = %.lr.ph.i
   %.pre = ptrtoint ptr %.val1012.i to i64
-  br label %.critedge.i
+  br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E11parseNumberEb.exit
 
 19:                                               ; preds = %.lr.ph.i
   %20 = getelementptr inbounds i8, ptr %.val1012.i, i64 1
   store ptr %20, ptr %0, align 16
   %.not.i16 = icmp eq ptr %5, %20
-  br i1 %.not.i16, label %.critedge.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i16, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E11parseNumberEb.exit, label %.lr.ph.i, !llvm.loop !7
 
-.critedge.i:                                      ; preds = %19, %.lr.ph.i..critedge.i_crit_edge
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E11parseNumberEb.exit: ; preds = %19, %.lr.ph.i..critedge.i_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.lr.ph.i..critedge.i_crit_edge ], [ %6, %19 ]
   %21 = sub i64 %.pre-phi, %13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4912
@@ -33157,7 +33157,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %27 = icmp ult i64 %26, -4080
   br i1 %27, label %28, label %33
 
-28:                                               ; preds = %.critedge.i
+28:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E11parseNumberEb.exit
   %29 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #23
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
@@ -33173,9 +33173,9 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %28
   store ptr %29, ptr %22, align 16
   br label %33
 
-33:                                               ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i, %.critedge.i
-  %34 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %25, %.critedge.i ]
-  %35 = phi ptr [ %29, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %23, %.critedge.i ]
+33:                                               ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E11parseNumberEb.exit
+  %34 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %25, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E11parseNumberEb.exit ]
+  %35 = phi ptr [ %29, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %23, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E11parseNumberEb.exit ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = add nsw i64 %34, 32
   store i64 %37, ptr %36, align 8

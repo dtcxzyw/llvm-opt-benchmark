@@ -4655,30 +4655,28 @@ declare i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dere
 define linkonce_odr hidden noundef ptr @_ZNK5clang4Type20getAsArrayTypeUnsafeEv(ptr noundef nonnull align 16 dereferenceable(24) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 16
-  %4 = zext i8 %3 to i32
-  %5 = add nsw i32 %4, -7
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %5, -5
-  br i1 %switch.i.i.i.i.i.i.i.i, label %6, label %16
+  %4 = add i8 %3, -7
+  %switch.i.i.i.i.i.i.i.i = icmp ult i8 %4, -5
+  br i1 %switch.i.i.i.i.i.i.i.i, label %5, label %15
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %7, align 8
-  %8 = and i64 %.sroa.0.0.copyload.i.i.i, -16
-  %9 = inttoptr i64 %8 to ptr
-  %10 = load ptr, ptr %9, align 16
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load i8, ptr %11, align 16
-  %13 = zext i8 %12 to i32
-  %.off.i.i.i.i.i.i.i.i5 = add nsw i32 %13, -2
-  %switch.i.i.i.i.i.i.i.i6 = icmp ult i32 %.off.i.i.i.i.i.i.i.i5, 5
-  br i1 %switch.i.i.i.i.i.i.i.i6, label %14, label %16
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %6, align 8
+  %7 = and i64 %.sroa.0.0.copyload.i.i.i, -16
+  %8 = inttoptr i64 %7 to ptr
+  %9 = load ptr, ptr %8, align 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i8, ptr %10, align 16
+  %12 = add i8 %11, -2
+  %switch.i.i.i.i.i.i.i.i5 = icmp ult i8 %12, 5
+  br i1 %switch.i.i.i.i.i.i.i.i5, label %13, label %15
 
-14:                                               ; preds = %6
-  %15 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %0) #19
-  br label %16
+13:                                               ; preds = %5
+  %14 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %0) #19
+  br label %15
 
-16:                                               ; preds = %6, %1, %14
-  %.0 = phi ptr [ %15, %14 ], [ %0, %1 ], [ null, %6 ]
+15:                                               ; preds = %5, %1, %13
+  %.0 = phi ptr [ %14, %13 ], [ %0, %1 ], [ null, %5 ]
   ret ptr %.0
 }
 

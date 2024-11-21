@@ -1814,9 +1814,8 @@ define dso_local noundef ptr @_ZN4llvm16DwarfCompileUnit21getOrCreateContextDIEE
 
 _ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit: ; preds = %2
   %4 = load i8, ptr %1, align 4
-  %5 = zext i8 %4 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i = add nsw i32 %5, -18
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i, 3
+  %5 = add i8 %4, -18
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %5, 3
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %6, label %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.thread
 
 6:                                                ; preds = %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit

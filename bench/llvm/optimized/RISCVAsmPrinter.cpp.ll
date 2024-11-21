@@ -530,9 +530,8 @@ _ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_8MetadataEEEDaPT0_.exit.thread: ; pre
 
 38:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_8MetadataEEEDaPT0_.exit.thread
   %39 = load i8, ptr %37, align 4
-  %40 = zext i8 %39 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %40, -5
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 31
+  %40 = add i8 %39, -5
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %40, 31
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit, label %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit: ; preds = %38

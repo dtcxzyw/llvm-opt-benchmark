@@ -198,18 +198,18 @@ declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @biovec_slab(i16 noundef zeroext %0) unnamed_addr #0 align 16 {
   switch i16 %0, label %4 [
-    i16 5, label %9
-    i16 6, label %9
-    i16 7, label %9
-    i16 8, label %9
-    i16 9, label %9
-    i16 10, label %9
-    i16 11, label %9
-    i16 12, label %9
-    i16 13, label %9
-    i16 14, label %9
-    i16 15, label %9
-    i16 16, label %9
+    i16 5, label %8
+    i16 6, label %8
+    i16 7, label %8
+    i16 8, label %8
+    i16 9, label %8
+    i16 10, label %8
+    i16 11, label %8
+    i16 12, label %8
+    i16 13, label %8
+    i16 14, label %8
+    i16 15, label %8
+    i16 16, label %8
     i16 17, label %2
     i16 18, label %2
     i16 19, label %2
@@ -325,25 +325,24 @@ define internal fastcc ptr @biovec_slab(i16 noundef zeroext %0) unnamed_addr #0 
   ]
 
 2:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %9
+  br label %8
 
 3:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %9
+  br label %8
 
 4:                                                ; preds = %1
-  %5 = zext i16 %0 to i32
-  %6 = add nsw i32 %5, -129
-  %7 = icmp ult i32 %6, 128
-  br i1 %7, label %9, label %8
+  %5 = add i16 %0, -129
+  %6 = icmp ult i16 %5, 128
+  br i1 %6, label %8, label %7
 
-8:                                                ; preds = %4
+7:                                                ; preds = %4
   tail call void asm sideeffect "756: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 756b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 756) #17, !srcloc !9
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 62, i32 0, i64 12) #17, !srcloc !10
   unreachable
 
-9:                                                ; preds = %4, %3, %2, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  %10 = phi ptr [ getelementptr inbounds (i8, ptr @bvec_slabs, i64 48), %3 ], [ getelementptr inbounds (i8, ptr @bvec_slabs, i64 24), %2 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ getelementptr inbounds (i8, ptr @bvec_slabs, i64 72), %4 ]
-  ret ptr %10
+8:                                                ; preds = %4, %3, %2, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  %9 = phi ptr [ getelementptr inbounds (i8, ptr @bvec_slabs, i64 48), %3 ], [ getelementptr inbounds (i8, ptr @bvec_slabs, i64 24), %2 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ @bvec_slabs, %1 ], [ getelementptr inbounds (i8, ptr @bvec_slabs, i64 72), %4 ]
+  ret ptr %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

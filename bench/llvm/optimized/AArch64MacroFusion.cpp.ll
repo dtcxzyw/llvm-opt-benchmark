@@ -106,9 +106,8 @@ _ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread: ; preds = %.cr
 31:                                               ; preds = %_ZL19isArithmeticBccPairPKN4llvm12MachineInstrERS1_b.exit.thread
   %32 = getelementptr inbounds i8, ptr %3, i64 68
   %.val34 = load i16, ptr %32, align 4
-  %33 = zext i16 %.val34 to i32
-  %.off.i = add nsw i32 %33, -1831
-  %switch.i = icmp ult i32 %.off.i, 4
+  %33 = add i16 %.val34, -1831
+  %switch.i = icmp ult i16 %33, 4
   br i1 %switch.i, label %34, label %_ZL19isArithmeticCbzPairPKN4llvm12MachineInstrERS1_.exit.thread64
 
 34:                                               ; preds = %31

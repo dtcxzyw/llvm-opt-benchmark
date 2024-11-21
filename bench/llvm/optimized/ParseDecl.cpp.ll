@@ -32726,9 +32726,8 @@ _ZNK5clang17DiagnosticBuilderlsINS_19CountAttributedType23DynamicCountPointerKin
   %233 = load ptr, ptr %232, align 16
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %235 = load i8, ptr %234, align 16
-  %236 = zext i8 %235 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i = add nsw i32 %236, -2
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i, 5
+  %236 = add i8 %235, -2
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %236, 5
   %237 = load ptr, ptr %7, align 8
   %.not.i.i.i50.i = icmp eq ptr %237, null
   br i1 %.not.i.i.i50.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i51.i, label %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit.i
@@ -44429,24 +44428,23 @@ _ZNK5clang10ParsedAttr14asOpenCLLangASEv.exit:    ; preds = %switch.hole_check, 
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i16, ptr %60, align 8
   %62 = and i16 %61, 127
-  %63 = zext nneg i16 %62 to i32
-  %64 = add nsw i32 %63, -56
-  %65 = icmp ult i32 %64, 3
-  %66 = getelementptr inbounds i8, ptr %59, i64 -64
-  %spec.select.i.i = select i1 %65, ptr %66, ptr null
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %68 = load i8, ptr %67, align 8
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %_ZNSt8optionalIN5clang4Sema16CXXThisScopeRAIIEE7emplaceIJRS1_PNS0_13CXXRecordDeclERNS0_10QualifiersERbEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOSC_.exit
+  %63 = add nsw i16 %62, -56
+  %64 = icmp ult i16 %63, 3
+  %65 = getelementptr inbounds i8, ptr %59, i64 -64
+  %spec.select.i.i = select i1 %64, ptr %65, ptr null
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %67 = load i8, ptr %66, align 8
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %_ZNSt8optionalIN5clang4Sema16CXXThisScopeRAIIEE7emplaceIJRS1_PNS0_13CXXRecordDeclERNS0_10QualifiersERbEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOSC_.exit
 
-70:                                               ; preds = %.loopexit
-  store i8 0, ptr %67, align 8
+69:                                               ; preds = %.loopexit
+  store i8 0, ptr %66, align 8
   tail call void @_ZN5clang4Sema16CXXThisScopeRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   br label %_ZNSt8optionalIN5clang4Sema16CXXThisScopeRAIIEE7emplaceIJRS1_PNS0_13CXXRecordDeclERNS0_10QualifiersERbEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOSC_.exit
 
-_ZNSt8optionalIN5clang4Sema16CXXThisScopeRAIIEE7emplaceIJRS1_PNS0_13CXXRecordDeclERNS0_10QualifiersERbEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOSC_.exit: ; preds = %.loopexit, %70
+_ZNSt8optionalIN5clang4Sema16CXXThisScopeRAIIEE7emplaceIJRS1_PNS0_13CXXRecordDeclERNS0_10QualifiersERbEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOSC_.exit: ; preds = %.loopexit, %69
   tail call void @_ZN5clang4Sema16CXXThisScopeRAIIC1ERS0_PNS_4DeclENS_10QualifiersEb(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(17560) %57, ptr noundef %spec.select.i.i, i64 %.sroa.021.1, i1 noundef zeroext true) #23
-  store i8 1, ptr %67, align 8
+  store i8 1, ptr %66, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %11, %4, %21, %18, %24, %_ZNSt8optionalIN5clang4Sema16CXXThisScopeRAIIEE7emplaceIJRS1_PNS0_13CXXRecordDeclERNS0_10QualifiersERbEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOSC_.exit

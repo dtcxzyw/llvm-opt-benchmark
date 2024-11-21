@@ -68419,8 +68419,8 @@ _ZNK8QCharRefcv5QCharEv.exit.i:                   ; preds = %_ZN7QStringixEi.exi
   %44 = getelementptr inbounds i16, ptr %43, i64 %indvars.iv
   %45 = load i16, ptr %44, align 2
   %46 = zext i16 %45 to i32
-  %47 = add nsw i32 %46, -48
-  %or.cond.i.i.i = icmp ult i32 %47, 10
+  %47 = add i16 %45, -48
+  %or.cond.i.i.i = icmp ult i16 %47, 10
   br i1 %or.cond.i.i.i, label %_ZNK8QCharRef8isNumberEv.exit.thread130, label %48
 
 48:                                               ; preds = %_ZNK8QCharRefcv5QCharEv.exit.i
@@ -68478,8 +68478,8 @@ _ZNK8QCharRefcv5QCharEv.exit.i40:                 ; preds = %62
   %71 = getelementptr inbounds i16, ptr %70, i64 %indvars.iv135
   %72 = load i16, ptr %71, align 2
   %73 = zext i16 %72 to i32
-  %74 = add nsw i32 %73, -48
-  %or.cond.i.i.i41 = icmp ult i32 %74, 10
+  %74 = add i16 %72, -48
+  %or.cond.i.i.i41 = icmp ult i16 %74, 10
   br i1 %or.cond.i.i.i41, label %_ZNK8QCharRef8isNumberEv.exit42.thread131, label %75
 
 75:                                               ; preds = %_ZNK8QCharRefcv5QCharEv.exit.i40

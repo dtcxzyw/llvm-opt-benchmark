@@ -5417,8 +5417,8 @@ create_filter.exit.i.i:                           ; preds = %418, %417
   br i1 %589, label %590, label %627
 
 590:                                              ; preds = %588
-  %591 = add nsw i64 %581, -12
-  %592 = icmp ult i64 %591, 48
+  %591 = add nsw i32 %579, -12
+  %592 = icmp ult i32 %591, 48
   br i1 %592, label %593, label %611
 
 593:                                              ; preds = %590

@@ -5270,9 +5270,8 @@ invoke.cont:
   %d_kind.i = getelementptr inbounds i8, ptr %1, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  %2 = add nsw i32 %bf.cast.i, -155
-  %or.cond = icmp ult i32 %2, 2
+  %2 = add nsw i16 %bf.clear.i, -155
+  %or.cond = icmp ult i16 %2, 2
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont

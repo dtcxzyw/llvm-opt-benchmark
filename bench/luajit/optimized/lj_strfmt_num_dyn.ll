@@ -472,12 +472,12 @@ if.end258:                                        ; preds = %if.else248, %if.els
 
 if.then278:                                       ; preds = %if.end258
   %shr279 = lshr i32 %and241, 6
-  %idxprom280 = zext nneg i32 %shr279 to i64
-  %54 = add nsw i64 %idxprom280, -15
-  %tobool283.not = icmp ult i64 %54, 3
+  %54 = add nsw i32 %shr279, -15
+  %tobool283.not = icmp ult i32 %54, 3
   br i1 %tobool283.not, label %if.end316, label %if.then284
 
 if.then284:                                       ; preds = %if.then278
+  %idxprom280 = zext nneg i32 %shr279 to i64
   %arrayidx281 = getelementptr inbounds [32 x i16], ptr @rescale_e, i64 0, i64 %idxprom280
   %55 = load i16, ptr %arrayidx281, align 2
   %conv282 = sext i16 %55 to i32

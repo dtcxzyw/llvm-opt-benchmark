@@ -10016,9 +10016,8 @@ _ZNK5boost6spirit7classic6strlitIPKwE5parseINS1_7scannerIN9__gnu_cxx17__normal_i
   %25 = phi ptr [ %39, %35 ], [ %22, %_ZNK5boost6spirit7classic6strlitIPKwE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS5_T_E4typeERKSP_.exit.thread16 ]
   %26 = load i8, ptr %25, align 1, !tbaa !21
   %27 = sext i8 %26 to i32
-  %28 = zext i8 %26 to i32
-  %isdigittmp.i.i.i.i.i.i.i = add nsw i32 %28, -48
-  %isdigit.i.i.i.i.i.i.i = icmp ult i32 %isdigittmp.i.i.i.i.i.i.i, 10
+  %28 = add i8 %26, -48
+  %isdigit.i.i.i.i.i.i.i = icmp ult i8 %28, 10
   br i1 %isdigit.i.i.i.i.i.i.i, label %29, label %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19positive_accumulateIjLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -10200,15 +10199,14 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_11
   %.0.i.i.i = phi i64 [ %28, %26 ], [ 0, %2 ]
   %8 = phi ptr [ %29, %26 ], [ %5, %2 ]
   %9 = load i8, ptr %8, align 1, !tbaa !21
-  %10 = sext i8 %9 to i32
+  %10 = zext i8 %9 to i32
   %11 = add nsw i32 %10, -48
-  %12 = zext i8 %9 to i32
-  %isdigittmp.i.i.i.i.i.i.i = add nsw i32 %12, -48
-  %isdigit.i.i.i.i.i.i.i = icmp ult i32 %isdigittmp.i.i.i.i.i.i.i, 10
+  %12 = add i8 %9, -48
+  %isdigit.i.i.i.i.i.i.i = icmp ult i8 %12, 10
   br i1 %isdigit.i.i.i.i.i.i.i, label %20, label %13
 
 13:                                               ; preds = %.lr.ph.i.i.i.i
-  %14 = tail call i32 @tolower(i32 noundef %12) #28
+  %14 = tail call i32 @tolower(i32 noundef %10) #28
   %15 = trunc i32 %14 to i8
   %16 = add i8 %15, -97
   %or.cond.i.i.i.i.i = icmp ult i8 %16, 6
@@ -11430,25 +11428,24 @@ _ZN5boost6spirit7classic4impl12extract_signINS1_7scannerIN9__gnu_cxx17__normal_i
   br i1 %16, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %29
-  %.131 = phi i32 [ %30, %29 ], [ 0, %17 ]
+  %.130 = phi i32 [ %30, %29 ], [ 0, %17 ]
   %.2 = phi i64 [ %33, %29 ], [ %.1, %17 ]
   %18 = phi ptr [ %32, %29 ], [ %13, %17 ]
   %.012.i = phi i64 [ %31, %29 ], [ 0, %17 ]
   %19 = load i8, ptr %18, align 1, !tbaa !21
   %20 = sext i8 %19 to i32
   %21 = add nsw i32 %20, -48
-  %22 = zext i8 %19 to i32
-  %isdigittmp.i.i.i = add nsw i32 %22, -48
-  %isdigit.i.i.i = icmp ult i32 %isdigittmp.i.i.i, 10
+  %22 = add i8 %19, -48
+  %isdigit.i.i.i = icmp ult i8 %22, 10
   br i1 %isdigit.i.i.i, label %23, label %.critedge.loopexit.i
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = icmp slt i32 %.131, -214748364
+  %24 = icmp slt i32 %.130, -214748364
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %23
-  %26 = mul nsw i32 %.131, 10
-  %27 = or i32 %21, -2147483648
+  %26 = mul nsw i32 %.130, 10
+  %27 = or disjoint i32 %21, -2147483648
   %28 = icmp slt i32 %26, %27
   br i1 %28, label %.thread, label %29
 
@@ -11463,34 +11460,33 @@ _ZN5boost6spirit7classic4impl12extract_signINS1_7scannerIN9__gnu_cxx17__normal_i
   br i1 %35, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !202
 
 .critedge.loopexit.i:                             ; preds = %29, %.lr.ph.i
-  %.232 = phi i32 [ %30, %29 ], [ %.131, %.lr.ph.i ]
+  %.231 = phi i32 [ %30, %29 ], [ %.130, %.lr.ph.i ]
   %.3 = phi i64 [ %33, %29 ], [ %.2, %.lr.ph.i ]
   %.0.lcssa.ph.i = phi i64 [ %31, %29 ], [ %.012.i, %.lr.ph.i ]
-  %.not51 = icmp eq i64 %.0.lcssa.ph.i, 0
-  br i1 %.not51, label %.thread, label %55
+  %.not50 = icmp eq i64 %.0.lcssa.ph.i, 0
+  br i1 %.not50, label %.thread, label %55
 
 36:                                               ; preds = %_ZN5boost6spirit7classic4impl12extract_signINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEEbRKT_Rm.exit
   br i1 %16, label %.thread, label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %36, %47
-  %.434 = phi i32 [ %49, %47 ], [ 0, %36 ]
+  %.433 = phi i32 [ %49, %47 ], [ 0, %36 ]
   %.5 = phi i64 [ %52, %47 ], [ %.1, %36 ]
   %37 = phi ptr [ %51, %47 ], [ %13, %36 ]
   %.012.i16 = phi i64 [ %50, %47 ], [ 0, %36 ]
   %38 = load i8, ptr %37, align 1, !tbaa !21
   %39 = sext i8 %38 to i32
-  %40 = zext i8 %38 to i32
-  %isdigittmp.i.i.i17 = add nsw i32 %40, -48
-  %isdigit.i.i.i18 = icmp ult i32 %isdigittmp.i.i.i17, 10
-  br i1 %isdigit.i.i.i18, label %41, label %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit
+  %40 = add i8 %38, -48
+  %isdigit.i.i.i17 = icmp ult i8 %40, 10
+  br i1 %isdigit.i.i.i17, label %41, label %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit
 
 41:                                               ; preds = %.lr.ph.i15
-  %42 = icmp sgt i32 %.434, 214748364
+  %42 = icmp sgt i32 %.433, 214748364
   br i1 %42, label %.thread, label %43
 
 43:                                               ; preds = %41
-  %44 = mul nsw i32 %.434, 10
-  %45 = sub i32 -2147483601, %39
+  %44 = mul nsw i32 %.433, 10
+  %45 = sub nuw i32 -2147483601, %39
   %46 = icmp sgt i32 %44, %45
   br i1 %46, label %.thread, label %47
 
@@ -11506,10 +11502,10 @@ _ZN5boost6spirit7classic4impl12extract_signINS1_7scannerIN9__gnu_cxx17__normal_i
   br i1 %54, label %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit, label %.lr.ph.i15, !llvm.loop !203
 
 _ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit: ; preds = %.lr.ph.i15, %47
-  %.535 = phi i32 [ %49, %47 ], [ %.434, %.lr.ph.i15 ]
+  %.534 = phi i32 [ %49, %47 ], [ %.433, %.lr.ph.i15 ]
   %.6 = phi i64 [ %52, %47 ], [ %.5, %.lr.ph.i15 ]
-  %.0.lcssa.ph.i20 = phi i64 [ %50, %47 ], [ %.012.i16, %.lr.ph.i15 ]
-  %.not = icmp eq i64 %.0.lcssa.ph.i20, 0
+  %.0.lcssa.ph.i19 = phi i64 [ %50, %47 ], [ %.012.i16, %.lr.ph.i15 ]
+  %.not = icmp eq i64 %.0.lcssa.ph.i19, 0
   br i1 %.not, label %.thread, label %55
 
 .thread:                                          ; preds = %41, %43, %23, %25, %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit, %.critedge.loopexit.i, %17, %36
@@ -11517,18 +11513,18 @@ _ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumula
   br label %58
 
 55:                                               ; preds = %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit, %.critedge.loopexit.i
-  %.043 = phi i64 [ %.3, %.critedge.loopexit.i ], [ %.6, %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit ]
-  %.03042 = phi i32 [ %.232, %.critedge.loopexit.i ], [ %.535, %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit ]
-  %56 = zext i32 %.03042 to i64
+  %.042 = phi i64 [ %.3, %.critedge.loopexit.i ], [ %.6, %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit ]
+  %.02941 = phi i32 [ %.231, %.critedge.loopexit.i ], [ %.534, %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit ]
+  %56 = zext i32 %.02941 to i64
   %57 = shl nuw i64 %56, 32
   br label %58
 
 58:                                               ; preds = %2, %.thread, %55
   %.sroa.3.1 = phi i64 [ 1, %55 ], [ 0, %.thread ], [ 0, %2 ]
-  %.sroa.028.1 = phi i64 [ %.043, %55 ], [ -1, %.thread ], [ -1, %2 ]
-  %.sroa.629.1 = phi i64 [ %57, %55 ], [ 0, %.thread ], [ 0, %2 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.028.1, 0
-  %.sroa.3.8.insert.insert = or disjoint i64 %.sroa.629.1, %.sroa.3.1
+  %.sroa.027.1 = phi i64 [ %.042, %55 ], [ -1, %.thread ], [ -1, %2 ]
+  %.sroa.628.1 = phi i64 [ %57, %55 ], [ 0, %.thread ], [ 0, %2 ]
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.027.1, 0
+  %.sroa.3.8.insert.insert = or disjoint i64 %.sroa.628.1, %.sroa.3.1
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.8.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert
 }
@@ -11602,29 +11598,27 @@ _ZNK5boost6spirit7classic8sequenceINS2_INS2_INS2_INS1_11alternativeINS1_6strlitI
 
 .lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %_ZNK5boost6spirit7classic8sequenceINS2_INS2_INS2_INS1_11alternativeINS1_6strlitIPKcEES7_EENS1_4ruleINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tESR_EEEESS_EENS1_5chlitIwEEEESW_E5parseISQ_EENS1_13parser_resultISY_T_E4typeERKS11_.exit.i
   %28 = load i8, ptr %25, align 1, !tbaa !21
-  %29 = zext i8 %28 to i32
-  %isdigittmp.i.i.i.i.i.i.i.i27 = add nsw i32 %29, -48
-  %isdigit.i.i.i.i.i.i.i.i28 = icmp ult i32 %isdigittmp.i.i.i.i.i.i.i.i27, 10
-  br i1 %isdigit.i.i.i.i.i.i.i.i28, label %.lr.ph, label %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19positive_accumulateIjLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i
+  %29 = add i8 %28, -48
+  %isdigit.i.i.i.i.i.i.i.i27 = icmp ult i8 %29, 10
+  br i1 %isdigit.i.i.i.i.i.i.i.i27, label %.lr.ph, label %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19positive_accumulateIjLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %39
   %30 = load i8, ptr %43, align 1, !tbaa !21
-  %31 = zext i8 %30 to i32
-  %isdigittmp.i.i.i.i.i.i.i.i = add nsw i32 %31, -48
-  %isdigit.i.i.i.i.i.i.i.i = icmp ult i32 %isdigittmp.i.i.i.i.i.i.i.i, 10
+  %31 = add i8 %30, -48
+  %isdigit.i.i.i.i.i.i.i.i = icmp ult i8 %31, 10
   br i1 %isdigit.i.i.i.i.i.i.i.i, label %.lr.ph, label %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19positive_accumulateIjLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i, !llvm.loop !157
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i
   %.in = phi i8 [ %30, %.lr.ph.i.i.i.i.i.i ], [ %28, %.lr.ph.i.i.i.i.i.i.preheader ]
   %32 = phi ptr [ %43, %.lr.ph.i.i.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i.i.i.preheader ]
-  %.0.i.i.i.i.i30 = phi i64 [ %42, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader ]
-  %.012.i.i.i.i.i29 = phi i32 [ %41, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader ]
+  %.0.i.i.i.i.i29 = phi i64 [ %42, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader ]
+  %.012.i.i.i.i.i28 = phi i32 [ %41, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader ]
   %33 = sext i8 %.in to i32
-  %34 = icmp ugt i32 %.012.i.i.i.i.i29, 429496729
+  %34 = icmp ugt i32 %.012.i.i.i.i.i28, 429496729
   br i1 %34, label %_ZNK5boost6spirit7classic8sequenceINS2_INS2_INS2_INS2_INS1_11alternativeINS1_6strlitIPKcEES7_EENS1_4ruleINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tESR_EEEESS_EENS1_5chlitIwEEEESW_EENS1_6actionINS1_11uint_parserIjLi10ELj1ELin1EEENS_7archive3xml11assign_implIjEEEEE5parseISQ_EENS1_13parser_resultIS17_T_E4typeERKS1A_.exit.thread, label %35
 
 35:                                               ; preds = %.lr.ph
-  %36 = mul nuw i32 %.012.i.i.i.i.i29, 10
+  %36 = mul nuw i32 %.012.i.i.i.i.i28, 10
   %37 = sub nsw i32 47, %33
   %38 = icmp ugt i32 %36, %37
   br i1 %38, label %_ZNK5boost6spirit7classic8sequenceINS2_INS2_INS2_INS2_INS1_11alternativeINS1_6strlitIPKcEES7_EENS1_4ruleINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tESR_EEEESS_EENS1_5chlitIwEEEESW_EENS1_6actionINS1_11uint_parserIjLi10ELj1ELin1EEENS_7archive3xml11assign_implIjEEEEE5parseISQ_EENS1_13parser_resultIS17_T_E4typeERKS1A_.exit.thread, label %39
@@ -11632,7 +11626,7 @@ _ZNK5boost6spirit7classic8sequenceINS2_INS2_INS2_INS1_11alternativeINS1_6strlitI
 39:                                               ; preds = %35
   %40 = add i32 %36, -48
   %41 = add i32 %40, %33
-  %42 = add i64 %.0.i.i.i.i.i30, 1
+  %42 = add i64 %.0.i.i.i.i.i29, 1
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %43, ptr %5, align 8, !tbaa !103
   %44 = load ptr, ptr %6, align 8, !tbaa !10
@@ -12711,9 +12705,8 @@ _ZNK5boost6spirit7classic8sequenceINS2_INS1_6strlitIPKcEENS1_4ruleINS1_7scannerI
   %43 = phi ptr [ %57, %53 ], [ %39, %_ZNK5boost6spirit7classic8sequenceINS2_INS1_6strlitIPKcEENS1_4ruleINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tESP_EEEENS1_5chlitIwEEE5parseISO_EENS1_13parser_resultISU_T_E4typeERKSX_.exit ]
   %44 = load i8, ptr %43, align 1, !tbaa !21
   %45 = sext i8 %44 to i32
-  %46 = zext i8 %44 to i32
-  %isdigittmp.i.i.i.i.i.i.i = add nsw i32 %46, -48
-  %isdigit.i.i.i.i.i.i.i = icmp ult i32 %isdigittmp.i.i.i.i.i.i.i, 10
+  %46 = add i8 %44, -48
+  %isdigit.i.i.i.i.i.i.i = icmp ult i8 %46, 10
   br i1 %isdigit.i.i.i.i.i.i.i, label %47, label %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19positive_accumulateIjLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i
 
 47:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -12894,9 +12887,8 @@ _ZNK5boost6spirit7classic8sequenceINS2_INS1_6strlitIPKcEENS1_4ruleINS1_7scannerI
   %43 = phi ptr [ %57, %53 ], [ %39, %_ZNK5boost6spirit7classic8sequenceINS2_INS1_6strlitIPKcEENS1_4ruleINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tESP_EEEENS1_5chlitIwEEE5parseISO_EENS1_13parser_resultISU_T_E4typeERKSX_.exit ]
   %44 = load i8, ptr %43, align 1, !tbaa !21
   %45 = sext i8 %44 to i32
-  %46 = zext i8 %44 to i32
-  %isdigittmp.i.i.i.i.i.i.i = add nsw i32 %46, -48
-  %isdigit.i.i.i.i.i.i.i = icmp ult i32 %isdigittmp.i.i.i.i.i.i.i, 10
+  %46 = add i8 %44, -48
+  %isdigit.i.i.i.i.i.i.i = icmp ult i8 %46, 10
   br i1 %isdigit.i.i.i.i.i.i.i, label %47, label %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19positive_accumulateIjLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i
 
 47:                                               ; preds = %.lr.ph.i.i.i.i.i

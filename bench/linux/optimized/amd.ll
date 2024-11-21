@@ -880,16 +880,16 @@ thread-pre-split1:                                ; preds = %75, %79, %100, %102
 
 104:                                              ; preds = %thread-pre-split1, %83
   %105 = phi i8 [ %.pr2, %thread-pre-split1 ], [ %84, %83 ]
-  switch i8 %105, label %132 [
+  switch i8 %105, label %131 [
     i8 23, label %106
     i8 25, label %111
-    i8 26, label %120
+    i8 26, label %119
   ]
 
 106:                                              ; preds = %104
   %107 = getelementptr inbounds i8, ptr %0, i64 2
   %108 = load i8, ptr %107, align 2
-  switch i8 %108, label %124 [
+  switch i8 %108, label %123 [
     i8 80, label %109
     i8 81, label %109
     i8 82, label %109
@@ -1041,12 +1041,12 @@ thread-pre-split1:                                ; preds = %75, %79, %100, %102
 109:                                              ; preds = %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 87), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 87)) #12, !srcloc !25
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 47), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 47)) #12, !srcloc !25
-  br label %132
+  br label %131
 
 110:                                              ; preds = %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106, %106
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 87), i32 16, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 87)) #12, !srcloc !25
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 47), i32 16, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 47)) #12, !srcloc !25
-  br label %132
+  br label %131
 
 111:                                              ; preds = %104
   %112 = getelementptr inbounds i8, ptr %0, i64 2
@@ -1153,114 +1153,113 @@ thread-pre-split1:                                ; preds = %75, %79, %100, %102
 114:                                              ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 87), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 87)) #12, !srcloc !25
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 47), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 47)) #12, !srcloc !25
-  br label %132
+  br label %131
 
 115:                                              ; preds = %116, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111, %111
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 87), i32 64, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 87)) #12, !srcloc !25
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 47), i32 64, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 47)) #12, !srcloc !25
-  br label %132
+  br label %131
 
 116:                                              ; preds = %111
-  %117 = zext i8 %113 to i32
-  %118 = add nsw i32 %117, -96
-  %119 = icmp ult i32 %118, 80
-  br i1 %119, label %115, label %124
+  %117 = add i8 %113, -96
+  %118 = icmp ult i8 %117, 80
+  br i1 %118, label %115, label %123
 
-120:                                              ; preds = %104
-  %121 = getelementptr inbounds i8, ptr %0, i64 2
-  %122 = load i8, ptr %121, align 2
-  switch i8 %122, label %124 [
-    i8 112, label %123
-    i8 113, label %123
-    i8 114, label %123
-    i8 115, label %123
-    i8 116, label %123
-    i8 117, label %123
-    i8 118, label %123
-    i8 119, label %123
-    i8 120, label %123
-    i8 121, label %123
-    i8 122, label %123
-    i8 123, label %123
-    i8 124, label %123
-    i8 125, label %123
-    i8 126, label %123
-    i8 127, label %123
-    i8 64, label %123
-    i8 65, label %123
-    i8 66, label %123
-    i8 67, label %123
-    i8 68, label %123
-    i8 69, label %123
-    i8 70, label %123
-    i8 71, label %123
-    i8 72, label %123
-    i8 73, label %123
-    i8 74, label %123
-    i8 75, label %123
-    i8 76, label %123
-    i8 77, label %123
-    i8 78, label %123
-    i8 79, label %123
-    i8 32, label %123
-    i8 33, label %123
-    i8 34, label %123
-    i8 35, label %123
-    i8 36, label %123
-    i8 37, label %123
-    i8 38, label %123
-    i8 39, label %123
-    i8 40, label %123
-    i8 41, label %123
-    i8 42, label %123
-    i8 43, label %123
-    i8 44, label %123
-    i8 45, label %123
-    i8 46, label %123
-    i8 47, label %123
-    i8 0, label %123
-    i8 1, label %123
-    i8 2, label %123
-    i8 3, label %123
-    i8 4, label %123
-    i8 5, label %123
-    i8 6, label %123
-    i8 7, label %123
-    i8 8, label %123
-    i8 9, label %123
-    i8 10, label %123
-    i8 11, label %123
-    i8 12, label %123
-    i8 13, label %123
-    i8 14, label %123
-    i8 15, label %123
+119:                                              ; preds = %104
+  %120 = getelementptr inbounds i8, ptr %0, i64 2
+  %121 = load i8, ptr %120, align 2
+  switch i8 %121, label %123 [
+    i8 112, label %122
+    i8 113, label %122
+    i8 114, label %122
+    i8 115, label %122
+    i8 116, label %122
+    i8 117, label %122
+    i8 118, label %122
+    i8 119, label %122
+    i8 120, label %122
+    i8 121, label %122
+    i8 122, label %122
+    i8 123, label %122
+    i8 124, label %122
+    i8 125, label %122
+    i8 126, label %122
+    i8 127, label %122
+    i8 64, label %122
+    i8 65, label %122
+    i8 66, label %122
+    i8 67, label %122
+    i8 68, label %122
+    i8 69, label %122
+    i8 70, label %122
+    i8 71, label %122
+    i8 72, label %122
+    i8 73, label %122
+    i8 74, label %122
+    i8 75, label %122
+    i8 76, label %122
+    i8 77, label %122
+    i8 78, label %122
+    i8 79, label %122
+    i8 32, label %122
+    i8 33, label %122
+    i8 34, label %122
+    i8 35, label %122
+    i8 36, label %122
+    i8 37, label %122
+    i8 38, label %122
+    i8 39, label %122
+    i8 40, label %122
+    i8 41, label %122
+    i8 42, label %122
+    i8 43, label %122
+    i8 44, label %122
+    i8 45, label %122
+    i8 46, label %122
+    i8 47, label %122
+    i8 0, label %122
+    i8 1, label %122
+    i8 2, label %122
+    i8 3, label %122
+    i8 4, label %122
+    i8 5, label %122
+    i8 6, label %122
+    i8 7, label %122
+    i8 8, label %122
+    i8 9, label %122
+    i8 10, label %122
+    i8 11, label %122
+    i8 12, label %122
+    i8 13, label %122
+    i8 14, label %122
+    i8 15, label %122
   ]
 
-123:                                              ; preds = %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120, %120
+122:                                              ; preds = %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119, %119
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 52), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 52)) #12, !srcloc !25
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 12), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 12)) #12, !srcloc !25
-  br label %132
+  br label %131
 
-124:                                              ; preds = %120, %116, %106
-  %125 = load i1, ptr @bsp_init_amd.__already_done, align 1
-  br i1 %125, label %132, label %126, !prof !27
+123:                                              ; preds = %119, %116, %106
+  %124 = load i1, ptr @bsp_init_amd.__already_done, align 1
+  br i1 %124, label %131, label %125, !prof !27
 
-126:                                              ; preds = %124
+125:                                              ; preds = %123
   store i1 true, ptr @bsp_init_amd.__already_done, align 1
   tail call void asm sideeffect "370: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 370b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 370) #12, !srcloc !28
-  %127 = load i8, ptr %0, align 8
-  %128 = zext i8 %127 to i32
-  %129 = getelementptr inbounds i8, ptr %0, i64 2
-  %130 = load i8, ptr %129, align 2
-  %131 = zext i8 %130 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.7, i32 noundef %128, i32 noundef %131) #12
+  %126 = load i8, ptr %0, align 8
+  %127 = zext i8 %126 to i32
+  %128 = getelementptr inbounds i8, ptr %0, i64 2
+  %129 = load i8, ptr %128, align 2
+  %130 = zext i8 %129 to i32
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.7, i32 noundef %127, i32 noundef %130) #12
   tail call void asm sideeffect "371: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 371b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 371) #12, !srcloc !29
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 593, i32 2313, i64 12) #12, !srcloc !30
   tail call void asm sideeffect "372: nop\0A\09.pushsection .discard.instr_end\0A\09.long 372b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 372) #12, !srcloc !31
   tail call void asm sideeffect "373: nop\0A\09.pushsection .discard.instr_end\0A\09.long 373b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 373) #12, !srcloc !32
-  br label %132
+  br label %131
 
-132:                                              ; preds = %126, %124, %123, %115, %114, %110, %109, %104
+131:                                              ; preds = %125, %123, %122, %115, %114, %110, %109, %104
   ret void
 }
 

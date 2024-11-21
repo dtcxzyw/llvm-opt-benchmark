@@ -396,9 +396,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.0146.0172, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = load i16, ptr %81, align 8
-  %83 = zext i16 %82 to i32
-  %.off.i = add nsw i32 %83, -3305
-  %switch.i = icmp ult i32 %.off.i, 6
+  %83 = add i16 %82, -3305
+  %switch.i = icmp ult i16 %83, 6
   br i1 %switch.i, label %154, label %84
 
 84:                                               ; preds = %79, %76
@@ -624,9 +623,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 179:                                              ; preds = %176
   %180 = load ptr, ptr %170, align 8
   %181 = load i16, ptr %180, align 8
-  %182 = zext i16 %181 to i32
-  %.off.i58 = add nsw i32 %182, -3305
-  %switch.i59 = icmp ult i32 %.off.i58, 6
+  %182 = add i16 %181, -3305
+  %switch.i59 = icmp ult i16 %182, 6
   br i1 %switch.i59, label %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E6insertEOj.exit113, label %183
 
 183:                                              ; preds = %179, %176

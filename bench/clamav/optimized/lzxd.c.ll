@@ -2066,8 +2066,8 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %867 = getelementptr inbounds [290 x i32], ptr @position_base, i64 0, i64 %862
   %868 = load i32, ptr %867, align 4
   %869 = add i32 %868, -2
-  %870 = add nsw i64 %862, -8
-  %871 = icmp ult i64 %870, 28
+  %870 = add nsw i32 %857, -8
+  %871 = icmp ult i32 %870, 28
   br i1 %871, label %872, label %977
 
 872:                                              ; preds = %863

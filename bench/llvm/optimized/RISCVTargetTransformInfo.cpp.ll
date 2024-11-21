@@ -1573,63 +1573,60 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %10, %13
   %18 = phi ptr [ %12, %10 ], [ %17, %13 ]
   %19 = load ptr, ptr %18, align 8
   %20 = load i8, ptr %19, align 8
-  %21 = icmp ult i8 %20, 29
-  %22 = zext i8 %20 to i32
-  %23 = add nsw i32 %22, -60
-  %24 = icmp ult i32 %23, -18
-  %.not20 = select i1 %21, i1 true, i1 %24
-  br i1 %.not20, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread, label %25
+  %21 = add i8 %20, -60
+  %22 = icmp ult i8 %21, -18
+  br i1 %22, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread, label %23
 
-25:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit
-  %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %.not.i.i13 = icmp eq ptr %27, null
+23:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %.not.i.i13 = icmp eq ptr %25, null
   br i1 %.not.i.i13, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread, label %_ZNK4llvm5Value9hasOneUseEv.exit
 
-_ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
+_ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
   %.not12 = icmp eq i8 %20, 54
-  %or.cond21 = and i1 %30, %.not12
-  br i1 %or.cond21, label %31, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
+  %or.cond18 = and i1 %28, %.not12
+  br i1 %or.cond18, label %29, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
-31:                                               ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit
-  %32 = getelementptr inbounds i8, ptr %19, i64 -32
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i8, ptr %33, align 8
-  %35 = icmp eq i8 %34, 17
-  br i1 %35, label %36, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
+29:                                               ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit
+  %30 = getelementptr inbounds i8, ptr %19, i64 -32
+  %31 = load ptr, ptr %30, align 8
+  %32 = load i8, ptr %31, align 8
+  %33 = icmp eq i8 %32, 17
+  br i1 %33, label %34, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
-36:                                               ; preds = %31
+34:                                               ; preds = %29
   %.not.i = icmp eq i64 %.0.i, 0
   br i1 %.not.i, label %_ZN4llvm16isShiftedMask_64Em.exit.thread, label %_ZN4llvm16isShiftedMask_64Em.exit
 
-_ZN4llvm16isShiftedMask_64Em.exit:                ; preds = %36
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp ult i32 %38, 65
-  %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %41 = load ptr, ptr %40, align 8
-  %.0.in.i.i = select i1 %39, ptr %40, ptr %41
+_ZN4llvm16isShiftedMask_64Em.exit:                ; preds = %34
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp ult i32 %36, 65
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %39 = load ptr, ptr %38, align 8
+  %.0.in.i.i = select i1 %37, ptr %38, ptr %39
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
-  %42 = add i64 %.0.i, -1
-  %43 = or i64 %42, %.0.i
-  %44 = add i64 %43, 1
-  %45 = and i64 %44, %43
-  %46 = icmp eq i64 %45, 0
-  %47 = trunc i64 %.0.i.i to i32
-  %48 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i, i1 true)
-  %49 = trunc nuw nsw i64 %48 to i32
-  %50 = icmp eq i32 %49, %47
-  %or.cond = select i1 %46, i1 %50, i1 false
+  %40 = add i64 %.0.i, -1
+  %41 = or i64 %40, %.0.i
+  %42 = add i64 %41, 1
+  %43 = and i64 %42, %41
+  %44 = icmp eq i64 %43, 0
+  %45 = trunc i64 %.0.i.i to i32
+  %46 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i, i1 true)
+  %47 = trunc nuw nsw i64 %46 to i32
+  %48 = icmp eq i32 %47, %45
+  %or.cond = select i1 %44, i1 %48, i1 false
   br i1 %or.cond, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread, label %_ZN4llvm16isShiftedMask_64Em.exit.thread
 
-_ZN4llvm16isShiftedMask_64Em.exit.thread:         ; preds = %36, %_ZN4llvm16isShiftedMask_64Em.exit
+_ZN4llvm16isShiftedMask_64Em.exit.thread:         ; preds = %34, %_ZN4llvm16isShiftedMask_64Em.exit
   br label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
-_ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %_ZN4llvm16isShiftedMask_64Em.exit, %25, %31, %_ZNK4llvm4User10getOperandEj.exit, %_ZNK4llvm5Value9hasOneUseEv.exit, %_ZN4llvm16isShiftedMask_64Em.exit.thread
-  %.0 = phi i1 [ false, %_ZN4llvm16isShiftedMask_64Em.exit.thread ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %31 ], [ false, %25 ], [ true, %_ZN4llvm16isShiftedMask_64Em.exit ]
+_ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %_ZN4llvm16isShiftedMask_64Em.exit, %23, %29, %_ZNK4llvm4User10getOperandEj.exit, %_ZNK4llvm5Value9hasOneUseEv.exit, %_ZN4llvm16isShiftedMask_64Em.exit.thread
+  %.0 = phi i1 [ false, %_ZN4llvm16isShiftedMask_64Em.exit.thread ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %29 ], [ false, %23 ], [ true, %_ZN4llvm16isShiftedMask_64Em.exit ]
   ret i1 %.0
 }
 

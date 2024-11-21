@@ -208,7 +208,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %10, %13
   br label %24
 
 24:                                               ; preds = %.lr.ph, %.critedge31
-  %.029 = phi ptr [ %18, %.lr.ph ], [ %61, %.critedge31 ]
+  %.029 = phi ptr [ %18, %.lr.ph ], [ %60, %.critedge31 ]
   %25 = load ptr, ptr %.029, align 8
   %26 = load ptr, ptr %20, align 8, !noalias !9
   %27 = load ptr, ptr %1, align 8, !noalias !9
@@ -257,37 +257,36 @@ _ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit: ; preds = %._crit_edge.
 
 45:                                               ; preds = %42
   %46 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction18mayHaveSideEffectsEv(ptr noundef nonnull align 8 dereferenceable(72) %25) #9
-  %47 = zext i8 %43 to i32
-  %48 = add nsw i32 %47, -30
-  %49 = icmp ult i32 %48, 11
-  %or.cond = select i1 %46, i1 true, i1 %49
-  br i1 %or.cond, label %.critedge31, label %50
+  %47 = add i8 %43, -30
+  %48 = icmp ult i8 %47, 11
+  %or.cond = or i1 %46, %48
+  br i1 %or.cond, label %.critedge31, label %49
 
-50:                                               ; preds = %45
-  %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
-  %52 = add i64 %51, 1
-  %53 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
-  %.not.i.i.i22 = icmp ugt i64 %52, %53
-  br i1 %.not.i.i.i22, label %54, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit
+49:                                               ; preds = %45
+  %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
+  %51 = add i64 %50, 1
+  %52 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
+  %.not.i.i.i22 = icmp ugt i64 %51, %52
+  br i1 %.not.i.i.i22, label %53, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit
 
-54:                                               ; preds = %50
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %23, i64 noundef %52, i64 noundef 8) #8
+53:                                               ; preds = %49
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %23, i64 noundef %51, i64 noundef 8) #8
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit: ; preds = %50, %54
-  %55 = load ptr, ptr %2, align 8
-  %56 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
-  %58 = ptrtoint ptr %25 to i64
-  store i64 %58, ptr %57, align 1
-  %59 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
-  %60 = add i64 %59, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %60) #8
+_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit: ; preds = %49, %53
+  %54 = load ptr, ptr %2, align 8
+  %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
+  %56 = getelementptr inbounds ptr, ptr %54, i64 %55
+  %57 = ptrtoint ptr %25 to i64
+  store i64 %57, ptr %56, align 1
+  %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
+  %59 = add i64 %58, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %59) #8
   br label %.critedge31
 
 .critedge31:                                      ; preds = %.lr.ph.i.i, %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit, %45, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit, %42
-  %61 = getelementptr inbounds i8, ptr %.029, i64 32
-  %.not19 = icmp eq ptr %61, %19
+  %60 = getelementptr inbounds i8, ptr %.029, i64 32
+  %.not19 = icmp eq ptr %60, %19
   br i1 %.not19, label %.loopexit, label %24
 
 .loopexit:                                        ; preds = %.critedge31, %_ZNK4llvm4User8operandsEv.exit, %3

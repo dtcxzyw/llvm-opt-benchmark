@@ -10853,9 +10853,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ento13ElementRegionEKNS2_9MemRegionEEEDaPT0_.
   %47 = load ptr, ptr %46, align 16
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i8, ptr %48, align 16
-  %50 = zext i8 %49 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %50, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %50 = add i8 %49, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %50, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZNK5clang4ento12ProgramState9getLValueENS_8QualTypeENS0_4SValES3_.exit, label %51
 
 51:                                               ; preds = %36
@@ -22171,9 +22170,8 @@ _ZNK5clang8DeclStmt5declsEv.exit.i:               ; preds = %24, %20
   %47 = load ptr, ptr %46, align 16
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i8, ptr %48, align 16
-  %50 = zext i8 %49 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i = add nsw i32 %50, -2
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i, 5
+  %50 = add i8 %49, -2
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %50, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %51, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
 51:                                               ; preds = %39

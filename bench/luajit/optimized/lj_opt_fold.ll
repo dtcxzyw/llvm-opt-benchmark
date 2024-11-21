@@ -5505,15 +5505,14 @@ land.lhs.true14:                                  ; preds = %lor.lhs.false
   %op218 = getelementptr inbounds i8, ptr %J, i64 194
   %5 = load i16, ptr %op218, align 2
   %6 = and i16 %5, 31
-  %and20 = zext nneg i16 %6 to i32
-  %sub = add nsw i32 %and20, -15
-  %cmp21 = icmp ult i32 %sub, 7
+  %7 = add nsw i16 %6, -15
+  %cmp21 = icmp ult i16 %7, 7
   br i1 %cmp21, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true14, %land.lhs.true
   %o25 = getelementptr inbounds i8, ptr %J, i64 189
-  %7 = load i8, ptr %o25, align 1
-  %cmp27 = icmp eq i8 %7, 8
+  %8 = load i8, ptr %o25, align 1
+  %cmp27 = icmp eq i8 %8, 8
   %add = select i1 %cmp27, i32 4, i32 3
   br label %return
 

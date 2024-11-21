@@ -8724,113 +8724,112 @@ _ZNK5clang4Decl14getDeclContextEv.exit22.i:       ; preds = %63, %55
 _ZNK5clang4Decl14getDeclContextEv.exit25.i:       ; preds = %70, %_ZNK5clang4Decl14getDeclContextEv.exit22.i
   %.0.i.i24.i = phi ptr [ %71, %70 ], [ %69, %_ZNK5clang4Decl14getDeclContextEv.exit22.i ]
   %72 = icmp eq ptr %.0.i.i21.i, %.0.i.i24.i
-  br i1 %72, label %79, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
+  br i1 %72, label %78, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
 
 _ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit: ; preds = %41, %47
   %.0.i.i.i = phi ptr [ %48, %47 ], [ %46, %41 ]
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %74 = load i16, ptr %73, align 8
   %75 = and i16 %74, 127
-  %76 = zext nneg i16 %75 to i32
-  %77 = add nsw i32 %76, -59
-  %78 = icmp ult i32 %77, -3
-  br i1 %78, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit._crit_edge, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
+  %76 = add nsw i16 %75, -59
+  %77 = icmp ult i16 %76, -3
+  br i1 %77, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit._crit_edge, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
 
 _ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit._crit_edge: ; preds = %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit
   %.val19.pre = load ptr, ptr %2, align 8
-  br label %79
+  br label %78
 
-79:                                               ; preds = %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit._crit_edge, %_ZNK5clang4Decl14getDeclContextEv.exit25.i
+78:                                               ; preds = %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit._crit_edge, %_ZNK5clang4Decl14getDeclContextEv.exit25.i
   %.val19 = phi ptr [ %.val19.pre, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit._crit_edge ], [ %.val30, %_ZNK5clang4Decl14getDeclContextEv.exit25.i ]
-  %80 = getelementptr i8, ptr %.val19, i64 32
-  %.val14 = load i16, ptr %80, align 8
+  %79 = getelementptr i8, ptr %.val19, i64 32
+  %.val14 = load i16, ptr %79, align 8
   %.mask.i = and i16 %.val14, -256
-  %81 = icmp eq i16 %.mask.i, 256
-  br i1 %81, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread, label %82
+  %80 = icmp eq i16 %.mask.i, 256
+  br i1 %80, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread, label %81
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %.val19, i64 8
-  %86 = getelementptr inbounds i8, ptr %.val19, i64 16
-  %.sroa.0.0.copyload.i37 = load ptr, ptr %86, align 8
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %.val19, i64 8
+  %85 = getelementptr inbounds i8, ptr %.val19, i64 16
+  %.sroa.0.0.copyload.i37 = load ptr, ptr %85, align 8
   %.sroa.2.0..sroa_idx.i38 = getelementptr inbounds i8, ptr %.val19, i64 24
   %.sroa.2.0.copyload.i39 = load i64, ptr %.sroa.2.0..sroa_idx.i38, align 8
-  call void @_ZNK5clang12threadSafety14CapabilityExpr8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %85)
-  %87 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
-  %88 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
+  call void @_ZNK5clang12threadSafety14CapabilityExpr8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %84)
+  %86 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
+  %87 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   call void @_ZNK5clang12threadSafety14CapabilityExpr8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  %89 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
-  store ptr %89, ptr %13, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %91 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
-  store i64 %91, ptr %90, align 8
+  %88 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
+  store ptr %88, ptr %13, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %90 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
+  store i64 %90, ptr %89, align 8
   %.val22 = load ptr, ptr %2, align 8
-  %92 = getelementptr i8, ptr %.val22, i64 36
-  %.val = load i32, ptr %92, align 4
-  %93 = load ptr, ptr %84, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 80
-  %95 = load ptr, ptr %94, align 8
-  call void %95(ptr noundef nonnull align 8 dereferenceable(9) %84, ptr %.sroa.0.0.copyload.i37, i64 %.sroa.2.0.copyload.i39, ptr %87, i64 %88, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %13, i32 %.val) #18
+  %91 = getelementptr i8, ptr %.val22, i64 36
+  %.val = load i32, ptr %91, align 4
+  %92 = load ptr, ptr %83, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 80
+  %94 = load ptr, ptr %93, align 8
+  call void %94(ptr noundef nonnull align 8 dereferenceable(9) %83, ptr %.sroa.0.0.copyload.i37, i64 %.sroa.2.0.copyload.i39, ptr %86, i64 %87, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %13, i32 %.val) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   br label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
 
-_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread: ; preds = %49, %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i, %35, %38, %_ZNK5clang4Decl14getDeclContextEv.exit25.i, %28, %82, %79, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit, %18
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %99 = load i8, ptr %98, align 8
-  %100 = trunc i8 %99 to i1
+_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread: ; preds = %49, %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i, %35, %38, %_ZNK5clang4Decl14getDeclContextEv.exit25.i, %28, %81, %78, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit, %18
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load i8, ptr %97, align 8
+  %99 = trunc i8 %98 to i1
   %.val31.pre58 = load ptr, ptr %2, align 8
-  br i1 %100, label %101, label %138
+  br i1 %99, label %100, label %137
 
-101:                                              ; preds = %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
-  %102 = getelementptr i8, ptr %.val31.pre58, i64 32
-  %.val15 = load i16, ptr %102, align 8
+100:                                              ; preds = %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
+  %101 = getelementptr i8, ptr %.val31.pre58, i64 32
+  %.val15 = load i16, ptr %101, align 8
   %.mask.i40 = and i16 %.val15, -256
-  switch i16 %.mask.i40, label %103 [
-    i16 256, label %138
-    i16 512, label %138
+  switch i16 %.mask.i40, label %102 [
+    i16 256, label %137
+    i16 512, label %137
   ]
 
-103:                                              ; preds = %101
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %.val31.pre58, i64 8
-  %.0.copyload.i.i.i.i.i42 = load i64, ptr %106, align 8
-  %107 = and i64 %.0.copyload.i.i.i.i.i42, 4
-  %.not13.i = icmp eq i64 %107, 0
-  br i1 %.not13.i, label %108, label %_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit
+102:                                              ; preds = %100
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds i8, ptr %.val31.pre58, i64 8
+  %.0.copyload.i.i.i.i.i42 = load i64, ptr %105, align 8
+  %106 = and i64 %.0.copyload.i.i.i.i.i42, 4
+  %.not13.i = icmp eq i64 %106, 0
+  br i1 %.not13.i, label %107, label %_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit
 
-108:                                              ; preds = %103
-  %109 = and i64 %.0.copyload.i.i.i.i.i42, -8
-  %110 = inttoptr i64 %109 to ptr
-  %111 = icmp eq i64 %109, 0
-  br i1 %111, label %_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit, label %112
+107:                                              ; preds = %102
+  %108 = and i64 %.0.copyload.i.i.i.i.i42, -8
+  %109 = inttoptr i64 %108 to ptr
+  %110 = icmp eq i64 %108, 0
+  br i1 %110, label %_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit, label %111
 
-112:                                              ; preds = %108
-  %113 = load i8, ptr %110, align 8
-  switch i8 %113, label %_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit [
+111:                                              ; preds = %107
+  %112 = load i8, ptr %109, align 8
+  switch i8 %112, label %_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit [
     i8 12, label %.sink.split.i
-    i8 4, label %114
+    i8 4, label %113
   ]
 
-114:                                              ; preds = %112
+113:                                              ; preds = %111
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %114, %112
-  %.sink17.i = phi i64 [ 16, %114 ], [ 64, %112 ]
-  %115 = getelementptr inbounds nuw i8, ptr %110, i64 %.sink17.i
-  %116 = load ptr, ptr %115, align 8
+.sink.split.i:                                    ; preds = %113, %111
+  %.sink17.i = phi i64 [ 16, %113 ], [ 64, %111 ]
+  %114 = getelementptr inbounds nuw i8, ptr %109, i64 %.sink17.i
+  %115 = load ptr, ptr %114, align 8
   br label %_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit
 
-_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit: ; preds = %103, %108, %112, %.sink.split.i
-  %.0.i43 = phi ptr [ null, %108 ], [ null, %103 ], [ null, %112 ], [ %116, %.sink.split.i ]
-  %117 = getelementptr i8, ptr %.val31.pre58, i64 36
-  %.val13 = load i32, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %.val31.pre58, i64 16
-  %.sroa.0.0.copyload.i44 = load ptr, ptr %118, align 8
+_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit: ; preds = %102, %107, %111, %.sink.split.i
+  %.0.i43 = phi ptr [ null, %107 ], [ null, %102 ], [ null, %111 ], [ %115, %.sink.split.i ]
+  %116 = getelementptr i8, ptr %.val31.pre58, i64 36
+  %.val13 = load i32, ptr %116, align 4
+  %117 = getelementptr inbounds i8, ptr %.val31.pre58, i64 16
+  %.sroa.0.0.copyload.i44 = load ptr, ptr %117, align 8
   %.sroa.2.0..sroa_idx.i45 = getelementptr inbounds i8, ptr %.val31.pre58, i64 24
   %.sroa.2.0.copyload.i46 = load i64, ptr %.sroa.2.0..sroa_idx.i45, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -8843,119 +8842,119 @@ _ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit: ; preds = %103, %108,
   store i64 %.sroa.2.0.copyload.i46, ptr %.sroa.2.0..sroa_idx, align 8
   store i32 %.val13, ptr %6, align 4
   store ptr %.0.i43, ptr %7, align 8
-  %119 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull %119, i64 noundef 8) #18
-  %120 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %121 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %122 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 0, ptr %122, align 8
-  %123 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
-  store ptr %105, ptr %123, align 16
-  %.sroa.2.0..sroa_idx.i49 = getelementptr inbounds i8, ptr %123, i64 8
+  %118 = getelementptr inbounds i8, ptr %8, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull %118, i64 noundef 8) #18
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %121 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 0, ptr %121, align 8
+  %122 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
+  store ptr %104, ptr %122, align 16
+  %.sroa.2.0..sroa_idx.i49 = getelementptr inbounds i8, ptr %122, i64 8
   store ptr %0, ptr %.sroa.2.0..sroa_idx.i49, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %123, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %122, i64 16
   store ptr %8, ptr %.sroa.3.0..sroa_idx.i, align 16
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %123, i64 24
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %122, i64 24
   store ptr %1, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %123, i64 32
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %122, i64 32
   store ptr %7, ptr %.sroa.5.0..sroa_idx.i, align 16
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %123, i64 40
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %122, i64 40
   store ptr %10, ptr %.sroa.6.0..sroa_idx.i, align 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %123, i64 48
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %122, i64 48
   store ptr %6, ptr %.sroa.7.0..sroa_idx.i, align 16
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %123, i64 56
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %122, i64 56
   store ptr %9, ptr %.sroa.8.0..sroa_idx.i, align 8
-  store ptr %123, ptr %9, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbPKN5clang9ValueDeclEEZNS0_12threadSafety9BeforeSet16checkBeforeAfterES3_RKN12_GLOBAL__N_17FactSetERNS7_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %121, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbPKN5clang9ValueDeclEEZNS0_12threadSafety9BeforeSet16checkBeforeAfterES3_RKN12_GLOBAL__N_17FactSetERNS7_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %120, align 8
+  store ptr %122, ptr %9, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbPKN5clang9ValueDeclEEZNS0_12threadSafety9BeforeSet16checkBeforeAfterES3_RKN12_GLOBAL__N_17FactSetERNS7_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0E9_M_invokeERKSt9_Any_dataOS3_", ptr %120, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbPKN5clang9ValueDeclEEZNS0_12threadSafety9BeforeSet16checkBeforeAfterES3_RKN12_GLOBAL__N_17FactSetERNS7_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %119, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %.0.i43, ptr %5, align 8
-  %124 = call noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5clang9ValueDeclEEZNS0_12threadSafety9BeforeSet16checkBeforeAfterES3_RKN12_GLOBAL__N_17FactSetERNS7_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  %123 = call noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5clang9ValueDeclEEZNS0_12threadSafety9BeforeSet16checkBeforeAfterES3_RKN12_GLOBAL__N_17FactSetERNS7_20ThreadSafetyAnalyzerENS0_14SourceLocationEN4llvm9StringRefEE3$_0E9_M_invokeERKSt9_Any_dataOS3_"(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %125 = load ptr, ptr %8, align 8
-  %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
-  %127 = getelementptr inbounds ptr, ptr %125, i64 %126
-  %.not11.i = icmp eq i64 %126, 0
+  %124 = load ptr, ptr %8, align 8
+  %125 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
+  %126 = getelementptr inbounds ptr, ptr %124, i64 %125
+  %.not11.i = icmp eq i64 %125, 0
   br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit, %.lr.ph.i
-  %.012.i = phi ptr [ %130, %.lr.ph.i ], [ %125, %_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit ]
-  %128 = load ptr, ptr %.012.i, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 48
-  store i32 0, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %.012.i, i64 8
-  %.not.i50 = icmp eq ptr %130, %127
+  %.012.i = phi ptr [ %129, %.lr.ph.i ], [ %124, %_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit ]
+  %127 = load ptr, ptr %.012.i, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 48
+  store i32 0, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %.not.i50 = icmp eq ptr %129, %126
   br i1 %.not.i50, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZNK5clang12threadSafety14CapabilityExpr9valueDeclEv.exit
-  %131 = load ptr, ptr %120, align 8
-  %.not.i.i10.i = icmp eq ptr %131, null
-  br i1 %.not.i.i10.i, label %_ZNSt8functionIFbPKN5clang9ValueDeclEEED2Ev.exit.i, label %132
+  %130 = load ptr, ptr %119, align 8
+  %.not.i.i10.i = icmp eq ptr %130, null
+  br i1 %.not.i.i10.i, label %_ZNSt8functionIFbPKN5clang9ValueDeclEEED2Ev.exit.i, label %131
 
-132:                                              ; preds = %._crit_edge.i
-  %133 = call noundef zeroext i1 %131(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #18
+131:                                              ; preds = %._crit_edge.i
+  %132 = call noundef zeroext i1 %130(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #18
   br label %_ZNSt8functionIFbPKN5clang9ValueDeclEEED2Ev.exit.i
 
-_ZNSt8functionIFbPKN5clang9ValueDeclEEED2Ev.exit.i: ; preds = %132, %._crit_edge.i
-  %134 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %8) #18
-  %135 = load ptr, ptr %8, align 8
-  %136 = icmp eq ptr %135, %119
-  br i1 %136, label %_ZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS5_20ThreadSafetyAnalyzerENS_14SourceLocationEN4llvm9StringRefE.exit, label %137
+_ZNSt8functionIFbPKN5clang9ValueDeclEEED2Ev.exit.i: ; preds = %131, %._crit_edge.i
+  %133 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %8) #18
+  %134 = load ptr, ptr %8, align 8
+  %135 = icmp eq ptr %134, %118
+  br i1 %135, label %_ZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS5_20ThreadSafetyAnalyzerENS_14SourceLocationEN4llvm9StringRefE.exit, label %136
 
-137:                                              ; preds = %_ZNSt8functionIFbPKN5clang9ValueDeclEEED2Ev.exit.i
-  call void @free(ptr noundef %135) #18
+136:                                              ; preds = %_ZNSt8functionIFbPKN5clang9ValueDeclEEED2Ev.exit.i
+  call void @free(ptr noundef %134) #18
   br label %_ZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS5_20ThreadSafetyAnalyzerENS_14SourceLocationEN4llvm9StringRefE.exit
 
-_ZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS5_20ThreadSafetyAnalyzerENS_14SourceLocationEN4llvm9StringRefE.exit: ; preds = %_ZNSt8functionIFbPKN5clang9ValueDeclEEED2Ev.exit.i, %137
+_ZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS5_20ThreadSafetyAnalyzerENS_14SourceLocationEN4llvm9StringRefE.exit: ; preds = %_ZNSt8functionIFbPKN5clang9ValueDeclEEED2Ev.exit.i, %136
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %.val31.pre = load ptr, ptr %2, align 8
-  br label %138
+  br label %137
 
-138:                                              ; preds = %101, %101, %_ZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS5_20ThreadSafetyAnalyzerENS_14SourceLocationEN4llvm9StringRefE.exit, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
-  %.val31 = phi ptr [ %.val31.pre58, %101 ], [ %.val31.pre58, %101 ], [ %.val31.pre, %_ZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS5_20ThreadSafetyAnalyzerENS_14SourceLocationEN4llvm9StringRefE.exit ], [ %.val31.pre58, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread ]
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %140 = getelementptr inbounds i8, ptr %.val31, i64 8
-  %141 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_17FactSet8findLockERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %140)
-  %.not12 = icmp eq ptr %141, null
-  br i1 %.not12, label %150, label %142
+137:                                              ; preds = %100, %100, %_ZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS5_20ThreadSafetyAnalyzerENS_14SourceLocationEN4llvm9StringRefE.exit, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
+  %.val31 = phi ptr [ %.val31.pre58, %100 ], [ %.val31.pre58, %100 ], [ %.val31.pre, %_ZN5clang12threadSafety9BeforeSet16checkBeforeAfterEPKNS_9ValueDeclERKN12_GLOBAL__N_17FactSetERNS5_20ThreadSafetyAnalyzerENS_14SourceLocationEN4llvm9StringRefE.exit ], [ %.val31.pre58, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread ]
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %139 = getelementptr inbounds i8, ptr %.val31, i64 8
+  %140 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_17FactSet8findLockERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(24) %139)
+  %.not12 = icmp eq ptr %140, null
+  br i1 %.not12, label %149, label %141
 
-142:                                              ; preds = %138
+141:                                              ; preds = %137
   %.val28 = load ptr, ptr %2, align 8
-  %143 = getelementptr i8, ptr %.val28, i64 32
-  %.val16 = load i16, ptr %143, align 8
+  %142 = getelementptr i8, ptr %.val28, i64 32
+  %.val16 = load i16, ptr %142, align 8
   %.mask.i51 = and i16 %.val16, -256
-  %144 = icmp eq i16 %.mask.i51, 256
-  br i1 %144, label %_ZNSt10unique_ptrIN12_GLOBAL__N_19FactEntryESt14default_deleteIS1_EED2Ev.exit, label %145
+  %143 = icmp eq i16 %.mask.i51, 256
+  br i1 %143, label %_ZNSt10unique_ptrIN12_GLOBAL__N_19FactEntryESt14default_deleteIS1_EED2Ev.exit, label %144
 
-145:                                              ; preds = %142
-  %146 = load ptr, ptr %96, align 8
-  %147 = load ptr, ptr %141, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 24
-  %149 = load ptr, ptr %148, align 8
-  call void %149(ptr noundef nonnull align 8 dereferenceable(40) %141, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(40) %.val28, ptr noundef nonnull align 8 dereferenceable(9) %146) #18
+144:                                              ; preds = %141
+  %145 = load ptr, ptr %95, align 8
+  %146 = load ptr, ptr %140, align 8
+  %147 = getelementptr inbounds i8, ptr %146, i64 24
+  %148 = load ptr, ptr %147, align 8
+  call void %148(ptr noundef nonnull align 8 dereferenceable(40) %140, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(40) %.val28, ptr noundef nonnull align 8 dereferenceable(9) %145) #18
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_19FactEntryESt14default_deleteIS1_EED2Ev.exit
 
-150:                                              ; preds = %138
+149:                                              ; preds = %137
   %.val.i.i.i = load i64, ptr %2, align 8
   store i64 %.val.i.i.i, ptr %15, align 8
   store ptr null, ptr %2, align 8
-  call fastcc void @_ZN12_GLOBAL__N_17FactSet7addLockERNS_11FactManagerESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef %15)
-  %151 = load ptr, ptr %15, align 8
-  %.not.i52 = icmp eq ptr %151, null
+  call fastcc void @_ZN12_GLOBAL__N_17FactSet7addLockERNS_11FactManagerESt10unique_ptrINS_9FactEntryESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef %15)
+  %150 = load ptr, ptr %15, align 8
+  %.not.i52 = icmp eq ptr %150, null
   br i1 %.not.i52, label %_ZNSt10unique_ptrIN12_GLOBAL__N_19FactEntryESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN12_GLOBAL__N_19FactEntryEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_19FactEntryEEclEPS1_.exit.i: ; preds = %150
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 8
-  %154 = load ptr, ptr %153, align 8
-  call void %154(ptr noundef nonnull align 8 dereferenceable(40) %151) #18
+_ZNKSt14default_deleteIN12_GLOBAL__N_19FactEntryEEclEPS1_.exit.i: ; preds = %149
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 8
+  %153 = load ptr, ptr %152, align 8
+  call void %153(ptr noundef nonnull align 8 dereferenceable(40) %150) #18
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_19FactEntryESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_19FactEntryESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_19FactEntryEEclEPS1_.exit.i, %150, %142, %145, %4
+_ZNSt10unique_ptrIN12_GLOBAL__N_19FactEntryESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_19FactEntryEEclEPS1_.exit.i, %149, %141, %144, %4
   ret void
 }
 
@@ -22285,7 +22284,7 @@ _ZNK5clang12threadSafety14CapabilityExpr9isInvalidEv.exit: ; preds = %9
   %47 = and i64 %.0.copyload.i.i.i.i.i, 4
   %.not131 = icmp eq i64 %47, 0
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  br i1 %.not131, label %127, label %49
+  br i1 %.not131, label %126, label %49
 
 49:                                               ; preds = %46
   call void @llvm.experimental.noalias.scope.decl(metadata !322)
@@ -22417,727 +22416,726 @@ _ZNK5clang4Decl14getDeclContextEv.exit22.i:       ; preds = %101, %93
 _ZNK5clang4Decl14getDeclContextEv.exit25.i:       ; preds = %108, %_ZNK5clang4Decl14getDeclContextEv.exit22.i
   %.0.i.i24.i = phi ptr [ %109, %108 ], [ %107, %_ZNK5clang4Decl14getDeclContextEv.exit22.i ]
   %110 = icmp eq ptr %.0.i.i21.i, %.0.i.i24.i
-  br i1 %110, label %117, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
+  br i1 %110, label %116, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
 
 _ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit: ; preds = %79, %85
   %.0.i.i.i75 = phi ptr [ %86, %85 ], [ %84, %79 ]
   %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i75, i64 8
   %112 = load i16, ptr %111, align 8
   %113 = and i16 %112, 127
-  %114 = zext nneg i16 %113 to i32
-  %115 = add nsw i32 %114, -59
-  %116 = icmp ult i32 %115, -3
-  br i1 %116, label %117, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
+  %114 = add nsw i16 %113, -59
+  %115 = icmp ult i16 %114, -3
+  br i1 %115, label %116, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
 
-117:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit25.i, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit
-  %118 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_17FactSet8findLockERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %17)
-  %.not56 = icmp eq ptr %118, null
-  br i1 %.not56, label %119, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
+116:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit25.i, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit
+  %117 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_17FactSet8findLockERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %.not56 = icmp eq ptr %117, null
+  br i1 %.not56, label %118, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
 
-119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %121 = load ptr, ptr %120, align 8
+118:                                              ; preds = %116
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %120 = load ptr, ptr %119, align 8
   call void @_ZNK5clang12threadSafety14CapabilityExpr8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %17)
-  %122 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #18
-  %123 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #18
-  %124 = load ptr, ptr %121, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 88
-  %126 = load ptr, ptr %125, align 8
-  call void %126(ptr noundef nonnull align 8 dereferenceable(9) %121, ptr noundef %2, ptr %122, i64 %123, i32 %8) #18
+  %121 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #18
+  %122 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #18
+  %123 = load ptr, ptr %120, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 88
+  %125 = load ptr, ptr %124, align 8
+  call void %125(ptr noundef nonnull align 8 dereferenceable(9) %120, ptr noundef %2, ptr %121, i64 %122, i32 %8) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #18
   br label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
 
-127:                                              ; preds = %46
+126:                                              ; preds = %46
   %.val6.i = load ptr, ptr %1, align 8
-  %128 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  %129 = getelementptr inbounds i16, ptr %.val6.i, i64 %128
-  %130 = ptrtoint ptr %129 to i64
-  %131 = ashr i64 %128, 2
-  %132 = icmp sgt i64 %131, 0
-  br i1 %132, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %127 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %128 = getelementptr inbounds i16, ptr %.val6.i, i64 %127
+  %129 = ptrtoint ptr %128 to i64
+  %130 = ashr i64 %127, 2
+  %131 = icmp sgt i64 %130, 0
+  br i1 %131, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %127, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i
-  %.0166.i.i.i.i = phi i64 [ %225, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i ], [ %131, %127 ]
-  %.029165.i.i.i.i = phi ptr [ %224, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i ], [ %.val6.i, %127 ]
+.lr.ph.i.i.i.i:                                   ; preds = %126, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i
+  %.0166.i.i.i.i = phi i64 [ %224, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i ], [ %130, %126 ]
+  %.029165.i.i.i.i = phi ptr [ %223, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i ], [ %.val6.i, %126 ]
   %.029.val.i.i.i.i = load i16, ptr %.029165.i.i.i.i, align 2
   %.val.val.i.i.i.i = load ptr, ptr %48, align 8
-  %133 = zext i16 %.029.val.i.i.i.i to i64
-  %134 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.val.i.i.i.i, i64 %133
-  %.val1.i.i.i.i.i.i.i = load ptr, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i77 = load i64, ptr %135, align 8
-  %136 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i77, -8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %136, 0
+  %132 = zext i16 %.029.val.i.i.i.i to i64
+  %133 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.val.i.i.i.i, i64 %132
+  %.val1.i.i.i.i.i.i.i = load ptr, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i77 = load i64, ptr %134, align 8
+  %135 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i77, -8
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %135, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i.i.i.i.i
 
 _ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %137 = inttoptr i64 %136 to ptr
-  %138 = load i8, ptr %137, align 8
-  %139 = icmp eq i8 %138, 2
-  br i1 %139, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i.i.i.i.i
+  %136 = inttoptr i64 %135 to ptr
+  %137 = load i8, ptr %136, align 8
+  %138 = icmp eq i8 %137, 2
+  br i1 %138, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i.i.i.i.i
 
 _ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %140 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i77, 4
-  %141 = icmp ne i64 %140, 0
+  %139 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i77, 4
+  %140 = icmp ne i64 %139, 0
   %.0.copyload.i.i.i.i3.i.i.i.i.i.i.i.i = load i64, ptr %17, align 8
-  %142 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i.i.i.i.i, 4
-  %143 = icmp ne i64 %142, 0
-  %144 = xor i1 %141, %143
-  br i1 %144, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119.i.i.i.i, label %145
+  %141 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i.i.i.i.i, 4
+  %142 = icmp ne i64 %141, 0
+  %143 = xor i1 %140, %142
+  br i1 %143, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119.i.i.i.i, label %144
 
-145:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i.i.i.i.i
-  %146 = inttoptr i64 %136 to ptr
-  %147 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i.i.i.i.i, -8
-  %148 = inttoptr i64 %147 to ptr
-  %149 = load i8, ptr %146, align 8
-  %150 = icmp eq i8 %149, 2
-  %151 = load i8, ptr %148, align 8
-  %152 = icmp eq i8 %151, 2
-  %brmerge.i.i.i.i.i.i.i.i.i = select i1 %150, i1 true, i1 %152
-  br i1 %brmerge.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i, label %153
+144:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i.i.i.i.i
+  %145 = inttoptr i64 %135 to ptr
+  %146 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i.i.i.i.i, -8
+  %147 = inttoptr i64 %146 to ptr
+  %148 = load i8, ptr %145, align 8
+  %149 = icmp eq i8 %148, 2
+  %150 = load i8, ptr %147, align 8
+  %151 = icmp eq i8 %150, 2
+  %brmerge.i.i.i.i.i.i.i.i.i = select i1 %149, i1 true, i1 %151
+  br i1 %brmerge.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i, label %152
 
-153:                                              ; preds = %145
+152:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %149, %151
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %148, %150
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.thread.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.thread.i.i.i.i: ; preds = %153
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.thread.i.i.i.i: ; preds = %152
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.i.i.i.i: ; preds = %153
-  %154 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull %146, ptr noundef nonnull %148) #23
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.i.i.i.i: ; preds = %152
+  %153 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull %145, ptr noundef nonnull %147) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
-  br i1 %154, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119_crit_edge.i.i.i.i
+  br i1 %153, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119_crit_edge.i.i.i.i
 
 _ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119_crit_edge.i.i.i.i: ; preds = %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.i.i.i.i
   %.val31.val.pre.i.i.i.i = load ptr, ptr %48, align 8
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i: ; preds = %145
-  %.mux.i.i.i.i.i.i.i.i.i = select i1 %150, i1 %152, i1 false
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i: ; preds = %144
+  %.mux.i.i.i.i.i.i.i.i.i = select i1 %149, i1 %151, i1 false
   br i1 %.mux.i.i.i.i.i.i.i.i.i, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119_crit_edge.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.thread.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i.i.i.i.i
   %.val31.val.i.i.i.i = phi ptr [ %.val31.val.pre.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119_crit_edge.i.i.i.i ], [ %.val.val.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.thread.i.i.i.i ], [ %.val.val.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i.i.i.i.i ], [ %.val.val.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i ]
-  %155 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 2
-  %.val33.i.i.i.i = load i16, ptr %155, align 2
-  %156 = zext i16 %.val33.i.i.i.i to i64
-  %157 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val31.val.i.i.i.i, i64 %156
-  %.val1.i.i.i47.i.i.i.i = load ptr, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %.val1.i.i.i47.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i48.i.i.i.i = load i64, ptr %158, align 8
-  %159 = and i64 %.0.copyload.i.i.i.i.i.i.i.i48.i.i.i.i, -8
-  %.not.i.i.i.i.i.i49.i.i.i.i = icmp eq i64 %159, 0
+  %154 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 2
+  %.val33.i.i.i.i = load i16, ptr %154, align 2
+  %155 = zext i16 %.val33.i.i.i.i to i64
+  %156 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val31.val.i.i.i.i, i64 %155
+  %.val1.i.i.i47.i.i.i.i = load ptr, ptr %156, align 8
+  %157 = getelementptr inbounds i8, ptr %.val1.i.i.i47.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i48.i.i.i.i = load i64, ptr %157, align 8
+  %158 = and i64 %.0.copyload.i.i.i.i.i.i.i.i48.i.i.i.i, -8
+  %.not.i.i.i.i.i.i49.i.i.i.i = icmp eq i64 %158, 0
   br i1 %.not.i.i.i.i.i.i49.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i51.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i50.i.i.i.i
 
 _ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i50.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119.i.i.i.i
-  %160 = inttoptr i64 %159 to ptr
-  %161 = load i8, ptr %160, align 8
-  %162 = icmp eq i8 %161, 2
-  br i1 %162, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit197, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i51.i.i.i.i
+  %159 = inttoptr i64 %158 to ptr
+  %160 = load i8, ptr %159, align 8
+  %161 = icmp eq i8 %160, 2
+  br i1 %161, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit197, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i51.i.i.i.i
 
 _ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i51.i.i.i.i: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i50.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread119.i.i.i.i
-  %163 = and i64 %.0.copyload.i.i.i.i.i.i.i.i48.i.i.i.i, 4
-  %164 = icmp ne i64 %163, 0
+  %162 = and i64 %.0.copyload.i.i.i.i.i.i.i.i48.i.i.i.i, 4
+  %163 = icmp ne i64 %162, 0
   %.0.copyload.i.i.i.i3.i.i.i.i52.i.i.i.i = load i64, ptr %17, align 8
-  %165 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i52.i.i.i.i, 4
-  %166 = icmp ne i64 %165, 0
-  %167 = xor i1 %164, %166
-  br i1 %167, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120.i.i.i.i, label %168
+  %164 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i52.i.i.i.i, 4
+  %165 = icmp ne i64 %164, 0
+  %166 = xor i1 %163, %165
+  br i1 %166, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120.i.i.i.i, label %167
 
-168:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i51.i.i.i.i
-  %169 = inttoptr i64 %159 to ptr
-  %170 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i52.i.i.i.i, -8
-  %171 = inttoptr i64 %170 to ptr
-  %172 = load i8, ptr %169, align 8
-  %173 = icmp eq i8 %172, 2
-  %174 = load i8, ptr %171, align 8
-  %175 = icmp eq i8 %174, 2
-  %brmerge.i.i.i.i.i53.i.i.i.i = select i1 %173, i1 true, i1 %175
-  br i1 %brmerge.i.i.i.i.i53.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.i.i.i.i, label %176
+167:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i51.i.i.i.i
+  %168 = inttoptr i64 %158 to ptr
+  %169 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i52.i.i.i.i, -8
+  %170 = inttoptr i64 %169 to ptr
+  %171 = load i8, ptr %168, align 8
+  %172 = icmp eq i8 %171, 2
+  %173 = load i8, ptr %170, align 8
+  %174 = icmp eq i8 %173, 2
+  %brmerge.i.i.i.i.i53.i.i.i.i = select i1 %172, i1 true, i1 %174
+  br i1 %brmerge.i.i.i.i.i53.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.i.i.i.i, label %175
 
-176:                                              ; preds = %168
+175:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
-  %.not.i.i.i.i.i.i.i55.i.i.i.i = icmp eq i8 %172, %174
+  %.not.i.i.i.i.i.i.i55.i.i.i.i = icmp eq i8 %171, %173
   br i1 %.not.i.i.i.i.i.i.i55.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56.thread.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56.thread.i.i.i.i: ; preds = %176
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56.thread.i.i.i.i: ; preds = %175
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56.i.i.i.i: ; preds = %176
-  %177 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull %169, ptr noundef nonnull %171) #23
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56.i.i.i.i: ; preds = %175
+  %176 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull %168, ptr noundef nonnull %170) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
-  br i1 %177, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit191, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120_crit_edge.i.i.i.i
+  br i1 %176, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit191, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120_crit_edge.i.i.i.i
 
 _ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120_crit_edge.i.i.i.i: ; preds = %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56.i.i.i.i
   %.val34.val.pre.i.i.i.i = load ptr, ptr %48, align 8
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.i.i.i.i: ; preds = %168
-  %.mux.i.i.i.i.i54.i.i.i.i = select i1 %173, i1 %175, i1 false
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.i.i.i.i: ; preds = %167
+  %.mux.i.i.i.i.i54.i.i.i.i = select i1 %172, i1 %174, i1 false
   br i1 %.mux.i.i.i.i.i54.i.i.i.i, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120_crit_edge.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56.thread.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i51.i.i.i.i
   %.val34.val.i.i.i.i = phi ptr [ %.val34.val.pre.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120_crit_edge.i.i.i.i ], [ %.val31.val.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56.thread.i.i.i.i ], [ %.val31.val.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i51.i.i.i.i ], [ %.val31.val.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.i.i.i.i ]
-  %178 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 4
-  %.val36.i.i.i.i = load i16, ptr %178, align 2
-  %179 = zext i16 %.val36.i.i.i.i to i64
-  %180 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val34.val.i.i.i.i, i64 %179
-  %.val1.i.i.i59.i.i.i.i = load ptr, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %.val1.i.i.i59.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i60.i.i.i.i = load i64, ptr %181, align 8
-  %182 = and i64 %.0.copyload.i.i.i.i.i.i.i.i60.i.i.i.i, -8
-  %.not.i.i.i.i.i.i61.i.i.i.i = icmp eq i64 %182, 0
+  %177 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 4
+  %.val36.i.i.i.i = load i16, ptr %177, align 2
+  %178 = zext i16 %.val36.i.i.i.i to i64
+  %179 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val34.val.i.i.i.i, i64 %178
+  %.val1.i.i.i59.i.i.i.i = load ptr, ptr %179, align 8
+  %180 = getelementptr inbounds i8, ptr %.val1.i.i.i59.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i60.i.i.i.i = load i64, ptr %180, align 8
+  %181 = and i64 %.0.copyload.i.i.i.i.i.i.i.i60.i.i.i.i, -8
+  %.not.i.i.i.i.i.i61.i.i.i.i = icmp eq i64 %181, 0
   br i1 %.not.i.i.i.i.i.i61.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i63.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i62.i.i.i.i
 
 _ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i62.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120.i.i.i.i
-  %183 = inttoptr i64 %182 to ptr
-  %184 = load i8, ptr %183, align 8
-  %185 = icmp eq i8 %184, 2
-  br i1 %185, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit199, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i63.i.i.i.i
+  %182 = inttoptr i64 %181 to ptr
+  %183 = load i8, ptr %182, align 8
+  %184 = icmp eq i8 %183, 2
+  br i1 %184, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit199, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i63.i.i.i.i
 
 _ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i63.i.i.i.i: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i62.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.thread120.i.i.i.i
-  %186 = and i64 %.0.copyload.i.i.i.i.i.i.i.i60.i.i.i.i, 4
-  %187 = icmp ne i64 %186, 0
+  %185 = and i64 %.0.copyload.i.i.i.i.i.i.i.i60.i.i.i.i, 4
+  %186 = icmp ne i64 %185, 0
   %.0.copyload.i.i.i.i3.i.i.i.i64.i.i.i.i = load i64, ptr %17, align 8
-  %188 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i64.i.i.i.i, 4
-  %189 = icmp ne i64 %188, 0
-  %190 = xor i1 %187, %189
-  br i1 %190, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121.i.i.i.i, label %191
+  %187 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i64.i.i.i.i, 4
+  %188 = icmp ne i64 %187, 0
+  %189 = xor i1 %186, %188
+  br i1 %189, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121.i.i.i.i, label %190
 
-191:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i63.i.i.i.i
-  %192 = inttoptr i64 %182 to ptr
-  %193 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i64.i.i.i.i, -8
-  %194 = inttoptr i64 %193 to ptr
-  %195 = load i8, ptr %192, align 8
-  %196 = icmp eq i8 %195, 2
-  %197 = load i8, ptr %194, align 8
-  %198 = icmp eq i8 %197, 2
-  %brmerge.i.i.i.i.i65.i.i.i.i = select i1 %196, i1 true, i1 %198
-  br i1 %brmerge.i.i.i.i.i65.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.i.i.i.i, label %199
+190:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i63.i.i.i.i
+  %191 = inttoptr i64 %181 to ptr
+  %192 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i64.i.i.i.i, -8
+  %193 = inttoptr i64 %192 to ptr
+  %194 = load i8, ptr %191, align 8
+  %195 = icmp eq i8 %194, 2
+  %196 = load i8, ptr %193, align 8
+  %197 = icmp eq i8 %196, 2
+  %brmerge.i.i.i.i.i65.i.i.i.i = select i1 %195, i1 true, i1 %197
+  br i1 %brmerge.i.i.i.i.i65.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.i.i.i.i, label %198
 
-199:                                              ; preds = %191
+198:                                              ; preds = %190
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
-  %.not.i.i.i.i.i.i.i67.i.i.i.i = icmp eq i8 %195, %197
+  %.not.i.i.i.i.i.i.i67.i.i.i.i = icmp eq i8 %194, %196
   br i1 %.not.i.i.i.i.i.i.i67.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68.thread.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68.thread.i.i.i.i: ; preds = %199
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68.thread.i.i.i.i: ; preds = %198
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68.i.i.i.i: ; preds = %199
-  %200 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %192, ptr noundef nonnull %194) #23
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68.i.i.i.i: ; preds = %198
+  %199 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %191, ptr noundef nonnull %193) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
-  br i1 %200, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit193, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121_crit_edge.i.i.i.i
+  br i1 %199, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit193, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121_crit_edge.i.i.i.i
 
 _ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121_crit_edge.i.i.i.i: ; preds = %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68.i.i.i.i
   %.val37.val.pre.i.i.i.i = load ptr, ptr %48, align 8
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.i.i.i.i: ; preds = %191
-  %.mux.i.i.i.i.i66.i.i.i.i = select i1 %196, i1 %198, i1 false
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.i.i.i.i: ; preds = %190
+  %.mux.i.i.i.i.i66.i.i.i.i = select i1 %195, i1 %197, i1 false
   br i1 %.mux.i.i.i.i.i66.i.i.i.i, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit187, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121_crit_edge.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68.thread.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i63.i.i.i.i
   %.val37.val.i.i.i.i = phi ptr [ %.val37.val.pre.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68._ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121_crit_edge.i.i.i.i ], [ %.val34.val.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68.thread.i.i.i.i ], [ %.val34.val.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i63.i.i.i.i ], [ %.val34.val.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.i.i.i.i ]
-  %201 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 6
-  %.val39.i.i.i.i = load i16, ptr %201, align 2
-  %202 = zext i16 %.val39.i.i.i.i to i64
-  %203 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val37.val.i.i.i.i, i64 %202
-  %.val1.i.i.i71.i.i.i.i = load ptr, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %.val1.i.i.i71.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i72.i.i.i.i = load i64, ptr %204, align 8
-  %205 = and i64 %.0.copyload.i.i.i.i.i.i.i.i72.i.i.i.i, -8
-  %.not.i.i.i.i.i.i73.i.i.i.i = icmp eq i64 %205, 0
+  %200 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 6
+  %.val39.i.i.i.i = load i16, ptr %200, align 2
+  %201 = zext i16 %.val39.i.i.i.i to i64
+  %202 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val37.val.i.i.i.i, i64 %201
+  %.val1.i.i.i71.i.i.i.i = load ptr, ptr %202, align 8
+  %203 = getelementptr inbounds i8, ptr %.val1.i.i.i71.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i72.i.i.i.i = load i64, ptr %203, align 8
+  %204 = and i64 %.0.copyload.i.i.i.i.i.i.i.i72.i.i.i.i, -8
+  %.not.i.i.i.i.i.i73.i.i.i.i = icmp eq i64 %204, 0
   br i1 %.not.i.i.i.i.i.i73.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i75.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i74.i.i.i.i
 
 _ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i74.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121.i.i.i.i
-  %206 = inttoptr i64 %205 to ptr
-  %207 = load i8, ptr %206, align 8
-  %208 = icmp eq i8 %207, 2
-  br i1 %208, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit201, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i75.i.i.i.i
+  %205 = inttoptr i64 %204 to ptr
+  %206 = load i8, ptr %205, align 8
+  %207 = icmp eq i8 %206, 2
+  br i1 %207, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit201, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i75.i.i.i.i
 
 _ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i75.i.i.i.i: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i74.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.thread121.i.i.i.i
-  %209 = and i64 %.0.copyload.i.i.i.i.i.i.i.i72.i.i.i.i, 4
-  %210 = icmp ne i64 %209, 0
+  %208 = and i64 %.0.copyload.i.i.i.i.i.i.i.i72.i.i.i.i, 4
+  %209 = icmp ne i64 %208, 0
   %.0.copyload.i.i.i.i3.i.i.i.i76.i.i.i.i = load i64, ptr %17, align 8
-  %211 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i76.i.i.i.i, 4
-  %212 = icmp ne i64 %211, 0
-  %213 = xor i1 %210, %212
-  br i1 %213, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i, label %214
+  %210 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i76.i.i.i.i, 4
+  %211 = icmp ne i64 %210, 0
+  %212 = xor i1 %209, %211
+  br i1 %212, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i, label %213
 
-214:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i75.i.i.i.i
-  %215 = inttoptr i64 %205 to ptr
-  %216 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i76.i.i.i.i, -8
-  %217 = inttoptr i64 %216 to ptr
-  %218 = load i8, ptr %215, align 8
-  %219 = icmp eq i8 %218, 2
-  %220 = load i8, ptr %217, align 8
-  %221 = icmp eq i8 %220, 2
-  %brmerge.i.i.i.i.i77.i.i.i.i = select i1 %219, i1 true, i1 %221
-  br i1 %brmerge.i.i.i.i.i77.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.i.i.i.i, label %222
+213:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i75.i.i.i.i
+  %214 = inttoptr i64 %204 to ptr
+  %215 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i76.i.i.i.i, -8
+  %216 = inttoptr i64 %215 to ptr
+  %217 = load i8, ptr %214, align 8
+  %218 = icmp eq i8 %217, 2
+  %219 = load i8, ptr %216, align 8
+  %220 = icmp eq i8 %219, 2
+  %brmerge.i.i.i.i.i77.i.i.i.i = select i1 %218, i1 true, i1 %220
+  br i1 %brmerge.i.i.i.i.i77.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.i.i.i.i, label %221
 
-222:                                              ; preds = %214
+221:                                              ; preds = %213
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
-  %.not.i.i.i.i.i.i.i79.i.i.i.i = icmp eq i8 %218, %220
+  %.not.i.i.i.i.i.i.i79.i.i.i.i = icmp eq i8 %217, %219
   br i1 %.not.i.i.i.i.i.i.i79.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i80.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i80.thread.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i80.thread.i.i.i.i: ; preds = %222
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i80.thread.i.i.i.i: ; preds = %221
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i80.i.i.i.i: ; preds = %222
-  %223 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull %215, ptr noundef nonnull %217) #23
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i80.i.i.i.i: ; preds = %221
+  %222 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull %214, ptr noundef nonnull %216) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
-  br i1 %223, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit195, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i
+  br i1 %222, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit195, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.i.i.i.i: ; preds = %214
-  %.mux.i.i.i.i.i78.i.i.i.i = select i1 %219, i1 %221, i1 false
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.i.i.i.i: ; preds = %213
+  %.mux.i.i.i.i.i78.i.i.i.i = select i1 %218, i1 %220, i1 false
   br i1 %.mux.i.i.i.i.i78.i.i.i.i, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit189, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i80.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i80.thread.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i75.i.i.i.i
-  %224 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 8
-  %225 = add nsw i64 %.0166.i.i.i.i, -1
-  %226 = icmp sgt i64 %.0166.i.i.i.i, 1
-  br i1 %226, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !328
+  %223 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 8
+  %224 = add nsw i64 %.0166.i.i.i.i, -1
+  %225 = icmp sgt i64 %.0166.i.i.i.i, 1
+  br i1 %225, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !328
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.thread122.i.i.i.i
-  %.pre.i.i.i.i = ptrtoint ptr %224 to i64
-  %.pre180.i.i.i.i = sub i64 %130, %.pre.i.i.i.i
-  %227 = ashr exact i64 %.pre180.i.i.i.i, 1
+  %.pre.i.i.i.i = ptrtoint ptr %223 to i64
+  %.pre180.i.i.i.i = sub i64 %129, %.pre.i.i.i.i
+  %226 = ashr exact i64 %.pre180.i.i.i.i, 1
   br label %._crit_edge.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %127
-  %.pre-phi181.i.i.i.i = phi i64 [ %227, %._crit_edge.loopexit.i.i.i.i ], [ %128, %127 ]
-  %.029.lcssa.i.i.i.i = phi ptr [ %224, %._crit_edge.loopexit.i.i.i.i ], [ %.val6.i, %127 ]
+._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %126
+  %.pre-phi181.i.i.i.i = phi i64 [ %226, %._crit_edge.loopexit.i.i.i.i ], [ %127, %126 ]
+  %.029.lcssa.i.i.i.i = phi ptr [ %223, %._crit_edge.loopexit.i.i.i.i ], [ %.val6.i, %126 ]
   switch i64 %.pre-phi181.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.thread125.i.i.i.i [
-    i64 3, label %228
-    i64 2, label %252
-    i64 1, label %276
+    i64 3, label %227
+    i64 2, label %251
+    i64 1, label %275
   ]
 
-228:                                              ; preds = %._crit_edge.i.i.i.i
+227:                                              ; preds = %._crit_edge.i.i.i.i
   %.029.val42.i.i.i.i = load i16, ptr %.029.lcssa.i.i.i.i, align 2
   %.val40.val.i.i.i.i = load ptr, ptr %48, align 8
-  %229 = zext i16 %.029.val42.i.i.i.i to i64
-  %230 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val40.val.i.i.i.i, i64 %229
-  %.val1.i.i.i83.i.i.i.i = load ptr, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %.val1.i.i.i83.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i84.i.i.i.i = load i64, ptr %231, align 8
-  %232 = and i64 %.0.copyload.i.i.i.i.i.i.i.i84.i.i.i.i, -8
-  %.not.i.i.i.i.i.i85.i.i.i.i = icmp eq i64 %232, 0
+  %228 = zext i16 %.029.val42.i.i.i.i to i64
+  %229 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val40.val.i.i.i.i, i64 %228
+  %.val1.i.i.i83.i.i.i.i = load ptr, ptr %229, align 8
+  %230 = getelementptr inbounds i8, ptr %.val1.i.i.i83.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i84.i.i.i.i = load i64, ptr %230, align 8
+  %231 = and i64 %.0.copyload.i.i.i.i.i.i.i.i84.i.i.i.i, -8
+  %.not.i.i.i.i.i.i85.i.i.i.i = icmp eq i64 %231, 0
   br i1 %.not.i.i.i.i.i.i85.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i87.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i86.i.i.i.i
 
-_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i86.i.i.i.i: ; preds = %228
-  %233 = inttoptr i64 %232 to ptr
-  %234 = load i8, ptr %233, align 8
-  %235 = icmp eq i8 %234, 2
-  br i1 %235, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i87.i.i.i.i
+_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i86.i.i.i.i: ; preds = %227
+  %232 = inttoptr i64 %231 to ptr
+  %233 = load i8, ptr %232, align 8
+  %234 = icmp eq i8 %233, 2
+  br i1 %234, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i87.i.i.i.i
 
-_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i87.i.i.i.i: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i86.i.i.i.i, %228
-  %236 = and i64 %.0.copyload.i.i.i.i.i.i.i.i84.i.i.i.i, 4
-  %237 = icmp ne i64 %236, 0
+_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i87.i.i.i.i: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i86.i.i.i.i, %227
+  %235 = and i64 %.0.copyload.i.i.i.i.i.i.i.i84.i.i.i.i, 4
+  %236 = icmp ne i64 %235, 0
   %.0.copyload.i.i.i.i3.i.i.i.i88.i.i.i.i = load i64, ptr %17, align 8
-  %238 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i88.i.i.i.i, 4
-  %239 = icmp ne i64 %238, 0
-  %240 = xor i1 %237, %239
-  br i1 %240, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.thread123.i.i.i.i, label %241
+  %237 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i88.i.i.i.i, 4
+  %238 = icmp ne i64 %237, 0
+  %239 = xor i1 %236, %238
+  br i1 %239, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.thread123.i.i.i.i, label %240
 
-241:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i87.i.i.i.i
-  %242 = inttoptr i64 %232 to ptr
-  %243 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i88.i.i.i.i, -8
-  %244 = inttoptr i64 %243 to ptr
-  %245 = load i8, ptr %242, align 8
-  %246 = icmp eq i8 %245, 2
-  %247 = load i8, ptr %244, align 8
-  %248 = icmp eq i8 %247, 2
-  %brmerge.i.i.i.i.i89.i.i.i.i = select i1 %246, i1 true, i1 %248
-  br i1 %brmerge.i.i.i.i.i89.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.i.i.i.i, label %249
+240:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i87.i.i.i.i
+  %241 = inttoptr i64 %231 to ptr
+  %242 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i88.i.i.i.i, -8
+  %243 = inttoptr i64 %242 to ptr
+  %244 = load i8, ptr %241, align 8
+  %245 = icmp eq i8 %244, 2
+  %246 = load i8, ptr %243, align 8
+  %247 = icmp eq i8 %246, 2
+  %brmerge.i.i.i.i.i89.i.i.i.i = select i1 %245, i1 true, i1 %247
+  br i1 %brmerge.i.i.i.i.i89.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.i.i.i.i, label %248
 
-249:                                              ; preds = %241
+248:                                              ; preds = %240
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
-  %.not.i.i.i.i.i.i.i91.i.i.i.i = icmp eq i8 %245, %247
+  %.not.i.i.i.i.i.i.i91.i.i.i.i = icmp eq i8 %244, %246
   br i1 %.not.i.i.i.i.i.i.i91.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i92.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i92.thread.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i92.thread.i.i.i.i: ; preds = %249
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i92.thread.i.i.i.i: ; preds = %248
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.thread123.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i92.i.i.i.i: ; preds = %249
-  %250 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %242, ptr noundef nonnull %244) #23
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i92.i.i.i.i: ; preds = %248
+  %249 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull %241, ptr noundef nonnull %243) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
-  br i1 %250, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.thread123.i.i.i.i
+  br i1 %249, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.thread123.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.i.i.i.i: ; preds = %241
-  %.mux.i.i.i.i.i90.i.i.i.i = select i1 %246, i1 %248, i1 false
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.i.i.i.i: ; preds = %240
+  %.mux.i.i.i.i.i90.i.i.i.i = select i1 %245, i1 %247, i1 false
   br i1 %.mux.i.i.i.i.i90.i.i.i.i, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.thread123.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.thread123.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i92.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i92.thread.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i87.i.i.i.i
-  %251 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 2
-  br label %252
+  %250 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 2
+  br label %251
 
-252:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.thread123.i.i.i.i, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %251, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.thread123.i.i.i.i ]
+251:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.thread123.i.i.i.i, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %250, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.thread123.i.i.i.i ]
   %.1.val.i.i.i.i = load i16, ptr %.1.i.i.i.i, align 2
   %.val43.val.i.i.i.i = load ptr, ptr %48, align 8
-  %253 = zext i16 %.1.val.i.i.i.i to i64
-  %254 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val43.val.i.i.i.i, i64 %253
-  %.val1.i.i.i95.i.i.i.i = load ptr, ptr %254, align 8
-  %255 = getelementptr inbounds i8, ptr %.val1.i.i.i95.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i96.i.i.i.i = load i64, ptr %255, align 8
-  %256 = and i64 %.0.copyload.i.i.i.i.i.i.i.i96.i.i.i.i, -8
-  %.not.i.i.i.i.i.i97.i.i.i.i = icmp eq i64 %256, 0
+  %252 = zext i16 %.1.val.i.i.i.i to i64
+  %253 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val43.val.i.i.i.i, i64 %252
+  %.val1.i.i.i95.i.i.i.i = load ptr, ptr %253, align 8
+  %254 = getelementptr inbounds i8, ptr %.val1.i.i.i95.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i96.i.i.i.i = load i64, ptr %254, align 8
+  %255 = and i64 %.0.copyload.i.i.i.i.i.i.i.i96.i.i.i.i, -8
+  %.not.i.i.i.i.i.i97.i.i.i.i = icmp eq i64 %255, 0
   br i1 %.not.i.i.i.i.i.i97.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i99.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i98.i.i.i.i
 
-_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i98.i.i.i.i: ; preds = %252
-  %257 = inttoptr i64 %256 to ptr
-  %258 = load i8, ptr %257, align 8
-  %259 = icmp eq i8 %258, 2
-  br i1 %259, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i99.i.i.i.i
+_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i98.i.i.i.i: ; preds = %251
+  %256 = inttoptr i64 %255 to ptr
+  %257 = load i8, ptr %256, align 8
+  %258 = icmp eq i8 %257, 2
+  br i1 %258, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i99.i.i.i.i
 
-_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i99.i.i.i.i: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i98.i.i.i.i, %252
-  %260 = and i64 %.0.copyload.i.i.i.i.i.i.i.i96.i.i.i.i, 4
-  %261 = icmp ne i64 %260, 0
+_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i99.i.i.i.i: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i98.i.i.i.i, %251
+  %259 = and i64 %.0.copyload.i.i.i.i.i.i.i.i96.i.i.i.i, 4
+  %260 = icmp ne i64 %259, 0
   %.0.copyload.i.i.i.i3.i.i.i.i100.i.i.i.i = load i64, ptr %17, align 8
-  %262 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i100.i.i.i.i, 4
-  %263 = icmp ne i64 %262, 0
-  %264 = xor i1 %261, %263
-  br i1 %264, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.thread124.i.i.i.i, label %265
+  %261 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i100.i.i.i.i, 4
+  %262 = icmp ne i64 %261, 0
+  %263 = xor i1 %260, %262
+  br i1 %263, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.thread124.i.i.i.i, label %264
 
-265:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i99.i.i.i.i
-  %266 = inttoptr i64 %256 to ptr
-  %267 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i100.i.i.i.i, -8
-  %268 = inttoptr i64 %267 to ptr
-  %269 = load i8, ptr %266, align 8
-  %270 = icmp eq i8 %269, 2
-  %271 = load i8, ptr %268, align 8
-  %272 = icmp eq i8 %271, 2
-  %brmerge.i.i.i.i.i101.i.i.i.i = select i1 %270, i1 true, i1 %272
-  br i1 %brmerge.i.i.i.i.i101.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.i.i.i.i, label %273
+264:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i99.i.i.i.i
+  %265 = inttoptr i64 %255 to ptr
+  %266 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i100.i.i.i.i, -8
+  %267 = inttoptr i64 %266 to ptr
+  %268 = load i8, ptr %265, align 8
+  %269 = icmp eq i8 %268, 2
+  %270 = load i8, ptr %267, align 8
+  %271 = icmp eq i8 %270, 2
+  %brmerge.i.i.i.i.i101.i.i.i.i = select i1 %269, i1 true, i1 %271
+  br i1 %brmerge.i.i.i.i.i101.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.i.i.i.i, label %272
 
-273:                                              ; preds = %265
+272:                                              ; preds = %264
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  %.not.i.i.i.i.i.i.i103.i.i.i.i = icmp eq i8 %269, %271
+  %.not.i.i.i.i.i.i.i103.i.i.i.i = icmp eq i8 %268, %270
   br i1 %.not.i.i.i.i.i.i.i103.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i104.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i104.thread.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i104.thread.i.i.i.i: ; preds = %273
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i104.thread.i.i.i.i: ; preds = %272
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.thread124.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i104.i.i.i.i: ; preds = %273
-  %274 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %266, ptr noundef nonnull %268) #23
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i104.i.i.i.i: ; preds = %272
+  %273 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %265, ptr noundef nonnull %267) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  br i1 %274, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.thread124.i.i.i.i
+  br i1 %273, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.thread124.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.i.i.i.i: ; preds = %265
-  %.mux.i.i.i.i.i102.i.i.i.i = select i1 %270, i1 %272, i1 false
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.i.i.i.i: ; preds = %264
+  %.mux.i.i.i.i.i102.i.i.i.i = select i1 %269, i1 %271, i1 false
   br i1 %.mux.i.i.i.i.i102.i.i.i.i, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.thread124.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.thread124.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i104.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i104.thread.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i99.i.i.i.i
-  %275 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 2
-  br label %276
+  %274 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 2
+  br label %275
 
-276:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.thread124.i.i.i.i, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %275, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.thread124.i.i.i.i ]
+275:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.thread124.i.i.i.i, %._crit_edge.i.i.i.i
+  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %274, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.thread124.i.i.i.i ]
   %.2.val.i.i.i.i = load i16, ptr %.2.i.i.i.i, align 2
   %.val45.val.i.i.i.i = load ptr, ptr %48, align 8
-  %277 = zext i16 %.2.val.i.i.i.i to i64
-  %278 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val45.val.i.i.i.i, i64 %277
-  %.val1.i.i.i107.i.i.i.i = load ptr, ptr %278, align 8
-  %279 = getelementptr inbounds i8, ptr %.val1.i.i.i107.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i108.i.i.i.i = load i64, ptr %279, align 8
-  %280 = and i64 %.0.copyload.i.i.i.i.i.i.i.i108.i.i.i.i, -8
-  %.not.i.i.i.i.i.i109.i.i.i.i = icmp eq i64 %280, 0
+  %276 = zext i16 %.2.val.i.i.i.i to i64
+  %277 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val45.val.i.i.i.i, i64 %276
+  %.val1.i.i.i107.i.i.i.i = load ptr, ptr %277, align 8
+  %278 = getelementptr inbounds i8, ptr %.val1.i.i.i107.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i108.i.i.i.i = load i64, ptr %278, align 8
+  %279 = and i64 %.0.copyload.i.i.i.i.i.i.i.i108.i.i.i.i, -8
+  %.not.i.i.i.i.i.i109.i.i.i.i = icmp eq i64 %279, 0
   br i1 %.not.i.i.i.i.i.i109.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i111.i.i.i.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i110.i.i.i.i
 
-_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i110.i.i.i.i: ; preds = %276
-  %281 = inttoptr i64 %280 to ptr
-  %282 = load i8, ptr %281, align 8
-  %283 = icmp eq i8 %282, 2
-  br i1 %283, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i111.i.i.i.i
+_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i110.i.i.i.i: ; preds = %275
+  %280 = inttoptr i64 %279 to ptr
+  %281 = load i8, ptr %280, align 8
+  %282 = icmp eq i8 %281, 2
+  br i1 %282, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i111.i.i.i.i
 
-_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i111.i.i.i.i: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i110.i.i.i.i, %276
-  %284 = and i64 %.0.copyload.i.i.i.i.i.i.i.i108.i.i.i.i, 4
-  %285 = icmp ne i64 %284, 0
+_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i111.i.i.i.i: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i110.i.i.i.i, %275
+  %283 = and i64 %.0.copyload.i.i.i.i.i.i.i.i108.i.i.i.i, 4
+  %284 = icmp ne i64 %283, 0
   %.0.copyload.i.i.i.i3.i.i.i.i112.i.i.i.i = load i64, ptr %17, align 8
-  %286 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i112.i.i.i.i, 4
-  %287 = icmp ne i64 %286, 0
-  %288 = xor i1 %285, %287
-  br i1 %288, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.thread125.i.i.i.i, label %289
+  %285 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i112.i.i.i.i, 4
+  %286 = icmp ne i64 %285, 0
+  %287 = xor i1 %284, %286
+  br i1 %287, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.thread125.i.i.i.i, label %288
 
-289:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i111.i.i.i.i
-  %290 = inttoptr i64 %280 to ptr
-  %291 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i112.i.i.i.i, -8
-  %292 = inttoptr i64 %291 to ptr
-  %293 = load i8, ptr %290, align 8
-  %294 = icmp eq i8 %293, 2
-  %295 = load i8, ptr %292, align 8
-  %296 = icmp eq i8 %295, 2
-  %brmerge.i.i.i.i.i113.i.i.i.i = select i1 %294, i1 true, i1 %296
-  br i1 %brmerge.i.i.i.i.i113.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.i.i.i.i, label %297
+288:                                              ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i111.i.i.i.i
+  %289 = inttoptr i64 %279 to ptr
+  %290 = and i64 %.0.copyload.i.i.i.i3.i.i.i.i112.i.i.i.i, -8
+  %291 = inttoptr i64 %290 to ptr
+  %292 = load i8, ptr %289, align 8
+  %293 = icmp eq i8 %292, 2
+  %294 = load i8, ptr %291, align 8
+  %295 = icmp eq i8 %294, 2
+  %brmerge.i.i.i.i.i113.i.i.i.i = select i1 %293, i1 true, i1 %295
+  br i1 %brmerge.i.i.i.i.i113.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.i.i.i.i, label %296
 
-297:                                              ; preds = %289
+296:                                              ; preds = %288
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  %.not.i.i.i.i.i.i.i115.i.i.i.i = icmp eq i8 %293, %295
+  %.not.i.i.i.i.i.i.i115.i.i.i.i = icmp eq i8 %292, %294
   br i1 %.not.i.i.i.i.i.i.i115.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i116.i.i.i.i, label %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i116.thread.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i116.thread.i.i.i.i: ; preds = %297
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i116.thread.i.i.i.i: ; preds = %296
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.thread125.i.i.i.i
 
-_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i116.i.i.i.i: ; preds = %297
-  %298 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull %290, ptr noundef nonnull %292) #23
+_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i116.i.i.i.i: ; preds = %296
+  %297 = call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull %289, ptr noundef nonnull %291) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  br i1 %298, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.thread125.i.i.i.i
+  br i1 %297, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.thread125.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.i.i.i.i: ; preds = %289
-  %.mux.i.i.i.i.i114.i.i.i.i = select i1 %294, i1 %296, i1 false
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.i.i.i.i: ; preds = %288
+  %.mux.i.i.i.i.i114.i.i.i.i = select i1 %293, i1 %295, i1 false
   br i1 %.mux.i.i.i.i.i114.i.i.i.i, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.thread125.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.thread125.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i116.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i116.thread.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.thread.i.i.i111.i.i.i.i, %._crit_edge.i.i.i.i
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit58.i.i.i.i
-  %299 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 2
+  %298 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 2
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit187: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit70.i.i.i.i
-  %300 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 4
+  %299 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 4
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit189: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit82.i.i.i.i
-  %301 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 6
+  %300 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 6
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit191: ; preds = %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i56.i.i.i.i
-  %302 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 2
+  %301 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 2
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit193: ; preds = %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i68.i.i.i.i
-  %303 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 4
+  %302 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 4
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit195: ; preds = %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i80.i.i.i.i
-  %304 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 6
+  %303 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 6
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit197: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i50.i.i.i.i
-  %305 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 2
+  %304 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 2
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit199: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i62.i.i.i.i
-  %306 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 4
+  %305 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 4
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit201: ; preds = %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i74.i.i.i.i
-  %307 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 6
+  %306 = getelementptr inbounds i8, ptr %.029165.i.i.i.i, i64 6
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i.i.i.i.i, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit187, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit189, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit191, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit193, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit195, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit197, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit199, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit201, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.thread125.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i116.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i110.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i104.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i98.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i92.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i86.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %129, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.thread125.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.i.i.i.i ], [ %.1.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.i.i.i.i ], [ %.2.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i92.i.i.i.i ], [ %.1.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i104.i.i.i.i ], [ %.2.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i116.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i86.i.i.i.i ], [ %.1.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i98.i.i.i.i ], [ %.2.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i110.i.i.i.i ], [ %299, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %300, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit187 ], [ %301, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit189 ], [ %302, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit191 ], [ %303, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit193 ], [ %304, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit195 ], [ %305, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit197 ], [ %306, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit199 ], [ %307, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit201 ], [ %.029165.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i.i.i.i.i ], [ %.029165.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.i.i.i.i ], [ %.029165.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i ]
-  %308 = load ptr, ptr %1, align 8
-  %309 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  %310 = getelementptr inbounds i16, ptr %308, i64 %309
-  %.not.i76 = icmp eq ptr %.028.i.i.i.i, %310
+  %.028.i.i.i.i = phi ptr [ %128, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.thread125.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit94.i.i.i.i ], [ %.1.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit106.i.i.i.i ], [ %.2.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit118.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i92.i.i.i.i ], [ %.1.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i104.i.i.i.i ], [ %.2.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i116.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i86.i.i.i.i ], [ %.1.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i98.i.i.i.i ], [ %.2.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i110.i.i.i.i ], [ %298, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %299, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit187 ], [ %300, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit189 ], [ %301, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit191 ], [ %302, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit193 ], [ %303, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit195 ], [ %304, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit197 ], [ %305, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit199 ], [ %306, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit201 ], [ %.029165.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i.i.i.i.i ], [ %.029165.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.i.i.i.i ], [ %.029165.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i ]
+  %307 = load ptr, ptr %1, align 8
+  %308 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %309 = getelementptr inbounds i16, ptr %307, i64 %308
+  %.not.i76 = icmp eq ptr %.028.i.i.i.i, %309
   br i1 %.not.i76, label %_ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit.thread, label %_ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit
 
 _ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit: ; preds = %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
-  %311 = load i16, ptr %.028.i.i.i.i, align 2
+  %310 = load i16, ptr %.028.i.i.i.i, align 2
   %.val.i = load ptr, ptr %48, align 8
-  %312 = zext i16 %311 to i64
-  %313 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.i, i64 %312
-  %.val1.i.i = load ptr, ptr %313, align 8
+  %311 = zext i16 %310 to i64
+  %312 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.i, i64 %311
+  %.val1.i.i = load ptr, ptr %312, align 8
   %.not.not = icmp eq ptr %.val1.i.i, null
-  br i1 %.not.not, label %_ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit.thread, label %515
+  br i1 %.not.not, label %_ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit.thread, label %514
 
 _ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit.thread: ; preds = %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, %_ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit
   %.val6.i78 = load ptr, ptr %1, align 8
-  %314 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  %.idx7.i = shl nsw i64 %314, 1
-  %315 = getelementptr inbounds i8, ptr %.val6.i78, i64 %.idx7.i
-  %316 = ashr i64 %314, 2
-  %317 = icmp sgt i64 %316, 0
-  br i1 %317, label %.lr.ph.i.i.i.i93, label %._crit_edge.i.i.i.i79
+  %313 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %.idx7.i = shl nsw i64 %313, 1
+  %314 = getelementptr inbounds i8, ptr %.val6.i78, i64 %.idx7.i
+  %315 = ashr i64 %313, 2
+  %316 = icmp sgt i64 %315, 0
+  br i1 %316, label %.lr.ph.i.i.i.i93, label %._crit_edge.i.i.i.i79
 
 .lr.ph.i.i.i.i93:                                 ; preds = %_ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit.thread
   %.val.val.i.i.i.i94 = load ptr, ptr %48, align 8
   %.val30.val.i.i.i.i = load i64, ptr %17, align 8
-  %318 = and i64 %.val30.val.i.i.i.i, 4
-  %319 = icmp ne i64 %318, 0
-  %320 = and i64 %.val30.val.i.i.i.i, -8
-  %321 = inttoptr i64 %320 to ptr
-  %.not.i.i10.i.i.i.i.i.i.i.i = icmp eq i64 %320, 0
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 64
-  %323 = and i64 %.idx7.i, -8
-  %scevgep.i.i.i.i = getelementptr i8, ptr %.val6.i78, i64 %323
-  br label %324
+  %317 = and i64 %.val30.val.i.i.i.i, 4
+  %318 = icmp ne i64 %317, 0
+  %319 = and i64 %.val30.val.i.i.i.i, -8
+  %320 = inttoptr i64 %319 to ptr
+  %.not.i.i10.i.i.i.i.i.i.i.i = icmp eq i64 %319, 0
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 64
+  %322 = and i64 %.idx7.i, -8
+  %scevgep.i.i.i.i = getelementptr i8, ptr %.val6.i78, i64 %322
+  br label %323
 
-324:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i, %.lr.ph.i.i.i.i93
-  %.0100.i.i.i.i = phi i64 [ %316, %.lr.ph.i.i.i.i93 ], [ %405, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i ]
-  %.02999.i.i.i.i = phi ptr [ %.val6.i78, %.lr.ph.i.i.i.i93 ], [ %404, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i ]
+323:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i, %.lr.ph.i.i.i.i93
+  %.0100.i.i.i.i = phi i64 [ %315, %.lr.ph.i.i.i.i93 ], [ %404, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i ]
+  %.02999.i.i.i.i = phi ptr [ %.val6.i78, %.lr.ph.i.i.i.i93 ], [ %403, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i ]
   %.029.val.i.i.i.i95 = load i16, ptr %.02999.i.i.i.i, align 2
-  %325 = zext i16 %.029.val.i.i.i.i95 to i64
-  %326 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.val.i.i.i.i94, i64 %325
-  %.val1.i.i.i.i.i.i.i96 = load ptr, ptr %326, align 8
-  %327 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i.i.i96, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %327, align 8
-  %328 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
-  %329 = icmp ne i64 %328, 0
-  %330 = xor i1 %319, %329
-  br i1 %330, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i, label %331
+  %324 = zext i16 %.029.val.i.i.i.i95 to i64
+  %325 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.val.i.i.i.i94, i64 %324
+  %.val1.i.i.i.i.i.i.i96 = load ptr, ptr %325, align 8
+  %326 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i.i.i96, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %326, align 8
+  %327 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
+  %328 = icmp ne i64 %327, 0
+  %329 = xor i1 %318, %328
+  br i1 %329, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i, label %330
 
-331:                                              ; preds = %324
-  %332 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
-  %333 = inttoptr i64 %332 to ptr
-  %.not.i.i.i.i.i.i.i.i.i.i97 = icmp eq i64 %332, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i97, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i, label %334
+330:                                              ; preds = %323
+  %331 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
+  %332 = inttoptr i64 %331 to ptr
+  %.not.i.i.i.i.i.i.i.i.i.i97 = icmp eq i64 %331, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i97, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i, label %333
 
-334:                                              ; preds = %331
-  %335 = load i8, ptr %333, align 8
-  %336 = icmp ne i8 %335, 12
-  %or.cond.i.i.i.i.i.i.i.i = or i1 %.not.i.i10.i.i.i.i.i.i.i.i, %336
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i, label %337
+333:                                              ; preds = %330
+  %334 = load i8, ptr %332, align 8
+  %335 = icmp ne i8 %334, 12
+  %or.cond.i.i.i.i.i.i.i.i = or i1 %.not.i.i10.i.i.i.i.i.i.i.i, %335
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i, label %336
 
-337:                                              ; preds = %334
-  %338 = load i8, ptr %321, align 8
-  %339 = icmp eq i8 %338, 12
-  br i1 %339, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i
+336:                                              ; preds = %333
+  %337 = load i8, ptr %320, align 8
+  %338 = icmp eq i8 %337, 12
+  br i1 %338, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i: ; preds = %337
-  %340 = getelementptr inbounds nuw i8, ptr %333, i64 64
-  %341 = load ptr, ptr %340, align 8
-  %342 = load ptr, ptr %322, align 8
-  %343 = icmp eq ptr %341, %342
-  br i1 %343, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i: ; preds = %336
+  %339 = getelementptr inbounds nuw i8, ptr %332, i64 64
+  %340 = load ptr, ptr %339, align 8
+  %341 = load ptr, ptr %321, align 8
+  %342 = icmp eq ptr %340, %341
+  br i1 %342, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i, %337, %334, %331, %324
-  %344 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 2
-  %.val33.i.i.i.i98 = load i16, ptr %344, align 2
-  %345 = zext i16 %.val33.i.i.i.i98 to i64
-  %346 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.val.i.i.i.i94, i64 %345
-  %.val1.i.i.i47.i.i.i.i99 = load ptr, ptr %346, align 8
-  %347 = getelementptr inbounds i8, ptr %.val1.i.i.i47.i.i.i.i99, i64 8
-  %.0.copyload.i.i.i.i.i.i.i48.i.i.i.i = load i64, ptr %347, align 8
-  %348 = and i64 %.0.copyload.i.i.i.i.i.i.i48.i.i.i.i, 4
-  %349 = icmp ne i64 %348, 0
-  %350 = xor i1 %319, %349
-  br i1 %350, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i, label %351
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i, %336, %333, %330, %323
+  %343 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 2
+  %.val33.i.i.i.i98 = load i16, ptr %343, align 2
+  %344 = zext i16 %.val33.i.i.i.i98 to i64
+  %345 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.val.i.i.i.i94, i64 %344
+  %.val1.i.i.i47.i.i.i.i99 = load ptr, ptr %345, align 8
+  %346 = getelementptr inbounds i8, ptr %.val1.i.i.i47.i.i.i.i99, i64 8
+  %.0.copyload.i.i.i.i.i.i.i48.i.i.i.i = load i64, ptr %346, align 8
+  %347 = and i64 %.0.copyload.i.i.i.i.i.i.i48.i.i.i.i, 4
+  %348 = icmp ne i64 %347, 0
+  %349 = xor i1 %318, %348
+  br i1 %349, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i, label %350
 
-351:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i
-  %352 = and i64 %.0.copyload.i.i.i.i.i.i.i48.i.i.i.i, -8
-  %353 = inttoptr i64 %352 to ptr
-  %.not.i.i.i.i.i.i49.i.i.i.i100 = icmp eq i64 %352, 0
-  br i1 %.not.i.i.i.i.i.i49.i.i.i.i100, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i, label %354
+350:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i
+  %351 = and i64 %.0.copyload.i.i.i.i.i.i.i48.i.i.i.i, -8
+  %352 = inttoptr i64 %351 to ptr
+  %.not.i.i.i.i.i.i49.i.i.i.i100 = icmp eq i64 %351, 0
+  br i1 %.not.i.i.i.i.i.i49.i.i.i.i100, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i, label %353
 
-354:                                              ; preds = %351
-  %355 = load i8, ptr %353, align 8
-  %356 = icmp ne i8 %355, 12
-  %or.cond.i.i.i.i51.i.i.i.i = or i1 %.not.i.i10.i.i.i.i.i.i.i.i, %356
-  br i1 %or.cond.i.i.i.i51.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i, label %357
+353:                                              ; preds = %350
+  %354 = load i8, ptr %352, align 8
+  %355 = icmp ne i8 %354, 12
+  %or.cond.i.i.i.i51.i.i.i.i = or i1 %.not.i.i10.i.i.i.i.i.i.i.i, %355
+  br i1 %or.cond.i.i.i.i51.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i, label %356
 
-357:                                              ; preds = %354
-  %358 = load i8, ptr %321, align 8
-  %359 = icmp eq i8 %358, 12
-  br i1 %359, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i
+356:                                              ; preds = %353
+  %357 = load i8, ptr %320, align 8
+  %358 = icmp eq i8 %357, 12
+  br i1 %358, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.i.i.i.i: ; preds = %357
-  %360 = getelementptr inbounds nuw i8, ptr %353, i64 64
-  %361 = load ptr, ptr %360, align 8
-  %362 = load ptr, ptr %322, align 8
-  %363 = icmp eq ptr %361, %362
-  br i1 %363, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.i.i.i.i: ; preds = %356
+  %359 = getelementptr inbounds nuw i8, ptr %352, i64 64
+  %360 = load ptr, ptr %359, align 8
+  %361 = load ptr, ptr %321, align 8
+  %362 = icmp eq ptr %360, %361
+  br i1 %362, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.i.i.i.i, %357, %354, %351, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i
-  %364 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 4
-  %.val36.i.i.i.i101 = load i16, ptr %364, align 2
-  %365 = zext i16 %.val36.i.i.i.i101 to i64
-  %366 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.val.i.i.i.i94, i64 %365
-  %.val1.i.i.i54.i.i.i.i = load ptr, ptr %366, align 8
-  %367 = getelementptr inbounds i8, ptr %.val1.i.i.i54.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i55.i.i.i.i = load i64, ptr %367, align 8
-  %368 = and i64 %.0.copyload.i.i.i.i.i.i.i55.i.i.i.i, 4
-  %369 = icmp ne i64 %368, 0
-  %370 = xor i1 %319, %369
-  br i1 %370, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i, label %371
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.i.i.i.i, %356, %353, %350, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.thread.i.i.i.i
+  %363 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 4
+  %.val36.i.i.i.i101 = load i16, ptr %363, align 2
+  %364 = zext i16 %.val36.i.i.i.i101 to i64
+  %365 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.val.i.i.i.i94, i64 %364
+  %.val1.i.i.i54.i.i.i.i = load ptr, ptr %365, align 8
+  %366 = getelementptr inbounds i8, ptr %.val1.i.i.i54.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i55.i.i.i.i = load i64, ptr %366, align 8
+  %367 = and i64 %.0.copyload.i.i.i.i.i.i.i55.i.i.i.i, 4
+  %368 = icmp ne i64 %367, 0
+  %369 = xor i1 %318, %368
+  br i1 %369, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i, label %370
 
-371:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i
-  %372 = and i64 %.0.copyload.i.i.i.i.i.i.i55.i.i.i.i, -8
-  %373 = inttoptr i64 %372 to ptr
-  %.not.i.i.i.i.i.i56.i.i.i.i = icmp eq i64 %372, 0
-  br i1 %.not.i.i.i.i.i.i56.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i, label %374
+370:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i
+  %371 = and i64 %.0.copyload.i.i.i.i.i.i.i55.i.i.i.i, -8
+  %372 = inttoptr i64 %371 to ptr
+  %.not.i.i.i.i.i.i56.i.i.i.i = icmp eq i64 %371, 0
+  br i1 %.not.i.i.i.i.i.i56.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i, label %373
 
-374:                                              ; preds = %371
-  %375 = load i8, ptr %373, align 8
-  %376 = icmp ne i8 %375, 12
-  %or.cond.i.i.i.i58.i.i.i.i = or i1 %.not.i.i10.i.i.i.i.i.i.i.i, %376
-  br i1 %or.cond.i.i.i.i58.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i, label %377
+373:                                              ; preds = %370
+  %374 = load i8, ptr %372, align 8
+  %375 = icmp ne i8 %374, 12
+  %or.cond.i.i.i.i58.i.i.i.i = or i1 %.not.i.i10.i.i.i.i.i.i.i.i, %375
+  br i1 %or.cond.i.i.i.i58.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i, label %376
 
-377:                                              ; preds = %374
-  %378 = load i8, ptr %321, align 8
-  %379 = icmp eq i8 %378, 12
-  br i1 %379, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i
+376:                                              ; preds = %373
+  %377 = load i8, ptr %320, align 8
+  %378 = icmp eq i8 %377, 12
+  br i1 %378, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.i.i.i.i: ; preds = %377
-  %380 = getelementptr inbounds nuw i8, ptr %373, i64 64
-  %381 = load ptr, ptr %380, align 8
-  %382 = load ptr, ptr %322, align 8
-  %383 = icmp eq ptr %381, %382
-  br i1 %383, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit217, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.i.i.i.i: ; preds = %376
+  %379 = getelementptr inbounds nuw i8, ptr %372, i64 64
+  %380 = load ptr, ptr %379, align 8
+  %381 = load ptr, ptr %321, align 8
+  %382 = icmp eq ptr %380, %381
+  br i1 %382, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit217, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.i.i.i.i, %377, %374, %371, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i
-  %384 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 6
-  %.val39.i.i.i.i102 = load i16, ptr %384, align 2
-  %385 = zext i16 %.val39.i.i.i.i102 to i64
-  %386 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.val.i.i.i.i94, i64 %385
-  %.val1.i.i.i61.i.i.i.i = load ptr, ptr %386, align 8
-  %387 = getelementptr inbounds i8, ptr %.val1.i.i.i61.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i62.i.i.i.i = load i64, ptr %387, align 8
-  %388 = and i64 %.0.copyload.i.i.i.i.i.i.i62.i.i.i.i, 4
-  %389 = icmp ne i64 %388, 0
-  %390 = xor i1 %319, %389
-  br i1 %390, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i, label %391
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.i.i.i.i, %376, %373, %370, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.thread.i.i.i.i
+  %383 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 6
+  %.val39.i.i.i.i102 = load i16, ptr %383, align 2
+  %384 = zext i16 %.val39.i.i.i.i102 to i64
+  %385 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.val.i.i.i.i94, i64 %384
+  %.val1.i.i.i61.i.i.i.i = load ptr, ptr %385, align 8
+  %386 = getelementptr inbounds i8, ptr %.val1.i.i.i61.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i62.i.i.i.i = load i64, ptr %386, align 8
+  %387 = and i64 %.0.copyload.i.i.i.i.i.i.i62.i.i.i.i, 4
+  %388 = icmp ne i64 %387, 0
+  %389 = xor i1 %318, %388
+  br i1 %389, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i, label %390
 
-391:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i
-  %392 = and i64 %.0.copyload.i.i.i.i.i.i.i62.i.i.i.i, -8
-  %393 = inttoptr i64 %392 to ptr
-  %.not.i.i.i.i.i.i63.i.i.i.i = icmp eq i64 %392, 0
-  br i1 %.not.i.i.i.i.i.i63.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i, label %394
+390:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i
+  %391 = and i64 %.0.copyload.i.i.i.i.i.i.i62.i.i.i.i, -8
+  %392 = inttoptr i64 %391 to ptr
+  %.not.i.i.i.i.i.i63.i.i.i.i = icmp eq i64 %391, 0
+  br i1 %.not.i.i.i.i.i.i63.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i, label %393
 
-394:                                              ; preds = %391
-  %395 = load i8, ptr %393, align 8
-  %396 = icmp ne i8 %395, 12
-  %or.cond.i.i.i.i65.i.i.i.i = or i1 %.not.i.i10.i.i.i.i.i.i.i.i, %396
-  br i1 %or.cond.i.i.i.i65.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i, label %397
+393:                                              ; preds = %390
+  %394 = load i8, ptr %392, align 8
+  %395 = icmp ne i8 %394, 12
+  %or.cond.i.i.i.i65.i.i.i.i = or i1 %.not.i.i10.i.i.i.i.i.i.i.i, %395
+  br i1 %or.cond.i.i.i.i65.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i, label %396
 
-397:                                              ; preds = %394
-  %398 = load i8, ptr %321, align 8
-  %399 = icmp eq i8 %398, 12
-  br i1 %399, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i
+396:                                              ; preds = %393
+  %397 = load i8, ptr %320, align 8
+  %398 = icmp eq i8 %397, 12
+  br i1 %398, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.i.i.i.i: ; preds = %397
-  %400 = getelementptr inbounds nuw i8, ptr %393, i64 64
-  %401 = load ptr, ptr %400, align 8
-  %402 = load ptr, ptr %322, align 8
-  %403 = icmp eq ptr %401, %402
-  br i1 %403, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit219, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.i.i.i.i: ; preds = %396
+  %399 = getelementptr inbounds nuw i8, ptr %392, i64 64
+  %400 = load ptr, ptr %399, align 8
+  %401 = load ptr, ptr %321, align 8
+  %402 = icmp eq ptr %400, %401
+  br i1 %402, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit219, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.i.i.i.i, %397, %394, %391, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i
-  %404 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 8
-  %405 = add nsw i64 %.0100.i.i.i.i, -1
-  %406 = icmp sgt i64 %.0100.i.i.i.i, 1
-  br i1 %406, label %324, label %._crit_edge.loopexit.i.i.i.i103, !llvm.loop !329
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.i.i.i.i, %396, %393, %390, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.thread.i.i.i.i
+  %403 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 8
+  %404 = add nsw i64 %.0100.i.i.i.i, -1
+  %405 = icmp sgt i64 %.0100.i.i.i.i, 1
+  br i1 %405, label %323, label %._crit_edge.loopexit.i.i.i.i103, !llvm.loop !329
 
 ._crit_edge.loopexit.i.i.i.i103:                  ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.thread.i.i.i.i
-  %407 = and i64 %314, 3
+  %406 = and i64 %313, 3
   br label %._crit_edge.i.i.i.i79
 
 ._crit_edge.i.i.i.i79:                            ; preds = %._crit_edge.loopexit.i.i.i.i103, %_ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit.thread
-  %.pre-phi111.i.i.i.i = phi i64 [ %407, %._crit_edge.loopexit.i.i.i.i103 ], [ %314, %_ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit.thread ]
+  %.pre-phi111.i.i.i.i = phi i64 [ %406, %._crit_edge.loopexit.i.i.i.i103 ], [ %313, %_ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit.thread ]
   %.029.lcssa.i.i.i.i80 = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i103 ], [ %.val6.i78, %_ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit.thread ]
   switch i64 %.pre-phi111.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i [
-    i64 3, label %408
+    i64 3, label %407
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge107.i.i.i.i
   ]
@@ -23146,266 +23144,266 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2
   %.val45.val.pre.i.i.i.i = load ptr, ptr %48, align 8
   %.val46.val.pre.i.i.i.i = load i64, ptr %17, align 8
   %.pre114.i.i.i.i = and i64 %.val46.val.pre.i.i.i.i, 4
-  br label %459
+  br label %458
 
 ._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i79
   %.val43.val.pre.i.i.i.i = load ptr, ptr %48, align 8
   %.val44.val.pre.i.i.i.i = load i64, ptr %17, align 8
   %.pre112.i.i.i.i = and i64 %.val44.val.pre.i.i.i.i, 4
-  br label %434
+  br label %433
 
-408:                                              ; preds = %._crit_edge.i.i.i.i79
+407:                                              ; preds = %._crit_edge.i.i.i.i79
   %.029.val42.i.i.i.i91 = load i16, ptr %.029.lcssa.i.i.i.i80, align 2
   %.val40.val.i.i.i.i92 = load ptr, ptr %48, align 8
   %.val41.val.i.i.i.i = load i64, ptr %17, align 8
-  %409 = zext i16 %.029.val42.i.i.i.i91 to i64
-  %410 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val40.val.i.i.i.i92, i64 %409
-  %.val1.i.i.i68.i.i.i.i = load ptr, ptr %410, align 8
-  %411 = getelementptr inbounds i8, ptr %.val1.i.i.i68.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i69.i.i.i.i = load i64, ptr %411, align 8
-  %412 = and i64 %.0.copyload.i.i.i.i.i.i.i69.i.i.i.i, 4
-  %413 = icmp ne i64 %412, 0
-  %414 = and i64 %.val41.val.i.i.i.i, 4
-  %415 = icmp ne i64 %414, 0
-  %416 = xor i1 %415, %413
-  br i1 %416, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i, label %417
+  %408 = zext i16 %.029.val42.i.i.i.i91 to i64
+  %409 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val40.val.i.i.i.i92, i64 %408
+  %.val1.i.i.i68.i.i.i.i = load ptr, ptr %409, align 8
+  %410 = getelementptr inbounds i8, ptr %.val1.i.i.i68.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i69.i.i.i.i = load i64, ptr %410, align 8
+  %411 = and i64 %.0.copyload.i.i.i.i.i.i.i69.i.i.i.i, 4
+  %412 = icmp ne i64 %411, 0
+  %413 = and i64 %.val41.val.i.i.i.i, 4
+  %414 = icmp ne i64 %413, 0
+  %415 = xor i1 %414, %412
+  br i1 %415, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i, label %416
 
-417:                                              ; preds = %408
-  %418 = and i64 %.0.copyload.i.i.i.i.i.i.i69.i.i.i.i, -8
-  %419 = inttoptr i64 %418 to ptr
-  %420 = and i64 %.val41.val.i.i.i.i, -8
-  %421 = inttoptr i64 %420 to ptr
-  %.not.i.i.i.i.i.i70.i.i.i.i = icmp eq i64 %418, 0
-  br i1 %.not.i.i.i.i.i.i70.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i, label %422
+416:                                              ; preds = %407
+  %417 = and i64 %.0.copyload.i.i.i.i.i.i.i69.i.i.i.i, -8
+  %418 = inttoptr i64 %417 to ptr
+  %419 = and i64 %.val41.val.i.i.i.i, -8
+  %420 = inttoptr i64 %419 to ptr
+  %.not.i.i.i.i.i.i70.i.i.i.i = icmp eq i64 %417, 0
+  br i1 %.not.i.i.i.i.i.i70.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i, label %421
 
-422:                                              ; preds = %417
-  %423 = load i8, ptr %419, align 8
-  %424 = icmp ne i8 %423, 12
-  %.not.i.i10.i.i.i.i71.i.i.i.i = icmp eq i64 %420, 0
-  %or.cond.i.i.i.i72.i.i.i.i = or i1 %.not.i.i10.i.i.i.i71.i.i.i.i, %424
-  br i1 %or.cond.i.i.i.i72.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i, label %425
+421:                                              ; preds = %416
+  %422 = load i8, ptr %418, align 8
+  %423 = icmp ne i8 %422, 12
+  %.not.i.i10.i.i.i.i71.i.i.i.i = icmp eq i64 %419, 0
+  %or.cond.i.i.i.i72.i.i.i.i = or i1 %.not.i.i10.i.i.i.i71.i.i.i.i, %423
+  br i1 %or.cond.i.i.i.i72.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i, label %424
 
-425:                                              ; preds = %422
-  %426 = load i8, ptr %421, align 8
-  %427 = icmp eq i8 %426, 12
-  br i1 %427, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i
+424:                                              ; preds = %421
+  %425 = load i8, ptr %420, align 8
+  %426 = icmp eq i8 %425, 12
+  br i1 %426, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.i.i.i.i: ; preds = %425
-  %428 = getelementptr inbounds nuw i8, ptr %419, i64 64
-  %429 = load ptr, ptr %428, align 8
-  %430 = getelementptr inbounds nuw i8, ptr %421, i64 64
-  %431 = load ptr, ptr %430, align 8
-  %432 = icmp eq ptr %429, %431
-  br i1 %432, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.i.i.i.i: ; preds = %424
+  %427 = getelementptr inbounds nuw i8, ptr %418, i64 64
+  %428 = load ptr, ptr %427, align 8
+  %429 = getelementptr inbounds nuw i8, ptr %420, i64 64
+  %430 = load ptr, ptr %429, align 8
+  %431 = icmp eq ptr %428, %430
+  br i1 %431, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.i.i.i.i, %425, %422, %417, %408
-  %433 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i80, i64 2
-  br label %434
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.i.i.i.i, %424, %421, %416, %407
+  %432 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i80, i64 2
+  br label %433
 
-434:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i
-  %.pre-phi113.i.i.i.i = phi i64 [ %.pre112.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %414, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i ]
+433:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i
+  %.pre-phi113.i.i.i.i = phi i64 [ %.pre112.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %413, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i ]
   %.val44.val.i.i.i.i = phi i64 [ %.val44.val.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.val41.val.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i ]
   %.val43.val.i.i.i.i88 = phi ptr [ %.val43.val.pre.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.val40.val.i.i.i.i92, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i ]
-  %.1.i.i.i.i89 = phi ptr [ %.029.lcssa.i.i.i.i80, %._crit_edge._crit_edge.i.i.i.i ], [ %433, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i ]
+  %.1.i.i.i.i89 = phi ptr [ %.029.lcssa.i.i.i.i80, %._crit_edge._crit_edge.i.i.i.i ], [ %432, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.thread.i.i.i.i ]
   %.1.val.i.i.i.i90 = load i16, ptr %.1.i.i.i.i89, align 2
-  %435 = zext i16 %.1.val.i.i.i.i90 to i64
-  %436 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val43.val.i.i.i.i88, i64 %435
-  %.val1.i.i.i75.i.i.i.i = load ptr, ptr %436, align 8
-  %437 = getelementptr inbounds i8, ptr %.val1.i.i.i75.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i76.i.i.i.i = load i64, ptr %437, align 8
-  %438 = and i64 %.0.copyload.i.i.i.i.i.i.i76.i.i.i.i, 4
-  %439 = icmp ne i64 %438, 0
-  %440 = icmp ne i64 %.pre-phi113.i.i.i.i, 0
-  %441 = xor i1 %440, %439
-  br i1 %441, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i, label %442
+  %434 = zext i16 %.1.val.i.i.i.i90 to i64
+  %435 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val43.val.i.i.i.i88, i64 %434
+  %.val1.i.i.i75.i.i.i.i = load ptr, ptr %435, align 8
+  %436 = getelementptr inbounds i8, ptr %.val1.i.i.i75.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i76.i.i.i.i = load i64, ptr %436, align 8
+  %437 = and i64 %.0.copyload.i.i.i.i.i.i.i76.i.i.i.i, 4
+  %438 = icmp ne i64 %437, 0
+  %439 = icmp ne i64 %.pre-phi113.i.i.i.i, 0
+  %440 = xor i1 %439, %438
+  br i1 %440, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i, label %441
 
-442:                                              ; preds = %434
-  %443 = and i64 %.0.copyload.i.i.i.i.i.i.i76.i.i.i.i, -8
-  %444 = inttoptr i64 %443 to ptr
-  %445 = and i64 %.val44.val.i.i.i.i, -8
-  %446 = inttoptr i64 %445 to ptr
-  %.not.i.i.i.i.i.i77.i.i.i.i = icmp eq i64 %443, 0
-  br i1 %.not.i.i.i.i.i.i77.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i, label %447
+441:                                              ; preds = %433
+  %442 = and i64 %.0.copyload.i.i.i.i.i.i.i76.i.i.i.i, -8
+  %443 = inttoptr i64 %442 to ptr
+  %444 = and i64 %.val44.val.i.i.i.i, -8
+  %445 = inttoptr i64 %444 to ptr
+  %.not.i.i.i.i.i.i77.i.i.i.i = icmp eq i64 %442, 0
+  br i1 %.not.i.i.i.i.i.i77.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i, label %446
 
-447:                                              ; preds = %442
-  %448 = load i8, ptr %444, align 8
-  %449 = icmp ne i8 %448, 12
-  %.not.i.i10.i.i.i.i78.i.i.i.i = icmp eq i64 %445, 0
-  %or.cond.i.i.i.i79.i.i.i.i = or i1 %.not.i.i10.i.i.i.i78.i.i.i.i, %449
-  br i1 %or.cond.i.i.i.i79.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i, label %450
+446:                                              ; preds = %441
+  %447 = load i8, ptr %443, align 8
+  %448 = icmp ne i8 %447, 12
+  %.not.i.i10.i.i.i.i78.i.i.i.i = icmp eq i64 %444, 0
+  %or.cond.i.i.i.i79.i.i.i.i = or i1 %.not.i.i10.i.i.i.i78.i.i.i.i, %448
+  br i1 %or.cond.i.i.i.i79.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i, label %449
 
-450:                                              ; preds = %447
-  %451 = load i8, ptr %446, align 8
-  %452 = icmp eq i8 %451, 12
-  br i1 %452, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i
+449:                                              ; preds = %446
+  %450 = load i8, ptr %445, align 8
+  %451 = icmp eq i8 %450, 12
+  br i1 %451, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.i.i.i.i: ; preds = %450
-  %453 = getelementptr inbounds nuw i8, ptr %444, i64 64
-  %454 = load ptr, ptr %453, align 8
-  %455 = getelementptr inbounds nuw i8, ptr %446, i64 64
-  %456 = load ptr, ptr %455, align 8
-  %457 = icmp eq ptr %454, %456
-  br i1 %457, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.i.i.i.i: ; preds = %449
+  %452 = getelementptr inbounds nuw i8, ptr %443, i64 64
+  %453 = load ptr, ptr %452, align 8
+  %454 = getelementptr inbounds nuw i8, ptr %445, i64 64
+  %455 = load ptr, ptr %454, align 8
+  %456 = icmp eq ptr %453, %455
+  br i1 %456, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.i.i.i.i, %450, %447, %442, %434
-  %458 = getelementptr inbounds i8, ptr %.1.i.i.i.i89, i64 2
-  br label %459
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.i.i.i.i, %449, %446, %441, %433
+  %457 = getelementptr inbounds i8, ptr %.1.i.i.i.i89, i64 2
+  br label %458
 
-459:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i, %._crit_edge._crit_edge107.i.i.i.i
+458:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i, %._crit_edge._crit_edge107.i.i.i.i
   %.pre-phi115.i.i.i.i = phi i64 [ %.pre114.i.i.i.i, %._crit_edge._crit_edge107.i.i.i.i ], [ %.pre-phi113.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i ]
   %.val46.val.i.i.i.i = phi i64 [ %.val46.val.pre.i.i.i.i, %._crit_edge._crit_edge107.i.i.i.i ], [ %.val44.val.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i ]
   %.val45.val.i.i.i.i81 = phi ptr [ %.val45.val.pre.i.i.i.i, %._crit_edge._crit_edge107.i.i.i.i ], [ %.val43.val.i.i.i.i88, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i ]
-  %.2.i.i.i.i82 = phi ptr [ %.029.lcssa.i.i.i.i80, %._crit_edge._crit_edge107.i.i.i.i ], [ %458, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i ]
+  %.2.i.i.i.i82 = phi ptr [ %.029.lcssa.i.i.i.i80, %._crit_edge._crit_edge107.i.i.i.i ], [ %457, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.thread.i.i.i.i ]
   %.2.val.i.i.i.i83 = load i16, ptr %.2.i.i.i.i82, align 2
-  %460 = zext i16 %.2.val.i.i.i.i83 to i64
-  %461 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val45.val.i.i.i.i81, i64 %460
-  %.val1.i.i.i82.i.i.i.i = load ptr, ptr %461, align 8
-  %462 = getelementptr inbounds i8, ptr %.val1.i.i.i82.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i83.i.i.i.i = load i64, ptr %462, align 8
-  %463 = and i64 %.0.copyload.i.i.i.i.i.i.i83.i.i.i.i, 4
-  %464 = icmp ne i64 %463, 0
-  %465 = icmp ne i64 %.pre-phi115.i.i.i.i, 0
-  %466 = xor i1 %465, %464
-  br i1 %466, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i, label %467
+  %459 = zext i16 %.2.val.i.i.i.i83 to i64
+  %460 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val45.val.i.i.i.i81, i64 %459
+  %.val1.i.i.i82.i.i.i.i = load ptr, ptr %460, align 8
+  %461 = getelementptr inbounds i8, ptr %.val1.i.i.i82.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i83.i.i.i.i = load i64, ptr %461, align 8
+  %462 = and i64 %.0.copyload.i.i.i.i.i.i.i83.i.i.i.i, 4
+  %463 = icmp ne i64 %462, 0
+  %464 = icmp ne i64 %.pre-phi115.i.i.i.i, 0
+  %465 = xor i1 %464, %463
+  br i1 %465, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i, label %466
 
-467:                                              ; preds = %459
-  %468 = and i64 %.0.copyload.i.i.i.i.i.i.i83.i.i.i.i, -8
-  %469 = inttoptr i64 %468 to ptr
-  %470 = and i64 %.val46.val.i.i.i.i, -8
-  %471 = inttoptr i64 %470 to ptr
-  %.not.i.i.i.i.i.i84.i.i.i.i = icmp eq i64 %468, 0
-  br i1 %.not.i.i.i.i.i.i84.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i, label %472
+466:                                              ; preds = %458
+  %467 = and i64 %.0.copyload.i.i.i.i.i.i.i83.i.i.i.i, -8
+  %468 = inttoptr i64 %467 to ptr
+  %469 = and i64 %.val46.val.i.i.i.i, -8
+  %470 = inttoptr i64 %469 to ptr
+  %.not.i.i.i.i.i.i84.i.i.i.i = icmp eq i64 %467, 0
+  br i1 %.not.i.i.i.i.i.i84.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i, label %471
 
-472:                                              ; preds = %467
-  %473 = load i8, ptr %469, align 8
-  %474 = icmp ne i8 %473, 12
-  %.not.i.i10.i.i.i.i85.i.i.i.i = icmp eq i64 %470, 0
-  %or.cond.i.i.i.i86.i.i.i.i = or i1 %.not.i.i10.i.i.i.i85.i.i.i.i, %474
-  br i1 %or.cond.i.i.i.i86.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i, label %475
+471:                                              ; preds = %466
+  %472 = load i8, ptr %468, align 8
+  %473 = icmp ne i8 %472, 12
+  %.not.i.i10.i.i.i.i85.i.i.i.i = icmp eq i64 %469, 0
+  %or.cond.i.i.i.i86.i.i.i.i = or i1 %.not.i.i10.i.i.i.i85.i.i.i.i, %473
+  br i1 %or.cond.i.i.i.i86.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i, label %474
 
-475:                                              ; preds = %472
-  %476 = load i8, ptr %471, align 8
-  %477 = icmp eq i8 %476, 12
-  br i1 %477, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i
+474:                                              ; preds = %471
+  %475 = load i8, ptr %470, align 8
+  %476 = icmp eq i8 %475, 12
+  br i1 %476, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.i.i.i.i: ; preds = %475
-  %478 = getelementptr inbounds nuw i8, ptr %469, i64 64
-  %479 = load ptr, ptr %478, align 8
-  %480 = getelementptr inbounds nuw i8, ptr %471, i64 64
-  %481 = load ptr, ptr %480, align 8
-  %482 = icmp eq ptr %479, %481
-  br i1 %482, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.i.i.i.i: ; preds = %474
+  %477 = getelementptr inbounds nuw i8, ptr %468, i64 64
+  %478 = load ptr, ptr %477, align 8
+  %479 = getelementptr inbounds nuw i8, ptr %470, i64 64
+  %480 = load ptr, ptr %479, align 8
+  %481 = icmp eq ptr %478, %480
+  br i1 %481, label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.i.i.i.i, %475, %472, %467, %459, %._crit_edge.i.i.i.i79
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.i.i.i.i, %474, %471, %466, %458, %._crit_edge.i.i.i.i79
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit53.i.i.i.i
-  %483 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 2
+  %482 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 2
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit217: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit60.i.i.i.i
-  %484 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 4
+  %483 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 4
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit219: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit67.i.i.i.i
-  %485 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 6
+  %484 = getelementptr inbounds i8, ptr %.02999.i.i.i.i, i64 6
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit217, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit219, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.i.i.i.i
-  %.028.i.i.i.i84 = phi ptr [ %315, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i ], [ %.029.lcssa.i.i.i.i80, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.i.i.i.i ], [ %.1.i.i.i.i89, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.i.i.i.i ], [ %.2.i.i.i.i82, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.i.i.i.i ], [ %483, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %484, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit217 ], [ %485, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit219 ], [ %.02999.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i ]
-  %486 = load ptr, ptr %1, align 8
-  %487 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  %488 = getelementptr inbounds i16, ptr %486, i64 %487
-  %.not.i85 = icmp eq ptr %.028.i.i.i.i84, %488
+  %.028.i.i.i.i84 = phi ptr [ %314, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.thread.i.i.i.i ], [ %.029.lcssa.i.i.i.i80, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit74.i.i.i.i ], [ %.1.i.i.i.i89, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit81.i.i.i.i ], [ %.2.i.i.i.i82, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit88.i.i.i.i ], [ %482, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %483, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit217 ], [ %484, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit219 ], [ %.02999.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i ]
+  %485 = load ptr, ptr %1, align 8
+  %486 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %487 = getelementptr inbounds i16, ptr %485, i64 %486
+  %.not.i85 = icmp eq ptr %.028.i.i.i.i84, %487
   br i1 %.not.i85, label %.thread127, label %_ZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit
 
 _ZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit: ; preds = %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
-  %489 = load i16, ptr %.028.i.i.i.i84, align 2
+  %488 = load i16, ptr %.028.i.i.i.i84, align 2
   %.val.i86 = load ptr, ptr %48, align 8
-  %490 = zext i16 %489 to i64
-  %491 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.i86, i64 %490
-  %.val1.i.i87 = load ptr, ptr %491, align 8
+  %489 = zext i16 %488 to i64
+  %490 = getelementptr inbounds %"class.std::unique_ptr.931", ptr %.val.i86, i64 %489
+  %.val1.i.i87 = load ptr, ptr %490, align 8
   %.not54 = icmp eq ptr %.val1.i.i87, null
-  br i1 %.not54, label %.thread127, label %501
+  br i1 %.not54, label %.thread127, label %500
 
 .thread127:                                       ; preds = %_ZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
-  %492 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sroa.0.0.copyload.i109 = load ptr, ptr %494, align 8
+  %491 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %492 = load ptr, ptr %491, align 8
+  %493 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sroa.0.0.copyload.i109 = load ptr, ptr %493, align 8
   %.sroa.2.0..sroa_idx.i110 = getelementptr inbounds i8, ptr %17, i64 16
   %.sroa.2.0.copyload.i111 = load i64, ptr %.sroa.2.0..sroa_idx.i110, align 8
   call void @_ZNK5clang12threadSafety14CapabilityExpr8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %17)
-  %495 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
-  store ptr %495, ptr %28, align 8
-  %496 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %497 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
-  store i64 %497, ptr %496, align 8
-  %498 = load ptr, ptr %493, align 8
-  %499 = getelementptr inbounds i8, ptr %498, i64 72
-  %500 = load ptr, ptr %499, align 8
-  call void %500(ptr noundef nonnull align 8 dereferenceable(9) %493, ptr %.sroa.0.0.copyload.i109, i64 %.sroa.2.0.copyload.i111, ptr noundef %2, i32 noundef %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %28, i32 noundef %4, i32 %8, ptr noundef null) #18
+  %494 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
+  store ptr %494, ptr %28, align 8
+  %495 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %496 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
+  store i64 %496, ptr %495, align 8
+  %497 = load ptr, ptr %492, align 8
+  %498 = getelementptr inbounds i8, ptr %497, i64 72
+  %499 = load ptr, ptr %498, align 8
+  call void %499(ptr noundef nonnull align 8 dereferenceable(9) %492, ptr %.sroa.0.0.copyload.i109, i64 %.sroa.2.0.copyload.i111, ptr noundef %2, i32 noundef %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %28, i32 noundef %4, i32 %8, ptr noundef null) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
   br label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
 
-501:                                              ; preds = %_ZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit
-  %502 = getelementptr inbounds i8, ptr %.val1.i.i87, i64 8
-  call void @_ZNK5clang12threadSafety14CapabilityExpr8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %502)
-  %503 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
-  store ptr %503, ptr %25, align 8
-  %504 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %505 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
-  store i64 %505, ptr %504, align 8
-  %506 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %507 = load ptr, ptr %506, align 8
-  %508 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sroa.0.0.copyload.i104 = load ptr, ptr %508, align 8
+500:                                              ; preds = %_ZNK12_GLOBAL__N_17FactSet16findPartialMatchERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit
+  %501 = getelementptr inbounds i8, ptr %.val1.i.i87, i64 8
+  call void @_ZNK5clang12threadSafety14CapabilityExpr8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %501)
+  %502 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
+  store ptr %502, ptr %25, align 8
+  %503 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %504 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
+  store i64 %504, ptr %503, align 8
+  %505 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %506 = load ptr, ptr %505, align 8
+  %507 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sroa.0.0.copyload.i104 = load ptr, ptr %507, align 8
   %.sroa.2.0..sroa_idx.i105 = getelementptr inbounds i8, ptr %17, i64 16
   %.sroa.2.0.copyload.i106 = load i64, ptr %.sroa.2.0..sroa_idx.i105, align 8
   call void @_ZNK5clang12threadSafety14CapabilityExpr8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %17)
-  %509 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
-  store ptr %509, ptr %26, align 8
-  %510 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %511 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
-  store i64 %511, ptr %510, align 8
-  %512 = load ptr, ptr %507, align 8
-  %513 = getelementptr inbounds i8, ptr %512, i64 72
-  %514 = load ptr, ptr %513, align 8
-  call void %514(ptr noundef nonnull align 8 dereferenceable(9) %507, ptr %.sroa.0.0.copyload.i104, i64 %.sroa.2.0.copyload.i106, ptr noundef %2, i32 noundef %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %26, i32 noundef %4, i32 %8, ptr noundef nonnull %25) #18
+  %508 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
+  store ptr %508, ptr %26, align 8
+  %509 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %510 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
+  store i64 %510, ptr %509, align 8
+  %511 = load ptr, ptr %506, align 8
+  %512 = getelementptr inbounds i8, ptr %511, i64 72
+  %513 = load ptr, ptr %512, align 8
+  call void %513(ptr noundef nonnull align 8 dereferenceable(9) %506, ptr %.sroa.0.0.copyload.i104, i64 %.sroa.2.0.copyload.i106, ptr noundef %2, i32 noundef %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %26, i32 noundef %4, i32 %8, ptr noundef nonnull %25) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #18
   br label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
 
-515:                                              ; preds = %_ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit
-  %516 = getelementptr i8, ptr %.val1.i.i, i64 32
-  %.0.val = load i16, ptr %516, align 8
-  %517 = and i16 %.0.val, 255
-  %518 = icmp eq i16 %517, 1
-  %519 = icmp eq i32 %4, 0
-  %520 = or i1 %519, %518
-  br i1 %520, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit, label %521
+514:                                              ; preds = %_ZNK12_GLOBAL__N_17FactSet12findLockUnivERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE.exit
+  %515 = getelementptr i8, ptr %.val1.i.i, i64 32
+  %.0.val = load i16, ptr %515, align 8
+  %516 = and i16 %.0.val, 255
+  %517 = icmp eq i16 %516, 1
+  %518 = icmp eq i32 %4, 0
+  %519 = or i1 %518, %517
+  br i1 %519, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit, label %520
 
-521:                                              ; preds = %515
-  %522 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %523 = load ptr, ptr %522, align 8
-  %524 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sroa.0.0.copyload.i114 = load ptr, ptr %524, align 8
+520:                                              ; preds = %514
+  %521 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %522 = load ptr, ptr %521, align 8
+  %523 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sroa.0.0.copyload.i114 = load ptr, ptr %523, align 8
   %.sroa.2.0..sroa_idx.i115 = getelementptr inbounds i8, ptr %17, i64 16
   %.sroa.2.0.copyload.i116 = load i64, ptr %.sroa.2.0..sroa_idx.i115, align 8
   call void @_ZNK5clang12threadSafety14CapabilityExpr8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %31, ptr noundef nonnull align 8 dereferenceable(24) %17)
-  %525 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #18
-  store ptr %525, ptr %30, align 8
-  %526 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %527 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #18
-  store i64 %527, ptr %526, align 8
-  %528 = load ptr, ptr %523, align 8
-  %529 = getelementptr inbounds i8, ptr %528, i64 72
-  %530 = load ptr, ptr %529, align 8
-  call void %530(ptr noundef nonnull align 8 dereferenceable(9) %523, ptr %.sroa.0.0.copyload.i114, i64 %.sroa.2.0.copyload.i116, ptr noundef %2, i32 noundef %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %30, i32 noundef %4, i32 %8, ptr noundef null) #18
+  %524 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #18
+  store ptr %524, ptr %30, align 8
+  %525 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %526 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #18
+  store i64 %526, ptr %525, align 8
+  %527 = load ptr, ptr %522, align 8
+  %528 = getelementptr inbounds i8, ptr %527, i64 72
+  %529 = load ptr, ptr %528, align 8
+  call void %529(ptr noundef nonnull align 8 dereferenceable(9) %522, ptr %.sroa.0.0.copyload.i114, i64 %.sroa.2.0.copyload.i116, ptr noundef %2, i32 noundef %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %30, i32 noundef %4, i32 %8, ptr noundef null) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #18
   br label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
 
-_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit: ; preds = %501, %87, %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i, %73, %76, %9, %.thread127, %_ZNK5clang4Decl14getDeclContextEv.exit25.i, %42, %40, %37, %117, %119, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit, %521, %515, %53
+_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit: ; preds = %500, %87, %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i, %73, %76, %9, %.thread127, %_ZNK5clang4Decl14getDeclContextEv.exit25.i, %42, %40, %37, %116, %118, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit, %520, %514, %53
   ret void
 }
 

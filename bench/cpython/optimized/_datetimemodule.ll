@@ -9334,9 +9334,8 @@ land.lhs.true13:                                  ; preds = %if.then10
   %arrayidx15 = getelementptr i8, ptr %2, i64 34
   %9 = load i8, ptr %arrayidx15, align 1
   %10 = and i8 %9, 127
-  %and = zext nneg i8 %10 to i32
-  %sub = add nsw i32 %and, -1
-  %cmp16 = icmp ult i32 %sub, 12
+  %11 = add nsw i8 %10, -1
+  %cmp16 = icmp ult i8 %11, 12
   br i1 %cmp16, label %if.then18, label %if.end47
 
 if.then18:                                        ; preds = %land.lhs.true13
@@ -9344,13 +9343,13 @@ if.then18:                                        ; preds = %land.lhs.true13
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %11 = and i64 %call8.val, 268435456
-  %tobool23.not = icmp eq i64 %11, 0
+  %12 = and i64 %call8.val, 268435456
+  %tobool23.not = icmp eq i64 %12, 0
   br i1 %tobool23.not, label %if.end47, label %if.then24
 
 if.then24:                                        ; preds = %if.else
-  %12 = getelementptr i8, ptr %2, i64 16
-  %.val24 = load i64, ptr %12, align 8
+  %13 = getelementptr i8, ptr %2, i64 16
+  %.val24 = load i64, ptr %13, align 8
   %cmp26 = icmp eq i64 %.val24, 10
   br i1 %cmp26, label %land.lhs.true28, label %if.end47
 
@@ -9359,8 +9358,8 @@ land.lhs.true28:                                  ; preds = %if.then24
   %bf.load.i = load i32, ptr %state.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
-  %13 = and i32 %bf.load.i, 32
-  %tobool.not.i18.i = icmp eq i32 %13, 0
+  %14 = and i32 %bf.load.i, 32
+  %tobool.not.i18.i = icmp eq i32 %14, 0
   switch i32 %bf.clear.i, label %if.end7.i [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
@@ -9370,69 +9369,69 @@ if.then.i:                                        ; preds = %land.lhs.true28
   br i1 %tobool.not.i18.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %14 = and i32 %bf.load.i, 64
-  %tobool.not.i.i.i = icmp eq i32 %14, 0
+  %15 = and i32 %bf.load.i, 64
+  %tobool.not.i.i.i = icmp eq i32 %15, 0
   %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
   %retval.0.i.i.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i.i
   br label %PyUnicode_DATA.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %15 = getelementptr i8, ptr %2, i64 56
-  %op.val3.i.i = load ptr, ptr %15, align 8
+  %16 = getelementptr i8, ptr %2, i64 56
+  %op.val3.i.i = load ptr, ptr %16, align 8
   br label %PyUnicode_DATA.exit.i
 
 PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
   %arrayidx.i = getelementptr i8, ptr %retval.0.i.i, i64 2
-  %16 = load i8, ptr %arrayidx.i, align 1
-  %conv.i30 = zext i8 %16 to i32
+  %17 = load i8, ptr %arrayidx.i, align 1
+  %conv.i30 = zext i8 %17 to i32
   br label %PyUnicode_READ_CHAR.exit
 
 if.then3.i:                                       ; preds = %land.lhs.true28
   br i1 %tobool.not.i18.i, label %if.end.i14.i, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %if.then3.i
-  %17 = and i32 %bf.load.i, 64
-  %tobool.not.i.i10.i = icmp eq i32 %17, 0
+  %18 = and i32 %bf.load.i, 64
+  %tobool.not.i.i10.i = icmp eq i32 %18, 0
   %retval.0.v.i.i11.i = select i1 %tobool.not.i.i10.i, i64 56, i64 40
   %retval.0.i.i12.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i11.i
   br label %PyUnicode_DATA.exit16.i
 
 if.end.i14.i:                                     ; preds = %if.then3.i
-  %18 = getelementptr i8, ptr %2, i64 56
-  %op.val3.i15.i = load ptr, ptr %18, align 8
+  %19 = getelementptr i8, ptr %2, i64 56
+  %op.val3.i15.i = load ptr, ptr %19, align 8
   br label %PyUnicode_DATA.exit16.i
 
 PyUnicode_DATA.exit16.i:                          ; preds = %if.end.i14.i, %if.then.i9.i
   %retval.0.i13.i = phi ptr [ %retval.0.i.i12.i, %if.then.i9.i ], [ %op.val3.i15.i, %if.end.i14.i ]
   %arrayidx5.i = getelementptr i8, ptr %retval.0.i13.i, i64 4
-  %19 = load i16, ptr %arrayidx5.i, align 2
-  %conv6.i = zext i16 %19 to i32
+  %20 = load i16, ptr %arrayidx5.i, align 2
+  %conv6.i = zext i16 %20 to i32
   br label %PyUnicode_READ_CHAR.exit
 
 if.end7.i:                                        ; preds = %land.lhs.true28
   br i1 %tobool.not.i18.i, label %if.end.i24.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %if.end7.i
-  %20 = and i32 %bf.load.i, 64
-  %tobool.not.i.i20.i = icmp eq i32 %20, 0
+  %21 = and i32 %bf.load.i, 64
+  %tobool.not.i.i20.i = icmp eq i32 %21, 0
   %retval.0.v.i.i21.i = select i1 %tobool.not.i.i20.i, i64 56, i64 40
   %retval.0.i.i22.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i21.i
   br label %PyUnicode_DATA.exit26.i
 
 if.end.i24.i:                                     ; preds = %if.end7.i
-  %21 = getelementptr i8, ptr %2, i64 56
-  %op.val3.i25.i = load ptr, ptr %21, align 8
+  %22 = getelementptr i8, ptr %2, i64 56
+  %op.val3.i25.i = load ptr, ptr %22, align 8
   br label %PyUnicode_DATA.exit26.i
 
 PyUnicode_DATA.exit26.i:                          ; preds = %if.end.i24.i, %if.then.i19.i
   %retval.0.i23.i = phi ptr [ %retval.0.i.i22.i, %if.then.i19.i ], [ %op.val3.i25.i, %if.end.i24.i ]
   %arrayidx9.i = getelementptr i8, ptr %retval.0.i23.i, i64 8
-  %22 = load i32, ptr %arrayidx9.i, align 4
+  %23 = load i32, ptr %arrayidx9.i, align 4
   br label %PyUnicode_READ_CHAR.exit
 
 PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit.i, %PyUnicode_DATA.exit16.i, %PyUnicode_DATA.exit26.i
-  %retval.0.i = phi i32 [ %conv.i30, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit16.i ], [ %22, %PyUnicode_DATA.exit26.i ]
+  %retval.0.i = phi i32 [ %conv.i30, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit16.i ], [ %23, %PyUnicode_DATA.exit26.i ]
   %and30 = and i32 %retval.0.i, 127
   %sub31 = add nsw i32 %and30, -1
   %cmp32 = icmp ult i32 %sub31, 12
@@ -9444,25 +9443,25 @@ if.then34:                                        ; preds = %PyUnicode_READ_CHAR
   br i1 %cmp36, label %if.then38, label %if.end43
 
 if.then38:                                        ; preds = %if.then34
-  %23 = load ptr, ptr @PyExc_UnicodeEncodeError, align 8
-  %call39 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %23) #15
+  %24 = load ptr, ptr @PyExc_UnicodeEncodeError, align 8
+  %call39 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %24) #15
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %return, label %if.then41
 
 if.then41:                                        ; preds = %if.then38
-  %24 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %24, ptr noundef nonnull @.str.221) #15
+  %25 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %25, ptr noundef nonnull @.str.221) #15
   br label %return
 
 if.end43:                                         ; preds = %if.then34
   %call44 = tail call fastcc ptr @datetime_from_pickle(ptr noundef %type, ptr noundef nonnull %call35, ptr noundef %4)
-  %25 = load i64, ptr %call35, align 8
-  %26 = and i64 %25, 2147483648
-  %cmp.i55.not = icmp eq i64 %26, 0
+  %26 = load i64, ptr %call35, align 8
+  %27 = and i64 %26, 2147483648
+  %cmp.i55.not = icmp eq i64 %27, 0
   br i1 %cmp.i55.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end43
-  %dec.i = add i64 %25, -1
+  %dec.i = add i64 %26, -1
   store i64 %dec.i, ptr %call35, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -9481,16 +9480,16 @@ if.end48:                                         ; preds = %if.end47, %entry
   br i1 %tobool50.not, label %return, label %if.then51
 
 if.then51:                                        ; preds = %if.end48
-  %27 = load i32, ptr %year, align 4
-  %28 = load i32, ptr %month, align 4
-  %29 = load i32, ptr %day, align 4
-  %30 = load i32, ptr %hour, align 4
-  %31 = load i32, ptr %minute, align 4
-  %32 = load i32, ptr %second, align 4
-  %33 = load i32, ptr %usecond, align 4
-  %34 = load ptr, ptr %tzinfo, align 8
-  %35 = load i32, ptr %fold, align 4
-  %call52 = call ptr @new_datetime_ex2(i32 noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef %type)
+  %28 = load i32, ptr %year, align 4
+  %29 = load i32, ptr %month, align 4
+  %30 = load i32, ptr %day, align 4
+  %31 = load i32, ptr %hour, align 4
+  %32 = load i32, ptr %minute, align 4
+  %33 = load i32, ptr %second, align 4
+  %34 = load i32, ptr %usecond, align 4
+  %35 = load ptr, ptr %tzinfo, align 8
+  %36 = load i32, ptr %fold, align 4
+  %call52 = call ptr @new_datetime_ex2(i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %type)
   br label %return
 
 return:                                           ; preds = %if.end48, %if.then51, %if.end.i, %if.then1.i, %if.end43, %if.then38, %if.then41, %if.then18

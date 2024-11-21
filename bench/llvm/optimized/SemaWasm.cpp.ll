@@ -538,43 +538,42 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL26CheckWasmBuiltinArgIsTabl
   %24 = load ptr, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i8, ptr %25, align 16
-  %27 = zext i8 %26 to i32
-  %28 = add nsw i32 %27, -7
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %28, -5
+  %27 = add i8 %26, -7
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %27, -5
   %.not15 = icmp eq ptr %24, null
   %.not = or i1 %.not15, %switch.i.i.i.i.i.i.i.i.i
-  br i1 %.not, label %.critedge, label %29
+  br i1 %.not, label %.critedge, label %28
 
-29:                                               ; preds = %4
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %.sroa.0.0.copyload.i13 = load i64, ptr %30, align 16
+28:                                               ; preds = %4
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %.sroa.0.0.copyload.i13 = load i64, ptr %29, align 16
   store i64 %.sroa.0.0.copyload.i13, ptr %5, align 8
-  %31 = call noundef zeroext i1 @_ZNK5clang8QualType26isWebAssemblyReferenceTypeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
-  br i1 %31, label %41, label %.critedge
+  %30 = call noundef zeroext i1 @_ZNK5clang8QualType26isWebAssemblyReferenceTypeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  br i1 %30, label %40, label %.critedge
 
-.critedge:                                        ; preds = %4, %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  %33 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #13
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %32, i32 %33, i32 noundef 5083, i1 noundef zeroext false) #12
-  %34 = add nuw nsw i32 %2, 1
-  store i32 %34, ptr %7, align 4
-  %35 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIjvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  %36 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #13
-  store i64 %36, ptr %8, align 8
-  %37 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %35, ptr noundef nonnull align 4 dereferenceable(8) %8)
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
-  %39 = load i8, ptr %38, align 8
-  %40 = trunc i8 %39 to i1
+.critedge:                                        ; preds = %4, %28
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #13
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %31, i32 %32, i32 noundef 5083, i1 noundef zeroext false) #12
+  %33 = add nuw nsw i32 %2, 1
+  store i32 %33, ptr %7, align 4
+  %34 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIjvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %35 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #13
+  store i64 %35, ptr %8, align 8
+  %36 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %34, ptr noundef nonnull align 4 dereferenceable(8) %8)
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
+  %38 = load i8, ptr %37, align 8
+  %39 = trunc i8 %38 to i1
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #12
-  br label %42
+  br label %41
 
-41:                                               ; preds = %29
-  %.sroa.0.0.copyload.i14 = load i64, ptr %30, align 16
+40:                                               ; preds = %28
+  %.sroa.0.0.copyload.i14 = load i64, ptr %29, align 16
   store i64 %.sroa.0.0.copyload.i14, ptr %3, align 8
-  br label %42
+  br label %41
 
-42:                                               ; preds = %41, %.critedge
-  %.0 = phi i1 [ %40, %.critedge ], [ false, %41 ]
+41:                                               ; preds = %40, %.critedge
+  %.0 = phi i1 [ %39, %.critedge ], [ false, %40 ]
   ret i1 %.0
 }
 

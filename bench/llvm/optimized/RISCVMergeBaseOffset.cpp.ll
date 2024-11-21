@@ -1601,9 +1601,8 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb
 _ZN4llvm23early_inc_iterator_implINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb0EEEEdeEv.exit.i: ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i, %662
   %669 = getelementptr inbounds nuw i8, ptr %661, i64 68
   %670 = load i16, ptr %669, align 4
-  %671 = zext i16 %670 to i32
-  %.off.i = add nsw i32 %671, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %671 = add i16 %670, -1
+  %switch.i = icmp ult i16 %671, 2
   br i1 %switch.i, label %672, label %758
 
 672:                                              ; preds = %_ZN4llvm23early_inc_iterator_implINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb0EEEEdeEv.exit.i

@@ -7873,8 +7873,8 @@ define internal fastcc i64 @PS_Conv_ToInt(ptr nocapture noundef %0, ptr noundef 
 
 25:                                               ; preds = %20
   %26 = zext nneg i8 %23 to i64
-  %27 = add nsw i64 %21, -48
-  %.not61.i = icmp ult i64 %27, 10
+  %27 = add nsw i8 %17, -48
+  %.not61.i = icmp ult i8 %27, 10
   br i1 %.not61.i, label %28, label %._crit_edge.loopexit.i
 
 28:                                               ; preds = %25

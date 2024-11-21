@@ -399,18 +399,17 @@ entry:
   %sub.i30.i.i = add i64 %2, 11
   %3 = inttoptr i64 %sub.i30.i.i to ptr
   %4 = load i16, ptr %3, align 2
-  %conv.i.i.i = zext i16 %4 to i32
   %cmp.i.i.i = icmp eq i16 %4, 1040
-  %sub.i.i.i = add nsw i32 %conv.i.i.i, -1057
-  %cmp1.i.i.i = icmp ult i32 %sub.i.i.i, 1002
-  %5 = select i1 %cmp.i.i.i, i1 true, i1 %cmp1.i.i.i
-  br i1 %5, label %if.then.i.i.i, label %if.end.i.i.i
+  %5 = add i16 %4, -1057
+  %cmp1.i.i.i = icmp ult i16 %5, 1002
+  %6 = or i1 %cmp.i.i.i, %cmp1.i.i.i
+  br i1 %6, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %sub.i.i.i.i = add i64 %0, 31
-  %6 = inttoptr i64 %sub.i.i.i.i to ptr
-  %7 = load i64, ptr %6, align 8
-  %8 = inttoptr i64 %7 to ptr
+  %7 = inttoptr i64 %sub.i.i.i.i to ptr
+  %8 = load i64, ptr %7, align 8
+  %9 = inttoptr i64 %8 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectINS_6timers11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -418,12 +417,12 @@ if.end.i.i.i:                                     ; preds = %entry
   br label %_ZN4node10BaseObject12FromJSObjectINS_6timers11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectINS_6timers11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.i12.0.i.i = phi ptr [ %8, %if.then.i.i.i ], [ %call7.i.i.i, %if.end.i.i.i ]
+  %retval.i12.0.i.i = phi ptr [ %9, %if.then.i.i.i ], [ %call7.i.i.i, %if.end.i.i.i ]
   %realm_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i.i, i64 16
-  %9 = load ptr, ptr %realm_.i.i, align 8
-  %env_.i.i.i = getelementptr inbounds i8, ptr %9, i64 176
-  %10 = load ptr, ptr %env_.i.i.i, align 8
-  %call1.i = tail call noundef i64 @_ZN4node11Environment12GetNowUint64Ev(ptr noundef nonnull align 8 dereferenceable(2872) %10) #15
+  %10 = load ptr, ptr %realm_.i.i, align 8
+  %env_.i.i.i = getelementptr inbounds i8, ptr %10, i64 176
+  %11 = load ptr, ptr %env_.i.i.i, align 8
+  %call1.i = tail call noundef i64 @_ZN4node11Environment12GetNowUint64Ev(ptr noundef nonnull align 8 dereferenceable(2872) %11) #15
   %conv.i = uitofp i64 %call1.i to double
   ret double %conv.i
 }
@@ -504,18 +503,17 @@ entry:
   %sub.i30.i.i = add i64 %2, 11
   %3 = inttoptr i64 %sub.i30.i.i to ptr
   %4 = load i16, ptr %3, align 2
-  %conv.i.i.i = zext i16 %4 to i32
   %cmp.i.i.i = icmp eq i16 %4, 1040
-  %sub.i.i.i = add nsw i32 %conv.i.i.i, -1057
-  %cmp1.i.i.i = icmp ult i32 %sub.i.i.i, 1002
-  %5 = select i1 %cmp.i.i.i, i1 true, i1 %cmp1.i.i.i
-  br i1 %5, label %if.then.i.i.i, label %if.end.i.i.i
+  %5 = add i16 %4, -1057
+  %cmp1.i.i.i = icmp ult i16 %5, 1002
+  %6 = or i1 %cmp.i.i.i, %cmp1.i.i.i
+  br i1 %6, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %sub.i.i.i.i = add i64 %0, 31
-  %6 = inttoptr i64 %sub.i.i.i.i to ptr
-  %7 = load i64, ptr %6, align 8
-  %8 = inttoptr i64 %7 to ptr
+  %7 = inttoptr i64 %sub.i.i.i.i to ptr
+  %8 = load i64, ptr %7, align 8
+  %9 = inttoptr i64 %8 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectINS_6timers11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -523,12 +521,12 @@ if.end.i.i.i:                                     ; preds = %entry
   br label %_ZN4node10BaseObject12FromJSObjectINS_6timers11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectINS_6timers11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.i12.0.i.i = phi ptr [ %8, %if.then.i.i.i ], [ %call7.i.i.i, %if.end.i.i.i ]
+  %retval.i12.0.i.i = phi ptr [ %9, %if.then.i.i.i ], [ %call7.i.i.i, %if.end.i.i.i ]
   %realm_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i.i, i64 16
-  %9 = load ptr, ptr %realm_.i.i, align 8
-  %env_.i.i.i = getelementptr inbounds i8, ptr %9, i64 176
-  %10 = load ptr, ptr %env_.i.i.i, align 8
-  tail call void @_ZN4node11Environment13ScheduleTimerEl(ptr noundef nonnull align 8 dereferenceable(2872) %10, i64 noundef %duration) #15
+  %10 = load ptr, ptr %realm_.i.i, align 8
+  %env_.i.i.i = getelementptr inbounds i8, ptr %10, i64 176
+  %11 = load ptr, ptr %env_.i.i.i, align 8
+  tail call void @_ZN4node11Environment13ScheduleTimerEl(ptr noundef nonnull align 8 dereferenceable(2872) %11, i64 noundef %duration) #15
   ret void
 }
 
@@ -591,18 +589,17 @@ entry:
   %sub.i30.i.i = add i64 %2, 11
   %3 = inttoptr i64 %sub.i30.i.i to ptr
   %4 = load i16, ptr %3, align 2
-  %conv.i.i.i = zext i16 %4 to i32
   %cmp.i.i.i = icmp eq i16 %4, 1040
-  %sub.i.i.i = add nsw i32 %conv.i.i.i, -1057
-  %cmp1.i.i.i = icmp ult i32 %sub.i.i.i, 1002
-  %5 = select i1 %cmp.i.i.i, i1 true, i1 %cmp1.i.i.i
-  br i1 %5, label %if.then.i.i.i, label %if.end.i.i.i
+  %5 = add i16 %4, -1057
+  %cmp1.i.i.i = icmp ult i16 %5, 1002
+  %6 = or i1 %cmp.i.i.i, %cmp1.i.i.i
+  br i1 %6, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %sub.i.i.i.i = add i64 %0, 31
-  %6 = inttoptr i64 %sub.i.i.i.i to ptr
-  %7 = load i64, ptr %6, align 8
-  %8 = inttoptr i64 %7 to ptr
+  %7 = inttoptr i64 %sub.i.i.i.i to ptr
+  %8 = load i64, ptr %7, align 8
+  %9 = inttoptr i64 %8 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectINS_6timers11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -610,12 +607,12 @@ if.end.i.i.i:                                     ; preds = %entry
   br label %_ZN4node10BaseObject12FromJSObjectINS_6timers11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectINS_6timers11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.i12.0.i.i = phi ptr [ %8, %if.then.i.i.i ], [ %call7.i.i.i, %if.end.i.i.i ]
+  %retval.i12.0.i.i = phi ptr [ %9, %if.then.i.i.i ], [ %call7.i.i.i, %if.end.i.i.i ]
   %realm_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i.i, i64 16
-  %9 = load ptr, ptr %realm_.i.i, align 8
-  %env_.i.i.i = getelementptr inbounds i8, ptr %9, i64 176
-  %10 = load ptr, ptr %env_.i.i.i, align 8
-  tail call void @_ZN4node11Environment14ToggleTimerRefEb(ptr noundef nonnull align 8 dereferenceable(2872) %10, i1 noundef zeroext %ref) #15
+  %10 = load ptr, ptr %realm_.i.i, align 8
+  %env_.i.i.i = getelementptr inbounds i8, ptr %10, i64 176
+  %11 = load ptr, ptr %env_.i.i.i, align 8
+  tail call void @_ZN4node11Environment14ToggleTimerRefEb(ptr noundef nonnull align 8 dereferenceable(2872) %11, i1 noundef zeroext %ref) #15
   ret void
 }
 
@@ -676,18 +673,17 @@ entry:
   %sub.i30.i.i = add i64 %2, 11
   %3 = inttoptr i64 %sub.i30.i.i to ptr
   %4 = load i16, ptr %3, align 2
-  %conv.i.i.i = zext i16 %4 to i32
   %cmp.i.i.i = icmp eq i16 %4, 1040
-  %sub.i.i.i = add nsw i32 %conv.i.i.i, -1057
-  %cmp1.i.i.i = icmp ult i32 %sub.i.i.i, 1002
-  %5 = select i1 %cmp.i.i.i, i1 true, i1 %cmp1.i.i.i
-  br i1 %5, label %if.then.i.i.i, label %if.end.i.i.i
+  %5 = add i16 %4, -1057
+  %cmp1.i.i.i = icmp ult i16 %5, 1002
+  %6 = or i1 %cmp.i.i.i, %cmp1.i.i.i
+  br i1 %6, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %sub.i.i.i.i = add i64 %0, 31
-  %6 = inttoptr i64 %sub.i.i.i.i to ptr
-  %7 = load i64, ptr %6, align 8
-  %8 = inttoptr i64 %7 to ptr
+  %7 = inttoptr i64 %sub.i.i.i.i to ptr
+  %8 = load i64, ptr %7, align 8
+  %9 = inttoptr i64 %8 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectINS_6timers11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -695,12 +691,12 @@ if.end.i.i.i:                                     ; preds = %entry
   br label %_ZN4node10BaseObject12FromJSObjectINS_6timers11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectINS_6timers11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.i12.0.i.i = phi ptr [ %8, %if.then.i.i.i ], [ %call7.i.i.i, %if.end.i.i.i ]
+  %retval.i12.0.i.i = phi ptr [ %9, %if.then.i.i.i ], [ %call7.i.i.i, %if.end.i.i.i ]
   %realm_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i.i, i64 16
-  %9 = load ptr, ptr %realm_.i.i, align 8
-  %env_.i.i.i = getelementptr inbounds i8, ptr %9, i64 176
-  %10 = load ptr, ptr %env_.i.i.i, align 8
-  tail call void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull align 8 dereferenceable(2872) %10, i1 noundef zeroext %ref) #15
+  %10 = load ptr, ptr %realm_.i.i, align 8
+  %env_.i.i.i = getelementptr inbounds i8, ptr %10, i64 176
+  %11 = load ptr, ptr %env_.i.i.i, align 8
+  tail call void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull align 8 dereferenceable(2872) %11, i1 noundef zeroext %ref) #15
   ret void
 }
 

@@ -823,9 +823,8 @@ _ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread: 
   br i1 %57, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread14, label %58
 
 58:                                               ; preds = %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread
-  %59 = zext i8 %56 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %59, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %59 = add i8 %56, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %59, 5
   br label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread14
 
 _ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread14: ; preds = %4, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread, %58, %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit

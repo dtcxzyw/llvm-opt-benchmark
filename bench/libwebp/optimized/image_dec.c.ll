@@ -78,8 +78,8 @@ define hidden range(i32 0, 6) i32 @WebPGuessImageType(ptr noundef readonly %0, i
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
-  %50 = add nsw i32 %11, -53
-  %or.cond9 = icmp ult i32 %50, 3
+  %50 = add i8 %10, -53
+  %or.cond9 = icmp ult i8 %50, 3
   %spec.select = select i1 %or.cond9, i32 4, i32 5
   br label %51
 
@@ -183,8 +183,8 @@ define hidden noundef nonnull ptr @WebPGuessImageReader(ptr noundef readonly %0,
 
 47:                                               ; preds = %44
   %48 = icmp eq i8 %6, 80
-  %49 = add nsw i32 %11, -53
-  %or.cond9.i = icmp ult i32 %49, 3
+  %49 = add i8 %10, -53
+  %or.cond9.i = icmp ult i8 %49, 3
   %or.cond = select i1 %48, i1 %or.cond9.i, i1 false
   br i1 %or.cond, label %WebPGetImageReader.exit, label %50
 

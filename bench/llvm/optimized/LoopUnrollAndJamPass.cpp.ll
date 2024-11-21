@@ -1214,40 +1214,39 @@ _ZNK4llvm6MDNode10getOperandEj.exit.us:           ; preds = %25, %22
   %30 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.us, i64 %indvars.iv38
   %31 = load ptr, ptr %30, align 8
   %32 = load i8, ptr %31, align 4
-  %33 = zext i8 %32 to i32
-  %34 = add nsw i32 %33, -36
-  %switch.i.i.i.i.i.i.i.i.i.us = icmp ult i32 %34, -31
-  br i1 %switch.i.i.i.i.i.i.i.i.i.us, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25.us, label %35
+  %33 = add i8 %32, -36
+  %switch.i.i.i.i.i.i.i.i.i.us = icmp ult i8 %33, -31
+  br i1 %switch.i.i.i.i.i.i.i.i.i.us, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25.us, label %34
 
-35:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.us
-  %36 = getelementptr inbounds i8, ptr %31, i64 -16
-  %37 = load i64, ptr %36, align 8
-  %38 = and i64 %37, 2
-  %.not.i.i21.us = icmp eq i64 %38, 0
-  br i1 %.not.i.i21.us, label %43, label %39
+34:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.us
+  %35 = getelementptr inbounds i8, ptr %31, i64 -16
+  %36 = load i64, ptr %35, align 8
+  %37 = and i64 %36, 2
+  %.not.i.i21.us = icmp eq i64 %37, 0
+  br i1 %.not.i.i21.us, label %42, label %38
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %31, i64 -32
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #11
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds i8, ptr %31, i64 -32
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #11
   br label %_ZNK4llvm6MDNode10getOperandEj.exit23.us
 
-43:                                               ; preds = %35
-  %44 = lshr i64 %37, 2
-  %45 = and i64 %44, 15
-  %46 = sub nsw i64 0, %45
-  %47 = getelementptr inbounds %"class.llvm::MDOperand", ptr %36, i64 %46
+42:                                               ; preds = %34
+  %43 = lshr i64 %36, 2
+  %44 = and i64 %43, 15
+  %45 = sub nsw i64 0, %44
+  %46 = getelementptr inbounds %"class.llvm::MDOperand", ptr %35, i64 %45
   br label %_ZNK4llvm6MDNode10getOperandEj.exit23.us
 
-_ZNK4llvm6MDNode10getOperandEj.exit23.us:         ; preds = %43, %39
-  %.sroa.0.0.i.i22.us = phi ptr [ %47, %43 ], [ %41, %39 ]
-  %48 = load ptr, ptr %.sroa.0.0.i.i22.us, align 8
-  %49 = load i8, ptr %48, align 4
-  %.not28.us = icmp eq i8 %49, 0
-  br i1 %.not28.us, label %50, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25.us
+_ZNK4llvm6MDNode10getOperandEj.exit23.us:         ; preds = %42, %38
+  %.sroa.0.0.i.i22.us = phi ptr [ %46, %42 ], [ %40, %38 ]
+  %47 = load ptr, ptr %.sroa.0.0.i.i22.us, align 8
+  %48 = load i8, ptr %47, align 4
+  %.not28.us = icmp eq i8 %48, 0
+  br i1 %.not28.us, label %49, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25.us
 
-50:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit23.us
-  %51 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #11
+49:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit23.us
+  %50 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %47) #11
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread25.us: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit23.us, %_ZNK4llvm6MDNode10getOperandEj.exit.us
@@ -1257,79 +1256,78 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread25.us: ; preds = %_ZNK4llvm6MDNo
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25 ], [ 1, %.lr.ph ]
-  %52 = load i64, ptr %6, align 8
-  %53 = and i64 %52, 2
-  %.not.i.i20 = icmp eq i64 %53, 0
-  br i1 %.not.i.i20, label %57, label %54
+  %51 = load i64, ptr %6, align 8
+  %52 = and i64 %51, 2
+  %.not.i.i20 = icmp eq i64 %52, 0
+  br i1 %.not.i.i20, label %56, label %53
 
-54:                                               ; preds = %.lr.ph.split
-  %55 = load ptr, ptr %18, align 8
-  %56 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #11
+53:                                               ; preds = %.lr.ph.split
+  %54 = load ptr, ptr %18, align 8
+  %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #11
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
-57:                                               ; preds = %.lr.ph.split
-  %58 = lshr i64 %52, 2
-  %59 = and i64 %58, 15
-  %60 = sub nsw i64 0, %59
-  %61 = getelementptr inbounds %"class.llvm::MDOperand", ptr %6, i64 %60
+56:                                               ; preds = %.lr.ph.split
+  %57 = lshr i64 %51, 2
+  %58 = and i64 %57, 15
+  %59 = sub nsw i64 0, %58
+  %60 = getelementptr inbounds %"class.llvm::MDOperand", ptr %6, i64 %59
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
-_ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %54, %57
-  %.sroa.0.0.i.i = phi ptr [ %61, %57 ], [ %55, %54 ]
-  %62 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i, i64 %indvars.iv
-  %63 = load ptr, ptr %62, align 8
-  %64 = load i8, ptr %63, align 4
-  %65 = zext i8 %64 to i32
-  %66 = add nsw i32 %65, -36
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %66, -31
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25, label %67
+_ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %53, %56
+  %.sroa.0.0.i.i = phi ptr [ %60, %56 ], [ %54, %53 ]
+  %61 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i, i64 %indvars.iv
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i8, ptr %62, align 4
+  %64 = add i8 %63, -36
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %64, -31
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25, label %65
 
-67:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
-  %68 = getelementptr inbounds i8, ptr %63, i64 -16
-  %69 = load i64, ptr %68, align 8
-  %70 = and i64 %69, 2
-  %.not.i.i21 = icmp eq i64 %70, 0
-  br i1 %.not.i.i21, label %75, label %71
+65:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
+  %66 = getelementptr inbounds i8, ptr %62, i64 -16
+  %67 = load i64, ptr %66, align 8
+  %68 = and i64 %67, 2
+  %.not.i.i21 = icmp eq i64 %68, 0
+  br i1 %.not.i.i21, label %73, label %69
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %63, i64 -32
-  %73 = load ptr, ptr %72, align 8
-  %74 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #11
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %62, i64 -32
+  %71 = load ptr, ptr %70, align 8
+  %72 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %70) #11
   br label %_ZNK4llvm6MDNode10getOperandEj.exit23
 
-75:                                               ; preds = %67
-  %76 = lshr i64 %69, 2
-  %77 = and i64 %76, 15
-  %78 = sub nsw i64 0, %77
-  %79 = getelementptr inbounds %"class.llvm::MDOperand", ptr %68, i64 %78
+73:                                               ; preds = %65
+  %74 = lshr i64 %67, 2
+  %75 = and i64 %74, 15
+  %76 = sub nsw i64 0, %75
+  %77 = getelementptr inbounds %"class.llvm::MDOperand", ptr %66, i64 %76
   br label %_ZNK4llvm6MDNode10getOperandEj.exit23
 
-_ZNK4llvm6MDNode10getOperandEj.exit23:            ; preds = %71, %75
-  %.sroa.0.0.i.i22 = phi ptr [ %79, %75 ], [ %73, %71 ]
-  %80 = load ptr, ptr %.sroa.0.0.i.i22, align 8
-  %81 = load i8, ptr %80, align 4
-  %.not28 = icmp eq i8 %81, 0
-  br i1 %.not28, label %82, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25
+_ZNK4llvm6MDNode10getOperandEj.exit23:            ; preds = %69, %73
+  %.sroa.0.0.i.i22 = phi ptr [ %77, %73 ], [ %71, %69 ]
+  %78 = load ptr, ptr %.sroa.0.0.i.i22, align 8
+  %79 = load i8, ptr %78, align 4
+  %.not28 = icmp eq i8 %79, 0
+  br i1 %.not28, label %80, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25
 
-82:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit23
-  %83 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %80) #11
-  %84 = extractvalue { ptr, i64 } %83, 1
-  %.not.i = icmp ult i64 %84, %.fr34
+80:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit23
+  %81 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %78) #11
+  %82 = extractvalue { ptr, i64 } %81, 1
+  %.not.i = icmp ult i64 %82, %.fr34
   br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
-_ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %82
-  %85 = extractvalue { ptr, i64 } %83, 0
-  %bcmp.i = tail call i32 @bcmp(ptr %85, ptr %1, i64 %.fr34)
-  %86 = icmp eq i32 %bcmp.i, 0
-  br i1 %86, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25
+_ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %80
+  %83 = extractvalue { ptr, i64 } %81, 0
+  %bcmp.i = tail call i32 @bcmp(ptr %83, ptr %1, i64 %.fr34)
+  %84 = icmp eq i32 %bcmp.i, 0
+  br i1 %84, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread25: ; preds = %82, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK4llvm6MDNode10getOperandEj.exit23, %_ZNK4llvm6MDNode10getOperandEj.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread25: ; preds = %80, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK4llvm6MDNode10getOperandEj.exit23, %_ZNK4llvm6MDNode10getOperandEj.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count41
   br i1 %exitcond.not, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %.lr.ph.split, !llvm.loop !16
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25.us, %50, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ true, %50 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25.us ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25 ]
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25.us, %49, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ true, %49 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25.us ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25 ]
   ret i1 %.0
 }
 

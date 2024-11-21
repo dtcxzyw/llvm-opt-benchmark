@@ -450,7 +450,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27StrPair9ParseNameEPc(ptr nocapture no
   br i1 %.not19, label %.critedge.thread, label %.preheader
 
 .preheader:                                       ; preds = %3, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread
-  %.01625 = phi ptr [ %16, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread ], [ %1, %3 ]
+  %.01625 = phi ptr [ %17, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread ], [ %1, %3 ]
   %5 = phi i8 [ %.pr, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread ], [ %4, %3 ]
   %6 = icmp eq ptr %.01625, %1
   %7 = icmp sgt i8 %5, -1
@@ -489,45 +489,45 @@ switch.early.test.i:                              ; preds = %_ZN2cv8tinyxml27XML
   ]
 
 _ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit:       ; preds = %switch.early.test.i
-  %isdigittmp.i = add nsw i32 %12, -48
-  %isdigit.i = icmp ult i32 %isdigittmp.i, 10
-  %14 = add nsw i8 %5, -45
-  %15 = icmp ult i8 %14, 2
-  %spec.select.i21 = or i1 %15, %isdigit.i
+  %14 = add nsw i8 %5, -48
+  %isdigit.i = icmp ult i8 %14, 10
+  %15 = add nsw i8 %5, -45
+  %16 = icmp ult i8 %15, 2
+  %spec.select.i21 = or i1 %isdigit.i, %16
   br i1 %spec.select.i21, label %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread, label %.critedge
 
 _ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread: ; preds = %switch.early.test, %switch.early.test, %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit, %8, %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit.i, %11, %switch.early.test.i, %switch.early.test.i, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit
-  %16 = getelementptr inbounds i8, ptr %.01625, i64 1
-  %.pr = load i8, ptr %16, align 1
+  %17 = getelementptr inbounds i8, ptr %.01625, i64 1
+  %.pr = load i8, ptr %17, align 1
   %.not20 = icmp eq i8 %.pr, 0
   br i1 %.not20, label %.critedge, label %.preheader, !llvm.loop !6
 
 .critedge:                                        ; preds = %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit
-  %.016.lcssa = phi ptr [ %16, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread ], [ %.01625, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit ]
-  %17 = icmp ugt ptr %.016.lcssa, %1
-  br i1 %17, label %18, label %.critedge.thread
+  %.016.lcssa = phi ptr [ %17, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread ], [ %.01625, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit ]
+  %18 = icmp ugt ptr %.016.lcssa, %1
+  br i1 %18, label %19, label %.critedge.thread
 
-18:                                               ; preds = %.critedge
-  %19 = load i32, ptr %0, align 8
-  %20 = and i32 %19, 512
-  %.not.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i.i, label %_ZN2cv8tinyxml27StrPair3SetEPcS2_i.exit, label %21
+19:                                               ; preds = %.critedge
+  %20 = load i32, ptr %0, align 8
+  %21 = and i32 %20, 512
+  %.not.i.i = icmp eq i32 %21, 0
+  br i1 %.not.i.i, label %_ZN2cv8tinyxml27StrPair3SetEPcS2_i.exit, label %22
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %_ZN2cv8tinyxml27StrPair3SetEPcS2_i.exit, label %25
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %_ZN2cv8tinyxml27StrPair3SetEPcS2_i.exit, label %26
 
-25:                                               ; preds = %21
-  tail call void @_ZdaPv(ptr noundef nonnull %23) #23
+26:                                               ; preds = %22
+  tail call void @_ZdaPv(ptr noundef nonnull %24) #23
   br label %_ZN2cv8tinyxml27StrPair3SetEPcS2_i.exit
 
-_ZN2cv8tinyxml27StrPair3SetEPcS2_i.exit:          ; preds = %18, %21, %25
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.016.lcssa, ptr %27, align 8
+_ZN2cv8tinyxml27StrPair3SetEPcS2_i.exit:          ; preds = %19, %22, %26
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.016.lcssa, ptr %28, align 8
   store i32 256, ptr %0, align 8
   br label %.critedge.thread
 

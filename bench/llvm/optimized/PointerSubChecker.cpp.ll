@@ -1151,9 +1151,8 @@ define internal fastcc void @"_ZZNK12_GLOBAL__N_117PointerSubChecker12checkPreSt
   %19 = load ptr, ptr %18, align 16
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i8, ptr %20, align 16
-  %22 = zext i8 %21 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %22, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %22 = add i8 %21, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %22, 5
   %23 = select i1 %switch.i.i.i.i.i.i.i.i.i, ptr @.str.6, ptr @.str.7
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr @.str.5, ptr %8, align 8, !alias.scope !13

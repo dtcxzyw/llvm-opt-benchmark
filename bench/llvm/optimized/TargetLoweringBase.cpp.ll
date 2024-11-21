@@ -9674,9 +9674,8 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm18TargetLoweringBase25shouldExp
   %4 = load i16, ptr %3, align 2
   %5 = lshr i16 %4, 4
   %6 = and i16 %5, 31
-  %7 = zext nneg i16 %6 to i32
-  %.off.i.i = add nsw i32 %7, -11
-  %switch.i.i = icmp ult i32 %.off.i.i, 4
+  %7 = add nsw i16 %6, -11
+  %switch.i.i = icmp ult i16 %7, 4
   %8 = select i1 %switch.i.i, i32 4, i32 0
   ret i32 %8
 }

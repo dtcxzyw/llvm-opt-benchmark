@@ -278,73 +278,72 @@ _ZN5clang11OMPChildren10getRawStmtEv.exit:        ; preds = %.preheader.i, %1
   %.not46.i.i.i = icmp eq i32 %22, 0
   br i1 %.not46.i.i.i, label %_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS_4StmtEbjN4llvm12function_refIFvjS2_S2_EEE.exit, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %_ZN5clang11OMPChildren10getRawStmtEv.exit, %49
-  %.0 = phi ptr [ %.1.i.i12.i, %49 ], [ null, %_ZN5clang11OMPChildren10getRawStmtEv.exit ]
-  %.02441.i.i.i = phi ptr [ %50, %49 ], [ %23, %_ZN5clang11OMPChildren10getRawStmtEv.exit ]
-  %.02540.i.i.i = phi i32 [ %51, %49 ], [ 0, %_ZN5clang11OMPChildren10getRawStmtEv.exit ]
+.preheader.i.i.i:                                 ; preds = %_ZN5clang11OMPChildren10getRawStmtEv.exit, %47
+  %.0 = phi ptr [ %.1.i.i9.i, %47 ], [ null, %_ZN5clang11OMPChildren10getRawStmtEv.exit ]
+  %.02441.i.i.i = phi ptr [ %48, %47 ], [ %23, %_ZN5clang11OMPChildren10getRawStmtEv.exit ]
+  %.02540.i.i.i = phi i32 [ %49, %47 ], [ 0, %_ZN5clang11OMPChildren10getRawStmtEv.exit ]
   br label %24
 
-24:                                               ; preds = %28, %.preheader.i.i.i
-  %.1.i.i.i = phi ptr [ %.0.i.i.i.i, %28 ], [ %.02441.i.i.i, %.preheader.i.i.i ]
+24:                                               ; preds = %27, %.preheader.i.i.i
+  %.1.i.i.i = phi ptr [ %.0.i.i.i.i, %27 ], [ %.02441.i.i.i, %.preheader.i.i.i ]
   %25 = load i8, ptr %.1.i.i.i, align 8
-  %26 = zext i8 %25 to i32
-  %27 = add nsw i32 %26, -178
-  %switch.selectcmp.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %27, -4
-  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i, label %28
+  %26 = add i8 %25, 78
+  %switch.selectcmp.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %26, -4
+  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i, label %27
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
-  %32 = load i32, ptr %30, align 8
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %31, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  %.0.i.i.i.i = load ptr, ptr %35, align 8
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %31 = load i32, ptr %29, align 8
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds ptr, ptr %30, i64 %32
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %.0.i.i.i.i = load ptr, ptr %34, align 8
   %.not29.i.i.i = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not29.i.i.i, label %36, label %24, !llvm.loop !6
+  br i1 %.not29.i.i.i, label %35, label %24, !llvm.loop !6
 
-36:                                               ; preds = %28
-  %37 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 36
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.loopexit.i.i.i, label %_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS_4StmtEbjN4llvm12function_refIFvjS2_S2_EEE.exit
+35:                                               ; preds = %27
+  %36 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 36
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %.loopexit.i.thread.i.i, label %_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS_4StmtEbjN4llvm12function_refIFvjS2_S2_EEE.exit
 
-.loopexit.i.i.i:                                  ; preds = %24, %36
+.loopexit.i.i.i:                                  ; preds = %24
   %.not.i.i.i = icmp eq i8 %25, -33
-  br i1 %.not.i.i.i, label %40, label %43
+  br i1 %.not.i.i.i, label %39, label %.loopexit.i.thread.i.i
 
-40:                                               ; preds = %.loopexit.i.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %.pre.i = load i8, ptr %42, align 8
-  br label %43
+39:                                               ; preds = %.loopexit.i.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %.pre.i = load i8, ptr %41, align 8
+  br label %.loopexit.i.thread.i.i
 
-43:                                               ; preds = %40, %.loopexit.i.i.i
-  %44 = phi i8 [ %.pre.i, %40 ], [ %25, %.loopexit.i.i.i ]
-  %.2.i.i.i = phi ptr [ %42, %40 ], [ %.1.i.i.i, %.loopexit.i.i.i ]
-  %.not.i.i11.i = icmp eq i8 %44, -27
-  %.0.in.v.i.i.i = select i1 %.not.i.i11.i, i64 40, i64 72
+.loopexit.i.thread.i.i:                           ; preds = %39, %.loopexit.i.i.i, %35
+  %42 = phi i8 [ %.pre.i, %39 ], [ %25, %.loopexit.i.i.i ], [ %25, %35 ]
+  %.2.i.i.i = phi ptr [ %41, %39 ], [ %.1.i.i.i, %.loopexit.i.i.i ], [ %.1.i.i.i, %35 ]
+  %.not.i.i8.i = icmp eq i8 %42, -27
+  %.0.in.v.i.i.i = select i1 %.not.i.i8.i, i64 40, i64 72
   %.0.in.i.i.i = getelementptr inbounds i8, ptr %.2.i.i.i, i64 %.0.in.v.i.i.i
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
-  %45 = load i8, ptr %.0.i.i.i, align 8
-  %.not3.i.i.i = icmp eq i8 %45, -33
-  br i1 %.not3.i.i.i, label %46, label %49
+  %43 = load i8, ptr %.0.i.i.i, align 8
+  %.not3.i.i.i = icmp eq i8 %43, -33
+  br i1 %.not3.i.i.i, label %44, label %47
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %48 = load ptr, ptr %47, align 8
-  br label %49
+44:                                               ; preds = %.loopexit.i.thread.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %46 = load ptr, ptr %45, align 8
+  br label %47
 
-49:                                               ; preds = %46, %43
-  %.1.i.i12.i = phi ptr [ %48, %46 ], [ %.0.i.i.i, %43 ]
-  %50 = tail call noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInnerLoopEPNS_4StmtEb(ptr noundef %.0.i.i.i, i1 noundef zeroext true)
-  %51 = add nuw i32 %.02540.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %51, %22
+47:                                               ; preds = %44, %.loopexit.i.thread.i.i
+  %.1.i.i9.i = phi ptr [ %46, %44 ], [ %.0.i.i.i, %.loopexit.i.thread.i.i ]
+  %48 = tail call noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInnerLoopEPNS_4StmtEb(ptr noundef %.0.i.i.i, i1 noundef zeroext true)
+  %49 = add nuw i32 %.02540.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %49, %22
   br i1 %exitcond.not.i.i.i, label %_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS_4StmtEbjN4llvm12function_refIFvjS2_S2_EEE.exit, label %.preheader.i.i.i, !llvm.loop !7
 
-_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS_4StmtEbjN4llvm12function_refIFvjS2_S2_EEE.exit: ; preds = %36, %49, %_ZN5clang11OMPChildren10getRawStmtEv.exit
-  %.1 = phi ptr [ null, %_ZN5clang11OMPChildren10getRawStmtEv.exit ], [ %.0, %36 ], [ %.1.i.i12.i, %49 ]
+_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS_4StmtEbjN4llvm12function_refIFvjS2_S2_EEE.exit: ; preds = %35, %47, %_ZN5clang11OMPChildren10getRawStmtEv.exit
+  %.1 = phi ptr [ null, %_ZN5clang11OMPChildren10getRawStmtEv.exit ], [ %.0, %35 ], [ %.1.i.i9.i, %47 ]
   ret ptr %.1
 }
 
@@ -735,72 +734,71 @@ define dso_local noundef zeroext i1 @_ZN5clang21OMPLoopBasedDirective13doForAllL
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %33
-  %.02441 = phi ptr [ %7, %.preheader.lr.ph ], [ %35, %33 ]
-  %.02540 = phi i32 [ 0, %.preheader.lr.ph ], [ %36, %33 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %32
+  %.02441 = phi ptr [ %7, %.preheader.lr.ph ], [ %34, %32 ]
+  %.02540 = phi i32 [ 0, %.preheader.lr.ph ], [ %35, %32 ]
   br label %9
 
-9:                                                ; preds = %.preheader, %13
-  %.1 = phi ptr [ %.0.i, %13 ], [ %.02441, %.preheader ]
+9:                                                ; preds = %.preheader, %12
+  %.1 = phi ptr [ %.0.i, %12 ], [ %.02441, %.preheader ]
   %10 = load i8, ptr %.1, align 8
-  %11 = zext i8 %10 to i32
-  %12 = add nsw i32 %11, -178
-  %switch.selectcmp.i.i.i.i.i.i.i.i = icmp ult i32 %12, -4
-  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i, label %.loopexit, label %13
+  %11 = add i8 %10, 78
+  %switch.selectcmp.i.i.i.i.i.i.i.i = icmp ult i8 %11, -4
+  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i, label %.loopexit, label %12
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %5, align 8
-  %15 = load i64, ptr %8, align 8
-  tail call void %14(i64 noundef %15, ptr noundef nonnull %.1) #12
-  %16 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
-  %19 = load i32, ptr %17, align 8
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  %.0.i = load ptr, ptr %22, align 8
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %5, align 8
+  %14 = load i64, ptr %8, align 8
+  tail call void %13(i64 noundef %14, ptr noundef nonnull %.1) #12
+  %15 = getelementptr inbounds nuw i8, ptr %.1, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = load i32, ptr %16, align 8
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %.0.i = load ptr, ptr %21, align 8
   %.not29 = icmp eq ptr %.0.i, null
-  br i1 %.not29, label %23, label %9, !llvm.loop !6
+  br i1 %.not29, label %22, label %9, !llvm.loop !6
 
-23:                                               ; preds = %13
-  %24 = getelementptr inbounds nuw i8, ptr %.1, i64 36
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %..loopexit_crit_edge, label %._crit_edge
+22:                                               ; preds = %12
+  %23 = getelementptr inbounds nuw i8, ptr %.1, i64 36
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %..loopexit_crit_edge, label %._crit_edge
 
-..loopexit_crit_edge:                             ; preds = %23
+..loopexit_crit_edge:                             ; preds = %22
   %.pre = load i8, ptr %.1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %..loopexit_crit_edge
-  %27 = phi i8 [ %.pre, %..loopexit_crit_edge ], [ %10, %9 ]
-  %.not = icmp eq i8 %27, -33
-  br i1 %.not, label %28, label %31
+  %26 = phi i8 [ %.pre, %..loopexit_crit_edge ], [ %10, %9 ]
+  %.not = icmp eq i8 %26, -33
+  br i1 %.not, label %27, label %30
 
-28:                                               ; preds = %.loopexit
-  %29 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %30 = load ptr, ptr %29, align 8
-  br label %31
+27:                                               ; preds = %.loopexit
+  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %29 = load ptr, ptr %28, align 8
+  br label %30
 
-31:                                               ; preds = %28, %.loopexit
-  %.2 = phi ptr [ %30, %28 ], [ %.1, %.loopexit ]
-  %32 = tail call noundef zeroext i1 %3(i64 noundef %4, i32 noundef %.02540, ptr noundef %.2) #12
-  br i1 %32, label %._crit_edge, label %33
+30:                                               ; preds = %27, %.loopexit
+  %.2 = phi ptr [ %29, %27 ], [ %.1, %.loopexit ]
+  %31 = tail call noundef zeroext i1 %3(i64 noundef %4, i32 noundef %.02540, ptr noundef %.2) #12
+  br i1 %31, label %._crit_edge, label %32
 
-33:                                               ; preds = %31
-  %34 = load i8, ptr %.2, align 8
-  %.not37 = icmp eq i8 %34, -27
+32:                                               ; preds = %30
+  %33 = load i8, ptr %.2, align 8
+  %.not37 = icmp eq i8 %33, -27
   %.3.in.v = select i1 %.not37, i64 40, i64 72
   %.3.in = getelementptr inbounds i8, ptr %.2, i64 %.3.in.v
   %.3 = load ptr, ptr %.3.in, align 8
-  %35 = tail call noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInnerLoopEPNS_4StmtEb(ptr noundef %.3, i1 noundef zeroext %1)
-  %36 = add nuw i32 %.02540, 1
-  %exitcond.not = icmp eq i32 %36, %2
+  %34 = tail call noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInnerLoopEPNS_4StmtEb(ptr noundef %.3, i1 noundef zeroext %1)
+  %35 = add nuw i32 %.02540, 1
+  %exitcond.not = icmp eq i32 %35, %2
   br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %23, %31, %33, %6
-  %.0 = phi i1 [ true, %6 ], [ true, %33 ], [ false, %31 ], [ true, %23 ]
+._crit_edge:                                      ; preds = %22, %30, %32, %6
+  %.0 = phi i1 [ true, %6 ], [ true, %32 ], [ false, %30 ], [ true, %22 ]
   ret i1 %.0
 }
 
@@ -823,77 +821,76 @@ define dso_local void @_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS
   %.not46.i.i = icmp eq i32 %2, 0
   br i1 %.not46.i.i, label %_ZN5clang21OMPLoopBasedDirective13doForAllLoopsEPNS_4StmtEbjN4llvm12function_refIFbjS2_EEE.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %5, %32
-  %.02441.i.i = phi ptr [ %34, %32 ], [ %6, %5 ]
-  %.02540.i.i = phi i32 [ %35, %32 ], [ 0, %5 ]
+.preheader.i.i:                                   ; preds = %5, %30
+  %.02441.i.i = phi ptr [ %32, %30 ], [ %6, %5 ]
+  %.02540.i.i = phi i32 [ %33, %30 ], [ 0, %5 ]
   br label %7
 
-7:                                                ; preds = %11, %.preheader.i.i
-  %.1.i.i = phi ptr [ %.0.i.i.i, %11 ], [ %.02441.i.i, %.preheader.i.i ]
+7:                                                ; preds = %10, %.preheader.i.i
+  %.1.i.i = phi ptr [ %.0.i.i.i, %10 ], [ %.02441.i.i, %.preheader.i.i ]
   %8 = load i8, ptr %.1.i.i, align 8
-  %9 = zext i8 %8 to i32
-  %10 = add nsw i32 %9, -178
-  %switch.selectcmp.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %10, -4
-  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i, label %11
+  %9 = add i8 %8, 78
+  %switch.selectcmp.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %9, -4
+  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i, label %10
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
-  %15 = load i32, ptr %13, align 8
-  %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %14, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  %.0.i.i.i = load ptr, ptr %18, align 8
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = load i32, ptr %12, align 8
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr inbounds ptr, ptr %13, i64 %15
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %.0.i.i.i = load ptr, ptr %17, align 8
   %.not29.i.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not29.i.i, label %19, label %7, !llvm.loop !6
+  br i1 %.not29.i.i, label %18, label %7, !llvm.loop !6
 
-19:                                               ; preds = %11
-  %20 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 36
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.loopexit.i.i, label %_ZN5clang21OMPLoopBasedDirective13doForAllLoopsEPNS_4StmtEbjN4llvm12function_refIFbjS2_EEE.exit
+18:                                               ; preds = %10
+  %19 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 36
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %.loopexit.i.thread.i, label %_ZN5clang21OMPLoopBasedDirective13doForAllLoopsEPNS_4StmtEbjN4llvm12function_refIFbjS2_EEE.exit
 
-.loopexit.i.i:                                    ; preds = %7, %19
+.loopexit.i.i:                                    ; preds = %7
   %.not.i.i = icmp eq i8 %8, -33
-  br i1 %.not.i.i, label %23, label %26
+  br i1 %.not.i.i, label %22, label %.loopexit.i.thread.i
 
-23:                                               ; preds = %.loopexit.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %.pre = load i8, ptr %25, align 8
-  br label %26
+22:                                               ; preds = %.loopexit.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %.pre = load i8, ptr %24, align 8
+  br label %.loopexit.i.thread.i
 
-26:                                               ; preds = %23, %.loopexit.i.i
-  %27 = phi i8 [ %.pre, %23 ], [ %8, %.loopexit.i.i ]
-  %.2.i.i = phi ptr [ %25, %23 ], [ %.1.i.i, %.loopexit.i.i ]
-  %.not.i.i11 = icmp eq i8 %27, -27
-  %.0.in.v.i.i = select i1 %.not.i.i11, i64 40, i64 72
+.loopexit.i.thread.i:                             ; preds = %22, %.loopexit.i.i, %18
+  %25 = phi i8 [ %.pre, %22 ], [ %8, %.loopexit.i.i ], [ %8, %18 ]
+  %.2.i.i = phi ptr [ %24, %22 ], [ %.1.i.i, %.loopexit.i.i ], [ %.1.i.i, %18 ]
+  %.not.i.i8 = icmp eq i8 %25, -27
+  %.0.in.v.i.i = select i1 %.not.i.i8, i64 40, i64 72
   %.0.in.i.i = getelementptr inbounds i8, ptr %.2.i.i, i64 %.0.in.v.i.i
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
-  %28 = load i8, ptr %.0.i.i, align 8
-  %.not3.i.i = icmp eq i8 %28, -33
-  br i1 %.not3.i.i, label %29, label %32
+  %26 = load i8, ptr %.0.i.i, align 8
+  %.not3.i.i = icmp eq i8 %26, -33
+  br i1 %.not3.i.i, label %27, label %30
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %31 = load ptr, ptr %30, align 8
-  br label %32
+27:                                               ; preds = %.loopexit.i.thread.i
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %29 = load ptr, ptr %28, align 8
+  br label %30
 
-32:                                               ; preds = %29, %26
-  %.1.i.i12 = phi ptr [ %31, %29 ], [ %.0.i.i, %26 ]
-  tail call void %3(i64 noundef %4, i32 noundef %.02540.i.i, ptr noundef nonnull %.2.i.i, ptr noundef %.1.i.i12) #12
-  %33 = load i8, ptr %.2.i.i, align 8
-  %.not37.i.i = icmp eq i8 %33, -27
+30:                                               ; preds = %27, %.loopexit.i.thread.i
+  %.1.i.i9 = phi ptr [ %29, %27 ], [ %.0.i.i, %.loopexit.i.thread.i ]
+  tail call void %3(i64 noundef %4, i32 noundef %.02540.i.i, ptr noundef nonnull %.2.i.i, ptr noundef %.1.i.i9) #12
+  %31 = load i8, ptr %.2.i.i, align 8
+  %.not37.i.i = icmp eq i8 %31, -27
   %.3.in.v.i.i = select i1 %.not37.i.i, i64 40, i64 72
   %.3.in.i.i = getelementptr inbounds i8, ptr %.2.i.i, i64 %.3.in.v.i.i
   %.3.i.i = load ptr, ptr %.3.in.i.i, align 8
-  %34 = tail call noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInnerLoopEPNS_4StmtEb(ptr noundef %.3.i.i, i1 noundef zeroext %1)
-  %35 = add nuw i32 %.02540.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %35, %2
+  %32 = tail call noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInnerLoopEPNS_4StmtEb(ptr noundef %.3.i.i, i1 noundef zeroext %1)
+  %33 = add nuw i32 %.02540.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %33, %2
   br i1 %exitcond.not.i.i, label %_ZN5clang21OMPLoopBasedDirective13doForAllLoopsEPNS_4StmtEbjN4llvm12function_refIFbjS2_EEE.exit, label %.preheader.i.i, !llvm.loop !7
 
-_ZN5clang21OMPLoopBasedDirective13doForAllLoopsEPNS_4StmtEbjN4llvm12function_refIFbjS2_EEE.exit: ; preds = %19, %32, %5
+_ZN5clang21OMPLoopBasedDirective13doForAllLoopsEPNS_4StmtEbjN4llvm12function_refIFbjS2_EEE.exit: ; preds = %18, %30, %5
   ret void
 }
 

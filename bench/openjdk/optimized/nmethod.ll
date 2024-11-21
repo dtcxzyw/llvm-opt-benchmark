@@ -2314,146 +2314,145 @@ define linkonce_odr hidden void @_ZN15SimpleScopeDescC2EP7nmethodPh(ptr noundef 
   %13 = sext i32 %6 to i64
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
   %15 = load i8, ptr %14, align 1
-  %16 = zext i8 %15 to i32
-  %17 = add nsw i32 %16, -1
-  %18 = icmp ult i32 %17, 191
-  br i1 %18, label %_ZN20CompressedReadStream8read_intEv.exit, label %.preheader.i.i
+  %16 = add i8 %15, -1
+  %17 = icmp ult i8 %16, -65
+  br i1 %17, label %_ZN20CompressedReadStream8read_intEv.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %3
-  %19 = add nsw i32 %6, 1
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %12, i64 %20
-  %22 = load i8, ptr %21, align 1
-  %23 = icmp ult i8 %22, -64
-  br i1 %23, label %_ZN20CompressedReadStream8read_intEv.exit, label %.lr.ph.i.i
+  %18 = add nsw i32 %6, 1
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %12, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp ult i8 %21, -64
+  br i1 %22, label %_ZN20CompressedReadStream8read_intEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 1, %.preheader.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %24 = add nsw i64 %indvars.iv.next.i.i, %13
-  %25 = getelementptr inbounds i8, ptr %12, i64 %24
-  %26 = load i8, ptr %25, align 1
-  %27 = icmp ult i8 %26, -64
-  %28 = icmp eq i64 %indvars.iv.next.i.i, 4
-  %or.cond.i.i = or i1 %28, %27
+  %23 = add nsw i64 %indvars.iv.next.i.i, %13
+  %24 = getelementptr inbounds i8, ptr %12, i64 %23
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp ult i8 %25, -64
+  %27 = icmp eq i64 %indvars.iv.next.i.i, 4
+  %or.cond.i.i = or i1 %27, %26
   br i1 %or.cond.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !27
 
 .loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i.i
-  %29 = trunc nsw i64 %24 to i32
+  %28 = trunc nsw i64 %23 to i32
   br label %_ZN20CompressedReadStream8read_intEv.exit
 
 _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %3, %.preheader.i.i, %.loopexit.loopexit.i.i
-  %storemerge.in.i.i = phi i32 [ %6, %3 ], [ %19, %.preheader.i.i ], [ %29, %.loopexit.loopexit.i.i ]
+  %storemerge.in.i.i = phi i32 [ %6, %3 ], [ %18, %.preheader.i.i ], [ %28, %.loopexit.loopexit.i.i ]
   %storemerge.i.i = add nsw i32 %storemerge.in.i.i, 1
-  %30 = sext i32 %storemerge.i.i to i64
-  %31 = getelementptr inbounds i8, ptr %12, i64 %30
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i32
-  %34 = add nsw i32 %33, -1
-  %35 = icmp ult i32 %34, 191
-  br i1 %35, label %_ZN20CompressedReadStream8read_intEv.exit.i, label %.preheader.i.i.i
+  %29 = sext i32 %storemerge.i.i to i64
+  %30 = getelementptr inbounds i8, ptr %12, i64 %29
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = add nsw i32 %32, -1
+  %34 = icmp ult i32 %33, 191
+  br i1 %34, label %_ZN20CompressedReadStream8read_intEv.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %_ZN20CompressedReadStream8read_intEv.exit
-  %36 = add nsw i32 %storemerge.in.i.i, 2
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %12, i64 %37
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = shl nuw nsw i32 %40, 6
-  %42 = add nsw i32 %33, -65
-  %43 = add nsw i32 %42, %41
-  %44 = icmp ult i8 %39, -64
-  br i1 %44, label %_ZN20CompressedReadStream8read_intEv.exit.i, label %.lr.ph.i.i.i
+  %35 = add nsw i32 %storemerge.in.i.i, 2
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds i8, ptr %12, i64 %36
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i32
+  %40 = shl nuw nsw i32 %39, 6
+  %41 = add nsw i32 %32, -65
+  %42 = add nsw i32 %41, %40
+  %43 = icmp ult i8 %38, -64
+  br i1 %43, label %_ZN20CompressedReadStream8read_intEv.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 1, %.preheader.i.i.i ]
-  %45 = phi i32 [ %53, %.lr.ph.i.i.i ], [ %43, %.preheader.i.i.i ]
-  %.02428.i.i.i = phi i32 [ %46, %.lr.ph.i.i.i ], [ 6, %.preheader.i.i.i ]
-  %46 = add nuw nsw i32 %.02428.i.i.i, 6
+  %44 = phi i32 [ %52, %.lr.ph.i.i.i ], [ %42, %.preheader.i.i.i ]
+  %.02428.i.i.i = phi i32 [ %45, %.lr.ph.i.i.i ], [ 6, %.preheader.i.i.i ]
+  %45 = add nuw nsw i32 %.02428.i.i.i, 6
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %47 = add nsw i64 %indvars.iv.next.i.i.i, %30
-  %48 = getelementptr inbounds i8, ptr %12, i64 %47
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = add nsw i32 %50, -1
-  %52 = shl i32 %51, %46
-  %53 = add i32 %52, %45
-  %54 = icmp ult i8 %49, -64
-  %55 = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  %or.cond.i.i.i = or i1 %55, %54
+  %46 = add nsw i64 %indvars.iv.next.i.i.i, %29
+  %47 = getelementptr inbounds i8, ptr %12, i64 %46
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i32
+  %50 = add nsw i32 %49, -1
+  %51 = shl i32 %50, %45
+  %52 = add i32 %51, %44
+  %53 = icmp ult i8 %48, -64
+  %54 = icmp eq i64 %indvars.iv.next.i.i.i, 4
+  %or.cond.i.i.i = or i1 %54, %53
   br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
 
 .loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
-  %56 = trunc nsw i64 %47 to i32
+  %55 = trunc nsw i64 %46 to i32
   br label %_ZN20CompressedReadStream8read_intEv.exit.i
 
 _ZN20CompressedReadStream8read_intEv.exit.i:      ; preds = %.loopexit.loopexit.i.i.i, %.preheader.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit
-  %storemerge.in.i.i.i = phi i32 [ %storemerge.i.i, %_ZN20CompressedReadStream8read_intEv.exit ], [ %36, %.preheader.i.i.i ], [ %56, %.loopexit.loopexit.i.i.i ]
-  %.0.i.i.i = phi i32 [ %34, %_ZN20CompressedReadStream8read_intEv.exit ], [ %43, %.preheader.i.i.i ], [ %53, %.loopexit.loopexit.i.i.i ]
-  %57 = icmp eq i32 %.0.i.i.i, 0
-  br i1 %57, label %_ZN19DebugInfoReadStream11read_methodEv.exit, label %58
+  %storemerge.in.i.i.i = phi i32 [ %storemerge.i.i, %_ZN20CompressedReadStream8read_intEv.exit ], [ %35, %.preheader.i.i.i ], [ %55, %.loopexit.loopexit.i.i.i ]
+  %.0.i.i.i = phi i32 [ %33, %_ZN20CompressedReadStream8read_intEv.exit ], [ %42, %.preheader.i.i.i ], [ %52, %.loopexit.loopexit.i.i.i ]
+  %56 = icmp eq i32 %.0.i.i.i, 0
+  br i1 %56, label %_ZN19DebugInfoReadStream11read_methodEv.exit, label %57
 
-58:                                               ; preds = %_ZN20CompressedReadStream8read_intEv.exit.i
-  %59 = getelementptr inbounds i8, ptr %1, i64 40
-  %60 = load i32, ptr %59, align 8
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %1, i64 %61
-  %63 = getelementptr inbounds i8, ptr %1, i64 180
-  %64 = load i16, ptr %63, align 4
-  %65 = zext i16 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %62, i64 %65
-  %67 = sext i32 %.0.i.i.i to i64
-  %68 = getelementptr ptr, ptr %66, i64 %67
-  %69 = getelementptr i8, ptr %68, i64 -8
-  %70 = load ptr, ptr %69, align 8
+57:                                               ; preds = %_ZN20CompressedReadStream8read_intEv.exit.i
+  %58 = getelementptr inbounds i8, ptr %1, i64 40
+  %59 = load i32, ptr %58, align 8
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds i8, ptr %1, i64 %60
+  %62 = getelementptr inbounds i8, ptr %1, i64 180
+  %63 = load i16, ptr %62, align 4
+  %64 = zext i16 %63 to i64
+  %65 = getelementptr inbounds i8, ptr %61, i64 %64
+  %66 = sext i32 %.0.i.i.i to i64
+  %67 = getelementptr ptr, ptr %65, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 -8
+  %69 = load ptr, ptr %68, align 8
   br label %_ZN19DebugInfoReadStream11read_methodEv.exit
 
-_ZN19DebugInfoReadStream11read_methodEv.exit:     ; preds = %_ZN20CompressedReadStream8read_intEv.exit.i, %58
-  %71 = phi ptr [ %70, %58 ], [ null, %_ZN20CompressedReadStream8read_intEv.exit.i ]
-  store ptr %71, ptr %0, align 8
-  %72 = sext i32 %storemerge.in.i.i.i to i64
-  %73 = getelementptr i8, ptr %12, i64 %72
-  %74 = getelementptr i8, ptr %73, i64 1
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  %77 = add nsw i32 %76, -1
-  %78 = icmp ult i32 %77, 191
-  br i1 %78, label %_ZN19DebugInfoReadStream8read_bciEv.exit, label %.preheader.i.i.i5
+_ZN19DebugInfoReadStream11read_methodEv.exit:     ; preds = %_ZN20CompressedReadStream8read_intEv.exit.i, %57
+  %70 = phi ptr [ %69, %57 ], [ null, %_ZN20CompressedReadStream8read_intEv.exit.i ]
+  store ptr %70, ptr %0, align 8
+  %71 = sext i32 %storemerge.in.i.i.i to i64
+  %72 = getelementptr i8, ptr %12, i64 %71
+  %73 = getelementptr i8, ptr %72, i64 1
+  %74 = load i8, ptr %73, align 1
+  %75 = zext i8 %74 to i32
+  %76 = add nsw i32 %75, -1
+  %77 = icmp ult i32 %76, 191
+  br i1 %77, label %_ZN19DebugInfoReadStream8read_bciEv.exit, label %.preheader.i.i.i5
 
 .preheader.i.i.i5:                                ; preds = %_ZN19DebugInfoReadStream11read_methodEv.exit
-  %79 = sext i32 %storemerge.in.i.i.i to i64
-  %80 = getelementptr i8, ptr %12, i64 %79
-  %81 = getelementptr i8, ptr %80, i64 2
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = shl nuw nsw i32 %83, 6
-  %85 = add nsw i32 %76, -65
-  %86 = add nsw i32 %85, %84
-  %87 = icmp ult i8 %82, -64
-  br i1 %87, label %_ZN19DebugInfoReadStream8read_bciEv.exit, label %.lr.ph.i.i.i6
+  %78 = sext i32 %storemerge.in.i.i.i to i64
+  %79 = getelementptr i8, ptr %12, i64 %78
+  %80 = getelementptr i8, ptr %79, i64 2
+  %81 = load i8, ptr %80, align 1
+  %82 = zext i8 %81 to i32
+  %83 = shl nuw nsw i32 %82, 6
+  %84 = add nsw i32 %75, -65
+  %85 = add nsw i32 %84, %83
+  %86 = icmp ult i8 %81, -64
+  br i1 %86, label %_ZN19DebugInfoReadStream8read_bciEv.exit, label %.lr.ph.i.i.i6
 
 .lr.ph.i.i.i6:                                    ; preds = %.preheader.i.i.i5, %.lr.ph.i.i.i6
   %indvars.iv.i.i.i7 = phi i64 [ %indvars.iv.next.i.i.i9, %.lr.ph.i.i.i6 ], [ 1, %.preheader.i.i.i5 ]
-  %88 = phi i32 [ %94, %.lr.ph.i.i.i6 ], [ %86, %.preheader.i.i.i5 ]
-  %.02428.i.i.i8 = phi i32 [ %89, %.lr.ph.i.i.i6 ], [ 6, %.preheader.i.i.i5 ]
-  %89 = add nuw nsw i32 %.02428.i.i.i8, 6
+  %87 = phi i32 [ %93, %.lr.ph.i.i.i6 ], [ %85, %.preheader.i.i.i5 ]
+  %.02428.i.i.i8 = phi i32 [ %88, %.lr.ph.i.i.i6 ], [ 6, %.preheader.i.i.i5 ]
+  %88 = add nuw nsw i32 %.02428.i.i.i8, 6
   %indvars.iv.next.i.i.i9 = add nuw nsw i64 %indvars.iv.i.i.i7, 1
-  %gep = getelementptr i8, ptr %74, i64 %indvars.iv.next.i.i.i9
-  %90 = load i8, ptr %gep, align 1
-  %91 = zext i8 %90 to i32
-  %92 = add nsw i32 %91, -1
-  %93 = shl i32 %92, %89
-  %94 = add i32 %93, %88
-  %95 = icmp ult i8 %90, -64
-  %96 = icmp eq i64 %indvars.iv.next.i.i.i9, 4
-  %or.cond.i.i.i10 = or i1 %96, %95
+  %gep = getelementptr i8, ptr %73, i64 %indvars.iv.next.i.i.i9
+  %89 = load i8, ptr %gep, align 1
+  %90 = zext i8 %89 to i32
+  %91 = add nsw i32 %90, -1
+  %92 = shl i32 %91, %88
+  %93 = add i32 %92, %87
+  %94 = icmp ult i8 %89, -64
+  %95 = icmp eq i64 %indvars.iv.next.i.i.i9, 4
+  %or.cond.i.i.i10 = or i1 %95, %94
   br i1 %or.cond.i.i.i10, label %_ZN19DebugInfoReadStream8read_bciEv.exit, label %.lr.ph.i.i.i6, !llvm.loop !27
 
 _ZN19DebugInfoReadStream8read_bciEv.exit:         ; preds = %.lr.ph.i.i.i6, %_ZN19DebugInfoReadStream11read_methodEv.exit, %.preheader.i.i.i5
-  %.0.i.i.i14 = phi i32 [ %77, %_ZN19DebugInfoReadStream11read_methodEv.exit ], [ %86, %.preheader.i.i.i5 ], [ %94, %.lr.ph.i.i.i6 ]
-  %97 = add nsw i32 %.0.i.i.i14, -1
-  %98 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %97, ptr %98, align 8
+  %.0.i.i.i14 = phi i32 [ %76, %_ZN19DebugInfoReadStream11read_methodEv.exit ], [ %85, %.preheader.i.i.i5 ], [ %93, %.lr.ph.i.i.i6 ]
+  %96 = add nsw i32 %.0.i.i.i14, -1
+  %97 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %96, ptr %97, align 8
   ret void
 }
 

@@ -3999,18 +3999,17 @@ do.body:                                          ; preds = %if.end48
   %sub.i.i.i = add i64 %6, 11
   %7 = inttoptr i64 %sub.i.i.i to ptr
   %8 = load i16, ptr %7, align 2
-  %conv.i.i.i = zext i16 %8 to i32
   %cmp.i.i14 = icmp eq i16 %8, 1040
-  %sub.i.i = add nsw i32 %conv.i.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i.i, 1002
-  %9 = select i1 %cmp.i.i14, i1 true, i1 %cmp1.i.i
-  br i1 %9, label %if.then.i.i, label %if.end.i.i
+  %9 = add i16 %8, -1057
+  %cmp1.i.i = icmp ult i16 %9, 1002
+  %10 = or i1 %cmp.i.i14, %cmp1.i.i
+  br i1 %10, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %do.body
   %sub.i.i26.i = add i64 %4, 31
-  %10 = inttoptr i64 %sub.i.i26.i to ptr
-  %11 = load i64, ptr %10, align 8
-  %12 = inttoptr i64 %11 to ptr
+  %11 = inttoptr i64 %sub.i.i26.i to ptr
+  %12 = load i64, ptr %11, align 8
+  %13 = inttoptr i64 %12 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 if.end.i.i:                                       ; preds = %do.body
@@ -4018,51 +4017,51 @@ if.end.i.i:                                       ; preds = %do.body
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.i18.0.i = phi ptr [ %12, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.i18.0.i = phi ptr [ %13, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
   %cmp60 = icmp eq ptr %retval.i18.0.i, null
   br i1 %cmp60, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
   %call63 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4node6crypto15KeyObjectHandle4DataEv(ptr noundef nonnull align 8 dereferenceable(48) %retval.i18.0.i) #18
-  %13 = load ptr, ptr %_M_finish.i, align 8
-  %14 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %13, %14
+  %14 = load ptr, ptr %_M_finish.i, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %14, %15
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end
-  %15 = load ptr, ptr %call63, align 8
-  store ptr %15, ptr %13, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = load ptr, ptr %call63, align 8
+  store ptr %16, ptr %14, align 8
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %call63, i64 8
-  %16 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  store ptr %16, ptr %_M_refcount.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %16, null
+  %17 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  store ptr %17, ptr %_M_refcount.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %17, 0
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %18 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %18, 1
+  %19 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i.i = add nsw i32 %19, 1
   store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %19 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %20 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i
-  %20 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE9push_backERKS4_.exit
 
 if.else.i:                                        ; preds = %do.end
-  tail call void @_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %memptr.offset, ptr %13, ptr noundef nonnull align 8 dereferenceable(16) %call63)
+  tail call void @_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %memptr.offset, ptr %14, ptr noundef nonnull align 8 dereferenceable(16) %call63)
   br label %_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE9push_backERKS4_.exit
 
 _ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE9push_backERKS4_.exit: ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, %if.else.i
@@ -4075,84 +4074,83 @@ if.else65:                                        ; preds = %if.end
   br i1 %call70, label %do.body73, label %return
 
 do.body73:                                        ; preds = %if.else65
-  %21 = load i64, ptr %call15, align 8
-  %sub.i17.i.i15 = add i64 %21, -1
-  %22 = inttoptr i64 %sub.i17.i.i15 to ptr
-  %23 = load i64, ptr %22, align 8
-  %sub.i.i.i16 = add i64 %23, 11
-  %24 = inttoptr i64 %sub.i.i.i16 to ptr
-  %25 = load i16, ptr %24, align 2
-  %conv.i.i.i17 = zext i16 %25 to i32
-  %cmp.i.i18 = icmp eq i16 %25, 1040
-  %sub.i.i19 = add nsw i32 %conv.i.i.i17, -1057
-  %cmp1.i.i20 = icmp ult i32 %sub.i.i19, 1002
-  %26 = select i1 %cmp.i.i18, i1 true, i1 %cmp1.i.i20
-  br i1 %26, label %if.then.i.i24, label %if.end.i.i21
+  %22 = load i64, ptr %call15, align 8
+  %sub.i17.i.i15 = add i64 %22, -1
+  %23 = inttoptr i64 %sub.i17.i.i15 to ptr
+  %24 = load i64, ptr %23, align 8
+  %sub.i.i.i16 = add i64 %24, 11
+  %25 = inttoptr i64 %sub.i.i.i16 to ptr
+  %26 = load i16, ptr %25, align 2
+  %cmp.i.i17 = icmp eq i16 %26, 1040
+  %27 = add i16 %26, -1057
+  %cmp1.i.i18 = icmp ult i16 %27, 1002
+  %28 = or i1 %cmp.i.i17, %cmp1.i.i18
+  br i1 %28, label %if.then.i.i22, label %if.end.i.i19
 
-if.then.i.i24:                                    ; preds = %do.body73
-  %sub.i.i26.i25 = add i64 %21, 31
-  %27 = inttoptr i64 %sub.i.i26.i25 to ptr
-  %28 = load i64, ptr %27, align 8
-  %29 = inttoptr i64 %28 to ptr
-  br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit26
+if.then.i.i22:                                    ; preds = %do.body73
+  %sub.i.i26.i23 = add i64 %22, 31
+  %29 = inttoptr i64 %sub.i.i26.i23 to ptr
+  %30 = load i64, ptr %29, align 8
+  %31 = inttoptr i64 %30 to ptr
+  br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit24
 
-if.end.i.i21:                                     ; preds = %do.body73
-  %call7.i.i22 = tail call noundef ptr @_ZN2v86Object38SlowGetAlignedPointerFromInternalFieldEi(ptr noundef nonnull align 1 dereferenceable(1) %call15, i32 noundef 1) #18
-  br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit26
+if.end.i.i19:                                     ; preds = %do.body73
+  %call7.i.i20 = tail call noundef ptr @_ZN2v86Object38SlowGetAlignedPointerFromInternalFieldEi(ptr noundef nonnull align 1 dereferenceable(1) %call15, i32 noundef 1) #18
+  br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit24
 
-_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit26: ; preds = %if.then.i.i24, %if.end.i.i21
-  %retval.i18.0.i23 = phi ptr [ %29, %if.then.i.i24 ], [ %call7.i.i22, %if.end.i.i21 ]
-  %cmp79 = icmp eq ptr %retval.i18.0.i23, null
+_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit24: ; preds = %if.then.i.i22, %if.end.i.i19
+  %retval.i18.0.i21 = phi ptr [ %31, %if.then.i.i22 ], [ %call7.i.i20, %if.end.i.i19 ]
+  %cmp79 = icmp eq ptr %retval.i18.0.i21, null
   br i1 %cmp79, label %return, label %do.end82
 
-do.end82:                                         ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit26
-  %call84 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4node6crypto15KeyObjectHandle4DataEv(ptr noundef nonnull align 8 dereferenceable(48) %retval.i18.0.i23) #18
-  %_M_finish.i27 = getelementptr inbounds i8, ptr %options, i64 184
-  %30 = load ptr, ptr %_M_finish.i27, align 8
-  %_M_end_of_storage.i28 = getelementptr inbounds i8, ptr %options, i64 192
-  %31 = load ptr, ptr %_M_end_of_storage.i28, align 8
-  %cmp.not.i29 = icmp eq ptr %30, %31
-  br i1 %cmp.not.i29, label %if.else.i42, label %if.then.i30
+do.end82:                                         ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit24
+  %call84 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4node6crypto15KeyObjectHandle4DataEv(ptr noundef nonnull align 8 dereferenceable(48) %retval.i18.0.i21) #18
+  %_M_finish.i25 = getelementptr inbounds i8, ptr %options, i64 184
+  %32 = load ptr, ptr %_M_finish.i25, align 8
+  %_M_end_of_storage.i26 = getelementptr inbounds i8, ptr %options, i64 192
+  %33 = load ptr, ptr %_M_end_of_storage.i26, align 8
+  %cmp.not.i27 = icmp eq ptr %32, %33
+  br i1 %cmp.not.i27, label %if.else.i40, label %if.then.i28
 
-if.then.i30:                                      ; preds = %do.end82
-  %32 = load ptr, ptr %call84, align 8
-  store ptr %32, ptr %30, align 8
-  %_M_refcount.i.i.i.i.i31 = getelementptr inbounds i8, ptr %30, i64 8
-  %_M_refcount3.i.i.i.i.i32 = getelementptr inbounds i8, ptr %call84, i64 8
-  %33 = load ptr, ptr %_M_refcount3.i.i.i.i.i32, align 8
-  store ptr %33, ptr %_M_refcount.i.i.i.i.i31, align 8
-  %cmp.not.i.i.i.i.i.i33 = icmp eq ptr %33, null
-  br i1 %cmp.not.i.i.i.i.i.i33, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i39, label %if.then.i.i.i.i.i.i34
+if.then.i28:                                      ; preds = %do.end82
+  %34 = load ptr, ptr %call84, align 8
+  store ptr %34, ptr %32, align 8
+  %_M_refcount.i.i.i.i.i29 = getelementptr inbounds i8, ptr %32, i64 8
+  %_M_refcount3.i.i.i.i.i30 = getelementptr inbounds i8, ptr %call84, i64 8
+  %35 = load ptr, ptr %_M_refcount3.i.i.i.i.i30, align 8
+  store ptr %35, ptr %_M_refcount.i.i.i.i.i29, align 8
+  %cmp.not.i.i.i.i.i.i31 = icmp eq ptr %35, null
+  br i1 %cmp.not.i.i.i.i.i.i31, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i37, label %if.then.i.i.i.i.i.i32
 
-if.then.i.i.i.i.i.i34:                            ; preds = %if.then.i30
-  %_M_use_count.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %33, i64 8
-  %34 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i.i36 = icmp eq i8 %34, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i.i.i36, label %if.else.i.i.i.i.i.i.i.i41, label %if.then.i.i.i.i.i.i.i.i37
+if.then.i.i.i.i.i.i32:                            ; preds = %if.then.i28
+  %_M_use_count.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i.i34 = icmp eq i8 %36, 0
+  br i1 %tobool.i.i.not.i.i.i.i.i.i.i34, label %if.else.i.i.i.i.i.i.i.i39, label %if.then.i.i.i.i.i.i.i.i35
 
-if.then.i.i.i.i.i.i.i.i37:                        ; preds = %if.then.i.i.i.i.i.i34
-  %35 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i35, align 4
-  %add.i.i.i.i.i.i.i.i38 = add nsw i32 %35, 1
-  store i32 %add.i.i.i.i.i.i.i.i38, ptr %_M_use_count.i.i.i.i.i.i.i35, align 4
-  br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i39
+if.then.i.i.i.i.i.i.i.i35:                        ; preds = %if.then.i.i.i.i.i.i32
+  %37 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i33, align 4
+  %add.i.i.i.i.i.i.i.i36 = add nsw i32 %37, 1
+  store i32 %add.i.i.i.i.i.i.i.i36, ptr %_M_use_count.i.i.i.i.i.i.i33, align 4
+  br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i37
 
-if.else.i.i.i.i.i.i.i.i41:                        ; preds = %if.then.i.i.i.i.i.i34
-  %36 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i35, i32 1 acq_rel, align 4
-  br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i39
+if.else.i.i.i.i.i.i.i.i39:                        ; preds = %if.then.i.i.i.i.i.i32
+  %38 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i33, i32 1 acq_rel, align 4
+  br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i37
 
-_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i39: ; preds = %if.else.i.i.i.i.i.i.i.i41, %if.then.i.i.i.i.i.i.i.i37, %if.then.i30
-  %37 = load ptr, ptr %_M_finish.i27, align 8
-  %incdec.ptr.i40 = getelementptr inbounds i8, ptr %37, i64 16
-  store ptr %incdec.ptr.i40, ptr %_M_finish.i27, align 8
+_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i37: ; preds = %if.else.i.i.i.i.i.i.i.i39, %if.then.i.i.i.i.i.i.i.i35, %if.then.i28
+  %39 = load ptr, ptr %_M_finish.i25, align 8
+  %incdec.ptr.i38 = getelementptr inbounds i8, ptr %39, i64 16
+  store ptr %incdec.ptr.i38, ptr %_M_finish.i25, align 8
   br label %return
 
-if.else.i42:                                      ; preds = %do.end82
+if.else.i40:                                      ; preds = %do.end82
   %memptr.offset83 = getelementptr inbounds i8, ptr %options, i64 176
-  tail call void @_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %memptr.offset83, ptr %30, ptr noundef nonnull align 8 dereferenceable(16) %call84)
+  tail call void @_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %memptr.offset83, ptr %32, ptr noundef nonnull align 8 dereferenceable(16) %call84)
   br label %return
 
-return:                                           ; preds = %for.body, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.end48, %_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE9push_backERKS4_.exit, %if.then23, %if.else.i42, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i39, %if.else65, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit26, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit26 ], [ false, %if.else65 ], [ true, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i39 ], [ true, %if.else.i42 ], [ true, %if.then23 ], [ false, %for.body ], [ false, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ false, %if.end48 ], [ true, %_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE9push_backERKS4_.exit ]
+return:                                           ; preds = %for.body, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.end48, %_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE9push_backERKS4_.exit, %if.then23, %if.else.i40, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i37, %if.else65, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit24, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit24 ], [ false, %if.else65 ], [ true, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4node6crypto13KeyObjectDataEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i37 ], [ true, %if.else.i40 ], [ true, %if.then23 ], [ false, %for.body ], [ false, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ false, %if.end48 ], [ true, %_ZNSt6vectorISt10shared_ptrIN4node6crypto13KeyObjectDataEESaIS4_EE9push_backERKS4_.exit ]
   ret i1 %retval.0
 }
 

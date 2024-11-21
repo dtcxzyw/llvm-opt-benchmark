@@ -38828,9 +38828,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14TargetLowering14AsmOperandInfo25
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0) #28
   %4 = load i8, ptr %3, align 1
-  %5 = zext i8 %4 to i32
-  %isdigittmp = add nsw i32 %5, -48
-  %isdigit = icmp ult i32 %isdigittmp, 10
+  %5 = add i8 %4, -48
+  %isdigit = icmp ult i8 %5, 10
   ret i1 %isdigit
 }
 
@@ -85184,9 +85183,8 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm18TargetLoweringBase25shouldExp
   %4 = load i16, ptr %3, align 2
   %5 = lshr i16 %4, 4
   %6 = and i16 %5, 31
-  %7 = zext nneg i16 %6 to i32
-  %.off.i.i = add nsw i32 %7, -11
-  %switch.i.i = icmp ult i32 %.off.i.i, 4
+  %7 = add nsw i16 %6, -11
+  %switch.i.i = icmp ult i16 %7, 4
   %8 = select i1 %switch.i.i, i32 4, i32 0
   ret i32 %8
 }

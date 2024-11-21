@@ -6201,11 +6201,11 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit: ; preds = %.prehea
 
 _ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit: ; preds = %141
   %144 = zext i8 %.sroa.10.1 to i32
-  %145 = add nsw i32 %144, -1
-  %146 = icmp ult i32 %145, 4
+  %145 = add i8 %.sroa.10.1, -1
+  %146 = icmp ult i8 %145, 4
   %147 = shl nuw nsw i32 %144, 1
   %148 = add nuw nsw i32 %147, 9
-  %.sroa.15.0.i = select i1 %146, i32 %148, i32 0
+  %.sroa.016.0.extract.trunc = select i1 %146, i32 %148, i32 0
   br i1 %146, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit
@@ -6325,7 +6325,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit81.thread: ; preds =
   br i1 %exitcond178.not, label %._crit_edge, label %151, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit81.thread
-  %210 = shl nuw nsw i32 %.sroa.15.0.i, 1
+  %210 = shl nuw nsw i32 %.sroa.016.0.extract.trunc, 1
   %211 = udiv i32 %210, 3
   %212 = icmp samesign ugt i32 %208, %211
   br i1 %212, label %213, label %._crit_edge.thread
@@ -6335,7 +6335,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7blackAtES2_.exit81.thread: ; preds =
   br label %214
 
 ._crit_edge.thread:                               ; preds = %_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit, %._crit_edge
-  call void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKNS_20PerspectiveTransformE(ptr dead_on_unwind writable sret(%"class.ZXing::DetectorResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.sroa.15.0.i, i32 noundef %.sroa.15.0.i, ptr noundef nonnull align 8 dereferenceable(72) %6)
+  call void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKNS_20PerspectiveTransformE(ptr dead_on_unwind writable sret(%"class.ZXing::DetectorResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.sroa.016.0.extract.trunc, i32 noundef %.sroa.016.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(72) %6)
   br label %214
 
 214:                                              ; preds = %._crit_edge.thread, %213, %143, %14

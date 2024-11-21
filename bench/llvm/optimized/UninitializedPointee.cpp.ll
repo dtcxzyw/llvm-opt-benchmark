@@ -499,9 +499,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   %232 = load ptr, ptr %231, align 16
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %234 = load i8, ptr %233, align 16
-  %235 = zext i8 %234 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %235, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %235 = add i8 %234, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %235, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %236, label %238
 
 236:                                              ; preds = %227

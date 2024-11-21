@@ -921,7 +921,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 {
   %2 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  br i1 %2, label %56, label %3
+  br i1 %2, label %49, label %3
 
 3:                                                ; preds = %1
   %4 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
@@ -938,112 +938,105 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   %scevgep.i.i.i = getelementptr i8, ptr %4, i64 %11
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %30, %.lr.ph.preheader.i.i.i
-  %.051.i.i.i = phi i64 [ %32, %30 ], [ %9, %.lr.ph.preheader.i.i.i ]
-  %.sroa.031.050.i.i.i = phi ptr [ %31, %30 ], [ %4, %.lr.ph.preheader.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %26, %.lr.ph.preheader.i.i.i
+  %.051.i.i.i = phi i64 [ %28, %26 ], [ %9, %.lr.ph.preheader.i.i.i ]
+  %.sroa.031.050.i.i.i = phi ptr [ %27, %26 ], [ %4, %.lr.ph.preheader.i.i.i ]
   %12 = load i8, ptr %.sroa.031.050.i.i.i, align 1
-  %13 = zext i8 %12 to i32
-  %14 = add nsw i32 %13, -58
-  %isdigit.i.i.i.i.i = icmp ult i32 %14, -10
-  br i1 %isdigit.i.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit", label %15
+  %13 = add i8 %12, -58
+  %isdigit.i.i.i.i.i = icmp ult i8 %13, -10
+  br i1 %isdigit.i.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit", label %14
 
-15:                                               ; preds = %.lr.ph.i.i.i
-  %16 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = add nsw i32 %18, -58
-  %isdigit.i.i16.i.i.i = icmp ult i32 %19, -10
-  br i1 %isdigit.i.i16.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit", label %20
+14:                                               ; preds = %.lr.ph.i.i.i
+  %15 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = add i8 %16, -58
+  %isdigit.i.i16.i.i.i = icmp ult i8 %17, -10
+  br i1 %isdigit.i.i16.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit", label %18
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 2
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = add nsw i32 %23, -58
-  %isdigit.i.i17.i.i.i = icmp ult i32 %24, -10
-  br i1 %isdigit.i.i17.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit18", label %25
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 2
+  %20 = load i8, ptr %19, align 1
+  %21 = add i8 %20, -58
+  %isdigit.i.i17.i.i.i = icmp ult i8 %21, -10
+  br i1 %isdigit.i.i17.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit18", label %22
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 3
-  %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i32
-  %29 = add nsw i32 %28, -58
-  %isdigit.i.i18.i.i.i = icmp ult i32 %29, -10
-  br i1 %isdigit.i.i18.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit20", label %30
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 3
+  %24 = load i8, ptr %23, align 1
+  %25 = add i8 %24, -58
+  %isdigit.i.i18.i.i.i = icmp ult i8 %25, -10
+  br i1 %isdigit.i.i18.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit20", label %26
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 4
-  %32 = add nsw i64 %.051.i.i.i, -1
-  %33 = icmp sgt i64 %.051.i.i.i, 1
-  br i1 %33, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !6
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 4
+  %28 = add nsw i64 %.051.i.i.i, -1
+  %29 = icmp sgt i64 %.051.i.i.i, 1
+  br i1 %29, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !6
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %30
+._crit_edge.loopexit.i.i.i:                       ; preds = %26
   %.pre.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %3
   %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %7, %3 ]
   %.sroa.031.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %4, %3 ]
-  %34 = sub i64 %6, %.pre-phi.i.i.i
-  switch i64 %34, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit" [
-    i64 3, label %35
-    i64 2, label %41
-    i64 1, label %47
+  %30 = sub i64 %6, %.pre-phi.i.i.i
+  switch i64 %30, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit" [
+    i64 3, label %31
+    i64 2, label %36
+    i64 1, label %41
   ]
 
-35:                                               ; preds = %._crit_edge.i.i.i
-  %36 = load i8, ptr %.sroa.031.0.lcssa.i.i.i, align 1
-  %37 = zext i8 %36 to i32
-  %38 = add nsw i32 %37, -58
-  %isdigit.i.i19.i.i.i = icmp ult i32 %38, -10
-  br i1 %isdigit.i.i19.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit", label %39
+31:                                               ; preds = %._crit_edge.i.i.i
+  %32 = load i8, ptr %.sroa.031.0.lcssa.i.i.i, align 1
+  %33 = add i8 %32, -58
+  %isdigit.i.i19.i.i.i = icmp ult i8 %33, -10
+  br i1 %isdigit.i.i19.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit", label %34
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa.i.i.i, i64 1
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa.i.i.i, i64 1
+  br label %36
+
+36:                                               ; preds = %34, %._crit_edge.i.i.i
+  %.sroa.031.1.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %35, %34 ]
+  %37 = load i8, ptr %.sroa.031.1.i.i.i, align 1
+  %38 = add i8 %37, -58
+  %isdigit.i.i20.i.i.i = icmp ult i8 %38, -10
+  br i1 %isdigit.i.i20.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit", label %39
+
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %.sroa.031.1.i.i.i, i64 1
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i.i.i
-  %.sroa.031.1.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %40, %39 ]
-  %42 = load i8, ptr %.sroa.031.1.i.i.i, align 1
-  %43 = zext i8 %42 to i32
-  %44 = add nsw i32 %43, -58
-  %isdigit.i.i20.i.i.i = icmp ult i32 %44, -10
-  br i1 %isdigit.i.i20.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit", label %45
-
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %.sroa.031.1.i.i.i, i64 1
-  br label %47
-
-47:                                               ; preds = %45, %._crit_edge.i.i.i
-  %.sroa.031.2.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %46, %45 ]
-  %48 = load i8, ptr %.sroa.031.2.i.i.i, align 1
-  %49 = zext i8 %48 to i32
-  %50 = add nsw i32 %49, -58
-  %isdigit.i.i21.i.i.i = icmp ult i32 %50, -10
+  %.sroa.031.2.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %40, %39 ]
+  %42 = load i8, ptr %.sroa.031.2.i.i.i, align 1
+  %43 = add i8 %42, -58
+  %isdigit.i.i21.i.i.i = icmp ult i8 %43, -10
   %spec.select.i.i.i = select i1 %isdigit.i.i21.i.i.i, ptr %.sroa.031.2.i.i.i, ptr %5
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit": ; preds = %15
-  %51 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 1
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit": ; preds = %14
+  %44 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 1
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit18": ; preds = %20
-  %52 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 2
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit18": ; preds = %18
+  %45 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 2
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit20": ; preds = %25
-  %53 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 3
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit20": ; preds = %22
+  %46 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i, i64 3
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit18", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit20", %._crit_edge.i.i.i, %35, %41, %47
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i, %35 ], [ %.sroa.031.1.i.i.i, %41 ], [ %5, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %47 ], [ %51, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit" ], [ %52, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit18" ], [ %53, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit20" ], [ %.sroa.031.050.i.i.i, %.lr.ph.i.i.i ]
-  %54 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  %55 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %54
-  br label %56
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit18", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit20", %._crit_edge.i.i.i, %31, %36, %41
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i, %31 ], [ %.sroa.031.1.i.i.i, %36 ], [ %5, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %41 ], [ %44, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit" ], [ %45, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit18" ], [ %46, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit.loopexit.split.loop.exit20" ], [ %.sroa.031.050.i.i.i, %.lr.ph.i.i.i ]
+  %47 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
+  %48 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %47
+  br label %49
 
-56:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit", %1
-  %57 = phi i1 [ false, %1 ], [ %55, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit" ]
-  ret i1 %57
+49:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit", %1
+  %50 = phi i1 [ false, %1 ], [ %48, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN32pxrInternal_v0_24__pxrReserved__L9_IsNumberERKS9_E3$_0ET_SF_SF_T0_.exit" ]
+  ret i1 %50
 }
 
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__10NdrVersionC1Eii(ptr noundef nonnull align 4 dereferenceable(9), i32 noundef, i32 noundef) unnamed_addr #1

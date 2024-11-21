@@ -1202,10 +1202,10 @@ define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKaiPci(ptr nocapture noundef rea
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
-  %.021 = phi i32 [ %3, %.lr.ph.preheader ], [ %9, %24 ]
-  %.01620 = phi ptr [ %2, %.lr.ph.preheader ], [ %.1, %24 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
+  %.021 = phi i32 [ %3, %.lr.ph.preheader ], [ %9, %17 ]
+  %.01620 = phi ptr [ %2, %.lr.ph.preheader ], [ %18, %17 ]
   %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %8 = icmp sgt i8 %7, 0
@@ -1215,43 +1215,28 @@ define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKaiPci(ptr nocapture noundef rea
   br i1 %10, label %._crit_edge, label %11
 
 11:                                               ; preds = %.lr.ph
-  br i1 %8, label %12, label %14
+  br i1 %8, label %17, label %_ZL10utf8_writePht.exit
 
-12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %.01620, i64 1
-  store i8 %7, ptr %.01620, align 1
-  br label %24
+_ZL10utf8_writePht.exit:                          ; preds = %11
+  %12 = lshr i8 %7, 6
+  %13 = or disjoint i8 %12, -64
+  %14 = and i8 %7, 63
+  %15 = or disjoint i8 %14, -128
+  %16 = getelementptr inbounds i8, ptr %.01620, i64 1
+  store i8 %15, ptr %16, align 1
+  br label %17
 
-14:                                               ; preds = %11
-  %15 = zext i8 %7 to i16
-  %16 = add nsw i16 %15, -1
-  %or.cond.i = icmp ult i16 %16, 127
-  br i1 %or.cond.i, label %_ZL10utf8_writePht.exit, label %17
-
-17:                                               ; preds = %14
-  %18 = lshr i8 %7, 6
-  %19 = or disjoint i8 %18, -64
-  %20 = and i8 %7, 63
-  %21 = or disjoint i8 %20, -128
-  %22 = getelementptr inbounds i8, ptr %.01620, i64 1
-  store i8 %21, ptr %22, align 1
-  br label %_ZL10utf8_writePht.exit
-
-_ZL10utf8_writePht.exit:                          ; preds = %14, %17
-  %.sink = phi i8 [ %19, %17 ], [ %7, %14 ]
-  %.sink.i = phi i64 [ 2, %17 ], [ 1, %14 ]
+17:                                               ; preds = %11, %_ZL10utf8_writePht.exit
+  %.sink25 = phi i64 [ 2, %_ZL10utf8_writePht.exit ], [ 1, %11 ]
+  %.sink = phi i8 [ %13, %_ZL10utf8_writePht.exit ], [ %7, %11 ]
+  %18 = getelementptr inbounds i8, ptr %.01620, i64 %.sink25
   store i8 %.sink, ptr %.01620, align 1
-  %23 = getelementptr inbounds i8, ptr %.01620, i64 %.sink.i
-  br label %24
-
-24:                                               ; preds = %12, %_ZL10utf8_writePht.exit
-  %.1 = phi ptr [ %13, %12 ], [ %23, %_ZL10utf8_writePht.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %24, %.lr.ph, %4
-  %.016.lcssa = phi ptr [ %2, %4 ], [ %.01620, %.lr.ph ], [ %.1, %24 ]
+._crit_edge:                                      ; preds = %17, %.lr.ph, %4
+  %.016.lcssa = phi ptr [ %2, %4 ], [ %.01620, %.lr.ph ], [ %18, %17 ]
   store i8 0, ptr %.016.lcssa, align 1
   ret ptr %2
 }
@@ -1416,10 +1401,10 @@ _ZN7UNICODE11utf8_lengthIaEEiPKT_i.exit:          ; preds = %.lr.ph.i, %2
   %wide.trip.count.i10 = zext nneg i32 %12 to i64
   br label %.lr.ph.i11
 
-.lr.ph.i11:                                       ; preds = %32, %.lr.ph.preheader.i9
-  %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.preheader.i9 ], [ %indvars.iv.next.i13, %32 ]
-  %.021.i = phi i32 [ %9, %.lr.ph.preheader.i9 ], [ %17, %32 ]
-  %.01620.i = phi ptr [ %11, %.lr.ph.preheader.i9 ], [ %.1.i, %32 ]
+.lr.ph.i11:                                       ; preds = %25, %.lr.ph.preheader.i9
+  %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.preheader.i9 ], [ %indvars.iv.next.i13, %25 ]
+  %.021.i = phi i32 [ %9, %.lr.ph.preheader.i9 ], [ %17, %25 ]
+  %.01620.i = phi ptr [ %11, %.lr.ph.preheader.i9 ], [ %26, %25 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i12
   %15 = load i8, ptr %14, align 1
   %16 = icmp sgt i8 %15, 0
@@ -1429,43 +1414,28 @@ _ZN7UNICODE11utf8_lengthIaEEiPKT_i.exit:          ; preds = %.lr.ph.i, %2
   br i1 %18, label %_ZN7UNICODE7as_utf8EPKaiPci.exit, label %19
 
 19:                                               ; preds = %.lr.ph.i11
-  br i1 %16, label %20, label %22
+  br i1 %16, label %25, label %_ZL10utf8_writePht.exit.i
 
-20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %.01620.i, i64 1
-  store i8 %15, ptr %.01620.i, align 1
-  br label %32
+_ZL10utf8_writePht.exit.i:                        ; preds = %19
+  %20 = lshr i8 %15, 6
+  %21 = or disjoint i8 %20, -64
+  %22 = and i8 %15, 63
+  %23 = or disjoint i8 %22, -128
+  %24 = getelementptr inbounds i8, ptr %.01620.i, i64 1
+  store i8 %23, ptr %24, align 1
+  br label %25
 
-22:                                               ; preds = %19
-  %23 = zext i8 %15 to i16
-  %24 = add nsw i16 %23, -1
-  %or.cond.i.i = icmp ult i16 %24, 127
-  br i1 %or.cond.i.i, label %_ZL10utf8_writePht.exit.i, label %25
-
-25:                                               ; preds = %22
-  %26 = lshr i8 %15, 6
-  %27 = or disjoint i8 %26, -64
-  %28 = and i8 %15, 63
-  %29 = or disjoint i8 %28, -128
-  %30 = getelementptr inbounds i8, ptr %.01620.i, i64 1
-  store i8 %29, ptr %30, align 1
-  br label %_ZL10utf8_writePht.exit.i
-
-_ZL10utf8_writePht.exit.i:                        ; preds = %25, %22
-  %.sink.i = phi i8 [ %27, %25 ], [ %15, %22 ]
-  %.sink.i.i = phi i64 [ 2, %25 ], [ 1, %22 ]
+25:                                               ; preds = %_ZL10utf8_writePht.exit.i, %19
+  %.sink25.i = phi i64 [ 2, %_ZL10utf8_writePht.exit.i ], [ 1, %19 ]
+  %.sink.i = phi i8 [ %21, %_ZL10utf8_writePht.exit.i ], [ %15, %19 ]
+  %26 = getelementptr inbounds i8, ptr %.01620.i, i64 %.sink25.i
   store i8 %.sink.i, ptr %.01620.i, align 1
-  %31 = getelementptr inbounds i8, ptr %.01620.i, i64 %.sink.i.i
-  br label %32
-
-32:                                               ; preds = %_ZL10utf8_writePht.exit.i, %20
-  %.1.i = phi ptr [ %21, %20 ], [ %31, %_ZL10utf8_writePht.exit.i ]
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, %wide.trip.count.i10
   br i1 %exitcond.not.i14, label %_ZN7UNICODE7as_utf8EPKaiPci.exit, label %.lr.ph.i11, !llvm.loop !20
 
-_ZN7UNICODE7as_utf8EPKaiPci.exit:                 ; preds = %.lr.ph.i11, %32, %_ZN7UNICODE11utf8_lengthIaEEiPKT_i.exit
-  %.016.lcssa.i = phi ptr [ %11, %_ZN7UNICODE11utf8_lengthIaEEiPKT_i.exit ], [ %.1.i, %32 ], [ %.01620.i, %.lr.ph.i11 ]
+_ZN7UNICODE7as_utf8EPKaiPci.exit:                 ; preds = %.lr.ph.i11, %25, %_ZN7UNICODE11utf8_lengthIaEEiPKT_i.exit
+  %.016.lcssa.i = phi ptr [ %11, %_ZN7UNICODE11utf8_lengthIaEEiPKT_i.exit ], [ %26, %25 ], [ %.01620.i, %.lr.ph.i11 ]
   store i8 0, ptr %.016.lcssa.i, align 1
   store i32 %.0.lcssa.i, ptr %1, align 4
   ret ptr %11

@@ -7020,9 +7020,8 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_114promoteTypeIdsERN4llvm6ModuleE
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %4, align 8
   %18 = load i8, ptr %17, align 4
-  %19 = zext i8 %18 to i32
-  %.off.i.i.i.i.i.i.i.i = add nsw i32 %19, -5
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 31
+  %19 = add i8 %18, -5
+  %switch.i.i.i.i.i.i.i.i = icmp ult i8 %19, 31
   br i1 %switch.i.i.i.i.i.i.i.i, label %20, label %_ZN4llvm8CallBase13setArgOperandEjPNS_5ValueE.exit
 
 20:                                               ; preds = %3

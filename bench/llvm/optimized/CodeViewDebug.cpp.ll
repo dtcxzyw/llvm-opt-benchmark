@@ -6018,9 +6018,8 @@ _ZNK4llvm10DIVariable8getScopeEv.exit:            ; preds = %509, %513
 
 519:                                              ; preds = %_ZNK4llvm10DIVariable8getScopeEv.exit
   %520 = load i8, ptr %518, align 4
-  %521 = zext i8 %520 to i32
-  %.off.i.i.i.i.i.i.i.i = add nsw i32 %521, -18
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 3
+  %521 = add i8 %520, -18
+  %switch.i.i.i.i.i.i.i.i = icmp ult i8 %521, 3
   br i1 %switch.i.i.i.i.i.i.i.i, label %522, label %567
 
 522:                                              ; preds = %519
@@ -23003,9 +23002,8 @@ _ZN4llvm16dyn_cast_or_nullINS_13DIDerivedTypeENS_8MetadataEEEDaPT0_.exit.thread:
 
 60:                                               ; preds = %59
   %61 = load i8, ptr %.0, align 4
-  %62 = zext i8 %61 to i32
-  %.off.i.i.i.i.i.i.i.i = add nsw i32 %62, -18
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 3
+  %62 = add i8 %61, -18
+  %switch.i.i.i.i.i.i.i.i = icmp ult i8 %62, 3
   br i1 %switch.i.i.i.i.i.i.i.i, label %.critedge, label %86
 
 .critedge:                                        ; preds = %60, %_ZN4llvm16dyn_cast_or_nullINS_13DIDerivedTypeENS_8MetadataEEEDaPT0_.exit.thread

@@ -350,7 +350,6 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.load.i.fr = freeze i16 %bf.load.i
   %bf.clear.i = and i16 %bf.load.i.fr, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   %cmp.i.not88 = icmp eq ptr %spec.select.i.i, %add.ptr.i.i
   br i1 %cmp.i.not88, label %for.end, label %invoke.cont10.lr.ph
 
@@ -672,8 +671,8 @@ if.else.i.i32:                                    ; preds = %sw.bb62
   br i1 %cmp12.i.i33, label %if.then13.i.i49.invoke, label %cleanup71
 
 sw.default:                                       ; preds = %for.end
-  %33 = add nsw i32 %bf.cast.i, -43
-  %34 = icmp ult i32 %33, -2
+  %33 = add nsw i16 %bf.clear.i, -43
+  %34 = icmp ult i16 %33, -2
   %or.cond.not = and i1 %34, %isInteger.1
   %integerType.val = load ptr, ptr %integerType, align 8
   %realType.val = load ptr, ptr %realType, align 8

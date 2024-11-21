@@ -2101,8 +2101,8 @@ land.lhs.true183:                                 ; preds = %if.end.i214, %cond.
   %retval.0.i222.ph = phi i32 [ -1, %cond.true.i ], [ -1, %cond.false.i ], [ 1, %if.end.i214 ]
   %cmp186 = icmp eq i32 %len.0341, 0
   %or.cond5.not205 = select i1 %cmp16.i, i1 true, i1 %cmp186
-  %49 = add nsw i32 %and15.i, -160
-  %50 = icmp ult i32 %49, 96
+  %49 = add nsw i16 %48, -160
+  %50 = icmp ult i16 %49, 96
   %or.cond7 = select i1 %or.cond5.not205, i1 %50, i1 false
   br i1 %or.cond7, label %if.then191, label %for.inc213
 
@@ -3670,9 +3670,9 @@ if.then49.i:                                      ; preds = %if.end29
   br label %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread
 
 if.else50.i:                                      ; preds = %if.end29
-  %29 = add nsw i32 %conv22, -63744
-  %cmp53.i = icmp ult i32 %29, -6400
-  %or.cond30.i.not155 = select i1 %tobool51.not.i, i1 %cmp53.i, i1 false
+  %29 = add i16 %22, 1792
+  %cmp53.i = icmp ult i16 %29, -6400
+  %or.cond30.i.not155 = and i1 %tobool51.not.i, %cmp53.i
   %cmp57.old.not.i = icmp eq i16 %28, 0
   %or.cond128 = select i1 %or.cond30.i.not155, i1 true, i1 %cmp57.old.not.i
   br i1 %or.cond128, label %if.end62.i, label %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread118

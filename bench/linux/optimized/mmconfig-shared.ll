@@ -367,8 +367,8 @@ define internal noundef range(i32 -22, 1) i32 @pci_parse_mcfg(ptr noundef readon
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 1
   %6 = zext i32 %5 to i64
-  %7 = add nsw i64 %6, -44
-  %8 = icmp ult i64 %7, 16
+  %7 = add i32 %5, -44
+  %8 = icmp ult i32 %7, 16
   %9 = add nuw nsw i64 %6, 68719476676
   %10 = lshr i64 %9, 4
   %11 = trunc i64 %10 to i32

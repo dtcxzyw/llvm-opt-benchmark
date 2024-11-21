@@ -6304,9 +6304,8 @@ for.body102.i.i:                                  ; preds = %for.cond100.prehead
 
 cleanup.i.i:                                      ; preds = %for.body102.i.i, %for.cond100.preheader.i.i
   %next.3.lcssa.i.i = phi i16 [ %next.2.lcssa.i.i, %for.cond100.preheader.i.i ], [ %inc108.i.i, %for.body102.i.i ]
-  %conv119.i.i = zext i16 %next.3.lcssa.i.i to i32
-  %363 = add nsw i32 %conv119.i.i, -1
-  %cmp122.i.i = icmp ult i32 %363, 16384
+  %363 = add i16 %next.3.lcssa.i.i, -1
+  %cmp122.i.i = icmp ult i16 %363, 16384
   %tobool.not.i.i.i174.i.i = icmp eq ptr %wideState.sroa.0.2.i.i, null
   br i1 %tobool.not.i.i.i174.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit176.i.i, label %if.then.i.i.i175.i.i
 

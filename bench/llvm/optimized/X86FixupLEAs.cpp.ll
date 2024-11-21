@@ -597,9 +597,8 @@ _ZNK4llvm4Pass11getAnalysisINS_33LazyMachineBlockFrequencyInfoPassEEERT_v.exit: 
   %.sroa.0164.0230 = phi ptr [ %.sroa.0164.0228, %.lr.ph ], [ %.sroa.0164.0, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
   %267 = getelementptr inbounds nuw i8, ptr %.sroa.0164.0230, i64 68
   %268 = load i16, ptr %267, align 4
-  %269 = zext i16 %268 to i32
-  %.off.i = add nsw i32 %269, -2094
-  %switch.i = icmp ult i32 %.off.i, 3
+  %269 = add i16 %268, -2094
+  %switch.i = icmp ult i16 %269, 3
   br i1 %switch.i, label %270, label %1207
 
 270:                                              ; preds = %266

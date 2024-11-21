@@ -4226,33 +4226,32 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit249:      ; preds = %_ZNK6icu_7513Unicod
   %arrayidx.i.i248 = getelementptr inbounds i16, ptr %cond.i2.i.i246, i64 %indvars.iv
   %85 = load i16, ptr %arrayidx.i.i248, align 2
   %86 = and i16 %85, -33
-  %87 = zext i16 %86 to i32
-  %88 = add nsw i32 %87, -91
-  %narrow.i = icmp ult i32 %88, -26
+  %87 = add i16 %86, -91
+  %narrow.i = icmp ult i16 %87, -26
   br i1 %narrow.i, label %while.end.loopexit.split.loop.exit374, label %while.body
 
 while.body:                                       ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit249
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp43 = icmp slt i64 %indvars.iv.next, %84
-  %89 = trunc nsw i64 %indvars.iv.next to i32
-  %cmp.i.i240 = icmp ugt i32 %cond.i234, %89
+  %88 = trunc nsw i64 %indvars.iv.next to i32
+  %cmp.i.i240 = icmp ugt i32 %cond.i234, %88
   %or.cond351 = and i1 %cmp43, %cmp.i.i240
   br i1 %or.cond351, label %_ZNK6icu_7513UnicodeString6charAtEi.exit249, label %while.end, !llvm.loop !15
 
 while.end.loopexit.split.loop.exit374:            ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit249
-  %90 = trunc nsw i64 %indvars.iv to i32
+  %89 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit374, %if.else38
-  %index.addr.1.lcssa = phi i32 [ %call40, %if.else38 ], [ %90, %while.end.loopexit.split.loop.exit374 ], [ %cond.i234, %while.body ]
+  %index.addr.1.lcssa = phi i32 [ %call40, %if.else38 ], [ %89, %while.end.loopexit.split.loop.exit374 ], [ %cond.i234, %while.body ]
   %sub50 = sub nsw i32 %index.addr.1.lcssa, %call40
   %call51 = tail call noundef i32 @_ZN6icu_7514MessagePattern14skipWhiteSpaceEi(ptr noundef nonnull align 8 dereferenceable(127) %this, i32 noundef %index.addr.1.lcssa)
-  %91 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i252 = icmp slt i16 %91, 0
-  %92 = ashr i16 %91, 5
-  %shr.i.i253 = sext i16 %92 to i32
-  %93 = load i32, ptr %fLength.i.i, align 4
-  %cond.i255 = select i1 %cmp.i.i252, i32 %93, i32 %shr.i.i253
+  %90 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i252 = icmp slt i16 %90, 0
+  %91 = ashr i16 %90, 5
+  %shr.i.i253 = sext i16 %91 to i32
+  %92 = load i32, ptr %fLength.i.i, align 4
+  %cond.i255 = select i1 %cmp.i.i252, i32 %92, i32 %shr.i.i253
   %cmp54 = icmp eq i32 %call51, %cond.i255
   br i1 %cmp54, label %if.then55, label %if.end56
 
@@ -4268,14 +4267,14 @@ if.end56:                                         ; preds = %while.end
   br i1 %or.cond352, label %_ZNK6icu_7513UnicodeString6charAtEi.exit270, label %if.then65
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit270:      ; preds = %if.end56
-  %94 = and i16 %91, 2
-  %tobool.not.i.i.i264 = icmp eq i16 %94, 0
-  %95 = load ptr, ptr %fArray.i.i.i, align 8
-  %cond.i2.i.i267 = select i1 %tobool.not.i.i.i264, ptr %95, ptr %fBuffer.i.i.i
+  %93 = and i16 %90, 2
+  %tobool.not.i.i.i264 = icmp eq i16 %93, 0
+  %94 = load ptr, ptr %fArray.i.i.i, align 8
+  %cond.i2.i.i267 = select i1 %tobool.not.i.i.i264, ptr %94, ptr %fBuffer.i.i.i
   %idxprom.i.i268 = sext i32 %call51 to i64
   %arrayidx.i.i269 = getelementptr inbounds i16, ptr %cond.i2.i.i267, i64 %idxprom.i.i268
-  %96 = load i16, ptr %arrayidx.i.i269, align 2
-  switch i16 %96, label %if.then65 [
+  %95 = load i16, ptr %arrayidx.i.i269, align 2
+  switch i16 %95, label %if.then65 [
     i16 125, label %if.end66
     i16 44, label %if.end66
   ]
@@ -4314,10 +4313,10 @@ if.else79:                                        ; preds = %if.else75
   %call80 = tail call noundef signext i8 @_ZN6icu_7514MessagePattern8isSelectEi(ptr noundef nonnull align 8 dereferenceable(127) %this, i32 noundef %call40)
   %tobool81.not = icmp eq i8 %call80, 0
   %conv99307 = select i1 %tobool81.not, i16 1, i16 4
-  %97 = load ptr, ptr %partsList.i, align 8
+  %96 = load ptr, ptr %partsList.i, align 8
   %conv100308 = sext i32 %0 to i64
-  %98 = load ptr, ptr %97, align 8
-  %value310 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %98, i64 %conv100308, i32 3
+  %97 = load ptr, ptr %96, align 8
+  %value310 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %97, i64 %conv100308, i32 3
   store i16 %conv99307, ptr %value310, align 2
   br i1 %tobool81.not, label %if.end104.thread362, label %if.end104
 
@@ -4327,10 +4326,10 @@ if.then88:                                        ; preds = %if.end69
   br i1 %tobool90.not, label %if.end98.thread, label %if.end98
 
 if.end98.thread:                                  ; preds = %if.then88, %if.end69
-  %99 = load ptr, ptr %partsList.i, align 8
+  %98 = load ptr, ptr %partsList.i, align 8
   %conv100289 = sext i32 %0 to i64
-  %100 = load ptr, ptr %99, align 8
-  %value291 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %100, i64 %conv100289, i32 3
+  %99 = load ptr, ptr %98, align 8
+  %value291 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %99, i64 %conv100289, i32 3
   store i16 1, ptr %value291, align 2
   br label %if.end104.thread362
 
@@ -4339,39 +4338,39 @@ if.end98:                                         ; preds = %if.then88
   %call93 = tail call noundef signext i8 @_ZN6icu_7514MessagePattern9isOrdinalEi(ptr noundef nonnull align 8 dereferenceable(127) %this, i32 noundef %add92)
   %tobool94.not = icmp eq i8 %call93, 0
   %conv99 = select i1 %tobool94.not, i16 1, i16 5
-  %101 = load ptr, ptr %partsList.i, align 8
+  %100 = load ptr, ptr %partsList.i, align 8
   %conv100 = sext i32 %0 to i64
-  %102 = load ptr, ptr %101, align 8
-  %value = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %102, i64 %conv100, i32 3
+  %101 = load ptr, ptr %100, align 8
+  %value = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %101, i64 %conv100, i32 3
   store i16 %conv99, ptr %value, align 2
   br i1 %tobool94.not, label %if.end104.thread362, label %if.end104
 
 if.end104:                                        ; preds = %if.else79, %if.end98
   %argType.1296 = phi i32 [ 5, %if.end98 ], [ 4, %if.else79 ]
-  %cmp106 = icmp eq i16 %96, 125
+  %cmp106 = icmp eq i16 %95, 125
   br i1 %cmp106, label %if.then109, label %if.else120
 
 if.end104.thread362:                              ; preds = %if.end98, %if.end98.thread, %if.else79
   tail call void @_ZN6icu_7514MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %this, i32 noundef 9, i32 noundef %call40, i32 noundef %sub50, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %cmp106365 = icmp eq i16 %96, 125
+  %cmp106365 = icmp eq i16 %95, 125
   br i1 %cmp106365, label %if.end126, label %if.then114
 
 if.end104.thread:                                 ; preds = %if.then71
-  %103 = load ptr, ptr %partsList.i, align 8
+  %102 = load ptr, ptr %partsList.i, align 8
   %conv100304 = sext i32 %0 to i64
-  %104 = load ptr, ptr %103, align 8
-  %value306 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %104, i64 %conv100304, i32 3
+  %103 = load ptr, ptr %102, align 8
+  %value306 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %103, i64 %conv100304, i32 3
   store i16 2, ptr %value306, align 2
-  %cmp106314 = icmp eq i16 %96, 125
+  %cmp106314 = icmp eq i16 %95, 125
   br i1 %cmp106314, label %if.then109, label %if.then118
 
 if.end104.thread.thread:                          ; preds = %if.else75
-  %105 = load ptr, ptr %partsList.i, align 8
+  %104 = load ptr, ptr %partsList.i, align 8
   %conv100304341 = sext i32 %0 to i64
-  %106 = load ptr, ptr %105, align 8
-  %value306343 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %106, i64 %conv100304341, i32 3
+  %105 = load ptr, ptr %104, align 8
+  %value306343 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %105, i64 %conv100304341, i32 3
   store i16 3, ptr %value306343, align 2
-  %cmp106314344 = icmp eq i16 %96, 125
+  %cmp106314344 = icmp eq i16 %95, 125
   br i1 %cmp106314344, label %if.then109, label %if.else120
 
 if.then109:                                       ; preds = %if.end104, %if.end104.thread.thread, %if.end104.thread

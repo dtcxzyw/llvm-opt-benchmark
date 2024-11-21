@@ -30318,9 +30318,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_19AsmParser16checkForBadMacroEN4llv
   ]
 
 18:                                               ; preds = %15
-  %19 = zext i8 %17 to i32
-  %isdigittmp = add nsw i32 %19, -48
-  %isdigit = icmp ult i32 %isdigittmp, 10
+  %19 = add i8 %17, -48
+  %isdigit = icmp ult i8 %19, 10
   br i1 %isdigit, label %21, label %20
 
 20:                                               ; preds = %14, %18

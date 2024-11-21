@@ -978,9 +978,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockElNS_12DenseMapInfoIS
   %.2297.i = phi i64 [ %.3.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ], [ %353, %352 ]
   %357 = getelementptr inbounds nuw i8, ptr %.sroa.0192.0298.i, i64 68
   %358 = load i16, ptr %357, align 4
-  %359 = zext i16 %358 to i32
-  %.off.i = add nsw i32 %359, -1577
-  %switch.i = icmp ult i32 %.off.i, 2
+  %359 = add i16 %358, -1577
+  %switch.i = icmp ult i16 %359, 2
   br i1 %switch.i, label %360, label %631
 
 360:                                              ; preds = %.lr.ph300.i

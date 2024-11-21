@@ -1935,48 +1935,38 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, 127
-  %8 = zext nneg i16 %7 to i32
-  %9 = add nsw i32 %8, -59
-  %10 = icmp ult i32 %9, -2
-  br i1 %10, label %_ZNK5clang4Decl14getDeclContextEv.exit12, label %18
+  %8 = add nsw i16 %7, -59
+  %9 = icmp ult i16 %8, -2
+  br i1 %9, label %_ZNK5clang4Decl14getDeclContextEv.exit12, label %16
 
 _ZNK5clang4Decl14getDeclContextEv.exit.thread:    ; preds = %0
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i16, ptr %12, align 8
-  %14 = and i16 %13, 127
-  %15 = zext nneg i16 %14 to i32
-  %16 = add nsw i32 %15, -59
-  %17 = icmp ult i32 %16, -2
-  br i1 %17, label %21, label %18
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i16, ptr %11, align 8
+  %13 = and i16 %12, 127
+  %14 = add nsw i16 %13, -59
+  %15 = icmp ult i16 %14, -2
+  br i1 %15, label %_ZNK5clang4Decl14getDeclContextEv.exit12, label %16
 
-18:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread, %_ZNK5clang4Decl14getDeclContextEv.exit
-  %.0.i.i2 = phi ptr [ %11, %_ZNK5clang4Decl14getDeclContextEv.exit.thread ], [ %4, %_ZNK5clang4Decl14getDeclContextEv.exit ]
-  %19 = getelementptr inbounds i8, ptr %.0.i.i2, i64 -64
-  %20 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl31getTemplateInstantiationPatternEv(ptr noundef nonnull align 8 dereferenceable(144) %19) #9
-  br label %32
+16:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread, %_ZNK5clang4Decl14getDeclContextEv.exit
+  %.pn = phi ptr [ %10, %_ZNK5clang4Decl14getDeclContextEv.exit.thread ], [ %4, %_ZNK5clang4Decl14getDeclContextEv.exit ]
+  %spec.select.i.i4 = getelementptr inbounds i8, ptr %.pn, i64 -64
+  %17 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl31getTemplateInstantiationPatternEv(ptr noundef nonnull align 8 dereferenceable(144) %spec.select.i.i4) #9
+  br label %22
 
-21:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread
-  %22 = load ptr, ptr %4, align 8
-  br label %_ZNK5clang4Decl14getDeclContextEv.exit12
+_ZNK5clang4Decl14getDeclContextEv.exit12:         ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread, %_ZNK5clang4Decl14getDeclContextEv.exit
+  %.pre-phi5 = phi i16 [ %8, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ %14, %_ZNK5clang4Decl14getDeclContextEv.exit.thread ]
+  %.0.i.i11 = phi ptr [ %4, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ %10, %_ZNK5clang4Decl14getDeclContextEv.exit.thread ]
+  %18 = icmp ult i16 %.pre-phi5, -3
+  br i1 %18, label %22, label %19
 
-_ZNK5clang4Decl14getDeclContextEv.exit12:         ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %21
-  %.0.i.i11 = phi ptr [ %22, %21 ], [ %4, %_ZNK5clang4Decl14getDeclContextEv.exit ]
-  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i11, i64 8
-  %24 = load i16, ptr %23, align 8
-  %25 = and i16 %24, 127
-  %26 = zext nneg i16 %25 to i32
-  %27 = add nsw i32 %26, -59
-  %28 = icmp ult i32 %27, -3
-  br i1 %28, label %32, label %29
+19:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit12
+  %20 = getelementptr inbounds i8, ptr %.0.i.i11, i64 -64
+  %21 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl30getInstantiatedFromMemberClassEv(ptr noundef nonnull align 8 dereferenceable(144) %20) #9
+  br label %22
 
-29:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit12
-  %30 = getelementptr inbounds i8, ptr %.0.i.i11, i64 -64
-  %31 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl30getInstantiatedFromMemberClassEv(ptr noundef nonnull align 8 dereferenceable(144) %30) #9
-  br label %32
-
-32:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit12, %29, %18
-  %.0 = phi ptr [ %20, %18 ], [ %31, %29 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit12 ]
+22:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit12, %19, %16
+  %.0 = phi ptr [ %17, %16 ], [ %21, %19 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit12 ]
   ret ptr %.0
 }
 

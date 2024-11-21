@@ -5984,20 +5984,19 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17X86TargetLowering22mayBeEmittedA
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 3
-  %6 = zext nneg i16 %5 to i32
-  %7 = add nsw i32 %6, -1
-  %8 = icmp ult i32 %7, 2
-  br i1 %8, label %9, label %14
+  %6 = add nsw i16 %5, -1
+  %7 = icmp ult i16 %6, 2
+  br i1 %7, label %8, label %13
 
-9:                                                ; preds = %2
-  %10 = lshr i16 %4, 2
-  %11 = and i16 %10, 1023
-  %12 = zext nneg i16 %11 to i32
-  %13 = tail call fastcc noundef zeroext i1 @_ZL17mayTailCallThisCCj(i32 noundef %12)
-  br label %14
+8:                                                ; preds = %2
+  %9 = lshr i16 %4, 2
+  %10 = and i16 %9, 1023
+  %11 = zext nneg i16 %10 to i32
+  %12 = tail call fastcc noundef zeroext i1 @_ZL17mayTailCallThisCCj(i32 noundef %11)
+  br label %13
 
-14:                                               ; preds = %9, %2
-  %.0 = phi i1 [ false, %2 ], [ %13, %9 ]
+13:                                               ; preds = %8, %2
+  %.0 = phi i1 [ false, %2 ], [ %12, %8 ]
   ret i1 %.0
 }
 
@@ -13641,9 +13640,8 @@ _ZNK4llvm7SDValue18getValueSizeInBitsEv.exit:     ; preds = %19, %23
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 68
   %68 = load i16, ptr %67, align 4
-  %69 = zext i16 %68 to i32
-  %.off = add nsw i32 %69, -2094
-  %switch = icmp ult i32 %.off, 3
+  %69 = add i16 %68, -2094
+  %switch = icmp ult i16 %69, 3
   br i1 %switch, label %70, label %.thread113
 
 70:                                               ; preds = %66

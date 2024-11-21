@@ -8275,11 +8275,10 @@ _ZNK5clang4Decl14getDeclContextEv.exit53.thread.i: ; preds = %_ZNK5clang4Decl14g
 _ZN4llvm16dyn_cast_or_nullIN5clang17ObjCContainerDeclEKNS1_11DeclContextEEEDaPT0_.exit.i: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit53.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit53.i
   %.pre-phi = phi i16 [ %37, %_ZNK5clang4Decl14getDeclContextEv.exit53.thread.i ], [ %33, %_ZNK5clang4Decl14getDeclContextEv.exit53.i ]
   %.0.i.i57.i = phi ptr [ %34, %_ZNK5clang4Decl14getDeclContextEv.exit53.thread.i ], [ %30, %_ZNK5clang4Decl14getDeclContextEv.exit53.i ]
-  %61 = zext nneg i16 %.pre-phi to i32
-  %62 = add nsw i32 %61, -16
-  %63 = icmp ult i32 %62, 5
-  %64 = getelementptr inbounds i8, ptr %.0.i.i57.i, i64 -48
-  %spec.select.i.i.i.i = select i1 %63, ptr %64, ptr null
+  %61 = add nsw i16 %.pre-phi, -16
+  %62 = icmp ult i16 %61, 5
+  %63 = getelementptr inbounds i8, ptr %.0.i.i57.i, i64 -48
+  %spec.select.i.i.i.i = select i1 %62, ptr %63, ptr null
   tail call fastcc void @_ZL31CollectOverriddenMethodsRecursePKN5clang17ObjCContainerDeclEPKNS_14ObjCMethodDeclERN4llvm15SmallVectorImplIS5_EEb(ptr noundef %spec.select.i.i.i.i, ptr noundef nonnull %.0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext false)
   br label %_ZL28collectOverriddenMethodsSlowPKN5clang14ObjCMethodDeclERN4llvm15SmallVectorImplIS2_EE.exit
 

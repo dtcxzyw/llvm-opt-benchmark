@@ -9135,9 +9135,8 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread: ; preds = %63, %84, 
   br label %.loopexit
 
 113:                                              ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread
-  %114 = zext i8 %105 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %114, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %114 = add i8 %105, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %114, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %115, label %.loopexit
 
 115:                                              ; preds = %113

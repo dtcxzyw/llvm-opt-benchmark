@@ -3666,19 +3666,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8CallBase14isMustTailCallEv(ptr no
 define dso_local noundef zeroext i1 @_ZNK4llvm8CallBase10isTailCallEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #6 align 2 {
   %2 = load i8, ptr %0, align 8
   %.not = icmp eq i8 %2, 85
-  br i1 %.not, label %3, label %10
-
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %5 = load i16, ptr %4, align 2
-  %6 = and i16 %5, 3
-  %7 = zext nneg i16 %6 to i32
-  %8 = add nsw i32 %7, -1
-  %9 = icmp ult i32 %8, 2
-  br label %10
-
-10:                                               ; preds = %1, %3
-  %.0 = phi i1 [ %9, %3 ], [ false, %1 ]
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %4 = load i16, ptr %3, align 2
+  %5 = and i16 %4, 3
+  %6 = add nsw i16 %5, -1
+  %7 = icmp ult i16 %6, 2
+  %.0 = select i1 %.not, i1 %7, i1 false
   ret i1 %.0
 }
 

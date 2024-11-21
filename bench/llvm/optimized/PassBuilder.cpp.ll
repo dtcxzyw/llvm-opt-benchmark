@@ -200898,33 +200898,32 @@ define internal void @_ZN4llvm6detail9PassModelINS_8FunctionEN12_GLOBAL__N_124Tr
 15:                                               ; preds = %4
   %16 = getelementptr inbounds i8, ptr %13, i64 -24
   %17 = load i8, ptr %16, align 8, !noalias !3742
-  %18 = zext i8 %17 to i32
-  %19 = add nsw i32 %18, -30
-  %20 = icmp ult i32 %19, 11
-  %spec.select.i.i.i = select i1 %20, ptr %16, ptr null
+  %18 = add i8 %17, -30
+  %19 = icmp ult i8 %18, 11
+  %spec.select.i.i.i = select i1 %19, ptr %16, ptr null
   br label %_ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE.exit
 
 _ZN12_GLOBAL__N_124TriggerVerifierErrorPass3runERN4llvm8FunctionERNS1_15AnalysisManagerIS2_JEEE.exit: ; preds = %4, %15
   %.0.i.i.i = phi ptr [ null, %4 ], [ %spec.select.i.i.i, %15 ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
-  tail call void @_ZN4llvm15UnreachableInstC1ERNS_11LLVMContextENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr nonnull %21, i64 0) #25, !noalias !3742
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %22, i8 0, i64 72, i1 false), !alias.scope !3745
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %23, ptr %0, align 8, !alias.scope !3745
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %23, ptr %24, align 8, !alias.scope !3745
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 2, ptr %25, align 8, !alias.scope !3745
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %26, align 4, !alias.scope !3745
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %28, ptr %27, align 8, !alias.scope !3745
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %28, ptr %29, align 8, !alias.scope !3745
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 2, ptr %30, align 8, !alias.scope !3745
+  %20 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
+  tail call void @_ZN4llvm15UnreachableInstC1ERNS_11LLVMContextENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr nonnull %20, i64 0) #25, !noalias !3742
+  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %21, i8 0, i64 72, i1 false), !alias.scope !3745
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %22, ptr %0, align 8, !alias.scope !3745
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %22, ptr %23, align 8, !alias.scope !3745
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 2, ptr %24, align 8, !alias.scope !3745
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %25, align 4, !alias.scope !3745
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %27, ptr %26, align 8, !alias.scope !3745
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %27, ptr %28, align 8, !alias.scope !3745
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 2, ptr %29, align 8, !alias.scope !3745
   ret void
 }
 

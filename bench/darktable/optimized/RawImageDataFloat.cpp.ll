@@ -977,11 +977,11 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   tail call void @llvm.assume(i1 %74)
   %75 = zext nneg i32 %45 to i64
   %76 = add nsw i64 %75, -150
-  %77 = add nsw i64 %75, -151
-  %78 = and i64 %76, 7
-  %79 = icmp samesign ult i64 %77, 7
+  %77 = and i64 %76, 7
+  %78 = add nsw i32 %45, -151
+  %79 = icmp samesign ult i32 %78, 7
   %80 = and i64 %76, -8
-  %81 = icmp eq i64 %78, 0
+  %81 = icmp eq i64 %77, 0
   %82 = add nuw nsw i64 %68, 2
   %83 = add nuw nsw i64 %68, 3
   %84 = add nuw nsw i64 %68, 4
@@ -1023,7 +1023,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %107 = select i1 %106, float %99, float %105
   %108 = add nuw nsw i64 %98, 1
   %109 = add nuw nsw i64 %100, 1
-  %110 = icmp eq i64 %109, %78
+  %110 = icmp eq i64 %109, %77
   br i1 %110, label %.loopexit.us, label %97, !llvm.loop !122
 
 .loopexit.us:                                     ; preds = %97
@@ -1224,7 +1224,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %260 = select i1 %259, float %252, float %258
   %261 = add nuw nsw i64 %251, 1
   %262 = add nuw nsw i64 %253, 1
-  %263 = icmp eq i64 %262, %78
+  %263 = icmp eq i64 %262, %77
   br i1 %263, label %.loopexit, label %.loopexit4, !llvm.loop !122
 
 .loopexit:                                        ; preds = %.loopexit4

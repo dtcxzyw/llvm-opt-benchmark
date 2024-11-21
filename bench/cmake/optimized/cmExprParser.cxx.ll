@@ -236,8 +236,8 @@ define dso_local noundef range(i32 0, 3) i32 @_Z14cmExpr_yyparsePv(ptr noundef %
   %71 = getelementptr inbounds [35 x i8], ptr @_ZL7yytable, i64 0, i64 %66
   %72 = load i8, ptr %71, align 1
   %73 = sext i8 %72 to i32
-  %74 = add nsw i64 %66, -31
-  %75 = icmp ult i64 %74, 3
+  %74 = add nsw i32 %64, -31
+  %75 = icmp ult i32 %74, 3
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %70

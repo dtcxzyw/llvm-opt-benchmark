@@ -1087,9 +1087,8 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit.i.i:       ; preds = %135, %_ZNK5clang13L
   %149 = icmp eq i8 %148, 3
   %150 = and i8 %146, 2
   %.0.in.i.i.i = select i1 %149, i8 %150, i8 %148
-  %.0.i39.i.i = zext nneg i8 %.0.in.i.i.i to i32
-  %151 = add nsw i32 %.0.i39.i.i, -1
-  %or.cond.i.i = icmp ult i32 %151, 2
+  %151 = add nsw i8 %.0.in.i.i.i, -1
+  %or.cond.i.i = icmp ult i8 %151, 2
   br i1 %or.cond.i.i, label %368, label %152
 
 152:                                              ; preds = %.lr.ph.i.i
@@ -42376,9 +42375,8 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit.i:         ; preds = %35, %_ZNK5clang13La
   %52 = icmp eq i8 %51, 3
   %53 = and i8 %49, 2
   %.0.in.i.i = select i1 %52, i8 %53, i8 %51
-  %.0.i.i = zext nneg i8 %.0.in.i.i to i32
-  %54 = add nsw i32 %.0.i.i, -1
-  %or.cond.i = icmp ult i32 %54, 2
+  %54 = add nsw i8 %.0.in.i.i, -1
+  %or.cond.i = icmp ult i8 %54, 2
   br i1 %or.cond.i, label %.loopexit.i, label %55
 
 55:                                               ; preds = %47

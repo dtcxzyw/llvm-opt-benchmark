@@ -2488,8 +2488,8 @@ define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr nocapture noun
   br i1 %76, label %.thread, label %89
 
 77:                                               ; preds = %70, %70, %70
-  %78 = add nsw i32 %72, -9
-  %79 = icmp ult i32 %78, 255
+  %78 = add i16 %64, -9
+  %79 = icmp ult i16 %78, 255
   br i1 %79, label %.thread, label %89
 
 80:                                               ; preds = %70

@@ -480,7 +480,7 @@ define internal i32 @dissect_devicenet(ptr noundef %0, ptr noundef %1, ptr nound
 7:                                                ; preds = %4
   %.sroa.0.0.copyload = load i32, ptr %3, align 4
   %.not327 = icmp ult i32 %.sroa.0.0.copyload, 536870912
-  br i1 %.not327, label %8, label %371
+  br i1 %.not327, label %8, label %373
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -574,7 +574,7 @@ proto_item_set_generated.exit341:                 ; preds = %proto_item_set_gene
   tail call void @col_set_str(ptr noundef %57, i32 noundef 25, ptr noundef %58) #5
   %59 = load i32, ptr @hf_devicenet_data, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %59, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef 0) #5
-  br label %369
+  br label %371
 
 61:                                               ; preds = %proto_item_set_generated.exit
   %62 = icmp samesign ult i32 %.sroa.0.0.copyload, 1536
@@ -655,12 +655,12 @@ proto_item_set_generated.exit347:                 ; preds = %proto_item_set_gene
 98:                                               ; preds = %proto_item_set_generated.exit347, %proto_item_set_generated.exit347, %proto_item_set_generated.exit347, %proto_item_set_generated.exit347, %proto_item_set_generated.exit347, %proto_item_set_generated.exit347
   %99 = load i32, ptr @hf_devicenet_data, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %99, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef 0) #5
-  br label %369
+  br label %371
 
 101:                                              ; preds = %proto_item_set_generated.exit347
   %102 = load i32, ptr @hf_devicenet_data, align 4
   %103 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %102, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef 0) #5
-  br label %369
+  br label %371
 
 104:                                              ; preds = %proto_item_set_generated.exit347
   %105 = load i32, ptr @hf_devicenet_dup_mac_id_rr_bit, align 4
@@ -671,11 +671,11 @@ proto_item_set_generated.exit347:                 ; preds = %proto_item_set_gene
   %110 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %109, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #5
   %111 = load i32, ptr @hf_devicenet_dup_mac_id_serial_number, align 4
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %111, ptr noundef %0, i32 noundef 3, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %369
+  br label %371
 
 113:                                              ; preds = %61
   %114 = icmp samesign ult i32 %.sroa.0.0.copyload, 1984
-  br i1 %114, label %115, label %307
+  br i1 %114, label %115, label %309
 
 115:                                              ; preds = %113
   %116 = load i32, ptr @hf_devicenet_grp_msg3_id, align 4
@@ -774,7 +774,7 @@ proto_item_set_generated.exit353:                 ; preds = %proto_item_set_gene
   %174 = zext nneg i8 %173 to i32
   %175 = tail call ptr @val_to_str_const(i32 noundef %174, ptr noundef nonnull @devicenet_fragmented_message_type_vals, ptr noundef nonnull @.str.149) #5
   tail call void @col_set_str(ptr noundef %171, i32 noundef 25, ptr noundef %175) #5
-  br label %369
+  br label %371
 
 176:                                              ; preds = %proto_item_set_generated.exit353
   %177 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
@@ -795,44 +795,44 @@ proto_item_set_generated.exit353:                 ; preds = %proto_item_set_gene
   %190 = load ptr, ptr %9, align 8
   %.str.155..str.154 = select i1 %.not332, ptr @.str.155, ptr @.str.154
   tail call void @col_append_str(ptr noundef %190, i32 noundef 25, ptr noundef nonnull %.str.155..str.154) #5
-  switch i32 %144, label %199 [
+  switch i32 %144, label %201 [
     i32 320, label %191
-    i32 384, label %194
-    i32 448, label %197
+    i32 384, label %195
+    i32 448, label %199
   ]
 
 191:                                              ; preds = %176
-  %.off = add nsw i32 %180, -75
-  %switch = icmp ult i32 %.off, 4
-  br i1 %switch, label %199, label %192
+  %192 = add nsw i8 %179, -75
+  %switch = icmp ult i8 %192, 4
+  br i1 %switch, label %201, label %193
 
-192:                                              ; preds = %191
-  %193 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %187, ptr noundef nonnull @ei_devicenet_invalid_service, ptr noundef nonnull @.str.156, i32 noundef %180) #5
-  br label %199
+193:                                              ; preds = %191
+  %194 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %187, ptr noundef nonnull @ei_devicenet_invalid_service, ptr noundef nonnull @.str.156, i32 noundef %180) #5
+  br label %201
 
-194:                                              ; preds = %176
-  %.off334 = add nsw i32 %180, -75
-  %switch335 = icmp ult i32 %.off334, 2
-  br i1 %switch335, label %199, label %195
+195:                                              ; preds = %176
+  %196 = add nsw i8 %179, -75
+  %switch335 = icmp ult i8 %196, 2
+  br i1 %switch335, label %201, label %197
 
-195:                                              ; preds = %194
-  %196 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %187, ptr noundef nonnull @ei_devicenet_invalid_service, ptr noundef nonnull @.str.157, i32 noundef %180) #5
-  br label %199
+197:                                              ; preds = %195
+  %198 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %187, ptr noundef nonnull @ei_devicenet_invalid_service, ptr noundef nonnull @.str.157, i32 noundef %180) #5
+  br label %201
 
-197:                                              ; preds = %176
-  %198 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %117, ptr noundef nonnull @ei_devicenet_invalid_msg_id, ptr noundef nonnull @.str.158, i32 noundef 448) #5
-  br label %199
+199:                                              ; preds = %176
+  %200 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %117, ptr noundef nonnull @ei_devicenet_invalid_msg_id, ptr noundef nonnull @.str.158, i32 noundef 448) #5
+  br label %201
 
-199:                                              ; preds = %194, %191, %195, %192, %197, %176
-  switch i8 %179, label %228 [
-    i8 75, label %205
-    i8 76, label %224
+201:                                              ; preds = %195, %191, %197, %193, %199, %176
+  switch i8 %179, label %230 [
+    i8 75, label %207
+    i8 76, label %226
     i8 0, label %.preheader
   ]
 
-.preheader:                                       ; preds = %199
-  %200 = load i32, ptr @num_devicenet_records_uat, align 4
-  %.not363 = icmp eq i32 %200, 0
+.preheader:                                       ; preds = %201
+  %202 = load i32, ptr @num_devicenet_records_uat, align 4
+  %.not363 = icmp eq i32 %202, 0
   br i1 %.not363, label %.preheader.._crit_edge_crit_edge, label %.lr.ph
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
@@ -840,292 +840,292 @@ proto_item_set_generated.exit353:                 ; preds = %proto_item_set_gene
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %201 = zext nneg i8 %154 to i32
-  %202 = trunc i32 %5 to i8
-  %203 = icmp ugt i8 %202, 5
-  %204 = icmp ugt i8 %202, 4
-  br label %232
+  %203 = zext nneg i8 %154 to i32
+  %204 = trunc i32 %5 to i8
+  %205 = icmp ugt i8 %204, 5
+  %206 = icmp ugt i8 %204, 4
+  br label %234
 
-205:                                              ; preds = %199
-  %206 = load i32, ptr @hf_devicenet_open_exp_msg_reserved, align 4
-  %207 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %206, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
-  br i1 %.not332, label %217, label %208
+207:                                              ; preds = %201
+  %208 = load i32, ptr @hf_devicenet_open_exp_msg_reserved, align 4
+  %209 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %208, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
+  br i1 %.not332, label %219, label %210
 
-208:                                              ; preds = %205
-  %209 = load i32, ptr @hf_devicenet_open_exp_msg_actual_body_format, align 4
-  %210 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %209, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
-  %211 = load i32, ptr @hf_devicenet_open_exp_dest_message_id, align 4
-  %212 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %211, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #5
-  %213 = load i32, ptr @hf_devicenet_open_exp_src_message_id, align 4
+210:                                              ; preds = %207
+  %211 = load i32, ptr @hf_devicenet_open_exp_msg_actual_body_format, align 4
+  %212 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %211, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
+  %213 = load i32, ptr @hf_devicenet_open_exp_dest_message_id, align 4
   %214 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %213, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #5
-  %215 = load i32, ptr @hf_devicenet_connection_id, align 4
-  %216 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %215, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %369
+  %215 = load i32, ptr @hf_devicenet_open_exp_src_message_id, align 4
+  %216 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %215, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #5
+  %217 = load i32, ptr @hf_devicenet_connection_id, align 4
+  %218 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %217, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #5
+  br label %371
 
-217:                                              ; preds = %205
-  %218 = load i32, ptr @hf_devicenet_open_exp_msg_req_body_format, align 4
-  %219 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %218, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
-  %220 = load i32, ptr @hf_devicenet_open_exp_group_select, align 4
-  %221 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %220, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #5
-  %222 = load i32, ptr @hf_devicenet_open_exp_src_message_id, align 4
+219:                                              ; preds = %207
+  %220 = load i32, ptr @hf_devicenet_open_exp_msg_req_body_format, align 4
+  %221 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %220, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
+  %222 = load i32, ptr @hf_devicenet_open_exp_group_select, align 4
   %223 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %222, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #5
-  br label %369
+  %224 = load i32, ptr @hf_devicenet_open_exp_src_message_id, align 4
+  %225 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %224, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #5
+  br label %371
 
-224:                                              ; preds = %199
-  br i1 %.not332, label %225, label %369
+226:                                              ; preds = %201
+  br i1 %.not332, label %227, label %371
 
-225:                                              ; preds = %224
-  %226 = load i32, ptr @hf_devicenet_connection_id, align 4
-  %227 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %226, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
-  br label %369
+227:                                              ; preds = %226
+  %228 = load i32, ptr @hf_devicenet_connection_id, align 4
+  %229 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %228, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
+  br label %371
 
-228:                                              ; preds = %199
-  %229 = load i32, ptr @hf_devicenet_data, align 4
-  %230 = add i32 %5, -2
-  %231 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %229, ptr noundef %0, i32 noundef 2, i32 noundef %230, i32 noundef 0) #5
-  br label %369
+230:                                              ; preds = %201
+  %231 = load i32, ptr @hf_devicenet_data, align 4
+  %232 = add i32 %5, -2
+  %233 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %231, ptr noundef %0, i32 noundef 2, i32 noundef %232, i32 noundef 0) #5
+  br label %371
 
-232:                                              ; preds = %.lr.ph, %body_type_8_over_16_dissection.exit
+234:                                              ; preds = %.lr.ph, %body_type_8_over_16_dissection.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %body_type_8_over_16_dissection.exit ]
-  %233 = load ptr, ptr @uat_devicenet_records, align 8
-  %234 = getelementptr %struct.uat_devicenet_record_t, ptr %233, i64 %indvars.iv
-  %235 = load i32, ptr %234, align 4
-  %236 = icmp eq i32 %235, %201
-  br i1 %236, label %237, label %body_type_8_over_16_dissection.exit
+  %235 = load ptr, ptr @uat_devicenet_records, align 8
+  %236 = getelementptr %struct.uat_devicenet_record_t, ptr %235, i64 %indvars.iv
+  %237 = load i32, ptr %236, align 4
+  %238 = icmp eq i32 %237, %203
+  br i1 %238, label %239, label %body_type_8_over_16_dissection.exit
 
-237:                                              ; preds = %232
-  %238 = getelementptr inbounds i8, ptr %234, i64 4
-  %239 = load i32, ptr %238, align 4
-  switch i32 %239, label %301 [
-    i32 0, label %240
-    i32 1, label %241
-    i32 2, label %261
-    i32 3, label %281
+239:                                              ; preds = %234
+  %240 = getelementptr inbounds i8, ptr %236, i64 4
+  %241 = load i32, ptr %240, align 4
+  switch i32 %241, label %303 [
+    i32 0, label %242
+    i32 1, label %243
+    i32 2, label %263
+    i32 3, label %283
   ]
 
-240:                                              ; preds = %237
-  tail call fastcc void @body_type_8_over_8_dissection(i8 noundef zeroext %202, ptr noundef %183, ptr noundef %0)
+242:                                              ; preds = %239
+  tail call fastcc void @body_type_8_over_8_dissection(i8 noundef zeroext %204, ptr noundef %183, ptr noundef %0)
   br label %body_type_8_over_16_dissection.exit
 
-241:                                              ; preds = %237
-  %242 = load i32, ptr @ett_devicenet_8_16, align 4
-  %243 = tail call ptr @proto_tree_add_subtree(ptr noundef %183, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef %242, ptr noundef null, ptr noundef nonnull @.str.180) #5
-  %244 = load i32, ptr @hf_devicenet_class8, align 4
-  %245 = tail call ptr @proto_tree_add_item(ptr noundef %243, i32 noundef %244, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
-  %246 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
-  %247 = load i32, ptr @hf_devicenet_instance16, align 4
-  %248 = tail call ptr @proto_tree_add_item(ptr noundef %243, i32 noundef %247, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648) #5
-  %249 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3) #5
-  br i1 %204, label %250, label %body_type_8_over_16_dissection.exit
+243:                                              ; preds = %239
+  %244 = load i32, ptr @ett_devicenet_8_16, align 4
+  %245 = tail call ptr @proto_tree_add_subtree(ptr noundef %183, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef %244, ptr noundef null, ptr noundef nonnull @.str.180) #5
+  %246 = load i32, ptr @hf_devicenet_class8, align 4
+  %247 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %246, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
+  %248 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
+  %249 = load i32, ptr @hf_devicenet_instance16, align 4
+  %250 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %249, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648) #5
+  %251 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3) #5
+  br i1 %206, label %252, label %body_type_8_over_16_dissection.exit
 
-250:                                              ; preds = %241
-  %251 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #5
-  %252 = load i32, ptr @hf_devicenet_attribute, align 4
-  %253 = tail call ptr @proto_tree_add_item(ptr noundef %243, i32 noundef %252, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #5
-  %254 = zext i8 %246 to i32
-  %255 = zext i16 %249 to i32
-  %256 = zext i8 %251 to i32
-  %257 = tail call ptr @cip_get_attribute(i32 noundef %254, i32 noundef %255, i32 noundef %256) #5
-  %.not.i354 = icmp eq ptr %257, null
-  br i1 %.not.i354, label %body_type_8_over_16_dissection.exit, label %258
+252:                                              ; preds = %243
+  %253 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #5
+  %254 = load i32, ptr @hf_devicenet_attribute, align 4
+  %255 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %254, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #5
+  %256 = zext i8 %248 to i32
+  %257 = zext i16 %251 to i32
+  %258 = zext i8 %253 to i32
+  %259 = tail call ptr @cip_get_attribute(i32 noundef %256, i32 noundef %257, i32 noundef %258) #5
+  %.not.i354 = icmp eq ptr %259, null
+  br i1 %.not.i354, label %body_type_8_over_16_dissection.exit, label %260
 
-258:                                              ; preds = %250
-  %259 = getelementptr inbounds i8, ptr %257, i64 16
-  %260 = load ptr, ptr %259, align 8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %253, ptr noundef nonnull @.str.179, ptr noundef %260) #5
+260:                                              ; preds = %252
+  %261 = getelementptr inbounds i8, ptr %259, i64 16
+  %262 = load ptr, ptr %261, align 8
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %255, ptr noundef nonnull @.str.179, ptr noundef %262) #5
   br label %body_type_8_over_16_dissection.exit
 
-261:                                              ; preds = %237
-  %262 = load i32, ptr @ett_devicenet_16_8, align 4
-  %263 = tail call ptr @proto_tree_add_subtree(ptr noundef %183, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef %262, ptr noundef null, ptr noundef nonnull @.str.181) #5
-  %264 = load i32, ptr @hf_devicenet_class16, align 4
-  %265 = tail call ptr @proto_tree_add_item(ptr noundef %263, i32 noundef %264, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
-  %266 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #5
-  %267 = load i32, ptr @hf_devicenet_instance8, align 4
-  %268 = tail call ptr @proto_tree_add_item(ptr noundef %263, i32 noundef %267, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #5
-  %269 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #5
-  br i1 %204, label %270, label %body_type_8_over_16_dissection.exit
+263:                                              ; preds = %239
+  %264 = load i32, ptr @ett_devicenet_16_8, align 4
+  %265 = tail call ptr @proto_tree_add_subtree(ptr noundef %183, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef %264, ptr noundef null, ptr noundef nonnull @.str.181) #5
+  %266 = load i32, ptr @hf_devicenet_class16, align 4
+  %267 = tail call ptr @proto_tree_add_item(ptr noundef %265, i32 noundef %266, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
+  %268 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #5
+  %269 = load i32, ptr @hf_devicenet_instance8, align 4
+  %270 = tail call ptr @proto_tree_add_item(ptr noundef %265, i32 noundef %269, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #5
+  %271 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #5
+  br i1 %206, label %272, label %body_type_8_over_16_dissection.exit
 
-270:                                              ; preds = %261
-  %271 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #5
-  %272 = load i32, ptr @hf_devicenet_attribute, align 4
-  %273 = tail call ptr @proto_tree_add_item(ptr noundef %263, i32 noundef %272, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648) #5
-  %274 = zext i16 %266 to i32
-  %275 = zext i8 %269 to i32
-  %276 = zext i8 %271 to i32
-  %277 = tail call ptr @cip_get_attribute(i32 noundef %274, i32 noundef %275, i32 noundef %276) #5
-  %.not.i356 = icmp eq ptr %277, null
-  br i1 %.not.i356, label %body_type_8_over_16_dissection.exit, label %278
+272:                                              ; preds = %263
+  %273 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #5
+  %274 = load i32, ptr @hf_devicenet_attribute, align 4
+  %275 = tail call ptr @proto_tree_add_item(ptr noundef %265, i32 noundef %274, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648) #5
+  %276 = zext i16 %268 to i32
+  %277 = zext i8 %271 to i32
+  %278 = zext i8 %273 to i32
+  %279 = tail call ptr @cip_get_attribute(i32 noundef %276, i32 noundef %277, i32 noundef %278) #5
+  %.not.i356 = icmp eq ptr %279, null
+  br i1 %.not.i356, label %body_type_8_over_16_dissection.exit, label %280
 
-278:                                              ; preds = %270
-  %279 = getelementptr inbounds i8, ptr %277, i64 16
-  %280 = load ptr, ptr %279, align 8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %273, ptr noundef nonnull @.str.179, ptr noundef %280) #5
+280:                                              ; preds = %272
+  %281 = getelementptr inbounds i8, ptr %279, i64 16
+  %282 = load ptr, ptr %281, align 8
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %275, ptr noundef nonnull @.str.179, ptr noundef %282) #5
   br label %body_type_8_over_16_dissection.exit
 
-281:                                              ; preds = %237
-  %282 = load i32, ptr @ett_devicenet_16_16, align 4
-  %283 = tail call ptr @proto_tree_add_subtree(ptr noundef %183, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef %282, ptr noundef null, ptr noundef nonnull @.str.182) #5
-  %284 = load i32, ptr @hf_devicenet_class16, align 4
-  %285 = tail call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %284, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
-  %286 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #5
-  %287 = load i32, ptr @hf_devicenet_instance16, align 4
-  %288 = tail call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %287, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #5
-  %289 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4) #5
-  br i1 %203, label %290, label %body_type_8_over_16_dissection.exit
+283:                                              ; preds = %239
+  %284 = load i32, ptr @ett_devicenet_16_16, align 4
+  %285 = tail call ptr @proto_tree_add_subtree(ptr noundef %183, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef %284, ptr noundef null, ptr noundef nonnull @.str.182) #5
+  %286 = load i32, ptr @hf_devicenet_class16, align 4
+  %287 = tail call ptr @proto_tree_add_item(ptr noundef %285, i32 noundef %286, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
+  %288 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #5
+  %289 = load i32, ptr @hf_devicenet_instance16, align 4
+  %290 = tail call ptr @proto_tree_add_item(ptr noundef %285, i32 noundef %289, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #5
+  %291 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4) #5
+  br i1 %205, label %292, label %body_type_8_over_16_dissection.exit
 
-290:                                              ; preds = %281
-  %291 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #5
-  %292 = load i32, ptr @hf_devicenet_attribute, align 4
-  %293 = tail call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %292, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #5
-  %294 = zext i16 %286 to i32
-  %295 = zext i16 %289 to i32
-  %296 = zext i8 %291 to i32
-  %297 = tail call ptr @cip_get_attribute(i32 noundef %294, i32 noundef %295, i32 noundef %296) #5
-  %.not.i358 = icmp eq ptr %297, null
-  br i1 %.not.i358, label %body_type_8_over_16_dissection.exit, label %298
+292:                                              ; preds = %283
+  %293 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #5
+  %294 = load i32, ptr @hf_devicenet_attribute, align 4
+  %295 = tail call ptr @proto_tree_add_item(ptr noundef %285, i32 noundef %294, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #5
+  %296 = zext i16 %288 to i32
+  %297 = zext i16 %291 to i32
+  %298 = zext i8 %293 to i32
+  %299 = tail call ptr @cip_get_attribute(i32 noundef %296, i32 noundef %297, i32 noundef %298) #5
+  %.not.i358 = icmp eq ptr %299, null
+  br i1 %.not.i358, label %body_type_8_over_16_dissection.exit, label %300
 
-298:                                              ; preds = %290
-  %299 = getelementptr inbounds i8, ptr %297, i64 16
-  %300 = load ptr, ptr %299, align 8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %293, ptr noundef nonnull @.str.179, ptr noundef %300) #5
+300:                                              ; preds = %292
+  %301 = getelementptr inbounds i8, ptr %299, i64 16
+  %302 = load ptr, ptr %301, align 8
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %295, ptr noundef nonnull @.str.179, ptr noundef %302) #5
   br label %body_type_8_over_16_dissection.exit
 
-301:                                              ; preds = %237
-  %302 = load i32, ptr @hf_devicenet_data, align 4
-  %303 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %302, ptr noundef %0, i32 noundef 2, i32 noundef %5, i32 noundef 0) #5
+303:                                              ; preds = %239
+  %304 = load i32, ptr @hf_devicenet_data, align 4
+  %305 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %304, ptr noundef %0, i32 noundef 2, i32 noundef %5, i32 noundef 0) #5
   br label %body_type_8_over_16_dissection.exit
 
-body_type_8_over_16_dissection.exit:              ; preds = %298, %290, %281, %278, %270, %261, %258, %250, %241, %232, %301, %240
+body_type_8_over_16_dissection.exit:              ; preds = %300, %292, %283, %280, %272, %263, %260, %252, %243, %234, %303, %242
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %304 = load i32, ptr @num_devicenet_records_uat, align 4
-  %305 = zext i32 %304 to i64
-  %306 = icmp samesign ult i64 %indvars.iv.next, %305
-  br i1 %306, label %232, label %._crit_edge, !llvm.loop !7
+  %306 = load i32, ptr @num_devicenet_records_uat, align 4
+  %307 = zext i32 %306 to i64
+  %308 = icmp samesign ult i64 %indvars.iv.next, %307
+  br i1 %308, label %234, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %body_type_8_over_16_dissection.exit, %.preheader.._crit_edge_crit_edge
-  %.pre-phi = phi i8 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %202, %body_type_8_over_16_dissection.exit ]
+  %.pre-phi = phi i8 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %204, %body_type_8_over_16_dissection.exit ]
   tail call fastcc void @body_type_8_over_8_dissection(i8 noundef zeroext %.pre-phi, ptr noundef %183, ptr noundef %0)
-  br label %369
+  br label %371
 
-307:                                              ; preds = %113
-  %308 = icmp samesign ult i32 %.sroa.0.0.copyload, 2032
-  br i1 %308, label %309, label %366
+309:                                              ; preds = %113
+  %310 = icmp samesign ult i32 %.sroa.0.0.copyload, 2032
+  br i1 %310, label %311, label %368
 
-309:                                              ; preds = %307
-  %310 = load i32, ptr @hf_devicenet_grp_msg4_id, align 4
-  %311 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %310, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.sroa.0.0.copyload) #5
-  %.not.i359 = icmp eq ptr %311, null
-  br i1 %.not.i359, label %proto_item_set_generated.exit361, label %312
+311:                                              ; preds = %309
+  %312 = load i32, ptr @hf_devicenet_grp_msg4_id, align 4
+  %313 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %312, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.sroa.0.0.copyload) #5
+  %.not.i359 = icmp eq ptr %313, null
+  br i1 %.not.i359, label %proto_item_set_generated.exit361, label %314
 
-312:                                              ; preds = %309
-  %313 = getelementptr inbounds i8, ptr %311, i64 32
-  %314 = load ptr, ptr %313, align 8
-  %.not5.i360 = icmp eq ptr %314, null
-  br i1 %.not5.i360, label %proto_item_set_generated.exit361, label %315
+314:                                              ; preds = %311
+  %315 = getelementptr inbounds i8, ptr %313, i64 32
+  %316 = load ptr, ptr %315, align 8
+  %.not5.i360 = icmp eq ptr %316, null
+  br i1 %.not5.i360, label %proto_item_set_generated.exit361, label %317
 
-315:                                              ; preds = %312
-  %316 = getelementptr inbounds i8, ptr %314, i64 28
-  %317 = load i32, ptr %316, align 4
-  %318 = or i32 %317, 2
-  store i32 %318, ptr %316, align 4
+317:                                              ; preds = %314
+  %318 = getelementptr inbounds i8, ptr %316, i64 28
+  %319 = load i32, ptr %318, align 4
+  %320 = or i32 %319, 2
+  store i32 %320, ptr %318, align 4
   br label %proto_item_set_generated.exit361
 
-proto_item_set_generated.exit361:                 ; preds = %309, %312, %315
-  %319 = and i32 %.sroa.0.0.copyload, 63
-  %320 = load ptr, ptr %9, align 8
-  %321 = tail call ptr @val_to_str_const(i32 noundef %319, ptr noundef nonnull @devicenet_grp_msg4_vals, ptr noundef nonnull @.str.159) #5
-  tail call void @col_set_str(ptr noundef %320, i32 noundef 25, ptr noundef %321) #5
-  switch i32 %319, label %369 [
-    i32 44, label %322
-    i32 45, label %322
-    i32 47, label %351
-    i32 46, label %351
+proto_item_set_generated.exit361:                 ; preds = %311, %314, %317
+  %321 = and i32 %.sroa.0.0.copyload, 63
+  %322 = load ptr, ptr %9, align 8
+  %323 = tail call ptr @val_to_str_const(i32 noundef %321, ptr noundef nonnull @devicenet_grp_msg4_vals, ptr noundef nonnull @.str.159) #5
+  tail call void @col_set_str(ptr noundef %322, i32 noundef 25, ptr noundef %323) #5
+  switch i32 %321, label %371 [
+    i32 44, label %324
+    i32 45, label %324
+    i32 47, label %353
+    i32 46, label %353
   ]
 
-322:                                              ; preds = %proto_item_set_generated.exit361, %proto_item_set_generated.exit361
-  switch i32 %5, label %369 [
-    i32 2, label %323
-    i32 8, label %338
+324:                                              ; preds = %proto_item_set_generated.exit361, %proto_item_set_generated.exit361
+  switch i32 %5, label %371 [
+    i32 2, label %325
+    i32 8, label %340
   ]
 
-323:                                              ; preds = %322
-  %324 = load i32, ptr @hf_devicenet_comm_fault_rsv, align 4
-  %325 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %324, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
-  %326 = load i32, ptr @hf_devicenet_comm_fault_match, align 4
+325:                                              ; preds = %324
+  %326 = load i32, ptr @hf_devicenet_comm_fault_rsv, align 4
   %327 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %326, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
-  %328 = load i32, ptr @hf_devicenet_comm_fault_value, align 4
+  %328 = load i32, ptr @hf_devicenet_comm_fault_match, align 4
   %329 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %328, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
-  %330 = load i32, ptr @hf_devicenet_rr_bit, align 4
-  %331 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %330, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
-  %332 = load i32, ptr @hf_devicenet_service_code, align 4
+  %330 = load i32, ptr @hf_devicenet_comm_fault_value, align 4
+  %331 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %330, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
+  %332 = load i32, ptr @hf_devicenet_rr_bit, align 4
   %333 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %332, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
-  %334 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
-  %.not330 = icmp sgt i8 %334, -1
-  %335 = load ptr, ptr %9, align 8
-  br i1 %.not330, label %337, label %336
+  %334 = load i32, ptr @hf_devicenet_service_code, align 4
+  %335 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %334, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
+  %336 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
+  %.not330 = icmp sgt i8 %336, -1
+  %337 = load ptr, ptr %9, align 8
+  br i1 %.not330, label %339, label %338
 
-336:                                              ; preds = %323
-  tail call void @col_append_str(ptr noundef %335, i32 noundef 25, ptr noundef nonnull @.str.154) #5
-  br label %369
+338:                                              ; preds = %325
+  tail call void @col_append_str(ptr noundef %337, i32 noundef 25, ptr noundef nonnull @.str.154) #5
+  br label %371
 
-337:                                              ; preds = %323
-  tail call void @col_append_str(ptr noundef %335, i32 noundef 25, ptr noundef nonnull @.str.155) #5
-  br label %369
+339:                                              ; preds = %325
+  tail call void @col_append_str(ptr noundef %337, i32 noundef 25, ptr noundef nonnull @.str.155) #5
+  br label %371
 
-338:                                              ; preds = %322
-  %339 = load i32, ptr @hf_devicenet_comm_fault_rsv, align 4
-  %340 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %339, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
-  %341 = load i32, ptr @hf_devicenet_rr_bit, align 4
-  %342 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %341, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
-  %343 = load i32, ptr @hf_devicenet_service_code, align 4
+340:                                              ; preds = %324
+  %341 = load i32, ptr @hf_devicenet_comm_fault_rsv, align 4
+  %342 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %341, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
+  %343 = load i32, ptr @hf_devicenet_rr_bit, align 4
   %344 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %343, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
-  %345 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
-  %.not329 = icmp sgt i8 %345, -1
-  %346 = load ptr, ptr %9, align 8
+  %345 = load i32, ptr @hf_devicenet_service_code, align 4
+  %346 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %345, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
+  %347 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
+  %.not329 = icmp sgt i8 %347, -1
+  %348 = load ptr, ptr %9, align 8
   %.str.155..str.154368 = select i1 %.not329, ptr @.str.155, ptr @.str.154
-  tail call void @col_append_str(ptr noundef %346, i32 noundef 25, ptr noundef nonnull %.str.155..str.154368) #5
-  %347 = load i32, ptr @hf_devicenet_vendor, align 4
-  %348 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %347, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
-  %349 = load i32, ptr @hf_devicenet_serial_number, align 4
-  %350 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %349, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %369
+  tail call void @col_append_str(ptr noundef %348, i32 noundef 25, ptr noundef nonnull %.str.155..str.154368) #5
+  %349 = load i32, ptr @hf_devicenet_vendor, align 4
+  %350 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %349, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
+  %351 = load i32, ptr @hf_devicenet_serial_number, align 4
+  %352 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %351, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #5
+  br label %371
 
-351:                                              ; preds = %proto_item_set_generated.exit361, %proto_item_set_generated.exit361
-  %352 = load i32, ptr @hf_devicenet_offline_ownership_reserved, align 4
-  %353 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %352, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
-  %354 = load i32, ptr @hf_devicenet_offline_ownership_client_mac_id, align 4
+353:                                              ; preds = %proto_item_set_generated.exit361, %proto_item_set_generated.exit361
+  %354 = load i32, ptr @hf_devicenet_offline_ownership_reserved, align 4
   %355 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %354, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
-  %356 = load i32, ptr @hf_devicenet_rr_bit, align 4
-  %357 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %356, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
-  %358 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
-  %.not328 = icmp sgt i8 %358, -1
-  %359 = load ptr, ptr %9, align 8
+  %356 = load i32, ptr @hf_devicenet_offline_ownership_client_mac_id, align 4
+  %357 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %356, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
+  %358 = load i32, ptr @hf_devicenet_rr_bit, align 4
+  %359 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %358, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
+  %360 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
+  %.not328 = icmp sgt i8 %360, -1
+  %361 = load ptr, ptr %9, align 8
   %.str.155..str.154369 = select i1 %.not328, ptr @.str.155, ptr @.str.154
-  tail call void @col_append_str(ptr noundef %359, i32 noundef 25, ptr noundef nonnull %.str.155..str.154369) #5
-  %360 = load i32, ptr @hf_devicenet_offline_ownership_allocate, align 4
-  %361 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %360, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
-  %362 = load i32, ptr @hf_devicenet_vendor, align 4
-  %363 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %362, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
-  %364 = load i32, ptr @hf_devicenet_serial_number, align 4
-  %365 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %364, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %369
+  tail call void @col_append_str(ptr noundef %361, i32 noundef 25, ptr noundef nonnull %.str.155..str.154369) #5
+  %362 = load i32, ptr @hf_devicenet_offline_ownership_allocate, align 4
+  %363 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %362, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
+  %364 = load i32, ptr @hf_devicenet_vendor, align 4
+  %365 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %364, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #5
+  %366 = load i32, ptr @hf_devicenet_serial_number, align 4
+  %367 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %366, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #5
+  br label %371
 
-366:                                              ; preds = %307
-  %367 = load ptr, ptr %9, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %367, i32 noundef 25, ptr noundef nonnull @.str.160, i32 noundef %.sroa.0.0.copyload) #5
-  %368 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull @ei_devicenet_invalid_can_id, ptr noundef nonnull @.str.161, i32 noundef %.sroa.0.0.copyload) #5
-  br label %369
+368:                                              ; preds = %309
+  %369 = load ptr, ptr %9, align 8
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %369, i32 noundef 25, ptr noundef nonnull @.str.160, i32 noundef %.sroa.0.0.copyload) #5
+  %370 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull @ei_devicenet_invalid_can_id, ptr noundef nonnull @.str.161, i32 noundef %.sroa.0.0.copyload) #5
+  br label %371
 
 default.unreachable365:                           ; preds = %proto_item_set_generated.exit347
   unreachable
 
-369:                                              ; preds = %322, %104, %101, %98, %366, %337, %336, %338, %351, %proto_item_set_generated.exit361, %162, %228, %._crit_edge, %224, %225, %208, %217, %proto_item_set_generated.exit341
-  %370 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %371
+371:                                              ; preds = %324, %104, %101, %98, %368, %339, %338, %340, %353, %proto_item_set_generated.exit361, %162, %230, %._crit_edge, %226, %227, %210, %219, %proto_item_set_generated.exit341
+  %372 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
+  br label %373
 
-371:                                              ; preds = %7, %369
-  %.0323 = phi i32 [ %370, %369 ], [ 0, %7 ]
+373:                                              ; preds = %7, %371
+  %.0323 = phi i32 [ %372, %371 ], [ 0, %7 ]
   ret i32 %.0323
 }
 

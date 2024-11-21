@@ -873,120 +873,119 @@ define dso_local noundef i32 @_ZNK4llvm16AArch64InstrInfo18getInstSizeInBytesERK
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %11 = load i16, ptr %10, align 4
-  %12 = zext i16 %11 to i32
-  %13 = add nsw i32 %12, -1
-  %or.cond = icmp ult i32 %13, 2
-  br i1 %or.cond, label %14, label %24
+  %12 = add i16 %11, -1
+  %or.cond = icmp ult i16 %12, 2
+  br i1 %or.cond, label %13, label %23
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 672
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef i32 @_ZNK4llvm15TargetInstrInfo18getInlineAsmLengthEPKcRKNS_9MCAsmInfoEPKNS_19TargetSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(484) %18, ptr noundef null) #27
-  br label %81
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 672
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call noundef i32 @_ZNK4llvm15TargetInstrInfo18getInlineAsmLengthEPKcRKNS_9MCAsmInfoEPKNS_19TargetSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(484) %17, ptr noundef null) #27
+  br label %80
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load i64, ptr %27, align 8
-  %29 = and i64 %28, 16
-  %.not27 = icmp eq i64 %29, 0
-  br i1 %.not27, label %30, label %81
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = and i64 %27, 16
+  %.not27 = icmp eq i64 %28, 0
+  br i1 %.not27, label %29, label %80
 
-30:                                               ; preds = %24
-  %31 = load i16, ptr %26, align 8
-  switch i16 %31, label %32 [
-    i16 25, label %35
-    i16 27, label %42
-    i16 31, label %54
-    i16 35, label %69
-    i16 37, label %81
-    i16 40, label %81
-    i16 39, label %72
-    i16 1128, label %73
-    i16 20, label %79
+29:                                               ; preds = %23
+  %30 = load i16, ptr %25, align 8
+  switch i16 %30, label %31 [
+    i16 25, label %34
+    i16 27, label %41
+    i16 31, label %53
+    i16 35, label %68
+    i16 37, label %80
+    i16 40, label %80
+    i16 39, label %71
+    i16 1128, label %72
+    i16 20, label %78
   ]
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 5
-  %34 = load i8, ptr %33, align 1
-  %.not = icmp eq i8 %34, 0
-  %narrow = select i1 %.not, i8 4, i8 %34
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 5
+  %33 = load i8, ptr %32, align 1
+  %.not = icmp eq i8 %33, 0
+  %narrow = select i1 %.not, i8 4, i8 %33
   %spec.select = zext i8 %narrow to i32
-  br label %81
+  br label %80
 
-35:                                               ; preds = %30
+34:                                               ; preds = %29
   call void @_ZN4llvm13StackMapOpersC1EPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %1) #27
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
-  %40 = load i64, ptr %39, align 8
-  %41 = trunc i64 %40 to i32
-  br label %81
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 48
+  %39 = load i64, ptr %38, align 8
+  %40 = trunc i64 %39 to i32
+  br label %80
 
-42:                                               ; preds = %30
+41:                                               ; preds = %29
   call void @_ZN4llvm15PatchPointOpersC1EPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull %1) #27
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %45 = load i8, ptr %44, align 8
-  %46 = and i8 %45, 1
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %48 = load ptr, ptr %47, align 8
-  %49 = zext nneg i8 %46 to i64
-  %50 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %48, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 48
-  %52 = load i64, ptr %51, align 8
-  %53 = trunc i64 %52 to i32
-  br label %81
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %44 = load i8, ptr %43, align 8
+  %45 = and i8 %44, 1
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %47 = load ptr, ptr %46, align 8
+  %48 = zext nneg i8 %45 to i64
+  %49 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %47, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 48
+  %51 = load i64, ptr %50, align 8
+  %52 = trunc i64 %51 to i32
+  br label %80
 
-54:                                               ; preds = %30
-  %55 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #27
-  %56 = load ptr, ptr %25, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 9
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = add i32 %55, 1
-  %61 = add i32 %60, %59
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %63 = load ptr, ptr %62, align 8
-  %64 = zext i32 %61 to i64
-  %65 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %63, i64 %64, i32 3
-  %66 = load i64, ptr %65, align 8
-  %67 = trunc i64 %66 to i32
-  %68 = icmp eq i32 %67, 0
-  %spec.store.select = select i1 %68, i32 4, i32 %67
-  br label %81
+53:                                               ; preds = %29
+  %54 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #27
+  %55 = load ptr, ptr %24, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 9
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = add i32 %54, 1
+  %60 = add i32 %59, %58
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %62 = load ptr, ptr %61, align 8
+  %63 = zext i32 %60 to i64
+  %64 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %62, i64 %63, i32 3
+  %65 = load i64, ptr %64, align 8
+  %66 = trunc i64 %65 to i32
+  %67 = icmp eq i32 %66, 0
+  %spec.store.select = select i1 %67, i32 4, i32 %66
+  br label %80
 
-69:                                               ; preds = %30
-  %70 = tail call noundef i64 @_ZNK4llvm8Function29getFnAttributeAsParsedIntegerENS_9StringRefEm(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr nonnull @.str.11, i64 24, i64 noundef 9) #27
-  %.tr = trunc i64 %70 to i32
-  %71 = shl i32 %.tr, 2
-  br label %81
+68:                                               ; preds = %29
+  %69 = tail call noundef i64 @_ZNK4llvm8Function29getFnAttributeAsParsedIntegerENS_9StringRefEm(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr nonnull @.str.11, i64 24, i64 noundef 9) #27
+  %.tr = trunc i64 %69 to i32
+  %70 = shl i32 %.tr, 2
+  br label %80
 
-72:                                               ; preds = %30
-  br label %81
+71:                                               ; preds = %29
+  br label %80
 
-73:                                               ; preds = %30
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 48
-  %77 = load i64, ptr %76, align 8
-  %78 = trunc i64 %77 to i32
-  br label %81
+72:                                               ; preds = %29
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 48
+  %76 = load i64, ptr %75, align 8
+  %77 = trunc i64 %76 to i32
+  br label %80
 
-79:                                               ; preds = %30
-  %80 = tail call noundef i32 @_ZNK4llvm16AArch64InstrInfo19getInstBundleLengthERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1)
-  br label %81
+78:                                               ; preds = %29
+  %79 = tail call noundef i32 @_ZNK4llvm16AArch64InstrInfo19getInstBundleLengthERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1)
+  br label %80
 
-81:                                               ; preds = %32, %35, %42, %54, %69, %72, %73, %79, %30, %30, %24, %14
-  %.0 = phi i32 [ %23, %14 ], [ 0, %24 ], [ %80, %79 ], [ %78, %73 ], [ 24, %72 ], [ %71, %69 ], [ %spec.store.select, %54 ], [ %53, %42 ], [ %41, %35 ], [ 36, %30 ], [ 36, %30 ], [ %spec.select, %32 ]
+80:                                               ; preds = %31, %34, %41, %53, %68, %71, %72, %78, %29, %29, %23, %13
+  %.0 = phi i32 [ %22, %13 ], [ 0, %23 ], [ %79, %78 ], [ %77, %72 ], [ 24, %71 ], [ %70, %68 ], [ %spec.store.select, %53 ], [ %52, %41 ], [ %40, %34 ], [ 36, %29 ], [ 36, %29 ], [ %spec.select, %31 ]
   ret i32 %.0
 }
 
@@ -1779,9 +1778,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo13analyzeBranchE
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 68
   %13 = load i16, ptr %12, align 4
-  %14 = zext i16 %13 to i32
-  %.off = add nsw i32 %14, -1217
-  %switch = icmp ult i32 %.off, 2
+  %14 = add i16 %13, -1217
+  %switch = icmp ult i16 %14, 2
   br i1 %switch, label %15, label %27
 
 15:                                               ; preds = %11
@@ -2283,9 +2281,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo22analyzeBranchP
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %10 = load i16, ptr %9, align 4
-  %11 = zext i16 %10 to i32
-  %.off28 = add nsw i32 %11, -1217
-  %switch29 = icmp ult i32 %.off28, 2
+  %11 = add i16 %10, -1217
+  %switch29 = icmp ult i16 %11, 2
   br i1 %switch29, label %12, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit
 
 12:                                               ; preds = %8
@@ -2338,9 +2335,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit: ; preds =
   ]
 
 _ZN4llvmL18isCondBranchOpcodeEi.exit:             ; preds = %25, %25, %25, %25, %25, %25, %25, %25, %25
-  %28 = zext nneg i16 %27 to i32
-  %.off = add nsw i32 %28, -1831
-  %switch = icmp ult i32 %.off, 4
+  %28 = add nsw i16 %27, -1831
+  %switch = icmp ult i16 %28, 4
   br i1 %switch, label %29, label %_ZN4llvmL18isCondBranchOpcodeEi.exit.thread
 
 29:                                               ; preds = %_ZN4llvmL18isCondBranchOpcodeEi.exit
@@ -4236,9 +4232,8 @@ _ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit: ; preds = %45, %15, %35, %_ZN4
 define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo16isSEHInstructionERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
-  %4 = zext i16 %3 to i32
-  %.off = add nsw i32 %4, -1042
-  %switch = icmp ult i32 %.off, 20
+  %4 = add i16 %3, -1042
+  %switch = icmp ult i16 %4, 20
   ret i1 %switch
 }
 
@@ -4753,25 +4748,24 @@ _ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit: ; preds =
   %or.cond7.i = icmp eq i32 %16, 25
   %17 = icmp eq i64 %13, 20
   %or.cond = or i1 %or.cond7.i, %17
-  br i1 %or.cond, label %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit.thread, label %.thread16
+  br i1 %or.cond, label %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit.thread, label %.preheader.i.i.i
 
 18:                                               ; preds = %6
-  %19 = zext i16 %8 to i32
-  %.off.i = add nsw i32 %19, -1042
-  %switch.i = icmp ult i32 %.off.i, 20
-  br i1 %switch.i, label %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit.thread, label %.thread16
+  %.old = add i16 %8, -1042
+  %switch.i.old = icmp ult i16 %.old, 20
+  br i1 %switch.i.old, label %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit.thread, label %.preheader.i.i.i
 
-.thread16:                                        ; preds = %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit, %18
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 48
-  %.not = icmp eq ptr %21, %22
-  br i1 %.not, label %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit.thread, label %23
+.preheader.i.i.i:                                 ; preds = %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit, %18
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %2, i64 48
+  %.not = icmp eq ptr %20, %21
+  br i1 %.not, label %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit.thread, label %22
 
-23:                                               ; preds = %.thread16
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 68
-  %25 = load i16, ptr %24, align 4
-  %26 = icmp eq i16 %25, 3
+22:                                               ; preds = %.preheader.i.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 68
+  %24 = load i16, ptr %23, align 4
+  %25 = icmp eq i16 %24, 3
   br label %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit.thread
 
 switch.hole_check:                                ; preds = %9
@@ -4780,8 +4774,8 @@ switch.hole_check:                                ; preds = %9
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit.thread, label %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit
 
-_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit.thread: ; preds = %switch.hole_check, %6, %6, %6, %6, %6, %6, %6, %6, %.thread16, %23, %18, %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit ], [ true, %18 ], [ false, %.thread16 ], [ %26, %23 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %switch.hole_check ]
+_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit.thread: ; preds = %switch.hole_check, %6, %6, %6, %6, %6, %6, %6, %6, %.preheader.i.i.i, %22, %18, %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit, %4
+  %.0 = phi i1 [ true, %4 ], [ true, %_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit ], [ true, %18 ], [ false, %.preheader.i.i.i ], [ %25, %22 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %6 ], [ true, %switch.hole_check ]
   ret i1 %.0
 }
 
@@ -23545,15 +23539,14 @@ _ZL15getFNEGPatternsRN4llvm12MachineInstrERNS_15SmallVectorImplIjEE.exit: ; pred
 
 326:                                              ; preds = %271, %298, %294, %288, %284, %278, %322, %318, %312, %308, %302
   %327 = load i16, ptr %11, align 4
-  %328 = zext i16 %327 to i32
-  %329 = load ptr, ptr %14, align 8
-  %.off.i = add nsw i32 %328, -1174
-  %switch.i = icmp ult i32 %.off.i, 4
+  %328 = load ptr, ptr %14, align 8
+  %329 = add i16 %327, -1174
+  %switch.i = icmp ult i16 %329, 4
   br i1 %switch.i, label %330, label %454
 
 330:                                              ; preds = %326
-  %331 = and i32 %328, 1182
-  %switch54.i = icmp eq i32 %331, 1174
+  %331 = and i16 %327, 1182
+  %switch54.i = icmp eq i16 %331, 1174
   br i1 %switch54.i, label %332, label %_ZL25isCombineInstrSettingFlagj.exit.i17
 
 332:                                              ; preds = %330
@@ -23568,7 +23561,7 @@ _ZL25isCombineInstrSettingFlagj.exit.i17:         ; preds = %332, %330
   %.val.i = load i32, ptr %337, align 8
   %338 = getelementptr i8, ptr %336, i64 68
   %.val15.i = load i32, ptr %338, align 4
-  %339 = getelementptr inbounds nuw i8, ptr %329, i64 32
+  %339 = getelementptr inbounds nuw i8, ptr %328, i64 32
   %340 = load ptr, ptr %339, align 8
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 32
   %342 = load ptr, ptr %341, align 8
@@ -23586,7 +23579,7 @@ _ZL25isCombineInstrSettingFlagj.exit.i17:         ; preds = %332, %330
 347:                                              ; preds = %.critedge.i.i
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 24
   %349 = load ptr, ptr %348, align 8
-  %.not20.i.i = icmp eq ptr %349, %329
+  %.not20.i.i = icmp eq ptr %349, %328
   br i1 %.not20.i.i, label %350, label %359
 
 350:                                              ; preds = %347
@@ -23626,7 +23619,7 @@ _ZL25isCombineInstrSettingFlagj.exit.i17:         ; preds = %332, %330
 370:                                              ; preds = %.critedge.i25.i
   %371 = getelementptr inbounds nuw i8, ptr %369, i64 24
   %372 = load ptr, ptr %371, align 8
-  %.not20.i27.i = icmp eq ptr %372, %329
+  %.not20.i27.i = icmp eq ptr %372, %328
   br i1 %.not20.i27.i, label %373, label %385
 
 373:                                              ; preds = %370
@@ -23671,7 +23664,7 @@ _ZL25isCombineInstrSettingFlagj.exit.i17:         ; preds = %332, %330
 396:                                              ; preds = %.critedge.i32.i
   %397 = getelementptr inbounds nuw i8, ptr %395, i64 24
   %398 = load ptr, ptr %397, align 8
-  %.not20.i34.i = icmp eq ptr %398, %329
+  %.not20.i34.i = icmp eq ptr %398, %328
   br i1 %.not20.i34.i, label %399, label %408
 
 399:                                              ; preds = %396
@@ -23711,7 +23704,7 @@ _ZL25isCombineInstrSettingFlagj.exit.i17:         ; preds = %332, %330
 419:                                              ; preds = %.critedge.i40.i
   %420 = getelementptr inbounds nuw i8, ptr %418, i64 24
   %421 = load ptr, ptr %420, align 8
-  %.not20.i42.i = icmp eq ptr %421, %329
+  %.not20.i42.i = icmp eq ptr %421, %328
   br i1 %.not20.i42.i, label %422, label %454
 
 422:                                              ; preds = %419

@@ -11235,9 +11235,8 @@ for.body122:                                      ; preds = %for.cond120.prehead
 
 cleanup:                                          ; preds = %for.body122, %for.cond120.preheader
   %next_sherman.1.lcssa = phi i16 [ %next_sherman.0.lcssa, %for.cond120.preheader ], [ %inc125, %for.body122 ]
-  %conv136 = zext i16 %next_sherman.1.lcssa to i32
-  %27 = add nsw i32 %conv136, -1
-  %cmp139 = icmp ult i32 %27, 16384
+  %27 = add i16 %next_sherman.1.lcssa, -1
+  %cmp139 = icmp ult i16 %27, 16384
   %tobool.not.i.i.i197 = icmp eq ptr %sherm_sheng_succ.sroa.0.1.lcssa414, null
   br i1 %tobool.not.i.i.i197, label %_ZNSt6vectorItSaItEED2Ev.exit199, label %if.then.i.i.i198
 

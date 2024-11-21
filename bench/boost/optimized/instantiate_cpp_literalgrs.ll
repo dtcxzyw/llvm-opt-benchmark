@@ -7231,108 +7231,108 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic6actionINS1_11uint_par
   tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
   br i1 %8, label %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_re8, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %3, %28
-  %.09.i.i.i = phi i64 [ %30, %28 ], [ 0, %3 ]
-  %.0.i.i.i = phi i64 [ %29, %28 ], [ 0, %3 ]
-  %9 = phi ptr [ %33, %28 ], [ %5, %3 ]
-  %10 = phi ptr [ %32, %28 ], [ %4, %3 ]
+.lr.ph.i.i.i.i:                                   ; preds = %3, %29
+  %.09.i.i.i = phi i64 [ %31, %29 ], [ 0, %3 ]
+  %.0.i.i.i = phi i64 [ %30, %29 ], [ 0, %3 ]
+  %9 = phi ptr [ %34, %29 ], [ %5, %3 ]
+  %10 = phi ptr [ %33, %29 ], [ %4, %3 ]
   %11 = load i8, ptr %9, align 1, !tbaa !15, !noalias !267
-  %12 = sext i8 %11 to i64
+  %12 = zext nneg i8 %11 to i64
   %13 = add nsw i64 %12, -48
-  %14 = zext i8 %11 to i32
-  %isdigittmp.i.i.i.i.i.i.i = add nsw i32 %14, -48
-  %isdigit.i.i.i.i.i.i.i = icmp ult i32 %isdigittmp.i.i.i.i.i.i.i, 10
-  br i1 %isdigit.i.i.i.i.i.i.i, label %22, label %15
+  %14 = add i8 %11, -48
+  %isdigit.i.i.i.i.i.i.i = icmp ult i8 %14, 10
+  br i1 %isdigit.i.i.i.i.i.i.i, label %23, label %15
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
-  %16 = tail call i32 @tolower(i32 noundef %14) #32, !noalias !267
-  %17 = trunc i32 %16 to i8
-  %18 = add i8 %17, -97
-  %or.cond.i.i.i.i.i = icmp ult i8 %18, 6
-  br i1 %or.cond.i.i.i.i.i, label %19, label %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateImLi16EEEE1fIKNS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSK_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSP_9compositeINSP_9assign_opENSQ_INSP_14closure_memberILi0ENSP_7closureImNSP_5nil_tESV_SV_SV_SV_EEEEEENSQ_INSP_5valueIiEEEESV_SV_SV_SV_SV_EEEEEENSL_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS15_ILi1ES18_EEEEEENS15_ILi3ES18_EEEENS1_8optionalINS1_12inhibit_caseINSL_INS1_13sequential_orINSM_ISO_NSQ_INSR_ISS_NSQ_INSP_8variableIbEEEENSQ_INSZ_IbEEEESV_SV_SV_SV_SV_EEEEEESO_EENS1H_ISO_S1P_EEEEEEEEEES18_EENSI_INSJ_ILi3ENSM_INS1_11uint_parserImLi10ELj1ELin1EEENSQ_INSR_ISS_SY_NSQ_INSP_8argumentILi0EEEEESV_SV_SV_SV_SV_EEEEEES18_EENSI_INSJ_ILi1ENS1F_INSM_INS1X_ImLi8ELj1ELin1EEENSQ_INSP_20sequential_compositeIS23_S1O_EEEEEEEES18_EENSI_INSJ_ILi2ENSK_INSL_ISO_SO_EENSM_IN
+  %16 = zext i8 %11 to i32
+  %17 = tail call i32 @tolower(i32 noundef %16) #32, !noalias !267
+  %18 = trunc i32 %17 to i8
+  %19 = add i8 %18, -97
+  %or.cond.i.i.i.i.i = icmp ult i8 %19, 6
+  br i1 %or.cond.i.i.i.i.i, label %20, label %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateImLi16EEEE1fIKNS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSK_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSP_9compositeINSP_9assign_opENSQ_INSP_14closure_memberILi0ENSP_7closureImNSP_5nil_tESV_SV_SV_SV_EEEEEENSQ_INSP_5valueIiEEEESV_SV_SV_SV_SV_EEEEEENSL_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS15_ILi1ES18_EEEEEENS15_ILi3ES18_EEEENS1_8optionalINS1_12inhibit_caseINSL_INS1_13sequential_orINSM_ISO_NSQ_INSR_ISS_NSQ_INSP_8variableIbEEEENSQ_INSZ_IbEEEESV_SV_SV_SV_SV_EEEEEESO_EENS1H_ISO_S1P_EEEEEEEEEES18_EENSI_INSJ_ILi3ENSM_INS1_11uint_parserImLi10ELj1ELin1EEENSQ_INSR_ISS_SY_NSQ_INSP_8argumentILi0EEEEESV_SV_SV_SV_SV_EEEEEES18_EENSI_INSJ_ILi1ENS1F_INSM_INS1X_ImLi8ELj1ELin1EEENSQ_INSP_20sequential_compositeIS23_S1O_EEEEEEEES18_EENSI_INSJ_ILi2ENSK_INSL_ISO_SO_EENSM_IN
 
-19:                                               ; preds = %15
-  %narrow.i.i.i.i.i = add nuw nsw i8 %17, 9
-  %20 = and i8 %narrow.i.i.i.i.i, 31
-  %21 = zext nneg i8 %20 to i64
-  br label %22
+20:                                               ; preds = %15
+  %narrow.i.i.i.i.i = add nuw nsw i8 %18, 9
+  %21 = and i8 %narrow.i.i.i.i.i, 31
+  %22 = zext nneg i8 %21 to i64
+  br label %23
 
-22:                                               ; preds = %19, %.lr.ph.i.i.i.i
-  %.010.ph.i.i.i.i = phi i64 [ %21, %19 ], [ %13, %.lr.ph.i.i.i.i ]
-  %23 = icmp ugt i64 %.0.i.i.i, 1152921504606846975
-  br i1 %23, label %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_re8, label %24
+23:                                               ; preds = %20, %.lr.ph.i.i.i.i
+  %.010.ph.i.i.i.i = phi i64 [ %22, %20 ], [ %13, %.lr.ph.i.i.i.i ]
+  %24 = icmp ugt i64 %.0.i.i.i, 1152921504606846975
+  br i1 %24, label %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_re8, label %25
 
-24:                                               ; preds = %22
-  %25 = shl nuw i64 %.0.i.i.i, 4
-  %26 = xor i64 %.010.ph.i.i.i.i, -1
-  %27 = icmp ugt i64 %25, %26
-  br i1 %27, label %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_re8, label %28
+25:                                               ; preds = %23
+  %26 = shl nuw i64 %.0.i.i.i, 4
+  %27 = xor i64 %.010.ph.i.i.i.i, -1
+  %28 = icmp ugt i64 %26, %27
+  br i1 %28, label %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_re8, label %29
 
-28:                                               ; preds = %24
-  %29 = add i64 %.010.ph.i.i.i.i, %25
-  %30 = add i64 %.09.i.i.i, 1
-  %31 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store ptr %31, ptr %10, align 8, !tbaa !17, !noalias !267
-  %32 = load ptr, ptr %2, align 8, !tbaa !250, !noalias !267
-  %33 = load ptr, ptr %32, align 8, !tbaa !17, !noalias !267
-  %34 = load ptr, ptr %6, align 8, !tbaa !27, !noalias !267
-  %35 = icmp eq ptr %33, %34
-  br i1 %35, label %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateImLi16EEEE1fIKNS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSK_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSP_9compositeINSP_9assign_opENSQ_INSP_14closure_memberILi0ENSP_7closureImNSP_5nil_tESV_SV_SV_SV_EEEEEENSQ_INSP_5valueIiEEEESV_SV_SV_SV_SV_EEEEEENSL_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS15_ILi1ES18_EEEEEENS15_ILi3ES18_EEEENS1_8optionalINS1_12inhibit_caseINSL_INS1_13sequential_orINSM_ISO_NSQ_INSR_ISS_NSQ_INSP_8variableIbEEEENSQ_INSZ_IbEEEESV_SV_SV_SV_SV_EEEEEESO_EENS1H_ISO_S1P_EEEEEEEEEES18_EENSI_INSJ_ILi3ENSM_INS1_11uint_parserImLi10ELj1ELin1EEENSQ_INSR_ISS_SY_NSQ_INSP_8argumentILi0EEEEESV_SV_SV_SV_SV_EEEEEES18_EENSI_INSJ_ILi1ENS1F_INSM_INS1X_ImLi8ELj1ELin1EEENSQ_INSP_20sequential_compositeIS23_S1O_EEEEEEEES18_EENSI_INSJ_ILi2ENSK_INSL_ISO_SO_EENSM_IN, label %.lr.ph.i.i.i.i, !llvm.loop !268
+29:                                               ; preds = %25
+  %30 = add i64 %.010.ph.i.i.i.i, %26
+  %31 = add i64 %.09.i.i.i, 1
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store ptr %32, ptr %10, align 8, !tbaa !17, !noalias !267
+  %33 = load ptr, ptr %2, align 8, !tbaa !250, !noalias !267
+  %34 = load ptr, ptr %33, align 8, !tbaa !17, !noalias !267
+  %35 = load ptr, ptr %6, align 8, !tbaa !27, !noalias !267
+  %36 = icmp eq ptr %34, %35
+  br i1 %36, label %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateImLi16EEEE1fIKNS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSK_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSP_9compositeINSP_9assign_opENSQ_INSP_14closure_memberILi0ENSP_7closureImNSP_5nil_tESV_SV_SV_SV_EEEEEENSQ_INSP_5valueIiEEEESV_SV_SV_SV_SV_EEEEEENSL_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS15_ILi1ES18_EEEEEENS15_ILi3ES18_EEEENS1_8optionalINS1_12inhibit_caseINSL_INS1_13sequential_orINSM_ISO_NSQ_INSR_ISS_NSQ_INSP_8variableIbEEEENSQ_INSZ_IbEEEESV_SV_SV_SV_SV_EEEEEESO_EENS1H_ISO_S1P_EEEEEEEEEES18_EENSI_INSJ_ILi3ENSM_INS1_11uint_parserImLi10ELj1ELin1EEENSQ_INSR_ISS_SY_NSQ_INSP_8argumentILi0EEEEESV_SV_SV_SV_SV_EEEEEES18_EENSI_INSJ_ILi1ENS1F_INSM_INS1X_ImLi8ELj1ELin1EEENSQ_INSP_20sequential_compositeIS23_S1O_EEEEEEEES18_EENSI_INSJ_ILi2ENSK_INSL_ISO_SO_EENSM_IN, label %.lr.ph.i.i.i.i, !llvm.loop !268
 
-_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateImLi16EEEE1fIKNS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSK_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSP_9compositeINSP_9assign_opENSQ_INSP_14closure_memberILi0ENSP_7closureImNSP_5nil_tESV_SV_SV_SV_EEEEEENSQ_INSP_5valueIiEEEESV_SV_SV_SV_SV_EEEEEENSL_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS15_ILi1ES18_EEEEEENS15_ILi3ES18_EEEENS1_8optionalINS1_12inhibit_caseINSL_INS1_13sequential_orINSM_ISO_NSQ_INSR_ISS_NSQ_INSP_8variableIbEEEENSQ_INSZ_IbEEEESV_SV_SV_SV_SV_EEEEEESO_EENS1H_ISO_S1P_EEEEEEEEEES18_EENSI_INSJ_ILi3ENSM_INS1_11uint_parserImLi10ELj1ELin1EEENSQ_INSR_ISS_SY_NSQ_INSP_8argumentILi0EEEEESV_SV_SV_SV_SV_EEEEEES18_EENSI_INSJ_ILi1ENS1F_INSM_INS1X_ImLi8ELj1ELin1EEENSQ_INSP_20sequential_compositeIS23_S1O_EEEEEEEES18_EENSI_INSJ_ILi2ENSK_INSL_ISO_SO_EENSM_IN: ; preds = %28, %15
-  %.110.i.i.i = phi i64 [ %30, %28 ], [ %.09.i.i.i, %15 ]
-  %.1.i.i.i = phi i64 [ %29, %28 ], [ %.0.i.i.i, %15 ]
+_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateImLi16EEEE1fIKNS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSK_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSP_9compositeINSP_9assign_opENSQ_INSP_14closure_memberILi0ENSP_7closureImNSP_5nil_tESV_SV_SV_SV_EEEEEENSQ_INSP_5valueIiEEEESV_SV_SV_SV_SV_EEEEEENSL_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS15_ILi1ES18_EEEEEENS15_ILi3ES18_EEEENS1_8optionalINS1_12inhibit_caseINSL_INS1_13sequential_orINSM_ISO_NSQ_INSR_ISS_NSQ_INSP_8variableIbEEEENSQ_INSZ_IbEEEESV_SV_SV_SV_SV_EEEEEESO_EENS1H_ISO_S1P_EEEEEEEEEES18_EENSI_INSJ_ILi3ENSM_INS1_11uint_parserImLi10ELj1ELin1EEENSQ_INSR_ISS_SY_NSQ_INSP_8argumentILi0EEEEESV_SV_SV_SV_SV_EEEEEES18_EENSI_INSJ_ILi1ENS1F_INSM_INS1X_ImLi8ELj1ELin1EEENSQ_INSP_20sequential_compositeIS23_S1O_EEEEEEEES18_EENSI_INSJ_ILi2ENSK_INSL_ISO_SO_EENSM_IN: ; preds = %29, %15
+  %.110.i.i.i = phi i64 [ %31, %29 ], [ %.09.i.i.i, %15 ]
+  %.1.i.i.i = phi i64 [ %30, %29 ], [ %.0.i.i.i, %15 ]
   %.not.i.i.i = icmp eq i64 %.110.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_re8, label %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_res
 
-_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_re8: ; preds = %22, %24, %3, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateImLi16EEEE1fIKNS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSK_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSP_9compositeINSP_9assign_opENSQ_INSP_14closure_memberILi0ENSP_7closureImNSP_5nil_tESV_SV_SV_SV_EEEEEENSQ_INSP_5valueIiEEEESV_SV_SV_SV_SV_EEEEEENSL_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS15_ILi1ES18_EEEEEENS15_ILi3ES18_EEEENS1_8optionalINS1_12inhibit_caseINSL_INS1_13sequential_orINSM_ISO_NSQ_INSR_ISS_NSQ_INSP_8variableIbEEEENSQ_INSZ_IbEEEESV_SV_SV_SV_SV_EEEEEESO_EENS1H_ISO_S1P_EEEEEEEEEES18_EENSI_INSJ_ILi3ENSM_INS1_11uint_parserImLi10ELj1ELin1EEENSQ_INSR_ISS_SY_NSQ_INSP_8argumentILi0EEEEESV_SV_SV_SV_SV_EEEEEES18_EENSI_INSJ_ILi1ENS1F_INSM_INS1X_ImLi8ELj1ELin1EEENSQ_INSP_20sequential_compositeIS23_S1O_EEEEEEEES18_EENSI_INSJ_ILi2ENSK_INSL_ISO_SO_EENSM_IN
+_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_re8: ; preds = %23, %25, %3, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateImLi16EEEE1fIKNS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSK_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSP_9compositeINSP_9assign_opENSQ_INSP_14closure_memberILi0ENSP_7closureImNSP_5nil_tESV_SV_SV_SV_EEEEEENSQ_INSP_5valueIiEEEESV_SV_SV_SV_SV_EEEEEENSL_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS15_ILi1ES18_EEEEEENS15_ILi3ES18_EEEENS1_8optionalINS1_12inhibit_caseINSL_INS1_13sequential_orINSM_ISO_NSQ_INSR_ISS_NSQ_INSP_8variableIbEEEENSQ_INSZ_IbEEEESV_SV_SV_SV_SV_EEEEEESO_EENS1H_ISO_S1P_EEEEEEEEEES18_EENSI_INSJ_ILi3ENSM_INS1_11uint_parserImLi10ELj1ELin1EEENSQ_INSR_ISS_SY_NSQ_INSP_8argumentILi0EEEEESV_SV_SV_SV_SV_EEEEEES18_EENSI_INSJ_ILi1ENS1F_INSM_INS1X_ImLi8ELj1ELin1EEENSQ_INSP_20sequential_compositeIS23_S1O_EEEEEEEES18_EENSI_INSJ_ILi2ENSK_INSL_ISO_SO_EENSM_IN
   store i64 -1, ptr %0, align 8, !tbaa !29, !alias.scope !267
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %36, align 8, !tbaa !269, !alias.scope !267
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %37, align 8, !tbaa !270, !alias.scope !267
-  br label %55
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %37, align 8, !tbaa !269, !alias.scope !267
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %38, align 8, !tbaa !270, !alias.scope !267
+  br label %56
 
 _ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_res: ; preds = %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateImLi16EEEE1fIKNS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSK_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSP_9compositeINSP_9assign_opENSQ_INSP_14closure_memberILi0ENSP_7closureImNSP_5nil_tESV_SV_SV_SV_EEEEEENSQ_INSP_5valueIiEEEESV_SV_SV_SV_SV_EEEEEENSL_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS15_ILi1ES18_EEEEEENS15_ILi3ES18_EEEENS1_8optionalINS1_12inhibit_caseINSL_INS1_13sequential_orINSM_ISO_NSQ_INSR_ISS_NSQ_INSP_8variableIbEEEENSQ_INSZ_IbEEEESV_SV_SV_SV_SV_EEEEEESO_EENS1H_ISO_S1P_EEEEEEEEEES18_EENSI_INSJ_ILi3ENSM_INS1_11uint_parserImLi10ELj1ELin1EEENSQ_INSR_ISS_SY_NSQ_INSP_8argumentILi0EEEEESV_SV_SV_SV_SV_EEEEEES18_EENSI_INSJ_ILi1ENS1F_INSM_INS1X_ImLi8ELj1ELin1EEENSQ_INSP_20sequential_compositeIS23_S1O_EEEEEEEES18_EENSI_INSJ_ILi2ENSK_INSL_ISO_SO_EENSM_IN
   store i64 %.110.i.i.i, ptr %0, align 8, !tbaa !29, !alias.scope !267
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %38, align 8, !tbaa !269, !alias.scope !267
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.1.i.i.i, ptr %39, align 8, !tbaa !270, !alias.scope !267
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %39, align 8, !tbaa !269, !alias.scope !267
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.1.i.i.i, ptr %40, align 8, !tbaa !270, !alias.scope !267
   %.not.not = icmp sgt i64 %.110.i.i.i, -1
-  br i1 %.not.not, label %40, label %55
+  br i1 %.not.not, label %41, label %56
 
-40:                                               ; preds = %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_res
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !255
-  %43 = tail call noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %42)
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i.i.i.i.i, label %44, label %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_20sequential_compositeINS5_INS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESB_SB_SB_SB_EEEEEENS5_INS4_8argumentILi0EEEEESB_SB_SB_SB_SB_EEEENS5_INS7_IS8_NS5_INS4_8variableIbEEEENS5_INS4_5valueIbEEEESB_SB_SB_SB_SB_EEEEEEEEKmPKcEEvRKT_RT0_RKT1_S14_.exit
+41:                                               ; preds = %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_res
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !255
+  %44 = tail call noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %43)
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %44, null
+  br i1 %.not.i.i.i.i.i.i.i, label %45, label %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_20sequential_compositeINS5_INS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESB_SB_SB_SB_EEEEEENS5_INS4_8argumentILi0EEEEESB_SB_SB_SB_SB_EEEENS5_INS7_IS8_NS5_INS4_8variableIbEEEENS5_INS4_5valueIbEEEESB_SB_SB_SB_SB_EEEEEEEEKmPKcEEvRKT_RT0_RKT1_S14_.exit
 
-44:                                               ; preds = %40
-  %45 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr null, ptr %45, align 8, !tbaa !17
-  %46 = tail call noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %42)
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %46, %45
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_20sequential_compositeINS5_INS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESB_SB_SB_SB_EEEEEENS5_INS4_8argumentILi0EEEEESB_SB_SB_SB_SB_EEEENS5_INS7_IS8_NS5_INS4_8variableIbEEEENS5_INS4_5valueIbEEEESB_SB_SB_SB_SB_EEEEEEEEKmPKcEEvRKT_RT0_RKT1_S14_.exit, label %47
+45:                                               ; preds = %41
+  %46 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
+  store ptr null, ptr %46, align 8, !tbaa !17
+  %47 = tail call noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %43)
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %47, %46
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_20sequential_compositeINS5_INS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESB_SB_SB_SB_EEEEEENS5_INS4_8argumentILi0EEEEESB_SB_SB_SB_SB_EEEENS5_INS7_IS8_NS5_INS4_8variableIbEEEENS5_INS4_5valueIbEEEESB_SB_SB_SB_SB_EEEEEEEEKmPKcEEvRKT_RT0_RKT1_S14_.exit, label %48
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %42, align 8, !tbaa !141
-  tail call void @_ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @_ZN5boost19thread_specific_ptrIPN7phoenix13closure_frameINS1_7closureImNS1_5nil_tES4_S4_S4_S4_EEEEE14cleanup_callerEPFvPvES9_, ptr noundef %48, ptr noundef nonnull %45, i1 noundef zeroext true)
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %43, align 8, !tbaa !141
+  tail call void @_ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @_ZN5boost19thread_specific_ptrIPN7phoenix13closure_frameINS1_7closureImNS1_5nil_tES4_S4_S4_S4_EEEEE14cleanup_callerEPFvPvES9_, ptr noundef %49, ptr noundef nonnull %46, i1 noundef zeroext true)
   br label %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_20sequential_compositeINS5_INS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESB_SB_SB_SB_EEEEEENS5_INS4_8argumentILi0EEEEESB_SB_SB_SB_SB_EEEENS5_INS7_IS8_NS5_INS4_8variableIbEEEENS5_INS4_5valueIbEEEESB_SB_SB_SB_SB_EEEEEEEEKmPKcEEvRKT_RT0_RKT1_S14_.exit
 
-_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_20sequential_compositeINS5_INS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESB_SB_SB_SB_EEEEEENS5_INS4_8argumentILi0EEEEESB_SB_SB_SB_SB_EEEENS5_INS7_IS8_NS5_INS4_8variableIbEEEENS5_INS4_5valueIbEEEESB_SB_SB_SB_SB_EEEEEEEEKmPKcEEvRKT_RT0_RKT1_S14_.exit: ; preds = %40, %44, %47
-  %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %42)
-  %50 = load ptr, ptr %49, align 8, !tbaa !17
-  store i64 %.1.i.i.i, ptr %50, align 8, !tbaa !11
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !271
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %54 = load i8, ptr %53, align 8, !tbaa !273, !range !109, !noundef !110
-  store i8 %54, ptr %52, align 1, !tbaa !275
-  br label %55
+_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_20sequential_compositeINS5_INS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESB_SB_SB_SB_EEEEEENS5_INS4_8argumentILi0EEEEESB_SB_SB_SB_SB_EEEENS5_INS7_IS8_NS5_INS4_8variableIbEEEENS5_INS4_5valueIbEEEESB_SB_SB_SB_SB_EEEEEEEEKmPKcEEvRKT_RT0_RKT1_S14_.exit: ; preds = %41, %45, %48
+  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %43)
+  %51 = load ptr, ptr %50, align 8, !tbaa !17
+  store i64 %.1.i.i.i, ptr %51, align 8, !tbaa !11
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %53 = load ptr, ptr %52, align 8, !tbaa !271
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %55 = load i8, ptr %54, align 8, !tbaa !273, !range !109, !noundef !110
+  store i8 %55, ptr %53, align 1, !tbaa !275
+  br label %56
 
-55:                                               ; preds = %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_re8, %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_20sequential_compositeINS5_INS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESB_SB_SB_SB_EEEEEENS5_INS4_8argumentILi0EEEEESB_SB_SB_SB_SB_EEEENS5_INS7_IS8_NS5_INS4_8variableIbEEEENS5_INS4_5valueIbEEEESB_SB_SB_SB_SB_EEEEEEEEKmPKcEEvRKT_RT0_RKT1_S14_.exit, %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_res
+56:                                               ; preds = %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_re8, %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_20sequential_compositeINS5_INS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESB_SB_SB_SB_EEEEEENS5_INS4_8argumentILi0EEEEESB_SB_SB_SB_SB_EEEENS5_INS7_IS8_NS5_INS4_8variableIbEEEENS5_INS4_5valueIbEEEESB_SB_SB_SB_SB_EEEEEEEEKmPKcEEvRKT_RT0_RKT1_S14_.exit, %_ZNK5boost6spirit7classic11uint_parserImLi16ELj1ELin1EE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSH_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSI_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSI_INS1_13sequential_orINSJ_ISL_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEESL_EENS1E_ISL_S1M_EEEEEEEEEES15_EENSF_INSG_ILi3ENSJ_INS2_ImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSF_INSG_ILi1ENS1C_INSJ_INS2_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS1Z_S1L_EEEEEEEES15_EENSF_INSG_ILi2ENSH_INSI_ISL_SL_EENSJ_IS3_S25_EEEES15_EES14_EEEEEEEEEEEENS1_13parser_res
   ret void
 }
 
@@ -7460,9 +7460,8 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic6actionINS1_11uint_par
   %10 = phi ptr [ %25, %20 ], [ %4, %3 ]
   %11 = load i8, ptr %9, align 1, !tbaa !15, !noalias !296
   %12 = sext i8 %11 to i64
-  %13 = zext i8 %11 to i32
-  %isdigittmp.i.i.i.i.i.i = add nsw i32 %13, -48
-  %isdigit.i.i.i.i.i.i = icmp ult i32 %isdigittmp.i.i.i.i.i.i, 10
+  %13 = add i8 %11, -48
+  %isdigit.i.i.i.i.i.i = icmp ult i8 %13, 10
   br i1 %isdigit.i.i.i.i.i.i, label %14, label %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19positive_accumulateImLi10EEEE1fIKNS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSK_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINSP_9compositeINSP_9assign_opENSQ_INSP_14closure_memberILi0ENSP_7closureImNSP_5nil_tESV_SV_SV_SV_EEEEEENSQ_INSP_5valueIiEEEESV_SV_SV_SV_SV_EEEEEENSL_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS15_ILi1ES18_EEEEEENS15_ILi3ES18_EEEENS1_8optionalINS1_12inhibit_caseINSL_INS1_13sequential_orINSM_ISO_NSQ_INSR_ISS_NSQ_INSP_8variableIbEEEENSQ_INSZ_IbEEEESV_SV_SV_SV_SV_EEEEEESO_EENS1H_ISO_S1P_EEEEEEEEEES18_EENSI_INSJ_ILi3ENSM_INS1_11uint_parserImLi10ELj1ELin1EEENSQ_INSR_ISS_SY_NSQ_INSP_8argumentILi0EEEEESV_SV_SV_SV_SV_EEEEEES18_EENSI_INSJ_ILi1ENS1F_INSM_INS1X_ImLi8ELj1ELin1EEENSQ_INSP_20sequential_compositeIS23_S1O_EEEEEEEES18_EENSI_INSJ_ILi2ENSK_INSL_ISO_SO_EENSM_IN
 
 14:                                               ; preds = %.lr.ph.i.i.i.i
@@ -10964,15 +10963,14 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_11
 
 14:                                               ; preds = %.preheader.i.i.i
   %15 = load i8, ptr %11, align 1, !tbaa !15
-  %16 = sext i8 %15 to i32
+  %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -48
-  %18 = zext i8 %15 to i32
-  %isdigittmp.i.i.i.i.i.i.i = add nsw i32 %18, -48
-  %isdigit.i.i.i.i.i.i.i = icmp ult i32 %isdigittmp.i.i.i.i.i.i.i, 10
+  %18 = add i8 %15, -48
+  %isdigit.i.i.i.i.i.i.i = icmp ult i8 %18, 10
   br i1 %isdigit.i.i.i.i.i.i.i, label %26, label %19
 
 19:                                               ; preds = %14
-  %20 = tail call i32 @tolower(i32 noundef %18) #32
+  %20 = tail call i32 @tolower(i32 noundef %16) #32
   %21 = trunc i32 %20 to i8
   %22 = add i8 %21, -97
   %or.cond.i.i.i.i.i = icmp ult i8 %22, 6
@@ -11059,15 +11057,14 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_11
   %.026.i.i.i = phi i64 [ %11, %10 ], [ 0, %2 ]
   %.01125.i.i.i = phi i32 [ %37, %10 ], [ 0, %2 ]
   %19 = load i8, ptr %16, align 1, !tbaa !15
-  %20 = sext i8 %19 to i32
+  %20 = zext i8 %19 to i32
   %21 = add nsw i32 %20, -48
-  %22 = zext i8 %19 to i32
-  %isdigittmp.i.i.i.i.i.i.i = add nsw i32 %22, -48
-  %isdigit.i.i.i.i.i.i.i = icmp ult i32 %isdigittmp.i.i.i.i.i.i.i, 10
+  %22 = add i8 %19, -48
+  %isdigit.i.i.i.i.i.i.i = icmp ult i8 %22, 10
   br i1 %isdigit.i.i.i.i.i.i.i, label %30, label %23
 
 23:                                               ; preds = %.lr.ph.i.i.i
-  %24 = tail call i32 @tolower(i32 noundef %22) #32
+  %24 = tail call i32 @tolower(i32 noundef %20) #32
   %25 = trunc i32 %24 to i8
   %26 = add i8 %25, -97
   %or.cond.i.i.i.i.i = icmp ult i8 %26, 6
@@ -11248,15 +11245,14 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_11
 
 14:                                               ; preds = %.preheader.i.i.i
   %15 = load i8, ptr %11, align 1, !tbaa !15
-  %16 = sext i8 %15 to i32
+  %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -48
-  %18 = zext i8 %15 to i32
-  %isdigittmp.i.i.i.i.i.i.i = add nsw i32 %18, -48
-  %isdigit.i.i.i.i.i.i.i = icmp ult i32 %isdigittmp.i.i.i.i.i.i.i, 10
+  %18 = add i8 %15, -48
+  %isdigit.i.i.i.i.i.i.i = icmp ult i8 %18, 10
   br i1 %isdigit.i.i.i.i.i.i.i, label %26, label %19
 
 19:                                               ; preds = %14
-  %20 = tail call i32 @tolower(i32 noundef %18) #32
+  %20 = tail call i32 @tolower(i32 noundef %16) #32
   %21 = trunc i32 %20 to i8
   %22 = add i8 %21, -97
   %or.cond.i.i.i.i.i = icmp ult i8 %22, 6
@@ -11339,15 +11335,14 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_11
 
 14:                                               ; preds = %.preheader.i.i.i
   %15 = load i8, ptr %11, align 1, !tbaa !15
-  %16 = sext i8 %15 to i32
+  %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -48
-  %18 = zext i8 %15 to i32
-  %isdigittmp.i.i.i.i.i.i.i = add nsw i32 %18, -48
-  %isdigit.i.i.i.i.i.i.i = icmp ult i32 %isdigittmp.i.i.i.i.i.i.i, 10
+  %18 = add i8 %15, -48
+  %isdigit.i.i.i.i.i.i.i = icmp ult i8 %18, 10
   br i1 %isdigit.i.i.i.i.i.i.i, label %26, label %19
 
 19:                                               ; preds = %14
-  %20 = tail call i32 @tolower(i32 noundef %18) #32
+  %20 = tail call i32 @tolower(i32 noundef %16) #32
   %21 = trunc i32 %20 to i8
   %22 = add i8 %21, -97
   %or.cond.i.i.i.i.i = icmp ult i8 %22, 6

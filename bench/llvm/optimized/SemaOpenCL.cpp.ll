@@ -4412,49 +4412,46 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang4Type28getPointeeOrArrayElemen
   br label %_ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit
 
 14:                                               ; preds = %1
-  %15 = zext i8 %7 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %15, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %15 = add i8 %7, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %15, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %.preheader, label %_ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit
 
 .preheader:                                       ; preds = %14, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread8.i
-  %.0.i = phi ptr [ %32, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread8.i ], [ %0, %14 ]
+  %.0.i = phi ptr [ %31, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread8.i ], [ %0, %14 ]
   %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %17 = load i8, ptr %16, align 16
-  %18 = zext i8 %17 to i32
-  %19 = add nsw i32 %18, -7
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %19, -5
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %20, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread8.i
+  %18 = add i8 %17, -7
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %18, -5
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %19, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread8.i
 
-20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i7 = load i64, ptr %21, align 8
-  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i.i7, -16
-  %23 = inttoptr i64 %22 to ptr
-  %24 = load ptr, ptr %23, align 16
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load i8, ptr %25, align 16
-  %27 = zext i8 %26 to i32
-  %.off.i.i.i.i.i.i.i.i5.i.i = add nsw i32 %27, -2
-  %switch.i.i.i.i.i.i.i.i6.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i5.i.i, 5
-  br i1 %switch.i.i.i.i.i.i.i.i6.i.i, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i, label %_ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit
+19:                                               ; preds = %.preheader
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i7 = load i64, ptr %20, align 8
+  %21 = and i64 %.sroa.0.0.copyload.i.i.i.i.i7, -16
+  %22 = inttoptr i64 %21 to ptr
+  %23 = load ptr, ptr %22, align 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load i8, ptr %24, align 16
+  %26 = add i8 %25, -2
+  %switch.i.i.i.i.i.i.i.i5.i.i = icmp ult i8 %26, 5
+  br i1 %switch.i.i.i.i.i.i.i.i5.i.i, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i, label %_ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit
 
-_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i:   ; preds = %20
-  %28 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.0.i) #13
-  %.not.i = icmp eq ptr %28, null
+_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i:   ; preds = %19
+  %27 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.0.i) #13
+  %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %_ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread8.i
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread8.i: ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i, %.preheader
-  %.0.i11.i = phi ptr [ %28, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i ], [ %.0.i, %.preheader ]
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i11.i, i64 32
-  %.sroa.0.0.copyload.i.i = load i64, ptr %29, align 16
-  %30 = and i64 %.sroa.0.0.copyload.i.i, -16
-  %31 = inttoptr i64 %30 to ptr
-  %32 = load ptr, ptr %31, align 16
+  %.0.i11.i = phi ptr [ %27, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i ], [ %.0.i, %.preheader ]
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i11.i, i64 32
+  %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 16
+  %29 = and i64 %.sroa.0.0.copyload.i.i, -16
+  %30 = inttoptr i64 %29 to ptr
+  %31 = load ptr, ptr %30, align 16
   br label %.preheader, !llvm.loop !12
 
-_ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit: ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i, %20, %14, %9
-  %.0 = phi ptr [ %13, %9 ], [ %0, %14 ], [ %.0.i, %20 ], [ %.0.i, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i ]
+_ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit: ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i, %19, %14, %9
+  %.0 = phi ptr [ %13, %9 ], [ %0, %14 ], [ %.0.i, %19 ], [ %.0.i, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i ]
   ret ptr %.0
 }
 

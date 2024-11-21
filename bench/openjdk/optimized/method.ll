@@ -5434,29 +5434,30 @@ declare noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef nonnull 
 define hidden noundef zeroext i1 @_ZNK6Method19has_native_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i16, ptr %2, align 4
-  %4 = zext i16 %3 to i32
-  %5 = add nsw i32 %4, -396
-  %6 = icmp ult i32 %5, 7
-  %7 = icmp ne i16 %3, 396
-  %spec.select.i.i = and i1 %7, %6
-  %8 = and i16 %3, -2
-  %spec.select.i1.i = icmp eq i16 %8, 198
-  %or.cond = or i1 %spec.select.i1.i, %spec.select.i.i
-  br i1 %or.cond, label %_ZNK6Method27is_special_native_intrinsicEv.exit.thread, label %9
+  switch i16 %3, label %4 [
+    i16 402, label %10
+    i16 401, label %10
+    i16 400, label %10
+    i16 399, label %10
+    i16 398, label %10
+    i16 397, label %10
+    i16 199, label %10
+    i16 198, label %10
+  ]
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = load ptr, ptr %10, align 8
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %_ZNK6Method27is_special_native_intrinsicEv.exit.thread, label %12
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = load ptr, ptr %5, align 8
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %10, label %7
 
-12:                                               ; preds = %9
-  %13 = tail call noundef ptr @_ZN13SharedRuntime48native_method_throw_unsatisfied_link_error_entryEv() #24
-  %14 = icmp ne ptr %11, %13
-  br label %_ZNK6Method27is_special_native_intrinsicEv.exit.thread
+7:                                                ; preds = %4
+  %8 = tail call noundef ptr @_ZN13SharedRuntime48native_method_throw_unsatisfied_link_error_entryEv() #24
+  %9 = icmp ne ptr %6, %8
+  br label %10
 
-_ZNK6Method27is_special_native_intrinsicEv.exit.thread: ; preds = %1, %9, %12
-  %.0 = phi i1 [ false, %9 ], [ %14, %12 ], [ false, %1 ]
+10:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %4, %7
+  %.0 = phi i1 [ false, %1 ], [ false, %4 ], [ %9, %7 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -5640,46 +5641,45 @@ define hidden void @_ZNK6Method16print_short_nameEP12outputStream(ptr nocapture 
   tail call void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %30, ptr noundef nonnull %1) #24
   %31 = getelementptr inbounds i8, ptr %0, i64 52
   %32 = load i16, ptr %31, align 4
-  %33 = zext i16 %32 to i32
-  %34 = add nsw i32 %33, -396
-  %35 = icmp ult i32 %34, 7
-  br i1 %35, label %36, label %46
+  %33 = add i16 %32, -396
+  %34 = icmp ult i16 %33, 7
+  br i1 %34, label %35, label %45
 
-36:                                               ; preds = %2
-  %37 = load ptr, ptr %15, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 38
-  %41 = load i16, ptr %40, align 2
-  %42 = getelementptr inbounds i8, ptr %39, i64 72
-  %43 = zext i16 %41 to i64
-  %44 = getelementptr inbounds i64, ptr %42, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  tail call void @_ZN13MethodHandles32print_as_basic_type_signature_onEP12outputStreamP6Symbol(ptr noundef nonnull %1, ptr noundef %45) #24
-  br label %46
+35:                                               ; preds = %2
+  %36 = load ptr, ptr %15, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %36, i64 38
+  %40 = load i16, ptr %39, align 2
+  %41 = getelementptr inbounds i8, ptr %38, i64 72
+  %42 = zext i16 %40 to i64
+  %43 = getelementptr inbounds i64, ptr %41, i64 %42
+  %44 = load ptr, ptr %43, align 8
+  tail call void @_ZN13MethodHandles32print_as_basic_type_signature_onEP12outputStreamP6Symbol(ptr noundef nonnull %1, ptr noundef %44) #24
+  br label %45
 
-46:                                               ; preds = %36, %2
-  %47 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i, label %49, label %48
+45:                                               ; preds = %35, %2
+  %46 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i.i.i, label %48, label %47
 
-48:                                               ; preds = %46
+47:                                               ; preds = %45
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #24
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #24
-  br label %49
+  br label %48
 
-49:                                               ; preds = %48, %46
-  %50 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %50, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %51
+48:                                               ; preds = %47, %45
+  %49 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %49, %10
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %50
 
-51:                                               ; preds = %49
+50:                                               ; preds = %48
   store ptr %8, ptr %7, align 8
   store ptr %10, ptr %9, align 8
   store ptr %12, ptr %11, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %49, %51
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %50
   ret void
 }
 
@@ -5697,28 +5697,29 @@ declare void @_ZN9xmlStream8end_elemEv(ptr noundef nonnull align 8 dereferenceab
 define hidden noundef zeroext i1 @_ZNK6Method20is_always_compilableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i16, ptr %2, align 4
-  %4 = zext i16 %3 to i32
-  %5 = add nsw i32 %4, -396
-  %6 = icmp ult i32 %5, 7
-  %7 = icmp ne i16 %3, 396
-  %spec.select.i.i = and i1 %7, %6
-  %8 = and i16 %3, -2
-  %spec.select.i1.i = icmp eq i16 %8, 198
-  %or.cond = or i1 %spec.select.i1.i, %spec.select.i.i
-  br i1 %or.cond, label %_ZNK6Method27is_special_native_intrinsicEv.exit.thread, label %11
+  switch i16 %3, label %7 [
+    i16 402, label %4
+    i16 401, label %4
+    i16 400, label %4
+    i16 399, label %4
+    i16 398, label %4
+    i16 397, label %4
+    i16 199, label %4
+    i16 198, label %4
+  ]
 
-_ZNK6Method27is_special_native_intrinsicEv.exit.thread: ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.0.0.copyload.i.i = load i32, ptr %9, align 8
-  %10 = and i32 %.sroa.0.0.copyload.i.i, 4096
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %12
+4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.0.copyload.i.i = load i32, ptr %5, align 8
+  %6 = and i32 %.sroa.0.0.copyload.i.i, 4096
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %7, label %8
 
-11:                                               ; preds = %1, %_ZNK6Method27is_special_native_intrinsicEv.exit.thread
-  br label %12
+7:                                                ; preds = %1, %4
+  br label %8
 
-12:                                               ; preds = %_ZNK6Method27is_special_native_intrinsicEv.exit.thread, %11
-  %.0 = phi i1 [ false, %11 ], [ true, %_ZNK6Method27is_special_native_intrinsicEv.exit.thread ]
+8:                                                ; preds = %4, %7
+  %.0 = phi i1 [ false, %7 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -5738,64 +5739,65 @@ _ZNK6Method21number_of_breakpointsEv.exit:        ; preds = %2
 _ZNK6Method21number_of_breakpointsEv.exit.thread: ; preds = %2, %_ZNK6Method21number_of_breakpointsEv.exit
   %8 = getelementptr inbounds i8, ptr %0, i64 52
   %9 = load i16, ptr %8, align 4
-  %10 = zext i16 %9 to i32
-  %11 = add nsw i32 %10, -396
-  %12 = icmp ult i32 %11, 7
-  %13 = icmp ne i16 %9, 396
-  %spec.select.i.i.i = and i1 %13, %12
-  %14 = and i16 %9, -2
-  %spec.select.i1.i.i = icmp eq i16 %14, 198
-  %or.cond.i = or i1 %spec.select.i1.i.i, %spec.select.i.i.i
-  br i1 %or.cond.i, label %_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i, label %_ZNK6Method20is_always_compilableEv.exit
+  switch i16 %9, label %_ZNK6Method20is_always_compilableEv.exit [
+    i16 402, label %10
+    i16 401, label %10
+    i16 400, label %10
+    i16 399, label %10
+    i16 398, label %10
+    i16 397, label %10
+    i16 199, label %10
+    i16 198, label %10
+  ]
 
-_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i: ; preds = %_ZNK6Method21number_of_breakpointsEv.exit.thread
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %15, align 8
-  %16 = and i32 %.sroa.0.0.copyload.i.i.i, 4096
-  %.not.i = icmp eq i32 %16, 0
+10:                                               ; preds = %_ZNK6Method21number_of_breakpointsEv.exit.thread, %_ZNK6Method21number_of_breakpointsEv.exit.thread, %_ZNK6Method21number_of_breakpointsEv.exit.thread, %_ZNK6Method21number_of_breakpointsEv.exit.thread, %_ZNK6Method21number_of_breakpointsEv.exit.thread, %_ZNK6Method21number_of_breakpointsEv.exit.thread, %_ZNK6Method21number_of_breakpointsEv.exit.thread, %_ZNK6Method21number_of_breakpointsEv.exit.thread
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %11, align 8
+  %12 = and i32 %.sroa.0.0.copyload.i.i.i, 4096
+  %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %_ZNK6Method20is_always_compilableEv.exit, label %_ZNK6Method20is_always_compilableEv.exit.thread
 
-_ZNK6Method20is_always_compilableEv.exit:         ; preds = %_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i, %_ZNK6Method21number_of_breakpointsEv.exit.thread
-  %17 = icmp eq i32 %1, -1
-  br i1 %17, label %18, label %25
+_ZNK6Method20is_always_compilableEv.exit:         ; preds = %10, %_ZNK6Method21number_of_breakpointsEv.exit.thread
+  %13 = icmp eq i32 %1, -1
+  br i1 %13, label %14, label %21
 
-18:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
-  %20 = load i32, ptr %19, align 8
-  %21 = and i32 %20, 512
-  %.not9 = icmp eq i32 %21, 0
-  br i1 %.not9, label %_ZNK6Method20is_always_compilableEv.exit.thread, label %22
+14:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit
+  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = load i32, ptr %15, align 8
+  %17 = and i32 %16, 512
+  %.not9 = icmp eq i32 %17, 0
+  br i1 %.not9, label %_ZNK6Method20is_always_compilableEv.exit.thread, label %18
 
-22:                                               ; preds = %18
-  %23 = and i32 %20, 256
-  %24 = icmp ne i32 %23, 0
+18:                                               ; preds = %14
+  %19 = and i32 %16, 256
+  %20 = icmp ne i32 %19, 0
   br label %_ZNK6Method20is_always_compilableEv.exit.thread
 
-25:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit
-  %26 = add i32 %1, -1
-  %27 = icmp ult i32 %26, 3
-  br i1 %27, label %28, label %33
+21:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit
+  %22 = add i32 %1, -1
+  %23 = icmp ult i32 %22, 3
+  br i1 %23, label %24, label %29
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
-  %30 = load i32, ptr %29, align 8
-  %31 = and i32 %30, 512
-  %32 = icmp ne i32 %31, 0
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = load i32, ptr %25, align 8
+  %27 = and i32 %26, 512
+  %28 = icmp ne i32 %27, 0
   br label %_ZNK6Method20is_always_compilableEv.exit.thread
 
-33:                                               ; preds = %25
-  %34 = icmp eq i32 %1, 4
-  br i1 %34, label %35, label %_ZNK6Method20is_always_compilableEv.exit.thread
+29:                                               ; preds = %21
+  %30 = icmp eq i32 %1, 4
+  br i1 %30, label %31, label %_ZNK6Method20is_always_compilableEv.exit.thread
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
-  %37 = load i32, ptr %36, align 8
-  %38 = and i32 %37, 256
-  %39 = icmp ne i32 %38, 0
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = load i32, ptr %32, align 8
+  %34 = and i32 %33, 256
+  %35 = icmp ne i32 %34, 0
   br label %_ZNK6Method20is_always_compilableEv.exit.thread
 
-_ZNK6Method20is_always_compilableEv.exit.thread:  ; preds = %_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i, %33, %18, %22, %_ZNK6Method21number_of_breakpointsEv.exit, %35, %28
-  %.0 = phi i1 [ %32, %28 ], [ %39, %35 ], [ true, %_ZNK6Method21number_of_breakpointsEv.exit ], [ false, %18 ], [ %24, %22 ], [ false, %33 ], [ false, %_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i ]
+_ZNK6Method20is_always_compilableEv.exit.thread:  ; preds = %10, %29, %14, %18, %_ZNK6Method21number_of_breakpointsEv.exit, %31, %24
+  %.0 = phi i1 [ %28, %24 ], [ %35, %31 ], [ true, %_ZNK6Method21number_of_breakpointsEv.exit ], [ false, %14 ], [ %20, %18 ], [ false, %29 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -5803,85 +5805,86 @@ _ZNK6Method20is_always_compilableEv.exit.thread:  ; preds = %_ZNK6Method27is_spe
 define hidden void @_ZN6Method18set_not_compilableEPKcib(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 52
   %6 = load i16, ptr %5, align 4
-  %7 = zext i16 %6 to i32
-  %8 = add nsw i32 %7, -396
-  %9 = icmp ult i32 %8, 7
-  %10 = icmp ne i16 %6, 396
-  %spec.select.i.i.i = and i1 %10, %9
-  %11 = and i16 %6, -2
-  %spec.select.i1.i.i = icmp eq i16 %11, 198
-  %or.cond.i = or i1 %spec.select.i1.i.i, %spec.select.i.i.i
-  br i1 %or.cond.i, label %_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i, label %_ZNK6Method20is_always_compilableEv.exit
+  switch i16 %6, label %_ZNK6Method20is_always_compilableEv.exit [
+    i16 402, label %7
+    i16 401, label %7
+    i16 400, label %7
+    i16 399, label %7
+    i16 398, label %7
+    i16 397, label %7
+    i16 199, label %7
+    i16 198, label %7
+  ]
 
-_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i: ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %12, align 8
-  %13 = and i32 %.sroa.0.0.copyload.i.i.i, 4096
-  %.not.i = icmp eq i32 %13, 0
+7:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4
+  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %8, align 8
+  %9 = and i32 %.sroa.0.0.copyload.i.i.i, 4096
+  %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %_ZNK6Method20is_always_compilableEv.exit, label %_ZN6Method24set_is_not_c2_compilableEv.exit
 
-_ZNK6Method20is_always_compilableEv.exit:         ; preds = %_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i, %4
+_ZNK6Method20is_always_compilableEv.exit:         ; preds = %7, %4
   tail call void @_ZN6Method25print_made_not_compilableEibbPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %2, i1 noundef zeroext false, i1 noundef zeroext %3, ptr noundef %1)
-  %14 = icmp eq i32 %2, -1
-  br i1 %14, label %15, label %25
+  %10 = icmp eq i32 %2, -1
+  br i1 %10, label %11, label %21
 
-15:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = load volatile i32, ptr %16, align 8
+11:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit
+  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = load volatile i32, ptr %12, align 8
+  br label %14
+
+14:                                               ; preds = %14, %11
+  %.0.i.i.i.i.i.i = phi i32 [ %16, %14 ], [ %13, %11 ]
+  %15 = or i32 %.0.i.i.i.i.i.i, 512
+  %16 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %15, i32 %.0.i.i.i.i.i.i, ptr nonnull align 4 dereferenceable(4) %12) #24, !srcloc !9
+  %.not.i.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i.i, %16
+  br i1 %.not.i.i.i.i.i.i, label %_ZN6Method24set_is_not_c1_compilableEv.exit, label %14, !llvm.loop !11
+
+_ZN6Method24set_is_not_c1_compilableEv.exit:      ; preds = %14
+  %17 = load volatile i32, ptr %12, align 8
   br label %18
 
-18:                                               ; preds = %18, %15
-  %.0.i.i.i.i.i.i = phi i32 [ %20, %18 ], [ %17, %15 ]
-  %19 = or i32 %.0.i.i.i.i.i.i, 512
-  %20 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %19, i32 %.0.i.i.i.i.i.i, ptr nonnull align 4 dereferenceable(4) %16) #24, !srcloc !9
-  %.not.i.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i.i, %20
-  br i1 %.not.i.i.i.i.i.i, label %_ZN6Method24set_is_not_c1_compilableEv.exit, label %18, !llvm.loop !11
+18:                                               ; preds = %18, %_ZN6Method24set_is_not_c1_compilableEv.exit
+  %.0.i.i.i.i.i.i6 = phi i32 [ %20, %18 ], [ %17, %_ZN6Method24set_is_not_c1_compilableEv.exit ]
+  %19 = or i32 %.0.i.i.i.i.i.i6, 256
+  %20 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %19, i32 %.0.i.i.i.i.i.i6, ptr nonnull align 4 dereferenceable(4) %12) #24, !srcloc !9
+  %.not.i.i.i.i.i.i7 = icmp eq i32 %.0.i.i.i.i.i.i6, %20
+  br i1 %.not.i.i.i.i.i.i7, label %_ZN6Method24set_is_not_c2_compilableEv.exit, label %18, !llvm.loop !11
 
-_ZN6Method24set_is_not_c1_compilableEv.exit:      ; preds = %18
-  %21 = load volatile i32, ptr %16, align 8
-  br label %22
+21:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit
+  %22 = add i32 %2, -1
+  %23 = icmp ult i32 %22, 3
+  br i1 %23, label %24, label %_ZN6Method24set_is_not_c1_compilableEv.exit10
 
-22:                                               ; preds = %22, %_ZN6Method24set_is_not_c1_compilableEv.exit
-  %.0.i.i.i.i.i.i6 = phi i32 [ %24, %22 ], [ %21, %_ZN6Method24set_is_not_c1_compilableEv.exit ]
-  %23 = or i32 %.0.i.i.i.i.i.i6, 256
-  %24 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %23, i32 %.0.i.i.i.i.i.i6, ptr nonnull align 4 dereferenceable(4) %16) #24, !srcloc !9
-  %.not.i.i.i.i.i.i7 = icmp eq i32 %.0.i.i.i.i.i.i6, %24
-  br i1 %.not.i.i.i.i.i.i7, label %_ZN6Method24set_is_not_c2_compilableEv.exit, label %22, !llvm.loop !11
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = load volatile i32, ptr %25, align 8
+  br label %27
 
-25:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit
-  %26 = add i32 %2, -1
-  %27 = icmp ult i32 %26, 3
-  br i1 %27, label %28, label %_ZN6Method24set_is_not_c1_compilableEv.exit10
+27:                                               ; preds = %27, %24
+  %.0.i.i.i.i.i.i8 = phi i32 [ %29, %27 ], [ %26, %24 ]
+  %28 = or i32 %.0.i.i.i.i.i.i8, 512
+  %29 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, i32 %.0.i.i.i.i.i.i8, ptr nonnull align 4 dereferenceable(4) %25) #24, !srcloc !9
+  %.not.i.i.i.i.i.i9 = icmp eq i32 %.0.i.i.i.i.i.i8, %29
+  br i1 %.not.i.i.i.i.i.i9, label %_ZN6Method24set_is_not_c1_compilableEv.exit10, label %27, !llvm.loop !11
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
-  %30 = load volatile i32, ptr %29, align 8
-  br label %31
+_ZN6Method24set_is_not_c1_compilableEv.exit10:    ; preds = %27, %21
+  %30 = icmp eq i32 %2, 4
+  br i1 %30, label %31, label %_ZN6Method24set_is_not_c2_compilableEv.exit
 
-31:                                               ; preds = %31, %28
-  %.0.i.i.i.i.i.i8 = phi i32 [ %33, %31 ], [ %30, %28 ]
-  %32 = or i32 %.0.i.i.i.i.i.i8, 512
-  %33 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %32, i32 %.0.i.i.i.i.i.i8, ptr nonnull align 4 dereferenceable(4) %29) #24, !srcloc !9
-  %.not.i.i.i.i.i.i9 = icmp eq i32 %.0.i.i.i.i.i.i8, %33
-  br i1 %.not.i.i.i.i.i.i9, label %_ZN6Method24set_is_not_c1_compilableEv.exit10, label %31, !llvm.loop !11
+31:                                               ; preds = %_ZN6Method24set_is_not_c1_compilableEv.exit10
+  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = load volatile i32, ptr %32, align 8
+  br label %34
 
-_ZN6Method24set_is_not_c1_compilableEv.exit10:    ; preds = %31, %25
-  %34 = icmp eq i32 %2, 4
-  br i1 %34, label %35, label %_ZN6Method24set_is_not_c2_compilableEv.exit
+34:                                               ; preds = %34, %31
+  %.0.i.i.i.i.i.i11 = phi i32 [ %36, %34 ], [ %33, %31 ]
+  %35 = or i32 %.0.i.i.i.i.i.i11, 256
+  %36 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, i32 %.0.i.i.i.i.i.i11, ptr nonnull align 4 dereferenceable(4) %32) #24, !srcloc !9
+  %.not.i.i.i.i.i.i12 = icmp eq i32 %.0.i.i.i.i.i.i11, %36
+  br i1 %.not.i.i.i.i.i.i12, label %_ZN6Method24set_is_not_c2_compilableEv.exit, label %34, !llvm.loop !11
 
-35:                                               ; preds = %_ZN6Method24set_is_not_c1_compilableEv.exit10
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
-  %37 = load volatile i32, ptr %36, align 8
-  br label %38
-
-38:                                               ; preds = %38, %35
-  %.0.i.i.i.i.i.i11 = phi i32 [ %40, %38 ], [ %37, %35 ]
-  %39 = or i32 %.0.i.i.i.i.i.i11, 256
-  %40 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %39, i32 %.0.i.i.i.i.i.i11, ptr nonnull align 4 dereferenceable(4) %36) #24, !srcloc !9
-  %.not.i.i.i.i.i.i12 = icmp eq i32 %.0.i.i.i.i.i.i11, %40
-  br i1 %.not.i.i.i.i.i.i12, label %_ZN6Method24set_is_not_c2_compilableEv.exit, label %38, !llvm.loop !11
-
-_ZN6Method24set_is_not_c2_compilableEv.exit:      ; preds = %38, %22, %_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i, %_ZN6Method24set_is_not_c1_compilableEv.exit10
+_ZN6Method24set_is_not_c2_compilableEv.exit:      ; preds = %34, %18, %7, %_ZN6Method24set_is_not_c1_compilableEv.exit10
   ret void
 }
 
@@ -5901,104 +5904,105 @@ _ZNK6Method21number_of_breakpointsEv.exit.i:      ; preds = %2
 _ZNK6Method21number_of_breakpointsEv.exit.thread.i: ; preds = %_ZNK6Method21number_of_breakpointsEv.exit.i, %2
   %8 = getelementptr inbounds i8, ptr %0, i64 52
   %9 = load i16, ptr %8, align 4
-  %10 = zext i16 %9 to i32
-  %11 = add nsw i32 %10, -396
-  %12 = icmp ult i32 %11, 7
-  %13 = icmp ne i16 %9, 396
-  %spec.select.i.i.i.i = and i1 %13, %12
-  %14 = and i16 %9, -2
-  %spec.select.i1.i.i.i = icmp eq i16 %14, 198
-  %or.cond.i.i = or i1 %spec.select.i1.i.i.i, %spec.select.i.i.i.i
-  br i1 %or.cond.i.i, label %_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i.i, label %_ZNK6Method20is_always_compilableEv.exit.i
+  switch i16 %9, label %_ZNK6Method20is_always_compilableEv.exit.i [
+    i16 402, label %10
+    i16 401, label %10
+    i16 400, label %10
+    i16 399, label %10
+    i16 398, label %10
+    i16 397, label %10
+    i16 199, label %10
+    i16 198, label %10
+  ]
 
-_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i.i: ; preds = %_ZNK6Method21number_of_breakpointsEv.exit.thread.i
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %15, align 8
-  %16 = and i32 %.sroa.0.0.copyload.i.i.i.i, 4096
-  %.not.i.i = icmp eq i32 %16, 0
-  br i1 %.not.i.i, label %_ZNK6Method20is_always_compilableEv.exit.i, label %34
+10:                                               ; preds = %_ZNK6Method21number_of_breakpointsEv.exit.thread.i, %_ZNK6Method21number_of_breakpointsEv.exit.thread.i, %_ZNK6Method21number_of_breakpointsEv.exit.thread.i, %_ZNK6Method21number_of_breakpointsEv.exit.thread.i, %_ZNK6Method21number_of_breakpointsEv.exit.thread.i, %_ZNK6Method21number_of_breakpointsEv.exit.thread.i, %_ZNK6Method21number_of_breakpointsEv.exit.thread.i, %_ZNK6Method21number_of_breakpointsEv.exit.thread.i
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %11, align 8
+  %12 = and i32 %.sroa.0.0.copyload.i.i.i.i, 4096
+  %.not.i.i = icmp eq i32 %12, 0
+  br i1 %.not.i.i, label %_ZNK6Method20is_always_compilableEv.exit.i, label %30
 
-_ZNK6Method20is_always_compilableEv.exit.i:       ; preds = %_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i.i, %_ZNK6Method21number_of_breakpointsEv.exit.thread.i
-  %17 = icmp eq i32 %1, -1
-  br i1 %17, label %18, label %22
+_ZNK6Method20is_always_compilableEv.exit.i:       ; preds = %10, %_ZNK6Method21number_of_breakpointsEv.exit.thread.i
+  %13 = icmp eq i32 %1, -1
+  br i1 %13, label %14, label %18
 
-18:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit.i
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
-  %20 = load i32, ptr %19, align 8
-  %21 = and i32 %20, 768
-  %or.cond = icmp eq i32 %21, 768
+14:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit.i
+  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = load i32, ptr %15, align 8
+  %17 = and i32 %16, 768
+  %or.cond = icmp eq i32 %17, 768
   br i1 %or.cond, label %_ZNK6Method17is_not_compilableEi.exit.thread7, label %.thread10
 
-22:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit.i
-  %23 = add i32 %1, -1
-  %24 = icmp ult i32 %23, 3
-  br i1 %24, label %25, label %29
+18:                                               ; preds = %_ZNK6Method20is_always_compilableEv.exit.i
+  %19 = add i32 %1, -1
+  %20 = icmp ult i32 %19, 3
+  br i1 %20, label %21, label %25
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
-  %27 = load i32, ptr %26, align 8
-  %28 = and i32 %27, 512
-  %.not14 = icmp ne i32 %28, 0
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = load i32, ptr %22, align 8
+  %24 = and i32 %23, 512
+  %.not14 = icmp ne i32 %24, 0
   br label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
-29:                                               ; preds = %22
+25:                                               ; preds = %18
   switch i32 %1, label %_ZNK6Method17is_not_compilableEi.exit.thread7 [
-    i32 4, label %30
+    i32 4, label %26
     i32 -1, label %.thread10
   ]
 
-30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
-  %32 = load i32, ptr %31, align 8
-  %33 = and i32 %32, 256
-  %.not = icmp eq i32 %33, 0
+26:                                               ; preds = %25
+  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = load i32, ptr %27, align 8
+  %29 = and i32 %28, 256
+  %.not = icmp eq i32 %29, 0
   br i1 %.not, label %.thread12, label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
-34:                                               ; preds = %_ZNK6Method27is_special_native_intrinsicEv.exit.thread.i.i
-  %35 = icmp eq i32 %1, -1
-  br i1 %35, label %.thread10, label %.thread
+30:                                               ; preds = %10
+  %31 = icmp eq i32 %1, -1
+  br i1 %31, label %.thread10, label %.thread
 
-.thread10:                                        ; preds = %29, %18, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
-  %37 = load i32, ptr %36, align 8
-  %38 = and i32 %37, 512
-  %.not15 = icmp eq i32 %38, 0
-  br i1 %.not15, label %_ZNK6Method17is_not_compilableEi.exit.thread7, label %39
+.thread10:                                        ; preds = %25, %14, %30
+  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = load i32, ptr %32, align 8
+  %34 = and i32 %33, 512
+  %.not15 = icmp eq i32 %34, 0
+  br i1 %.not15, label %_ZNK6Method17is_not_compilableEi.exit.thread7, label %35
 
-39:                                               ; preds = %.thread10
-  %40 = and i32 %37, 1024
-  %41 = icmp ne i32 %40, 0
+35:                                               ; preds = %.thread10
+  %36 = and i32 %33, 1024
+  %37 = icmp ne i32 %36, 0
   br label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
-.thread:                                          ; preds = %34
+.thread:                                          ; preds = %30
   %.pre19 = add i32 %1, -1
-  %42 = icmp ult i32 %.pre19, 3
-  br i1 %42, label %.thread..thread.thread_crit_edge, label %.thread.thread21
+  %38 = icmp ult i32 %.pre19, 3
+  br i1 %38, label %.thread..thread.thread_crit_edge, label %.thread.thread21
 
 .thread..thread.thread_crit_edge:                 ; preds = %.thread
   %.phi.trans.insert16 = getelementptr inbounds i8, ptr %0, i64 48
   %.pre17 = load i32, ptr %.phi.trans.insert16, align 8
   %.pre18 = and i32 %.pre17, 512
-  %43 = icmp ne i32 %.pre18, 0
+  %39 = icmp ne i32 %.pre18, 0
   br label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
 .thread.thread21:                                 ; preds = %.thread
-  %44 = icmp eq i32 %1, 4
-  br i1 %44, label %..thread12_crit_edge, label %_ZNK6Method17is_not_compilableEi.exit.thread7
+  %40 = icmp eq i32 %1, 4
+  br i1 %40, label %..thread12_crit_edge, label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
 ..thread12_crit_edge:                             ; preds = %.thread.thread21
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 48
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %.thread12
 
-.thread12:                                        ; preds = %..thread12_crit_edge, %30
-  %45 = phi i32 [ %.pre, %..thread12_crit_edge ], [ %32, %30 ]
-  %46 = and i32 %45, 1024
-  %47 = icmp ne i32 %46, 0
+.thread12:                                        ; preds = %..thread12_crit_edge, %26
+  %41 = phi i32 [ %.pre, %..thread12_crit_edge ], [ %28, %26 ]
+  %42 = and i32 %41, 1024
+  %43 = icmp ne i32 %42, 0
   br label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
-_ZNK6Method17is_not_compilableEi.exit.thread7:    ; preds = %25, %29, %.thread..thread.thread_crit_edge, %18, %_ZNK6Method21number_of_breakpointsEv.exit.i, %30, %.thread.thread21, %.thread10, %39, %.thread12
-  %.0 = phi i1 [ %47, %.thread12 ], [ false, %.thread10 ], [ %41, %39 ], [ false, %.thread.thread21 ], [ true, %30 ], [ true, %_ZNK6Method21number_of_breakpointsEv.exit.i ], [ true, %18 ], [ %43, %.thread..thread.thread_crit_edge ], [ %.not14, %25 ], [ false, %29 ]
+_ZNK6Method17is_not_compilableEi.exit.thread7:    ; preds = %21, %25, %.thread..thread.thread_crit_edge, %14, %_ZNK6Method21number_of_breakpointsEv.exit.i, %26, %.thread.thread21, %.thread10, %35, %.thread12
+  %.0 = phi i1 [ %43, %.thread12 ], [ false, %.thread10 ], [ %37, %35 ], [ false, %.thread.thread21 ], [ true, %26 ], [ true, %_ZNK6Method21number_of_breakpointsEv.exit.i ], [ true, %14 ], [ %39, %.thread..thread.thread_crit_edge ], [ %.not14, %21 ], [ false, %25 ]
   ret i1 %.0
 }
 
@@ -6228,7 +6232,7 @@ define hidden void @_ZN6Method11link_methodERK12methodHandleP10JavaThread(ptr no
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %14, label %66
+  br i1 %.not, label %14, label %61
 
 14:                                               ; preds = %11
   %15 = tail call noundef i32 @_ZN19AbstractInterpreter11method_kindERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
@@ -6264,84 +6268,85 @@ _ZN6Method21set_interpreter_entryEPh.exit:        ; preds = %22, %25
 28:                                               ; preds = %_ZN6Method21set_interpreter_entryEPh.exit
   %29 = getelementptr inbounds i8, ptr %0, i64 52
   %30 = load i16, ptr %29, align 4
-  %31 = zext i16 %30 to i32
-  %32 = add nsw i32 %31, -396
-  %33 = icmp ult i32 %32, 7
-  %34 = icmp ne i16 %30, 396
-  %spec.select.i.i.i = and i1 %34, %33
-  %35 = and i16 %30, -2
-  %spec.select.i1.i.i = icmp eq i16 %35, 198
-  %or.cond.i = or i1 %spec.select.i1.i.i, %spec.select.i.i.i
-  br i1 %or.cond.i, label %_ZNK6Method19has_native_functionEv.exit.thread, label %36
+  switch i16 %30, label %31 [
+    i16 402, label %_ZNK6Method19has_native_functionEv.exit.thread
+    i16 401, label %_ZNK6Method19has_native_functionEv.exit.thread
+    i16 400, label %_ZNK6Method19has_native_functionEv.exit.thread
+    i16 399, label %_ZNK6Method19has_native_functionEv.exit.thread
+    i16 398, label %_ZNK6Method19has_native_functionEv.exit.thread
+    i16 397, label %_ZNK6Method19has_native_functionEv.exit.thread
+    i16 199, label %_ZNK6Method19has_native_functionEv.exit.thread
+    i16 198, label %_ZNK6Method19has_native_functionEv.exit.thread
+  ]
 
-36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %0, i64 88
-  %38 = load ptr, ptr %37, align 8
-  %.not.i10 = icmp eq ptr %38, null
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %0, i64 88
+  %33 = load ptr, ptr %32, align 8
+  %.not.i10 = icmp eq ptr %33, null
   br i1 %.not.i10, label %_ZNK6Method19has_native_functionEv.exit.thread, label %_ZNK6Method19has_native_functionEv.exit
 
-_ZNK6Method19has_native_functionEv.exit:          ; preds = %36
-  %39 = tail call noundef ptr @_ZN13SharedRuntime48native_method_throw_unsatisfied_link_error_entryEv() #24
-  %.not15 = icmp eq ptr %38, %39
+_ZNK6Method19has_native_functionEv.exit:          ; preds = %31
+  %34 = tail call noundef ptr @_ZN13SharedRuntime48native_method_throw_unsatisfied_link_error_entryEv() #24
+  %.not15 = icmp eq ptr %33, %34
   br i1 %.not15, label %_ZNK6Method19has_native_functionEv.exit.thread, label %_ZN6Method19set_native_functionEPhb.exit
 
-_ZNK6Method19has_native_functionEv.exit.thread:   ; preds = %28, %36, %_ZNK6Method19has_native_functionEv.exit
-  %40 = tail call noundef ptr @_ZN13SharedRuntime48native_method_throw_unsatisfied_link_error_entryEv() #24
-  %41 = getelementptr inbounds i8, ptr %0, i64 88
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, %40
-  br i1 %43, label %_ZN6Method19set_native_functionEPhb.exit, label %44
+_ZNK6Method19has_native_functionEv.exit.thread:   ; preds = %31, %28, %28, %28, %28, %28, %28, %28, %28, %_ZNK6Method19has_native_functionEv.exit
+  %35 = tail call noundef ptr @_ZN13SharedRuntime48native_method_throw_unsatisfied_link_error_entryEv() #24
+  %36 = getelementptr inbounds i8, ptr %0, i64 88
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, %35
+  br i1 %38, label %_ZN6Method19set_native_functionEPhb.exit, label %39
 
-44:                                               ; preds = %_ZNK6Method19has_native_functionEv.exit.thread
-  store ptr %40, ptr %41, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 72
-  %46 = load volatile ptr, ptr %45, align 8
+39:                                               ; preds = %_ZNK6Method19has_native_functionEv.exit.thread
+  store ptr %35, ptr %36, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 72
+  %41 = load volatile ptr, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !6
-  %.not.i11 = icmp eq ptr %46, null
-  br i1 %.not.i11, label %_ZN6Method19set_native_functionEPhb.exit, label %47
+  %.not.i11 = icmp eq ptr %41, null
+  br i1 %.not.i11, label %_ZN6Method19set_native_functionEPhb.exit, label %42
 
-47:                                               ; preds = %44
-  %48 = tail call noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef nonnull align 8 dereferenceable(214) %46) #24
+42:                                               ; preds = %39
+  %43 = tail call noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef nonnull align 8 dereferenceable(214) %41) #24
   br label %_ZN6Method19set_native_functionEPhb.exit
 
-_ZN6Method19set_native_functionEPhb.exit:         ; preds = %47, %44, %_ZNK6Method19has_native_functionEv.exit.thread, %_ZNK6Method19has_native_functionEv.exit, %_ZN6Method21set_interpreter_entryEPh.exit
-  %49 = tail call noundef ptr @_ZN6Method13make_adaptersERK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2)
-  %50 = getelementptr inbounds i8, ptr %2, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %.not16 = icmp eq ptr %51, null
-  br i1 %.not16, label %52, label %66
+_ZN6Method19set_native_functionEPhb.exit:         ; preds = %42, %39, %_ZNK6Method19has_native_functionEv.exit.thread, %_ZNK6Method19has_native_functionEv.exit, %_ZN6Method21set_interpreter_entryEPh.exit
+  %44 = tail call noundef ptr @_ZN6Method13make_adaptersERK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2)
+  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %.not16 = icmp eq ptr %46, null
+  br i1 %.not16, label %47, label %61
 
-52:                                               ; preds = %_ZN6Method19set_native_functionEPhb.exit
-  %53 = load ptr, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 52
-  %55 = load i16, ptr %54, align 4
-  %56 = and i16 %55, -2
-  %spec.select.i = icmp eq i16 %56, 198
-  br i1 %spec.select.i, label %57, label %66
+47:                                               ; preds = %_ZN6Method19set_native_functionEPhb.exit
+  %48 = load ptr, ptr %1, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 52
+  %50 = load i16, ptr %49, align 4
+  %51 = and i16 %50, -2
+  %spec.select.i = icmp eq i16 %51, 198
+  br i1 %spec.select.i, label %52, label %61
 
-57:                                               ; preds = %52
+52:                                               ; preds = %47
   store volatile ptr null, ptr %23, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 64
-  store volatile ptr null, ptr %58, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 64
+  store volatile ptr null, ptr %53, align 8
   store ptr null, ptr %19, align 8
-  %59 = tail call noundef zeroext i1 @_ZN13Continuations7enabledEv() #24
-  br i1 %59, label %60, label %66
+  %54 = tail call noundef zeroext i1 @_ZN13Continuations7enabledEv() #24
+  br i1 %54, label %55, label %61
 
-60:                                               ; preds = %57
+55:                                               ; preds = %52
   tail call void @_ZN21AdapterHandlerLibrary21create_native_wrapperERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
-  %61 = load ptr, ptr %1, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 72
-  %63 = load volatile ptr, ptr %62, align 8
+  %56 = load ptr, ptr %1, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 72
+  %58 = load volatile ptr, ptr %57, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !6
-  %.not17 = icmp eq ptr %63, null
-  br i1 %.not17, label %64, label %66
+  %.not17 = icmp eq ptr %58, null
+  br i1 %.not17, label %59, label %61
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
-  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %2, ptr noundef nonnull @.str.18, i32 noundef 1221, ptr noundef %65, ptr noundef nonnull @.str.41) #24
-  br label %66
+59:                                               ; preds = %55
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1360), align 8
+  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %2, ptr noundef nonnull @.str.18, i32 noundef 1221, ptr noundef %60, ptr noundef nonnull @.str.41) #24
+  br label %61
 
-66:                                               ; preds = %57, %60, %_ZN6Method19set_native_functionEPhb.exit, %11, %64, %52
+61:                                               ; preds = %52, %55, %_ZN6Method19set_native_functionEPhb.exit, %11, %59, %47
   ret void
 }
 
@@ -6553,26 +6558,23 @@ _ZN6Method22set_highest_comp_levelEi.exit:        ; preds = %8, %20, %_ZNK6Metho
   %52 = load ptr, ptr %51, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !6
   store volatile ptr %52, ptr %48, align 8
-  br label %64
+  br label %61
 
 53:                                               ; preds = %_ZN6Method22set_highest_comp_levelEi.exit
-  %54 = zext i16 %33 to i32
-  %55 = add nsw i32 %54, -396
-  %56 = icmp ult i32 %55, 7
-  %57 = icmp ne i16 %33, 396
-  %spec.select.i21 = and i1 %57, %56
-  br i1 %spec.select.i21, label %64, label %58
+  %54 = add i16 %33, -397
+  %spec.select.i21 = icmp ult i16 %54, 6
+  br i1 %spec.select.i21, label %61, label %55
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %31, i64 32
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %31, i64 80
-  store volatile ptr %62, ptr %63, align 8
-  br label %64
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds i8, ptr %31, i64 32
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %31, i64 80
+  store volatile ptr %59, ptr %60, align 8
+  br label %61
 
-64:                                               ; preds = %53, %58, %45
+61:                                               ; preds = %53, %55, %45
   ret void
 }
 
@@ -6620,11 +6622,8 @@ declare noundef ptr @_ZN17ContinuationEntry17interpreted_entryEv() local_unnamed
 define hidden noundef zeroext i1 @_ZNK6Method26is_method_handle_intrinsicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i16, ptr %2, align 4
-  %4 = zext i16 %3 to i32
-  %5 = add nsw i32 %4, -396
-  %6 = icmp ult i32 %5, 7
-  %7 = icmp ne i16 %3, 396
-  %spec.select = and i1 %7, %6
+  %4 = add i16 %3, -397
+  %spec.select = icmp ult i16 %4, 6
   ret i1 %spec.select
 }
 
@@ -6700,7 +6699,7 @@ define hidden noundef zeroext i1 @_ZNK6Method33is_ignored_by_security_stack_walk
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i16, ptr %2, align 4
   %4 = icmp eq i16 %3, 395
-  br i1 %4, label %21, label %5
+  br i1 %4, label %17, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6711,20 +6710,15 @@ define hidden noundef zeroext i1 @_ZNK6Method33is_ignored_by_security_stack_walk
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 408), align 8
   %13 = tail call noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196) %11, ptr noundef %12) #24
-  br i1 %13, label %21, label %14
+  br i1 %13, label %17, label %14
 
 14:                                               ; preds = %5
   %15 = load i16, ptr %2, align 4
-  %16 = zext i16 %15 to i32
-  %17 = add nsw i32 %16, -396
-  %18 = icmp ult i32 %17, 7
-  %19 = icmp ne i16 %15, 396
-  %spec.select.i = and i1 %19, %18
-  %20 = icmp eq i16 %15, 403
-  %spec.select = or i1 %20, %spec.select.i
-  br label %21
+  %16 = add i16 %15, -397
+  %spec.select = icmp ult i16 %16, 7
+  br label %17
 
-21:                                               ; preds = %14, %5, %1
+17:                                               ; preds = %14, %5, %1
   %.0 = phi i1 [ true, %1 ], [ true, %5 ], [ %spec.select, %14 ]
   ret i1 %.0
 }
@@ -6741,10 +6735,9 @@ define hidden noundef zeroext i1 @_ZNK6Method23is_compiled_lambda_formEv(ptr noc
 define hidden noundef zeroext i1 @_ZNK6Method14has_member_argEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i16, ptr %2, align 4
-  %4 = zext i16 %3 to i32
-  %5 = add nsw i32 %4, -398
-  %6 = icmp ult i32 %5, 5
-  ret i1 %6
+  %4 = add i16 %3, -398
+  %5 = icmp ult i16 %4, 5
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

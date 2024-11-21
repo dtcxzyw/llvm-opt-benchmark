@@ -27469,8 +27469,8 @@ define void @_ZNK22QCPLabelPainterPrivate16getTickLabelDataERK5QFontRK6QColordNS
   %36 = getelementptr i16, ptr %35, i64 %33
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
-  %39 = add nsw i32 %38, -48
-  %or.cond.i.i = icmp ult i32 %39, 10
+  %39 = add i16 %37, -48
+  %or.cond.i.i = icmp ult i16 %39, 10
   br i1 %or.cond.i.i, label %_ZNK5QChar7isDigitEv.exit.preheader, label %40
 
 40:                                               ; preds = %31
@@ -27503,8 +27503,8 @@ _ZNK5QChar7isDigitEv.exit.preheader:              ; preds = %42, %31
 
 54:                                               ; preds = %.lr.ph
   %55 = zext i16 %53 to i32
-  %56 = add nsw i32 %55, -48
-  %or.cond.i.i71 = icmp ult i32 %56, 10
+  %56 = add i16 %53, -48
+  %or.cond.i.i71 = icmp ult i16 %56, 10
   br i1 %or.cond.i.i71, label %.critedge4, label %57
 
 57:                                               ; preds = %54
@@ -48606,8 +48606,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %31, %_ZN17QArrayDat
   %43 = getelementptr i16, ptr %42, i64 %40
   %44 = load i16, ptr %43, align 2
   %45 = zext i16 %44 to i32
-  %46 = add nsw i32 %45, -48
-  %or.cond.i.i = icmp ult i32 %46, 10
+  %46 = add i16 %44, -48
+  %or.cond.i.i = icmp ult i16 %46, 10
   br i1 %or.cond.i.i, label %_ZNK5QChar7isDigitEv.exit.preheader, label %47
 
 47:                                               ; preds = %38
@@ -48640,8 +48640,8 @@ _ZNK5QChar7isDigitEv.exit.preheader:              ; preds = %49, %38
 
 61:                                               ; preds = %.lr.ph
   %62 = zext i16 %60 to i32
-  %63 = add nsw i32 %62, -48
-  %or.cond.i.i68 = icmp ult i32 %63, 10
+  %63 = add i16 %60, -48
+  %or.cond.i.i68 = icmp ult i16 %63, 10
   br i1 %or.cond.i.i68, label %.critedge4, label %64
 
 64:                                               ; preds = %61

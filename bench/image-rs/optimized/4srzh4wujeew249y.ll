@@ -29515,7 +29515,7 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
 
 22:                                               ; preds = %43
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E"(ptr noalias noundef align 8 dereferenceable(32) %8) #23
-          to label %62 unwind label %44
+          to label %60 unwind label %44
 
 23:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -29595,20 +29595,19 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
 40:                                               ; preds = %39
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %62
+  br label %60
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %.pre = load i16, ptr %1, align 8, !range !2091
   %.pre35 = add nsw i16 %.pre, -21
-  %.pre36 = zext nneg i16 %.pre to i64
   br label %58
 
 43:                                               ; preds = %33
   invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.86838146618072286"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #23
           to label %22 unwind label %44
 
-44:                                               ; preds = %68, %43, %22
+44:                                               ; preds = %63, %43, %22
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24
@@ -29670,38 +29669,30 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   br label %57
 
-57:                                               ; preds = %58, %.critedge, %61
+57:                                               ; preds = %58, %.critedge, %59
   ret void
 
 58:                                               ; preds = %18, %42, %46
-  %.pre-phi37 = phi i64 [ %14, %18 ], [ %.pre36, %42 ], [ %14, %46 ]
   %.pre-phi = phi i16 [ %12, %18 ], [ %.pre35, %42 ], [ %12, %46 ]
-  %59 = icmp ult i16 %.pre-phi, 5
-  %60 = add nsw i64 %.pre-phi37, -21
-  %switch33 = icmp ult i64 %60, 2
-  %switch = select i1 %59, i1 %switch33, i1 false
-  br i1 %switch, label %57, label %61
+  %switch = icmp ult i16 %.pre-phi, 2
+  br i1 %switch, label %57, label %59
 
-61:                                               ; preds = %58
+59:                                               ; preds = %58
   call fastcc void @"_ZN4core3ptr43drop_in_place$LT$tiff..error..TiffError$GT$17hda6d551b8c0189a7E"(ptr noalias noundef align 8 dereferenceable(40) %1)
   br label %57
 
-.body12:                                          ; preds = %.body.i, %62, %68
-  %.pn831 = phi { ptr, i32 } [ %.pn8.ph, %62 ], [ %.pn8.ph, %68 ], [ %51, %.body.i ]
+.body12:                                          ; preds = %.body.i, %60, %63
+  %.pn831 = phi { ptr, i32 } [ %.pn8.ph, %60 ], [ %.pn8.ph, %63 ], [ %51, %.body.i ]
   resume { ptr, i32 } %.pn831
 
-62:                                               ; preds = %40, %22
+60:                                               ; preds = %40, %22
   %.pn8.ph = phi { ptr, i32 } [ %34, %22 ], [ %41, %40 ]
-  %63 = load i16, ptr %1, align 8, !range !2091, !noundef !9
-  %64 = add nsw i16 %63, -21
-  %65 = icmp ult i16 %64, 5
-  %66 = zext nneg i16 %63 to i64
-  %67 = add nsw i64 %66, -21
-  %switch1134 = icmp ult i64 %67, 2
-  %switch11 = select i1 %65, i1 %switch1134, i1 false
-  br i1 %switch11, label %.body12, label %68
+  %61 = load i16, ptr %1, align 8, !range !2091, !noundef !9
+  %62 = add nsw i16 %61, -21
+  %switch11 = icmp ult i16 %62, 2
+  br i1 %switch11, label %.body12, label %63
 
-68:                                               ; preds = %62
+63:                                               ; preds = %60
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tiff..error..TiffError$GT$17hda6d551b8c0189a7E"(ptr noalias noundef align 8 dereferenceable(40) %1) #23
           to label %.body12 unwind label %44
 }
@@ -29747,7 +29738,7 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
 
 22:                                               ; preds = %43
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E"(ptr noalias noundef align 8 dereferenceable(32) %8) #23
-          to label %62 unwind label %44
+          to label %60 unwind label %44
 
 23:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -29827,20 +29818,19 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
 40:                                               ; preds = %39
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %62
+  br label %60
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %.pre = load i16, ptr %1, align 8, !range !2091
   %.pre35 = add nsw i16 %.pre, -21
-  %.pre36 = zext nneg i16 %.pre to i64
   br label %58
 
 43:                                               ; preds = %33
   invoke void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE.llvm.86838146618072286"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #23
           to label %22 unwind label %44
 
-44:                                               ; preds = %68, %43, %22
+44:                                               ; preds = %63, %43, %22
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24
@@ -29902,38 +29892,30 @@ define void @"_ZN5image6codecs4tiff42_$LT$impl$u20$image..error..ImageError$GT$1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   br label %57
 
-57:                                               ; preds = %58, %.critedge, %61
+57:                                               ; preds = %58, %.critedge, %59
   ret void
 
 58:                                               ; preds = %18, %42, %46
-  %.pre-phi37 = phi i64 [ %14, %18 ], [ %.pre36, %42 ], [ %14, %46 ]
   %.pre-phi = phi i16 [ %12, %18 ], [ %.pre35, %42 ], [ %12, %46 ]
-  %59 = icmp ult i16 %.pre-phi, 5
-  %60 = add nsw i64 %.pre-phi37, -21
-  %switch33 = icmp ult i64 %60, 2
-  %switch = select i1 %59, i1 %switch33, i1 false
-  br i1 %switch, label %57, label %61
+  %switch = icmp ult i16 %.pre-phi, 2
+  br i1 %switch, label %57, label %59
 
-61:                                               ; preds = %58
+59:                                               ; preds = %58
   call fastcc void @"_ZN4core3ptr43drop_in_place$LT$tiff..error..TiffError$GT$17hda6d551b8c0189a7E"(ptr noalias noundef align 8 dereferenceable(40) %1)
   br label %57
 
-.body12:                                          ; preds = %.body.i, %62, %68
-  %.pn831 = phi { ptr, i32 } [ %.pn8.ph, %62 ], [ %.pn8.ph, %68 ], [ %51, %.body.i ]
+.body12:                                          ; preds = %.body.i, %60, %63
+  %.pn831 = phi { ptr, i32 } [ %.pn8.ph, %60 ], [ %.pn8.ph, %63 ], [ %51, %.body.i ]
   resume { ptr, i32 } %.pn831
 
-62:                                               ; preds = %40, %22
+60:                                               ; preds = %40, %22
   %.pn8.ph = phi { ptr, i32 } [ %34, %22 ], [ %41, %40 ]
-  %63 = load i16, ptr %1, align 8, !range !2091, !noundef !9
-  %64 = add nsw i16 %63, -21
-  %65 = icmp ult i16 %64, 5
-  %66 = zext nneg i16 %63 to i64
-  %67 = add nsw i64 %66, -21
-  %switch1134 = icmp ult i64 %67, 2
-  %switch11 = select i1 %65, i1 %switch1134, i1 false
-  br i1 %switch11, label %.body12, label %68
+  %61 = load i16, ptr %1, align 8, !range !2091, !noundef !9
+  %62 = add nsw i16 %61, -21
+  %switch11 = icmp ult i16 %62, 2
+  br i1 %switch11, label %.body12, label %63
 
-68:                                               ; preds = %62
+63:                                               ; preds = %60
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tiff..error..TiffError$GT$17hda6d551b8c0189a7E"(ptr noalias noundef align 8 dereferenceable(40) %1) #23
           to label %.body12 unwind label %44
 }

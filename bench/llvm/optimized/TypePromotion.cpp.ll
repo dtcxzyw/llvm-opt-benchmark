@@ -6208,7 +6208,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl1
   %2 = alloca %"class.llvm::AttributeList", align 8
   %3 = load i8, ptr %0, align 8
   %4 = icmp ult i8 %3, 29
-  br i1 %4, label %124, label %5
+  br i1 %4, label %123, label %5
 
 5:                                                ; preds = %1
   switch i8 %3, label %6 [
@@ -6216,334 +6216,332 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl1
     i8 62, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
     i8 31, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
     i8 32, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
-    i8 84, label %20
-    i8 86, label %20
-    i8 30, label %20
-    i8 61, label %20
-    i8 67, label %20
-    i8 78, label %31
-    i8 68, label %50
-    i8 82, label %74
-    i8 85, label %100
+    i8 84, label %19
+    i8 86, label %19
+    i8 30, label %19
+    i8 61, label %19
+    i8 67, label %19
+    i8 78, label %30
+    i8 68, label %49
+    i8 82, label %73
+    i8 85, label %99
   ]
 
 6:                                                ; preds = %5
-  %7 = zext i8 %3 to i32
-  %8 = add nsw i32 %7, -42
-  %9 = icmp ult i32 %8, 18
-  br i1 %9, label %10, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+  %7 = add i8 %3, -42
+  %8 = icmp ult i8 %7, 18
+  br i1 %8, label %9, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-10:                                               ; preds = %6
-  %11 = getelementptr i8, ptr %0, i64 8
-  %.val6 = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %.val6, i64 8
-  %13 = load i32, ptr %12, align 8
-  %trunc.i = trunc i32 %13 to i8
+9:                                                ; preds = %6
+  %10 = getelementptr i8, ptr %0, i64 8
+  %.val6 = load ptr, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %.val6, i64 8
+  %12 = load i32, ptr %11, align 8
+  %trunc.i = trunc i32 %12 to i8
   switch i8 %trunc.i, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29 [
     i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19
     i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19
-    i8 12, label %14
+    i8 12, label %13
   ]
 
-14:                                               ; preds = %10
-  %15 = lshr i32 %13, 8
-  %16 = icmp eq i32 %15, 1
-  %17 = icmp ugt i32 %15, %.24.val
-  %or.cond.i = select i1 %16, i1 true, i1 %17
+13:                                               ; preds = %9
+  %14 = lshr i32 %12, 8
+  %15 = icmp eq i32 %14, 1
+  %16 = icmp ugt i32 %14, %.24.val
+  %or.cond.i = select i1 %15, i1 true, i1 %16
   br i1 %or.cond.i, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit
 
-_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit: ; preds = %14
-  %18 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6) #21
-  %.not28 = icmp ugt i32 %18, %.0.val
+_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit: ; preds = %13
+  %17 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6) #21
+  %.not28 = icmp ugt i32 %17, %.0.val
   br i1 %.not28, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19
 
-_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19: ; preds = %10, %10, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit
-  %switch.tableidx = add i8 %3, -49
-  %19 = icmp ult i8 %switch.tableidx, 21
-  br i1 %19, label %switch.lookup, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
+_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19: ; preds = %9, %9, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit
+  %18 = icmp ult i8 %3, 57
+  br i1 %18, label %switch.lookup, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-20:                                               ; preds = %5, %5, %5, %5, %5
-  %21 = getelementptr i8, ptr %0, i64 8
-  %.val9 = load ptr, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %.val9, i64 8
-  %23 = load i32, ptr %22, align 8
-  %trunc.i25 = trunc i32 %23 to i8
+19:                                               ; preds = %5, %5, %5, %5, %5
+  %20 = getelementptr i8, ptr %0, i64 8
+  %.val9 = load ptr, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %.val9, i64 8
+  %22 = load i32, ptr %21, align 8
+  %trunc.i25 = trunc i32 %22 to i8
   switch i8 %trunc.i25, label %.fold.split.i28 [
     i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
     i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
-    i8 12, label %24
+    i8 12, label %23
   ]
 
-24:                                               ; preds = %20
-  %25 = lshr i32 %23, 8
-  %26 = icmp eq i32 %25, 1
-  %27 = icmp ugt i32 %25, %.24.val
-  %or.cond.i26 = select i1 %26, i1 true, i1 %27
-  br i1 %or.cond.i26, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %28
+23:                                               ; preds = %19
+  %24 = lshr i32 %22, 8
+  %25 = icmp eq i32 %24, 1
+  %26 = icmp ugt i32 %24, %.24.val
+  %or.cond.i26 = select i1 %25, i1 true, i1 %26
+  br i1 %or.cond.i26, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %27
 
-28:                                               ; preds = %24
-  %29 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val9) #21
-  %30 = icmp ule i32 %29, %.0.val
+27:                                               ; preds = %23
+  %28 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val9) #21
+  %29 = icmp ule i32 %28, %.0.val
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-.fold.split.i28:                                  ; preds = %20
+.fold.split.i28:                                  ; preds = %19
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-31:                                               ; preds = %5
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = and i32 %33, 1073741824
-  %.not.i.i = icmp eq i32 %34, 0
-  br i1 %.not.i.i, label %38, label %35
+30:                                               ; preds = %5
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, 1073741824
+  %.not.i.i = icmp eq i32 %33, 0
+  br i1 %.not.i.i, label %37, label %34
 
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 -8
-  %37 = load ptr, ptr %36, align 8
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds i8, ptr %0, i64 -8
+  %36 = load ptr, ptr %35, align 8
   br label %_ZNK4llvm4User10getOperandEj.exit
 
-38:                                               ; preds = %31
-  %39 = and i32 %33, 134217727
-  %40 = zext nneg i32 %39 to i64
-  %41 = sub nsw i64 0, %40
-  %42 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %41
+37:                                               ; preds = %30
+  %38 = and i32 %32, 134217727
+  %39 = zext nneg i32 %38 to i64
+  %40 = sub nsw i64 0, %39
+  %41 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %40
   br label %_ZNK4llvm4User10getOperandEj.exit
 
-_ZNK4llvm4User10getOperandEj.exit:                ; preds = %35, %38
-  %43 = phi ptr [ %37, %35 ], [ %42, %38 ]
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %46, %48
+_ZNK4llvm4User10getOperandEj.exit:                ; preds = %34, %37
+  %42 = phi ptr [ %36, %34 ], [ %41, %37 ]
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %45, %47
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-50:                                               ; preds = %5
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %52 = load i32, ptr %51, align 4
-  %53 = and i32 %52, 1073741824
-  %.not.i.i30 = icmp eq i32 %53, 0
-  br i1 %.not.i.i30, label %57, label %54
+49:                                               ; preds = %5
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %51 = load i32, ptr %50, align 4
+  %52 = and i32 %51, 1073741824
+  %.not.i.i30 = icmp eq i32 %52, 0
+  br i1 %.not.i.i30, label %56, label %53
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 -8
-  %56 = load ptr, ptr %55, align 8
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds i8, ptr %0, i64 -8
+  %55 = load ptr, ptr %54, align 8
   br label %_ZNK4llvm4User10getOperandEj.exit31
 
-57:                                               ; preds = %50
-  %58 = and i32 %52, 134217727
-  %59 = zext nneg i32 %58 to i64
-  %60 = sub nsw i64 0, %59
-  %61 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %60
+56:                                               ; preds = %49
+  %57 = and i32 %51, 134217727
+  %58 = zext nneg i32 %57 to i64
+  %59 = sub nsw i64 0, %58
+  %60 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %59
   br label %_ZNK4llvm4User10getOperandEj.exit31
 
-_ZNK4llvm4User10getOperandEj.exit31:              ; preds = %54, %57
-  %62 = phi ptr [ %56, %54 ], [ %61, %57 ]
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr i8, ptr %63, i64 8
-  %.val12 = load ptr, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %.val12, i64 8
-  %66 = load i32, ptr %65, align 8
-  %trunc.i32 = trunc i32 %66 to i8
+_ZNK4llvm4User10getOperandEj.exit31:              ; preds = %53, %56
+  %61 = phi ptr [ %55, %53 ], [ %60, %56 ]
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr i8, ptr %62, i64 8
+  %.val12 = load ptr, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %.val12, i64 8
+  %65 = load i32, ptr %64, align 8
+  %trunc.i32 = trunc i32 %65 to i8
   switch i8 %trunc.i32, label %.fold.split.i35 [
     i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
     i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
-    i8 12, label %67
+    i8 12, label %66
   ]
 
-67:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit31
-  %68 = lshr i32 %66, 8
-  %69 = icmp eq i32 %68, 1
-  %70 = icmp ugt i32 %68, %.24.val
-  %or.cond.i33 = select i1 %69, i1 true, i1 %70
-  br i1 %or.cond.i33, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %71
+66:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit31
+  %67 = lshr i32 %65, 8
+  %68 = icmp eq i32 %67, 1
+  %69 = icmp ugt i32 %67, %.24.val
+  %or.cond.i33 = select i1 %68, i1 true, i1 %69
+  br i1 %or.cond.i33, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %70
 
-71:                                               ; preds = %67
-  %72 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val12) #21
-  %73 = icmp ule i32 %72, %.0.val
+70:                                               ; preds = %66
+  %71 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val12) #21
+  %72 = icmp ule i32 %71, %.0.val
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
 .fold.split.i35:                                  ; preds = %_ZNK4llvm4User10getOperandEj.exit31
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-74:                                               ; preds = %5
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %76 = load i32, ptr %75, align 4
-  %77 = and i32 %76, 1073741824
-  %.not.i.i37 = icmp eq i32 %77, 0
+73:                                               ; preds = %5
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = and i32 %75, 1073741824
+  %.not.i.i37 = icmp eq i32 %76, 0
   br i1 %.not.i.i37, label %_ZNK4llvm4User10getOperandEj.exit38, label %_ZNK4llvm4User10getOperandEj.exit38.thread
 
-_ZNK4llvm4User10getOperandEj.exit38:              ; preds = %74
-  %78 = and i32 %76, 134217727
-  %79 = zext nneg i32 %78 to i64
-  %80 = sub nsw i64 0, %79
-  %81 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %80
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %86 = load i32, ptr %85, align 8
-  %87 = and i32 %86, 255
-  %88 = icmp eq i32 %87, 14
-  br i1 %88, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZNK4llvm4User10getOperandEj.exit40
+_ZNK4llvm4User10getOperandEj.exit38:              ; preds = %73
+  %77 = and i32 %75, 134217727
+  %78 = zext nneg i32 %77 to i64
+  %79 = sub nsw i64 0, %78
+  %80 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %79
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %85 = load i32, ptr %84, align 8
+  %86 = and i32 %85, 255
+  %87 = icmp eq i32 %86, 14
+  br i1 %87, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZNK4llvm4User10getOperandEj.exit40
 
-_ZNK4llvm4User10getOperandEj.exit38.thread:       ; preds = %74
-  %89 = getelementptr inbounds i8, ptr %0, i64 -8
+_ZNK4llvm4User10getOperandEj.exit38.thread:       ; preds = %73
+  %88 = getelementptr inbounds i8, ptr %0, i64 -8
+  %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %95 = load i32, ptr %94, align 8
-  %96 = and i32 %95, 255
-  %97 = icmp eq i32 %96, 14
-  br i1 %97, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZNK4llvm4User10getOperandEj.exit40
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = load i32, ptr %93, align 8
+  %95 = and i32 %94, 255
+  %96 = icmp eq i32 %95, 14
+  br i1 %96, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZNK4llvm4User10getOperandEj.exit40
 
 _ZNK4llvm4User10getOperandEj.exit40:              ; preds = %_ZNK4llvm4User10getOperandEj.exit38, %_ZNK4llvm4User10getOperandEj.exit38.thread
-  %.val24 = phi ptr [ %93, %_ZNK4llvm4User10getOperandEj.exit38.thread ], [ %84, %_ZNK4llvm4User10getOperandEj.exit38 ]
-  %98 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val24) #21
-  %99 = icmp eq i32 %98, %.0.val
+  %.val24 = phi ptr [ %92, %_ZNK4llvm4User10getOperandEj.exit38.thread ], [ %83, %_ZNK4llvm4User10getOperandEj.exit38 ]
+  %97 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val24) #21
+  %98 = icmp eq i32 %97, %.0.val
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-100:                                              ; preds = %5
-  %101 = getelementptr i8, ptr %0, i64 8
-  %.val15 = load ptr, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %.val15, i64 8
-  %103 = load i32, ptr %102, align 8
-  %trunc.i41 = trunc i32 %103 to i8
+99:                                               ; preds = %5
+  %100 = getelementptr i8, ptr %0, i64 8
+  %.val15 = load ptr, ptr %100, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %.val15, i64 8
+  %102 = load i32, ptr %101, align 8
+  %trunc.i41 = trunc i32 %102 to i8
   switch i8 %trunc.i41, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29 [
     i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23
     i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23
-    i8 12, label %104
+    i8 12, label %103
   ]
 
-104:                                              ; preds = %100
-  %105 = lshr i32 %103, 8
-  %106 = icmp eq i32 %105, 1
-  %107 = icmp ugt i32 %105, %.24.val
-  %or.cond.i42 = select i1 %106, i1 true, i1 %107
+103:                                              ; preds = %99
+  %104 = lshr i32 %102, 8
+  %105 = icmp eq i32 %104, 1
+  %106 = icmp ugt i32 %104, %.24.val
+  %or.cond.i42 = select i1 %105, i1 true, i1 %106
   br i1 %or.cond.i42, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45
 
-_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45: ; preds = %104
-  %108 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val15) #21
-  %.not27 = icmp ugt i32 %108, %.0.val
+_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45: ; preds = %103
+  %107 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val15) #21
+  %.not27 = icmp ugt i32 %107, %.0.val
   br i1 %.not27, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23
 
-_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23: ; preds = %100, %100, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45
+_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23: ; preds = %99, %99, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %110 = tail call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %109, i32 noundef 0, i32 noundef 75) #18
-  br i1 %110, label %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit, label %111
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %109 = tail call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %108, i32 noundef 0, i32 noundef 75) #18
+  br i1 %109, label %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit, label %110
 
-111:                                              ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23
-  %112 = getelementptr inbounds i8, ptr %0, i64 -32
-  %113 = load ptr, ptr %112, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %113, null
-  br i1 %.not.i.i.i.i.i, label %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit, label %114
+110:                                              ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23
+  %111 = getelementptr inbounds i8, ptr %0, i64 -32
+  %112 = load ptr, ptr %111, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %112, null
+  br i1 %.not.i.i.i.i.i, label %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit, label %113
 
-114:                                              ; preds = %111
-  %115 = load i8, ptr %113, align 8
-  %116 = icmp eq i8 %115, 0
-  br i1 %116, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, label %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit
+113:                                              ; preds = %110
+  %114 = load i8, ptr %112, align 8
+  %115 = icmp eq i8 %114, 0
+  br i1 %115, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, label %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit
 
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i: ; preds = %114
-  %117 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %120 = load ptr, ptr %119, align 8
-  %121 = icmp eq ptr %118, %120
-  br i1 %121, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i, label %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i: ; preds = %113
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %119 = load ptr, ptr %118, align 8
+  %120 = icmp eq ptr %117, %119
+  br i1 %120, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i, label %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit
 
 _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i
-  %122 = getelementptr inbounds nuw i8, ptr %113, i64 120
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %122, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %112, i64 120
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %121, align 8
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %2, align 8
-  %123 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 0, i32 noundef 75) #18
+  %122 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 0, i32 noundef 75) #18
   br label %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit
 
-_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23, %111, %114, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i
-  %.0.i.i = phi i1 [ %123, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23 ], [ false, %111 ], [ false, %114 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ]
+_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23, %110, %113, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i
+  %.0.i.i = phi i1 [ %122, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45.thread23 ], [ false, %110 ], [ false, %113 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-124:                                              ; preds = %1
-  %125 = icmp samesign ult i8 %3, 22
-  br i1 %125, label %126, label %139
+123:                                              ; preds = %1
+  %124 = icmp samesign ult i8 %3, 22
+  br i1 %124, label %125, label %138
 
-126:                                              ; preds = %124
-  %127 = icmp eq i8 %3, 5
-  br i1 %127, label %.thread25, label %128
+125:                                              ; preds = %123
+  %126 = icmp eq i8 %3, 5
+  br i1 %126, label %.thread25, label %127
 
-128:                                              ; preds = %126
-  %129 = getelementptr i8, ptr %0, i64 8
-  %.val18 = load ptr, ptr %129, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %.val18, i64 8
-  %131 = load i32, ptr %130, align 8
-  %trunc.i46 = trunc i32 %131 to i8
+127:                                              ; preds = %125
+  %128 = getelementptr i8, ptr %0, i64 8
+  %.val18 = load ptr, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %.val18, i64 8
+  %130 = load i32, ptr %129, align 8
+  %trunc.i46 = trunc i32 %130 to i8
   switch i8 %trunc.i46, label %.fold.split.i49 [
     i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
     i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
-    i8 12, label %132
+    i8 12, label %131
   ]
 
-132:                                              ; preds = %128
-  %133 = lshr i32 %131, 8
-  %134 = icmp eq i32 %133, 1
-  %135 = icmp ugt i32 %133, %.24.val
-  %or.cond.i47 = select i1 %134, i1 true, i1 %135
-  br i1 %or.cond.i47, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %136
+131:                                              ; preds = %127
+  %132 = lshr i32 %130, 8
+  %133 = icmp eq i32 %132, 1
+  %134 = icmp ugt i32 %132, %.24.val
+  %or.cond.i47 = select i1 %133, i1 true, i1 %134
+  br i1 %or.cond.i47, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %135
 
-136:                                              ; preds = %132
-  %137 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val18) #21
-  %138 = icmp ule i32 %137, %.0.val
+135:                                              ; preds = %131
+  %136 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val18) #21
+  %137 = icmp ule i32 %136, %.0.val
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-.fold.split.i49:                                  ; preds = %128
+.fold.split.i49:                                  ; preds = %127
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-139:                                              ; preds = %124
-  %140 = icmp eq i8 %3, 22
-  br i1 %140, label %141, label %.thread25
+138:                                              ; preds = %123
+  %139 = icmp eq i8 %3, 22
+  br i1 %139, label %140, label %.thread25
 
-141:                                              ; preds = %139
-  %142 = getelementptr i8, ptr %0, i64 8
-  %.val21 = load ptr, ptr %142, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %.val21, i64 8
-  %144 = load i32, ptr %143, align 8
-  %trunc.i51 = trunc i32 %144 to i8
+140:                                              ; preds = %138
+  %141 = getelementptr i8, ptr %0, i64 8
+  %.val21 = load ptr, ptr %141, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %.val21, i64 8
+  %143 = load i32, ptr %142, align 8
+  %trunc.i51 = trunc i32 %143 to i8
   switch i8 %trunc.i51, label %.fold.split.i54 [
     i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
     i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
-    i8 12, label %145
+    i8 12, label %144
   ]
 
-145:                                              ; preds = %141
-  %146 = lshr i32 %144, 8
-  %147 = icmp eq i32 %146, 1
-  %148 = icmp ugt i32 %146, %.24.val
-  %or.cond.i52 = select i1 %147, i1 true, i1 %148
-  br i1 %or.cond.i52, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %149
+144:                                              ; preds = %140
+  %145 = lshr i32 %143, 8
+  %146 = icmp eq i32 %145, 1
+  %147 = icmp ugt i32 %145, %.24.val
+  %or.cond.i52 = select i1 %146, i1 true, i1 %147
+  br i1 %or.cond.i52, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29, label %148
 
-149:                                              ; preds = %145
-  %150 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val21) #21
-  %151 = icmp ule i32 %150, %.0.val
+148:                                              ; preds = %144
+  %149 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val21) #21
+  %150 = icmp ule i32 %149, %.0.val
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-.fold.split.i54:                                  ; preds = %141
+.fold.split.i54:                                  ; preds = %140
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-.thread25:                                        ; preds = %126, %139
-  %152 = icmp eq i8 %3, 23
+.thread25:                                        ; preds = %125, %138
+  %151 = icmp eq i8 %3, 23
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
 switch.lookup:                                    ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19
-  %switch.cast = zext nneg i8 %switch.tableidx to i21
-  %switch.downshift = lshr i21 1048438, %switch.cast
-  %switch.masked = trunc i21 %switch.downshift to i1
+  %switch.cast = zext nneg i8 %3 to i57
+  %switch.downshift = lshr i57 66991044457136127, %switch.cast
+  %switch.masked = trunc i57 %switch.downshift to i1
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29
 
-_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19, %switch.lookup, %100, %104, %10, %14, %.fold.split.i54, %149, %145, %141, %141, %.fold.split.i49, %136, %132, %128, %128, %_ZNK4llvm4User10getOperandEj.exit38.thread, %.fold.split.i35, %71, %67, %_ZNK4llvm4User10getOperandEj.exit31, %_ZNK4llvm4User10getOperandEj.exit31, %.fold.split.i28, %28, %24, %20, %20, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit, %_ZNK4llvm4User10getOperandEj.exit38, %5, %5, %5, %5, %6, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit, %.thread25, %_ZNK4llvm4User10getOperandEj.exit40, %_ZNK4llvm4User10getOperandEj.exit
-  %.0 = phi i1 [ %99, %_ZNK4llvm4User10getOperandEj.exit40 ], [ %49, %_ZNK4llvm4User10getOperandEj.exit ], [ %152, %.thread25 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit ], [ false, %6 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %_ZNK4llvm4User10getOperandEj.exit38 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45 ], [ %.0.i.i, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit ], [ %30, %28 ], [ true, %20 ], [ false, %24 ], [ true, %20 ], [ false, %.fold.split.i28 ], [ %73, %71 ], [ true, %_ZNK4llvm4User10getOperandEj.exit31 ], [ false, %67 ], [ true, %_ZNK4llvm4User10getOperandEj.exit31 ], [ false, %.fold.split.i35 ], [ true, %_ZNK4llvm4User10getOperandEj.exit38.thread ], [ %138, %136 ], [ true, %128 ], [ false, %132 ], [ true, %128 ], [ false, %.fold.split.i49 ], [ %151, %149 ], [ true, %141 ], [ false, %145 ], [ true, %141 ], [ false, %.fold.split.i54 ], [ false, %14 ], [ false, %10 ], [ false, %104 ], [ false, %100 ], [ %switch.masked, %switch.lookup ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19 ]
+_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit29: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19, %switch.lookup, %99, %103, %9, %13, %.fold.split.i54, %148, %144, %140, %140, %.fold.split.i49, %135, %131, %127, %127, %_ZNK4llvm4User10getOperandEj.exit38.thread, %.fold.split.i35, %70, %66, %_ZNK4llvm4User10getOperandEj.exit31, %_ZNK4llvm4User10getOperandEj.exit31, %.fold.split.i28, %27, %23, %19, %19, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit, %_ZNK4llvm4User10getOperandEj.exit38, %5, %5, %5, %5, %6, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit, %.thread25, %_ZNK4llvm4User10getOperandEj.exit40, %_ZNK4llvm4User10getOperandEj.exit
+  %.0 = phi i1 [ %98, %_ZNK4llvm4User10getOperandEj.exit40 ], [ %48, %_ZNK4llvm4User10getOperandEj.exit ], [ %151, %.thread25 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit ], [ false, %6 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ true, %_ZNK4llvm4User10getOperandEj.exit38 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit45 ], [ %.0.i.i, %_ZNK4llvm8CallBase10hasRetAttrENS_9Attribute8AttrKindE.exit ], [ %29, %27 ], [ true, %19 ], [ false, %23 ], [ true, %19 ], [ false, %.fold.split.i28 ], [ %72, %70 ], [ true, %_ZNK4llvm4User10getOperandEj.exit31 ], [ false, %66 ], [ true, %_ZNK4llvm4User10getOperandEj.exit31 ], [ false, %.fold.split.i35 ], [ true, %_ZNK4llvm4User10getOperandEj.exit38.thread ], [ %137, %135 ], [ true, %127 ], [ false, %131 ], [ true, %127 ], [ false, %.fold.split.i49 ], [ %150, %148 ], [ true, %140 ], [ false, %144 ], [ true, %140 ], [ false, %.fold.split.i54 ], [ false, %13 ], [ false, %9 ], [ false, %103 ], [ false, %99 ], [ %switch.masked, %switch.lookup ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19 ]
   ret i1 %.0
 }
 

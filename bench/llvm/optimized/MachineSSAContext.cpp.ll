@@ -282,22 +282,21 @@ declare noundef i32 @_ZNK4llvm12MachineInstr18isConstantValuePHIEv(ptr noundef n
 define dso_local noundef i32 @_ZN4llvm17GenericSSAContextINS_15MachineFunctionEE14getIntrinsicIDERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
-  %4 = zext i16 %3 to i32
-  %5 = add nsw i32 %4, -126
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %5, -4
-  br i1 %switch.i.i.i.i.i.i.i.i, label %13, label %6
+  %4 = add i16 %3, -126
+  %switch.i.i.i.i.i.i.i.i = icmp ult i16 %4, -4
+  br i1 %switch.i.i.i.i.i.i.i.i, label %12, label %5
 
-6:                                                ; preds = %1
-  %7 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #10
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8
-  %10 = zext i32 %7 to i64
-  %11 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %9, i64 %10, i32 3
-  %12 = load i32, ptr %11, align 8
-  br label %13
+5:                                                ; preds = %1
+  %6 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = zext i32 %6 to i64
+  %10 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %8, i64 %9, i32 3
+  %11 = load i32, ptr %10, align 8
+  br label %12
 
-13:                                               ; preds = %1, %6
-  %.0 = phi i32 [ %12, %6 ], [ 0, %1 ]
+12:                                               ; preds = %1, %5
+  %.0 = phi i32 [ %11, %5 ], [ 0, %1 ]
   ret i32 %.0
 }
 

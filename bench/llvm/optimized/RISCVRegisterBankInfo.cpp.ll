@@ -222,31 +222,31 @@ _ZNK4llvm21RISCVRegisterBankInfo16hasFPConstraintsERKNS_12MachineInstrERKNS_19Ma
 define dso_local noundef zeroext i1 @_ZNK4llvm21RISCVRegisterBankInfo13onlyDefinesFPERKNS_12MachineInstrERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef nonnull align 8 dereferenceable(308) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %6 = load i16, ptr %5, align 4
-  %7 = zext i16 %6 to i32
-  %.off = add nsw i32 %7, -195
-  %switch = icmp ult i32 %.off, 2
+  %7 = add i16 %6, -195
+  %switch = icmp ult i16 %7, 2
   br i1 %switch, label %_ZNK4llvm21RISCVRegisterBankInfo16hasFPConstraintsERKNS_12MachineInstrERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call noundef zeroext i1 @_ZN4llvm35isPreISelGenericFloatingPointOpcodeEj(i32 noundef %7) #8
-  br i1 %9, label %_ZNK4llvm21RISCVRegisterBankInfo16hasFPConstraintsERKNS_12MachineInstrERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE.exit, label %10
+  %9 = zext i16 %6 to i32
+  %10 = tail call noundef zeroext i1 @_ZN4llvm35isPreISelGenericFloatingPointOpcodeEj(i32 noundef %9) #8
+  br i1 %10, label %_ZNK4llvm21RISCVRegisterBankInfo16hasFPConstraintsERKNS_12MachineInstrERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE.exit, label %11
 
-10:                                               ; preds = %8
-  %11 = load i16, ptr %5, align 4
-  %.not.i = icmp eq i16 %11, 19
-  br i1 %.not.i, label %12, label %_ZNK4llvm21RISCVRegisterBankInfo16hasFPConstraintsERKNS_12MachineInstrERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE.exit
+11:                                               ; preds = %8
+  %12 = load i16, ptr %5, align 4
+  %.not.i = icmp eq i16 %12, 19
+  br i1 %.not.i, label %13, label %_ZNK4llvm21RISCVRegisterBankInfo16hasFPConstraintsERKNS_12MachineInstrERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE.exit
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = tail call noundef ptr @_ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 %16, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef nonnull align 8 dereferenceable(308) %3) #8
-  %18 = icmp eq ptr %17, @_ZN4llvm5RISCVL11FPRBRegBankE
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load i32, ptr %16, align 4
+  %18 = tail call noundef ptr @_ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 %17, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef nonnull align 8 dereferenceable(308) %3) #8
+  %19 = icmp eq ptr %18, @_ZN4llvm5RISCVL11FPRBRegBankE
   br label %_ZNK4llvm21RISCVRegisterBankInfo16hasFPConstraintsERKNS_12MachineInstrERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE.exit
 
-_ZNK4llvm21RISCVRegisterBankInfo16hasFPConstraintsERKNS_12MachineInstrERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE.exit: ; preds = %12, %10, %8, %4
-  %.0 = phi i1 [ true, %4 ], [ %18, %12 ], [ true, %8 ], [ false, %10 ]
+_ZNK4llvm21RISCVRegisterBankInfo16hasFPConstraintsERKNS_12MachineInstrERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE.exit: ; preds = %13, %11, %8, %4
+  %.0 = phi i1 [ true, %4 ], [ %19, %13 ], [ true, %8 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -428,8 +428,8 @@ define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm21RIS
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %30 = load i16, ptr %29, align 4
   %31 = zext i16 %30 to i32
-  %32 = add nsw i32 %31, -52
-  %33 = icmp ult i32 %32, 244
+  %32 = add i16 %30, -52
+  %33 = icmp ult i16 %32, 244
   %34 = icmp ne i16 %30, 65
   %or.cond.not = and i1 %34, %33
   br i1 %or.cond.not, label %43, label %35

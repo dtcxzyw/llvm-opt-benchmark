@@ -103,7 +103,7 @@ declare i32 @onigenc_not_support_get_ctype_code_range(i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @gbk_left_adjust_char_head(ptr noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %.not = icmp ugt ptr %1, %0
-  br i1 %.not, label %5, label %37
+  br i1 %.not, label %5, label %36
 
 5:                                                ; preds = %4
   %6 = load i8, ptr %1, align 1
@@ -121,46 +121,45 @@ define internal ptr @gbk_left_adjust_char_head(ptr noundef readnone %0, ptr noun
 11:                                               ; preds = %.preheader
   %12 = getelementptr inbounds i8, ptr %.1, i64 -1
   %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i64
-  %15 = add nsw i64 %14, -129
-  %16 = icmp ult i64 %15, 126
-  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !6
+  %14 = add i8 %13, 127
+  %15 = icmp ult i8 %14, 126
+  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %11, %.preheader, %5
   %.026 = phi ptr [ %1, %5 ], [ %.1, %.preheader ], [ %.1, %11 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 20
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %18, %20
-  br i1 %21, label %22, label %24
+  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = load i32, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %3, i64 20
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp eq i32 %17, %19
+  br i1 %20, label %21, label %23
 
-22:                                               ; preds = %.loopexit
-  %23 = icmp ult ptr %.026, %2
-  %spec.select = select i1 %23, i32 %18, i32 0
-  br label %26
+21:                                               ; preds = %.loopexit
+  %22 = icmp ult ptr %.026, %2
+  %spec.select = select i1 %22, i32 %17, i32 0
+  br label %25
 
-24:                                               ; preds = %.loopexit
-  %25 = tail call i32 @onigenc_mbclen(ptr noundef nonnull %.026, ptr noundef %2, ptr noundef nonnull %3) #3
-  br label %26
+23:                                               ; preds = %.loopexit
+  %24 = tail call i32 @onigenc_mbclen(ptr noundef nonnull %.026, ptr noundef %2, ptr noundef nonnull %3) #3
+  br label %25
 
-26:                                               ; preds = %22, %24
-  %27 = phi i32 [ %25, %24 ], [ %spec.select, %22 ]
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %.026, i64 %28
-  %30 = icmp ugt ptr %29, %1
-  br i1 %30, label %37, label %31
+25:                                               ; preds = %21, %23
+  %26 = phi i32 [ %24, %23 ], [ %spec.select, %21 ]
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i8, ptr %.026, i64 %27
+  %29 = icmp ugt ptr %28, %1
+  br i1 %29, label %36, label %30
 
-31:                                               ; preds = %26
-  %32 = ptrtoint ptr %1 to i64
-  %33 = ptrtoint ptr %29 to i64
-  %34 = sub i64 %32, %33
-  %35 = and i64 %34, -2
-  %36 = getelementptr inbounds i8, ptr %29, i64 %35
-  br label %37
+30:                                               ; preds = %25
+  %31 = ptrtoint ptr %1 to i64
+  %32 = ptrtoint ptr %28 to i64
+  %33 = sub i64 %31, %32
+  %34 = and i64 %33, -2
+  %35 = getelementptr inbounds i8, ptr %28, i64 %34
+  br label %36
 
-37:                                               ; preds = %26, %4, %31
-  %.0 = phi ptr [ %36, %31 ], [ %1, %4 ], [ %.026, %26 ]
+36:                                               ; preds = %25, %4, %30
+  %.0 = phi ptr [ %35, %30 ], [ %1, %4 ], [ %.026, %25 ]
   ret ptr %.0
 }
 

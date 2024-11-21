@@ -1355,8 +1355,8 @@ _ZN2cv3PtrIvE7releaseEv.exit:                     ; preds = %1, %.thread126
   %214 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef nonnull %.077, i32 noundef 339, ptr noundef nonnull %19)
   %215 = load i16, ptr %18, align 2
   %216 = zext i16 %215 to i32
-  %217 = add nsw i32 %216, -1
-  %or.cond.i = icmp ult i32 %217, 4
+  %217 = add i16 %215, -1
+  %or.cond.i = icmp ult i16 %217, 4
   br i1 %or.cond.i, label %_ZNK2cv11TiffDecoder23normalizeChannelsNumberEi.exit, label %218
 
 218:                                              ; preds = %213

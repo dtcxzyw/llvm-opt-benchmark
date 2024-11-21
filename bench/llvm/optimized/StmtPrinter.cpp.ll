@@ -13913,8 +13913,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter24VisitCXXOperatorCal
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 63
   %6 = zext nneg i8 %5 to i32
-  %7 = add nsw i32 %6, -37
-  %or.cond = icmp ult i32 %7, 2
+  %7 = add nsw i8 %5, -37
+  %or.cond = icmp ult i8 %7, 2
   br i1 %or.cond, label %8, label %134
 
 8:                                                ; preds = %2

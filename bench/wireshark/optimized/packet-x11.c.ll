@@ -41129,9 +41129,9 @@ define internal fastcc void @dispatch_glx_render(ptr noundef %0, ptr noundef %1,
   %.pre = load i32, ptr %2, align 4
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %5590
-  %8 = phi i32 [ %5591, %5590 ], [ %.pre, %.lr.ph.preheader ]
-  %.03064 = phi i32 [ %5592, %5590 ], [ %5, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %5617
+  %8 = phi i32 [ %5618, %5617 ], [ %.pre, %.lr.ph.preheader ]
+  %.03064 = phi i32 [ %5619, %5617 ], [ %5, %.lr.ph.preheader ]
   %9 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %8, i32 noundef %4) #10
   %10 = zext i16 %9 to i32
   %11 = load i32, ptr %2, align 4
@@ -41162,12 +41162,12 @@ define internal fastcc void @dispatch_glx_render(ptr noundef %0, ptr noundef %1,
   %31 = add nsw i32 %.03064, -4
   %32 = load i32, ptr %2, align 4
   %33 = add i32 %32, %31
-  br label %5575
+  br label %5602
 
 34:                                               ; preds = %.lr.ph
   %35 = add nsw i32 %10, -4
   %36 = add i32 %28, %35
-  switch i16 %13, label %5575 [
+  switch i16 %13, label %5602 [
     i16 1, label %37
     i16 2, label %40
     i16 3, label %194
@@ -41249,284 +41249,284 @@ define internal fastcc void @dispatch_glx_render(ptr noundef %0, ptr noundef %1,
     i16 79, label %1008
     i16 80, label %1011
     i16 81, label %1018
-    i16 82, label %1036
-    i16 83, label %1043
-    i16 84, label %1061
-    i16 85, label %1064
-    i16 86, label %1071
-    i16 87, label %1082
-    i16 88, label %1104
-    i16 89, label %1115
-    i16 90, label %1137
-    i16 91, label %1144
-    i16 92, label %1162
-    i16 93, label %1169
-    i16 94, label %1187
-    i16 95, label %1194
-    i16 96, label %1197
-    i16 97, label %1208
-    i16 98, label %1230
-    i16 99, label %1241
-    i16 100, label %1263
-    i16 101, label %1266
-    i16 102, label %1273
-    i16 103, label %1305
-    i16 104, label %1320
-    i16 105, label %1323
-    i16 106, label %1334
-    i16 107, label %1356
-    i16 108, label %1367
-    i16 109, label %1389
-    i16 110, label %1449
-    i16 111, label %1513
-    i16 112, label %1524
-    i16 113, label %1546
-    i16 114, label %1557
-    i16 115, label %1579
-    i16 116, label %1590
-    i16 117, label %1612
-    i16 118, label %1623
-    i16 119, label %1645
-    i16 120, label %1656
+    i16 82, label %1037
+    i16 83, label %1044
+    i16 84, label %1063
+    i16 85, label %1066
+    i16 86, label %1073
+    i16 87, label %1084
+    i16 88, label %1107
+    i16 89, label %1118
+    i16 90, label %1141
+    i16 91, label %1148
+    i16 92, label %1167
+    i16 93, label %1174
+    i16 94, label %1193
+    i16 95, label %1200
+    i16 96, label %1203
+    i16 97, label %1214
+    i16 98, label %1237
+    i16 99, label %1248
+    i16 100, label %1271
+    i16 101, label %1274
+    i16 102, label %1281
+    i16 103, label %1313
+    i16 104, label %1328
+    i16 105, label %1331
+    i16 106, label %1342
+    i16 107, label %1365
+    i16 108, label %1376
+    i16 109, label %1399
+    i16 110, label %1459
+    i16 111, label %1523
+    i16 112, label %1534
+    i16 113, label %1557
+    i16 114, label %1568
+    i16 115, label %1591
+    i16 116, label %1602
+    i16 117, label %1625
+    i16 118, label %1636
+    i16 119, label %1659
+    i16 120, label %1670
     i16 121, label %mesa_CallLists.exit
-    i16 122, label %1678
-    i16 123, label %1681
+    i16 122, label %1693
+    i16 123, label %1696
     i16 124, label %mesa_CallLists.exit
-    i16 125, label %1684
-    i16 126, label %1687
-    i16 127, label %1690
-    i16 128, label %1693
-    i16 129, label %1708
-    i16 130, label %1711
-    i16 131, label %1726
-    i16 132, label %1729
-    i16 133, label %1732
-    i16 134, label %1735
-    i16 135, label %1750
-    i16 136, label %1753
-    i16 137, label %1756
-    i16 138, label %1763
-    i16 139, label %1766
+    i16 125, label %1699
+    i16 126, label %1702
+    i16 127, label %1705
+    i16 128, label %1708
+    i16 129, label %1723
+    i16 130, label %1726
+    i16 131, label %1741
+    i16 132, label %1744
+    i16 133, label %1747
+    i16 134, label %1750
+    i16 135, label %1765
+    i16 136, label %1768
+    i16 137, label %1771
+    i16 138, label %1778
+    i16 139, label %1781
     i16 141, label %mesa_CallLists.exit
-    i16 142, label %1769
-    i16 143, label %1772
-    i16 144, label %1806
-    i16 145, label %1840
-    i16 146, label %1890
-    i16 147, label %1940
-    i16 148, label %1951
-    i16 149, label %1962
-    i16 150, label %1985
-    i16 151, label %2008
-    i16 152, label %2015
-    i16 153, label %2022
-    i16 154, label %2033
-    i16 155, label %2044
-    i16 156, label %2055
-    i16 157, label %2058
-    i16 158, label %2077
-    i16 159, label %2084
-    i16 160, label %2091
-    i16 161, label %2098
-    i16 162, label %2101
-    i16 163, label %2112
-    i16 164, label %2123
-    i16 165, label %2126
-    i16 166, label %2133
-    i16 167, label %2140
-    i16 168, label %2147
-    i16 169, label %2169
-    i16 170, label %2191
-    i16 171, label %2213
-    i16 172, label %2216
-    i16 173, label %2235
-    i16 174, label %2283
-    i16 175, label %2290
+    i16 142, label %1784
+    i16 143, label %1787
+    i16 144, label %1822
+    i16 145, label %1857
+    i16 146, label %1908
+    i16 147, label %1959
+    i16 148, label %1970
+    i16 149, label %1981
+    i16 150, label %2004
+    i16 151, label %2027
+    i16 152, label %2034
+    i16 153, label %2041
+    i16 154, label %2052
+    i16 155, label %2063
+    i16 156, label %2074
+    i16 157, label %2077
+    i16 158, label %2096
+    i16 159, label %2103
+    i16 160, label %2110
+    i16 161, label %2117
+    i16 162, label %2120
+    i16 163, label %2131
+    i16 164, label %2142
+    i16 165, label %2145
+    i16 166, label %2152
+    i16 167, label %2159
+    i16 168, label %2166
+    i16 169, label %2188
+    i16 170, label %2210
+    i16 171, label %2232
+    i16 172, label %2235
+    i16 173, label %2254
+    i16 174, label %2302
+    i16 175, label %2309
     i16 176, label %mesa_CallLists.exit
-    i16 177, label %2313
-    i16 178, label %2324
-    i16 179, label %2335
-    i16 180, label %2338
-    i16 181, label %2349
-    i16 182, label %2360
+    i16 177, label %2332
+    i16 178, label %2343
+    i16 179, label %2354
+    i16 180, label %2357
+    i16 181, label %2368
+    i16 182, label %2379
     i16 183, label %mesa_CallLists.exit
     i16 184, label %mesa_CallLists.exit
-    i16 185, label %2383
-    i16 186, label %2398
-    i16 187, label %2413
-    i16 188, label %2424
-    i16 189, label %2435
-    i16 190, label %2446
-    i16 191, label %2457
-    i16 192, label %2472
-    i16 193, label %2479
-    i16 194, label %2490
-    i16 195, label %2493
-    i16 196, label %2545
-    i16 197, label %2564
-    i16 198, label %2567
-    i16 199, label %2578
-    i16 200, label %2589
-    i16 201, label %2600
-    i16 202, label %2611
-    i16 203, label %2626
-    i16 204, label %2641
-    i16 205, label %2656
-    i16 206, label %2671
-    i16 207, label %2686
-    i16 208, label %2701
-    i16 209, label %2716
-    i16 210, label %2731
-    i16 211, label %2746
-    i16 212, label %2761
-    i16 213, label %2776
-    i16 214, label %2791
-    i16 215, label %2820
-    i16 216, label %2853
-    i16 217, label %2890
-    i16 218, label %2919
-    i16 219, label %2956
-    i16 229, label %3001
-    i16 230, label %3008
-    i16 231, label %3019
-    i16 232, label %3026
-    i16 233, label %3029
-    i16 2048, label %3047
-    i16 2049, label %3054
+    i16 185, label %2402
+    i16 186, label %2417
+    i16 187, label %2432
+    i16 188, label %2443
+    i16 189, label %2454
+    i16 190, label %2465
+    i16 191, label %2476
+    i16 192, label %2491
+    i16 193, label %2498
+    i16 194, label %2509
+    i16 195, label %2512
+    i16 196, label %2564
+    i16 197, label %2583
+    i16 198, label %2586
+    i16 199, label %2597
+    i16 200, label %2608
+    i16 201, label %2619
+    i16 202, label %2630
+    i16 203, label %2645
+    i16 204, label %2660
+    i16 205, label %2675
+    i16 206, label %2690
+    i16 207, label %2705
+    i16 208, label %2720
+    i16 209, label %2735
+    i16 210, label %2750
+    i16 211, label %2765
+    i16 212, label %2780
+    i16 213, label %2795
+    i16 214, label %2810
+    i16 215, label %2839
+    i16 216, label %2872
+    i16 217, label %2909
+    i16 218, label %2938
+    i16 219, label %2975
+    i16 229, label %3020
+    i16 230, label %3027
+    i16 231, label %3038
+    i16 232, label %3045
+    i16 233, label %3048
+    i16 2048, label %3066
+    i16 2049, label %3073
     i16 2050, label %mesa_CallLists.exit
-    i16 2051, label %3057
-    i16 2052, label %3079
-    i16 2053, label %3101
-    i16 2054, label %3153
-    i16 2055, label %3175
-    i16 2056, label %3197
-    i16 2057, label %3216
-    i16 2058, label %3288
-    i16 2059, label %3372
-    i16 2064, label %3375
-    i16 2065, label %3401
-    i16 2066, label %3408
-    i16 2067, label %3426
-    i16 2071, label %3444
-    i16 2072, label %3455
-    i16 2082, label %3458
-    i16 4096, label %3473
-    i16 4097, label %3488
-    i16 4099, label %3491
-    i16 4100, label %3551
-    i16 4101, label %3619
-    i16 4102, label %3671
-    i16 4103, label %3727
-    i16 4104, label %3738
-    i16 4105, label %3760
-    i16 4106, label %3771
-    i16 4107, label %3793
-    i16 4108, label %3812
-    i16 4109, label %3835
-    i16 4110, label %3867
-    i16 4111, label %3882
-    i16 4112, label %3893
-    i16 4113, label %3896
-    i16 4114, label %3899
-    i16 4115, label %3967
-    i16 4117, label %4043
-    i16 4118, label %4050
-    i16 4119, label %4079
-    i16 4120, label %4106
-    i16 4121, label %4137
-    i16 4122, label %4160
-    i16 4123, label %4191
-    i16 4124, label %4226
-    i16 4125, label %4233
-    i16 4126, label %4240
-    i16 4127, label %4243
-    i16 4128, label %4254
-    i16 4129, label %4265
-    i16 4130, label %4276
-    i16 4131, label %4287
-    i16 4132, label %4290
-    i16 4133, label %4301
-    i16 4134, label %4312
-    i16 4135, label %4327
-    i16 4136, label %4334
-    i16 4137, label %4341
-    i16 4138, label %4359
-    i16 4139, label %4366
-    i16 4140, label %4384
-    i16 4141, label %4407
-    i16 4142, label %4446
-    i16 4180, label %4461
-    i16 4181, label %4468
-    i16 4182, label %4487
-    i16 4183, label %4505
-    i16 4184, label %4522
-    i16 4185, label %4541
-    i16 4186, label %4560
-    i16 4187, label %4586
-    i16 4188, label %4612
-    i16 4189, label %4627
-    i16 4190, label %4638
-    i16 4191, label %4653
-    i16 4192, label %4668
-    i16 4193, label %4683
-    i16 4194, label %4694
-    i16 4195, label %4709
-    i16 4196, label %4724
-    i16 4197, label %4739
-    i16 4198, label %4750
-    i16 4199, label %4765
-    i16 4200, label %4780
-    i16 4201, label %4795
-    i16 4202, label %4802
-    i16 4203, label %4824
-    i16 4204, label %4846
-    i16 4205, label %4868
-    i16 4206, label %4890
-    i16 4207, label %4912
-    i16 4208, label %4934
-    i16 4209, label %4956
-    i16 4210, label %4978
-    i16 4211, label %5000
-    i16 4212, label %5022
-    i16 4213, label %5044
-    i16 4214, label %5066
-    i16 4215, label %5079
-    i16 4216, label %5098
-    i16 4217, label %5117
-    i16 4218, label %5134
-    i16 4219, label %5159
-    i16 4220, label %5184
-    i16 4221, label %5187
-    i16 4222, label %5194
-    i16 4228, label %5212
-    i16 4229, label %5219
-    i16 4230, label %5226
-    i16 4231, label %5233
-    i16 4232, label %5248
-    i16 4233, label %5255
-    i16 4234, label %5270
-    i16 4235, label %5285
-    i16 4236, label %5292
-    i16 4237, label %5307
-    i16 4238, label %5322
-    i16 4239, label %5337
-    i16 4265, label %5352
-    i16 4266, label %5363
-    i16 4267, label %5378
-    i16 4268, label %5393
-    i16 4269, label %5408
-    i16 4270, label %5419
-    i16 4271, label %5434
-    i16 4272, label %5449
-    i16 4273, label %5464
-    i16 4274, label %5475
-    i16 4275, label %5490
-    i16 4276, label %5505
-    i16 4277, label %5520
-    i16 4326, label %5527
-    i16 4327, label %5536
-    i16 4328, label %5554
-    i16 4329, label %5572
+    i16 2051, label %3076
+    i16 2052, label %3098
+    i16 2053, label %3120
+    i16 2054, label %3172
+    i16 2055, label %3195
+    i16 2056, label %3218
+    i16 2057, label %3237
+    i16 2058, label %3309
+    i16 2059, label %3393
+    i16 2064, label %3396
+    i16 2065, label %3422
+    i16 2066, label %3429
+    i16 2067, label %3448
+    i16 2071, label %3466
+    i16 2072, label %3477
+    i16 2082, label %3480
+    i16 4096, label %3495
+    i16 4097, label %3510
+    i16 4099, label %3513
+    i16 4100, label %3573
+    i16 4101, label %3641
+    i16 4102, label %3693
+    i16 4103, label %3749
+    i16 4104, label %3760
+    i16 4105, label %3783
+    i16 4106, label %3794
+    i16 4107, label %3817
+    i16 4108, label %3836
+    i16 4109, label %3859
+    i16 4110, label %3891
+    i16 4111, label %3906
+    i16 4112, label %3917
+    i16 4113, label %3920
+    i16 4114, label %3923
+    i16 4115, label %3991
+    i16 4117, label %4067
+    i16 4118, label %4074
+    i16 4119, label %4103
+    i16 4120, label %4130
+    i16 4121, label %4161
+    i16 4122, label %4184
+    i16 4123, label %4215
+    i16 4124, label %4250
+    i16 4125, label %4257
+    i16 4126, label %4264
+    i16 4127, label %4267
+    i16 4128, label %4278
+    i16 4129, label %4289
+    i16 4130, label %4300
+    i16 4131, label %4311
+    i16 4132, label %4314
+    i16 4133, label %4325
+    i16 4134, label %4336
+    i16 4135, label %4351
+    i16 4136, label %4358
+    i16 4137, label %4365
+    i16 4138, label %4384
+    i16 4139, label %4391
+    i16 4140, label %4410
+    i16 4141, label %4433
+    i16 4142, label %4472
+    i16 4180, label %4487
+    i16 4181, label %4494
+    i16 4182, label %4513
+    i16 4183, label %4531
+    i16 4184, label %4548
+    i16 4185, label %4567
+    i16 4186, label %4586
+    i16 4187, label %4612
+    i16 4188, label %4638
+    i16 4189, label %4653
+    i16 4190, label %4664
+    i16 4191, label %4679
+    i16 4192, label %4694
+    i16 4193, label %4709
+    i16 4194, label %4720
+    i16 4195, label %4735
+    i16 4196, label %4750
+    i16 4197, label %4765
+    i16 4198, label %4776
+    i16 4199, label %4791
+    i16 4200, label %4806
+    i16 4201, label %4821
+    i16 4202, label %4828
+    i16 4203, label %4850
+    i16 4204, label %4872
+    i16 4205, label %4894
+    i16 4206, label %4916
+    i16 4207, label %4938
+    i16 4208, label %4960
+    i16 4209, label %4982
+    i16 4210, label %5004
+    i16 4211, label %5026
+    i16 4212, label %5048
+    i16 4213, label %5070
+    i16 4214, label %5092
+    i16 4215, label %5105
+    i16 4216, label %5124
+    i16 4217, label %5143
+    i16 4218, label %5160
+    i16 4219, label %5185
+    i16 4220, label %5210
+    i16 4221, label %5213
+    i16 4222, label %5220
+    i16 4228, label %5239
+    i16 4229, label %5246
+    i16 4230, label %5253
+    i16 4231, label %5260
+    i16 4232, label %5275
+    i16 4233, label %5282
+    i16 4234, label %5297
+    i16 4235, label %5312
+    i16 4236, label %5319
+    i16 4237, label %5334
+    i16 4238, label %5349
+    i16 4239, label %5364
+    i16 4265, label %5379
+    i16 4266, label %5390
+    i16 4267, label %5405
+    i16 4268, label %5420
+    i16 4269, label %5435
+    i16 4270, label %5446
+    i16 4271, label %5461
+    i16 4272, label %5476
+    i16 4273, label %5491
+    i16 4274, label %5502
+    i16 4275, label %5517
+    i16 4276, label %5532
+    i16 4277, label %5547
+    i16 4326, label %5554
+    i16 4327, label %5563
+    i16 4328, label %5581
+    i16 4329, label %5599
   ]
 
 37:                                               ; preds = %34
@@ -43267,8 +43267,8 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   %1028 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1023, ptr noundef %0, i32 noundef %1022, i32 noundef %1027, i32 noundef %4) #10
   %1029 = load i32, ptr @ett_x11_list_of_float, align 4
   %1030 = tail call ptr @proto_item_add_subtree(ptr noundef %1028, i32 noundef %1029) #10
-  %.off.i = add nsw i32 %10, -5
-  %.not13.i.i2137 = icmp ult i32 %.off.i, 7
+  %1031 = add i16 %9, -5
+  %.not13.i.i2137 = icmp ult i16 %1031, 7
   br i1 %.not13.i.i2137, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %1018
@@ -43276,4430 +43276,4430 @@ listOfInt16.exit.i1999:                           ; preds = %.lr.ph.i.i1996
   br label %.lr.ph.i.i2139
 
 .lr.ph.i.i2139:                                   ; preds = %.lr.ph.i.i2139, %.lr.ph.preheader.i.i
-  %1031 = phi i32 [ %1035, %.lr.ph.i.i2139 ], [ %.pre.i.i2138, %.lr.ph.preheader.i.i ]
-  %.014.i.i2140 = phi i32 [ %1032, %.lr.ph.i.i2139 ], [ %1026, %.lr.ph.preheader.i.i ]
-  %1032 = add i32 %.014.i.i2140, -1
-  %1033 = tail call ptr @proto_tree_add_item(ptr noundef %1030, i32 noundef %1024, ptr noundef %0, i32 noundef %1031, i32 noundef 4, i32 noundef %4) #10
-  %1034 = load i32, ptr %2, align 4
-  %1035 = add i32 %1034, 4
-  store i32 %1035, ptr %2, align 4
-  %.not.i.i2141 = icmp eq i32 %1032, 0
+  %1032 = phi i32 [ %1036, %.lr.ph.i.i2139 ], [ %.pre.i.i2138, %.lr.ph.preheader.i.i ]
+  %.014.i.i2140 = phi i32 [ %1033, %.lr.ph.i.i2139 ], [ %1026, %.lr.ph.preheader.i.i ]
+  %1033 = add i32 %.014.i.i2140, -1
+  %1034 = tail call ptr @proto_tree_add_item(ptr noundef %1030, i32 noundef %1024, ptr noundef %0, i32 noundef %1032, i32 noundef 4, i32 noundef %4) #10
+  %1035 = load i32, ptr %2, align 4
+  %1036 = add i32 %1035, 4
+  store i32 %1036, ptr %2, align 4
+  %.not.i.i2141 = icmp eq i32 %1033, 0
   br i1 %.not.i.i2141, label %mesa_CallLists.exit, label %.lr.ph.i.i2139, !llvm.loop !61
 
-1036:                                             ; preds = %34
-  %1037 = load i32, ptr @hf_x11_glx_render_Fogi_pname, align 4
-  %1038 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1037, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1039 = load i32, ptr %2, align 4
-  %1040 = add i32 %1039, 4
-  store i32 %1040, ptr %2, align 4
-  %1041 = load i32, ptr @hf_x11_glx_render_Fogi_param, align 4
-  %1042 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1041, ptr noundef %0, i32 noundef %1040, i32 noundef 4, i32 noundef %4) #10
+1037:                                             ; preds = %34
+  %1038 = load i32, ptr @hf_x11_glx_render_Fogi_pname, align 4
+  %1039 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1038, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1040 = load i32, ptr %2, align 4
+  %1041 = add i32 %1040, 4
+  store i32 %1041, ptr %2, align 4
+  %1042 = load i32, ptr @hf_x11_glx_render_Fogi_param, align 4
+  %1043 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1042, ptr noundef %0, i32 noundef %1041, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1043:                                             ; preds = %34
-  %1044 = load i32, ptr @hf_x11_glx_render_Fogiv_pname, align 4
-  %1045 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1044, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1046 = load i32, ptr %2, align 4
-  %1047 = add i32 %1046, 4
-  store i32 %1047, ptr %2, align 4
-  %1048 = load i32, ptr @hf_x11_glx_render_Fogiv_params, align 4
-  %1049 = load i32, ptr @hf_x11_glx_render_Fogiv_params_item, align 4
-  %1050 = add nsw i32 %10, -8
-  %1051 = sdiv i32 %1050, 4
-  %1052 = shl nsw i32 %1051, 2
-  %1053 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1048, ptr noundef %0, i32 noundef %1047, i32 noundef %1052, i32 noundef %4) #10
-  %1054 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1055 = tail call ptr @proto_item_add_subtree(ptr noundef %1053, i32 noundef %1054) #10
-  %.off.i2143 = add nsw i32 %10, -5
-  %.not13.i.i2144 = icmp ult i32 %.off.i2143, 7
+1044:                                             ; preds = %34
+  %1045 = load i32, ptr @hf_x11_glx_render_Fogiv_pname, align 4
+  %1046 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1045, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1047 = load i32, ptr %2, align 4
+  %1048 = add i32 %1047, 4
+  store i32 %1048, ptr %2, align 4
+  %1049 = load i32, ptr @hf_x11_glx_render_Fogiv_params, align 4
+  %1050 = load i32, ptr @hf_x11_glx_render_Fogiv_params_item, align 4
+  %1051 = add nsw i32 %10, -8
+  %1052 = sdiv i32 %1051, 4
+  %1053 = shl nsw i32 %1052, 2
+  %1054 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1049, ptr noundef %0, i32 noundef %1048, i32 noundef %1053, i32 noundef %4) #10
+  %1055 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1056 = tail call ptr @proto_item_add_subtree(ptr noundef %1054, i32 noundef %1055) #10
+  %1057 = add i16 %9, -5
+  %.not13.i.i2144 = icmp ult i16 %1057, 7
   br i1 %.not13.i.i2144, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2145
 
-.lr.ph.preheader.i.i2145:                         ; preds = %1043
+.lr.ph.preheader.i.i2145:                         ; preds = %1044
   %.pre.i.i2146 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2147
 
 .lr.ph.i.i2147:                                   ; preds = %.lr.ph.i.i2147, %.lr.ph.preheader.i.i2145
-  %1056 = phi i32 [ %1060, %.lr.ph.i.i2147 ], [ %.pre.i.i2146, %.lr.ph.preheader.i.i2145 ]
-  %.014.i.i2148 = phi i32 [ %1057, %.lr.ph.i.i2147 ], [ %1051, %.lr.ph.preheader.i.i2145 ]
-  %1057 = add i32 %.014.i.i2148, -1
-  %1058 = tail call ptr @proto_tree_add_item(ptr noundef %1055, i32 noundef %1049, ptr noundef %0, i32 noundef %1056, i32 noundef 4, i32 noundef %4) #10
-  %1059 = load i32, ptr %2, align 4
-  %1060 = add i32 %1059, 4
-  store i32 %1060, ptr %2, align 4
-  %.not.i.i2149 = icmp eq i32 %1057, 0
+  %1058 = phi i32 [ %1062, %.lr.ph.i.i2147 ], [ %.pre.i.i2146, %.lr.ph.preheader.i.i2145 ]
+  %.014.i.i2148 = phi i32 [ %1059, %.lr.ph.i.i2147 ], [ %1052, %.lr.ph.preheader.i.i2145 ]
+  %1059 = add i32 %.014.i.i2148, -1
+  %1060 = tail call ptr @proto_tree_add_item(ptr noundef %1056, i32 noundef %1050, ptr noundef %0, i32 noundef %1058, i32 noundef 4, i32 noundef %4) #10
+  %1061 = load i32, ptr %2, align 4
+  %1062 = add i32 %1061, 4
+  store i32 %1062, ptr %2, align 4
+  %.not.i.i2149 = icmp eq i32 %1059, 0
   br i1 %.not.i.i2149, label %mesa_CallLists.exit, label %.lr.ph.i.i2147, !llvm.loop !60
 
-1061:                                             ; preds = %34
-  %1062 = load i32, ptr @hf_x11_glx_render_FrontFace_mode, align 4
-  %1063 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1062, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+1063:                                             ; preds = %34
+  %1064 = load i32, ptr @hf_x11_glx_render_FrontFace_mode, align 4
+  %1065 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1064, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1064:                                             ; preds = %34
-  %1065 = load i32, ptr @hf_x11_glx_render_Hint_target, align 4
-  %1066 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1065, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1067 = load i32, ptr %2, align 4
-  %1068 = add i32 %1067, 4
-  store i32 %1068, ptr %2, align 4
-  %1069 = load i32, ptr @hf_x11_glx_render_Hint_mode, align 4
-  %1070 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1069, ptr noundef %0, i32 noundef %1068, i32 noundef 4, i32 noundef %4) #10
+1066:                                             ; preds = %34
+  %1067 = load i32, ptr @hf_x11_glx_render_Hint_target, align 4
+  %1068 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1067, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1069 = load i32, ptr %2, align 4
+  %1070 = add i32 %1069, 4
+  store i32 %1070, ptr %2, align 4
+  %1071 = load i32, ptr @hf_x11_glx_render_Hint_mode, align 4
+  %1072 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1071, ptr noundef %0, i32 noundef %1070, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1071:                                             ; preds = %34
-  %1072 = load i32, ptr @hf_x11_glx_render_Lightf_light, align 4
-  %1073 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1072, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1074 = load i32, ptr %2, align 4
-  %1075 = add i32 %1074, 4
-  store i32 %1075, ptr %2, align 4
-  %1076 = load i32, ptr @hf_x11_glx_render_Lightf_pname, align 4
-  %1077 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1076, ptr noundef %0, i32 noundef %1075, i32 noundef 4, i32 noundef %4) #10
-  %1078 = load i32, ptr %2, align 4
-  %1079 = add i32 %1078, 4
-  store i32 %1079, ptr %2, align 4
-  %1080 = load i32, ptr @hf_x11_glx_render_Lightf_param, align 4
-  %1081 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1080, ptr noundef %0, i32 noundef %1079, i32 noundef 4, i32 noundef %4) #10
+1073:                                             ; preds = %34
+  %1074 = load i32, ptr @hf_x11_glx_render_Lightf_light, align 4
+  %1075 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1074, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1076 = load i32, ptr %2, align 4
+  %1077 = add i32 %1076, 4
+  store i32 %1077, ptr %2, align 4
+  %1078 = load i32, ptr @hf_x11_glx_render_Lightf_pname, align 4
+  %1079 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1078, ptr noundef %0, i32 noundef %1077, i32 noundef 4, i32 noundef %4) #10
+  %1080 = load i32, ptr %2, align 4
+  %1081 = add i32 %1080, 4
+  store i32 %1081, ptr %2, align 4
+  %1082 = load i32, ptr @hf_x11_glx_render_Lightf_param, align 4
+  %1083 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1082, ptr noundef %0, i32 noundef %1081, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1082:                                             ; preds = %34
-  %1083 = load i32, ptr @hf_x11_glx_render_Lightfv_light, align 4
-  %1084 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1083, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1085 = load i32, ptr %2, align 4
-  %1086 = add i32 %1085, 4
-  store i32 %1086, ptr %2, align 4
-  %1087 = load i32, ptr @hf_x11_glx_render_Lightfv_pname, align 4
-  %1088 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1087, ptr noundef %0, i32 noundef %1086, i32 noundef 4, i32 noundef %4) #10
-  %1089 = load i32, ptr %2, align 4
-  %1090 = add i32 %1089, 4
-  store i32 %1090, ptr %2, align 4
-  %1091 = load i32, ptr @hf_x11_glx_render_Lightfv_params, align 4
-  %1092 = load i32, ptr @hf_x11_glx_render_Lightfv_params_item, align 4
-  %1093 = add nsw i32 %10, -12
-  %1094 = sdiv i32 %1093, 4
-  %1095 = shl nsw i32 %1094, 2
-  %1096 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1091, ptr noundef %0, i32 noundef %1090, i32 noundef %1095, i32 noundef %4) #10
-  %1097 = load i32, ptr @ett_x11_list_of_float, align 4
-  %1098 = tail call ptr @proto_item_add_subtree(ptr noundef %1096, i32 noundef %1097) #10
-  %.off.i2151 = add nsw i32 %10, -9
-  %.not13.i.i2152 = icmp ult i32 %.off.i2151, 7
+1084:                                             ; preds = %34
+  %1085 = load i32, ptr @hf_x11_glx_render_Lightfv_light, align 4
+  %1086 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1085, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1087 = load i32, ptr %2, align 4
+  %1088 = add i32 %1087, 4
+  store i32 %1088, ptr %2, align 4
+  %1089 = load i32, ptr @hf_x11_glx_render_Lightfv_pname, align 4
+  %1090 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1089, ptr noundef %0, i32 noundef %1088, i32 noundef 4, i32 noundef %4) #10
+  %1091 = load i32, ptr %2, align 4
+  %1092 = add i32 %1091, 4
+  store i32 %1092, ptr %2, align 4
+  %1093 = load i32, ptr @hf_x11_glx_render_Lightfv_params, align 4
+  %1094 = load i32, ptr @hf_x11_glx_render_Lightfv_params_item, align 4
+  %1095 = add nsw i32 %10, -12
+  %1096 = sdiv i32 %1095, 4
+  %1097 = shl nsw i32 %1096, 2
+  %1098 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1093, ptr noundef %0, i32 noundef %1092, i32 noundef %1097, i32 noundef %4) #10
+  %1099 = load i32, ptr @ett_x11_list_of_float, align 4
+  %1100 = tail call ptr @proto_item_add_subtree(ptr noundef %1098, i32 noundef %1099) #10
+  %1101 = add i16 %9, -9
+  %.not13.i.i2152 = icmp ult i16 %1101, 7
   br i1 %.not13.i.i2152, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2153
 
-.lr.ph.preheader.i.i2153:                         ; preds = %1082
+.lr.ph.preheader.i.i2153:                         ; preds = %1084
   %.pre.i.i2154 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2155
 
 .lr.ph.i.i2155:                                   ; preds = %.lr.ph.i.i2155, %.lr.ph.preheader.i.i2153
-  %1099 = phi i32 [ %1103, %.lr.ph.i.i2155 ], [ %.pre.i.i2154, %.lr.ph.preheader.i.i2153 ]
-  %.014.i.i2156 = phi i32 [ %1100, %.lr.ph.i.i2155 ], [ %1094, %.lr.ph.preheader.i.i2153 ]
-  %1100 = add i32 %.014.i.i2156, -1
-  %1101 = tail call ptr @proto_tree_add_item(ptr noundef %1098, i32 noundef %1092, ptr noundef %0, i32 noundef %1099, i32 noundef 4, i32 noundef %4) #10
-  %1102 = load i32, ptr %2, align 4
-  %1103 = add i32 %1102, 4
-  store i32 %1103, ptr %2, align 4
-  %.not.i.i2157 = icmp eq i32 %1100, 0
+  %1102 = phi i32 [ %1106, %.lr.ph.i.i2155 ], [ %.pre.i.i2154, %.lr.ph.preheader.i.i2153 ]
+  %.014.i.i2156 = phi i32 [ %1103, %.lr.ph.i.i2155 ], [ %1096, %.lr.ph.preheader.i.i2153 ]
+  %1103 = add i32 %.014.i.i2156, -1
+  %1104 = tail call ptr @proto_tree_add_item(ptr noundef %1100, i32 noundef %1094, ptr noundef %0, i32 noundef %1102, i32 noundef 4, i32 noundef %4) #10
+  %1105 = load i32, ptr %2, align 4
+  %1106 = add i32 %1105, 4
+  store i32 %1106, ptr %2, align 4
+  %.not.i.i2157 = icmp eq i32 %1103, 0
   br i1 %.not.i.i2157, label %mesa_CallLists.exit, label %.lr.ph.i.i2155, !llvm.loop !61
 
-1104:                                             ; preds = %34
-  %1105 = load i32, ptr @hf_x11_glx_render_Lighti_light, align 4
-  %1106 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1105, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1107 = load i32, ptr %2, align 4
-  %1108 = add i32 %1107, 4
-  store i32 %1108, ptr %2, align 4
-  %1109 = load i32, ptr @hf_x11_glx_render_Lighti_pname, align 4
-  %1110 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1109, ptr noundef %0, i32 noundef %1108, i32 noundef 4, i32 noundef %4) #10
-  %1111 = load i32, ptr %2, align 4
-  %1112 = add i32 %1111, 4
-  store i32 %1112, ptr %2, align 4
-  %1113 = load i32, ptr @hf_x11_glx_render_Lighti_param, align 4
-  %1114 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1113, ptr noundef %0, i32 noundef %1112, i32 noundef 4, i32 noundef %4) #10
+1107:                                             ; preds = %34
+  %1108 = load i32, ptr @hf_x11_glx_render_Lighti_light, align 4
+  %1109 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1108, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1110 = load i32, ptr %2, align 4
+  %1111 = add i32 %1110, 4
+  store i32 %1111, ptr %2, align 4
+  %1112 = load i32, ptr @hf_x11_glx_render_Lighti_pname, align 4
+  %1113 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1112, ptr noundef %0, i32 noundef %1111, i32 noundef 4, i32 noundef %4) #10
+  %1114 = load i32, ptr %2, align 4
+  %1115 = add i32 %1114, 4
+  store i32 %1115, ptr %2, align 4
+  %1116 = load i32, ptr @hf_x11_glx_render_Lighti_param, align 4
+  %1117 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1116, ptr noundef %0, i32 noundef %1115, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1115:                                             ; preds = %34
-  %1116 = load i32, ptr @hf_x11_glx_render_Lightiv_light, align 4
-  %1117 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1116, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1118 = load i32, ptr %2, align 4
-  %1119 = add i32 %1118, 4
-  store i32 %1119, ptr %2, align 4
-  %1120 = load i32, ptr @hf_x11_glx_render_Lightiv_pname, align 4
-  %1121 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1120, ptr noundef %0, i32 noundef %1119, i32 noundef 4, i32 noundef %4) #10
-  %1122 = load i32, ptr %2, align 4
-  %1123 = add i32 %1122, 4
-  store i32 %1123, ptr %2, align 4
-  %1124 = load i32, ptr @hf_x11_glx_render_Lightiv_params, align 4
-  %1125 = load i32, ptr @hf_x11_glx_render_Lightiv_params_item, align 4
-  %1126 = add nsw i32 %10, -12
-  %1127 = sdiv i32 %1126, 4
-  %1128 = shl nsw i32 %1127, 2
-  %1129 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1124, ptr noundef %0, i32 noundef %1123, i32 noundef %1128, i32 noundef %4) #10
-  %1130 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1131 = tail call ptr @proto_item_add_subtree(ptr noundef %1129, i32 noundef %1130) #10
-  %.off.i2159 = add nsw i32 %10, -9
-  %.not13.i.i2160 = icmp ult i32 %.off.i2159, 7
+1118:                                             ; preds = %34
+  %1119 = load i32, ptr @hf_x11_glx_render_Lightiv_light, align 4
+  %1120 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1119, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1121 = load i32, ptr %2, align 4
+  %1122 = add i32 %1121, 4
+  store i32 %1122, ptr %2, align 4
+  %1123 = load i32, ptr @hf_x11_glx_render_Lightiv_pname, align 4
+  %1124 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1123, ptr noundef %0, i32 noundef %1122, i32 noundef 4, i32 noundef %4) #10
+  %1125 = load i32, ptr %2, align 4
+  %1126 = add i32 %1125, 4
+  store i32 %1126, ptr %2, align 4
+  %1127 = load i32, ptr @hf_x11_glx_render_Lightiv_params, align 4
+  %1128 = load i32, ptr @hf_x11_glx_render_Lightiv_params_item, align 4
+  %1129 = add nsw i32 %10, -12
+  %1130 = sdiv i32 %1129, 4
+  %1131 = shl nsw i32 %1130, 2
+  %1132 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1127, ptr noundef %0, i32 noundef %1126, i32 noundef %1131, i32 noundef %4) #10
+  %1133 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1134 = tail call ptr @proto_item_add_subtree(ptr noundef %1132, i32 noundef %1133) #10
+  %1135 = add i16 %9, -9
+  %.not13.i.i2160 = icmp ult i16 %1135, 7
   br i1 %.not13.i.i2160, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2161
 
-.lr.ph.preheader.i.i2161:                         ; preds = %1115
+.lr.ph.preheader.i.i2161:                         ; preds = %1118
   %.pre.i.i2162 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2163
 
 .lr.ph.i.i2163:                                   ; preds = %.lr.ph.i.i2163, %.lr.ph.preheader.i.i2161
-  %1132 = phi i32 [ %1136, %.lr.ph.i.i2163 ], [ %.pre.i.i2162, %.lr.ph.preheader.i.i2161 ]
-  %.014.i.i2164 = phi i32 [ %1133, %.lr.ph.i.i2163 ], [ %1127, %.lr.ph.preheader.i.i2161 ]
-  %1133 = add i32 %.014.i.i2164, -1
-  %1134 = tail call ptr @proto_tree_add_item(ptr noundef %1131, i32 noundef %1125, ptr noundef %0, i32 noundef %1132, i32 noundef 4, i32 noundef %4) #10
-  %1135 = load i32, ptr %2, align 4
-  %1136 = add i32 %1135, 4
-  store i32 %1136, ptr %2, align 4
-  %.not.i.i2165 = icmp eq i32 %1133, 0
+  %1136 = phi i32 [ %1140, %.lr.ph.i.i2163 ], [ %.pre.i.i2162, %.lr.ph.preheader.i.i2161 ]
+  %.014.i.i2164 = phi i32 [ %1137, %.lr.ph.i.i2163 ], [ %1130, %.lr.ph.preheader.i.i2161 ]
+  %1137 = add i32 %.014.i.i2164, -1
+  %1138 = tail call ptr @proto_tree_add_item(ptr noundef %1134, i32 noundef %1128, ptr noundef %0, i32 noundef %1136, i32 noundef 4, i32 noundef %4) #10
+  %1139 = load i32, ptr %2, align 4
+  %1140 = add i32 %1139, 4
+  store i32 %1140, ptr %2, align 4
+  %.not.i.i2165 = icmp eq i32 %1137, 0
   br i1 %.not.i.i2165, label %mesa_CallLists.exit, label %.lr.ph.i.i2163, !llvm.loop !60
 
-1137:                                             ; preds = %34
-  %1138 = load i32, ptr @hf_x11_glx_render_LightModelf_pname, align 4
-  %1139 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1138, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1140 = load i32, ptr %2, align 4
-  %1141 = add i32 %1140, 4
-  store i32 %1141, ptr %2, align 4
-  %1142 = load i32, ptr @hf_x11_glx_render_LightModelf_param, align 4
-  %1143 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1142, ptr noundef %0, i32 noundef %1141, i32 noundef 4, i32 noundef %4) #10
+1141:                                             ; preds = %34
+  %1142 = load i32, ptr @hf_x11_glx_render_LightModelf_pname, align 4
+  %1143 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1142, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1144 = load i32, ptr %2, align 4
+  %1145 = add i32 %1144, 4
+  store i32 %1145, ptr %2, align 4
+  %1146 = load i32, ptr @hf_x11_glx_render_LightModelf_param, align 4
+  %1147 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1146, ptr noundef %0, i32 noundef %1145, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1144:                                             ; preds = %34
-  %1145 = load i32, ptr @hf_x11_glx_render_LightModelfv_pname, align 4
-  %1146 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1145, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1147 = load i32, ptr %2, align 4
-  %1148 = add i32 %1147, 4
-  store i32 %1148, ptr %2, align 4
-  %1149 = load i32, ptr @hf_x11_glx_render_LightModelfv_params, align 4
-  %1150 = load i32, ptr @hf_x11_glx_render_LightModelfv_params_item, align 4
-  %1151 = add nsw i32 %10, -8
-  %1152 = sdiv i32 %1151, 4
-  %1153 = shl nsw i32 %1152, 2
-  %1154 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1149, ptr noundef %0, i32 noundef %1148, i32 noundef %1153, i32 noundef %4) #10
-  %1155 = load i32, ptr @ett_x11_list_of_float, align 4
-  %1156 = tail call ptr @proto_item_add_subtree(ptr noundef %1154, i32 noundef %1155) #10
-  %.off.i2167 = add nsw i32 %10, -5
-  %.not13.i.i2168 = icmp ult i32 %.off.i2167, 7
+1148:                                             ; preds = %34
+  %1149 = load i32, ptr @hf_x11_glx_render_LightModelfv_pname, align 4
+  %1150 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1149, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1151 = load i32, ptr %2, align 4
+  %1152 = add i32 %1151, 4
+  store i32 %1152, ptr %2, align 4
+  %1153 = load i32, ptr @hf_x11_glx_render_LightModelfv_params, align 4
+  %1154 = load i32, ptr @hf_x11_glx_render_LightModelfv_params_item, align 4
+  %1155 = add nsw i32 %10, -8
+  %1156 = sdiv i32 %1155, 4
+  %1157 = shl nsw i32 %1156, 2
+  %1158 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1153, ptr noundef %0, i32 noundef %1152, i32 noundef %1157, i32 noundef %4) #10
+  %1159 = load i32, ptr @ett_x11_list_of_float, align 4
+  %1160 = tail call ptr @proto_item_add_subtree(ptr noundef %1158, i32 noundef %1159) #10
+  %1161 = add i16 %9, -5
+  %.not13.i.i2168 = icmp ult i16 %1161, 7
   br i1 %.not13.i.i2168, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2169
 
-.lr.ph.preheader.i.i2169:                         ; preds = %1144
+.lr.ph.preheader.i.i2169:                         ; preds = %1148
   %.pre.i.i2170 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2171
 
 .lr.ph.i.i2171:                                   ; preds = %.lr.ph.i.i2171, %.lr.ph.preheader.i.i2169
-  %1157 = phi i32 [ %1161, %.lr.ph.i.i2171 ], [ %.pre.i.i2170, %.lr.ph.preheader.i.i2169 ]
-  %.014.i.i2172 = phi i32 [ %1158, %.lr.ph.i.i2171 ], [ %1152, %.lr.ph.preheader.i.i2169 ]
-  %1158 = add i32 %.014.i.i2172, -1
-  %1159 = tail call ptr @proto_tree_add_item(ptr noundef %1156, i32 noundef %1150, ptr noundef %0, i32 noundef %1157, i32 noundef 4, i32 noundef %4) #10
-  %1160 = load i32, ptr %2, align 4
-  %1161 = add i32 %1160, 4
-  store i32 %1161, ptr %2, align 4
-  %.not.i.i2173 = icmp eq i32 %1158, 0
-  br i1 %.not.i.i2173, label %mesa_CallLists.exit, label %.lr.ph.i.i2171, !llvm.loop !61
-
-1162:                                             ; preds = %34
-  %1163 = load i32, ptr @hf_x11_glx_render_LightModeli_pname, align 4
-  %1164 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1163, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1162 = phi i32 [ %1166, %.lr.ph.i.i2171 ], [ %.pre.i.i2170, %.lr.ph.preheader.i.i2169 ]
+  %.014.i.i2172 = phi i32 [ %1163, %.lr.ph.i.i2171 ], [ %1156, %.lr.ph.preheader.i.i2169 ]
+  %1163 = add i32 %.014.i.i2172, -1
+  %1164 = tail call ptr @proto_tree_add_item(ptr noundef %1160, i32 noundef %1154, ptr noundef %0, i32 noundef %1162, i32 noundef 4, i32 noundef %4) #10
   %1165 = load i32, ptr %2, align 4
   %1166 = add i32 %1165, 4
   store i32 %1166, ptr %2, align 4
-  %1167 = load i32, ptr @hf_x11_glx_render_LightModeli_param, align 4
-  %1168 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1167, ptr noundef %0, i32 noundef %1166, i32 noundef 4, i32 noundef %4) #10
+  %.not.i.i2173 = icmp eq i32 %1163, 0
+  br i1 %.not.i.i2173, label %mesa_CallLists.exit, label %.lr.ph.i.i2171, !llvm.loop !61
+
+1167:                                             ; preds = %34
+  %1168 = load i32, ptr @hf_x11_glx_render_LightModeli_pname, align 4
+  %1169 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1168, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1170 = load i32, ptr %2, align 4
+  %1171 = add i32 %1170, 4
+  store i32 %1171, ptr %2, align 4
+  %1172 = load i32, ptr @hf_x11_glx_render_LightModeli_param, align 4
+  %1173 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1172, ptr noundef %0, i32 noundef %1171, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1169:                                             ; preds = %34
-  %1170 = load i32, ptr @hf_x11_glx_render_LightModeliv_pname, align 4
-  %1171 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1170, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1172 = load i32, ptr %2, align 4
-  %1173 = add i32 %1172, 4
-  store i32 %1173, ptr %2, align 4
-  %1174 = load i32, ptr @hf_x11_glx_render_LightModeliv_params, align 4
-  %1175 = load i32, ptr @hf_x11_glx_render_LightModeliv_params_item, align 4
-  %1176 = add nsw i32 %10, -8
-  %1177 = sdiv i32 %1176, 4
-  %1178 = shl nsw i32 %1177, 2
-  %1179 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1174, ptr noundef %0, i32 noundef %1173, i32 noundef %1178, i32 noundef %4) #10
-  %1180 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1181 = tail call ptr @proto_item_add_subtree(ptr noundef %1179, i32 noundef %1180) #10
-  %.off.i2175 = add nsw i32 %10, -5
-  %.not13.i.i2176 = icmp ult i32 %.off.i2175, 7
+1174:                                             ; preds = %34
+  %1175 = load i32, ptr @hf_x11_glx_render_LightModeliv_pname, align 4
+  %1176 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1175, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1177 = load i32, ptr %2, align 4
+  %1178 = add i32 %1177, 4
+  store i32 %1178, ptr %2, align 4
+  %1179 = load i32, ptr @hf_x11_glx_render_LightModeliv_params, align 4
+  %1180 = load i32, ptr @hf_x11_glx_render_LightModeliv_params_item, align 4
+  %1181 = add nsw i32 %10, -8
+  %1182 = sdiv i32 %1181, 4
+  %1183 = shl nsw i32 %1182, 2
+  %1184 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1179, ptr noundef %0, i32 noundef %1178, i32 noundef %1183, i32 noundef %4) #10
+  %1185 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1186 = tail call ptr @proto_item_add_subtree(ptr noundef %1184, i32 noundef %1185) #10
+  %1187 = add i16 %9, -5
+  %.not13.i.i2176 = icmp ult i16 %1187, 7
   br i1 %.not13.i.i2176, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2177
 
-.lr.ph.preheader.i.i2177:                         ; preds = %1169
+.lr.ph.preheader.i.i2177:                         ; preds = %1174
   %.pre.i.i2178 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2179
 
 .lr.ph.i.i2179:                                   ; preds = %.lr.ph.i.i2179, %.lr.ph.preheader.i.i2177
-  %1182 = phi i32 [ %1186, %.lr.ph.i.i2179 ], [ %.pre.i.i2178, %.lr.ph.preheader.i.i2177 ]
-  %.014.i.i2180 = phi i32 [ %1183, %.lr.ph.i.i2179 ], [ %1177, %.lr.ph.preheader.i.i2177 ]
-  %1183 = add i32 %.014.i.i2180, -1
-  %1184 = tail call ptr @proto_tree_add_item(ptr noundef %1181, i32 noundef %1175, ptr noundef %0, i32 noundef %1182, i32 noundef 4, i32 noundef %4) #10
-  %1185 = load i32, ptr %2, align 4
-  %1186 = add i32 %1185, 4
-  store i32 %1186, ptr %2, align 4
-  %.not.i.i2181 = icmp eq i32 %1183, 0
+  %1188 = phi i32 [ %1192, %.lr.ph.i.i2179 ], [ %.pre.i.i2178, %.lr.ph.preheader.i.i2177 ]
+  %.014.i.i2180 = phi i32 [ %1189, %.lr.ph.i.i2179 ], [ %1182, %.lr.ph.preheader.i.i2177 ]
+  %1189 = add i32 %.014.i.i2180, -1
+  %1190 = tail call ptr @proto_tree_add_item(ptr noundef %1186, i32 noundef %1180, ptr noundef %0, i32 noundef %1188, i32 noundef 4, i32 noundef %4) #10
+  %1191 = load i32, ptr %2, align 4
+  %1192 = add i32 %1191, 4
+  store i32 %1192, ptr %2, align 4
+  %.not.i.i2181 = icmp eq i32 %1189, 0
   br i1 %.not.i.i2181, label %mesa_CallLists.exit, label %.lr.ph.i.i2179, !llvm.loop !60
 
-1187:                                             ; preds = %34
-  %1188 = load i32, ptr @hf_x11_glx_render_LineStipple_factor, align 4
-  %1189 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1188, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1190 = load i32, ptr %2, align 4
-  %1191 = add i32 %1190, 4
-  store i32 %1191, ptr %2, align 4
-  %1192 = load i32, ptr @hf_x11_glx_render_LineStipple_pattern, align 4
-  %1193 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1192, ptr noundef %0, i32 noundef %1191, i32 noundef 2, i32 noundef %4) #10
+1193:                                             ; preds = %34
+  %1194 = load i32, ptr @hf_x11_glx_render_LineStipple_factor, align 4
+  %1195 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1194, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1196 = load i32, ptr %2, align 4
+  %1197 = add i32 %1196, 4
+  store i32 %1197, ptr %2, align 4
+  %1198 = load i32, ptr @hf_x11_glx_render_LineStipple_pattern, align 4
+  %1199 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1198, ptr noundef %0, i32 noundef %1197, i32 noundef 2, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1194:                                             ; preds = %34
-  %1195 = load i32, ptr @hf_x11_glx_render_LineWidth_width, align 4
-  %1196 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1195, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+1200:                                             ; preds = %34
+  %1201 = load i32, ptr @hf_x11_glx_render_LineWidth_width, align 4
+  %1202 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1201, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1197:                                             ; preds = %34
-  %1198 = load i32, ptr @hf_x11_glx_render_Materialf_face, align 4
-  %1199 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1198, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1200 = load i32, ptr %2, align 4
-  %1201 = add i32 %1200, 4
-  store i32 %1201, ptr %2, align 4
-  %1202 = load i32, ptr @hf_x11_glx_render_Materialf_pname, align 4
-  %1203 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1202, ptr noundef %0, i32 noundef %1201, i32 noundef 4, i32 noundef %4) #10
-  %1204 = load i32, ptr %2, align 4
-  %1205 = add i32 %1204, 4
-  store i32 %1205, ptr %2, align 4
-  %1206 = load i32, ptr @hf_x11_glx_render_Materialf_param, align 4
-  %1207 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1206, ptr noundef %0, i32 noundef %1205, i32 noundef 4, i32 noundef %4) #10
+1203:                                             ; preds = %34
+  %1204 = load i32, ptr @hf_x11_glx_render_Materialf_face, align 4
+  %1205 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1204, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1206 = load i32, ptr %2, align 4
+  %1207 = add i32 %1206, 4
+  store i32 %1207, ptr %2, align 4
+  %1208 = load i32, ptr @hf_x11_glx_render_Materialf_pname, align 4
+  %1209 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1208, ptr noundef %0, i32 noundef %1207, i32 noundef 4, i32 noundef %4) #10
+  %1210 = load i32, ptr %2, align 4
+  %1211 = add i32 %1210, 4
+  store i32 %1211, ptr %2, align 4
+  %1212 = load i32, ptr @hf_x11_glx_render_Materialf_param, align 4
+  %1213 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1212, ptr noundef %0, i32 noundef %1211, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1208:                                             ; preds = %34
-  %1209 = load i32, ptr @hf_x11_glx_render_Materialfv_face, align 4
-  %1210 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1209, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1211 = load i32, ptr %2, align 4
-  %1212 = add i32 %1211, 4
-  store i32 %1212, ptr %2, align 4
-  %1213 = load i32, ptr @hf_x11_glx_render_Materialfv_pname, align 4
-  %1214 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1213, ptr noundef %0, i32 noundef %1212, i32 noundef 4, i32 noundef %4) #10
-  %1215 = load i32, ptr %2, align 4
-  %1216 = add i32 %1215, 4
-  store i32 %1216, ptr %2, align 4
-  %1217 = load i32, ptr @hf_x11_glx_render_Materialfv_params, align 4
-  %1218 = load i32, ptr @hf_x11_glx_render_Materialfv_params_item, align 4
-  %1219 = add nsw i32 %10, -12
-  %1220 = sdiv i32 %1219, 4
-  %1221 = shl nsw i32 %1220, 2
-  %1222 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1217, ptr noundef %0, i32 noundef %1216, i32 noundef %1221, i32 noundef %4) #10
-  %1223 = load i32, ptr @ett_x11_list_of_float, align 4
-  %1224 = tail call ptr @proto_item_add_subtree(ptr noundef %1222, i32 noundef %1223) #10
-  %.off.i2183 = add nsw i32 %10, -9
-  %.not13.i.i2184 = icmp ult i32 %.off.i2183, 7
+1214:                                             ; preds = %34
+  %1215 = load i32, ptr @hf_x11_glx_render_Materialfv_face, align 4
+  %1216 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1215, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1217 = load i32, ptr %2, align 4
+  %1218 = add i32 %1217, 4
+  store i32 %1218, ptr %2, align 4
+  %1219 = load i32, ptr @hf_x11_glx_render_Materialfv_pname, align 4
+  %1220 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1219, ptr noundef %0, i32 noundef %1218, i32 noundef 4, i32 noundef %4) #10
+  %1221 = load i32, ptr %2, align 4
+  %1222 = add i32 %1221, 4
+  store i32 %1222, ptr %2, align 4
+  %1223 = load i32, ptr @hf_x11_glx_render_Materialfv_params, align 4
+  %1224 = load i32, ptr @hf_x11_glx_render_Materialfv_params_item, align 4
+  %1225 = add nsw i32 %10, -12
+  %1226 = sdiv i32 %1225, 4
+  %1227 = shl nsw i32 %1226, 2
+  %1228 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1223, ptr noundef %0, i32 noundef %1222, i32 noundef %1227, i32 noundef %4) #10
+  %1229 = load i32, ptr @ett_x11_list_of_float, align 4
+  %1230 = tail call ptr @proto_item_add_subtree(ptr noundef %1228, i32 noundef %1229) #10
+  %1231 = add i16 %9, -9
+  %.not13.i.i2184 = icmp ult i16 %1231, 7
   br i1 %.not13.i.i2184, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2185
 
-.lr.ph.preheader.i.i2185:                         ; preds = %1208
+.lr.ph.preheader.i.i2185:                         ; preds = %1214
   %.pre.i.i2186 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2187
 
 .lr.ph.i.i2187:                                   ; preds = %.lr.ph.i.i2187, %.lr.ph.preheader.i.i2185
-  %1225 = phi i32 [ %1229, %.lr.ph.i.i2187 ], [ %.pre.i.i2186, %.lr.ph.preheader.i.i2185 ]
-  %.014.i.i2188 = phi i32 [ %1226, %.lr.ph.i.i2187 ], [ %1220, %.lr.ph.preheader.i.i2185 ]
-  %1226 = add i32 %.014.i.i2188, -1
-  %1227 = tail call ptr @proto_tree_add_item(ptr noundef %1224, i32 noundef %1218, ptr noundef %0, i32 noundef %1225, i32 noundef 4, i32 noundef %4) #10
-  %1228 = load i32, ptr %2, align 4
-  %1229 = add i32 %1228, 4
-  store i32 %1229, ptr %2, align 4
-  %.not.i.i2189 = icmp eq i32 %1226, 0
+  %1232 = phi i32 [ %1236, %.lr.ph.i.i2187 ], [ %.pre.i.i2186, %.lr.ph.preheader.i.i2185 ]
+  %.014.i.i2188 = phi i32 [ %1233, %.lr.ph.i.i2187 ], [ %1226, %.lr.ph.preheader.i.i2185 ]
+  %1233 = add i32 %.014.i.i2188, -1
+  %1234 = tail call ptr @proto_tree_add_item(ptr noundef %1230, i32 noundef %1224, ptr noundef %0, i32 noundef %1232, i32 noundef 4, i32 noundef %4) #10
+  %1235 = load i32, ptr %2, align 4
+  %1236 = add i32 %1235, 4
+  store i32 %1236, ptr %2, align 4
+  %.not.i.i2189 = icmp eq i32 %1233, 0
   br i1 %.not.i.i2189, label %mesa_CallLists.exit, label %.lr.ph.i.i2187, !llvm.loop !61
 
-1230:                                             ; preds = %34
-  %1231 = load i32, ptr @hf_x11_glx_render_Materiali_face, align 4
-  %1232 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1231, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1233 = load i32, ptr %2, align 4
-  %1234 = add i32 %1233, 4
-  store i32 %1234, ptr %2, align 4
-  %1235 = load i32, ptr @hf_x11_glx_render_Materiali_pname, align 4
-  %1236 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1235, ptr noundef %0, i32 noundef %1234, i32 noundef 4, i32 noundef %4) #10
-  %1237 = load i32, ptr %2, align 4
-  %1238 = add i32 %1237, 4
-  store i32 %1238, ptr %2, align 4
-  %1239 = load i32, ptr @hf_x11_glx_render_Materiali_param, align 4
-  %1240 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1239, ptr noundef %0, i32 noundef %1238, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-1241:                                             ; preds = %34
-  %1242 = load i32, ptr @hf_x11_glx_render_Materialiv_face, align 4
-  %1243 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1242, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+1237:                                             ; preds = %34
+  %1238 = load i32, ptr @hf_x11_glx_render_Materiali_face, align 4
+  %1239 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1238, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1240 = load i32, ptr %2, align 4
+  %1241 = add i32 %1240, 4
+  store i32 %1241, ptr %2, align 4
+  %1242 = load i32, ptr @hf_x11_glx_render_Materiali_pname, align 4
+  %1243 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1242, ptr noundef %0, i32 noundef %1241, i32 noundef 4, i32 noundef %4) #10
   %1244 = load i32, ptr %2, align 4
   %1245 = add i32 %1244, 4
   store i32 %1245, ptr %2, align 4
-  %1246 = load i32, ptr @hf_x11_glx_render_Materialiv_pname, align 4
+  %1246 = load i32, ptr @hf_x11_glx_render_Materiali_param, align 4
   %1247 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1246, ptr noundef %0, i32 noundef %1245, i32 noundef 4, i32 noundef %4) #10
-  %1248 = load i32, ptr %2, align 4
-  %1249 = add i32 %1248, 4
-  store i32 %1249, ptr %2, align 4
-  %1250 = load i32, ptr @hf_x11_glx_render_Materialiv_params, align 4
-  %1251 = load i32, ptr @hf_x11_glx_render_Materialiv_params_item, align 4
-  %1252 = add nsw i32 %10, -12
-  %1253 = sdiv i32 %1252, 4
-  %1254 = shl nsw i32 %1253, 2
-  %1255 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1250, ptr noundef %0, i32 noundef %1249, i32 noundef %1254, i32 noundef %4) #10
-  %1256 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1257 = tail call ptr @proto_item_add_subtree(ptr noundef %1255, i32 noundef %1256) #10
-  %.off.i2191 = add nsw i32 %10, -9
-  %.not13.i.i2192 = icmp ult i32 %.off.i2191, 7
+  br label %mesa_CallLists.exit.sink.split
+
+1248:                                             ; preds = %34
+  %1249 = load i32, ptr @hf_x11_glx_render_Materialiv_face, align 4
+  %1250 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1249, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1251 = load i32, ptr %2, align 4
+  %1252 = add i32 %1251, 4
+  store i32 %1252, ptr %2, align 4
+  %1253 = load i32, ptr @hf_x11_glx_render_Materialiv_pname, align 4
+  %1254 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1253, ptr noundef %0, i32 noundef %1252, i32 noundef 4, i32 noundef %4) #10
+  %1255 = load i32, ptr %2, align 4
+  %1256 = add i32 %1255, 4
+  store i32 %1256, ptr %2, align 4
+  %1257 = load i32, ptr @hf_x11_glx_render_Materialiv_params, align 4
+  %1258 = load i32, ptr @hf_x11_glx_render_Materialiv_params_item, align 4
+  %1259 = add nsw i32 %10, -12
+  %1260 = sdiv i32 %1259, 4
+  %1261 = shl nsw i32 %1260, 2
+  %1262 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1257, ptr noundef %0, i32 noundef %1256, i32 noundef %1261, i32 noundef %4) #10
+  %1263 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1264 = tail call ptr @proto_item_add_subtree(ptr noundef %1262, i32 noundef %1263) #10
+  %1265 = add i16 %9, -9
+  %.not13.i.i2192 = icmp ult i16 %1265, 7
   br i1 %.not13.i.i2192, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2193
 
-.lr.ph.preheader.i.i2193:                         ; preds = %1241
+.lr.ph.preheader.i.i2193:                         ; preds = %1248
   %.pre.i.i2194 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2195
 
 .lr.ph.i.i2195:                                   ; preds = %.lr.ph.i.i2195, %.lr.ph.preheader.i.i2193
-  %1258 = phi i32 [ %1262, %.lr.ph.i.i2195 ], [ %.pre.i.i2194, %.lr.ph.preheader.i.i2193 ]
-  %.014.i.i2196 = phi i32 [ %1259, %.lr.ph.i.i2195 ], [ %1253, %.lr.ph.preheader.i.i2193 ]
-  %1259 = add i32 %.014.i.i2196, -1
-  %1260 = tail call ptr @proto_tree_add_item(ptr noundef %1257, i32 noundef %1251, ptr noundef %0, i32 noundef %1258, i32 noundef 4, i32 noundef %4) #10
-  %1261 = load i32, ptr %2, align 4
-  %1262 = add i32 %1261, 4
-  store i32 %1262, ptr %2, align 4
-  %.not.i.i2197 = icmp eq i32 %1259, 0
-  br i1 %.not.i.i2197, label %mesa_CallLists.exit, label %.lr.ph.i.i2195, !llvm.loop !60
-
-1263:                                             ; preds = %34
-  %1264 = load i32, ptr @hf_x11_glx_render_PointSize_size, align 4
-  %1265 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1264, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-1266:                                             ; preds = %34
-  %1267 = load i32, ptr @hf_x11_glx_render_PolygonMode_face, align 4
-  %1268 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1267, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1266 = phi i32 [ %1270, %.lr.ph.i.i2195 ], [ %.pre.i.i2194, %.lr.ph.preheader.i.i2193 ]
+  %.014.i.i2196 = phi i32 [ %1267, %.lr.ph.i.i2195 ], [ %1260, %.lr.ph.preheader.i.i2193 ]
+  %1267 = add i32 %.014.i.i2196, -1
+  %1268 = tail call ptr @proto_tree_add_item(ptr noundef %1264, i32 noundef %1258, ptr noundef %0, i32 noundef %1266, i32 noundef 4, i32 noundef %4) #10
   %1269 = load i32, ptr %2, align 4
   %1270 = add i32 %1269, 4
   store i32 %1270, ptr %2, align 4
-  %1271 = load i32, ptr @hf_x11_glx_render_PolygonMode_mode, align 4
-  %1272 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1271, ptr noundef %0, i32 noundef %1270, i32 noundef 4, i32 noundef %4) #10
+  %.not.i.i2197 = icmp eq i32 %1267, 0
+  br i1 %.not.i.i2197, label %mesa_CallLists.exit, label %.lr.ph.i.i2195, !llvm.loop !60
+
+1271:                                             ; preds = %34
+  %1272 = load i32, ptr @hf_x11_glx_render_PointSize_size, align 4
+  %1273 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1272, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1273:                                             ; preds = %34
-  %1274 = load i32, ptr @hf_x11_glx_render_PolygonStipple_swapbytes, align 4
-  %1275 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1274, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %1276 = load i32, ptr %2, align 4
-  %1277 = add i32 %1276, 1
-  store i32 %1277, ptr %2, align 4
-  %1278 = load i32, ptr @hf_x11_glx_render_PolygonStipple_lsbfirst, align 4
-  %1279 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1278, ptr noundef %0, i32 noundef %1277, i32 noundef 1, i32 noundef %4) #10
-  %1280 = load i32, ptr %2, align 4
-  %1281 = add i32 %1280, 1
-  store i32 %1281, ptr %2, align 4
-  %1282 = load i32, ptr @hf_x11_unused, align 4
-  %1283 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1282, ptr noundef %0, i32 noundef %1281, i32 noundef 2, i32 noundef 0) #10
+1274:                                             ; preds = %34
+  %1275 = load i32, ptr @hf_x11_glx_render_PolygonMode_face, align 4
+  %1276 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1275, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1277 = load i32, ptr %2, align 4
+  %1278 = add i32 %1277, 4
+  store i32 %1278, ptr %2, align 4
+  %1279 = load i32, ptr @hf_x11_glx_render_PolygonMode_mode, align 4
+  %1280 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1279, ptr noundef %0, i32 noundef %1278, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+1281:                                             ; preds = %34
+  %1282 = load i32, ptr @hf_x11_glx_render_PolygonStipple_swapbytes, align 4
+  %1283 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1282, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
   %1284 = load i32, ptr %2, align 4
-  %1285 = add i32 %1284, 2
+  %1285 = add i32 %1284, 1
   store i32 %1285, ptr %2, align 4
-  %1286 = load i32, ptr @hf_x11_glx_render_PolygonStipple_rowlength, align 4
-  %1287 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1286, ptr noundef %0, i32 noundef %1285, i32 noundef 4, i32 noundef %4) #10
+  %1286 = load i32, ptr @hf_x11_glx_render_PolygonStipple_lsbfirst, align 4
+  %1287 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1286, ptr noundef %0, i32 noundef %1285, i32 noundef 1, i32 noundef %4) #10
   %1288 = load i32, ptr %2, align 4
-  %1289 = add i32 %1288, 4
+  %1289 = add i32 %1288, 1
   store i32 %1289, ptr %2, align 4
-  %1290 = load i32, ptr @hf_x11_glx_render_PolygonStipple_skiprows, align 4
-  %1291 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1290, ptr noundef %0, i32 noundef %1289, i32 noundef 4, i32 noundef %4) #10
+  %1290 = load i32, ptr @hf_x11_unused, align 4
+  %1291 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1290, ptr noundef %0, i32 noundef %1289, i32 noundef 2, i32 noundef 0) #10
   %1292 = load i32, ptr %2, align 4
-  %1293 = add i32 %1292, 4
+  %1293 = add i32 %1292, 2
   store i32 %1293, ptr %2, align 4
-  %1294 = load i32, ptr @hf_x11_glx_render_PolygonStipple_skippixels, align 4
+  %1294 = load i32, ptr @hf_x11_glx_render_PolygonStipple_rowlength, align 4
   %1295 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1294, ptr noundef %0, i32 noundef %1293, i32 noundef 4, i32 noundef %4) #10
   %1296 = load i32, ptr %2, align 4
   %1297 = add i32 %1296, 4
   store i32 %1297, ptr %2, align 4
-  %1298 = load i32, ptr @hf_x11_glx_render_PolygonStipple_alignment, align 4
+  %1298 = load i32, ptr @hf_x11_glx_render_PolygonStipple_skiprows, align 4
   %1299 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1298, ptr noundef %0, i32 noundef %1297, i32 noundef 4, i32 noundef %4) #10
   %1300 = load i32, ptr %2, align 4
   %1301 = add i32 %1300, 4
   store i32 %1301, ptr %2, align 4
-  %1302 = load i32, ptr @hf_x11_glx_render_PolygonStipple_mask, align 4
-  %1303 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 21)
-  %spec.store.select.i.i2199 = add nsw i32 %1303, -20
-  %1304 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1302, ptr noundef %0, i32 noundef %1301, i32 noundef %spec.store.select.i.i2199, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-1305:                                             ; preds = %34
-  %1306 = load i32, ptr @hf_x11_glx_render_Scissor_x, align 4
-  %1307 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1306, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1302 = load i32, ptr @hf_x11_glx_render_PolygonStipple_skippixels, align 4
+  %1303 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1302, ptr noundef %0, i32 noundef %1301, i32 noundef 4, i32 noundef %4) #10
+  %1304 = load i32, ptr %2, align 4
+  %1305 = add i32 %1304, 4
+  store i32 %1305, ptr %2, align 4
+  %1306 = load i32, ptr @hf_x11_glx_render_PolygonStipple_alignment, align 4
+  %1307 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1306, ptr noundef %0, i32 noundef %1305, i32 noundef 4, i32 noundef %4) #10
   %1308 = load i32, ptr %2, align 4
   %1309 = add i32 %1308, 4
   store i32 %1309, ptr %2, align 4
-  %1310 = load i32, ptr @hf_x11_glx_render_Scissor_y, align 4
-  %1311 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1310, ptr noundef %0, i32 noundef %1309, i32 noundef 4, i32 noundef %4) #10
-  %1312 = load i32, ptr %2, align 4
-  %1313 = add i32 %1312, 4
-  store i32 %1313, ptr %2, align 4
-  %1314 = load i32, ptr @hf_x11_glx_render_Scissor_width, align 4
-  %1315 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1314, ptr noundef %0, i32 noundef %1313, i32 noundef 4, i32 noundef %4) #10
+  %1310 = load i32, ptr @hf_x11_glx_render_PolygonStipple_mask, align 4
+  %1311 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 21)
+  %spec.store.select.i.i2199 = add nsw i32 %1311, -20
+  %1312 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1310, ptr noundef %0, i32 noundef %1309, i32 noundef %spec.store.select.i.i2199, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+1313:                                             ; preds = %34
+  %1314 = load i32, ptr @hf_x11_glx_render_Scissor_x, align 4
+  %1315 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1314, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %1316 = load i32, ptr %2, align 4
   %1317 = add i32 %1316, 4
   store i32 %1317, ptr %2, align 4
-  %1318 = load i32, ptr @hf_x11_glx_render_Scissor_height, align 4
+  %1318 = load i32, ptr @hf_x11_glx_render_Scissor_y, align 4
   %1319 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1318, ptr noundef %0, i32 noundef %1317, i32 noundef 4, i32 noundef %4) #10
+  %1320 = load i32, ptr %2, align 4
+  %1321 = add i32 %1320, 4
+  store i32 %1321, ptr %2, align 4
+  %1322 = load i32, ptr @hf_x11_glx_render_Scissor_width, align 4
+  %1323 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1322, ptr noundef %0, i32 noundef %1321, i32 noundef 4, i32 noundef %4) #10
+  %1324 = load i32, ptr %2, align 4
+  %1325 = add i32 %1324, 4
+  store i32 %1325, ptr %2, align 4
+  %1326 = load i32, ptr @hf_x11_glx_render_Scissor_height, align 4
+  %1327 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1326, ptr noundef %0, i32 noundef %1325, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1320:                                             ; preds = %34
-  %1321 = load i32, ptr @hf_x11_glx_render_ShadeModel_mode, align 4
-  %1322 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1321, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+1328:                                             ; preds = %34
+  %1329 = load i32, ptr @hf_x11_glx_render_ShadeModel_mode, align 4
+  %1330 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1329, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1323:                                             ; preds = %34
-  %1324 = load i32, ptr @hf_x11_glx_render_TexParameterf_target, align 4
-  %1325 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1324, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1326 = load i32, ptr %2, align 4
-  %1327 = add i32 %1326, 4
-  store i32 %1327, ptr %2, align 4
-  %1328 = load i32, ptr @hf_x11_glx_render_TexParameterf_pname, align 4
-  %1329 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1328, ptr noundef %0, i32 noundef %1327, i32 noundef 4, i32 noundef %4) #10
-  %1330 = load i32, ptr %2, align 4
-  %1331 = add i32 %1330, 4
-  store i32 %1331, ptr %2, align 4
-  %1332 = load i32, ptr @hf_x11_glx_render_TexParameterf_param, align 4
-  %1333 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1332, ptr noundef %0, i32 noundef %1331, i32 noundef 4, i32 noundef %4) #10
+1331:                                             ; preds = %34
+  %1332 = load i32, ptr @hf_x11_glx_render_TexParameterf_target, align 4
+  %1333 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1332, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1334 = load i32, ptr %2, align 4
+  %1335 = add i32 %1334, 4
+  store i32 %1335, ptr %2, align 4
+  %1336 = load i32, ptr @hf_x11_glx_render_TexParameterf_pname, align 4
+  %1337 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1336, ptr noundef %0, i32 noundef %1335, i32 noundef 4, i32 noundef %4) #10
+  %1338 = load i32, ptr %2, align 4
+  %1339 = add i32 %1338, 4
+  store i32 %1339, ptr %2, align 4
+  %1340 = load i32, ptr @hf_x11_glx_render_TexParameterf_param, align 4
+  %1341 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1340, ptr noundef %0, i32 noundef %1339, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1334:                                             ; preds = %34
-  %1335 = load i32, ptr @hf_x11_glx_render_TexParameterfv_target, align 4
-  %1336 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1335, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1337 = load i32, ptr %2, align 4
-  %1338 = add i32 %1337, 4
-  store i32 %1338, ptr %2, align 4
-  %1339 = load i32, ptr @hf_x11_glx_render_TexParameterfv_pname, align 4
-  %1340 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1339, ptr noundef %0, i32 noundef %1338, i32 noundef 4, i32 noundef %4) #10
-  %1341 = load i32, ptr %2, align 4
-  %1342 = add i32 %1341, 4
-  store i32 %1342, ptr %2, align 4
-  %1343 = load i32, ptr @hf_x11_glx_render_TexParameterfv_params, align 4
-  %1344 = load i32, ptr @hf_x11_glx_render_TexParameterfv_params_item, align 4
-  %1345 = add nsw i32 %10, -12
-  %1346 = sdiv i32 %1345, 4
-  %1347 = shl nsw i32 %1346, 2
-  %1348 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1343, ptr noundef %0, i32 noundef %1342, i32 noundef %1347, i32 noundef %4) #10
-  %1349 = load i32, ptr @ett_x11_list_of_float, align 4
-  %1350 = tail call ptr @proto_item_add_subtree(ptr noundef %1348, i32 noundef %1349) #10
-  %.off.i2200 = add nsw i32 %10, -9
-  %.not13.i.i2201 = icmp ult i32 %.off.i2200, 7
+1342:                                             ; preds = %34
+  %1343 = load i32, ptr @hf_x11_glx_render_TexParameterfv_target, align 4
+  %1344 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1343, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1345 = load i32, ptr %2, align 4
+  %1346 = add i32 %1345, 4
+  store i32 %1346, ptr %2, align 4
+  %1347 = load i32, ptr @hf_x11_glx_render_TexParameterfv_pname, align 4
+  %1348 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1347, ptr noundef %0, i32 noundef %1346, i32 noundef 4, i32 noundef %4) #10
+  %1349 = load i32, ptr %2, align 4
+  %1350 = add i32 %1349, 4
+  store i32 %1350, ptr %2, align 4
+  %1351 = load i32, ptr @hf_x11_glx_render_TexParameterfv_params, align 4
+  %1352 = load i32, ptr @hf_x11_glx_render_TexParameterfv_params_item, align 4
+  %1353 = add nsw i32 %10, -12
+  %1354 = sdiv i32 %1353, 4
+  %1355 = shl nsw i32 %1354, 2
+  %1356 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1351, ptr noundef %0, i32 noundef %1350, i32 noundef %1355, i32 noundef %4) #10
+  %1357 = load i32, ptr @ett_x11_list_of_float, align 4
+  %1358 = tail call ptr @proto_item_add_subtree(ptr noundef %1356, i32 noundef %1357) #10
+  %1359 = add i16 %9, -9
+  %.not13.i.i2201 = icmp ult i16 %1359, 7
   br i1 %.not13.i.i2201, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2202
 
-.lr.ph.preheader.i.i2202:                         ; preds = %1334
+.lr.ph.preheader.i.i2202:                         ; preds = %1342
   %.pre.i.i2203 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2204
 
 .lr.ph.i.i2204:                                   ; preds = %.lr.ph.i.i2204, %.lr.ph.preheader.i.i2202
-  %1351 = phi i32 [ %1355, %.lr.ph.i.i2204 ], [ %.pre.i.i2203, %.lr.ph.preheader.i.i2202 ]
-  %.014.i.i2205 = phi i32 [ %1352, %.lr.ph.i.i2204 ], [ %1346, %.lr.ph.preheader.i.i2202 ]
-  %1352 = add i32 %.014.i.i2205, -1
-  %1353 = tail call ptr @proto_tree_add_item(ptr noundef %1350, i32 noundef %1344, ptr noundef %0, i32 noundef %1351, i32 noundef 4, i32 noundef %4) #10
-  %1354 = load i32, ptr %2, align 4
-  %1355 = add i32 %1354, 4
-  store i32 %1355, ptr %2, align 4
-  %.not.i.i2206 = icmp eq i32 %1352, 0
-  br i1 %.not.i.i2206, label %mesa_CallLists.exit, label %.lr.ph.i.i2204, !llvm.loop !61
-
-1356:                                             ; preds = %34
-  %1357 = load i32, ptr @hf_x11_glx_render_TexParameteri_target, align 4
-  %1358 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1357, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1359 = load i32, ptr %2, align 4
-  %1360 = add i32 %1359, 4
-  store i32 %1360, ptr %2, align 4
-  %1361 = load i32, ptr @hf_x11_glx_render_TexParameteri_pname, align 4
-  %1362 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1361, ptr noundef %0, i32 noundef %1360, i32 noundef 4, i32 noundef %4) #10
+  %1360 = phi i32 [ %1364, %.lr.ph.i.i2204 ], [ %.pre.i.i2203, %.lr.ph.preheader.i.i2202 ]
+  %.014.i.i2205 = phi i32 [ %1361, %.lr.ph.i.i2204 ], [ %1354, %.lr.ph.preheader.i.i2202 ]
+  %1361 = add i32 %.014.i.i2205, -1
+  %1362 = tail call ptr @proto_tree_add_item(ptr noundef %1358, i32 noundef %1352, ptr noundef %0, i32 noundef %1360, i32 noundef 4, i32 noundef %4) #10
   %1363 = load i32, ptr %2, align 4
   %1364 = add i32 %1363, 4
   store i32 %1364, ptr %2, align 4
-  %1365 = load i32, ptr @hf_x11_glx_render_TexParameteri_param, align 4
-  %1366 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1365, ptr noundef %0, i32 noundef %1364, i32 noundef 4, i32 noundef %4) #10
+  %.not.i.i2206 = icmp eq i32 %1361, 0
+  br i1 %.not.i.i2206, label %mesa_CallLists.exit, label %.lr.ph.i.i2204, !llvm.loop !61
+
+1365:                                             ; preds = %34
+  %1366 = load i32, ptr @hf_x11_glx_render_TexParameteri_target, align 4
+  %1367 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1366, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1368 = load i32, ptr %2, align 4
+  %1369 = add i32 %1368, 4
+  store i32 %1369, ptr %2, align 4
+  %1370 = load i32, ptr @hf_x11_glx_render_TexParameteri_pname, align 4
+  %1371 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1370, ptr noundef %0, i32 noundef %1369, i32 noundef 4, i32 noundef %4) #10
+  %1372 = load i32, ptr %2, align 4
+  %1373 = add i32 %1372, 4
+  store i32 %1373, ptr %2, align 4
+  %1374 = load i32, ptr @hf_x11_glx_render_TexParameteri_param, align 4
+  %1375 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1374, ptr noundef %0, i32 noundef %1373, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1367:                                             ; preds = %34
-  %1368 = load i32, ptr @hf_x11_glx_render_TexParameteriv_target, align 4
-  %1369 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1368, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1370 = load i32, ptr %2, align 4
-  %1371 = add i32 %1370, 4
-  store i32 %1371, ptr %2, align 4
-  %1372 = load i32, ptr @hf_x11_glx_render_TexParameteriv_pname, align 4
-  %1373 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1372, ptr noundef %0, i32 noundef %1371, i32 noundef 4, i32 noundef %4) #10
-  %1374 = load i32, ptr %2, align 4
-  %1375 = add i32 %1374, 4
-  store i32 %1375, ptr %2, align 4
-  %1376 = load i32, ptr @hf_x11_glx_render_TexParameteriv_params, align 4
-  %1377 = load i32, ptr @hf_x11_glx_render_TexParameteriv_params_item, align 4
-  %1378 = add nsw i32 %10, -12
-  %1379 = sdiv i32 %1378, 4
-  %1380 = shl nsw i32 %1379, 2
-  %1381 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1376, ptr noundef %0, i32 noundef %1375, i32 noundef %1380, i32 noundef %4) #10
-  %1382 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1383 = tail call ptr @proto_item_add_subtree(ptr noundef %1381, i32 noundef %1382) #10
-  %.off.i2208 = add nsw i32 %10, -9
-  %.not13.i.i2209 = icmp ult i32 %.off.i2208, 7
+1376:                                             ; preds = %34
+  %1377 = load i32, ptr @hf_x11_glx_render_TexParameteriv_target, align 4
+  %1378 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1377, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1379 = load i32, ptr %2, align 4
+  %1380 = add i32 %1379, 4
+  store i32 %1380, ptr %2, align 4
+  %1381 = load i32, ptr @hf_x11_glx_render_TexParameteriv_pname, align 4
+  %1382 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1381, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef %4) #10
+  %1383 = load i32, ptr %2, align 4
+  %1384 = add i32 %1383, 4
+  store i32 %1384, ptr %2, align 4
+  %1385 = load i32, ptr @hf_x11_glx_render_TexParameteriv_params, align 4
+  %1386 = load i32, ptr @hf_x11_glx_render_TexParameteriv_params_item, align 4
+  %1387 = add nsw i32 %10, -12
+  %1388 = sdiv i32 %1387, 4
+  %1389 = shl nsw i32 %1388, 2
+  %1390 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1385, ptr noundef %0, i32 noundef %1384, i32 noundef %1389, i32 noundef %4) #10
+  %1391 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1392 = tail call ptr @proto_item_add_subtree(ptr noundef %1390, i32 noundef %1391) #10
+  %1393 = add i16 %9, -9
+  %.not13.i.i2209 = icmp ult i16 %1393, 7
   br i1 %.not13.i.i2209, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2210
 
-.lr.ph.preheader.i.i2210:                         ; preds = %1367
+.lr.ph.preheader.i.i2210:                         ; preds = %1376
   %.pre.i.i2211 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2212
 
 .lr.ph.i.i2212:                                   ; preds = %.lr.ph.i.i2212, %.lr.ph.preheader.i.i2210
-  %1384 = phi i32 [ %1388, %.lr.ph.i.i2212 ], [ %.pre.i.i2211, %.lr.ph.preheader.i.i2210 ]
-  %.014.i.i2213 = phi i32 [ %1385, %.lr.ph.i.i2212 ], [ %1379, %.lr.ph.preheader.i.i2210 ]
-  %1385 = add i32 %.014.i.i2213, -1
-  %1386 = tail call ptr @proto_tree_add_item(ptr noundef %1383, i32 noundef %1377, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef %4) #10
-  %1387 = load i32, ptr %2, align 4
-  %1388 = add i32 %1387, 4
-  store i32 %1388, ptr %2, align 4
-  %.not.i.i2214 = icmp eq i32 %1385, 0
+  %1394 = phi i32 [ %1398, %.lr.ph.i.i2212 ], [ %.pre.i.i2211, %.lr.ph.preheader.i.i2210 ]
+  %.014.i.i2213 = phi i32 [ %1395, %.lr.ph.i.i2212 ], [ %1388, %.lr.ph.preheader.i.i2210 ]
+  %1395 = add i32 %.014.i.i2213, -1
+  %1396 = tail call ptr @proto_tree_add_item(ptr noundef %1392, i32 noundef %1386, ptr noundef %0, i32 noundef %1394, i32 noundef 4, i32 noundef %4) #10
+  %1397 = load i32, ptr %2, align 4
+  %1398 = add i32 %1397, 4
+  store i32 %1398, ptr %2, align 4
+  %.not.i.i2214 = icmp eq i32 %1395, 0
   br i1 %.not.i.i2214, label %mesa_CallLists.exit, label %.lr.ph.i.i2212, !llvm.loop !60
 
-1389:                                             ; preds = %34
-  %1390 = load i32, ptr @hf_x11_glx_render_TexImage1D_swapbytes, align 4
-  %1391 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1390, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %1392 = load i32, ptr %2, align 4
-  %1393 = add i32 %1392, 1
-  store i32 %1393, ptr %2, align 4
-  %1394 = load i32, ptr @hf_x11_glx_render_TexImage1D_lsbfirst, align 4
-  %1395 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1394, ptr noundef %0, i32 noundef %1393, i32 noundef 1, i32 noundef %4) #10
-  %1396 = load i32, ptr %2, align 4
-  %1397 = add i32 %1396, 1
-  store i32 %1397, ptr %2, align 4
-  %1398 = load i32, ptr @hf_x11_unused, align 4
-  %1399 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1398, ptr noundef %0, i32 noundef %1397, i32 noundef 2, i32 noundef 0) #10
-  %1400 = load i32, ptr %2, align 4
-  %1401 = add i32 %1400, 2
-  store i32 %1401, ptr %2, align 4
-  %1402 = load i32, ptr @hf_x11_glx_render_TexImage1D_rowlength, align 4
-  %1403 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1402, ptr noundef %0, i32 noundef %1401, i32 noundef 4, i32 noundef %4) #10
-  %1404 = load i32, ptr %2, align 4
-  %1405 = add i32 %1404, 4
-  store i32 %1405, ptr %2, align 4
-  %1406 = load i32, ptr @hf_x11_glx_render_TexImage1D_skiprows, align 4
-  %1407 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1406, ptr noundef %0, i32 noundef %1405, i32 noundef 4, i32 noundef %4) #10
-  %1408 = load i32, ptr %2, align 4
-  %1409 = add i32 %1408, 4
-  store i32 %1409, ptr %2, align 4
-  %1410 = load i32, ptr @hf_x11_glx_render_TexImage1D_skippixels, align 4
-  %1411 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1410, ptr noundef %0, i32 noundef %1409, i32 noundef 4, i32 noundef %4) #10
-  %1412 = load i32, ptr %2, align 4
-  %1413 = add i32 %1412, 4
-  store i32 %1413, ptr %2, align 4
-  %1414 = load i32, ptr @hf_x11_glx_render_TexImage1D_alignment, align 4
-  %1415 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1414, ptr noundef %0, i32 noundef %1413, i32 noundef 4, i32 noundef %4) #10
-  %1416 = load i32, ptr %2, align 4
-  %1417 = add i32 %1416, 4
-  store i32 %1417, ptr %2, align 4
-  %1418 = load i32, ptr @hf_x11_glx_render_TexImage1D_target, align 4
-  %1419 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1418, ptr noundef %0, i32 noundef %1417, i32 noundef 4, i32 noundef %4) #10
-  %1420 = load i32, ptr %2, align 4
-  %1421 = add i32 %1420, 4
-  store i32 %1421, ptr %2, align 4
-  %1422 = load i32, ptr @hf_x11_glx_render_TexImage1D_level, align 4
-  %1423 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1422, ptr noundef %0, i32 noundef %1421, i32 noundef 4, i32 noundef %4) #10
-  %1424 = load i32, ptr %2, align 4
-  %1425 = add i32 %1424, 4
-  store i32 %1425, ptr %2, align 4
-  %1426 = load i32, ptr @hf_x11_glx_render_TexImage1D_internalformat, align 4
-  %1427 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1426, ptr noundef %0, i32 noundef %1425, i32 noundef 4, i32 noundef %4) #10
-  %1428 = load i32, ptr %2, align 4
-  %1429 = add i32 %1428, 4
-  store i32 %1429, ptr %2, align 4
-  %1430 = load i32, ptr @hf_x11_glx_render_TexImage1D_width, align 4
-  %1431 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1430, ptr noundef %0, i32 noundef %1429, i32 noundef 4, i32 noundef %4) #10
-  %1432 = load i32, ptr %2, align 4
-  %1433 = add i32 %1432, 4
-  store i32 %1433, ptr %2, align 4
-  %1434 = load i32, ptr @hf_x11_glx_render_TexImage1D_border, align 4
-  %1435 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1434, ptr noundef %0, i32 noundef %1433, i32 noundef 4, i32 noundef %4) #10
-  %1436 = load i32, ptr %2, align 4
-  %1437 = add i32 %1436, 4
-  store i32 %1437, ptr %2, align 4
-  %1438 = load i32, ptr @hf_x11_glx_render_TexImage1D_format, align 4
-  %1439 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1438, ptr noundef %0, i32 noundef %1437, i32 noundef 4, i32 noundef %4) #10
-  %1440 = load i32, ptr %2, align 4
-  %1441 = add i32 %1440, 4
-  store i32 %1441, ptr %2, align 4
-  %1442 = load i32, ptr @hf_x11_glx_render_TexImage1D_type, align 4
-  %1443 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1442, ptr noundef %0, i32 noundef %1441, i32 noundef 4, i32 noundef %4) #10
-  %1444 = load i32, ptr %2, align 4
-  %1445 = add i32 %1444, 4
-  store i32 %1445, ptr %2, align 4
-  %1446 = load i32, ptr @hf_x11_glx_render_TexImage1D_pixels, align 4
-  %1447 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 49)
-  %spec.store.select.i.i2216 = add nsw i32 %1447, -48
-  %1448 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1446, ptr noundef %0, i32 noundef %1445, i32 noundef %spec.store.select.i.i2216, i32 noundef %4) #10
+1399:                                             ; preds = %34
+  %1400 = load i32, ptr @hf_x11_glx_render_TexImage1D_swapbytes, align 4
+  %1401 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1400, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %1402 = load i32, ptr %2, align 4
+  %1403 = add i32 %1402, 1
+  store i32 %1403, ptr %2, align 4
+  %1404 = load i32, ptr @hf_x11_glx_render_TexImage1D_lsbfirst, align 4
+  %1405 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1404, ptr noundef %0, i32 noundef %1403, i32 noundef 1, i32 noundef %4) #10
+  %1406 = load i32, ptr %2, align 4
+  %1407 = add i32 %1406, 1
+  store i32 %1407, ptr %2, align 4
+  %1408 = load i32, ptr @hf_x11_unused, align 4
+  %1409 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1408, ptr noundef %0, i32 noundef %1407, i32 noundef 2, i32 noundef 0) #10
+  %1410 = load i32, ptr %2, align 4
+  %1411 = add i32 %1410, 2
+  store i32 %1411, ptr %2, align 4
+  %1412 = load i32, ptr @hf_x11_glx_render_TexImage1D_rowlength, align 4
+  %1413 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1412, ptr noundef %0, i32 noundef %1411, i32 noundef 4, i32 noundef %4) #10
+  %1414 = load i32, ptr %2, align 4
+  %1415 = add i32 %1414, 4
+  store i32 %1415, ptr %2, align 4
+  %1416 = load i32, ptr @hf_x11_glx_render_TexImage1D_skiprows, align 4
+  %1417 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1416, ptr noundef %0, i32 noundef %1415, i32 noundef 4, i32 noundef %4) #10
+  %1418 = load i32, ptr %2, align 4
+  %1419 = add i32 %1418, 4
+  store i32 %1419, ptr %2, align 4
+  %1420 = load i32, ptr @hf_x11_glx_render_TexImage1D_skippixels, align 4
+  %1421 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1420, ptr noundef %0, i32 noundef %1419, i32 noundef 4, i32 noundef %4) #10
+  %1422 = load i32, ptr %2, align 4
+  %1423 = add i32 %1422, 4
+  store i32 %1423, ptr %2, align 4
+  %1424 = load i32, ptr @hf_x11_glx_render_TexImage1D_alignment, align 4
+  %1425 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1424, ptr noundef %0, i32 noundef %1423, i32 noundef 4, i32 noundef %4) #10
+  %1426 = load i32, ptr %2, align 4
+  %1427 = add i32 %1426, 4
+  store i32 %1427, ptr %2, align 4
+  %1428 = load i32, ptr @hf_x11_glx_render_TexImage1D_target, align 4
+  %1429 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1428, ptr noundef %0, i32 noundef %1427, i32 noundef 4, i32 noundef %4) #10
+  %1430 = load i32, ptr %2, align 4
+  %1431 = add i32 %1430, 4
+  store i32 %1431, ptr %2, align 4
+  %1432 = load i32, ptr @hf_x11_glx_render_TexImage1D_level, align 4
+  %1433 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1432, ptr noundef %0, i32 noundef %1431, i32 noundef 4, i32 noundef %4) #10
+  %1434 = load i32, ptr %2, align 4
+  %1435 = add i32 %1434, 4
+  store i32 %1435, ptr %2, align 4
+  %1436 = load i32, ptr @hf_x11_glx_render_TexImage1D_internalformat, align 4
+  %1437 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1436, ptr noundef %0, i32 noundef %1435, i32 noundef 4, i32 noundef %4) #10
+  %1438 = load i32, ptr %2, align 4
+  %1439 = add i32 %1438, 4
+  store i32 %1439, ptr %2, align 4
+  %1440 = load i32, ptr @hf_x11_glx_render_TexImage1D_width, align 4
+  %1441 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1440, ptr noundef %0, i32 noundef %1439, i32 noundef 4, i32 noundef %4) #10
+  %1442 = load i32, ptr %2, align 4
+  %1443 = add i32 %1442, 4
+  store i32 %1443, ptr %2, align 4
+  %1444 = load i32, ptr @hf_x11_glx_render_TexImage1D_border, align 4
+  %1445 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1444, ptr noundef %0, i32 noundef %1443, i32 noundef 4, i32 noundef %4) #10
+  %1446 = load i32, ptr %2, align 4
+  %1447 = add i32 %1446, 4
+  store i32 %1447, ptr %2, align 4
+  %1448 = load i32, ptr @hf_x11_glx_render_TexImage1D_format, align 4
+  %1449 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1448, ptr noundef %0, i32 noundef %1447, i32 noundef 4, i32 noundef %4) #10
+  %1450 = load i32, ptr %2, align 4
+  %1451 = add i32 %1450, 4
+  store i32 %1451, ptr %2, align 4
+  %1452 = load i32, ptr @hf_x11_glx_render_TexImage1D_type, align 4
+  %1453 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1452, ptr noundef %0, i32 noundef %1451, i32 noundef 4, i32 noundef %4) #10
+  %1454 = load i32, ptr %2, align 4
+  %1455 = add i32 %1454, 4
+  store i32 %1455, ptr %2, align 4
+  %1456 = load i32, ptr @hf_x11_glx_render_TexImage1D_pixels, align 4
+  %1457 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 49)
+  %spec.store.select.i.i2216 = add nsw i32 %1457, -48
+  %1458 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1456, ptr noundef %0, i32 noundef %1455, i32 noundef %spec.store.select.i.i2216, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1449:                                             ; preds = %34
-  %1450 = load i32, ptr @hf_x11_glx_render_TexImage2D_swapbytes, align 4
-  %1451 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1450, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %1452 = load i32, ptr %2, align 4
-  %1453 = add i32 %1452, 1
-  store i32 %1453, ptr %2, align 4
-  %1454 = load i32, ptr @hf_x11_glx_render_TexImage2D_lsbfirst, align 4
-  %1455 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1454, ptr noundef %0, i32 noundef %1453, i32 noundef 1, i32 noundef %4) #10
-  %1456 = load i32, ptr %2, align 4
-  %1457 = add i32 %1456, 1
-  store i32 %1457, ptr %2, align 4
-  %1458 = load i32, ptr @hf_x11_unused, align 4
-  %1459 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1458, ptr noundef %0, i32 noundef %1457, i32 noundef 2, i32 noundef 0) #10
-  %1460 = load i32, ptr %2, align 4
-  %1461 = add i32 %1460, 2
-  store i32 %1461, ptr %2, align 4
-  %1462 = load i32, ptr @hf_x11_glx_render_TexImage2D_rowlength, align 4
-  %1463 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1462, ptr noundef %0, i32 noundef %1461, i32 noundef 4, i32 noundef %4) #10
-  %1464 = load i32, ptr %2, align 4
-  %1465 = add i32 %1464, 4
-  store i32 %1465, ptr %2, align 4
-  %1466 = load i32, ptr @hf_x11_glx_render_TexImage2D_skiprows, align 4
-  %1467 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1466, ptr noundef %0, i32 noundef %1465, i32 noundef 4, i32 noundef %4) #10
-  %1468 = load i32, ptr %2, align 4
-  %1469 = add i32 %1468, 4
-  store i32 %1469, ptr %2, align 4
-  %1470 = load i32, ptr @hf_x11_glx_render_TexImage2D_skippixels, align 4
-  %1471 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1470, ptr noundef %0, i32 noundef %1469, i32 noundef 4, i32 noundef %4) #10
-  %1472 = load i32, ptr %2, align 4
-  %1473 = add i32 %1472, 4
-  store i32 %1473, ptr %2, align 4
-  %1474 = load i32, ptr @hf_x11_glx_render_TexImage2D_alignment, align 4
-  %1475 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1474, ptr noundef %0, i32 noundef %1473, i32 noundef 4, i32 noundef %4) #10
-  %1476 = load i32, ptr %2, align 4
-  %1477 = add i32 %1476, 4
-  store i32 %1477, ptr %2, align 4
-  %1478 = load i32, ptr @hf_x11_glx_render_TexImage2D_target, align 4
-  %1479 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1478, ptr noundef %0, i32 noundef %1477, i32 noundef 4, i32 noundef %4) #10
-  %1480 = load i32, ptr %2, align 4
-  %1481 = add i32 %1480, 4
-  store i32 %1481, ptr %2, align 4
-  %1482 = load i32, ptr @hf_x11_glx_render_TexImage2D_level, align 4
-  %1483 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1482, ptr noundef %0, i32 noundef %1481, i32 noundef 4, i32 noundef %4) #10
-  %1484 = load i32, ptr %2, align 4
-  %1485 = add i32 %1484, 4
-  store i32 %1485, ptr %2, align 4
-  %1486 = load i32, ptr @hf_x11_glx_render_TexImage2D_internalformat, align 4
-  %1487 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1486, ptr noundef %0, i32 noundef %1485, i32 noundef 4, i32 noundef %4) #10
-  %1488 = load i32, ptr %2, align 4
-  %1489 = add i32 %1488, 4
-  store i32 %1489, ptr %2, align 4
-  %1490 = load i32, ptr @hf_x11_glx_render_TexImage2D_width, align 4
-  %1491 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1490, ptr noundef %0, i32 noundef %1489, i32 noundef 4, i32 noundef %4) #10
-  %1492 = load i32, ptr %2, align 4
-  %1493 = add i32 %1492, 4
-  store i32 %1493, ptr %2, align 4
-  %1494 = load i32, ptr @hf_x11_glx_render_TexImage2D_height, align 4
-  %1495 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1494, ptr noundef %0, i32 noundef %1493, i32 noundef 4, i32 noundef %4) #10
-  %1496 = load i32, ptr %2, align 4
-  %1497 = add i32 %1496, 4
-  store i32 %1497, ptr %2, align 4
-  %1498 = load i32, ptr @hf_x11_glx_render_TexImage2D_border, align 4
-  %1499 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1498, ptr noundef %0, i32 noundef %1497, i32 noundef 4, i32 noundef %4) #10
-  %1500 = load i32, ptr %2, align 4
-  %1501 = add i32 %1500, 4
-  store i32 %1501, ptr %2, align 4
-  %1502 = load i32, ptr @hf_x11_glx_render_TexImage2D_format, align 4
-  %1503 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1502, ptr noundef %0, i32 noundef %1501, i32 noundef 4, i32 noundef %4) #10
-  %1504 = load i32, ptr %2, align 4
-  %1505 = add i32 %1504, 4
-  store i32 %1505, ptr %2, align 4
-  %1506 = load i32, ptr @hf_x11_glx_render_TexImage2D_type, align 4
-  %1507 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1506, ptr noundef %0, i32 noundef %1505, i32 noundef 4, i32 noundef %4) #10
-  %1508 = load i32, ptr %2, align 4
-  %1509 = add i32 %1508, 4
-  store i32 %1509, ptr %2, align 4
-  %1510 = load i32, ptr @hf_x11_glx_render_TexImage2D_pixels, align 4
-  %1511 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 53)
-  %spec.store.select.i.i2217 = add nsw i32 %1511, -52
-  %1512 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1510, ptr noundef %0, i32 noundef %1509, i32 noundef %spec.store.select.i.i2217, i32 noundef %4) #10
+1459:                                             ; preds = %34
+  %1460 = load i32, ptr @hf_x11_glx_render_TexImage2D_swapbytes, align 4
+  %1461 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1460, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %1462 = load i32, ptr %2, align 4
+  %1463 = add i32 %1462, 1
+  store i32 %1463, ptr %2, align 4
+  %1464 = load i32, ptr @hf_x11_glx_render_TexImage2D_lsbfirst, align 4
+  %1465 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1464, ptr noundef %0, i32 noundef %1463, i32 noundef 1, i32 noundef %4) #10
+  %1466 = load i32, ptr %2, align 4
+  %1467 = add i32 %1466, 1
+  store i32 %1467, ptr %2, align 4
+  %1468 = load i32, ptr @hf_x11_unused, align 4
+  %1469 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1468, ptr noundef %0, i32 noundef %1467, i32 noundef 2, i32 noundef 0) #10
+  %1470 = load i32, ptr %2, align 4
+  %1471 = add i32 %1470, 2
+  store i32 %1471, ptr %2, align 4
+  %1472 = load i32, ptr @hf_x11_glx_render_TexImage2D_rowlength, align 4
+  %1473 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1472, ptr noundef %0, i32 noundef %1471, i32 noundef 4, i32 noundef %4) #10
+  %1474 = load i32, ptr %2, align 4
+  %1475 = add i32 %1474, 4
+  store i32 %1475, ptr %2, align 4
+  %1476 = load i32, ptr @hf_x11_glx_render_TexImage2D_skiprows, align 4
+  %1477 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1476, ptr noundef %0, i32 noundef %1475, i32 noundef 4, i32 noundef %4) #10
+  %1478 = load i32, ptr %2, align 4
+  %1479 = add i32 %1478, 4
+  store i32 %1479, ptr %2, align 4
+  %1480 = load i32, ptr @hf_x11_glx_render_TexImage2D_skippixels, align 4
+  %1481 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1480, ptr noundef %0, i32 noundef %1479, i32 noundef 4, i32 noundef %4) #10
+  %1482 = load i32, ptr %2, align 4
+  %1483 = add i32 %1482, 4
+  store i32 %1483, ptr %2, align 4
+  %1484 = load i32, ptr @hf_x11_glx_render_TexImage2D_alignment, align 4
+  %1485 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1484, ptr noundef %0, i32 noundef %1483, i32 noundef 4, i32 noundef %4) #10
+  %1486 = load i32, ptr %2, align 4
+  %1487 = add i32 %1486, 4
+  store i32 %1487, ptr %2, align 4
+  %1488 = load i32, ptr @hf_x11_glx_render_TexImage2D_target, align 4
+  %1489 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1488, ptr noundef %0, i32 noundef %1487, i32 noundef 4, i32 noundef %4) #10
+  %1490 = load i32, ptr %2, align 4
+  %1491 = add i32 %1490, 4
+  store i32 %1491, ptr %2, align 4
+  %1492 = load i32, ptr @hf_x11_glx_render_TexImage2D_level, align 4
+  %1493 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1492, ptr noundef %0, i32 noundef %1491, i32 noundef 4, i32 noundef %4) #10
+  %1494 = load i32, ptr %2, align 4
+  %1495 = add i32 %1494, 4
+  store i32 %1495, ptr %2, align 4
+  %1496 = load i32, ptr @hf_x11_glx_render_TexImage2D_internalformat, align 4
+  %1497 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1496, ptr noundef %0, i32 noundef %1495, i32 noundef 4, i32 noundef %4) #10
+  %1498 = load i32, ptr %2, align 4
+  %1499 = add i32 %1498, 4
+  store i32 %1499, ptr %2, align 4
+  %1500 = load i32, ptr @hf_x11_glx_render_TexImage2D_width, align 4
+  %1501 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1500, ptr noundef %0, i32 noundef %1499, i32 noundef 4, i32 noundef %4) #10
+  %1502 = load i32, ptr %2, align 4
+  %1503 = add i32 %1502, 4
+  store i32 %1503, ptr %2, align 4
+  %1504 = load i32, ptr @hf_x11_glx_render_TexImage2D_height, align 4
+  %1505 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1504, ptr noundef %0, i32 noundef %1503, i32 noundef 4, i32 noundef %4) #10
+  %1506 = load i32, ptr %2, align 4
+  %1507 = add i32 %1506, 4
+  store i32 %1507, ptr %2, align 4
+  %1508 = load i32, ptr @hf_x11_glx_render_TexImage2D_border, align 4
+  %1509 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1508, ptr noundef %0, i32 noundef %1507, i32 noundef 4, i32 noundef %4) #10
+  %1510 = load i32, ptr %2, align 4
+  %1511 = add i32 %1510, 4
+  store i32 %1511, ptr %2, align 4
+  %1512 = load i32, ptr @hf_x11_glx_render_TexImage2D_format, align 4
+  %1513 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1512, ptr noundef %0, i32 noundef %1511, i32 noundef 4, i32 noundef %4) #10
+  %1514 = load i32, ptr %2, align 4
+  %1515 = add i32 %1514, 4
+  store i32 %1515, ptr %2, align 4
+  %1516 = load i32, ptr @hf_x11_glx_render_TexImage2D_type, align 4
+  %1517 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1516, ptr noundef %0, i32 noundef %1515, i32 noundef 4, i32 noundef %4) #10
+  %1518 = load i32, ptr %2, align 4
+  %1519 = add i32 %1518, 4
+  store i32 %1519, ptr %2, align 4
+  %1520 = load i32, ptr @hf_x11_glx_render_TexImage2D_pixels, align 4
+  %1521 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 53)
+  %spec.store.select.i.i2217 = add nsw i32 %1521, -52
+  %1522 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1520, ptr noundef %0, i32 noundef %1519, i32 noundef %spec.store.select.i.i2217, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1513:                                             ; preds = %34
-  %1514 = load i32, ptr @hf_x11_glx_render_TexEnvf_target, align 4
-  %1515 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1514, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1516 = load i32, ptr %2, align 4
-  %1517 = add i32 %1516, 4
-  store i32 %1517, ptr %2, align 4
-  %1518 = load i32, ptr @hf_x11_glx_render_TexEnvf_pname, align 4
-  %1519 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1518, ptr noundef %0, i32 noundef %1517, i32 noundef 4, i32 noundef %4) #10
-  %1520 = load i32, ptr %2, align 4
-  %1521 = add i32 %1520, 4
-  store i32 %1521, ptr %2, align 4
-  %1522 = load i32, ptr @hf_x11_glx_render_TexEnvf_param, align 4
-  %1523 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1522, ptr noundef %0, i32 noundef %1521, i32 noundef 4, i32 noundef %4) #10
+1523:                                             ; preds = %34
+  %1524 = load i32, ptr @hf_x11_glx_render_TexEnvf_target, align 4
+  %1525 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1524, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1526 = load i32, ptr %2, align 4
+  %1527 = add i32 %1526, 4
+  store i32 %1527, ptr %2, align 4
+  %1528 = load i32, ptr @hf_x11_glx_render_TexEnvf_pname, align 4
+  %1529 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1528, ptr noundef %0, i32 noundef %1527, i32 noundef 4, i32 noundef %4) #10
+  %1530 = load i32, ptr %2, align 4
+  %1531 = add i32 %1530, 4
+  store i32 %1531, ptr %2, align 4
+  %1532 = load i32, ptr @hf_x11_glx_render_TexEnvf_param, align 4
+  %1533 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1532, ptr noundef %0, i32 noundef %1531, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1524:                                             ; preds = %34
-  %1525 = load i32, ptr @hf_x11_glx_render_TexEnvfv_target, align 4
-  %1526 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1525, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1527 = load i32, ptr %2, align 4
-  %1528 = add i32 %1527, 4
-  store i32 %1528, ptr %2, align 4
-  %1529 = load i32, ptr @hf_x11_glx_render_TexEnvfv_pname, align 4
-  %1530 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1529, ptr noundef %0, i32 noundef %1528, i32 noundef 4, i32 noundef %4) #10
-  %1531 = load i32, ptr %2, align 4
-  %1532 = add i32 %1531, 4
-  store i32 %1532, ptr %2, align 4
-  %1533 = load i32, ptr @hf_x11_glx_render_TexEnvfv_params, align 4
-  %1534 = load i32, ptr @hf_x11_glx_render_TexEnvfv_params_item, align 4
-  %1535 = add nsw i32 %10, -12
-  %1536 = sdiv i32 %1535, 4
-  %1537 = shl nsw i32 %1536, 2
-  %1538 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1533, ptr noundef %0, i32 noundef %1532, i32 noundef %1537, i32 noundef %4) #10
-  %1539 = load i32, ptr @ett_x11_list_of_float, align 4
-  %1540 = tail call ptr @proto_item_add_subtree(ptr noundef %1538, i32 noundef %1539) #10
-  %.off.i2218 = add nsw i32 %10, -9
-  %.not13.i.i2219 = icmp ult i32 %.off.i2218, 7
+1534:                                             ; preds = %34
+  %1535 = load i32, ptr @hf_x11_glx_render_TexEnvfv_target, align 4
+  %1536 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1535, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1537 = load i32, ptr %2, align 4
+  %1538 = add i32 %1537, 4
+  store i32 %1538, ptr %2, align 4
+  %1539 = load i32, ptr @hf_x11_glx_render_TexEnvfv_pname, align 4
+  %1540 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1539, ptr noundef %0, i32 noundef %1538, i32 noundef 4, i32 noundef %4) #10
+  %1541 = load i32, ptr %2, align 4
+  %1542 = add i32 %1541, 4
+  store i32 %1542, ptr %2, align 4
+  %1543 = load i32, ptr @hf_x11_glx_render_TexEnvfv_params, align 4
+  %1544 = load i32, ptr @hf_x11_glx_render_TexEnvfv_params_item, align 4
+  %1545 = add nsw i32 %10, -12
+  %1546 = sdiv i32 %1545, 4
+  %1547 = shl nsw i32 %1546, 2
+  %1548 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1543, ptr noundef %0, i32 noundef %1542, i32 noundef %1547, i32 noundef %4) #10
+  %1549 = load i32, ptr @ett_x11_list_of_float, align 4
+  %1550 = tail call ptr @proto_item_add_subtree(ptr noundef %1548, i32 noundef %1549) #10
+  %1551 = add i16 %9, -9
+  %.not13.i.i2219 = icmp ult i16 %1551, 7
   br i1 %.not13.i.i2219, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2220
 
-.lr.ph.preheader.i.i2220:                         ; preds = %1524
+.lr.ph.preheader.i.i2220:                         ; preds = %1534
   %.pre.i.i2221 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2222
 
 .lr.ph.i.i2222:                                   ; preds = %.lr.ph.i.i2222, %.lr.ph.preheader.i.i2220
-  %1541 = phi i32 [ %1545, %.lr.ph.i.i2222 ], [ %.pre.i.i2221, %.lr.ph.preheader.i.i2220 ]
-  %.014.i.i2223 = phi i32 [ %1542, %.lr.ph.i.i2222 ], [ %1536, %.lr.ph.preheader.i.i2220 ]
-  %1542 = add i32 %.014.i.i2223, -1
-  %1543 = tail call ptr @proto_tree_add_item(ptr noundef %1540, i32 noundef %1534, ptr noundef %0, i32 noundef %1541, i32 noundef 4, i32 noundef %4) #10
-  %1544 = load i32, ptr %2, align 4
-  %1545 = add i32 %1544, 4
-  store i32 %1545, ptr %2, align 4
-  %.not.i.i2224 = icmp eq i32 %1542, 0
+  %1552 = phi i32 [ %1556, %.lr.ph.i.i2222 ], [ %.pre.i.i2221, %.lr.ph.preheader.i.i2220 ]
+  %.014.i.i2223 = phi i32 [ %1553, %.lr.ph.i.i2222 ], [ %1546, %.lr.ph.preheader.i.i2220 ]
+  %1553 = add i32 %.014.i.i2223, -1
+  %1554 = tail call ptr @proto_tree_add_item(ptr noundef %1550, i32 noundef %1544, ptr noundef %0, i32 noundef %1552, i32 noundef 4, i32 noundef %4) #10
+  %1555 = load i32, ptr %2, align 4
+  %1556 = add i32 %1555, 4
+  store i32 %1556, ptr %2, align 4
+  %.not.i.i2224 = icmp eq i32 %1553, 0
   br i1 %.not.i.i2224, label %mesa_CallLists.exit, label %.lr.ph.i.i2222, !llvm.loop !61
 
-1546:                                             ; preds = %34
-  %1547 = load i32, ptr @hf_x11_glx_render_TexEnvi_target, align 4
-  %1548 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1547, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1549 = load i32, ptr %2, align 4
-  %1550 = add i32 %1549, 4
-  store i32 %1550, ptr %2, align 4
-  %1551 = load i32, ptr @hf_x11_glx_render_TexEnvi_pname, align 4
-  %1552 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1551, ptr noundef %0, i32 noundef %1550, i32 noundef 4, i32 noundef %4) #10
-  %1553 = load i32, ptr %2, align 4
-  %1554 = add i32 %1553, 4
-  store i32 %1554, ptr %2, align 4
-  %1555 = load i32, ptr @hf_x11_glx_render_TexEnvi_param, align 4
-  %1556 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1555, ptr noundef %0, i32 noundef %1554, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
 1557:                                             ; preds = %34
-  %1558 = load i32, ptr @hf_x11_glx_render_TexEnviv_target, align 4
+  %1558 = load i32, ptr @hf_x11_glx_render_TexEnvi_target, align 4
   %1559 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1558, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %1560 = load i32, ptr %2, align 4
   %1561 = add i32 %1560, 4
   store i32 %1561, ptr %2, align 4
-  %1562 = load i32, ptr @hf_x11_glx_render_TexEnviv_pname, align 4
+  %1562 = load i32, ptr @hf_x11_glx_render_TexEnvi_pname, align 4
   %1563 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1562, ptr noundef %0, i32 noundef %1561, i32 noundef 4, i32 noundef %4) #10
   %1564 = load i32, ptr %2, align 4
   %1565 = add i32 %1564, 4
   store i32 %1565, ptr %2, align 4
-  %1566 = load i32, ptr @hf_x11_glx_render_TexEnviv_params, align 4
-  %1567 = load i32, ptr @hf_x11_glx_render_TexEnviv_params_item, align 4
-  %1568 = add nsw i32 %10, -12
-  %1569 = sdiv i32 %1568, 4
-  %1570 = shl nsw i32 %1569, 2
-  %1571 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1566, ptr noundef %0, i32 noundef %1565, i32 noundef %1570, i32 noundef %4) #10
-  %1572 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1573 = tail call ptr @proto_item_add_subtree(ptr noundef %1571, i32 noundef %1572) #10
-  %.off.i2226 = add nsw i32 %10, -9
-  %.not13.i.i2227 = icmp ult i32 %.off.i2226, 7
+  %1566 = load i32, ptr @hf_x11_glx_render_TexEnvi_param, align 4
+  %1567 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1566, ptr noundef %0, i32 noundef %1565, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+1568:                                             ; preds = %34
+  %1569 = load i32, ptr @hf_x11_glx_render_TexEnviv_target, align 4
+  %1570 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1569, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1571 = load i32, ptr %2, align 4
+  %1572 = add i32 %1571, 4
+  store i32 %1572, ptr %2, align 4
+  %1573 = load i32, ptr @hf_x11_glx_render_TexEnviv_pname, align 4
+  %1574 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1573, ptr noundef %0, i32 noundef %1572, i32 noundef 4, i32 noundef %4) #10
+  %1575 = load i32, ptr %2, align 4
+  %1576 = add i32 %1575, 4
+  store i32 %1576, ptr %2, align 4
+  %1577 = load i32, ptr @hf_x11_glx_render_TexEnviv_params, align 4
+  %1578 = load i32, ptr @hf_x11_glx_render_TexEnviv_params_item, align 4
+  %1579 = add nsw i32 %10, -12
+  %1580 = sdiv i32 %1579, 4
+  %1581 = shl nsw i32 %1580, 2
+  %1582 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1577, ptr noundef %0, i32 noundef %1576, i32 noundef %1581, i32 noundef %4) #10
+  %1583 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1584 = tail call ptr @proto_item_add_subtree(ptr noundef %1582, i32 noundef %1583) #10
+  %1585 = add i16 %9, -9
+  %.not13.i.i2227 = icmp ult i16 %1585, 7
   br i1 %.not13.i.i2227, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2228
 
-.lr.ph.preheader.i.i2228:                         ; preds = %1557
+.lr.ph.preheader.i.i2228:                         ; preds = %1568
   %.pre.i.i2229 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2230
 
 .lr.ph.i.i2230:                                   ; preds = %.lr.ph.i.i2230, %.lr.ph.preheader.i.i2228
-  %1574 = phi i32 [ %1578, %.lr.ph.i.i2230 ], [ %.pre.i.i2229, %.lr.ph.preheader.i.i2228 ]
-  %.014.i.i2231 = phi i32 [ %1575, %.lr.ph.i.i2230 ], [ %1569, %.lr.ph.preheader.i.i2228 ]
-  %1575 = add i32 %.014.i.i2231, -1
-  %1576 = tail call ptr @proto_tree_add_item(ptr noundef %1573, i32 noundef %1567, ptr noundef %0, i32 noundef %1574, i32 noundef 4, i32 noundef %4) #10
-  %1577 = load i32, ptr %2, align 4
-  %1578 = add i32 %1577, 4
-  store i32 %1578, ptr %2, align 4
-  %.not.i.i2232 = icmp eq i32 %1575, 0
+  %1586 = phi i32 [ %1590, %.lr.ph.i.i2230 ], [ %.pre.i.i2229, %.lr.ph.preheader.i.i2228 ]
+  %.014.i.i2231 = phi i32 [ %1587, %.lr.ph.i.i2230 ], [ %1580, %.lr.ph.preheader.i.i2228 ]
+  %1587 = add i32 %.014.i.i2231, -1
+  %1588 = tail call ptr @proto_tree_add_item(ptr noundef %1584, i32 noundef %1578, ptr noundef %0, i32 noundef %1586, i32 noundef 4, i32 noundef %4) #10
+  %1589 = load i32, ptr %2, align 4
+  %1590 = add i32 %1589, 4
+  store i32 %1590, ptr %2, align 4
+  %.not.i.i2232 = icmp eq i32 %1587, 0
   br i1 %.not.i.i2232, label %mesa_CallLists.exit, label %.lr.ph.i.i2230, !llvm.loop !60
 
-1579:                                             ; preds = %34
-  %1580 = load i32, ptr @hf_x11_glx_render_TexGend_coord, align 4
-  %1581 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1580, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1582 = load i32, ptr %2, align 4
-  %1583 = add i32 %1582, 4
-  store i32 %1583, ptr %2, align 4
-  %1584 = load i32, ptr @hf_x11_glx_render_TexGend_pname, align 4
-  %1585 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1584, ptr noundef %0, i32 noundef %1583, i32 noundef 4, i32 noundef %4) #10
-  %1586 = load i32, ptr %2, align 4
-  %1587 = add i32 %1586, 4
-  store i32 %1587, ptr %2, align 4
-  %1588 = load i32, ptr @hf_x11_glx_render_TexGend_param, align 4
-  %1589 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1588, ptr noundef %0, i32 noundef %1587, i32 noundef 8, i32 noundef %4) #10
+1591:                                             ; preds = %34
+  %1592 = load i32, ptr @hf_x11_glx_render_TexGend_coord, align 4
+  %1593 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1592, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1594 = load i32, ptr %2, align 4
+  %1595 = add i32 %1594, 4
+  store i32 %1595, ptr %2, align 4
+  %1596 = load i32, ptr @hf_x11_glx_render_TexGend_pname, align 4
+  %1597 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1596, ptr noundef %0, i32 noundef %1595, i32 noundef 4, i32 noundef %4) #10
+  %1598 = load i32, ptr %2, align 4
+  %1599 = add i32 %1598, 4
+  store i32 %1599, ptr %2, align 4
+  %1600 = load i32, ptr @hf_x11_glx_render_TexGend_param, align 4
+  %1601 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1600, ptr noundef %0, i32 noundef %1599, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1590:                                             ; preds = %34
-  %1591 = load i32, ptr @hf_x11_glx_render_TexGendv_coord, align 4
-  %1592 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1591, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1593 = load i32, ptr %2, align 4
-  %1594 = add i32 %1593, 4
-  store i32 %1594, ptr %2, align 4
-  %1595 = load i32, ptr @hf_x11_glx_render_TexGendv_pname, align 4
-  %1596 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1595, ptr noundef %0, i32 noundef %1594, i32 noundef 4, i32 noundef %4) #10
-  %1597 = load i32, ptr %2, align 4
-  %1598 = add i32 %1597, 4
-  store i32 %1598, ptr %2, align 4
-  %1599 = load i32, ptr @hf_x11_glx_render_TexGendv_params, align 4
-  %1600 = load i32, ptr @hf_x11_glx_render_TexGendv_params_item, align 4
-  %1601 = add nsw i32 %10, -12
-  %1602 = sdiv i32 %1601, 8
-  %1603 = shl nsw i32 %1602, 3
-  %1604 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1599, ptr noundef %0, i32 noundef %1598, i32 noundef %1603, i32 noundef %4) #10
-  %1605 = load i32, ptr @ett_x11_list_of_double, align 4
-  %1606 = tail call ptr @proto_item_add_subtree(ptr noundef %1604, i32 noundef %1605) #10
-  %.off.i2234 = add nsw i32 %10, -5
-  %.not13.i.i2235 = icmp ult i32 %.off.i2234, 15
+1602:                                             ; preds = %34
+  %1603 = load i32, ptr @hf_x11_glx_render_TexGendv_coord, align 4
+  %1604 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1603, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1605 = load i32, ptr %2, align 4
+  %1606 = add i32 %1605, 4
+  store i32 %1606, ptr %2, align 4
+  %1607 = load i32, ptr @hf_x11_glx_render_TexGendv_pname, align 4
+  %1608 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1607, ptr noundef %0, i32 noundef %1606, i32 noundef 4, i32 noundef %4) #10
+  %1609 = load i32, ptr %2, align 4
+  %1610 = add i32 %1609, 4
+  store i32 %1610, ptr %2, align 4
+  %1611 = load i32, ptr @hf_x11_glx_render_TexGendv_params, align 4
+  %1612 = load i32, ptr @hf_x11_glx_render_TexGendv_params_item, align 4
+  %1613 = add nsw i32 %10, -12
+  %1614 = sdiv i32 %1613, 8
+  %1615 = shl nsw i32 %1614, 3
+  %1616 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1611, ptr noundef %0, i32 noundef %1610, i32 noundef %1615, i32 noundef %4) #10
+  %1617 = load i32, ptr @ett_x11_list_of_double, align 4
+  %1618 = tail call ptr @proto_item_add_subtree(ptr noundef %1616, i32 noundef %1617) #10
+  %1619 = add i16 %9, -5
+  %.not13.i.i2235 = icmp ult i16 %1619, 15
   br i1 %.not13.i.i2235, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2236
 
-.lr.ph.preheader.i.i2236:                         ; preds = %1590
+.lr.ph.preheader.i.i2236:                         ; preds = %1602
   %.pre.i.i2237 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2238
 
 .lr.ph.i.i2238:                                   ; preds = %.lr.ph.i.i2238, %.lr.ph.preheader.i.i2236
-  %1607 = phi i32 [ %1611, %.lr.ph.i.i2238 ], [ %.pre.i.i2237, %.lr.ph.preheader.i.i2236 ]
-  %.014.i.i2239 = phi i32 [ %1608, %.lr.ph.i.i2238 ], [ %1602, %.lr.ph.preheader.i.i2236 ]
-  %1608 = add i32 %.014.i.i2239, -1
-  %1609 = tail call ptr @proto_tree_add_item(ptr noundef %1606, i32 noundef %1600, ptr noundef %0, i32 noundef %1607, i32 noundef 8, i32 noundef %4) #10
-  %1610 = load i32, ptr %2, align 4
-  %1611 = add i32 %1610, 8
-  store i32 %1611, ptr %2, align 4
-  %.not.i.i2240 = icmp eq i32 %1608, 0
+  %1620 = phi i32 [ %1624, %.lr.ph.i.i2238 ], [ %.pre.i.i2237, %.lr.ph.preheader.i.i2236 ]
+  %.014.i.i2239 = phi i32 [ %1621, %.lr.ph.i.i2238 ], [ %1614, %.lr.ph.preheader.i.i2236 ]
+  %1621 = add i32 %.014.i.i2239, -1
+  %1622 = tail call ptr @proto_tree_add_item(ptr noundef %1618, i32 noundef %1612, ptr noundef %0, i32 noundef %1620, i32 noundef 8, i32 noundef %4) #10
+  %1623 = load i32, ptr %2, align 4
+  %1624 = add i32 %1623, 8
+  store i32 %1624, ptr %2, align 4
+  %.not.i.i2240 = icmp eq i32 %1621, 0
   br i1 %.not.i.i2240, label %mesa_CallLists.exit, label %.lr.ph.i.i2238, !llvm.loop !62
 
-1612:                                             ; preds = %34
-  %1613 = load i32, ptr @hf_x11_glx_render_TexGenf_coord, align 4
-  %1614 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1613, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1615 = load i32, ptr %2, align 4
-  %1616 = add i32 %1615, 4
-  store i32 %1616, ptr %2, align 4
-  %1617 = load i32, ptr @hf_x11_glx_render_TexGenf_pname, align 4
-  %1618 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1617, ptr noundef %0, i32 noundef %1616, i32 noundef 4, i32 noundef %4) #10
-  %1619 = load i32, ptr %2, align 4
-  %1620 = add i32 %1619, 4
-  store i32 %1620, ptr %2, align 4
-  %1621 = load i32, ptr @hf_x11_glx_render_TexGenf_param, align 4
-  %1622 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1621, ptr noundef %0, i32 noundef %1620, i32 noundef 4, i32 noundef %4) #10
+1625:                                             ; preds = %34
+  %1626 = load i32, ptr @hf_x11_glx_render_TexGenf_coord, align 4
+  %1627 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1626, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1628 = load i32, ptr %2, align 4
+  %1629 = add i32 %1628, 4
+  store i32 %1629, ptr %2, align 4
+  %1630 = load i32, ptr @hf_x11_glx_render_TexGenf_pname, align 4
+  %1631 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1630, ptr noundef %0, i32 noundef %1629, i32 noundef 4, i32 noundef %4) #10
+  %1632 = load i32, ptr %2, align 4
+  %1633 = add i32 %1632, 4
+  store i32 %1633, ptr %2, align 4
+  %1634 = load i32, ptr @hf_x11_glx_render_TexGenf_param, align 4
+  %1635 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1634, ptr noundef %0, i32 noundef %1633, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1623:                                             ; preds = %34
-  %1624 = load i32, ptr @hf_x11_glx_render_TexGenfv_coord, align 4
-  %1625 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1624, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1626 = load i32, ptr %2, align 4
-  %1627 = add i32 %1626, 4
-  store i32 %1627, ptr %2, align 4
-  %1628 = load i32, ptr @hf_x11_glx_render_TexGenfv_pname, align 4
-  %1629 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1628, ptr noundef %0, i32 noundef %1627, i32 noundef 4, i32 noundef %4) #10
-  %1630 = load i32, ptr %2, align 4
-  %1631 = add i32 %1630, 4
-  store i32 %1631, ptr %2, align 4
-  %1632 = load i32, ptr @hf_x11_glx_render_TexGenfv_params, align 4
-  %1633 = load i32, ptr @hf_x11_glx_render_TexGenfv_params_item, align 4
-  %1634 = add nsw i32 %10, -12
-  %1635 = sdiv i32 %1634, 4
-  %1636 = shl nsw i32 %1635, 2
-  %1637 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1632, ptr noundef %0, i32 noundef %1631, i32 noundef %1636, i32 noundef %4) #10
-  %1638 = load i32, ptr @ett_x11_list_of_float, align 4
-  %1639 = tail call ptr @proto_item_add_subtree(ptr noundef %1637, i32 noundef %1638) #10
-  %.off.i2242 = add nsw i32 %10, -9
-  %.not13.i.i2243 = icmp ult i32 %.off.i2242, 7
+1636:                                             ; preds = %34
+  %1637 = load i32, ptr @hf_x11_glx_render_TexGenfv_coord, align 4
+  %1638 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1637, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1639 = load i32, ptr %2, align 4
+  %1640 = add i32 %1639, 4
+  store i32 %1640, ptr %2, align 4
+  %1641 = load i32, ptr @hf_x11_glx_render_TexGenfv_pname, align 4
+  %1642 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1641, ptr noundef %0, i32 noundef %1640, i32 noundef 4, i32 noundef %4) #10
+  %1643 = load i32, ptr %2, align 4
+  %1644 = add i32 %1643, 4
+  store i32 %1644, ptr %2, align 4
+  %1645 = load i32, ptr @hf_x11_glx_render_TexGenfv_params, align 4
+  %1646 = load i32, ptr @hf_x11_glx_render_TexGenfv_params_item, align 4
+  %1647 = add nsw i32 %10, -12
+  %1648 = sdiv i32 %1647, 4
+  %1649 = shl nsw i32 %1648, 2
+  %1650 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1645, ptr noundef %0, i32 noundef %1644, i32 noundef %1649, i32 noundef %4) #10
+  %1651 = load i32, ptr @ett_x11_list_of_float, align 4
+  %1652 = tail call ptr @proto_item_add_subtree(ptr noundef %1650, i32 noundef %1651) #10
+  %1653 = add i16 %9, -9
+  %.not13.i.i2243 = icmp ult i16 %1653, 7
   br i1 %.not13.i.i2243, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2244
 
-.lr.ph.preheader.i.i2244:                         ; preds = %1623
+.lr.ph.preheader.i.i2244:                         ; preds = %1636
   %.pre.i.i2245 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2246
 
 .lr.ph.i.i2246:                                   ; preds = %.lr.ph.i.i2246, %.lr.ph.preheader.i.i2244
-  %1640 = phi i32 [ %1644, %.lr.ph.i.i2246 ], [ %.pre.i.i2245, %.lr.ph.preheader.i.i2244 ]
-  %.014.i.i2247 = phi i32 [ %1641, %.lr.ph.i.i2246 ], [ %1635, %.lr.ph.preheader.i.i2244 ]
-  %1641 = add i32 %.014.i.i2247, -1
-  %1642 = tail call ptr @proto_tree_add_item(ptr noundef %1639, i32 noundef %1633, ptr noundef %0, i32 noundef %1640, i32 noundef 4, i32 noundef %4) #10
-  %1643 = load i32, ptr %2, align 4
-  %1644 = add i32 %1643, 4
-  store i32 %1644, ptr %2, align 4
-  %.not.i.i2248 = icmp eq i32 %1641, 0
+  %1654 = phi i32 [ %1658, %.lr.ph.i.i2246 ], [ %.pre.i.i2245, %.lr.ph.preheader.i.i2244 ]
+  %.014.i.i2247 = phi i32 [ %1655, %.lr.ph.i.i2246 ], [ %1648, %.lr.ph.preheader.i.i2244 ]
+  %1655 = add i32 %.014.i.i2247, -1
+  %1656 = tail call ptr @proto_tree_add_item(ptr noundef %1652, i32 noundef %1646, ptr noundef %0, i32 noundef %1654, i32 noundef 4, i32 noundef %4) #10
+  %1657 = load i32, ptr %2, align 4
+  %1658 = add i32 %1657, 4
+  store i32 %1658, ptr %2, align 4
+  %.not.i.i2248 = icmp eq i32 %1655, 0
   br i1 %.not.i.i2248, label %mesa_CallLists.exit, label %.lr.ph.i.i2246, !llvm.loop !61
 
-1645:                                             ; preds = %34
-  %1646 = load i32, ptr @hf_x11_glx_render_TexGeni_coord, align 4
-  %1647 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1646, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1648 = load i32, ptr %2, align 4
-  %1649 = add i32 %1648, 4
-  store i32 %1649, ptr %2, align 4
-  %1650 = load i32, ptr @hf_x11_glx_render_TexGeni_pname, align 4
-  %1651 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1650, ptr noundef %0, i32 noundef %1649, i32 noundef 4, i32 noundef %4) #10
-  %1652 = load i32, ptr %2, align 4
-  %1653 = add i32 %1652, 4
-  store i32 %1653, ptr %2, align 4
-  %1654 = load i32, ptr @hf_x11_glx_render_TexGeni_param, align 4
-  %1655 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1654, ptr noundef %0, i32 noundef %1653, i32 noundef 4, i32 noundef %4) #10
+1659:                                             ; preds = %34
+  %1660 = load i32, ptr @hf_x11_glx_render_TexGeni_coord, align 4
+  %1661 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1660, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1662 = load i32, ptr %2, align 4
+  %1663 = add i32 %1662, 4
+  store i32 %1663, ptr %2, align 4
+  %1664 = load i32, ptr @hf_x11_glx_render_TexGeni_pname, align 4
+  %1665 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1664, ptr noundef %0, i32 noundef %1663, i32 noundef 4, i32 noundef %4) #10
+  %1666 = load i32, ptr %2, align 4
+  %1667 = add i32 %1666, 4
+  store i32 %1667, ptr %2, align 4
+  %1668 = load i32, ptr @hf_x11_glx_render_TexGeni_param, align 4
+  %1669 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1668, ptr noundef %0, i32 noundef %1667, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1656:                                             ; preds = %34
-  %1657 = load i32, ptr @hf_x11_glx_render_TexGeniv_coord, align 4
-  %1658 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1657, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1659 = load i32, ptr %2, align 4
-  %1660 = add i32 %1659, 4
-  store i32 %1660, ptr %2, align 4
-  %1661 = load i32, ptr @hf_x11_glx_render_TexGeniv_pname, align 4
-  %1662 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1661, ptr noundef %0, i32 noundef %1660, i32 noundef 4, i32 noundef %4) #10
-  %1663 = load i32, ptr %2, align 4
-  %1664 = add i32 %1663, 4
-  store i32 %1664, ptr %2, align 4
-  %1665 = load i32, ptr @hf_x11_glx_render_TexGeniv_params, align 4
-  %1666 = load i32, ptr @hf_x11_glx_render_TexGeniv_params_item, align 4
-  %1667 = add nsw i32 %10, -12
-  %1668 = sdiv i32 %1667, 4
-  %1669 = shl nsw i32 %1668, 2
-  %1670 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1665, ptr noundef %0, i32 noundef %1664, i32 noundef %1669, i32 noundef %4) #10
-  %1671 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1672 = tail call ptr @proto_item_add_subtree(ptr noundef %1670, i32 noundef %1671) #10
-  %.off.i2250 = add nsw i32 %10, -9
-  %.not13.i.i2251 = icmp ult i32 %.off.i2250, 7
+1670:                                             ; preds = %34
+  %1671 = load i32, ptr @hf_x11_glx_render_TexGeniv_coord, align 4
+  %1672 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1671, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1673 = load i32, ptr %2, align 4
+  %1674 = add i32 %1673, 4
+  store i32 %1674, ptr %2, align 4
+  %1675 = load i32, ptr @hf_x11_glx_render_TexGeniv_pname, align 4
+  %1676 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1675, ptr noundef %0, i32 noundef %1674, i32 noundef 4, i32 noundef %4) #10
+  %1677 = load i32, ptr %2, align 4
+  %1678 = add i32 %1677, 4
+  store i32 %1678, ptr %2, align 4
+  %1679 = load i32, ptr @hf_x11_glx_render_TexGeniv_params, align 4
+  %1680 = load i32, ptr @hf_x11_glx_render_TexGeniv_params_item, align 4
+  %1681 = add nsw i32 %10, -12
+  %1682 = sdiv i32 %1681, 4
+  %1683 = shl nsw i32 %1682, 2
+  %1684 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1679, ptr noundef %0, i32 noundef %1678, i32 noundef %1683, i32 noundef %4) #10
+  %1685 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1686 = tail call ptr @proto_item_add_subtree(ptr noundef %1684, i32 noundef %1685) #10
+  %1687 = add i16 %9, -9
+  %.not13.i.i2251 = icmp ult i16 %1687, 7
   br i1 %.not13.i.i2251, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2252
 
-.lr.ph.preheader.i.i2252:                         ; preds = %1656
+.lr.ph.preheader.i.i2252:                         ; preds = %1670
   %.pre.i.i2253 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2254
 
 .lr.ph.i.i2254:                                   ; preds = %.lr.ph.i.i2254, %.lr.ph.preheader.i.i2252
-  %1673 = phi i32 [ %1677, %.lr.ph.i.i2254 ], [ %.pre.i.i2253, %.lr.ph.preheader.i.i2252 ]
-  %.014.i.i2255 = phi i32 [ %1674, %.lr.ph.i.i2254 ], [ %1668, %.lr.ph.preheader.i.i2252 ]
-  %1674 = add i32 %.014.i.i2255, -1
-  %1675 = tail call ptr @proto_tree_add_item(ptr noundef %1672, i32 noundef %1666, ptr noundef %0, i32 noundef %1673, i32 noundef 4, i32 noundef %4) #10
-  %1676 = load i32, ptr %2, align 4
-  %1677 = add i32 %1676, 4
-  store i32 %1677, ptr %2, align 4
-  %.not.i.i2256 = icmp eq i32 %1674, 0
+  %1688 = phi i32 [ %1692, %.lr.ph.i.i2254 ], [ %.pre.i.i2253, %.lr.ph.preheader.i.i2252 ]
+  %.014.i.i2255 = phi i32 [ %1689, %.lr.ph.i.i2254 ], [ %1682, %.lr.ph.preheader.i.i2252 ]
+  %1689 = add i32 %.014.i.i2255, -1
+  %1690 = tail call ptr @proto_tree_add_item(ptr noundef %1686, i32 noundef %1680, ptr noundef %0, i32 noundef %1688, i32 noundef 4, i32 noundef %4) #10
+  %1691 = load i32, ptr %2, align 4
+  %1692 = add i32 %1691, 4
+  store i32 %1692, ptr %2, align 4
+  %.not.i.i2256 = icmp eq i32 %1689, 0
   br i1 %.not.i.i2256, label %mesa_CallLists.exit, label %.lr.ph.i.i2254, !llvm.loop !60
 
-1678:                                             ; preds = %34
-  %1679 = load i32, ptr @hf_x11_glx_render_LoadName_name, align 4
-  %1680 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1679, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-1681:                                             ; preds = %34
-  %1682 = load i32, ptr @hf_x11_glx_render_PassThrough_token, align 4
-  %1683 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1682, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-1684:                                             ; preds = %34
-  %1685 = load i32, ptr @hf_x11_glx_render_PushName_name, align 4
-  %1686 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1685, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-1687:                                             ; preds = %34
-  %1688 = load i32, ptr @hf_x11_glx_render_DrawBuffer_mode, align 4
-  %1689 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1688, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-1690:                                             ; preds = %34
-  %1691 = load i32, ptr @hf_x11_glx_render_Clear_mask, align 4
-  %1692 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1691, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
 1693:                                             ; preds = %34
-  %1694 = load i32, ptr @hf_x11_glx_render_ClearAccum_red, align 4
+  %1694 = load i32, ptr @hf_x11_glx_render_LoadName_name, align 4
   %1695 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1694, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1696 = load i32, ptr %2, align 4
-  %1697 = add i32 %1696, 4
-  store i32 %1697, ptr %2, align 4
-  %1698 = load i32, ptr @hf_x11_glx_render_ClearAccum_green, align 4
-  %1699 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1698, ptr noundef %0, i32 noundef %1697, i32 noundef 4, i32 noundef %4) #10
-  %1700 = load i32, ptr %2, align 4
-  %1701 = add i32 %1700, 4
-  store i32 %1701, ptr %2, align 4
-  %1702 = load i32, ptr @hf_x11_glx_render_ClearAccum_blue, align 4
-  %1703 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1702, ptr noundef %0, i32 noundef %1701, i32 noundef 4, i32 noundef %4) #10
-  %1704 = load i32, ptr %2, align 4
-  %1705 = add i32 %1704, 4
-  store i32 %1705, ptr %2, align 4
-  %1706 = load i32, ptr @hf_x11_glx_render_ClearAccum_alpha, align 4
-  %1707 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1706, ptr noundef %0, i32 noundef %1705, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+1696:                                             ; preds = %34
+  %1697 = load i32, ptr @hf_x11_glx_render_PassThrough_token, align 4
+  %1698 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1697, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+1699:                                             ; preds = %34
+  %1700 = load i32, ptr @hf_x11_glx_render_PushName_name, align 4
+  %1701 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1700, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+1702:                                             ; preds = %34
+  %1703 = load i32, ptr @hf_x11_glx_render_DrawBuffer_mode, align 4
+  %1704 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1703, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+1705:                                             ; preds = %34
+  %1706 = load i32, ptr @hf_x11_glx_render_Clear_mask, align 4
+  %1707 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1706, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
 1708:                                             ; preds = %34
-  %1709 = load i32, ptr @hf_x11_glx_render_ClearIndex_c, align 4
+  %1709 = load i32, ptr @hf_x11_glx_render_ClearAccum_red, align 4
   %1710 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1709, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1711 = load i32, ptr %2, align 4
+  %1712 = add i32 %1711, 4
+  store i32 %1712, ptr %2, align 4
+  %1713 = load i32, ptr @hf_x11_glx_render_ClearAccum_green, align 4
+  %1714 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1713, ptr noundef %0, i32 noundef %1712, i32 noundef 4, i32 noundef %4) #10
+  %1715 = load i32, ptr %2, align 4
+  %1716 = add i32 %1715, 4
+  store i32 %1716, ptr %2, align 4
+  %1717 = load i32, ptr @hf_x11_glx_render_ClearAccum_blue, align 4
+  %1718 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1717, ptr noundef %0, i32 noundef %1716, i32 noundef 4, i32 noundef %4) #10
+  %1719 = load i32, ptr %2, align 4
+  %1720 = add i32 %1719, 4
+  store i32 %1720, ptr %2, align 4
+  %1721 = load i32, ptr @hf_x11_glx_render_ClearAccum_alpha, align 4
+  %1722 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1721, ptr noundef %0, i32 noundef %1720, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1711:                                             ; preds = %34
-  %1712 = load i32, ptr @hf_x11_glx_render_ClearColor_red, align 4
-  %1713 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1712, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1714 = load i32, ptr %2, align 4
-  %1715 = add i32 %1714, 4
-  store i32 %1715, ptr %2, align 4
-  %1716 = load i32, ptr @hf_x11_glx_render_ClearColor_green, align 4
-  %1717 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1716, ptr noundef %0, i32 noundef %1715, i32 noundef 4, i32 noundef %4) #10
-  %1718 = load i32, ptr %2, align 4
-  %1719 = add i32 %1718, 4
-  store i32 %1719, ptr %2, align 4
-  %1720 = load i32, ptr @hf_x11_glx_render_ClearColor_blue, align 4
-  %1721 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1720, ptr noundef %0, i32 noundef %1719, i32 noundef 4, i32 noundef %4) #10
-  %1722 = load i32, ptr %2, align 4
-  %1723 = add i32 %1722, 4
-  store i32 %1723, ptr %2, align 4
-  %1724 = load i32, ptr @hf_x11_glx_render_ClearColor_alpha, align 4
-  %1725 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1724, ptr noundef %0, i32 noundef %1723, i32 noundef 4, i32 noundef %4) #10
+1723:                                             ; preds = %34
+  %1724 = load i32, ptr @hf_x11_glx_render_ClearIndex_c, align 4
+  %1725 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1724, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
 1726:                                             ; preds = %34
-  %1727 = load i32, ptr @hf_x11_glx_render_ClearStencil_s, align 4
+  %1727 = load i32, ptr @hf_x11_glx_render_ClearColor_red, align 4
   %1728 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1727, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1729 = load i32, ptr %2, align 4
+  %1730 = add i32 %1729, 4
+  store i32 %1730, ptr %2, align 4
+  %1731 = load i32, ptr @hf_x11_glx_render_ClearColor_green, align 4
+  %1732 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1731, ptr noundef %0, i32 noundef %1730, i32 noundef 4, i32 noundef %4) #10
+  %1733 = load i32, ptr %2, align 4
+  %1734 = add i32 %1733, 4
+  store i32 %1734, ptr %2, align 4
+  %1735 = load i32, ptr @hf_x11_glx_render_ClearColor_blue, align 4
+  %1736 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1735, ptr noundef %0, i32 noundef %1734, i32 noundef 4, i32 noundef %4) #10
+  %1737 = load i32, ptr %2, align 4
+  %1738 = add i32 %1737, 4
+  store i32 %1738, ptr %2, align 4
+  %1739 = load i32, ptr @hf_x11_glx_render_ClearColor_alpha, align 4
+  %1740 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1739, ptr noundef %0, i32 noundef %1738, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1729:                                             ; preds = %34
-  %1730 = load i32, ptr @hf_x11_glx_render_ClearDepth_depth, align 4
-  %1731 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1730, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
+1741:                                             ; preds = %34
+  %1742 = load i32, ptr @hf_x11_glx_render_ClearStencil_s, align 4
+  %1743 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1742, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1732:                                             ; preds = %34
-  %1733 = load i32, ptr @hf_x11_glx_render_StencilMask_mask, align 4
-  %1734 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1733, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+1744:                                             ; preds = %34
+  %1745 = load i32, ptr @hf_x11_glx_render_ClearDepth_depth, align 4
+  %1746 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1745, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1735:                                             ; preds = %34
-  %1736 = load i32, ptr @hf_x11_glx_render_ColorMask_red, align 4
-  %1737 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1736, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %1738 = load i32, ptr %2, align 4
-  %1739 = add i32 %1738, 1
-  store i32 %1739, ptr %2, align 4
-  %1740 = load i32, ptr @hf_x11_glx_render_ColorMask_green, align 4
-  %1741 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1740, ptr noundef %0, i32 noundef %1739, i32 noundef 1, i32 noundef %4) #10
-  %1742 = load i32, ptr %2, align 4
-  %1743 = add i32 %1742, 1
-  store i32 %1743, ptr %2, align 4
-  %1744 = load i32, ptr @hf_x11_glx_render_ColorMask_blue, align 4
-  %1745 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1744, ptr noundef %0, i32 noundef %1743, i32 noundef 1, i32 noundef %4) #10
-  %1746 = load i32, ptr %2, align 4
-  %1747 = add i32 %1746, 1
-  store i32 %1747, ptr %2, align 4
-  %1748 = load i32, ptr @hf_x11_glx_render_ColorMask_alpha, align 4
-  %1749 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1748, ptr noundef %0, i32 noundef %1747, i32 noundef 1, i32 noundef %4) #10
+1747:                                             ; preds = %34
+  %1748 = load i32, ptr @hf_x11_glx_render_StencilMask_mask, align 4
+  %1749 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1748, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
 1750:                                             ; preds = %34
-  %1751 = load i32, ptr @hf_x11_glx_render_DepthMask_flag, align 4
+  %1751 = load i32, ptr @hf_x11_glx_render_ColorMask_red, align 4
   %1752 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1751, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %1753 = load i32, ptr %2, align 4
+  %1754 = add i32 %1753, 1
+  store i32 %1754, ptr %2, align 4
+  %1755 = load i32, ptr @hf_x11_glx_render_ColorMask_green, align 4
+  %1756 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1755, ptr noundef %0, i32 noundef %1754, i32 noundef 1, i32 noundef %4) #10
+  %1757 = load i32, ptr %2, align 4
+  %1758 = add i32 %1757, 1
+  store i32 %1758, ptr %2, align 4
+  %1759 = load i32, ptr @hf_x11_glx_render_ColorMask_blue, align 4
+  %1760 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1759, ptr noundef %0, i32 noundef %1758, i32 noundef 1, i32 noundef %4) #10
+  %1761 = load i32, ptr %2, align 4
+  %1762 = add i32 %1761, 1
+  store i32 %1762, ptr %2, align 4
+  %1763 = load i32, ptr @hf_x11_glx_render_ColorMask_alpha, align 4
+  %1764 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1763, ptr noundef %0, i32 noundef %1762, i32 noundef 1, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1753:                                             ; preds = %34
-  %1754 = load i32, ptr @hf_x11_glx_render_IndexMask_mask, align 4
-  %1755 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1754, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+1765:                                             ; preds = %34
+  %1766 = load i32, ptr @hf_x11_glx_render_DepthMask_flag, align 4
+  %1767 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1766, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1756:                                             ; preds = %34
-  %1757 = load i32, ptr @hf_x11_glx_render_Accum_op, align 4
-  %1758 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1757, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1759 = load i32, ptr %2, align 4
-  %1760 = add i32 %1759, 4
-  store i32 %1760, ptr %2, align 4
-  %1761 = load i32, ptr @hf_x11_glx_render_Accum_value, align 4
-  %1762 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1761, ptr noundef %0, i32 noundef %1760, i32 noundef 4, i32 noundef %4) #10
+1768:                                             ; preds = %34
+  %1769 = load i32, ptr @hf_x11_glx_render_IndexMask_mask, align 4
+  %1770 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1769, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1763:                                             ; preds = %34
-  %1764 = load i32, ptr @hf_x11_glx_render_Disable_cap, align 4
-  %1765 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1764, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+1771:                                             ; preds = %34
+  %1772 = load i32, ptr @hf_x11_glx_render_Accum_op, align 4
+  %1773 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1772, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1774 = load i32, ptr %2, align 4
+  %1775 = add i32 %1774, 4
+  store i32 %1775, ptr %2, align 4
+  %1776 = load i32, ptr @hf_x11_glx_render_Accum_value, align 4
+  %1777 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1776, ptr noundef %0, i32 noundef %1775, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1766:                                             ; preds = %34
-  %1767 = load i32, ptr @hf_x11_glx_render_Enable_cap, align 4
-  %1768 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1767, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+1778:                                             ; preds = %34
+  %1779 = load i32, ptr @hf_x11_glx_render_Disable_cap, align 4
+  %1780 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1779, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1769:                                             ; preds = %34
-  %1770 = load i32, ptr @hf_x11_glx_render_PushAttrib_mask, align 4
-  %1771 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1770, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+1781:                                             ; preds = %34
+  %1782 = load i32, ptr @hf_x11_glx_render_Enable_cap, align 4
+  %1783 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1782, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1772:                                             ; preds = %34
-  %1773 = load i32, ptr @hf_x11_glx_render_Map1d_target, align 4
-  %1774 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1773, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1775 = load i32, ptr %2, align 4
-  %1776 = add i32 %1775, 4
-  store i32 %1776, ptr %2, align 4
-  %1777 = load i32, ptr @hf_x11_glx_render_Map1d_u1, align 4
-  %1778 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1777, ptr noundef %0, i32 noundef %1776, i32 noundef 8, i32 noundef %4) #10
-  %1779 = load i32, ptr %2, align 4
-  %1780 = add i32 %1779, 8
-  store i32 %1780, ptr %2, align 4
-  %1781 = load i32, ptr @hf_x11_glx_render_Map1d_u2, align 4
-  %1782 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1781, ptr noundef %0, i32 noundef %1780, i32 noundef 8, i32 noundef %4) #10
-  %1783 = load i32, ptr %2, align 4
-  %1784 = add i32 %1783, 8
-  store i32 %1784, ptr %2, align 4
-  %1785 = load i32, ptr @hf_x11_glx_render_Map1d_stride, align 4
-  %1786 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1785, ptr noundef %0, i32 noundef %1784, i32 noundef 4, i32 noundef %4) #10
-  %1787 = load i32, ptr %2, align 4
-  %1788 = add i32 %1787, 4
-  store i32 %1788, ptr %2, align 4
-  %1789 = load i32, ptr @hf_x11_glx_render_Map1d_order, align 4
-  %1790 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1789, ptr noundef %0, i32 noundef %1788, i32 noundef 4, i32 noundef %4) #10
-  %1791 = load i32, ptr %2, align 4
-  %1792 = add i32 %1791, 4
-  store i32 %1792, ptr %2, align 4
-  %1793 = load i32, ptr @hf_x11_glx_render_Map1d_points, align 4
-  %1794 = load i32, ptr @hf_x11_glx_render_Map1d_points_item, align 4
-  %1795 = add nsw i32 %10, -32
-  %1796 = sdiv i32 %1795, 8
-  %1797 = shl nsw i32 %1796, 3
-  %1798 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1793, ptr noundef %0, i32 noundef %1792, i32 noundef %1797, i32 noundef %4) #10
-  %1799 = load i32, ptr @ett_x11_list_of_double, align 4
-  %1800 = tail call ptr @proto_item_add_subtree(ptr noundef %1798, i32 noundef %1799) #10
-  %.off.i2258 = add nsw i32 %10, -25
-  %.not13.i.i2259 = icmp ult i32 %.off.i2258, 15
+1784:                                             ; preds = %34
+  %1785 = load i32, ptr @hf_x11_glx_render_PushAttrib_mask, align 4
+  %1786 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1785, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+1787:                                             ; preds = %34
+  %1788 = load i32, ptr @hf_x11_glx_render_Map1d_target, align 4
+  %1789 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1788, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1790 = load i32, ptr %2, align 4
+  %1791 = add i32 %1790, 4
+  store i32 %1791, ptr %2, align 4
+  %1792 = load i32, ptr @hf_x11_glx_render_Map1d_u1, align 4
+  %1793 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1792, ptr noundef %0, i32 noundef %1791, i32 noundef 8, i32 noundef %4) #10
+  %1794 = load i32, ptr %2, align 4
+  %1795 = add i32 %1794, 8
+  store i32 %1795, ptr %2, align 4
+  %1796 = load i32, ptr @hf_x11_glx_render_Map1d_u2, align 4
+  %1797 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1796, ptr noundef %0, i32 noundef %1795, i32 noundef 8, i32 noundef %4) #10
+  %1798 = load i32, ptr %2, align 4
+  %1799 = add i32 %1798, 8
+  store i32 %1799, ptr %2, align 4
+  %1800 = load i32, ptr @hf_x11_glx_render_Map1d_stride, align 4
+  %1801 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1800, ptr noundef %0, i32 noundef %1799, i32 noundef 4, i32 noundef %4) #10
+  %1802 = load i32, ptr %2, align 4
+  %1803 = add i32 %1802, 4
+  store i32 %1803, ptr %2, align 4
+  %1804 = load i32, ptr @hf_x11_glx_render_Map1d_order, align 4
+  %1805 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1804, ptr noundef %0, i32 noundef %1803, i32 noundef 4, i32 noundef %4) #10
+  %1806 = load i32, ptr %2, align 4
+  %1807 = add i32 %1806, 4
+  store i32 %1807, ptr %2, align 4
+  %1808 = load i32, ptr @hf_x11_glx_render_Map1d_points, align 4
+  %1809 = load i32, ptr @hf_x11_glx_render_Map1d_points_item, align 4
+  %1810 = add nsw i32 %10, -32
+  %1811 = sdiv i32 %1810, 8
+  %1812 = shl nsw i32 %1811, 3
+  %1813 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1808, ptr noundef %0, i32 noundef %1807, i32 noundef %1812, i32 noundef %4) #10
+  %1814 = load i32, ptr @ett_x11_list_of_double, align 4
+  %1815 = tail call ptr @proto_item_add_subtree(ptr noundef %1813, i32 noundef %1814) #10
+  %1816 = add i16 %9, -25
+  %.not13.i.i2259 = icmp ult i16 %1816, 15
   br i1 %.not13.i.i2259, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2260
 
-.lr.ph.preheader.i.i2260:                         ; preds = %1772
+.lr.ph.preheader.i.i2260:                         ; preds = %1787
   %.pre.i.i2261 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2262
 
 .lr.ph.i.i2262:                                   ; preds = %.lr.ph.i.i2262, %.lr.ph.preheader.i.i2260
-  %1801 = phi i32 [ %1805, %.lr.ph.i.i2262 ], [ %.pre.i.i2261, %.lr.ph.preheader.i.i2260 ]
-  %.014.i.i2263 = phi i32 [ %1802, %.lr.ph.i.i2262 ], [ %1796, %.lr.ph.preheader.i.i2260 ]
-  %1802 = add i32 %.014.i.i2263, -1
-  %1803 = tail call ptr @proto_tree_add_item(ptr noundef %1800, i32 noundef %1794, ptr noundef %0, i32 noundef %1801, i32 noundef 8, i32 noundef %4) #10
-  %1804 = load i32, ptr %2, align 4
-  %1805 = add i32 %1804, 8
-  store i32 %1805, ptr %2, align 4
-  %.not.i.i2264 = icmp eq i32 %1802, 0
+  %1817 = phi i32 [ %1821, %.lr.ph.i.i2262 ], [ %.pre.i.i2261, %.lr.ph.preheader.i.i2260 ]
+  %.014.i.i2263 = phi i32 [ %1818, %.lr.ph.i.i2262 ], [ %1811, %.lr.ph.preheader.i.i2260 ]
+  %1818 = add i32 %.014.i.i2263, -1
+  %1819 = tail call ptr @proto_tree_add_item(ptr noundef %1815, i32 noundef %1809, ptr noundef %0, i32 noundef %1817, i32 noundef 8, i32 noundef %4) #10
+  %1820 = load i32, ptr %2, align 4
+  %1821 = add i32 %1820, 8
+  store i32 %1821, ptr %2, align 4
+  %.not.i.i2264 = icmp eq i32 %1818, 0
   br i1 %.not.i.i2264, label %mesa_CallLists.exit, label %.lr.ph.i.i2262, !llvm.loop !62
 
-1806:                                             ; preds = %34
-  %1807 = load i32, ptr @hf_x11_glx_render_Map1f_target, align 4
-  %1808 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1807, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1809 = load i32, ptr %2, align 4
-  %1810 = add i32 %1809, 4
-  store i32 %1810, ptr %2, align 4
-  %1811 = load i32, ptr @hf_x11_glx_render_Map1f_u1, align 4
-  %1812 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1811, ptr noundef %0, i32 noundef %1810, i32 noundef 4, i32 noundef %4) #10
-  %1813 = load i32, ptr %2, align 4
-  %1814 = add i32 %1813, 4
-  store i32 %1814, ptr %2, align 4
-  %1815 = load i32, ptr @hf_x11_glx_render_Map1f_u2, align 4
-  %1816 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1815, ptr noundef %0, i32 noundef %1814, i32 noundef 4, i32 noundef %4) #10
-  %1817 = load i32, ptr %2, align 4
-  %1818 = add i32 %1817, 4
-  store i32 %1818, ptr %2, align 4
-  %1819 = load i32, ptr @hf_x11_glx_render_Map1f_stride, align 4
-  %1820 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1819, ptr noundef %0, i32 noundef %1818, i32 noundef 4, i32 noundef %4) #10
-  %1821 = load i32, ptr %2, align 4
-  %1822 = add i32 %1821, 4
-  store i32 %1822, ptr %2, align 4
-  %1823 = load i32, ptr @hf_x11_glx_render_Map1f_order, align 4
-  %1824 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1823, ptr noundef %0, i32 noundef %1822, i32 noundef 4, i32 noundef %4) #10
+1822:                                             ; preds = %34
+  %1823 = load i32, ptr @hf_x11_glx_render_Map1f_target, align 4
+  %1824 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1823, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %1825 = load i32, ptr %2, align 4
   %1826 = add i32 %1825, 4
   store i32 %1826, ptr %2, align 4
-  %1827 = load i32, ptr @hf_x11_glx_render_Map1f_points, align 4
-  %1828 = load i32, ptr @hf_x11_glx_render_Map1f_points_item, align 4
-  %1829 = add nsw i32 %10, -24
-  %1830 = sdiv i32 %1829, 4
-  %1831 = shl nsw i32 %1830, 2
-  %1832 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1827, ptr noundef %0, i32 noundef %1826, i32 noundef %1831, i32 noundef %4) #10
-  %1833 = load i32, ptr @ett_x11_list_of_float, align 4
-  %1834 = tail call ptr @proto_item_add_subtree(ptr noundef %1832, i32 noundef %1833) #10
-  %.off.i2266 = add nsw i32 %10, -21
-  %.not13.i.i2267 = icmp ult i32 %.off.i2266, 7
+  %1827 = load i32, ptr @hf_x11_glx_render_Map1f_u1, align 4
+  %1828 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1827, ptr noundef %0, i32 noundef %1826, i32 noundef 4, i32 noundef %4) #10
+  %1829 = load i32, ptr %2, align 4
+  %1830 = add i32 %1829, 4
+  store i32 %1830, ptr %2, align 4
+  %1831 = load i32, ptr @hf_x11_glx_render_Map1f_u2, align 4
+  %1832 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1831, ptr noundef %0, i32 noundef %1830, i32 noundef 4, i32 noundef %4) #10
+  %1833 = load i32, ptr %2, align 4
+  %1834 = add i32 %1833, 4
+  store i32 %1834, ptr %2, align 4
+  %1835 = load i32, ptr @hf_x11_glx_render_Map1f_stride, align 4
+  %1836 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1835, ptr noundef %0, i32 noundef %1834, i32 noundef 4, i32 noundef %4) #10
+  %1837 = load i32, ptr %2, align 4
+  %1838 = add i32 %1837, 4
+  store i32 %1838, ptr %2, align 4
+  %1839 = load i32, ptr @hf_x11_glx_render_Map1f_order, align 4
+  %1840 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1839, ptr noundef %0, i32 noundef %1838, i32 noundef 4, i32 noundef %4) #10
+  %1841 = load i32, ptr %2, align 4
+  %1842 = add i32 %1841, 4
+  store i32 %1842, ptr %2, align 4
+  %1843 = load i32, ptr @hf_x11_glx_render_Map1f_points, align 4
+  %1844 = load i32, ptr @hf_x11_glx_render_Map1f_points_item, align 4
+  %1845 = add nsw i32 %10, -24
+  %1846 = sdiv i32 %1845, 4
+  %1847 = shl nsw i32 %1846, 2
+  %1848 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1843, ptr noundef %0, i32 noundef %1842, i32 noundef %1847, i32 noundef %4) #10
+  %1849 = load i32, ptr @ett_x11_list_of_float, align 4
+  %1850 = tail call ptr @proto_item_add_subtree(ptr noundef %1848, i32 noundef %1849) #10
+  %1851 = add i16 %9, -21
+  %.not13.i.i2267 = icmp ult i16 %1851, 7
   br i1 %.not13.i.i2267, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2268
 
-.lr.ph.preheader.i.i2268:                         ; preds = %1806
+.lr.ph.preheader.i.i2268:                         ; preds = %1822
   %.pre.i.i2269 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2270
 
 .lr.ph.i.i2270:                                   ; preds = %.lr.ph.i.i2270, %.lr.ph.preheader.i.i2268
-  %1835 = phi i32 [ %1839, %.lr.ph.i.i2270 ], [ %.pre.i.i2269, %.lr.ph.preheader.i.i2268 ]
-  %.014.i.i2271 = phi i32 [ %1836, %.lr.ph.i.i2270 ], [ %1830, %.lr.ph.preheader.i.i2268 ]
-  %1836 = add i32 %.014.i.i2271, -1
-  %1837 = tail call ptr @proto_tree_add_item(ptr noundef %1834, i32 noundef %1828, ptr noundef %0, i32 noundef %1835, i32 noundef 4, i32 noundef %4) #10
-  %1838 = load i32, ptr %2, align 4
-  %1839 = add i32 %1838, 4
-  store i32 %1839, ptr %2, align 4
-  %.not.i.i2272 = icmp eq i32 %1836, 0
-  br i1 %.not.i.i2272, label %mesa_CallLists.exit, label %.lr.ph.i.i2270, !llvm.loop !61
-
-1840:                                             ; preds = %34
-  %1841 = load i32, ptr @hf_x11_glx_render_Map2d_target, align 4
-  %1842 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1841, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1843 = load i32, ptr %2, align 4
-  %1844 = add i32 %1843, 4
-  store i32 %1844, ptr %2, align 4
-  %1845 = load i32, ptr @hf_x11_glx_render_Map2d_u1, align 4
-  %1846 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1845, ptr noundef %0, i32 noundef %1844, i32 noundef 8, i32 noundef %4) #10
-  %1847 = load i32, ptr %2, align 4
-  %1848 = add i32 %1847, 8
-  store i32 %1848, ptr %2, align 4
-  %1849 = load i32, ptr @hf_x11_glx_render_Map2d_u2, align 4
-  %1850 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1849, ptr noundef %0, i32 noundef %1848, i32 noundef 8, i32 noundef %4) #10
-  %1851 = load i32, ptr %2, align 4
-  %1852 = add i32 %1851, 8
-  store i32 %1852, ptr %2, align 4
-  %1853 = load i32, ptr @hf_x11_glx_render_Map2d_ustride, align 4
-  %1854 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1853, ptr noundef %0, i32 noundef %1852, i32 noundef 4, i32 noundef %4) #10
+  %1852 = phi i32 [ %1856, %.lr.ph.i.i2270 ], [ %.pre.i.i2269, %.lr.ph.preheader.i.i2268 ]
+  %.014.i.i2271 = phi i32 [ %1853, %.lr.ph.i.i2270 ], [ %1846, %.lr.ph.preheader.i.i2268 ]
+  %1853 = add i32 %.014.i.i2271, -1
+  %1854 = tail call ptr @proto_tree_add_item(ptr noundef %1850, i32 noundef %1844, ptr noundef %0, i32 noundef %1852, i32 noundef 4, i32 noundef %4) #10
   %1855 = load i32, ptr %2, align 4
   %1856 = add i32 %1855, 4
   store i32 %1856, ptr %2, align 4
-  %1857 = load i32, ptr @hf_x11_glx_render_Map2d_uorder, align 4
-  %1858 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1857, ptr noundef %0, i32 noundef %1856, i32 noundef 4, i32 noundef %4) #10
-  %1859 = load i32, ptr %2, align 4
-  %1860 = add i32 %1859, 4
-  store i32 %1860, ptr %2, align 4
-  %1861 = load i32, ptr @hf_x11_glx_render_Map2d_v1, align 4
-  %1862 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1861, ptr noundef %0, i32 noundef %1860, i32 noundef 8, i32 noundef %4) #10
-  %1863 = load i32, ptr %2, align 4
-  %1864 = add i32 %1863, 8
-  store i32 %1864, ptr %2, align 4
-  %1865 = load i32, ptr @hf_x11_glx_render_Map2d_v2, align 4
-  %1866 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1865, ptr noundef %0, i32 noundef %1864, i32 noundef 8, i32 noundef %4) #10
-  %1867 = load i32, ptr %2, align 4
-  %1868 = add i32 %1867, 8
-  store i32 %1868, ptr %2, align 4
-  %1869 = load i32, ptr @hf_x11_glx_render_Map2d_vstride, align 4
-  %1870 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1869, ptr noundef %0, i32 noundef %1868, i32 noundef 4, i32 noundef %4) #10
-  %1871 = load i32, ptr %2, align 4
-  %1872 = add i32 %1871, 4
-  store i32 %1872, ptr %2, align 4
-  %1873 = load i32, ptr @hf_x11_glx_render_Map2d_vorder, align 4
-  %1874 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1873, ptr noundef %0, i32 noundef %1872, i32 noundef 4, i32 noundef %4) #10
-  %1875 = load i32, ptr %2, align 4
-  %1876 = add i32 %1875, 4
-  store i32 %1876, ptr %2, align 4
-  %1877 = load i32, ptr @hf_x11_glx_render_Map2d_points, align 4
-  %1878 = load i32, ptr @hf_x11_glx_render_Map2d_points_item, align 4
-  %1879 = add nsw i32 %10, -56
-  %1880 = sdiv i32 %1879, 8
-  %1881 = shl nsw i32 %1880, 3
-  %1882 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1877, ptr noundef %0, i32 noundef %1876, i32 noundef %1881, i32 noundef %4) #10
-  %1883 = load i32, ptr @ett_x11_list_of_double, align 4
-  %1884 = tail call ptr @proto_item_add_subtree(ptr noundef %1882, i32 noundef %1883) #10
-  %.off.i2274 = add nsw i32 %10, -49
-  %.not13.i.i2275 = icmp ult i32 %.off.i2274, 15
+  %.not.i.i2272 = icmp eq i32 %1853, 0
+  br i1 %.not.i.i2272, label %mesa_CallLists.exit, label %.lr.ph.i.i2270, !llvm.loop !61
+
+1857:                                             ; preds = %34
+  %1858 = load i32, ptr @hf_x11_glx_render_Map2d_target, align 4
+  %1859 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1858, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1860 = load i32, ptr %2, align 4
+  %1861 = add i32 %1860, 4
+  store i32 %1861, ptr %2, align 4
+  %1862 = load i32, ptr @hf_x11_glx_render_Map2d_u1, align 4
+  %1863 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1862, ptr noundef %0, i32 noundef %1861, i32 noundef 8, i32 noundef %4) #10
+  %1864 = load i32, ptr %2, align 4
+  %1865 = add i32 %1864, 8
+  store i32 %1865, ptr %2, align 4
+  %1866 = load i32, ptr @hf_x11_glx_render_Map2d_u2, align 4
+  %1867 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1866, ptr noundef %0, i32 noundef %1865, i32 noundef 8, i32 noundef %4) #10
+  %1868 = load i32, ptr %2, align 4
+  %1869 = add i32 %1868, 8
+  store i32 %1869, ptr %2, align 4
+  %1870 = load i32, ptr @hf_x11_glx_render_Map2d_ustride, align 4
+  %1871 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1870, ptr noundef %0, i32 noundef %1869, i32 noundef 4, i32 noundef %4) #10
+  %1872 = load i32, ptr %2, align 4
+  %1873 = add i32 %1872, 4
+  store i32 %1873, ptr %2, align 4
+  %1874 = load i32, ptr @hf_x11_glx_render_Map2d_uorder, align 4
+  %1875 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1874, ptr noundef %0, i32 noundef %1873, i32 noundef 4, i32 noundef %4) #10
+  %1876 = load i32, ptr %2, align 4
+  %1877 = add i32 %1876, 4
+  store i32 %1877, ptr %2, align 4
+  %1878 = load i32, ptr @hf_x11_glx_render_Map2d_v1, align 4
+  %1879 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1878, ptr noundef %0, i32 noundef %1877, i32 noundef 8, i32 noundef %4) #10
+  %1880 = load i32, ptr %2, align 4
+  %1881 = add i32 %1880, 8
+  store i32 %1881, ptr %2, align 4
+  %1882 = load i32, ptr @hf_x11_glx_render_Map2d_v2, align 4
+  %1883 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1882, ptr noundef %0, i32 noundef %1881, i32 noundef 8, i32 noundef %4) #10
+  %1884 = load i32, ptr %2, align 4
+  %1885 = add i32 %1884, 8
+  store i32 %1885, ptr %2, align 4
+  %1886 = load i32, ptr @hf_x11_glx_render_Map2d_vstride, align 4
+  %1887 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1886, ptr noundef %0, i32 noundef %1885, i32 noundef 4, i32 noundef %4) #10
+  %1888 = load i32, ptr %2, align 4
+  %1889 = add i32 %1888, 4
+  store i32 %1889, ptr %2, align 4
+  %1890 = load i32, ptr @hf_x11_glx_render_Map2d_vorder, align 4
+  %1891 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1890, ptr noundef %0, i32 noundef %1889, i32 noundef 4, i32 noundef %4) #10
+  %1892 = load i32, ptr %2, align 4
+  %1893 = add i32 %1892, 4
+  store i32 %1893, ptr %2, align 4
+  %1894 = load i32, ptr @hf_x11_glx_render_Map2d_points, align 4
+  %1895 = load i32, ptr @hf_x11_glx_render_Map2d_points_item, align 4
+  %1896 = add nsw i32 %10, -56
+  %1897 = sdiv i32 %1896, 8
+  %1898 = shl nsw i32 %1897, 3
+  %1899 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1894, ptr noundef %0, i32 noundef %1893, i32 noundef %1898, i32 noundef %4) #10
+  %1900 = load i32, ptr @ett_x11_list_of_double, align 4
+  %1901 = tail call ptr @proto_item_add_subtree(ptr noundef %1899, i32 noundef %1900) #10
+  %1902 = add i16 %9, -49
+  %.not13.i.i2275 = icmp ult i16 %1902, 15
   br i1 %.not13.i.i2275, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2276
 
-.lr.ph.preheader.i.i2276:                         ; preds = %1840
+.lr.ph.preheader.i.i2276:                         ; preds = %1857
   %.pre.i.i2277 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2278
 
 .lr.ph.i.i2278:                                   ; preds = %.lr.ph.i.i2278, %.lr.ph.preheader.i.i2276
-  %1885 = phi i32 [ %1889, %.lr.ph.i.i2278 ], [ %.pre.i.i2277, %.lr.ph.preheader.i.i2276 ]
-  %.014.i.i2279 = phi i32 [ %1886, %.lr.ph.i.i2278 ], [ %1880, %.lr.ph.preheader.i.i2276 ]
-  %1886 = add i32 %.014.i.i2279, -1
-  %1887 = tail call ptr @proto_tree_add_item(ptr noundef %1884, i32 noundef %1878, ptr noundef %0, i32 noundef %1885, i32 noundef 8, i32 noundef %4) #10
-  %1888 = load i32, ptr %2, align 4
-  %1889 = add i32 %1888, 8
-  store i32 %1889, ptr %2, align 4
-  %.not.i.i2280 = icmp eq i32 %1886, 0
+  %1903 = phi i32 [ %1907, %.lr.ph.i.i2278 ], [ %.pre.i.i2277, %.lr.ph.preheader.i.i2276 ]
+  %.014.i.i2279 = phi i32 [ %1904, %.lr.ph.i.i2278 ], [ %1897, %.lr.ph.preheader.i.i2276 ]
+  %1904 = add i32 %.014.i.i2279, -1
+  %1905 = tail call ptr @proto_tree_add_item(ptr noundef %1901, i32 noundef %1895, ptr noundef %0, i32 noundef %1903, i32 noundef 8, i32 noundef %4) #10
+  %1906 = load i32, ptr %2, align 4
+  %1907 = add i32 %1906, 8
+  store i32 %1907, ptr %2, align 4
+  %.not.i.i2280 = icmp eq i32 %1904, 0
   br i1 %.not.i.i2280, label %mesa_CallLists.exit, label %.lr.ph.i.i2278, !llvm.loop !62
 
-1890:                                             ; preds = %34
-  %1891 = load i32, ptr @hf_x11_glx_render_Map2f_target, align 4
-  %1892 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1891, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1893 = load i32, ptr %2, align 4
-  %1894 = add i32 %1893, 4
-  store i32 %1894, ptr %2, align 4
-  %1895 = load i32, ptr @hf_x11_glx_render_Map2f_u1, align 4
-  %1896 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1895, ptr noundef %0, i32 noundef %1894, i32 noundef 4, i32 noundef %4) #10
-  %1897 = load i32, ptr %2, align 4
-  %1898 = add i32 %1897, 4
-  store i32 %1898, ptr %2, align 4
-  %1899 = load i32, ptr @hf_x11_glx_render_Map2f_u2, align 4
-  %1900 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1899, ptr noundef %0, i32 noundef %1898, i32 noundef 4, i32 noundef %4) #10
-  %1901 = load i32, ptr %2, align 4
-  %1902 = add i32 %1901, 4
-  store i32 %1902, ptr %2, align 4
-  %1903 = load i32, ptr @hf_x11_glx_render_Map2f_ustride, align 4
-  %1904 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1903, ptr noundef %0, i32 noundef %1902, i32 noundef 4, i32 noundef %4) #10
-  %1905 = load i32, ptr %2, align 4
-  %1906 = add i32 %1905, 4
-  store i32 %1906, ptr %2, align 4
-  %1907 = load i32, ptr @hf_x11_glx_render_Map2f_uorder, align 4
-  %1908 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1907, ptr noundef %0, i32 noundef %1906, i32 noundef 4, i32 noundef %4) #10
-  %1909 = load i32, ptr %2, align 4
-  %1910 = add i32 %1909, 4
-  store i32 %1910, ptr %2, align 4
-  %1911 = load i32, ptr @hf_x11_glx_render_Map2f_v1, align 4
-  %1912 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1911, ptr noundef %0, i32 noundef %1910, i32 noundef 4, i32 noundef %4) #10
-  %1913 = load i32, ptr %2, align 4
-  %1914 = add i32 %1913, 4
-  store i32 %1914, ptr %2, align 4
-  %1915 = load i32, ptr @hf_x11_glx_render_Map2f_v2, align 4
-  %1916 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1915, ptr noundef %0, i32 noundef %1914, i32 noundef 4, i32 noundef %4) #10
-  %1917 = load i32, ptr %2, align 4
-  %1918 = add i32 %1917, 4
-  store i32 %1918, ptr %2, align 4
-  %1919 = load i32, ptr @hf_x11_glx_render_Map2f_vstride, align 4
-  %1920 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1919, ptr noundef %0, i32 noundef %1918, i32 noundef 4, i32 noundef %4) #10
-  %1921 = load i32, ptr %2, align 4
-  %1922 = add i32 %1921, 4
-  store i32 %1922, ptr %2, align 4
-  %1923 = load i32, ptr @hf_x11_glx_render_Map2f_vorder, align 4
-  %1924 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1923, ptr noundef %0, i32 noundef %1922, i32 noundef 4, i32 noundef %4) #10
-  %1925 = load i32, ptr %2, align 4
-  %1926 = add i32 %1925, 4
-  store i32 %1926, ptr %2, align 4
-  %1927 = load i32, ptr @hf_x11_glx_render_Map2f_points, align 4
-  %1928 = load i32, ptr @hf_x11_glx_render_Map2f_points_item, align 4
-  %1929 = add nsw i32 %10, -40
-  %1930 = sdiv i32 %1929, 4
-  %1931 = shl nsw i32 %1930, 2
-  %1932 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1927, ptr noundef %0, i32 noundef %1926, i32 noundef %1931, i32 noundef %4) #10
-  %1933 = load i32, ptr @ett_x11_list_of_float, align 4
-  %1934 = tail call ptr @proto_item_add_subtree(ptr noundef %1932, i32 noundef %1933) #10
-  %.off.i2282 = add nsw i32 %10, -37
-  %.not13.i.i2283 = icmp ult i32 %.off.i2282, 7
+1908:                                             ; preds = %34
+  %1909 = load i32, ptr @hf_x11_glx_render_Map2f_target, align 4
+  %1910 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1909, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1911 = load i32, ptr %2, align 4
+  %1912 = add i32 %1911, 4
+  store i32 %1912, ptr %2, align 4
+  %1913 = load i32, ptr @hf_x11_glx_render_Map2f_u1, align 4
+  %1914 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1913, ptr noundef %0, i32 noundef %1912, i32 noundef 4, i32 noundef %4) #10
+  %1915 = load i32, ptr %2, align 4
+  %1916 = add i32 %1915, 4
+  store i32 %1916, ptr %2, align 4
+  %1917 = load i32, ptr @hf_x11_glx_render_Map2f_u2, align 4
+  %1918 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1917, ptr noundef %0, i32 noundef %1916, i32 noundef 4, i32 noundef %4) #10
+  %1919 = load i32, ptr %2, align 4
+  %1920 = add i32 %1919, 4
+  store i32 %1920, ptr %2, align 4
+  %1921 = load i32, ptr @hf_x11_glx_render_Map2f_ustride, align 4
+  %1922 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1921, ptr noundef %0, i32 noundef %1920, i32 noundef 4, i32 noundef %4) #10
+  %1923 = load i32, ptr %2, align 4
+  %1924 = add i32 %1923, 4
+  store i32 %1924, ptr %2, align 4
+  %1925 = load i32, ptr @hf_x11_glx_render_Map2f_uorder, align 4
+  %1926 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1925, ptr noundef %0, i32 noundef %1924, i32 noundef 4, i32 noundef %4) #10
+  %1927 = load i32, ptr %2, align 4
+  %1928 = add i32 %1927, 4
+  store i32 %1928, ptr %2, align 4
+  %1929 = load i32, ptr @hf_x11_glx_render_Map2f_v1, align 4
+  %1930 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1929, ptr noundef %0, i32 noundef %1928, i32 noundef 4, i32 noundef %4) #10
+  %1931 = load i32, ptr %2, align 4
+  %1932 = add i32 %1931, 4
+  store i32 %1932, ptr %2, align 4
+  %1933 = load i32, ptr @hf_x11_glx_render_Map2f_v2, align 4
+  %1934 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1933, ptr noundef %0, i32 noundef %1932, i32 noundef 4, i32 noundef %4) #10
+  %1935 = load i32, ptr %2, align 4
+  %1936 = add i32 %1935, 4
+  store i32 %1936, ptr %2, align 4
+  %1937 = load i32, ptr @hf_x11_glx_render_Map2f_vstride, align 4
+  %1938 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1937, ptr noundef %0, i32 noundef %1936, i32 noundef 4, i32 noundef %4) #10
+  %1939 = load i32, ptr %2, align 4
+  %1940 = add i32 %1939, 4
+  store i32 %1940, ptr %2, align 4
+  %1941 = load i32, ptr @hf_x11_glx_render_Map2f_vorder, align 4
+  %1942 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1941, ptr noundef %0, i32 noundef %1940, i32 noundef 4, i32 noundef %4) #10
+  %1943 = load i32, ptr %2, align 4
+  %1944 = add i32 %1943, 4
+  store i32 %1944, ptr %2, align 4
+  %1945 = load i32, ptr @hf_x11_glx_render_Map2f_points, align 4
+  %1946 = load i32, ptr @hf_x11_glx_render_Map2f_points_item, align 4
+  %1947 = add nsw i32 %10, -40
+  %1948 = sdiv i32 %1947, 4
+  %1949 = shl nsw i32 %1948, 2
+  %1950 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1945, ptr noundef %0, i32 noundef %1944, i32 noundef %1949, i32 noundef %4) #10
+  %1951 = load i32, ptr @ett_x11_list_of_float, align 4
+  %1952 = tail call ptr @proto_item_add_subtree(ptr noundef %1950, i32 noundef %1951) #10
+  %1953 = add i16 %9, -37
+  %.not13.i.i2283 = icmp ult i16 %1953, 7
   br i1 %.not13.i.i2283, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2284
 
-.lr.ph.preheader.i.i2284:                         ; preds = %1890
+.lr.ph.preheader.i.i2284:                         ; preds = %1908
   %.pre.i.i2285 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2286
 
 .lr.ph.i.i2286:                                   ; preds = %.lr.ph.i.i2286, %.lr.ph.preheader.i.i2284
-  %1935 = phi i32 [ %1939, %.lr.ph.i.i2286 ], [ %.pre.i.i2285, %.lr.ph.preheader.i.i2284 ]
-  %.014.i.i2287 = phi i32 [ %1936, %.lr.ph.i.i2286 ], [ %1930, %.lr.ph.preheader.i.i2284 ]
-  %1936 = add i32 %.014.i.i2287, -1
-  %1937 = tail call ptr @proto_tree_add_item(ptr noundef %1934, i32 noundef %1928, ptr noundef %0, i32 noundef %1935, i32 noundef 4, i32 noundef %4) #10
-  %1938 = load i32, ptr %2, align 4
-  %1939 = add i32 %1938, 4
-  store i32 %1939, ptr %2, align 4
-  %.not.i.i2288 = icmp eq i32 %1936, 0
+  %1954 = phi i32 [ %1958, %.lr.ph.i.i2286 ], [ %.pre.i.i2285, %.lr.ph.preheader.i.i2284 ]
+  %.014.i.i2287 = phi i32 [ %1955, %.lr.ph.i.i2286 ], [ %1948, %.lr.ph.preheader.i.i2284 ]
+  %1955 = add i32 %.014.i.i2287, -1
+  %1956 = tail call ptr @proto_tree_add_item(ptr noundef %1952, i32 noundef %1946, ptr noundef %0, i32 noundef %1954, i32 noundef 4, i32 noundef %4) #10
+  %1957 = load i32, ptr %2, align 4
+  %1958 = add i32 %1957, 4
+  store i32 %1958, ptr %2, align 4
+  %.not.i.i2288 = icmp eq i32 %1955, 0
   br i1 %.not.i.i2288, label %mesa_CallLists.exit, label %.lr.ph.i.i2286, !llvm.loop !61
 
-1940:                                             ; preds = %34
-  %1941 = load i32, ptr @hf_x11_glx_render_MapGrid1d_un, align 4
-  %1942 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1941, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1943 = load i32, ptr %2, align 4
-  %1944 = add i32 %1943, 4
-  store i32 %1944, ptr %2, align 4
-  %1945 = load i32, ptr @hf_x11_glx_render_MapGrid1d_u1, align 4
-  %1946 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1945, ptr noundef %0, i32 noundef %1944, i32 noundef 8, i32 noundef %4) #10
-  %1947 = load i32, ptr %2, align 4
-  %1948 = add i32 %1947, 8
-  store i32 %1948, ptr %2, align 4
-  %1949 = load i32, ptr @hf_x11_glx_render_MapGrid1d_u2, align 4
-  %1950 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1949, ptr noundef %0, i32 noundef %1948, i32 noundef 8, i32 noundef %4) #10
+1959:                                             ; preds = %34
+  %1960 = load i32, ptr @hf_x11_glx_render_MapGrid1d_un, align 4
+  %1961 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1960, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1962 = load i32, ptr %2, align 4
+  %1963 = add i32 %1962, 4
+  store i32 %1963, ptr %2, align 4
+  %1964 = load i32, ptr @hf_x11_glx_render_MapGrid1d_u1, align 4
+  %1965 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1964, ptr noundef %0, i32 noundef %1963, i32 noundef 8, i32 noundef %4) #10
+  %1966 = load i32, ptr %2, align 4
+  %1967 = add i32 %1966, 8
+  store i32 %1967, ptr %2, align 4
+  %1968 = load i32, ptr @hf_x11_glx_render_MapGrid1d_u2, align 4
+  %1969 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1968, ptr noundef %0, i32 noundef %1967, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1951:                                             ; preds = %34
-  %1952 = load i32, ptr @hf_x11_glx_render_MapGrid1f_un, align 4
-  %1953 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1952, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1954 = load i32, ptr %2, align 4
-  %1955 = add i32 %1954, 4
-  store i32 %1955, ptr %2, align 4
-  %1956 = load i32, ptr @hf_x11_glx_render_MapGrid1f_u1, align 4
-  %1957 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1956, ptr noundef %0, i32 noundef %1955, i32 noundef 4, i32 noundef %4) #10
-  %1958 = load i32, ptr %2, align 4
-  %1959 = add i32 %1958, 4
-  store i32 %1959, ptr %2, align 4
-  %1960 = load i32, ptr @hf_x11_glx_render_MapGrid1f_u2, align 4
-  %1961 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1960, ptr noundef %0, i32 noundef %1959, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-1962:                                             ; preds = %34
-  %1963 = load i32, ptr @hf_x11_glx_render_MapGrid2d_un, align 4
-  %1964 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1963, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %1965 = load i32, ptr %2, align 4
-  %1966 = add i32 %1965, 4
-  store i32 %1966, ptr %2, align 4
-  %1967 = load i32, ptr @hf_x11_glx_render_MapGrid2d_u1, align 4
-  %1968 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1967, ptr noundef %0, i32 noundef %1966, i32 noundef 8, i32 noundef %4) #10
-  %1969 = load i32, ptr %2, align 4
-  %1970 = add i32 %1969, 8
-  store i32 %1970, ptr %2, align 4
-  %1971 = load i32, ptr @hf_x11_glx_render_MapGrid2d_u2, align 4
-  %1972 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1971, ptr noundef %0, i32 noundef %1970, i32 noundef 8, i32 noundef %4) #10
+1970:                                             ; preds = %34
+  %1971 = load i32, ptr @hf_x11_glx_render_MapGrid1f_un, align 4
+  %1972 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1971, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %1973 = load i32, ptr %2, align 4
-  %1974 = add i32 %1973, 8
+  %1974 = add i32 %1973, 4
   store i32 %1974, ptr %2, align 4
-  %1975 = load i32, ptr @hf_x11_glx_render_MapGrid2d_vn, align 4
+  %1975 = load i32, ptr @hf_x11_glx_render_MapGrid1f_u1, align 4
   %1976 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1975, ptr noundef %0, i32 noundef %1974, i32 noundef 4, i32 noundef %4) #10
   %1977 = load i32, ptr %2, align 4
   %1978 = add i32 %1977, 4
   store i32 %1978, ptr %2, align 4
-  %1979 = load i32, ptr @hf_x11_glx_render_MapGrid2d_v1, align 4
-  %1980 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1979, ptr noundef %0, i32 noundef %1978, i32 noundef 8, i32 noundef %4) #10
-  %1981 = load i32, ptr %2, align 4
-  %1982 = add i32 %1981, 8
-  store i32 %1982, ptr %2, align 4
-  %1983 = load i32, ptr @hf_x11_glx_render_MapGrid2d_v2, align 4
-  %1984 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1983, ptr noundef %0, i32 noundef %1982, i32 noundef 8, i32 noundef %4) #10
+  %1979 = load i32, ptr @hf_x11_glx_render_MapGrid1f_u2, align 4
+  %1980 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1979, ptr noundef %0, i32 noundef %1978, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-1985:                                             ; preds = %34
-  %1986 = load i32, ptr @hf_x11_glx_render_MapGrid2f_un, align 4
-  %1987 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1986, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+1981:                                             ; preds = %34
+  %1982 = load i32, ptr @hf_x11_glx_render_MapGrid2d_un, align 4
+  %1983 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1982, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %1984 = load i32, ptr %2, align 4
+  %1985 = add i32 %1984, 4
+  store i32 %1985, ptr %2, align 4
+  %1986 = load i32, ptr @hf_x11_glx_render_MapGrid2d_u1, align 4
+  %1987 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1986, ptr noundef %0, i32 noundef %1985, i32 noundef 8, i32 noundef %4) #10
   %1988 = load i32, ptr %2, align 4
-  %1989 = add i32 %1988, 4
+  %1989 = add i32 %1988, 8
   store i32 %1989, ptr %2, align 4
-  %1990 = load i32, ptr @hf_x11_glx_render_MapGrid2f_u1, align 4
-  %1991 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1990, ptr noundef %0, i32 noundef %1989, i32 noundef 4, i32 noundef %4) #10
+  %1990 = load i32, ptr @hf_x11_glx_render_MapGrid2d_u2, align 4
+  %1991 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1990, ptr noundef %0, i32 noundef %1989, i32 noundef 8, i32 noundef %4) #10
   %1992 = load i32, ptr %2, align 4
-  %1993 = add i32 %1992, 4
+  %1993 = add i32 %1992, 8
   store i32 %1993, ptr %2, align 4
-  %1994 = load i32, ptr @hf_x11_glx_render_MapGrid2f_u2, align 4
+  %1994 = load i32, ptr @hf_x11_glx_render_MapGrid2d_vn, align 4
   %1995 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1994, ptr noundef %0, i32 noundef %1993, i32 noundef 4, i32 noundef %4) #10
   %1996 = load i32, ptr %2, align 4
   %1997 = add i32 %1996, 4
   store i32 %1997, ptr %2, align 4
-  %1998 = load i32, ptr @hf_x11_glx_render_MapGrid2f_vn, align 4
-  %1999 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1998, ptr noundef %0, i32 noundef %1997, i32 noundef 4, i32 noundef %4) #10
+  %1998 = load i32, ptr @hf_x11_glx_render_MapGrid2d_v1, align 4
+  %1999 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %1998, ptr noundef %0, i32 noundef %1997, i32 noundef 8, i32 noundef %4) #10
   %2000 = load i32, ptr %2, align 4
-  %2001 = add i32 %2000, 4
+  %2001 = add i32 %2000, 8
   store i32 %2001, ptr %2, align 4
-  %2002 = load i32, ptr @hf_x11_glx_render_MapGrid2f_v1, align 4
-  %2003 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2002, ptr noundef %0, i32 noundef %2001, i32 noundef 4, i32 noundef %4) #10
-  %2004 = load i32, ptr %2, align 4
-  %2005 = add i32 %2004, 4
-  store i32 %2005, ptr %2, align 4
-  %2006 = load i32, ptr @hf_x11_glx_render_MapGrid2f_v2, align 4
-  %2007 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2006, ptr noundef %0, i32 noundef %2005, i32 noundef 4, i32 noundef %4) #10
+  %2002 = load i32, ptr @hf_x11_glx_render_MapGrid2d_v2, align 4
+  %2003 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2002, ptr noundef %0, i32 noundef %2001, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2008:                                             ; preds = %34
-  %2009 = load i32, ptr @hf_x11_glx_render_EvalCoord1dv_u, align 4
-  %2010 = load i32, ptr @hf_x11_glx_render_EvalCoord1dv_u_item, align 4
-  %2011 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2009, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
-  %2012 = load i32, ptr @ett_x11_list_of_double, align 4
-  %2013 = tail call ptr @proto_item_add_subtree(ptr noundef %2011, i32 noundef %2012) #10
+2004:                                             ; preds = %34
+  %2005 = load i32, ptr @hf_x11_glx_render_MapGrid2f_un, align 4
+  %2006 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2005, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2007 = load i32, ptr %2, align 4
+  %2008 = add i32 %2007, 4
+  store i32 %2008, ptr %2, align 4
+  %2009 = load i32, ptr @hf_x11_glx_render_MapGrid2f_u1, align 4
+  %2010 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2009, ptr noundef %0, i32 noundef %2008, i32 noundef 4, i32 noundef %4) #10
+  %2011 = load i32, ptr %2, align 4
+  %2012 = add i32 %2011, 4
+  store i32 %2012, ptr %2, align 4
+  %2013 = load i32, ptr @hf_x11_glx_render_MapGrid2f_u2, align 4
+  %2014 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2013, ptr noundef %0, i32 noundef %2012, i32 noundef 4, i32 noundef %4) #10
+  %2015 = load i32, ptr %2, align 4
+  %2016 = add i32 %2015, 4
+  store i32 %2016, ptr %2, align 4
+  %2017 = load i32, ptr @hf_x11_glx_render_MapGrid2f_vn, align 4
+  %2018 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2017, ptr noundef %0, i32 noundef %2016, i32 noundef 4, i32 noundef %4) #10
+  %2019 = load i32, ptr %2, align 4
+  %2020 = add i32 %2019, 4
+  store i32 %2020, ptr %2, align 4
+  %2021 = load i32, ptr @hf_x11_glx_render_MapGrid2f_v1, align 4
+  %2022 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2021, ptr noundef %0, i32 noundef %2020, i32 noundef 4, i32 noundef %4) #10
+  %2023 = load i32, ptr %2, align 4
+  %2024 = add i32 %2023, 4
+  store i32 %2024, ptr %2, align 4
+  %2025 = load i32, ptr @hf_x11_glx_render_MapGrid2f_v2, align 4
+  %2026 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2025, ptr noundef %0, i32 noundef %2024, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+2027:                                             ; preds = %34
+  %2028 = load i32, ptr @hf_x11_glx_render_EvalCoord1dv_u, align 4
+  %2029 = load i32, ptr @hf_x11_glx_render_EvalCoord1dv_u_item, align 4
+  %2030 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2028, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
+  %2031 = load i32, ptr @ett_x11_list_of_double, align 4
+  %2032 = tail call ptr @proto_item_add_subtree(ptr noundef %2030, i32 noundef %2031) #10
   %.pre.i.i2291 = load i32, ptr %2, align 4
-  %2014 = tail call ptr @proto_tree_add_item(ptr noundef %2013, i32 noundef %2010, ptr noundef %0, i32 noundef %.pre.i.i2291, i32 noundef 8, i32 noundef %4) #10
+  %2033 = tail call ptr @proto_tree_add_item(ptr noundef %2032, i32 noundef %2029, ptr noundef %0, i32 noundef %.pre.i.i2291, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2015:                                             ; preds = %34
-  %2016 = load i32, ptr @hf_x11_glx_render_EvalCoord1fv_u, align 4
-  %2017 = load i32, ptr @hf_x11_glx_render_EvalCoord1fv_u_item, align 4
-  %2018 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2016, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2019 = load i32, ptr @ett_x11_list_of_float, align 4
-  %2020 = tail call ptr @proto_item_add_subtree(ptr noundef %2018, i32 noundef %2019) #10
+2034:                                             ; preds = %34
+  %2035 = load i32, ptr @hf_x11_glx_render_EvalCoord1fv_u, align 4
+  %2036 = load i32, ptr @hf_x11_glx_render_EvalCoord1fv_u_item, align 4
+  %2037 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2035, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2038 = load i32, ptr @ett_x11_list_of_float, align 4
+  %2039 = tail call ptr @proto_item_add_subtree(ptr noundef %2037, i32 noundef %2038) #10
   %.pre.i.i2293 = load i32, ptr %2, align 4
-  %2021 = tail call ptr @proto_tree_add_item(ptr noundef %2020, i32 noundef %2017, ptr noundef %0, i32 noundef %.pre.i.i2293, i32 noundef 4, i32 noundef %4) #10
+  %2040 = tail call ptr @proto_tree_add_item(ptr noundef %2039, i32 noundef %2036, ptr noundef %0, i32 noundef %.pre.i.i2293, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2022:                                             ; preds = %34
-  %2023 = load i32, ptr @hf_x11_glx_render_EvalCoord2dv_u, align 4
-  %2024 = load i32, ptr @hf_x11_glx_render_EvalCoord2dv_u_item, align 4
-  %2025 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2023, ptr noundef %0, i32 noundef %28, i32 noundef 16, i32 noundef %4) #10
-  %2026 = load i32, ptr @ett_x11_list_of_double, align 4
-  %2027 = tail call ptr @proto_item_add_subtree(ptr noundef %2025, i32 noundef %2026) #10
+2041:                                             ; preds = %34
+  %2042 = load i32, ptr @hf_x11_glx_render_EvalCoord2dv_u, align 4
+  %2043 = load i32, ptr @hf_x11_glx_render_EvalCoord2dv_u_item, align 4
+  %2044 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2042, ptr noundef %0, i32 noundef %28, i32 noundef 16, i32 noundef %4) #10
+  %2045 = load i32, ptr @ett_x11_list_of_double, align 4
+  %2046 = tail call ptr @proto_item_add_subtree(ptr noundef %2044, i32 noundef %2045) #10
   %.pre.i.i2294 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2295
 
-.lr.ph.i.i2295:                                   ; preds = %.lr.ph.i.i2295, %2022
-  %2028 = phi i32 [ %2032, %.lr.ph.i.i2295 ], [ %.pre.i.i2294, %2022 ]
-  %.014.i.i2296 = phi i32 [ %2029, %.lr.ph.i.i2295 ], [ 2, %2022 ]
-  %2029 = add nsw i32 %.014.i.i2296, -1
-  %2030 = tail call ptr @proto_tree_add_item(ptr noundef %2027, i32 noundef %2024, ptr noundef %0, i32 noundef %2028, i32 noundef 8, i32 noundef %4) #10
-  %2031 = load i32, ptr %2, align 4
-  %2032 = add i32 %2031, 8
-  store i32 %2032, ptr %2, align 4
-  %.not.i.i2297 = icmp eq i32 %2029, 0
+.lr.ph.i.i2295:                                   ; preds = %.lr.ph.i.i2295, %2041
+  %2047 = phi i32 [ %2051, %.lr.ph.i.i2295 ], [ %.pre.i.i2294, %2041 ]
+  %.014.i.i2296 = phi i32 [ %2048, %.lr.ph.i.i2295 ], [ 2, %2041 ]
+  %2048 = add nsw i32 %.014.i.i2296, -1
+  %2049 = tail call ptr @proto_tree_add_item(ptr noundef %2046, i32 noundef %2043, ptr noundef %0, i32 noundef %2047, i32 noundef 8, i32 noundef %4) #10
+  %2050 = load i32, ptr %2, align 4
+  %2051 = add i32 %2050, 8
+  store i32 %2051, ptr %2, align 4
+  %.not.i.i2297 = icmp eq i32 %2048, 0
   br i1 %.not.i.i2297, label %mesa_CallLists.exit, label %.lr.ph.i.i2295, !llvm.loop !62
 
-2033:                                             ; preds = %34
-  %2034 = load i32, ptr @hf_x11_glx_render_EvalCoord2fv_u, align 4
-  %2035 = load i32, ptr @hf_x11_glx_render_EvalCoord2fv_u_item, align 4
-  %2036 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2034, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
-  %2037 = load i32, ptr @ett_x11_list_of_float, align 4
-  %2038 = tail call ptr @proto_item_add_subtree(ptr noundef %2036, i32 noundef %2037) #10
+2052:                                             ; preds = %34
+  %2053 = load i32, ptr @hf_x11_glx_render_EvalCoord2fv_u, align 4
+  %2054 = load i32, ptr @hf_x11_glx_render_EvalCoord2fv_u_item, align 4
+  %2055 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2053, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
+  %2056 = load i32, ptr @ett_x11_list_of_float, align 4
+  %2057 = tail call ptr @proto_item_add_subtree(ptr noundef %2055, i32 noundef %2056) #10
   %.pre.i.i2299 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2300
 
-.lr.ph.i.i2300:                                   ; preds = %.lr.ph.i.i2300, %2033
-  %2039 = phi i32 [ %2043, %.lr.ph.i.i2300 ], [ %.pre.i.i2299, %2033 ]
-  %.014.i.i2301 = phi i32 [ %2040, %.lr.ph.i.i2300 ], [ 2, %2033 ]
-  %2040 = add nsw i32 %.014.i.i2301, -1
-  %2041 = tail call ptr @proto_tree_add_item(ptr noundef %2038, i32 noundef %2035, ptr noundef %0, i32 noundef %2039, i32 noundef 4, i32 noundef %4) #10
-  %2042 = load i32, ptr %2, align 4
-  %2043 = add i32 %2042, 4
-  store i32 %2043, ptr %2, align 4
-  %.not.i.i2302 = icmp eq i32 %2040, 0
-  br i1 %.not.i.i2302, label %mesa_CallLists.exit, label %.lr.ph.i.i2300, !llvm.loop !61
-
-2044:                                             ; preds = %34
-  %2045 = load i32, ptr @hf_x11_glx_render_EvalMesh1_mode, align 4
-  %2046 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2045, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2047 = load i32, ptr %2, align 4
-  %2048 = add i32 %2047, 4
-  store i32 %2048, ptr %2, align 4
-  %2049 = load i32, ptr @hf_x11_glx_render_EvalMesh1_i1, align 4
-  %2050 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2049, ptr noundef %0, i32 noundef %2048, i32 noundef 4, i32 noundef %4) #10
-  %2051 = load i32, ptr %2, align 4
-  %2052 = add i32 %2051, 4
-  store i32 %2052, ptr %2, align 4
-  %2053 = load i32, ptr @hf_x11_glx_render_EvalMesh1_i2, align 4
-  %2054 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2053, ptr noundef %0, i32 noundef %2052, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-2055:                                             ; preds = %34
-  %2056 = load i32, ptr @hf_x11_glx_render_EvalPoint1_i, align 4
-  %2057 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2056, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-2058:                                             ; preds = %34
-  %2059 = load i32, ptr @hf_x11_glx_render_EvalMesh2_mode, align 4
-  %2060 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2059, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+.lr.ph.i.i2300:                                   ; preds = %.lr.ph.i.i2300, %2052
+  %2058 = phi i32 [ %2062, %.lr.ph.i.i2300 ], [ %.pre.i.i2299, %2052 ]
+  %.014.i.i2301 = phi i32 [ %2059, %.lr.ph.i.i2300 ], [ 2, %2052 ]
+  %2059 = add nsw i32 %.014.i.i2301, -1
+  %2060 = tail call ptr @proto_tree_add_item(ptr noundef %2057, i32 noundef %2054, ptr noundef %0, i32 noundef %2058, i32 noundef 4, i32 noundef %4) #10
   %2061 = load i32, ptr %2, align 4
   %2062 = add i32 %2061, 4
   store i32 %2062, ptr %2, align 4
-  %2063 = load i32, ptr @hf_x11_glx_render_EvalMesh2_i1, align 4
-  %2064 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2063, ptr noundef %0, i32 noundef %2062, i32 noundef 4, i32 noundef %4) #10
-  %2065 = load i32, ptr %2, align 4
-  %2066 = add i32 %2065, 4
-  store i32 %2066, ptr %2, align 4
-  %2067 = load i32, ptr @hf_x11_glx_render_EvalMesh2_i2, align 4
-  %2068 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2067, ptr noundef %0, i32 noundef %2066, i32 noundef 4, i32 noundef %4) #10
-  %2069 = load i32, ptr %2, align 4
-  %2070 = add i32 %2069, 4
-  store i32 %2070, ptr %2, align 4
-  %2071 = load i32, ptr @hf_x11_glx_render_EvalMesh2_j1, align 4
-  %2072 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2071, ptr noundef %0, i32 noundef %2070, i32 noundef 4, i32 noundef %4) #10
-  %2073 = load i32, ptr %2, align 4
-  %2074 = add i32 %2073, 4
-  store i32 %2074, ptr %2, align 4
-  %2075 = load i32, ptr @hf_x11_glx_render_EvalMesh2_j2, align 4
-  %2076 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2075, ptr noundef %0, i32 noundef %2074, i32 noundef 4, i32 noundef %4) #10
+  %.not.i.i2302 = icmp eq i32 %2059, 0
+  br i1 %.not.i.i2302, label %mesa_CallLists.exit, label %.lr.ph.i.i2300, !llvm.loop !61
+
+2063:                                             ; preds = %34
+  %2064 = load i32, ptr @hf_x11_glx_render_EvalMesh1_mode, align 4
+  %2065 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2064, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2066 = load i32, ptr %2, align 4
+  %2067 = add i32 %2066, 4
+  store i32 %2067, ptr %2, align 4
+  %2068 = load i32, ptr @hf_x11_glx_render_EvalMesh1_i1, align 4
+  %2069 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2068, ptr noundef %0, i32 noundef %2067, i32 noundef 4, i32 noundef %4) #10
+  %2070 = load i32, ptr %2, align 4
+  %2071 = add i32 %2070, 4
+  store i32 %2071, ptr %2, align 4
+  %2072 = load i32, ptr @hf_x11_glx_render_EvalMesh1_i2, align 4
+  %2073 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2072, ptr noundef %0, i32 noundef %2071, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+2074:                                             ; preds = %34
+  %2075 = load i32, ptr @hf_x11_glx_render_EvalPoint1_i, align 4
+  %2076 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2075, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
 2077:                                             ; preds = %34
-  %2078 = load i32, ptr @hf_x11_glx_render_EvalPoint2_i, align 4
+  %2078 = load i32, ptr @hf_x11_glx_render_EvalMesh2_mode, align 4
   %2079 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2078, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %2080 = load i32, ptr %2, align 4
   %2081 = add i32 %2080, 4
   store i32 %2081, ptr %2, align 4
-  %2082 = load i32, ptr @hf_x11_glx_render_EvalPoint2_j, align 4
+  %2082 = load i32, ptr @hf_x11_glx_render_EvalMesh2_i1, align 4
   %2083 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2082, ptr noundef %0, i32 noundef %2081, i32 noundef 4, i32 noundef %4) #10
+  %2084 = load i32, ptr %2, align 4
+  %2085 = add i32 %2084, 4
+  store i32 %2085, ptr %2, align 4
+  %2086 = load i32, ptr @hf_x11_glx_render_EvalMesh2_i2, align 4
+  %2087 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2086, ptr noundef %0, i32 noundef %2085, i32 noundef 4, i32 noundef %4) #10
+  %2088 = load i32, ptr %2, align 4
+  %2089 = add i32 %2088, 4
+  store i32 %2089, ptr %2, align 4
+  %2090 = load i32, ptr @hf_x11_glx_render_EvalMesh2_j1, align 4
+  %2091 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2090, ptr noundef %0, i32 noundef %2089, i32 noundef 4, i32 noundef %4) #10
+  %2092 = load i32, ptr %2, align 4
+  %2093 = add i32 %2092, 4
+  store i32 %2093, ptr %2, align 4
+  %2094 = load i32, ptr @hf_x11_glx_render_EvalMesh2_j2, align 4
+  %2095 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2094, ptr noundef %0, i32 noundef %2093, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2084:                                             ; preds = %34
-  %2085 = load i32, ptr @hf_x11_glx_render_AlphaFunc_func, align 4
-  %2086 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2085, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2087 = load i32, ptr %2, align 4
-  %2088 = add i32 %2087, 4
-  store i32 %2088, ptr %2, align 4
-  %2089 = load i32, ptr @hf_x11_glx_render_AlphaFunc_ref, align 4
-  %2090 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2089, ptr noundef %0, i32 noundef %2088, i32 noundef 4, i32 noundef %4) #10
+2096:                                             ; preds = %34
+  %2097 = load i32, ptr @hf_x11_glx_render_EvalPoint2_i, align 4
+  %2098 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2097, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2099 = load i32, ptr %2, align 4
+  %2100 = add i32 %2099, 4
+  store i32 %2100, ptr %2, align 4
+  %2101 = load i32, ptr @hf_x11_glx_render_EvalPoint2_j, align 4
+  %2102 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2101, ptr noundef %0, i32 noundef %2100, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2091:                                             ; preds = %34
-  %2092 = load i32, ptr @hf_x11_glx_render_BlendFunc_sfactor, align 4
-  %2093 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2092, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2094 = load i32, ptr %2, align 4
-  %2095 = add i32 %2094, 4
-  store i32 %2095, ptr %2, align 4
-  %2096 = load i32, ptr @hf_x11_glx_render_BlendFunc_dfactor, align 4
-  %2097 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2096, ptr noundef %0, i32 noundef %2095, i32 noundef 4, i32 noundef %4) #10
+2103:                                             ; preds = %34
+  %2104 = load i32, ptr @hf_x11_glx_render_AlphaFunc_func, align 4
+  %2105 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2104, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2106 = load i32, ptr %2, align 4
+  %2107 = add i32 %2106, 4
+  store i32 %2107, ptr %2, align 4
+  %2108 = load i32, ptr @hf_x11_glx_render_AlphaFunc_ref, align 4
+  %2109 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2108, ptr noundef %0, i32 noundef %2107, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2098:                                             ; preds = %34
-  %2099 = load i32, ptr @hf_x11_glx_render_LogicOp_opcode, align 4
-  %2100 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2099, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+2110:                                             ; preds = %34
+  %2111 = load i32, ptr @hf_x11_glx_render_BlendFunc_sfactor, align 4
+  %2112 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2111, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2113 = load i32, ptr %2, align 4
+  %2114 = add i32 %2113, 4
+  store i32 %2114, ptr %2, align 4
+  %2115 = load i32, ptr @hf_x11_glx_render_BlendFunc_dfactor, align 4
+  %2116 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2115, ptr noundef %0, i32 noundef %2114, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2101:                                             ; preds = %34
-  %2102 = load i32, ptr @hf_x11_glx_render_StencilFunc_func, align 4
-  %2103 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2102, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2104 = load i32, ptr %2, align 4
-  %2105 = add i32 %2104, 4
-  store i32 %2105, ptr %2, align 4
-  %2106 = load i32, ptr @hf_x11_glx_render_StencilFunc_ref, align 4
-  %2107 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2106, ptr noundef %0, i32 noundef %2105, i32 noundef 4, i32 noundef %4) #10
-  %2108 = load i32, ptr %2, align 4
-  %2109 = add i32 %2108, 4
-  store i32 %2109, ptr %2, align 4
-  %2110 = load i32, ptr @hf_x11_glx_render_StencilFunc_mask, align 4
-  %2111 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2110, ptr noundef %0, i32 noundef %2109, i32 noundef 4, i32 noundef %4) #10
+2117:                                             ; preds = %34
+  %2118 = load i32, ptr @hf_x11_glx_render_LogicOp_opcode, align 4
+  %2119 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2118, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2112:                                             ; preds = %34
-  %2113 = load i32, ptr @hf_x11_glx_render_StencilOp_fail, align 4
-  %2114 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2113, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2115 = load i32, ptr %2, align 4
-  %2116 = add i32 %2115, 4
-  store i32 %2116, ptr %2, align 4
-  %2117 = load i32, ptr @hf_x11_glx_render_StencilOp_zfail, align 4
-  %2118 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2117, ptr noundef %0, i32 noundef %2116, i32 noundef 4, i32 noundef %4) #10
-  %2119 = load i32, ptr %2, align 4
-  %2120 = add i32 %2119, 4
-  store i32 %2120, ptr %2, align 4
-  %2121 = load i32, ptr @hf_x11_glx_render_StencilOp_zpass, align 4
-  %2122 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2121, ptr noundef %0, i32 noundef %2120, i32 noundef 4, i32 noundef %4) #10
+2120:                                             ; preds = %34
+  %2121 = load i32, ptr @hf_x11_glx_render_StencilFunc_func, align 4
+  %2122 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2121, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2123 = load i32, ptr %2, align 4
+  %2124 = add i32 %2123, 4
+  store i32 %2124, ptr %2, align 4
+  %2125 = load i32, ptr @hf_x11_glx_render_StencilFunc_ref, align 4
+  %2126 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2125, ptr noundef %0, i32 noundef %2124, i32 noundef 4, i32 noundef %4) #10
+  %2127 = load i32, ptr %2, align 4
+  %2128 = add i32 %2127, 4
+  store i32 %2128, ptr %2, align 4
+  %2129 = load i32, ptr @hf_x11_glx_render_StencilFunc_mask, align 4
+  %2130 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2129, ptr noundef %0, i32 noundef %2128, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2123:                                             ; preds = %34
-  %2124 = load i32, ptr @hf_x11_glx_render_DepthFunc_func, align 4
-  %2125 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2124, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+2131:                                             ; preds = %34
+  %2132 = load i32, ptr @hf_x11_glx_render_StencilOp_fail, align 4
+  %2133 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2132, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2134 = load i32, ptr %2, align 4
+  %2135 = add i32 %2134, 4
+  store i32 %2135, ptr %2, align 4
+  %2136 = load i32, ptr @hf_x11_glx_render_StencilOp_zfail, align 4
+  %2137 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2136, ptr noundef %0, i32 noundef %2135, i32 noundef 4, i32 noundef %4) #10
+  %2138 = load i32, ptr %2, align 4
+  %2139 = add i32 %2138, 4
+  store i32 %2139, ptr %2, align 4
+  %2140 = load i32, ptr @hf_x11_glx_render_StencilOp_zpass, align 4
+  %2141 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2140, ptr noundef %0, i32 noundef %2139, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2126:                                             ; preds = %34
-  %2127 = load i32, ptr @hf_x11_glx_render_PixelZoom_xfactor, align 4
-  %2128 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2127, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2129 = load i32, ptr %2, align 4
-  %2130 = add i32 %2129, 4
-  store i32 %2130, ptr %2, align 4
-  %2131 = load i32, ptr @hf_x11_glx_render_PixelZoom_yfactor, align 4
-  %2132 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2131, ptr noundef %0, i32 noundef %2130, i32 noundef 4, i32 noundef %4) #10
+2142:                                             ; preds = %34
+  %2143 = load i32, ptr @hf_x11_glx_render_DepthFunc_func, align 4
+  %2144 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2143, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2133:                                             ; preds = %34
-  %2134 = load i32, ptr @hf_x11_glx_render_PixelTransferf_pname, align 4
-  %2135 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2134, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2136 = load i32, ptr %2, align 4
-  %2137 = add i32 %2136, 4
-  store i32 %2137, ptr %2, align 4
-  %2138 = load i32, ptr @hf_x11_glx_render_PixelTransferf_param, align 4
-  %2139 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2138, ptr noundef %0, i32 noundef %2137, i32 noundef 4, i32 noundef %4) #10
+2145:                                             ; preds = %34
+  %2146 = load i32, ptr @hf_x11_glx_render_PixelZoom_xfactor, align 4
+  %2147 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2146, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2148 = load i32, ptr %2, align 4
+  %2149 = add i32 %2148, 4
+  store i32 %2149, ptr %2, align 4
+  %2150 = load i32, ptr @hf_x11_glx_render_PixelZoom_yfactor, align 4
+  %2151 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2150, ptr noundef %0, i32 noundef %2149, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2140:                                             ; preds = %34
-  %2141 = load i32, ptr @hf_x11_glx_render_PixelTransferi_pname, align 4
-  %2142 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2141, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2143 = load i32, ptr %2, align 4
-  %2144 = add i32 %2143, 4
-  store i32 %2144, ptr %2, align 4
-  %2145 = load i32, ptr @hf_x11_glx_render_PixelTransferi_param, align 4
-  %2146 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2145, ptr noundef %0, i32 noundef %2144, i32 noundef 4, i32 noundef %4) #10
+2152:                                             ; preds = %34
+  %2153 = load i32, ptr @hf_x11_glx_render_PixelTransferf_pname, align 4
+  %2154 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2153, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2155 = load i32, ptr %2, align 4
+  %2156 = add i32 %2155, 4
+  store i32 %2156, ptr %2, align 4
+  %2157 = load i32, ptr @hf_x11_glx_render_PixelTransferf_param, align 4
+  %2158 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2157, ptr noundef %0, i32 noundef %2156, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2147:                                             ; preds = %34
-  %2148 = load i32, ptr @hf_x11_glx_render_PixelMapfv_map, align 4
-  %2149 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2148, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2150 = load i32, ptr %2, align 4
-  %2151 = add i32 %2150, 4
-  store i32 %2151, ptr %2, align 4
-  %2152 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2151, i32 noundef %4) #10
-  %2153 = load i32, ptr @hf_x11_glx_render_PixelMapfv_mapsize, align 4
-  %2154 = load i32, ptr %2, align 4
-  %2155 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2153, ptr noundef %0, i32 noundef %2154, i32 noundef 4, i32 noundef %4) #10
-  %2156 = load i32, ptr %2, align 4
-  %2157 = add i32 %2156, 4
-  store i32 %2157, ptr %2, align 4
-  %2158 = load i32, ptr @hf_x11_glx_render_PixelMapfv_values, align 4
-  %2159 = load i32, ptr @hf_x11_glx_render_PixelMapfv_values_item, align 4
-  %2160 = shl i32 %2152, 2
-  %2161 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2158, ptr noundef %0, i32 noundef %2157, i32 noundef %2160, i32 noundef %4) #10
-  %2162 = load i32, ptr @ett_x11_list_of_float, align 4
-  %2163 = tail call ptr @proto_item_add_subtree(ptr noundef %2161, i32 noundef %2162) #10
-  %.not13.i.i2304 = icmp eq i32 %2152, 0
+2159:                                             ; preds = %34
+  %2160 = load i32, ptr @hf_x11_glx_render_PixelTransferi_pname, align 4
+  %2161 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2160, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2162 = load i32, ptr %2, align 4
+  %2163 = add i32 %2162, 4
+  store i32 %2163, ptr %2, align 4
+  %2164 = load i32, ptr @hf_x11_glx_render_PixelTransferi_param, align 4
+  %2165 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2164, ptr noundef %0, i32 noundef %2163, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+2166:                                             ; preds = %34
+  %2167 = load i32, ptr @hf_x11_glx_render_PixelMapfv_map, align 4
+  %2168 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2167, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2169 = load i32, ptr %2, align 4
+  %2170 = add i32 %2169, 4
+  store i32 %2170, ptr %2, align 4
+  %2171 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2170, i32 noundef %4) #10
+  %2172 = load i32, ptr @hf_x11_glx_render_PixelMapfv_mapsize, align 4
+  %2173 = load i32, ptr %2, align 4
+  %2174 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2172, ptr noundef %0, i32 noundef %2173, i32 noundef 4, i32 noundef %4) #10
+  %2175 = load i32, ptr %2, align 4
+  %2176 = add i32 %2175, 4
+  store i32 %2176, ptr %2, align 4
+  %2177 = load i32, ptr @hf_x11_glx_render_PixelMapfv_values, align 4
+  %2178 = load i32, ptr @hf_x11_glx_render_PixelMapfv_values_item, align 4
+  %2179 = shl i32 %2171, 2
+  %2180 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2177, ptr noundef %0, i32 noundef %2176, i32 noundef %2179, i32 noundef %4) #10
+  %2181 = load i32, ptr @ett_x11_list_of_float, align 4
+  %2182 = tail call ptr @proto_item_add_subtree(ptr noundef %2180, i32 noundef %2181) #10
+  %.not13.i.i2304 = icmp eq i32 %2171, 0
   br i1 %.not13.i.i2304, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2305
 
-.lr.ph.preheader.i.i2305:                         ; preds = %2147
+.lr.ph.preheader.i.i2305:                         ; preds = %2166
   %.pre.i.i2306 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2307
 
 .lr.ph.i.i2307:                                   ; preds = %.lr.ph.i.i2307, %.lr.ph.preheader.i.i2305
-  %2164 = phi i32 [ %2168, %.lr.ph.i.i2307 ], [ %.pre.i.i2306, %.lr.ph.preheader.i.i2305 ]
-  %.014.i.i2308 = phi i32 [ %2165, %.lr.ph.i.i2307 ], [ %2152, %.lr.ph.preheader.i.i2305 ]
-  %2165 = add i32 %.014.i.i2308, -1
-  %2166 = tail call ptr @proto_tree_add_item(ptr noundef %2163, i32 noundef %2159, ptr noundef %0, i32 noundef %2164, i32 noundef 4, i32 noundef %4) #10
-  %2167 = load i32, ptr %2, align 4
-  %2168 = add i32 %2167, 4
-  store i32 %2168, ptr %2, align 4
-  %.not.i.i2309 = icmp eq i32 %2165, 0
+  %2183 = phi i32 [ %2187, %.lr.ph.i.i2307 ], [ %.pre.i.i2306, %.lr.ph.preheader.i.i2305 ]
+  %.014.i.i2308 = phi i32 [ %2184, %.lr.ph.i.i2307 ], [ %2171, %.lr.ph.preheader.i.i2305 ]
+  %2184 = add i32 %.014.i.i2308, -1
+  %2185 = tail call ptr @proto_tree_add_item(ptr noundef %2182, i32 noundef %2178, ptr noundef %0, i32 noundef %2183, i32 noundef 4, i32 noundef %4) #10
+  %2186 = load i32, ptr %2, align 4
+  %2187 = add i32 %2186, 4
+  store i32 %2187, ptr %2, align 4
+  %.not.i.i2309 = icmp eq i32 %2184, 0
   br i1 %.not.i.i2309, label %mesa_CallLists.exit, label %.lr.ph.i.i2307, !llvm.loop !61
 
-2169:                                             ; preds = %34
-  %2170 = load i32, ptr @hf_x11_glx_render_PixelMapuiv_map, align 4
-  %2171 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2170, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2172 = load i32, ptr %2, align 4
-  %2173 = add i32 %2172, 4
-  store i32 %2173, ptr %2, align 4
-  %2174 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2173, i32 noundef %4) #10
-  %2175 = load i32, ptr @hf_x11_glx_render_PixelMapuiv_mapsize, align 4
-  %2176 = load i32, ptr %2, align 4
-  %2177 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2175, ptr noundef %0, i32 noundef %2176, i32 noundef 4, i32 noundef %4) #10
-  %2178 = load i32, ptr %2, align 4
-  %2179 = add i32 %2178, 4
-  store i32 %2179, ptr %2, align 4
-  %2180 = load i32, ptr @hf_x11_glx_render_PixelMapuiv_values, align 4
-  %2181 = load i32, ptr @hf_x11_glx_render_PixelMapuiv_values_item, align 4
-  %2182 = shl i32 %2174, 2
-  %2183 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2180, ptr noundef %0, i32 noundef %2179, i32 noundef %2182, i32 noundef %4) #10
-  %2184 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %2185 = tail call ptr @proto_item_add_subtree(ptr noundef %2183, i32 noundef %2184) #10
-  %.not13.i.i2311 = icmp eq i32 %2174, 0
+2188:                                             ; preds = %34
+  %2189 = load i32, ptr @hf_x11_glx_render_PixelMapuiv_map, align 4
+  %2190 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2189, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2191 = load i32, ptr %2, align 4
+  %2192 = add i32 %2191, 4
+  store i32 %2192, ptr %2, align 4
+  %2193 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2192, i32 noundef %4) #10
+  %2194 = load i32, ptr @hf_x11_glx_render_PixelMapuiv_mapsize, align 4
+  %2195 = load i32, ptr %2, align 4
+  %2196 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2194, ptr noundef %0, i32 noundef %2195, i32 noundef 4, i32 noundef %4) #10
+  %2197 = load i32, ptr %2, align 4
+  %2198 = add i32 %2197, 4
+  store i32 %2198, ptr %2, align 4
+  %2199 = load i32, ptr @hf_x11_glx_render_PixelMapuiv_values, align 4
+  %2200 = load i32, ptr @hf_x11_glx_render_PixelMapuiv_values_item, align 4
+  %2201 = shl i32 %2193, 2
+  %2202 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2199, ptr noundef %0, i32 noundef %2198, i32 noundef %2201, i32 noundef %4) #10
+  %2203 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %2204 = tail call ptr @proto_item_add_subtree(ptr noundef %2202, i32 noundef %2203) #10
+  %.not13.i.i2311 = icmp eq i32 %2193, 0
   br i1 %.not13.i.i2311, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2312
 
-.lr.ph.preheader.i.i2312:                         ; preds = %2169
+.lr.ph.preheader.i.i2312:                         ; preds = %2188
   %.pre.i.i2313 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2314
 
 .lr.ph.i.i2314:                                   ; preds = %.lr.ph.i.i2314, %.lr.ph.preheader.i.i2312
-  %2186 = phi i32 [ %2190, %.lr.ph.i.i2314 ], [ %.pre.i.i2313, %.lr.ph.preheader.i.i2312 ]
-  %.014.i.i2315 = phi i32 [ %2187, %.lr.ph.i.i2314 ], [ %2174, %.lr.ph.preheader.i.i2312 ]
-  %2187 = add i32 %.014.i.i2315, -1
-  %2188 = tail call ptr @proto_tree_add_item(ptr noundef %2185, i32 noundef %2181, ptr noundef %0, i32 noundef %2186, i32 noundef 4, i32 noundef %4) #10
-  %2189 = load i32, ptr %2, align 4
-  %2190 = add i32 %2189, 4
-  store i32 %2190, ptr %2, align 4
-  %.not.i.i2316 = icmp eq i32 %2187, 0
+  %2205 = phi i32 [ %2209, %.lr.ph.i.i2314 ], [ %.pre.i.i2313, %.lr.ph.preheader.i.i2312 ]
+  %.014.i.i2315 = phi i32 [ %2206, %.lr.ph.i.i2314 ], [ %2193, %.lr.ph.preheader.i.i2312 ]
+  %2206 = add i32 %.014.i.i2315, -1
+  %2207 = tail call ptr @proto_tree_add_item(ptr noundef %2204, i32 noundef %2200, ptr noundef %0, i32 noundef %2205, i32 noundef 4, i32 noundef %4) #10
+  %2208 = load i32, ptr %2, align 4
+  %2209 = add i32 %2208, 4
+  store i32 %2209, ptr %2, align 4
+  %.not.i.i2316 = icmp eq i32 %2206, 0
   br i1 %.not.i.i2316, label %mesa_CallLists.exit, label %.lr.ph.i.i2314, !llvm.loop !41
 
-2191:                                             ; preds = %34
-  %2192 = load i32, ptr @hf_x11_glx_render_PixelMapusv_map, align 4
-  %2193 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2192, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2194 = load i32, ptr %2, align 4
-  %2195 = add i32 %2194, 4
-  store i32 %2195, ptr %2, align 4
-  %2196 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2195, i32 noundef %4) #10
-  %2197 = load i32, ptr @hf_x11_glx_render_PixelMapusv_mapsize, align 4
-  %2198 = load i32, ptr %2, align 4
-  %2199 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2197, ptr noundef %0, i32 noundef %2198, i32 noundef 4, i32 noundef %4) #10
-  %2200 = load i32, ptr %2, align 4
-  %2201 = add i32 %2200, 4
-  store i32 %2201, ptr %2, align 4
-  %2202 = load i32, ptr @hf_x11_glx_render_PixelMapusv_values, align 4
-  %2203 = load i32, ptr @hf_x11_glx_render_PixelMapusv_values_item, align 4
-  %2204 = shl i32 %2196, 1
-  %2205 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2202, ptr noundef %0, i32 noundef %2201, i32 noundef %2204, i32 noundef %4) #10
-  %2206 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %2207 = tail call ptr @proto_item_add_subtree(ptr noundef %2205, i32 noundef %2206) #10
-  %.not13.i.i2317 = icmp eq i32 %2196, 0
+2210:                                             ; preds = %34
+  %2211 = load i32, ptr @hf_x11_glx_render_PixelMapusv_map, align 4
+  %2212 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2211, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2213 = load i32, ptr %2, align 4
+  %2214 = add i32 %2213, 4
+  store i32 %2214, ptr %2, align 4
+  %2215 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2214, i32 noundef %4) #10
+  %2216 = load i32, ptr @hf_x11_glx_render_PixelMapusv_mapsize, align 4
+  %2217 = load i32, ptr %2, align 4
+  %2218 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2216, ptr noundef %0, i32 noundef %2217, i32 noundef 4, i32 noundef %4) #10
+  %2219 = load i32, ptr %2, align 4
+  %2220 = add i32 %2219, 4
+  store i32 %2220, ptr %2, align 4
+  %2221 = load i32, ptr @hf_x11_glx_render_PixelMapusv_values, align 4
+  %2222 = load i32, ptr @hf_x11_glx_render_PixelMapusv_values_item, align 4
+  %2223 = shl i32 %2215, 1
+  %2224 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2221, ptr noundef %0, i32 noundef %2220, i32 noundef %2223, i32 noundef %4) #10
+  %2225 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %2226 = tail call ptr @proto_item_add_subtree(ptr noundef %2224, i32 noundef %2225) #10
+  %.not13.i.i2317 = icmp eq i32 %2215, 0
   br i1 %.not13.i.i2317, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2318
 
-.lr.ph.preheader.i.i2318:                         ; preds = %2191
+.lr.ph.preheader.i.i2318:                         ; preds = %2210
   %.pre.i.i2319 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2320
 
 .lr.ph.i.i2320:                                   ; preds = %.lr.ph.i.i2320, %.lr.ph.preheader.i.i2318
-  %2208 = phi i32 [ %2212, %.lr.ph.i.i2320 ], [ %.pre.i.i2319, %.lr.ph.preheader.i.i2318 ]
-  %.014.i.i2321 = phi i32 [ %2209, %.lr.ph.i.i2320 ], [ %2196, %.lr.ph.preheader.i.i2318 ]
-  %2209 = add i32 %.014.i.i2321, -1
-  %2210 = tail call ptr @proto_tree_add_item(ptr noundef %2207, i32 noundef %2203, ptr noundef %0, i32 noundef %2208, i32 noundef 2, i32 noundef %4) #10
-  %2211 = load i32, ptr %2, align 4
-  %2212 = add i32 %2211, 2
-  store i32 %2212, ptr %2, align 4
-  %.not.i.i2322 = icmp eq i32 %2209, 0
+  %2227 = phi i32 [ %2231, %.lr.ph.i.i2320 ], [ %.pre.i.i2319, %.lr.ph.preheader.i.i2318 ]
+  %.014.i.i2321 = phi i32 [ %2228, %.lr.ph.i.i2320 ], [ %2215, %.lr.ph.preheader.i.i2318 ]
+  %2228 = add i32 %.014.i.i2321, -1
+  %2229 = tail call ptr @proto_tree_add_item(ptr noundef %2226, i32 noundef %2222, ptr noundef %0, i32 noundef %2227, i32 noundef 2, i32 noundef %4) #10
+  %2230 = load i32, ptr %2, align 4
+  %2231 = add i32 %2230, 2
+  store i32 %2231, ptr %2, align 4
+  %.not.i.i2322 = icmp eq i32 %2228, 0
   br i1 %.not.i.i2322, label %mesa_CallLists.exit, label %.lr.ph.i.i2320, !llvm.loop !40
 
-2213:                                             ; preds = %34
-  %2214 = load i32, ptr @hf_x11_glx_render_ReadBuffer_mode, align 4
-  %2215 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2214, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-2216:                                             ; preds = %34
-  %2217 = load i32, ptr @hf_x11_glx_render_CopyPixels_x, align 4
-  %2218 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2217, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2219 = load i32, ptr %2, align 4
-  %2220 = add i32 %2219, 4
-  store i32 %2220, ptr %2, align 4
-  %2221 = load i32, ptr @hf_x11_glx_render_CopyPixels_y, align 4
-  %2222 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2221, ptr noundef %0, i32 noundef %2220, i32 noundef 4, i32 noundef %4) #10
-  %2223 = load i32, ptr %2, align 4
-  %2224 = add i32 %2223, 4
-  store i32 %2224, ptr %2, align 4
-  %2225 = load i32, ptr @hf_x11_glx_render_CopyPixels_width, align 4
-  %2226 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2225, ptr noundef %0, i32 noundef %2224, i32 noundef 4, i32 noundef %4) #10
-  %2227 = load i32, ptr %2, align 4
-  %2228 = add i32 %2227, 4
-  store i32 %2228, ptr %2, align 4
-  %2229 = load i32, ptr @hf_x11_glx_render_CopyPixels_height, align 4
-  %2230 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2229, ptr noundef %0, i32 noundef %2228, i32 noundef 4, i32 noundef %4) #10
-  %2231 = load i32, ptr %2, align 4
-  %2232 = add i32 %2231, 4
-  store i32 %2232, ptr %2, align 4
-  %2233 = load i32, ptr @hf_x11_glx_render_CopyPixels_type, align 4
-  %2234 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2233, ptr noundef %0, i32 noundef %2232, i32 noundef 4, i32 noundef %4) #10
+2232:                                             ; preds = %34
+  %2233 = load i32, ptr @hf_x11_glx_render_ReadBuffer_mode, align 4
+  %2234 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2233, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
 2235:                                             ; preds = %34
-  %2236 = load i32, ptr @hf_x11_glx_render_DrawPixels_swapbytes, align 4
-  %2237 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2236, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %2236 = load i32, ptr @hf_x11_glx_render_CopyPixels_x, align 4
+  %2237 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2236, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %2238 = load i32, ptr %2, align 4
-  %2239 = add i32 %2238, 1
+  %2239 = add i32 %2238, 4
   store i32 %2239, ptr %2, align 4
-  %2240 = load i32, ptr @hf_x11_glx_render_DrawPixels_lsbfirst, align 4
-  %2241 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2240, ptr noundef %0, i32 noundef %2239, i32 noundef 1, i32 noundef %4) #10
+  %2240 = load i32, ptr @hf_x11_glx_render_CopyPixels_y, align 4
+  %2241 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2240, ptr noundef %0, i32 noundef %2239, i32 noundef 4, i32 noundef %4) #10
   %2242 = load i32, ptr %2, align 4
-  %2243 = add i32 %2242, 1
+  %2243 = add i32 %2242, 4
   store i32 %2243, ptr %2, align 4
-  %2244 = load i32, ptr @hf_x11_unused, align 4
-  %2245 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2244, ptr noundef %0, i32 noundef %2243, i32 noundef 2, i32 noundef 0) #10
+  %2244 = load i32, ptr @hf_x11_glx_render_CopyPixels_width, align 4
+  %2245 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2244, ptr noundef %0, i32 noundef %2243, i32 noundef 4, i32 noundef %4) #10
   %2246 = load i32, ptr %2, align 4
-  %2247 = add i32 %2246, 2
+  %2247 = add i32 %2246, 4
   store i32 %2247, ptr %2, align 4
-  %2248 = load i32, ptr @hf_x11_glx_render_DrawPixels_rowlength, align 4
+  %2248 = load i32, ptr @hf_x11_glx_render_CopyPixels_height, align 4
   %2249 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2248, ptr noundef %0, i32 noundef %2247, i32 noundef 4, i32 noundef %4) #10
   %2250 = load i32, ptr %2, align 4
   %2251 = add i32 %2250, 4
   store i32 %2251, ptr %2, align 4
-  %2252 = load i32, ptr @hf_x11_glx_render_DrawPixels_skiprows, align 4
+  %2252 = load i32, ptr @hf_x11_glx_render_CopyPixels_type, align 4
   %2253 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2252, ptr noundef %0, i32 noundef %2251, i32 noundef 4, i32 noundef %4) #10
-  %2254 = load i32, ptr %2, align 4
-  %2255 = add i32 %2254, 4
-  store i32 %2255, ptr %2, align 4
-  %2256 = load i32, ptr @hf_x11_glx_render_DrawPixels_skippixels, align 4
-  %2257 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2256, ptr noundef %0, i32 noundef %2255, i32 noundef 4, i32 noundef %4) #10
-  %2258 = load i32, ptr %2, align 4
-  %2259 = add i32 %2258, 4
-  store i32 %2259, ptr %2, align 4
-  %2260 = load i32, ptr @hf_x11_glx_render_DrawPixels_alignment, align 4
-  %2261 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2260, ptr noundef %0, i32 noundef %2259, i32 noundef 4, i32 noundef %4) #10
-  %2262 = load i32, ptr %2, align 4
-  %2263 = add i32 %2262, 4
-  store i32 %2263, ptr %2, align 4
-  %2264 = load i32, ptr @hf_x11_glx_render_DrawPixels_width, align 4
-  %2265 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2264, ptr noundef %0, i32 noundef %2263, i32 noundef 4, i32 noundef %4) #10
-  %2266 = load i32, ptr %2, align 4
-  %2267 = add i32 %2266, 4
-  store i32 %2267, ptr %2, align 4
-  %2268 = load i32, ptr @hf_x11_glx_render_DrawPixels_height, align 4
-  %2269 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2268, ptr noundef %0, i32 noundef %2267, i32 noundef 4, i32 noundef %4) #10
-  %2270 = load i32, ptr %2, align 4
-  %2271 = add i32 %2270, 4
-  store i32 %2271, ptr %2, align 4
-  %2272 = load i32, ptr @hf_x11_glx_render_DrawPixels_format, align 4
-  %2273 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2272, ptr noundef %0, i32 noundef %2271, i32 noundef 4, i32 noundef %4) #10
-  %2274 = load i32, ptr %2, align 4
-  %2275 = add i32 %2274, 4
-  store i32 %2275, ptr %2, align 4
-  %2276 = load i32, ptr @hf_x11_glx_render_DrawPixels_type, align 4
-  %2277 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2276, ptr noundef %0, i32 noundef %2275, i32 noundef 4, i32 noundef %4) #10
-  %2278 = load i32, ptr %2, align 4
-  %2279 = add i32 %2278, 4
-  store i32 %2279, ptr %2, align 4
-  %2280 = load i32, ptr @hf_x11_glx_render_DrawPixels_pixels, align 4
-  %2281 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 37)
-  %spec.store.select.i.i2324 = add nsw i32 %2281, -36
-  %2282 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2280, ptr noundef %0, i32 noundef %2279, i32 noundef %spec.store.select.i.i2324, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2283:                                             ; preds = %34
-  %2284 = load i32, ptr @hf_x11_glx_render_DepthRange_zNear, align 4
-  %2285 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2284, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
-  %2286 = load i32, ptr %2, align 4
-  %2287 = add i32 %2286, 8
-  store i32 %2287, ptr %2, align 4
-  %2288 = load i32, ptr @hf_x11_glx_render_DepthRange_zFar, align 4
-  %2289 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2288, ptr noundef %0, i32 noundef %2287, i32 noundef 8, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-2290:                                             ; preds = %34
-  %2291 = load i32, ptr @hf_x11_glx_render_Frustum_left, align 4
-  %2292 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2291, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
+2254:                                             ; preds = %34
+  %2255 = load i32, ptr @hf_x11_glx_render_DrawPixels_swapbytes, align 4
+  %2256 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2255, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %2257 = load i32, ptr %2, align 4
+  %2258 = add i32 %2257, 1
+  store i32 %2258, ptr %2, align 4
+  %2259 = load i32, ptr @hf_x11_glx_render_DrawPixels_lsbfirst, align 4
+  %2260 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2259, ptr noundef %0, i32 noundef %2258, i32 noundef 1, i32 noundef %4) #10
+  %2261 = load i32, ptr %2, align 4
+  %2262 = add i32 %2261, 1
+  store i32 %2262, ptr %2, align 4
+  %2263 = load i32, ptr @hf_x11_unused, align 4
+  %2264 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2263, ptr noundef %0, i32 noundef %2262, i32 noundef 2, i32 noundef 0) #10
+  %2265 = load i32, ptr %2, align 4
+  %2266 = add i32 %2265, 2
+  store i32 %2266, ptr %2, align 4
+  %2267 = load i32, ptr @hf_x11_glx_render_DrawPixels_rowlength, align 4
+  %2268 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2267, ptr noundef %0, i32 noundef %2266, i32 noundef 4, i32 noundef %4) #10
+  %2269 = load i32, ptr %2, align 4
+  %2270 = add i32 %2269, 4
+  store i32 %2270, ptr %2, align 4
+  %2271 = load i32, ptr @hf_x11_glx_render_DrawPixels_skiprows, align 4
+  %2272 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2271, ptr noundef %0, i32 noundef %2270, i32 noundef 4, i32 noundef %4) #10
+  %2273 = load i32, ptr %2, align 4
+  %2274 = add i32 %2273, 4
+  store i32 %2274, ptr %2, align 4
+  %2275 = load i32, ptr @hf_x11_glx_render_DrawPixels_skippixels, align 4
+  %2276 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2275, ptr noundef %0, i32 noundef %2274, i32 noundef 4, i32 noundef %4) #10
+  %2277 = load i32, ptr %2, align 4
+  %2278 = add i32 %2277, 4
+  store i32 %2278, ptr %2, align 4
+  %2279 = load i32, ptr @hf_x11_glx_render_DrawPixels_alignment, align 4
+  %2280 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2279, ptr noundef %0, i32 noundef %2278, i32 noundef 4, i32 noundef %4) #10
+  %2281 = load i32, ptr %2, align 4
+  %2282 = add i32 %2281, 4
+  store i32 %2282, ptr %2, align 4
+  %2283 = load i32, ptr @hf_x11_glx_render_DrawPixels_width, align 4
+  %2284 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2283, ptr noundef %0, i32 noundef %2282, i32 noundef 4, i32 noundef %4) #10
+  %2285 = load i32, ptr %2, align 4
+  %2286 = add i32 %2285, 4
+  store i32 %2286, ptr %2, align 4
+  %2287 = load i32, ptr @hf_x11_glx_render_DrawPixels_height, align 4
+  %2288 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2287, ptr noundef %0, i32 noundef %2286, i32 noundef 4, i32 noundef %4) #10
+  %2289 = load i32, ptr %2, align 4
+  %2290 = add i32 %2289, 4
+  store i32 %2290, ptr %2, align 4
+  %2291 = load i32, ptr @hf_x11_glx_render_DrawPixels_format, align 4
+  %2292 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2291, ptr noundef %0, i32 noundef %2290, i32 noundef 4, i32 noundef %4) #10
   %2293 = load i32, ptr %2, align 4
-  %2294 = add i32 %2293, 8
+  %2294 = add i32 %2293, 4
   store i32 %2294, ptr %2, align 4
-  %2295 = load i32, ptr @hf_x11_glx_render_Frustum_right, align 4
-  %2296 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2295, ptr noundef %0, i32 noundef %2294, i32 noundef 8, i32 noundef %4) #10
+  %2295 = load i32, ptr @hf_x11_glx_render_DrawPixels_type, align 4
+  %2296 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2295, ptr noundef %0, i32 noundef %2294, i32 noundef 4, i32 noundef %4) #10
   %2297 = load i32, ptr %2, align 4
-  %2298 = add i32 %2297, 8
+  %2298 = add i32 %2297, 4
   store i32 %2298, ptr %2, align 4
-  %2299 = load i32, ptr @hf_x11_glx_render_Frustum_bottom, align 4
-  %2300 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2299, ptr noundef %0, i32 noundef %2298, i32 noundef 8, i32 noundef %4) #10
-  %2301 = load i32, ptr %2, align 4
-  %2302 = add i32 %2301, 8
-  store i32 %2302, ptr %2, align 4
-  %2303 = load i32, ptr @hf_x11_glx_render_Frustum_top, align 4
-  %2304 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2303, ptr noundef %0, i32 noundef %2302, i32 noundef 8, i32 noundef %4) #10
+  %2299 = load i32, ptr @hf_x11_glx_render_DrawPixels_pixels, align 4
+  %2300 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 37)
+  %spec.store.select.i.i2324 = add nsw i32 %2300, -36
+  %2301 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2299, ptr noundef %0, i32 noundef %2298, i32 noundef %spec.store.select.i.i2324, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+2302:                                             ; preds = %34
+  %2303 = load i32, ptr @hf_x11_glx_render_DepthRange_zNear, align 4
+  %2304 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2303, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
   %2305 = load i32, ptr %2, align 4
   %2306 = add i32 %2305, 8
   store i32 %2306, ptr %2, align 4
-  %2307 = load i32, ptr @hf_x11_glx_render_Frustum_zNear, align 4
+  %2307 = load i32, ptr @hf_x11_glx_render_DepthRange_zFar, align 4
   %2308 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2307, ptr noundef %0, i32 noundef %2306, i32 noundef 8, i32 noundef %4) #10
-  %2309 = load i32, ptr %2, align 4
-  %2310 = add i32 %2309, 8
-  store i32 %2310, ptr %2, align 4
-  %2311 = load i32, ptr @hf_x11_glx_render_Frustum_zFar, align 4
-  %2312 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2311, ptr noundef %0, i32 noundef %2310, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2313:                                             ; preds = %34
-  %2314 = load i32, ptr @hf_x11_glx_render_LoadMatrixf_m, align 4
-  %2315 = load i32, ptr @hf_x11_glx_render_LoadMatrixf_m_item, align 4
-  %2316 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2314, ptr noundef %0, i32 noundef %28, i32 noundef 64, i32 noundef %4) #10
-  %2317 = load i32, ptr @ett_x11_list_of_float, align 4
-  %2318 = tail call ptr @proto_item_add_subtree(ptr noundef %2316, i32 noundef %2317) #10
+2309:                                             ; preds = %34
+  %2310 = load i32, ptr @hf_x11_glx_render_Frustum_left, align 4
+  %2311 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2310, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
+  %2312 = load i32, ptr %2, align 4
+  %2313 = add i32 %2312, 8
+  store i32 %2313, ptr %2, align 4
+  %2314 = load i32, ptr @hf_x11_glx_render_Frustum_right, align 4
+  %2315 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2314, ptr noundef %0, i32 noundef %2313, i32 noundef 8, i32 noundef %4) #10
+  %2316 = load i32, ptr %2, align 4
+  %2317 = add i32 %2316, 8
+  store i32 %2317, ptr %2, align 4
+  %2318 = load i32, ptr @hf_x11_glx_render_Frustum_bottom, align 4
+  %2319 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2318, ptr noundef %0, i32 noundef %2317, i32 noundef 8, i32 noundef %4) #10
+  %2320 = load i32, ptr %2, align 4
+  %2321 = add i32 %2320, 8
+  store i32 %2321, ptr %2, align 4
+  %2322 = load i32, ptr @hf_x11_glx_render_Frustum_top, align 4
+  %2323 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2322, ptr noundef %0, i32 noundef %2321, i32 noundef 8, i32 noundef %4) #10
+  %2324 = load i32, ptr %2, align 4
+  %2325 = add i32 %2324, 8
+  store i32 %2325, ptr %2, align 4
+  %2326 = load i32, ptr @hf_x11_glx_render_Frustum_zNear, align 4
+  %2327 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2326, ptr noundef %0, i32 noundef %2325, i32 noundef 8, i32 noundef %4) #10
+  %2328 = load i32, ptr %2, align 4
+  %2329 = add i32 %2328, 8
+  store i32 %2329, ptr %2, align 4
+  %2330 = load i32, ptr @hf_x11_glx_render_Frustum_zFar, align 4
+  %2331 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2330, ptr noundef %0, i32 noundef %2329, i32 noundef 8, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+2332:                                             ; preds = %34
+  %2333 = load i32, ptr @hf_x11_glx_render_LoadMatrixf_m, align 4
+  %2334 = load i32, ptr @hf_x11_glx_render_LoadMatrixf_m_item, align 4
+  %2335 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2333, ptr noundef %0, i32 noundef %28, i32 noundef 64, i32 noundef %4) #10
+  %2336 = load i32, ptr @ett_x11_list_of_float, align 4
+  %2337 = tail call ptr @proto_item_add_subtree(ptr noundef %2335, i32 noundef %2336) #10
   %.pre.i.i2325 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2326
 
-.lr.ph.i.i2326:                                   ; preds = %.lr.ph.i.i2326, %2313
-  %2319 = phi i32 [ %2323, %.lr.ph.i.i2326 ], [ %.pre.i.i2325, %2313 ]
-  %.014.i.i2327 = phi i32 [ %2320, %.lr.ph.i.i2326 ], [ 16, %2313 ]
-  %2320 = add nsw i32 %.014.i.i2327, -1
-  %2321 = tail call ptr @proto_tree_add_item(ptr noundef %2318, i32 noundef %2315, ptr noundef %0, i32 noundef %2319, i32 noundef 4, i32 noundef %4) #10
-  %2322 = load i32, ptr %2, align 4
-  %2323 = add i32 %2322, 4
-  store i32 %2323, ptr %2, align 4
-  %.not.i.i2328 = icmp eq i32 %2320, 0
+.lr.ph.i.i2326:                                   ; preds = %.lr.ph.i.i2326, %2332
+  %2338 = phi i32 [ %2342, %.lr.ph.i.i2326 ], [ %.pre.i.i2325, %2332 ]
+  %.014.i.i2327 = phi i32 [ %2339, %.lr.ph.i.i2326 ], [ 16, %2332 ]
+  %2339 = add nsw i32 %.014.i.i2327, -1
+  %2340 = tail call ptr @proto_tree_add_item(ptr noundef %2337, i32 noundef %2334, ptr noundef %0, i32 noundef %2338, i32 noundef 4, i32 noundef %4) #10
+  %2341 = load i32, ptr %2, align 4
+  %2342 = add i32 %2341, 4
+  store i32 %2342, ptr %2, align 4
+  %.not.i.i2328 = icmp eq i32 %2339, 0
   br i1 %.not.i.i2328, label %mesa_CallLists.exit, label %.lr.ph.i.i2326, !llvm.loop !61
 
-2324:                                             ; preds = %34
-  %2325 = load i32, ptr @hf_x11_glx_render_LoadMatrixd_m, align 4
-  %2326 = load i32, ptr @hf_x11_glx_render_LoadMatrixd_m_item, align 4
-  %2327 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2325, ptr noundef %0, i32 noundef %28, i32 noundef 128, i32 noundef %4) #10
-  %2328 = load i32, ptr @ett_x11_list_of_double, align 4
-  %2329 = tail call ptr @proto_item_add_subtree(ptr noundef %2327, i32 noundef %2328) #10
+2343:                                             ; preds = %34
+  %2344 = load i32, ptr @hf_x11_glx_render_LoadMatrixd_m, align 4
+  %2345 = load i32, ptr @hf_x11_glx_render_LoadMatrixd_m_item, align 4
+  %2346 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2344, ptr noundef %0, i32 noundef %28, i32 noundef 128, i32 noundef %4) #10
+  %2347 = load i32, ptr @ett_x11_list_of_double, align 4
+  %2348 = tail call ptr @proto_item_add_subtree(ptr noundef %2346, i32 noundef %2347) #10
   %.pre.i.i2330 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2331
 
-.lr.ph.i.i2331:                                   ; preds = %.lr.ph.i.i2331, %2324
-  %2330 = phi i32 [ %2334, %.lr.ph.i.i2331 ], [ %.pre.i.i2330, %2324 ]
-  %.014.i.i2332 = phi i32 [ %2331, %.lr.ph.i.i2331 ], [ 16, %2324 ]
-  %2331 = add nsw i32 %.014.i.i2332, -1
-  %2332 = tail call ptr @proto_tree_add_item(ptr noundef %2329, i32 noundef %2326, ptr noundef %0, i32 noundef %2330, i32 noundef 8, i32 noundef %4) #10
-  %2333 = load i32, ptr %2, align 4
-  %2334 = add i32 %2333, 8
-  store i32 %2334, ptr %2, align 4
-  %.not.i.i2333 = icmp eq i32 %2331, 0
+.lr.ph.i.i2331:                                   ; preds = %.lr.ph.i.i2331, %2343
+  %2349 = phi i32 [ %2353, %.lr.ph.i.i2331 ], [ %.pre.i.i2330, %2343 ]
+  %.014.i.i2332 = phi i32 [ %2350, %.lr.ph.i.i2331 ], [ 16, %2343 ]
+  %2350 = add nsw i32 %.014.i.i2332, -1
+  %2351 = tail call ptr @proto_tree_add_item(ptr noundef %2348, i32 noundef %2345, ptr noundef %0, i32 noundef %2349, i32 noundef 8, i32 noundef %4) #10
+  %2352 = load i32, ptr %2, align 4
+  %2353 = add i32 %2352, 8
+  store i32 %2353, ptr %2, align 4
+  %.not.i.i2333 = icmp eq i32 %2350, 0
   br i1 %.not.i.i2333, label %mesa_CallLists.exit, label %.lr.ph.i.i2331, !llvm.loop !62
 
-2335:                                             ; preds = %34
-  %2336 = load i32, ptr @hf_x11_glx_render_MatrixMode_mode, align 4
-  %2337 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2336, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+2354:                                             ; preds = %34
+  %2355 = load i32, ptr @hf_x11_glx_render_MatrixMode_mode, align 4
+  %2356 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2355, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2338:                                             ; preds = %34
-  %2339 = load i32, ptr @hf_x11_glx_render_MultMatrixf_m, align 4
-  %2340 = load i32, ptr @hf_x11_glx_render_MultMatrixf_m_item, align 4
-  %2341 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2339, ptr noundef %0, i32 noundef %28, i32 noundef 64, i32 noundef %4) #10
-  %2342 = load i32, ptr @ett_x11_list_of_float, align 4
-  %2343 = tail call ptr @proto_item_add_subtree(ptr noundef %2341, i32 noundef %2342) #10
+2357:                                             ; preds = %34
+  %2358 = load i32, ptr @hf_x11_glx_render_MultMatrixf_m, align 4
+  %2359 = load i32, ptr @hf_x11_glx_render_MultMatrixf_m_item, align 4
+  %2360 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2358, ptr noundef %0, i32 noundef %28, i32 noundef 64, i32 noundef %4) #10
+  %2361 = load i32, ptr @ett_x11_list_of_float, align 4
+  %2362 = tail call ptr @proto_item_add_subtree(ptr noundef %2360, i32 noundef %2361) #10
   %.pre.i.i2335 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2336
 
-.lr.ph.i.i2336:                                   ; preds = %.lr.ph.i.i2336, %2338
-  %2344 = phi i32 [ %2348, %.lr.ph.i.i2336 ], [ %.pre.i.i2335, %2338 ]
-  %.014.i.i2337 = phi i32 [ %2345, %.lr.ph.i.i2336 ], [ 16, %2338 ]
-  %2345 = add nsw i32 %.014.i.i2337, -1
-  %2346 = tail call ptr @proto_tree_add_item(ptr noundef %2343, i32 noundef %2340, ptr noundef %0, i32 noundef %2344, i32 noundef 4, i32 noundef %4) #10
-  %2347 = load i32, ptr %2, align 4
-  %2348 = add i32 %2347, 4
-  store i32 %2348, ptr %2, align 4
-  %.not.i.i2338 = icmp eq i32 %2345, 0
+.lr.ph.i.i2336:                                   ; preds = %.lr.ph.i.i2336, %2357
+  %2363 = phi i32 [ %2367, %.lr.ph.i.i2336 ], [ %.pre.i.i2335, %2357 ]
+  %.014.i.i2337 = phi i32 [ %2364, %.lr.ph.i.i2336 ], [ 16, %2357 ]
+  %2364 = add nsw i32 %.014.i.i2337, -1
+  %2365 = tail call ptr @proto_tree_add_item(ptr noundef %2362, i32 noundef %2359, ptr noundef %0, i32 noundef %2363, i32 noundef 4, i32 noundef %4) #10
+  %2366 = load i32, ptr %2, align 4
+  %2367 = add i32 %2366, 4
+  store i32 %2367, ptr %2, align 4
+  %.not.i.i2338 = icmp eq i32 %2364, 0
   br i1 %.not.i.i2338, label %mesa_CallLists.exit, label %.lr.ph.i.i2336, !llvm.loop !61
 
-2349:                                             ; preds = %34
-  %2350 = load i32, ptr @hf_x11_glx_render_MultMatrixd_m, align 4
-  %2351 = load i32, ptr @hf_x11_glx_render_MultMatrixd_m_item, align 4
-  %2352 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2350, ptr noundef %0, i32 noundef %28, i32 noundef 128, i32 noundef %4) #10
-  %2353 = load i32, ptr @ett_x11_list_of_double, align 4
-  %2354 = tail call ptr @proto_item_add_subtree(ptr noundef %2352, i32 noundef %2353) #10
+2368:                                             ; preds = %34
+  %2369 = load i32, ptr @hf_x11_glx_render_MultMatrixd_m, align 4
+  %2370 = load i32, ptr @hf_x11_glx_render_MultMatrixd_m_item, align 4
+  %2371 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2369, ptr noundef %0, i32 noundef %28, i32 noundef 128, i32 noundef %4) #10
+  %2372 = load i32, ptr @ett_x11_list_of_double, align 4
+  %2373 = tail call ptr @proto_item_add_subtree(ptr noundef %2371, i32 noundef %2372) #10
   %.pre.i.i2340 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2341
 
-.lr.ph.i.i2341:                                   ; preds = %.lr.ph.i.i2341, %2349
-  %2355 = phi i32 [ %2359, %.lr.ph.i.i2341 ], [ %.pre.i.i2340, %2349 ]
-  %.014.i.i2342 = phi i32 [ %2356, %.lr.ph.i.i2341 ], [ 16, %2349 ]
-  %2356 = add nsw i32 %.014.i.i2342, -1
-  %2357 = tail call ptr @proto_tree_add_item(ptr noundef %2354, i32 noundef %2351, ptr noundef %0, i32 noundef %2355, i32 noundef 8, i32 noundef %4) #10
-  %2358 = load i32, ptr %2, align 4
-  %2359 = add i32 %2358, 8
-  store i32 %2359, ptr %2, align 4
-  %.not.i.i2343 = icmp eq i32 %2356, 0
+.lr.ph.i.i2341:                                   ; preds = %.lr.ph.i.i2341, %2368
+  %2374 = phi i32 [ %2378, %.lr.ph.i.i2341 ], [ %.pre.i.i2340, %2368 ]
+  %.014.i.i2342 = phi i32 [ %2375, %.lr.ph.i.i2341 ], [ 16, %2368 ]
+  %2375 = add nsw i32 %.014.i.i2342, -1
+  %2376 = tail call ptr @proto_tree_add_item(ptr noundef %2373, i32 noundef %2370, ptr noundef %0, i32 noundef %2374, i32 noundef 8, i32 noundef %4) #10
+  %2377 = load i32, ptr %2, align 4
+  %2378 = add i32 %2377, 8
+  store i32 %2378, ptr %2, align 4
+  %.not.i.i2343 = icmp eq i32 %2375, 0
   br i1 %.not.i.i2343, label %mesa_CallLists.exit, label %.lr.ph.i.i2341, !llvm.loop !62
 
-2360:                                             ; preds = %34
-  %2361 = load i32, ptr @hf_x11_glx_render_Ortho_left, align 4
-  %2362 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2361, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
-  %2363 = load i32, ptr %2, align 4
-  %2364 = add i32 %2363, 8
-  store i32 %2364, ptr %2, align 4
-  %2365 = load i32, ptr @hf_x11_glx_render_Ortho_right, align 4
-  %2366 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2365, ptr noundef %0, i32 noundef %2364, i32 noundef 8, i32 noundef %4) #10
-  %2367 = load i32, ptr %2, align 4
-  %2368 = add i32 %2367, 8
-  store i32 %2368, ptr %2, align 4
-  %2369 = load i32, ptr @hf_x11_glx_render_Ortho_bottom, align 4
-  %2370 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2369, ptr noundef %0, i32 noundef %2368, i32 noundef 8, i32 noundef %4) #10
-  %2371 = load i32, ptr %2, align 4
-  %2372 = add i32 %2371, 8
-  store i32 %2372, ptr %2, align 4
-  %2373 = load i32, ptr @hf_x11_glx_render_Ortho_top, align 4
-  %2374 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2373, ptr noundef %0, i32 noundef %2372, i32 noundef 8, i32 noundef %4) #10
-  %2375 = load i32, ptr %2, align 4
-  %2376 = add i32 %2375, 8
-  store i32 %2376, ptr %2, align 4
-  %2377 = load i32, ptr @hf_x11_glx_render_Ortho_zNear, align 4
-  %2378 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2377, ptr noundef %0, i32 noundef %2376, i32 noundef 8, i32 noundef %4) #10
-  %2379 = load i32, ptr %2, align 4
-  %2380 = add i32 %2379, 8
-  store i32 %2380, ptr %2, align 4
-  %2381 = load i32, ptr @hf_x11_glx_render_Ortho_zFar, align 4
-  %2382 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2381, ptr noundef %0, i32 noundef %2380, i32 noundef 8, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-2383:                                             ; preds = %34
-  %2384 = load i32, ptr @hf_x11_glx_render_Rotated_angle, align 4
-  %2385 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2384, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
+2379:                                             ; preds = %34
+  %2380 = load i32, ptr @hf_x11_glx_render_Ortho_left, align 4
+  %2381 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2380, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
+  %2382 = load i32, ptr %2, align 4
+  %2383 = add i32 %2382, 8
+  store i32 %2383, ptr %2, align 4
+  %2384 = load i32, ptr @hf_x11_glx_render_Ortho_right, align 4
+  %2385 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2384, ptr noundef %0, i32 noundef %2383, i32 noundef 8, i32 noundef %4) #10
   %2386 = load i32, ptr %2, align 4
   %2387 = add i32 %2386, 8
   store i32 %2387, ptr %2, align 4
-  %2388 = load i32, ptr @hf_x11_glx_render_Rotated_x, align 4
+  %2388 = load i32, ptr @hf_x11_glx_render_Ortho_bottom, align 4
   %2389 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2388, ptr noundef %0, i32 noundef %2387, i32 noundef 8, i32 noundef %4) #10
   %2390 = load i32, ptr %2, align 4
   %2391 = add i32 %2390, 8
   store i32 %2391, ptr %2, align 4
-  %2392 = load i32, ptr @hf_x11_glx_render_Rotated_y, align 4
+  %2392 = load i32, ptr @hf_x11_glx_render_Ortho_top, align 4
   %2393 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2392, ptr noundef %0, i32 noundef %2391, i32 noundef 8, i32 noundef %4) #10
   %2394 = load i32, ptr %2, align 4
   %2395 = add i32 %2394, 8
   store i32 %2395, ptr %2, align 4
-  %2396 = load i32, ptr @hf_x11_glx_render_Rotated_z, align 4
+  %2396 = load i32, ptr @hf_x11_glx_render_Ortho_zNear, align 4
   %2397 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2396, ptr noundef %0, i32 noundef %2395, i32 noundef 8, i32 noundef %4) #10
+  %2398 = load i32, ptr %2, align 4
+  %2399 = add i32 %2398, 8
+  store i32 %2399, ptr %2, align 4
+  %2400 = load i32, ptr @hf_x11_glx_render_Ortho_zFar, align 4
+  %2401 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2400, ptr noundef %0, i32 noundef %2399, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2398:                                             ; preds = %34
-  %2399 = load i32, ptr @hf_x11_glx_render_Rotatef_angle, align 4
-  %2400 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2399, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2401 = load i32, ptr %2, align 4
-  %2402 = add i32 %2401, 4
-  store i32 %2402, ptr %2, align 4
-  %2403 = load i32, ptr @hf_x11_glx_render_Rotatef_x, align 4
-  %2404 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2403, ptr noundef %0, i32 noundef %2402, i32 noundef 4, i32 noundef %4) #10
+2402:                                             ; preds = %34
+  %2403 = load i32, ptr @hf_x11_glx_render_Rotated_angle, align 4
+  %2404 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2403, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
   %2405 = load i32, ptr %2, align 4
-  %2406 = add i32 %2405, 4
+  %2406 = add i32 %2405, 8
   store i32 %2406, ptr %2, align 4
-  %2407 = load i32, ptr @hf_x11_glx_render_Rotatef_y, align 4
-  %2408 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2407, ptr noundef %0, i32 noundef %2406, i32 noundef 4, i32 noundef %4) #10
+  %2407 = load i32, ptr @hf_x11_glx_render_Rotated_x, align 4
+  %2408 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2407, ptr noundef %0, i32 noundef %2406, i32 noundef 8, i32 noundef %4) #10
   %2409 = load i32, ptr %2, align 4
-  %2410 = add i32 %2409, 4
+  %2410 = add i32 %2409, 8
   store i32 %2410, ptr %2, align 4
-  %2411 = load i32, ptr @hf_x11_glx_render_Rotatef_z, align 4
-  %2412 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2411, ptr noundef %0, i32 noundef %2410, i32 noundef 4, i32 noundef %4) #10
+  %2411 = load i32, ptr @hf_x11_glx_render_Rotated_y, align 4
+  %2412 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2411, ptr noundef %0, i32 noundef %2410, i32 noundef 8, i32 noundef %4) #10
+  %2413 = load i32, ptr %2, align 4
+  %2414 = add i32 %2413, 8
+  store i32 %2414, ptr %2, align 4
+  %2415 = load i32, ptr @hf_x11_glx_render_Rotated_z, align 4
+  %2416 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2415, ptr noundef %0, i32 noundef %2414, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2413:                                             ; preds = %34
-  %2414 = load i32, ptr @hf_x11_glx_render_Scaled_x, align 4
-  %2415 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2414, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
-  %2416 = load i32, ptr %2, align 4
-  %2417 = add i32 %2416, 8
-  store i32 %2417, ptr %2, align 4
-  %2418 = load i32, ptr @hf_x11_glx_render_Scaled_y, align 4
-  %2419 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2418, ptr noundef %0, i32 noundef %2417, i32 noundef 8, i32 noundef %4) #10
+2417:                                             ; preds = %34
+  %2418 = load i32, ptr @hf_x11_glx_render_Rotatef_angle, align 4
+  %2419 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2418, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %2420 = load i32, ptr %2, align 4
-  %2421 = add i32 %2420, 8
+  %2421 = add i32 %2420, 4
   store i32 %2421, ptr %2, align 4
-  %2422 = load i32, ptr @hf_x11_glx_render_Scaled_z, align 4
-  %2423 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2422, ptr noundef %0, i32 noundef %2421, i32 noundef 8, i32 noundef %4) #10
+  %2422 = load i32, ptr @hf_x11_glx_render_Rotatef_x, align 4
+  %2423 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2422, ptr noundef %0, i32 noundef %2421, i32 noundef 4, i32 noundef %4) #10
+  %2424 = load i32, ptr %2, align 4
+  %2425 = add i32 %2424, 4
+  store i32 %2425, ptr %2, align 4
+  %2426 = load i32, ptr @hf_x11_glx_render_Rotatef_y, align 4
+  %2427 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2426, ptr noundef %0, i32 noundef %2425, i32 noundef 4, i32 noundef %4) #10
+  %2428 = load i32, ptr %2, align 4
+  %2429 = add i32 %2428, 4
+  store i32 %2429, ptr %2, align 4
+  %2430 = load i32, ptr @hf_x11_glx_render_Rotatef_z, align 4
+  %2431 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2430, ptr noundef %0, i32 noundef %2429, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2424:                                             ; preds = %34
-  %2425 = load i32, ptr @hf_x11_glx_render_Scalef_x, align 4
-  %2426 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2425, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2427 = load i32, ptr %2, align 4
-  %2428 = add i32 %2427, 4
-  store i32 %2428, ptr %2, align 4
-  %2429 = load i32, ptr @hf_x11_glx_render_Scalef_y, align 4
-  %2430 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2429, ptr noundef %0, i32 noundef %2428, i32 noundef 4, i32 noundef %4) #10
-  %2431 = load i32, ptr %2, align 4
-  %2432 = add i32 %2431, 4
-  store i32 %2432, ptr %2, align 4
-  %2433 = load i32, ptr @hf_x11_glx_render_Scalef_z, align 4
-  %2434 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2433, ptr noundef %0, i32 noundef %2432, i32 noundef 4, i32 noundef %4) #10
+2432:                                             ; preds = %34
+  %2433 = load i32, ptr @hf_x11_glx_render_Scaled_x, align 4
+  %2434 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2433, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
+  %2435 = load i32, ptr %2, align 4
+  %2436 = add i32 %2435, 8
+  store i32 %2436, ptr %2, align 4
+  %2437 = load i32, ptr @hf_x11_glx_render_Scaled_y, align 4
+  %2438 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2437, ptr noundef %0, i32 noundef %2436, i32 noundef 8, i32 noundef %4) #10
+  %2439 = load i32, ptr %2, align 4
+  %2440 = add i32 %2439, 8
+  store i32 %2440, ptr %2, align 4
+  %2441 = load i32, ptr @hf_x11_glx_render_Scaled_z, align 4
+  %2442 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2441, ptr noundef %0, i32 noundef %2440, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2435:                                             ; preds = %34
-  %2436 = load i32, ptr @hf_x11_glx_render_Translated_x, align 4
-  %2437 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2436, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
-  %2438 = load i32, ptr %2, align 4
-  %2439 = add i32 %2438, 8
-  store i32 %2439, ptr %2, align 4
-  %2440 = load i32, ptr @hf_x11_glx_render_Translated_y, align 4
-  %2441 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2440, ptr noundef %0, i32 noundef %2439, i32 noundef 8, i32 noundef %4) #10
-  %2442 = load i32, ptr %2, align 4
-  %2443 = add i32 %2442, 8
-  store i32 %2443, ptr %2, align 4
-  %2444 = load i32, ptr @hf_x11_glx_render_Translated_z, align 4
-  %2445 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2444, ptr noundef %0, i32 noundef %2443, i32 noundef 8, i32 noundef %4) #10
+2443:                                             ; preds = %34
+  %2444 = load i32, ptr @hf_x11_glx_render_Scalef_x, align 4
+  %2445 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2444, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2446 = load i32, ptr %2, align 4
+  %2447 = add i32 %2446, 4
+  store i32 %2447, ptr %2, align 4
+  %2448 = load i32, ptr @hf_x11_glx_render_Scalef_y, align 4
+  %2449 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2448, ptr noundef %0, i32 noundef %2447, i32 noundef 4, i32 noundef %4) #10
+  %2450 = load i32, ptr %2, align 4
+  %2451 = add i32 %2450, 4
+  store i32 %2451, ptr %2, align 4
+  %2452 = load i32, ptr @hf_x11_glx_render_Scalef_z, align 4
+  %2453 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2452, ptr noundef %0, i32 noundef %2451, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2446:                                             ; preds = %34
-  %2447 = load i32, ptr @hf_x11_glx_render_Translatef_x, align 4
-  %2448 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2447, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2449 = load i32, ptr %2, align 4
-  %2450 = add i32 %2449, 4
-  store i32 %2450, ptr %2, align 4
-  %2451 = load i32, ptr @hf_x11_glx_render_Translatef_y, align 4
-  %2452 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2451, ptr noundef %0, i32 noundef %2450, i32 noundef 4, i32 noundef %4) #10
-  %2453 = load i32, ptr %2, align 4
-  %2454 = add i32 %2453, 4
-  store i32 %2454, ptr %2, align 4
-  %2455 = load i32, ptr @hf_x11_glx_render_Translatef_z, align 4
-  %2456 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2455, ptr noundef %0, i32 noundef %2454, i32 noundef 4, i32 noundef %4) #10
+2454:                                             ; preds = %34
+  %2455 = load i32, ptr @hf_x11_glx_render_Translated_x, align 4
+  %2456 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2455, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
+  %2457 = load i32, ptr %2, align 4
+  %2458 = add i32 %2457, 8
+  store i32 %2458, ptr %2, align 4
+  %2459 = load i32, ptr @hf_x11_glx_render_Translated_y, align 4
+  %2460 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2459, ptr noundef %0, i32 noundef %2458, i32 noundef 8, i32 noundef %4) #10
+  %2461 = load i32, ptr %2, align 4
+  %2462 = add i32 %2461, 8
+  store i32 %2462, ptr %2, align 4
+  %2463 = load i32, ptr @hf_x11_glx_render_Translated_z, align 4
+  %2464 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2463, ptr noundef %0, i32 noundef %2462, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2457:                                             ; preds = %34
-  %2458 = load i32, ptr @hf_x11_glx_render_Viewport_x, align 4
-  %2459 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2458, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2460 = load i32, ptr %2, align 4
-  %2461 = add i32 %2460, 4
-  store i32 %2461, ptr %2, align 4
-  %2462 = load i32, ptr @hf_x11_glx_render_Viewport_y, align 4
-  %2463 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2462, ptr noundef %0, i32 noundef %2461, i32 noundef 4, i32 noundef %4) #10
-  %2464 = load i32, ptr %2, align 4
-  %2465 = add i32 %2464, 4
-  store i32 %2465, ptr %2, align 4
-  %2466 = load i32, ptr @hf_x11_glx_render_Viewport_width, align 4
-  %2467 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2466, ptr noundef %0, i32 noundef %2465, i32 noundef 4, i32 noundef %4) #10
+2465:                                             ; preds = %34
+  %2466 = load i32, ptr @hf_x11_glx_render_Translatef_x, align 4
+  %2467 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2466, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %2468 = load i32, ptr %2, align 4
   %2469 = add i32 %2468, 4
   store i32 %2469, ptr %2, align 4
-  %2470 = load i32, ptr @hf_x11_glx_render_Viewport_height, align 4
+  %2470 = load i32, ptr @hf_x11_glx_render_Translatef_y, align 4
   %2471 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2470, ptr noundef %0, i32 noundef %2469, i32 noundef 4, i32 noundef %4) #10
+  %2472 = load i32, ptr %2, align 4
+  %2473 = add i32 %2472, 4
+  store i32 %2473, ptr %2, align 4
+  %2474 = load i32, ptr @hf_x11_glx_render_Translatef_z, align 4
+  %2475 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2474, ptr noundef %0, i32 noundef %2473, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2472:                                             ; preds = %34
-  %2473 = load i32, ptr @hf_x11_glx_render_PolygonOffset_factor, align 4
-  %2474 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2473, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2475 = load i32, ptr %2, align 4
-  %2476 = add i32 %2475, 4
-  store i32 %2476, ptr %2, align 4
-  %2477 = load i32, ptr @hf_x11_glx_render_PolygonOffset_units, align 4
-  %2478 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2477, ptr noundef %0, i32 noundef %2476, i32 noundef 4, i32 noundef %4) #10
+2476:                                             ; preds = %34
+  %2477 = load i32, ptr @hf_x11_glx_render_Viewport_x, align 4
+  %2478 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2477, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2479 = load i32, ptr %2, align 4
+  %2480 = add i32 %2479, 4
+  store i32 %2480, ptr %2, align 4
+  %2481 = load i32, ptr @hf_x11_glx_render_Viewport_y, align 4
+  %2482 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2481, ptr noundef %0, i32 noundef %2480, i32 noundef 4, i32 noundef %4) #10
+  %2483 = load i32, ptr %2, align 4
+  %2484 = add i32 %2483, 4
+  store i32 %2484, ptr %2, align 4
+  %2485 = load i32, ptr @hf_x11_glx_render_Viewport_width, align 4
+  %2486 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2485, ptr noundef %0, i32 noundef %2484, i32 noundef 4, i32 noundef %4) #10
+  %2487 = load i32, ptr %2, align 4
+  %2488 = add i32 %2487, 4
+  store i32 %2488, ptr %2, align 4
+  %2489 = load i32, ptr @hf_x11_glx_render_Viewport_height, align 4
+  %2490 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2489, ptr noundef %0, i32 noundef %2488, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2479:                                             ; preds = %34
-  %2480 = load i32, ptr @hf_x11_glx_render_DrawArrays_mode, align 4
-  %2481 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2480, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2482 = load i32, ptr %2, align 4
-  %2483 = add i32 %2482, 4
-  store i32 %2483, ptr %2, align 4
-  %2484 = load i32, ptr @hf_x11_glx_render_DrawArrays_first, align 4
-  %2485 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2484, ptr noundef %0, i32 noundef %2483, i32 noundef 4, i32 noundef %4) #10
-  %2486 = load i32, ptr %2, align 4
-  %2487 = add i32 %2486, 4
-  store i32 %2487, ptr %2, align 4
-  %2488 = load i32, ptr @hf_x11_glx_render_DrawArrays_count, align 4
-  %2489 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2488, ptr noundef %0, i32 noundef %2487, i32 noundef 4, i32 noundef %4) #10
+2491:                                             ; preds = %34
+  %2492 = load i32, ptr @hf_x11_glx_render_PolygonOffset_factor, align 4
+  %2493 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2492, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2494 = load i32, ptr %2, align 4
+  %2495 = add i32 %2494, 4
+  store i32 %2495, ptr %2, align 4
+  %2496 = load i32, ptr @hf_x11_glx_render_PolygonOffset_units, align 4
+  %2497 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2496, ptr noundef %0, i32 noundef %2495, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2490:                                             ; preds = %34
-  %2491 = load i32, ptr @hf_x11_glx_render_Indexubv_c, align 4
-  %2492 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2491, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+2498:                                             ; preds = %34
+  %2499 = load i32, ptr @hf_x11_glx_render_DrawArrays_mode, align 4
+  %2500 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2499, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2501 = load i32, ptr %2, align 4
+  %2502 = add i32 %2501, 4
+  store i32 %2502, ptr %2, align 4
+  %2503 = load i32, ptr @hf_x11_glx_render_DrawArrays_first, align 4
+  %2504 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2503, ptr noundef %0, i32 noundef %2502, i32 noundef 4, i32 noundef %4) #10
+  %2505 = load i32, ptr %2, align 4
+  %2506 = add i32 %2505, 4
+  store i32 %2506, ptr %2, align 4
+  %2507 = load i32, ptr @hf_x11_glx_render_DrawArrays_count, align 4
+  %2508 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2507, ptr noundef %0, i32 noundef %2506, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2493:                                             ; preds = %34
-  %2494 = load i32, ptr @hf_x11_glx_render_ColorSubTable_swapbytes, align 4
-  %2495 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2494, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %2496 = load i32, ptr %2, align 4
-  %2497 = add i32 %2496, 1
-  store i32 %2497, ptr %2, align 4
-  %2498 = load i32, ptr @hf_x11_glx_render_ColorSubTable_lsbfirst, align 4
-  %2499 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2498, ptr noundef %0, i32 noundef %2497, i32 noundef 1, i32 noundef %4) #10
-  %2500 = load i32, ptr %2, align 4
-  %2501 = add i32 %2500, 1
-  store i32 %2501, ptr %2, align 4
-  %2502 = load i32, ptr @hf_x11_unused, align 4
-  %2503 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2502, ptr noundef %0, i32 noundef %2501, i32 noundef 2, i32 noundef 0) #10
-  %2504 = load i32, ptr %2, align 4
-  %2505 = add i32 %2504, 2
-  store i32 %2505, ptr %2, align 4
-  %2506 = load i32, ptr @hf_x11_glx_render_ColorSubTable_rowlength, align 4
-  %2507 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2506, ptr noundef %0, i32 noundef %2505, i32 noundef 4, i32 noundef %4) #10
-  %2508 = load i32, ptr %2, align 4
-  %2509 = add i32 %2508, 4
-  store i32 %2509, ptr %2, align 4
-  %2510 = load i32, ptr @hf_x11_glx_render_ColorSubTable_skiprows, align 4
-  %2511 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2510, ptr noundef %0, i32 noundef %2509, i32 noundef 4, i32 noundef %4) #10
-  %2512 = load i32, ptr %2, align 4
-  %2513 = add i32 %2512, 4
-  store i32 %2513, ptr %2, align 4
-  %2514 = load i32, ptr @hf_x11_glx_render_ColorSubTable_skippixels, align 4
-  %2515 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2514, ptr noundef %0, i32 noundef %2513, i32 noundef 4, i32 noundef %4) #10
-  %2516 = load i32, ptr %2, align 4
-  %2517 = add i32 %2516, 4
-  store i32 %2517, ptr %2, align 4
-  %2518 = load i32, ptr @hf_x11_glx_render_ColorSubTable_alignment, align 4
-  %2519 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2518, ptr noundef %0, i32 noundef %2517, i32 noundef 4, i32 noundef %4) #10
-  %2520 = load i32, ptr %2, align 4
-  %2521 = add i32 %2520, 4
-  store i32 %2521, ptr %2, align 4
-  %2522 = load i32, ptr @hf_x11_glx_render_ColorSubTable_target, align 4
-  %2523 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2522, ptr noundef %0, i32 noundef %2521, i32 noundef 4, i32 noundef %4) #10
-  %2524 = load i32, ptr %2, align 4
-  %2525 = add i32 %2524, 4
-  store i32 %2525, ptr %2, align 4
-  %2526 = load i32, ptr @hf_x11_glx_render_ColorSubTable_start, align 4
-  %2527 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2526, ptr noundef %0, i32 noundef %2525, i32 noundef 4, i32 noundef %4) #10
-  %2528 = load i32, ptr %2, align 4
-  %2529 = add i32 %2528, 4
-  store i32 %2529, ptr %2, align 4
-  %2530 = load i32, ptr @hf_x11_glx_render_ColorSubTable_count, align 4
-  %2531 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2530, ptr noundef %0, i32 noundef %2529, i32 noundef 4, i32 noundef %4) #10
-  %2532 = load i32, ptr %2, align 4
-  %2533 = add i32 %2532, 4
-  store i32 %2533, ptr %2, align 4
-  %2534 = load i32, ptr @hf_x11_glx_render_ColorSubTable_format, align 4
-  %2535 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2534, ptr noundef %0, i32 noundef %2533, i32 noundef 4, i32 noundef %4) #10
-  %2536 = load i32, ptr %2, align 4
-  %2537 = add i32 %2536, 4
-  store i32 %2537, ptr %2, align 4
-  %2538 = load i32, ptr @hf_x11_glx_render_ColorSubTable_type, align 4
-  %2539 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2538, ptr noundef %0, i32 noundef %2537, i32 noundef 4, i32 noundef %4) #10
-  %2540 = load i32, ptr %2, align 4
-  %2541 = add i32 %2540, 4
-  store i32 %2541, ptr %2, align 4
-  %2542 = load i32, ptr @hf_x11_glx_render_ColorSubTable_data, align 4
-  %2543 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 41)
-  %spec.store.select.i.i2345 = add nsw i32 %2543, -40
-  %2544 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2542, ptr noundef %0, i32 noundef %2541, i32 noundef %spec.store.select.i.i2345, i32 noundef %4) #10
+2509:                                             ; preds = %34
+  %2510 = load i32, ptr @hf_x11_glx_render_Indexubv_c, align 4
+  %2511 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2510, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2545:                                             ; preds = %34
-  %2546 = load i32, ptr @hf_x11_glx_render_CopyColorSubTable_target, align 4
-  %2547 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2546, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2548 = load i32, ptr %2, align 4
-  %2549 = add i32 %2548, 4
-  store i32 %2549, ptr %2, align 4
-  %2550 = load i32, ptr @hf_x11_glx_render_CopyColorSubTable_start, align 4
-  %2551 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2550, ptr noundef %0, i32 noundef %2549, i32 noundef 4, i32 noundef %4) #10
-  %2552 = load i32, ptr %2, align 4
-  %2553 = add i32 %2552, 4
-  store i32 %2553, ptr %2, align 4
-  %2554 = load i32, ptr @hf_x11_glx_render_CopyColorSubTable_x, align 4
-  %2555 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2554, ptr noundef %0, i32 noundef %2553, i32 noundef 4, i32 noundef %4) #10
-  %2556 = load i32, ptr %2, align 4
-  %2557 = add i32 %2556, 4
-  store i32 %2557, ptr %2, align 4
-  %2558 = load i32, ptr @hf_x11_glx_render_CopyColorSubTable_y, align 4
-  %2559 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2558, ptr noundef %0, i32 noundef %2557, i32 noundef 4, i32 noundef %4) #10
-  %2560 = load i32, ptr %2, align 4
-  %2561 = add i32 %2560, 4
-  store i32 %2561, ptr %2, align 4
-  %2562 = load i32, ptr @hf_x11_glx_render_CopyColorSubTable_width, align 4
-  %2563 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2562, ptr noundef %0, i32 noundef %2561, i32 noundef 4, i32 noundef %4) #10
+2512:                                             ; preds = %34
+  %2513 = load i32, ptr @hf_x11_glx_render_ColorSubTable_swapbytes, align 4
+  %2514 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2513, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %2515 = load i32, ptr %2, align 4
+  %2516 = add i32 %2515, 1
+  store i32 %2516, ptr %2, align 4
+  %2517 = load i32, ptr @hf_x11_glx_render_ColorSubTable_lsbfirst, align 4
+  %2518 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2517, ptr noundef %0, i32 noundef %2516, i32 noundef 1, i32 noundef %4) #10
+  %2519 = load i32, ptr %2, align 4
+  %2520 = add i32 %2519, 1
+  store i32 %2520, ptr %2, align 4
+  %2521 = load i32, ptr @hf_x11_unused, align 4
+  %2522 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2521, ptr noundef %0, i32 noundef %2520, i32 noundef 2, i32 noundef 0) #10
+  %2523 = load i32, ptr %2, align 4
+  %2524 = add i32 %2523, 2
+  store i32 %2524, ptr %2, align 4
+  %2525 = load i32, ptr @hf_x11_glx_render_ColorSubTable_rowlength, align 4
+  %2526 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2525, ptr noundef %0, i32 noundef %2524, i32 noundef 4, i32 noundef %4) #10
+  %2527 = load i32, ptr %2, align 4
+  %2528 = add i32 %2527, 4
+  store i32 %2528, ptr %2, align 4
+  %2529 = load i32, ptr @hf_x11_glx_render_ColorSubTable_skiprows, align 4
+  %2530 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2529, ptr noundef %0, i32 noundef %2528, i32 noundef 4, i32 noundef %4) #10
+  %2531 = load i32, ptr %2, align 4
+  %2532 = add i32 %2531, 4
+  store i32 %2532, ptr %2, align 4
+  %2533 = load i32, ptr @hf_x11_glx_render_ColorSubTable_skippixels, align 4
+  %2534 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2533, ptr noundef %0, i32 noundef %2532, i32 noundef 4, i32 noundef %4) #10
+  %2535 = load i32, ptr %2, align 4
+  %2536 = add i32 %2535, 4
+  store i32 %2536, ptr %2, align 4
+  %2537 = load i32, ptr @hf_x11_glx_render_ColorSubTable_alignment, align 4
+  %2538 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2537, ptr noundef %0, i32 noundef %2536, i32 noundef 4, i32 noundef %4) #10
+  %2539 = load i32, ptr %2, align 4
+  %2540 = add i32 %2539, 4
+  store i32 %2540, ptr %2, align 4
+  %2541 = load i32, ptr @hf_x11_glx_render_ColorSubTable_target, align 4
+  %2542 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2541, ptr noundef %0, i32 noundef %2540, i32 noundef 4, i32 noundef %4) #10
+  %2543 = load i32, ptr %2, align 4
+  %2544 = add i32 %2543, 4
+  store i32 %2544, ptr %2, align 4
+  %2545 = load i32, ptr @hf_x11_glx_render_ColorSubTable_start, align 4
+  %2546 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2545, ptr noundef %0, i32 noundef %2544, i32 noundef 4, i32 noundef %4) #10
+  %2547 = load i32, ptr %2, align 4
+  %2548 = add i32 %2547, 4
+  store i32 %2548, ptr %2, align 4
+  %2549 = load i32, ptr @hf_x11_glx_render_ColorSubTable_count, align 4
+  %2550 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2549, ptr noundef %0, i32 noundef %2548, i32 noundef 4, i32 noundef %4) #10
+  %2551 = load i32, ptr %2, align 4
+  %2552 = add i32 %2551, 4
+  store i32 %2552, ptr %2, align 4
+  %2553 = load i32, ptr @hf_x11_glx_render_ColorSubTable_format, align 4
+  %2554 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2553, ptr noundef %0, i32 noundef %2552, i32 noundef 4, i32 noundef %4) #10
+  %2555 = load i32, ptr %2, align 4
+  %2556 = add i32 %2555, 4
+  store i32 %2556, ptr %2, align 4
+  %2557 = load i32, ptr @hf_x11_glx_render_ColorSubTable_type, align 4
+  %2558 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2557, ptr noundef %0, i32 noundef %2556, i32 noundef 4, i32 noundef %4) #10
+  %2559 = load i32, ptr %2, align 4
+  %2560 = add i32 %2559, 4
+  store i32 %2560, ptr %2, align 4
+  %2561 = load i32, ptr @hf_x11_glx_render_ColorSubTable_data, align 4
+  %2562 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 41)
+  %spec.store.select.i.i2345 = add nsw i32 %2562, -40
+  %2563 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2561, ptr noundef %0, i32 noundef %2560, i32 noundef %spec.store.select.i.i2345, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
 2564:                                             ; preds = %34
-  %2565 = load i32, ptr @hf_x11_glx_render_ActiveTexture_texture, align 4
+  %2565 = load i32, ptr @hf_x11_glx_render_CopyColorSubTable_target, align 4
   %2566 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2565, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2567 = load i32, ptr %2, align 4
+  %2568 = add i32 %2567, 4
+  store i32 %2568, ptr %2, align 4
+  %2569 = load i32, ptr @hf_x11_glx_render_CopyColorSubTable_start, align 4
+  %2570 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2569, ptr noundef %0, i32 noundef %2568, i32 noundef 4, i32 noundef %4) #10
+  %2571 = load i32, ptr %2, align 4
+  %2572 = add i32 %2571, 4
+  store i32 %2572, ptr %2, align 4
+  %2573 = load i32, ptr @hf_x11_glx_render_CopyColorSubTable_x, align 4
+  %2574 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2573, ptr noundef %0, i32 noundef %2572, i32 noundef 4, i32 noundef %4) #10
+  %2575 = load i32, ptr %2, align 4
+  %2576 = add i32 %2575, 4
+  store i32 %2576, ptr %2, align 4
+  %2577 = load i32, ptr @hf_x11_glx_render_CopyColorSubTable_y, align 4
+  %2578 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2577, ptr noundef %0, i32 noundef %2576, i32 noundef 4, i32 noundef %4) #10
+  %2579 = load i32, ptr %2, align 4
+  %2580 = add i32 %2579, 4
+  store i32 %2580, ptr %2, align 4
+  %2581 = load i32, ptr @hf_x11_glx_render_CopyColorSubTable_width, align 4
+  %2582 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2581, ptr noundef %0, i32 noundef %2580, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2567:                                             ; preds = %34
-  %2568 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1dv_target, align 4
-  %2569 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2568, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2570 = load i32, ptr %2, align 4
-  %2571 = add i32 %2570, 4
-  store i32 %2571, ptr %2, align 4
-  %2572 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1dv_v, align 4
-  %2573 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1dv_v_item, align 4
-  %2574 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2572, ptr noundef %0, i32 noundef %2571, i32 noundef 8, i32 noundef %4) #10
-  %2575 = load i32, ptr @ett_x11_list_of_double, align 4
-  %2576 = tail call ptr @proto_item_add_subtree(ptr noundef %2574, i32 noundef %2575) #10
+2583:                                             ; preds = %34
+  %2584 = load i32, ptr @hf_x11_glx_render_ActiveTexture_texture, align 4
+  %2585 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2584, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+2586:                                             ; preds = %34
+  %2587 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1dv_target, align 4
+  %2588 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2587, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2589 = load i32, ptr %2, align 4
+  %2590 = add i32 %2589, 4
+  store i32 %2590, ptr %2, align 4
+  %2591 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1dv_v, align 4
+  %2592 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1dv_v_item, align 4
+  %2593 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2591, ptr noundef %0, i32 noundef %2590, i32 noundef 8, i32 noundef %4) #10
+  %2594 = load i32, ptr @ett_x11_list_of_double, align 4
+  %2595 = tail call ptr @proto_item_add_subtree(ptr noundef %2593, i32 noundef %2594) #10
   %.pre.i.i2347 = load i32, ptr %2, align 4
-  %2577 = tail call ptr @proto_tree_add_item(ptr noundef %2576, i32 noundef %2573, ptr noundef %0, i32 noundef %.pre.i.i2347, i32 noundef 8, i32 noundef %4) #10
+  %2596 = tail call ptr @proto_tree_add_item(ptr noundef %2595, i32 noundef %2592, ptr noundef %0, i32 noundef %.pre.i.i2347, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2578:                                             ; preds = %34
-  %2579 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1fvARB_target, align 4
-  %2580 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2579, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2581 = load i32, ptr %2, align 4
-  %2582 = add i32 %2581, 4
-  store i32 %2582, ptr %2, align 4
-  %2583 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1fvARB_v, align 4
-  %2584 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1fvARB_v_item, align 4
-  %2585 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2583, ptr noundef %0, i32 noundef %2582, i32 noundef 4, i32 noundef %4) #10
-  %2586 = load i32, ptr @ett_x11_list_of_float, align 4
-  %2587 = tail call ptr @proto_item_add_subtree(ptr noundef %2585, i32 noundef %2586) #10
+2597:                                             ; preds = %34
+  %2598 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1fvARB_target, align 4
+  %2599 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2598, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2600 = load i32, ptr %2, align 4
+  %2601 = add i32 %2600, 4
+  store i32 %2601, ptr %2, align 4
+  %2602 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1fvARB_v, align 4
+  %2603 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1fvARB_v_item, align 4
+  %2604 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2602, ptr noundef %0, i32 noundef %2601, i32 noundef 4, i32 noundef %4) #10
+  %2605 = load i32, ptr @ett_x11_list_of_float, align 4
+  %2606 = tail call ptr @proto_item_add_subtree(ptr noundef %2604, i32 noundef %2605) #10
   %.pre.i.i2349 = load i32, ptr %2, align 4
-  %2588 = tail call ptr @proto_tree_add_item(ptr noundef %2587, i32 noundef %2584, ptr noundef %0, i32 noundef %.pre.i.i2349, i32 noundef 4, i32 noundef %4) #10
+  %2607 = tail call ptr @proto_tree_add_item(ptr noundef %2606, i32 noundef %2603, ptr noundef %0, i32 noundef %.pre.i.i2349, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2589:                                             ; preds = %34
-  %2590 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1iv_target, align 4
-  %2591 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2590, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2592 = load i32, ptr %2, align 4
-  %2593 = add i32 %2592, 4
-  store i32 %2593, ptr %2, align 4
-  %2594 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1iv_v, align 4
-  %2595 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1iv_v_item, align 4
-  %2596 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2594, ptr noundef %0, i32 noundef %2593, i32 noundef 4, i32 noundef %4) #10
-  %2597 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %2598 = tail call ptr @proto_item_add_subtree(ptr noundef %2596, i32 noundef %2597) #10
+2608:                                             ; preds = %34
+  %2609 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1iv_target, align 4
+  %2610 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2609, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2611 = load i32, ptr %2, align 4
+  %2612 = add i32 %2611, 4
+  store i32 %2612, ptr %2, align 4
+  %2613 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1iv_v, align 4
+  %2614 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1iv_v_item, align 4
+  %2615 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2613, ptr noundef %0, i32 noundef %2612, i32 noundef 4, i32 noundef %4) #10
+  %2616 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %2617 = tail call ptr @proto_item_add_subtree(ptr noundef %2615, i32 noundef %2616) #10
   %.pre.i.i2351 = load i32, ptr %2, align 4
-  %2599 = tail call ptr @proto_tree_add_item(ptr noundef %2598, i32 noundef %2595, ptr noundef %0, i32 noundef %.pre.i.i2351, i32 noundef 4, i32 noundef %4) #10
+  %2618 = tail call ptr @proto_tree_add_item(ptr noundef %2617, i32 noundef %2614, ptr noundef %0, i32 noundef %.pre.i.i2351, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2600:                                             ; preds = %34
-  %2601 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1sv_target, align 4
-  %2602 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2601, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2603 = load i32, ptr %2, align 4
-  %2604 = add i32 %2603, 4
-  store i32 %2604, ptr %2, align 4
-  %2605 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1sv_v, align 4
-  %2606 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1sv_v_item, align 4
-  %2607 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2605, ptr noundef %0, i32 noundef %2604, i32 noundef 2, i32 noundef %4) #10
-  %2608 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %2609 = tail call ptr @proto_item_add_subtree(ptr noundef %2607, i32 noundef %2608) #10
+2619:                                             ; preds = %34
+  %2620 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1sv_target, align 4
+  %2621 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2620, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2622 = load i32, ptr %2, align 4
+  %2623 = add i32 %2622, 4
+  store i32 %2623, ptr %2, align 4
+  %2624 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1sv_v, align 4
+  %2625 = load i32, ptr @hf_x11_glx_render_MultiTexCoord1sv_v_item, align 4
+  %2626 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2624, ptr noundef %0, i32 noundef %2623, i32 noundef 2, i32 noundef %4) #10
+  %2627 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %2628 = tail call ptr @proto_item_add_subtree(ptr noundef %2626, i32 noundef %2627) #10
   %.pre.i.i2353 = load i32, ptr %2, align 4
-  %2610 = tail call ptr @proto_tree_add_item(ptr noundef %2609, i32 noundef %2606, ptr noundef %0, i32 noundef %.pre.i.i2353, i32 noundef 2, i32 noundef %4) #10
+  %2629 = tail call ptr @proto_tree_add_item(ptr noundef %2628, i32 noundef %2625, ptr noundef %0, i32 noundef %.pre.i.i2353, i32 noundef 2, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2611:                                             ; preds = %34
-  %2612 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2dv_target, align 4
-  %2613 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2612, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2614 = load i32, ptr %2, align 4
-  %2615 = add i32 %2614, 4
-  store i32 %2615, ptr %2, align 4
-  %2616 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2dv_v, align 4
-  %2617 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2dv_v_item, align 4
-  %2618 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2616, ptr noundef %0, i32 noundef %2615, i32 noundef 16, i32 noundef %4) #10
-  %2619 = load i32, ptr @ett_x11_list_of_double, align 4
-  %2620 = tail call ptr @proto_item_add_subtree(ptr noundef %2618, i32 noundef %2619) #10
+2630:                                             ; preds = %34
+  %2631 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2dv_target, align 4
+  %2632 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2631, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2633 = load i32, ptr %2, align 4
+  %2634 = add i32 %2633, 4
+  store i32 %2634, ptr %2, align 4
+  %2635 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2dv_v, align 4
+  %2636 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2dv_v_item, align 4
+  %2637 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2635, ptr noundef %0, i32 noundef %2634, i32 noundef 16, i32 noundef %4) #10
+  %2638 = load i32, ptr @ett_x11_list_of_double, align 4
+  %2639 = tail call ptr @proto_item_add_subtree(ptr noundef %2637, i32 noundef %2638) #10
   %.pre.i.i2354 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2355
 
-.lr.ph.i.i2355:                                   ; preds = %.lr.ph.i.i2355, %2611
-  %2621 = phi i32 [ %2625, %.lr.ph.i.i2355 ], [ %.pre.i.i2354, %2611 ]
-  %.014.i.i2356 = phi i32 [ %2622, %.lr.ph.i.i2355 ], [ 2, %2611 ]
-  %2622 = add nsw i32 %.014.i.i2356, -1
-  %2623 = tail call ptr @proto_tree_add_item(ptr noundef %2620, i32 noundef %2617, ptr noundef %0, i32 noundef %2621, i32 noundef 8, i32 noundef %4) #10
-  %2624 = load i32, ptr %2, align 4
-  %2625 = add i32 %2624, 8
-  store i32 %2625, ptr %2, align 4
-  %.not.i.i2357 = icmp eq i32 %2622, 0
+.lr.ph.i.i2355:                                   ; preds = %.lr.ph.i.i2355, %2630
+  %2640 = phi i32 [ %2644, %.lr.ph.i.i2355 ], [ %.pre.i.i2354, %2630 ]
+  %.014.i.i2356 = phi i32 [ %2641, %.lr.ph.i.i2355 ], [ 2, %2630 ]
+  %2641 = add nsw i32 %.014.i.i2356, -1
+  %2642 = tail call ptr @proto_tree_add_item(ptr noundef %2639, i32 noundef %2636, ptr noundef %0, i32 noundef %2640, i32 noundef 8, i32 noundef %4) #10
+  %2643 = load i32, ptr %2, align 4
+  %2644 = add i32 %2643, 8
+  store i32 %2644, ptr %2, align 4
+  %.not.i.i2357 = icmp eq i32 %2641, 0
   br i1 %.not.i.i2357, label %mesa_CallLists.exit, label %.lr.ph.i.i2355, !llvm.loop !62
 
-2626:                                             ; preds = %34
-  %2627 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2fvARB_target, align 4
-  %2628 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2627, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2629 = load i32, ptr %2, align 4
-  %2630 = add i32 %2629, 4
-  store i32 %2630, ptr %2, align 4
-  %2631 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2fvARB_v, align 4
-  %2632 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2fvARB_v_item, align 4
-  %2633 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2631, ptr noundef %0, i32 noundef %2630, i32 noundef 8, i32 noundef %4) #10
-  %2634 = load i32, ptr @ett_x11_list_of_float, align 4
-  %2635 = tail call ptr @proto_item_add_subtree(ptr noundef %2633, i32 noundef %2634) #10
+2645:                                             ; preds = %34
+  %2646 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2fvARB_target, align 4
+  %2647 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2646, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2648 = load i32, ptr %2, align 4
+  %2649 = add i32 %2648, 4
+  store i32 %2649, ptr %2, align 4
+  %2650 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2fvARB_v, align 4
+  %2651 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2fvARB_v_item, align 4
+  %2652 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2650, ptr noundef %0, i32 noundef %2649, i32 noundef 8, i32 noundef %4) #10
+  %2653 = load i32, ptr @ett_x11_list_of_float, align 4
+  %2654 = tail call ptr @proto_item_add_subtree(ptr noundef %2652, i32 noundef %2653) #10
   %.pre.i.i2359 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2360
 
-.lr.ph.i.i2360:                                   ; preds = %.lr.ph.i.i2360, %2626
-  %2636 = phi i32 [ %2640, %.lr.ph.i.i2360 ], [ %.pre.i.i2359, %2626 ]
-  %.014.i.i2361 = phi i32 [ %2637, %.lr.ph.i.i2360 ], [ 2, %2626 ]
-  %2637 = add nsw i32 %.014.i.i2361, -1
-  %2638 = tail call ptr @proto_tree_add_item(ptr noundef %2635, i32 noundef %2632, ptr noundef %0, i32 noundef %2636, i32 noundef 4, i32 noundef %4) #10
-  %2639 = load i32, ptr %2, align 4
-  %2640 = add i32 %2639, 4
-  store i32 %2640, ptr %2, align 4
-  %.not.i.i2362 = icmp eq i32 %2637, 0
+.lr.ph.i.i2360:                                   ; preds = %.lr.ph.i.i2360, %2645
+  %2655 = phi i32 [ %2659, %.lr.ph.i.i2360 ], [ %.pre.i.i2359, %2645 ]
+  %.014.i.i2361 = phi i32 [ %2656, %.lr.ph.i.i2360 ], [ 2, %2645 ]
+  %2656 = add nsw i32 %.014.i.i2361, -1
+  %2657 = tail call ptr @proto_tree_add_item(ptr noundef %2654, i32 noundef %2651, ptr noundef %0, i32 noundef %2655, i32 noundef 4, i32 noundef %4) #10
+  %2658 = load i32, ptr %2, align 4
+  %2659 = add i32 %2658, 4
+  store i32 %2659, ptr %2, align 4
+  %.not.i.i2362 = icmp eq i32 %2656, 0
   br i1 %.not.i.i2362, label %mesa_CallLists.exit, label %.lr.ph.i.i2360, !llvm.loop !61
 
-2641:                                             ; preds = %34
-  %2642 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2iv_target, align 4
-  %2643 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2642, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2644 = load i32, ptr %2, align 4
-  %2645 = add i32 %2644, 4
-  store i32 %2645, ptr %2, align 4
-  %2646 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2iv_v, align 4
-  %2647 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2iv_v_item, align 4
-  %2648 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2646, ptr noundef %0, i32 noundef %2645, i32 noundef 8, i32 noundef %4) #10
-  %2649 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %2650 = tail call ptr @proto_item_add_subtree(ptr noundef %2648, i32 noundef %2649) #10
+2660:                                             ; preds = %34
+  %2661 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2iv_target, align 4
+  %2662 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2661, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2663 = load i32, ptr %2, align 4
+  %2664 = add i32 %2663, 4
+  store i32 %2664, ptr %2, align 4
+  %2665 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2iv_v, align 4
+  %2666 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2iv_v_item, align 4
+  %2667 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2665, ptr noundef %0, i32 noundef %2664, i32 noundef 8, i32 noundef %4) #10
+  %2668 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %2669 = tail call ptr @proto_item_add_subtree(ptr noundef %2667, i32 noundef %2668) #10
   %.pre.i.i2364 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2365
 
-.lr.ph.i.i2365:                                   ; preds = %.lr.ph.i.i2365, %2641
-  %2651 = phi i32 [ %2655, %.lr.ph.i.i2365 ], [ %.pre.i.i2364, %2641 ]
-  %.014.i.i2366 = phi i32 [ %2652, %.lr.ph.i.i2365 ], [ 2, %2641 ]
-  %2652 = add nsw i32 %.014.i.i2366, -1
-  %2653 = tail call ptr @proto_tree_add_item(ptr noundef %2650, i32 noundef %2647, ptr noundef %0, i32 noundef %2651, i32 noundef 4, i32 noundef %4) #10
-  %2654 = load i32, ptr %2, align 4
-  %2655 = add i32 %2654, 4
-  store i32 %2655, ptr %2, align 4
-  %.not.i.i2367 = icmp eq i32 %2652, 0
+.lr.ph.i.i2365:                                   ; preds = %.lr.ph.i.i2365, %2660
+  %2670 = phi i32 [ %2674, %.lr.ph.i.i2365 ], [ %.pre.i.i2364, %2660 ]
+  %.014.i.i2366 = phi i32 [ %2671, %.lr.ph.i.i2365 ], [ 2, %2660 ]
+  %2671 = add nsw i32 %.014.i.i2366, -1
+  %2672 = tail call ptr @proto_tree_add_item(ptr noundef %2669, i32 noundef %2666, ptr noundef %0, i32 noundef %2670, i32 noundef 4, i32 noundef %4) #10
+  %2673 = load i32, ptr %2, align 4
+  %2674 = add i32 %2673, 4
+  store i32 %2674, ptr %2, align 4
+  %.not.i.i2367 = icmp eq i32 %2671, 0
   br i1 %.not.i.i2367, label %mesa_CallLists.exit, label %.lr.ph.i.i2365, !llvm.loop !60
 
-2656:                                             ; preds = %34
-  %2657 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2sv_target, align 4
-  %2658 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2657, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2659 = load i32, ptr %2, align 4
-  %2660 = add i32 %2659, 4
-  store i32 %2660, ptr %2, align 4
-  %2661 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2sv_v, align 4
-  %2662 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2sv_v_item, align 4
-  %2663 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2661, ptr noundef %0, i32 noundef %2660, i32 noundef 4, i32 noundef %4) #10
-  %2664 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %2665 = tail call ptr @proto_item_add_subtree(ptr noundef %2663, i32 noundef %2664) #10
+2675:                                             ; preds = %34
+  %2676 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2sv_target, align 4
+  %2677 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2676, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2678 = load i32, ptr %2, align 4
+  %2679 = add i32 %2678, 4
+  store i32 %2679, ptr %2, align 4
+  %2680 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2sv_v, align 4
+  %2681 = load i32, ptr @hf_x11_glx_render_MultiTexCoord2sv_v_item, align 4
+  %2682 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2680, ptr noundef %0, i32 noundef %2679, i32 noundef 4, i32 noundef %4) #10
+  %2683 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %2684 = tail call ptr @proto_item_add_subtree(ptr noundef %2682, i32 noundef %2683) #10
   %.pre.i.i2369 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2370
 
-.lr.ph.i.i2370:                                   ; preds = %.lr.ph.i.i2370, %2656
-  %2666 = phi i32 [ %2670, %.lr.ph.i.i2370 ], [ %.pre.i.i2369, %2656 ]
-  %.014.i.i2371 = phi i32 [ %2667, %.lr.ph.i.i2370 ], [ 2, %2656 ]
-  %2667 = add nsw i32 %.014.i.i2371, -1
-  %2668 = tail call ptr @proto_tree_add_item(ptr noundef %2665, i32 noundef %2662, ptr noundef %0, i32 noundef %2666, i32 noundef 2, i32 noundef %4) #10
-  %2669 = load i32, ptr %2, align 4
-  %2670 = add i32 %2669, 2
-  store i32 %2670, ptr %2, align 4
-  %.not.i.i2372 = icmp eq i32 %2667, 0
+.lr.ph.i.i2370:                                   ; preds = %.lr.ph.i.i2370, %2675
+  %2685 = phi i32 [ %2689, %.lr.ph.i.i2370 ], [ %.pre.i.i2369, %2675 ]
+  %.014.i.i2371 = phi i32 [ %2686, %.lr.ph.i.i2370 ], [ 2, %2675 ]
+  %2686 = add nsw i32 %.014.i.i2371, -1
+  %2687 = tail call ptr @proto_tree_add_item(ptr noundef %2684, i32 noundef %2681, ptr noundef %0, i32 noundef %2685, i32 noundef 2, i32 noundef %4) #10
+  %2688 = load i32, ptr %2, align 4
+  %2689 = add i32 %2688, 2
+  store i32 %2689, ptr %2, align 4
+  %.not.i.i2372 = icmp eq i32 %2686, 0
   br i1 %.not.i.i2372, label %mesa_CallLists.exit, label %.lr.ph.i.i2370, !llvm.loop !59
 
-2671:                                             ; preds = %34
-  %2672 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3dv_target, align 4
-  %2673 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2672, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2674 = load i32, ptr %2, align 4
-  %2675 = add i32 %2674, 4
-  store i32 %2675, ptr %2, align 4
-  %2676 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3dv_v, align 4
-  %2677 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3dv_v_item, align 4
-  %2678 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2676, ptr noundef %0, i32 noundef %2675, i32 noundef 24, i32 noundef %4) #10
-  %2679 = load i32, ptr @ett_x11_list_of_double, align 4
-  %2680 = tail call ptr @proto_item_add_subtree(ptr noundef %2678, i32 noundef %2679) #10
+2690:                                             ; preds = %34
+  %2691 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3dv_target, align 4
+  %2692 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2691, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2693 = load i32, ptr %2, align 4
+  %2694 = add i32 %2693, 4
+  store i32 %2694, ptr %2, align 4
+  %2695 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3dv_v, align 4
+  %2696 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3dv_v_item, align 4
+  %2697 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2695, ptr noundef %0, i32 noundef %2694, i32 noundef 24, i32 noundef %4) #10
+  %2698 = load i32, ptr @ett_x11_list_of_double, align 4
+  %2699 = tail call ptr @proto_item_add_subtree(ptr noundef %2697, i32 noundef %2698) #10
   %.pre.i.i2374 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2375
 
-.lr.ph.i.i2375:                                   ; preds = %.lr.ph.i.i2375, %2671
-  %2681 = phi i32 [ %2685, %.lr.ph.i.i2375 ], [ %.pre.i.i2374, %2671 ]
-  %.014.i.i2376 = phi i32 [ %2682, %.lr.ph.i.i2375 ], [ 3, %2671 ]
-  %2682 = add nsw i32 %.014.i.i2376, -1
-  %2683 = tail call ptr @proto_tree_add_item(ptr noundef %2680, i32 noundef %2677, ptr noundef %0, i32 noundef %2681, i32 noundef 8, i32 noundef %4) #10
-  %2684 = load i32, ptr %2, align 4
-  %2685 = add i32 %2684, 8
-  store i32 %2685, ptr %2, align 4
-  %.not.i.i2377 = icmp eq i32 %2682, 0
+.lr.ph.i.i2375:                                   ; preds = %.lr.ph.i.i2375, %2690
+  %2700 = phi i32 [ %2704, %.lr.ph.i.i2375 ], [ %.pre.i.i2374, %2690 ]
+  %.014.i.i2376 = phi i32 [ %2701, %.lr.ph.i.i2375 ], [ 3, %2690 ]
+  %2701 = add nsw i32 %.014.i.i2376, -1
+  %2702 = tail call ptr @proto_tree_add_item(ptr noundef %2699, i32 noundef %2696, ptr noundef %0, i32 noundef %2700, i32 noundef 8, i32 noundef %4) #10
+  %2703 = load i32, ptr %2, align 4
+  %2704 = add i32 %2703, 8
+  store i32 %2704, ptr %2, align 4
+  %.not.i.i2377 = icmp eq i32 %2701, 0
   br i1 %.not.i.i2377, label %mesa_CallLists.exit, label %.lr.ph.i.i2375, !llvm.loop !62
 
-2686:                                             ; preds = %34
-  %2687 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3fvARB_target, align 4
-  %2688 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2687, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2689 = load i32, ptr %2, align 4
-  %2690 = add i32 %2689, 4
-  store i32 %2690, ptr %2, align 4
-  %2691 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3fvARB_v, align 4
-  %2692 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3fvARB_v_item, align 4
-  %2693 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2691, ptr noundef %0, i32 noundef %2690, i32 noundef 12, i32 noundef %4) #10
-  %2694 = load i32, ptr @ett_x11_list_of_float, align 4
-  %2695 = tail call ptr @proto_item_add_subtree(ptr noundef %2693, i32 noundef %2694) #10
+2705:                                             ; preds = %34
+  %2706 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3fvARB_target, align 4
+  %2707 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2706, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2708 = load i32, ptr %2, align 4
+  %2709 = add i32 %2708, 4
+  store i32 %2709, ptr %2, align 4
+  %2710 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3fvARB_v, align 4
+  %2711 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3fvARB_v_item, align 4
+  %2712 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2710, ptr noundef %0, i32 noundef %2709, i32 noundef 12, i32 noundef %4) #10
+  %2713 = load i32, ptr @ett_x11_list_of_float, align 4
+  %2714 = tail call ptr @proto_item_add_subtree(ptr noundef %2712, i32 noundef %2713) #10
   %.pre.i.i2379 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2380
 
-.lr.ph.i.i2380:                                   ; preds = %.lr.ph.i.i2380, %2686
-  %2696 = phi i32 [ %2700, %.lr.ph.i.i2380 ], [ %.pre.i.i2379, %2686 ]
-  %.014.i.i2381 = phi i32 [ %2697, %.lr.ph.i.i2380 ], [ 3, %2686 ]
-  %2697 = add nsw i32 %.014.i.i2381, -1
-  %2698 = tail call ptr @proto_tree_add_item(ptr noundef %2695, i32 noundef %2692, ptr noundef %0, i32 noundef %2696, i32 noundef 4, i32 noundef %4) #10
-  %2699 = load i32, ptr %2, align 4
-  %2700 = add i32 %2699, 4
-  store i32 %2700, ptr %2, align 4
-  %.not.i.i2382 = icmp eq i32 %2697, 0
+.lr.ph.i.i2380:                                   ; preds = %.lr.ph.i.i2380, %2705
+  %2715 = phi i32 [ %2719, %.lr.ph.i.i2380 ], [ %.pre.i.i2379, %2705 ]
+  %.014.i.i2381 = phi i32 [ %2716, %.lr.ph.i.i2380 ], [ 3, %2705 ]
+  %2716 = add nsw i32 %.014.i.i2381, -1
+  %2717 = tail call ptr @proto_tree_add_item(ptr noundef %2714, i32 noundef %2711, ptr noundef %0, i32 noundef %2715, i32 noundef 4, i32 noundef %4) #10
+  %2718 = load i32, ptr %2, align 4
+  %2719 = add i32 %2718, 4
+  store i32 %2719, ptr %2, align 4
+  %.not.i.i2382 = icmp eq i32 %2716, 0
   br i1 %.not.i.i2382, label %mesa_CallLists.exit, label %.lr.ph.i.i2380, !llvm.loop !61
 
-2701:                                             ; preds = %34
-  %2702 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3iv_target, align 4
-  %2703 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2702, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2704 = load i32, ptr %2, align 4
-  %2705 = add i32 %2704, 4
-  store i32 %2705, ptr %2, align 4
-  %2706 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3iv_v, align 4
-  %2707 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3iv_v_item, align 4
-  %2708 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2706, ptr noundef %0, i32 noundef %2705, i32 noundef 12, i32 noundef %4) #10
-  %2709 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %2710 = tail call ptr @proto_item_add_subtree(ptr noundef %2708, i32 noundef %2709) #10
+2720:                                             ; preds = %34
+  %2721 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3iv_target, align 4
+  %2722 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2721, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2723 = load i32, ptr %2, align 4
+  %2724 = add i32 %2723, 4
+  store i32 %2724, ptr %2, align 4
+  %2725 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3iv_v, align 4
+  %2726 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3iv_v_item, align 4
+  %2727 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2725, ptr noundef %0, i32 noundef %2724, i32 noundef 12, i32 noundef %4) #10
+  %2728 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %2729 = tail call ptr @proto_item_add_subtree(ptr noundef %2727, i32 noundef %2728) #10
   %.pre.i.i2384 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2385
 
-.lr.ph.i.i2385:                                   ; preds = %.lr.ph.i.i2385, %2701
-  %2711 = phi i32 [ %2715, %.lr.ph.i.i2385 ], [ %.pre.i.i2384, %2701 ]
-  %.014.i.i2386 = phi i32 [ %2712, %.lr.ph.i.i2385 ], [ 3, %2701 ]
-  %2712 = add nsw i32 %.014.i.i2386, -1
-  %2713 = tail call ptr @proto_tree_add_item(ptr noundef %2710, i32 noundef %2707, ptr noundef %0, i32 noundef %2711, i32 noundef 4, i32 noundef %4) #10
-  %2714 = load i32, ptr %2, align 4
-  %2715 = add i32 %2714, 4
-  store i32 %2715, ptr %2, align 4
-  %.not.i.i2387 = icmp eq i32 %2712, 0
+.lr.ph.i.i2385:                                   ; preds = %.lr.ph.i.i2385, %2720
+  %2730 = phi i32 [ %2734, %.lr.ph.i.i2385 ], [ %.pre.i.i2384, %2720 ]
+  %.014.i.i2386 = phi i32 [ %2731, %.lr.ph.i.i2385 ], [ 3, %2720 ]
+  %2731 = add nsw i32 %.014.i.i2386, -1
+  %2732 = tail call ptr @proto_tree_add_item(ptr noundef %2729, i32 noundef %2726, ptr noundef %0, i32 noundef %2730, i32 noundef 4, i32 noundef %4) #10
+  %2733 = load i32, ptr %2, align 4
+  %2734 = add i32 %2733, 4
+  store i32 %2734, ptr %2, align 4
+  %.not.i.i2387 = icmp eq i32 %2731, 0
   br i1 %.not.i.i2387, label %mesa_CallLists.exit, label %.lr.ph.i.i2385, !llvm.loop !60
 
-2716:                                             ; preds = %34
-  %2717 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3sv_target, align 4
-  %2718 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2717, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2719 = load i32, ptr %2, align 4
-  %2720 = add i32 %2719, 4
-  store i32 %2720, ptr %2, align 4
-  %2721 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3sv_v, align 4
-  %2722 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3sv_v_item, align 4
-  %2723 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2721, ptr noundef %0, i32 noundef %2720, i32 noundef 6, i32 noundef %4) #10
-  %2724 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %2725 = tail call ptr @proto_item_add_subtree(ptr noundef %2723, i32 noundef %2724) #10
+2735:                                             ; preds = %34
+  %2736 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3sv_target, align 4
+  %2737 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2736, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2738 = load i32, ptr %2, align 4
+  %2739 = add i32 %2738, 4
+  store i32 %2739, ptr %2, align 4
+  %2740 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3sv_v, align 4
+  %2741 = load i32, ptr @hf_x11_glx_render_MultiTexCoord3sv_v_item, align 4
+  %2742 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2740, ptr noundef %0, i32 noundef %2739, i32 noundef 6, i32 noundef %4) #10
+  %2743 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %2744 = tail call ptr @proto_item_add_subtree(ptr noundef %2742, i32 noundef %2743) #10
   %.pre.i.i2389 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2390
 
-.lr.ph.i.i2390:                                   ; preds = %.lr.ph.i.i2390, %2716
-  %2726 = phi i32 [ %2730, %.lr.ph.i.i2390 ], [ %.pre.i.i2389, %2716 ]
-  %.014.i.i2391 = phi i32 [ %2727, %.lr.ph.i.i2390 ], [ 3, %2716 ]
-  %2727 = add nsw i32 %.014.i.i2391, -1
-  %2728 = tail call ptr @proto_tree_add_item(ptr noundef %2725, i32 noundef %2722, ptr noundef %0, i32 noundef %2726, i32 noundef 2, i32 noundef %4) #10
-  %2729 = load i32, ptr %2, align 4
-  %2730 = add i32 %2729, 2
-  store i32 %2730, ptr %2, align 4
-  %.not.i.i2392 = icmp eq i32 %2727, 0
+.lr.ph.i.i2390:                                   ; preds = %.lr.ph.i.i2390, %2735
+  %2745 = phi i32 [ %2749, %.lr.ph.i.i2390 ], [ %.pre.i.i2389, %2735 ]
+  %.014.i.i2391 = phi i32 [ %2746, %.lr.ph.i.i2390 ], [ 3, %2735 ]
+  %2746 = add nsw i32 %.014.i.i2391, -1
+  %2747 = tail call ptr @proto_tree_add_item(ptr noundef %2744, i32 noundef %2741, ptr noundef %0, i32 noundef %2745, i32 noundef 2, i32 noundef %4) #10
+  %2748 = load i32, ptr %2, align 4
+  %2749 = add i32 %2748, 2
+  store i32 %2749, ptr %2, align 4
+  %.not.i.i2392 = icmp eq i32 %2746, 0
   br i1 %.not.i.i2392, label %mesa_CallLists.exit, label %.lr.ph.i.i2390, !llvm.loop !59
 
-2731:                                             ; preds = %34
-  %2732 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4dv_target, align 4
-  %2733 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2732, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2734 = load i32, ptr %2, align 4
-  %2735 = add i32 %2734, 4
-  store i32 %2735, ptr %2, align 4
-  %2736 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4dv_v, align 4
-  %2737 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4dv_v_item, align 4
-  %2738 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2736, ptr noundef %0, i32 noundef %2735, i32 noundef 32, i32 noundef %4) #10
-  %2739 = load i32, ptr @ett_x11_list_of_double, align 4
-  %2740 = tail call ptr @proto_item_add_subtree(ptr noundef %2738, i32 noundef %2739) #10
+2750:                                             ; preds = %34
+  %2751 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4dv_target, align 4
+  %2752 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2751, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2753 = load i32, ptr %2, align 4
+  %2754 = add i32 %2753, 4
+  store i32 %2754, ptr %2, align 4
+  %2755 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4dv_v, align 4
+  %2756 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4dv_v_item, align 4
+  %2757 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2755, ptr noundef %0, i32 noundef %2754, i32 noundef 32, i32 noundef %4) #10
+  %2758 = load i32, ptr @ett_x11_list_of_double, align 4
+  %2759 = tail call ptr @proto_item_add_subtree(ptr noundef %2757, i32 noundef %2758) #10
   %.pre.i.i2394 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2395
 
-.lr.ph.i.i2395:                                   ; preds = %.lr.ph.i.i2395, %2731
-  %2741 = phi i32 [ %2745, %.lr.ph.i.i2395 ], [ %.pre.i.i2394, %2731 ]
-  %.014.i.i2396 = phi i32 [ %2742, %.lr.ph.i.i2395 ], [ 4, %2731 ]
-  %2742 = add nsw i32 %.014.i.i2396, -1
-  %2743 = tail call ptr @proto_tree_add_item(ptr noundef %2740, i32 noundef %2737, ptr noundef %0, i32 noundef %2741, i32 noundef 8, i32 noundef %4) #10
-  %2744 = load i32, ptr %2, align 4
-  %2745 = add i32 %2744, 8
-  store i32 %2745, ptr %2, align 4
-  %.not.i.i2397 = icmp eq i32 %2742, 0
+.lr.ph.i.i2395:                                   ; preds = %.lr.ph.i.i2395, %2750
+  %2760 = phi i32 [ %2764, %.lr.ph.i.i2395 ], [ %.pre.i.i2394, %2750 ]
+  %.014.i.i2396 = phi i32 [ %2761, %.lr.ph.i.i2395 ], [ 4, %2750 ]
+  %2761 = add nsw i32 %.014.i.i2396, -1
+  %2762 = tail call ptr @proto_tree_add_item(ptr noundef %2759, i32 noundef %2756, ptr noundef %0, i32 noundef %2760, i32 noundef 8, i32 noundef %4) #10
+  %2763 = load i32, ptr %2, align 4
+  %2764 = add i32 %2763, 8
+  store i32 %2764, ptr %2, align 4
+  %.not.i.i2397 = icmp eq i32 %2761, 0
   br i1 %.not.i.i2397, label %mesa_CallLists.exit, label %.lr.ph.i.i2395, !llvm.loop !62
 
-2746:                                             ; preds = %34
-  %2747 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4fvARB_target, align 4
-  %2748 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2747, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2749 = load i32, ptr %2, align 4
-  %2750 = add i32 %2749, 4
-  store i32 %2750, ptr %2, align 4
-  %2751 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4fvARB_v, align 4
-  %2752 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4fvARB_v_item, align 4
-  %2753 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2751, ptr noundef %0, i32 noundef %2750, i32 noundef 16, i32 noundef %4) #10
-  %2754 = load i32, ptr @ett_x11_list_of_float, align 4
-  %2755 = tail call ptr @proto_item_add_subtree(ptr noundef %2753, i32 noundef %2754) #10
+2765:                                             ; preds = %34
+  %2766 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4fvARB_target, align 4
+  %2767 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2766, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2768 = load i32, ptr %2, align 4
+  %2769 = add i32 %2768, 4
+  store i32 %2769, ptr %2, align 4
+  %2770 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4fvARB_v, align 4
+  %2771 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4fvARB_v_item, align 4
+  %2772 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2770, ptr noundef %0, i32 noundef %2769, i32 noundef 16, i32 noundef %4) #10
+  %2773 = load i32, ptr @ett_x11_list_of_float, align 4
+  %2774 = tail call ptr @proto_item_add_subtree(ptr noundef %2772, i32 noundef %2773) #10
   %.pre.i.i2399 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2400
 
-.lr.ph.i.i2400:                                   ; preds = %.lr.ph.i.i2400, %2746
-  %2756 = phi i32 [ %2760, %.lr.ph.i.i2400 ], [ %.pre.i.i2399, %2746 ]
-  %.014.i.i2401 = phi i32 [ %2757, %.lr.ph.i.i2400 ], [ 4, %2746 ]
-  %2757 = add nsw i32 %.014.i.i2401, -1
-  %2758 = tail call ptr @proto_tree_add_item(ptr noundef %2755, i32 noundef %2752, ptr noundef %0, i32 noundef %2756, i32 noundef 4, i32 noundef %4) #10
-  %2759 = load i32, ptr %2, align 4
-  %2760 = add i32 %2759, 4
-  store i32 %2760, ptr %2, align 4
-  %.not.i.i2402 = icmp eq i32 %2757, 0
+.lr.ph.i.i2400:                                   ; preds = %.lr.ph.i.i2400, %2765
+  %2775 = phi i32 [ %2779, %.lr.ph.i.i2400 ], [ %.pre.i.i2399, %2765 ]
+  %.014.i.i2401 = phi i32 [ %2776, %.lr.ph.i.i2400 ], [ 4, %2765 ]
+  %2776 = add nsw i32 %.014.i.i2401, -1
+  %2777 = tail call ptr @proto_tree_add_item(ptr noundef %2774, i32 noundef %2771, ptr noundef %0, i32 noundef %2775, i32 noundef 4, i32 noundef %4) #10
+  %2778 = load i32, ptr %2, align 4
+  %2779 = add i32 %2778, 4
+  store i32 %2779, ptr %2, align 4
+  %.not.i.i2402 = icmp eq i32 %2776, 0
   br i1 %.not.i.i2402, label %mesa_CallLists.exit, label %.lr.ph.i.i2400, !llvm.loop !61
 
-2761:                                             ; preds = %34
-  %2762 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4iv_target, align 4
-  %2763 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2762, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2764 = load i32, ptr %2, align 4
-  %2765 = add i32 %2764, 4
-  store i32 %2765, ptr %2, align 4
-  %2766 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4iv_v, align 4
-  %2767 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4iv_v_item, align 4
-  %2768 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2766, ptr noundef %0, i32 noundef %2765, i32 noundef 16, i32 noundef %4) #10
-  %2769 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %2770 = tail call ptr @proto_item_add_subtree(ptr noundef %2768, i32 noundef %2769) #10
+2780:                                             ; preds = %34
+  %2781 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4iv_target, align 4
+  %2782 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2781, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2783 = load i32, ptr %2, align 4
+  %2784 = add i32 %2783, 4
+  store i32 %2784, ptr %2, align 4
+  %2785 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4iv_v, align 4
+  %2786 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4iv_v_item, align 4
+  %2787 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2785, ptr noundef %0, i32 noundef %2784, i32 noundef 16, i32 noundef %4) #10
+  %2788 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %2789 = tail call ptr @proto_item_add_subtree(ptr noundef %2787, i32 noundef %2788) #10
   %.pre.i.i2404 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2405
 
-.lr.ph.i.i2405:                                   ; preds = %.lr.ph.i.i2405, %2761
-  %2771 = phi i32 [ %2775, %.lr.ph.i.i2405 ], [ %.pre.i.i2404, %2761 ]
-  %.014.i.i2406 = phi i32 [ %2772, %.lr.ph.i.i2405 ], [ 4, %2761 ]
-  %2772 = add nsw i32 %.014.i.i2406, -1
-  %2773 = tail call ptr @proto_tree_add_item(ptr noundef %2770, i32 noundef %2767, ptr noundef %0, i32 noundef %2771, i32 noundef 4, i32 noundef %4) #10
-  %2774 = load i32, ptr %2, align 4
-  %2775 = add i32 %2774, 4
-  store i32 %2775, ptr %2, align 4
-  %.not.i.i2407 = icmp eq i32 %2772, 0
+.lr.ph.i.i2405:                                   ; preds = %.lr.ph.i.i2405, %2780
+  %2790 = phi i32 [ %2794, %.lr.ph.i.i2405 ], [ %.pre.i.i2404, %2780 ]
+  %.014.i.i2406 = phi i32 [ %2791, %.lr.ph.i.i2405 ], [ 4, %2780 ]
+  %2791 = add nsw i32 %.014.i.i2406, -1
+  %2792 = tail call ptr @proto_tree_add_item(ptr noundef %2789, i32 noundef %2786, ptr noundef %0, i32 noundef %2790, i32 noundef 4, i32 noundef %4) #10
+  %2793 = load i32, ptr %2, align 4
+  %2794 = add i32 %2793, 4
+  store i32 %2794, ptr %2, align 4
+  %.not.i.i2407 = icmp eq i32 %2791, 0
   br i1 %.not.i.i2407, label %mesa_CallLists.exit, label %.lr.ph.i.i2405, !llvm.loop !60
 
-2776:                                             ; preds = %34
-  %2777 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4sv_target, align 4
-  %2778 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2777, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2779 = load i32, ptr %2, align 4
-  %2780 = add i32 %2779, 4
-  store i32 %2780, ptr %2, align 4
-  %2781 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4sv_v, align 4
-  %2782 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4sv_v_item, align 4
-  %2783 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2781, ptr noundef %0, i32 noundef %2780, i32 noundef 8, i32 noundef %4) #10
-  %2784 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %2785 = tail call ptr @proto_item_add_subtree(ptr noundef %2783, i32 noundef %2784) #10
-  %.pre.i.i2409 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2410
-
-.lr.ph.i.i2410:                                   ; preds = %.lr.ph.i.i2410, %2776
-  %2786 = phi i32 [ %2790, %.lr.ph.i.i2410 ], [ %.pre.i.i2409, %2776 ]
-  %.014.i.i2411 = phi i32 [ %2787, %.lr.ph.i.i2410 ], [ 4, %2776 ]
-  %2787 = add nsw i32 %.014.i.i2411, -1
-  %2788 = tail call ptr @proto_tree_add_item(ptr noundef %2785, i32 noundef %2782, ptr noundef %0, i32 noundef %2786, i32 noundef 2, i32 noundef %4) #10
-  %2789 = load i32, ptr %2, align 4
-  %2790 = add i32 %2789, 2
-  store i32 %2790, ptr %2, align 4
-  %.not.i.i2412 = icmp eq i32 %2787, 0
-  br i1 %.not.i.i2412, label %mesa_CallLists.exit, label %.lr.ph.i.i2410, !llvm.loop !59
-
-2791:                                             ; preds = %34
-  %2792 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_target, align 4
-  %2793 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2792, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2794 = load i32, ptr %2, align 4
-  %2795 = add i32 %2794, 4
-  store i32 %2795, ptr %2, align 4
-  %2796 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_level, align 4
-  %2797 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2796, ptr noundef %0, i32 noundef %2795, i32 noundef 4, i32 noundef %4) #10
+2795:                                             ; preds = %34
+  %2796 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4sv_target, align 4
+  %2797 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2796, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %2798 = load i32, ptr %2, align 4
   %2799 = add i32 %2798, 4
   store i32 %2799, ptr %2, align 4
-  %2800 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_internalformat, align 4
-  %2801 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2800, ptr noundef %0, i32 noundef %2799, i32 noundef 4, i32 noundef %4) #10
-  %2802 = load i32, ptr %2, align 4
-  %2803 = add i32 %2802, 4
-  store i32 %2803, ptr %2, align 4
-  %2804 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_width, align 4
-  %2805 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2804, ptr noundef %0, i32 noundef %2803, i32 noundef 4, i32 noundef %4) #10
-  %2806 = load i32, ptr %2, align 4
-  %2807 = add i32 %2806, 4
-  store i32 %2807, ptr %2, align 4
-  %2808 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_border, align 4
-  %2809 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2808, ptr noundef %0, i32 noundef %2807, i32 noundef 4, i32 noundef %4) #10
-  %2810 = load i32, ptr %2, align 4
-  %2811 = add i32 %2810, 4
-  store i32 %2811, ptr %2, align 4
-  %2812 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2811, i32 noundef %4) #10
-  %2813 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_imageSize, align 4
-  %2814 = load i32, ptr %2, align 4
-  %2815 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2813, ptr noundef %0, i32 noundef %2814, i32 noundef 4, i32 noundef %4) #10
-  %2816 = load i32, ptr %2, align 4
-  %2817 = add i32 %2816, 4
-  store i32 %2817, ptr %2, align 4
-  %2818 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_data, align 4
-  %spec.store.select.i.i2414 = tail call i32 @llvm.smax.i32(i32 %2812, i32 1)
-  %2819 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2818, ptr noundef %0, i32 noundef %2817, i32 noundef %spec.store.select.i.i2414, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
+  %2800 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4sv_v, align 4
+  %2801 = load i32, ptr @hf_x11_glx_render_MultiTexCoord4sv_v_item, align 4
+  %2802 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2800, ptr noundef %0, i32 noundef %2799, i32 noundef 8, i32 noundef %4) #10
+  %2803 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %2804 = tail call ptr @proto_item_add_subtree(ptr noundef %2802, i32 noundef %2803) #10
+  %.pre.i.i2409 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2410
 
-2820:                                             ; preds = %34
-  %2821 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_target, align 4
-  %2822 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2821, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2823 = load i32, ptr %2, align 4
-  %2824 = add i32 %2823, 4
-  store i32 %2824, ptr %2, align 4
-  %2825 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_level, align 4
-  %2826 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2825, ptr noundef %0, i32 noundef %2824, i32 noundef 4, i32 noundef %4) #10
-  %2827 = load i32, ptr %2, align 4
-  %2828 = add i32 %2827, 4
-  store i32 %2828, ptr %2, align 4
-  %2829 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_internalformat, align 4
-  %2830 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2829, ptr noundef %0, i32 noundef %2828, i32 noundef 4, i32 noundef %4) #10
-  %2831 = load i32, ptr %2, align 4
-  %2832 = add i32 %2831, 4
-  store i32 %2832, ptr %2, align 4
-  %2833 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_width, align 4
-  %2834 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2833, ptr noundef %0, i32 noundef %2832, i32 noundef 4, i32 noundef %4) #10
+.lr.ph.i.i2410:                                   ; preds = %.lr.ph.i.i2410, %2795
+  %2805 = phi i32 [ %2809, %.lr.ph.i.i2410 ], [ %.pre.i.i2409, %2795 ]
+  %.014.i.i2411 = phi i32 [ %2806, %.lr.ph.i.i2410 ], [ 4, %2795 ]
+  %2806 = add nsw i32 %.014.i.i2411, -1
+  %2807 = tail call ptr @proto_tree_add_item(ptr noundef %2804, i32 noundef %2801, ptr noundef %0, i32 noundef %2805, i32 noundef 2, i32 noundef %4) #10
+  %2808 = load i32, ptr %2, align 4
+  %2809 = add i32 %2808, 2
+  store i32 %2809, ptr %2, align 4
+  %.not.i.i2412 = icmp eq i32 %2806, 0
+  br i1 %.not.i.i2412, label %mesa_CallLists.exit, label %.lr.ph.i.i2410, !llvm.loop !59
+
+2810:                                             ; preds = %34
+  %2811 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_target, align 4
+  %2812 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2811, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2813 = load i32, ptr %2, align 4
+  %2814 = add i32 %2813, 4
+  store i32 %2814, ptr %2, align 4
+  %2815 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_level, align 4
+  %2816 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2815, ptr noundef %0, i32 noundef %2814, i32 noundef 4, i32 noundef %4) #10
+  %2817 = load i32, ptr %2, align 4
+  %2818 = add i32 %2817, 4
+  store i32 %2818, ptr %2, align 4
+  %2819 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_internalformat, align 4
+  %2820 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2819, ptr noundef %0, i32 noundef %2818, i32 noundef 4, i32 noundef %4) #10
+  %2821 = load i32, ptr %2, align 4
+  %2822 = add i32 %2821, 4
+  store i32 %2822, ptr %2, align 4
+  %2823 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_width, align 4
+  %2824 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2823, ptr noundef %0, i32 noundef %2822, i32 noundef 4, i32 noundef %4) #10
+  %2825 = load i32, ptr %2, align 4
+  %2826 = add i32 %2825, 4
+  store i32 %2826, ptr %2, align 4
+  %2827 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_border, align 4
+  %2828 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2827, ptr noundef %0, i32 noundef %2826, i32 noundef 4, i32 noundef %4) #10
+  %2829 = load i32, ptr %2, align 4
+  %2830 = add i32 %2829, 4
+  store i32 %2830, ptr %2, align 4
+  %2831 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2830, i32 noundef %4) #10
+  %2832 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_imageSize, align 4
+  %2833 = load i32, ptr %2, align 4
+  %2834 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2832, ptr noundef %0, i32 noundef %2833, i32 noundef 4, i32 noundef %4) #10
   %2835 = load i32, ptr %2, align 4
   %2836 = add i32 %2835, 4
   store i32 %2836, ptr %2, align 4
-  %2837 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_height, align 4
-  %2838 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2837, ptr noundef %0, i32 noundef %2836, i32 noundef 4, i32 noundef %4) #10
-  %2839 = load i32, ptr %2, align 4
-  %2840 = add i32 %2839, 4
-  store i32 %2840, ptr %2, align 4
-  %2841 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_border, align 4
-  %2842 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2841, ptr noundef %0, i32 noundef %2840, i32 noundef 4, i32 noundef %4) #10
-  %2843 = load i32, ptr %2, align 4
-  %2844 = add i32 %2843, 4
-  store i32 %2844, ptr %2, align 4
-  %2845 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2844, i32 noundef %4) #10
-  %2846 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_imageSize, align 4
-  %2847 = load i32, ptr %2, align 4
-  %2848 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2846, ptr noundef %0, i32 noundef %2847, i32 noundef 4, i32 noundef %4) #10
-  %2849 = load i32, ptr %2, align 4
-  %2850 = add i32 %2849, 4
-  store i32 %2850, ptr %2, align 4
-  %2851 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_data, align 4
-  %spec.store.select.i.i2415 = tail call i32 @llvm.smax.i32(i32 %2845, i32 1)
-  %2852 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2851, ptr noundef %0, i32 noundef %2850, i32 noundef %spec.store.select.i.i2415, i32 noundef %4) #10
+  %2837 = load i32, ptr @hf_x11_glx_render_CompressedTexImage1D_data, align 4
+  %spec.store.select.i.i2414 = tail call i32 @llvm.smax.i32(i32 %2831, i32 1)
+  %2838 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2837, ptr noundef %0, i32 noundef %2836, i32 noundef %spec.store.select.i.i2414, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2853:                                             ; preds = %34
-  %2854 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_target, align 4
-  %2855 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2854, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2856 = load i32, ptr %2, align 4
-  %2857 = add i32 %2856, 4
-  store i32 %2857, ptr %2, align 4
-  %2858 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_level, align 4
-  %2859 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2858, ptr noundef %0, i32 noundef %2857, i32 noundef 4, i32 noundef %4) #10
-  %2860 = load i32, ptr %2, align 4
-  %2861 = add i32 %2860, 4
-  store i32 %2861, ptr %2, align 4
-  %2862 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_internalformat, align 4
-  %2863 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2862, ptr noundef %0, i32 noundef %2861, i32 noundef 4, i32 noundef %4) #10
-  %2864 = load i32, ptr %2, align 4
-  %2865 = add i32 %2864, 4
-  store i32 %2865, ptr %2, align 4
-  %2866 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_width, align 4
-  %2867 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2866, ptr noundef %0, i32 noundef %2865, i32 noundef 4, i32 noundef %4) #10
+2839:                                             ; preds = %34
+  %2840 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_target, align 4
+  %2841 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2840, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2842 = load i32, ptr %2, align 4
+  %2843 = add i32 %2842, 4
+  store i32 %2843, ptr %2, align 4
+  %2844 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_level, align 4
+  %2845 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2844, ptr noundef %0, i32 noundef %2843, i32 noundef 4, i32 noundef %4) #10
+  %2846 = load i32, ptr %2, align 4
+  %2847 = add i32 %2846, 4
+  store i32 %2847, ptr %2, align 4
+  %2848 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_internalformat, align 4
+  %2849 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2848, ptr noundef %0, i32 noundef %2847, i32 noundef 4, i32 noundef %4) #10
+  %2850 = load i32, ptr %2, align 4
+  %2851 = add i32 %2850, 4
+  store i32 %2851, ptr %2, align 4
+  %2852 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_width, align 4
+  %2853 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2852, ptr noundef %0, i32 noundef %2851, i32 noundef 4, i32 noundef %4) #10
+  %2854 = load i32, ptr %2, align 4
+  %2855 = add i32 %2854, 4
+  store i32 %2855, ptr %2, align 4
+  %2856 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_height, align 4
+  %2857 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2856, ptr noundef %0, i32 noundef %2855, i32 noundef 4, i32 noundef %4) #10
+  %2858 = load i32, ptr %2, align 4
+  %2859 = add i32 %2858, 4
+  store i32 %2859, ptr %2, align 4
+  %2860 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_border, align 4
+  %2861 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2860, ptr noundef %0, i32 noundef %2859, i32 noundef 4, i32 noundef %4) #10
+  %2862 = load i32, ptr %2, align 4
+  %2863 = add i32 %2862, 4
+  store i32 %2863, ptr %2, align 4
+  %2864 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2863, i32 noundef %4) #10
+  %2865 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_imageSize, align 4
+  %2866 = load i32, ptr %2, align 4
+  %2867 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2865, ptr noundef %0, i32 noundef %2866, i32 noundef 4, i32 noundef %4) #10
   %2868 = load i32, ptr %2, align 4
   %2869 = add i32 %2868, 4
   store i32 %2869, ptr %2, align 4
-  %2870 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_height, align 4
-  %2871 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2870, ptr noundef %0, i32 noundef %2869, i32 noundef 4, i32 noundef %4) #10
-  %2872 = load i32, ptr %2, align 4
-  %2873 = add i32 %2872, 4
-  store i32 %2873, ptr %2, align 4
-  %2874 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_depth, align 4
-  %2875 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2874, ptr noundef %0, i32 noundef %2873, i32 noundef 4, i32 noundef %4) #10
-  %2876 = load i32, ptr %2, align 4
-  %2877 = add i32 %2876, 4
-  store i32 %2877, ptr %2, align 4
-  %2878 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_border, align 4
-  %2879 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2878, ptr noundef %0, i32 noundef %2877, i32 noundef 4, i32 noundef %4) #10
-  %2880 = load i32, ptr %2, align 4
-  %2881 = add i32 %2880, 4
-  store i32 %2881, ptr %2, align 4
-  %2882 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2881, i32 noundef %4) #10
-  %2883 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_imageSize, align 4
-  %2884 = load i32, ptr %2, align 4
-  %2885 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2883, ptr noundef %0, i32 noundef %2884, i32 noundef 4, i32 noundef %4) #10
-  %2886 = load i32, ptr %2, align 4
-  %2887 = add i32 %2886, 4
-  store i32 %2887, ptr %2, align 4
-  %2888 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_data, align 4
-  %spec.store.select.i.i2416 = tail call i32 @llvm.smax.i32(i32 %2882, i32 1)
-  %2889 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2888, ptr noundef %0, i32 noundef %2887, i32 noundef %spec.store.select.i.i2416, i32 noundef %4) #10
+  %2870 = load i32, ptr @hf_x11_glx_render_CompressedTexImage2D_data, align 4
+  %spec.store.select.i.i2415 = tail call i32 @llvm.smax.i32(i32 %2864, i32 1)
+  %2871 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2870, ptr noundef %0, i32 noundef %2869, i32 noundef %spec.store.select.i.i2415, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2890:                                             ; preds = %34
-  %2891 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_target, align 4
-  %2892 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2891, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2893 = load i32, ptr %2, align 4
-  %2894 = add i32 %2893, 4
-  store i32 %2894, ptr %2, align 4
-  %2895 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_level, align 4
-  %2896 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2895, ptr noundef %0, i32 noundef %2894, i32 noundef 4, i32 noundef %4) #10
-  %2897 = load i32, ptr %2, align 4
-  %2898 = add i32 %2897, 4
-  store i32 %2898, ptr %2, align 4
-  %2899 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_xoffset, align 4
-  %2900 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2899, ptr noundef %0, i32 noundef %2898, i32 noundef 4, i32 noundef %4) #10
-  %2901 = load i32, ptr %2, align 4
-  %2902 = add i32 %2901, 4
-  store i32 %2902, ptr %2, align 4
-  %2903 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_width, align 4
-  %2904 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2903, ptr noundef %0, i32 noundef %2902, i32 noundef 4, i32 noundef %4) #10
+2872:                                             ; preds = %34
+  %2873 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_target, align 4
+  %2874 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2873, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2875 = load i32, ptr %2, align 4
+  %2876 = add i32 %2875, 4
+  store i32 %2876, ptr %2, align 4
+  %2877 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_level, align 4
+  %2878 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2877, ptr noundef %0, i32 noundef %2876, i32 noundef 4, i32 noundef %4) #10
+  %2879 = load i32, ptr %2, align 4
+  %2880 = add i32 %2879, 4
+  store i32 %2880, ptr %2, align 4
+  %2881 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_internalformat, align 4
+  %2882 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2881, ptr noundef %0, i32 noundef %2880, i32 noundef 4, i32 noundef %4) #10
+  %2883 = load i32, ptr %2, align 4
+  %2884 = add i32 %2883, 4
+  store i32 %2884, ptr %2, align 4
+  %2885 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_width, align 4
+  %2886 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2885, ptr noundef %0, i32 noundef %2884, i32 noundef 4, i32 noundef %4) #10
+  %2887 = load i32, ptr %2, align 4
+  %2888 = add i32 %2887, 4
+  store i32 %2888, ptr %2, align 4
+  %2889 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_height, align 4
+  %2890 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2889, ptr noundef %0, i32 noundef %2888, i32 noundef 4, i32 noundef %4) #10
+  %2891 = load i32, ptr %2, align 4
+  %2892 = add i32 %2891, 4
+  store i32 %2892, ptr %2, align 4
+  %2893 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_depth, align 4
+  %2894 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2893, ptr noundef %0, i32 noundef %2892, i32 noundef 4, i32 noundef %4) #10
+  %2895 = load i32, ptr %2, align 4
+  %2896 = add i32 %2895, 4
+  store i32 %2896, ptr %2, align 4
+  %2897 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_border, align 4
+  %2898 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2897, ptr noundef %0, i32 noundef %2896, i32 noundef 4, i32 noundef %4) #10
+  %2899 = load i32, ptr %2, align 4
+  %2900 = add i32 %2899, 4
+  store i32 %2900, ptr %2, align 4
+  %2901 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2900, i32 noundef %4) #10
+  %2902 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_imageSize, align 4
+  %2903 = load i32, ptr %2, align 4
+  %2904 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2902, ptr noundef %0, i32 noundef %2903, i32 noundef 4, i32 noundef %4) #10
   %2905 = load i32, ptr %2, align 4
   %2906 = add i32 %2905, 4
   store i32 %2906, ptr %2, align 4
-  %2907 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_format, align 4
-  %2908 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2907, ptr noundef %0, i32 noundef %2906, i32 noundef 4, i32 noundef %4) #10
-  %2909 = load i32, ptr %2, align 4
-  %2910 = add i32 %2909, 4
-  store i32 %2910, ptr %2, align 4
-  %2911 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2910, i32 noundef %4) #10
-  %2912 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_imageSize, align 4
-  %2913 = load i32, ptr %2, align 4
-  %2914 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2912, ptr noundef %0, i32 noundef %2913, i32 noundef 4, i32 noundef %4) #10
-  %2915 = load i32, ptr %2, align 4
-  %2916 = add i32 %2915, 4
-  store i32 %2916, ptr %2, align 4
-  %2917 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_data, align 4
-  %spec.store.select.i.i2417 = tail call i32 @llvm.smax.i32(i32 %2911, i32 1)
-  %2918 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2917, ptr noundef %0, i32 noundef %2916, i32 noundef %spec.store.select.i.i2417, i32 noundef %4) #10
+  %2907 = load i32, ptr @hf_x11_glx_render_CompressedTexImage3D_data, align 4
+  %spec.store.select.i.i2416 = tail call i32 @llvm.smax.i32(i32 %2901, i32 1)
+  %2908 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2907, ptr noundef %0, i32 noundef %2906, i32 noundef %spec.store.select.i.i2416, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2919:                                             ; preds = %34
-  %2920 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_target, align 4
-  %2921 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2920, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2922 = load i32, ptr %2, align 4
-  %2923 = add i32 %2922, 4
-  store i32 %2923, ptr %2, align 4
-  %2924 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_level, align 4
-  %2925 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2924, ptr noundef %0, i32 noundef %2923, i32 noundef 4, i32 noundef %4) #10
-  %2926 = load i32, ptr %2, align 4
-  %2927 = add i32 %2926, 4
-  store i32 %2927, ptr %2, align 4
-  %2928 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_xoffset, align 4
-  %2929 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2928, ptr noundef %0, i32 noundef %2927, i32 noundef 4, i32 noundef %4) #10
-  %2930 = load i32, ptr %2, align 4
-  %2931 = add i32 %2930, 4
-  store i32 %2931, ptr %2, align 4
-  %2932 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_yoffset, align 4
-  %2933 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2932, ptr noundef %0, i32 noundef %2931, i32 noundef 4, i32 noundef %4) #10
+2909:                                             ; preds = %34
+  %2910 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_target, align 4
+  %2911 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2910, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2912 = load i32, ptr %2, align 4
+  %2913 = add i32 %2912, 4
+  store i32 %2913, ptr %2, align 4
+  %2914 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_level, align 4
+  %2915 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2914, ptr noundef %0, i32 noundef %2913, i32 noundef 4, i32 noundef %4) #10
+  %2916 = load i32, ptr %2, align 4
+  %2917 = add i32 %2916, 4
+  store i32 %2917, ptr %2, align 4
+  %2918 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_xoffset, align 4
+  %2919 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2918, ptr noundef %0, i32 noundef %2917, i32 noundef 4, i32 noundef %4) #10
+  %2920 = load i32, ptr %2, align 4
+  %2921 = add i32 %2920, 4
+  store i32 %2921, ptr %2, align 4
+  %2922 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_width, align 4
+  %2923 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2922, ptr noundef %0, i32 noundef %2921, i32 noundef 4, i32 noundef %4) #10
+  %2924 = load i32, ptr %2, align 4
+  %2925 = add i32 %2924, 4
+  store i32 %2925, ptr %2, align 4
+  %2926 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_format, align 4
+  %2927 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2926, ptr noundef %0, i32 noundef %2925, i32 noundef 4, i32 noundef %4) #10
+  %2928 = load i32, ptr %2, align 4
+  %2929 = add i32 %2928, 4
+  store i32 %2929, ptr %2, align 4
+  %2930 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2929, i32 noundef %4) #10
+  %2931 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_imageSize, align 4
+  %2932 = load i32, ptr %2, align 4
+  %2933 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2931, ptr noundef %0, i32 noundef %2932, i32 noundef 4, i32 noundef %4) #10
   %2934 = load i32, ptr %2, align 4
   %2935 = add i32 %2934, 4
   store i32 %2935, ptr %2, align 4
-  %2936 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_width, align 4
-  %2937 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2936, ptr noundef %0, i32 noundef %2935, i32 noundef 4, i32 noundef %4) #10
-  %2938 = load i32, ptr %2, align 4
-  %2939 = add i32 %2938, 4
-  store i32 %2939, ptr %2, align 4
-  %2940 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_height, align 4
-  %2941 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2940, ptr noundef %0, i32 noundef %2939, i32 noundef 4, i32 noundef %4) #10
-  %2942 = load i32, ptr %2, align 4
-  %2943 = add i32 %2942, 4
-  store i32 %2943, ptr %2, align 4
-  %2944 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_format, align 4
-  %2945 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2944, ptr noundef %0, i32 noundef %2943, i32 noundef 4, i32 noundef %4) #10
-  %2946 = load i32, ptr %2, align 4
-  %2947 = add i32 %2946, 4
-  store i32 %2947, ptr %2, align 4
-  %2948 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2947, i32 noundef %4) #10
-  %2949 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_imageSize, align 4
-  %2950 = load i32, ptr %2, align 4
-  %2951 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2949, ptr noundef %0, i32 noundef %2950, i32 noundef 4, i32 noundef %4) #10
-  %2952 = load i32, ptr %2, align 4
-  %2953 = add i32 %2952, 4
-  store i32 %2953, ptr %2, align 4
-  %2954 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_data, align 4
-  %spec.store.select.i.i2418 = tail call i32 @llvm.smax.i32(i32 %2948, i32 1)
-  %2955 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2954, ptr noundef %0, i32 noundef %2953, i32 noundef %spec.store.select.i.i2418, i32 noundef %4) #10
+  %2936 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage1D_data, align 4
+  %spec.store.select.i.i2417 = tail call i32 @llvm.smax.i32(i32 %2930, i32 1)
+  %2937 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2936, ptr noundef %0, i32 noundef %2935, i32 noundef %spec.store.select.i.i2417, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-2956:                                             ; preds = %34
-  %2957 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_target, align 4
-  %2958 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2957, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %2959 = load i32, ptr %2, align 4
-  %2960 = add i32 %2959, 4
-  store i32 %2960, ptr %2, align 4
-  %2961 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_level, align 4
-  %2962 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2961, ptr noundef %0, i32 noundef %2960, i32 noundef 4, i32 noundef %4) #10
-  %2963 = load i32, ptr %2, align 4
-  %2964 = add i32 %2963, 4
-  store i32 %2964, ptr %2, align 4
-  %2965 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_xoffset, align 4
-  %2966 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2965, ptr noundef %0, i32 noundef %2964, i32 noundef 4, i32 noundef %4) #10
-  %2967 = load i32, ptr %2, align 4
-  %2968 = add i32 %2967, 4
-  store i32 %2968, ptr %2, align 4
-  %2969 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_yoffset, align 4
-  %2970 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2969, ptr noundef %0, i32 noundef %2968, i32 noundef 4, i32 noundef %4) #10
+2938:                                             ; preds = %34
+  %2939 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_target, align 4
+  %2940 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2939, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2941 = load i32, ptr %2, align 4
+  %2942 = add i32 %2941, 4
+  store i32 %2942, ptr %2, align 4
+  %2943 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_level, align 4
+  %2944 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2943, ptr noundef %0, i32 noundef %2942, i32 noundef 4, i32 noundef %4) #10
+  %2945 = load i32, ptr %2, align 4
+  %2946 = add i32 %2945, 4
+  store i32 %2946, ptr %2, align 4
+  %2947 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_xoffset, align 4
+  %2948 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2947, ptr noundef %0, i32 noundef %2946, i32 noundef 4, i32 noundef %4) #10
+  %2949 = load i32, ptr %2, align 4
+  %2950 = add i32 %2949, 4
+  store i32 %2950, ptr %2, align 4
+  %2951 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_yoffset, align 4
+  %2952 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2951, ptr noundef %0, i32 noundef %2950, i32 noundef 4, i32 noundef %4) #10
+  %2953 = load i32, ptr %2, align 4
+  %2954 = add i32 %2953, 4
+  store i32 %2954, ptr %2, align 4
+  %2955 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_width, align 4
+  %2956 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2955, ptr noundef %0, i32 noundef %2954, i32 noundef 4, i32 noundef %4) #10
+  %2957 = load i32, ptr %2, align 4
+  %2958 = add i32 %2957, 4
+  store i32 %2958, ptr %2, align 4
+  %2959 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_height, align 4
+  %2960 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2959, ptr noundef %0, i32 noundef %2958, i32 noundef 4, i32 noundef %4) #10
+  %2961 = load i32, ptr %2, align 4
+  %2962 = add i32 %2961, 4
+  store i32 %2962, ptr %2, align 4
+  %2963 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_format, align 4
+  %2964 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2963, ptr noundef %0, i32 noundef %2962, i32 noundef 4, i32 noundef %4) #10
+  %2965 = load i32, ptr %2, align 4
+  %2966 = add i32 %2965, 4
+  store i32 %2966, ptr %2, align 4
+  %2967 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2966, i32 noundef %4) #10
+  %2968 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_imageSize, align 4
+  %2969 = load i32, ptr %2, align 4
+  %2970 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2968, ptr noundef %0, i32 noundef %2969, i32 noundef 4, i32 noundef %4) #10
   %2971 = load i32, ptr %2, align 4
   %2972 = add i32 %2971, 4
   store i32 %2972, ptr %2, align 4
-  %2973 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_zoffset, align 4
-  %2974 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2973, ptr noundef %0, i32 noundef %2972, i32 noundef 4, i32 noundef %4) #10
-  %2975 = load i32, ptr %2, align 4
-  %2976 = add i32 %2975, 4
-  store i32 %2976, ptr %2, align 4
-  %2977 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_width, align 4
-  %2978 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2977, ptr noundef %0, i32 noundef %2976, i32 noundef 4, i32 noundef %4) #10
-  %2979 = load i32, ptr %2, align 4
-  %2980 = add i32 %2979, 4
-  store i32 %2980, ptr %2, align 4
-  %2981 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_height, align 4
-  %2982 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2981, ptr noundef %0, i32 noundef %2980, i32 noundef 4, i32 noundef %4) #10
-  %2983 = load i32, ptr %2, align 4
-  %2984 = add i32 %2983, 4
-  store i32 %2984, ptr %2, align 4
-  %2985 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_depth, align 4
-  %2986 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2985, ptr noundef %0, i32 noundef %2984, i32 noundef 4, i32 noundef %4) #10
-  %2987 = load i32, ptr %2, align 4
-  %2988 = add i32 %2987, 4
-  store i32 %2988, ptr %2, align 4
-  %2989 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_format, align 4
-  %2990 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2989, ptr noundef %0, i32 noundef %2988, i32 noundef 4, i32 noundef %4) #10
-  %2991 = load i32, ptr %2, align 4
-  %2992 = add i32 %2991, 4
-  store i32 %2992, ptr %2, align 4
-  %2993 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %2992, i32 noundef %4) #10
-  %2994 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_imageSize, align 4
-  %2995 = load i32, ptr %2, align 4
-  %2996 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2994, ptr noundef %0, i32 noundef %2995, i32 noundef 4, i32 noundef %4) #10
-  %2997 = load i32, ptr %2, align 4
-  %2998 = add i32 %2997, 4
-  store i32 %2998, ptr %2, align 4
-  %2999 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_data, align 4
-  %spec.store.select.i.i2419 = tail call i32 @llvm.smax.i32(i32 %2993, i32 1)
-  %3000 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2999, ptr noundef %0, i32 noundef %2998, i32 noundef %spec.store.select.i.i2419, i32 noundef %4) #10
+  %2973 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage2D_data, align 4
+  %spec.store.select.i.i2418 = tail call i32 @llvm.smax.i32(i32 %2967, i32 1)
+  %2974 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2973, ptr noundef %0, i32 noundef %2972, i32 noundef %spec.store.select.i.i2418, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3001:                                             ; preds = %34
-  %3002 = load i32, ptr @hf_x11_glx_render_SampleCoverage_value, align 4
-  %3003 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3002, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3004 = load i32, ptr %2, align 4
-  %3005 = add i32 %3004, 4
-  store i32 %3005, ptr %2, align 4
-  %3006 = load i32, ptr @hf_x11_glx_render_SampleCoverage_invert, align 4
-  %3007 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3006, ptr noundef %0, i32 noundef %3005, i32 noundef 1, i32 noundef %4) #10
+2975:                                             ; preds = %34
+  %2976 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_target, align 4
+  %2977 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2976, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %2978 = load i32, ptr %2, align 4
+  %2979 = add i32 %2978, 4
+  store i32 %2979, ptr %2, align 4
+  %2980 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_level, align 4
+  %2981 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2980, ptr noundef %0, i32 noundef %2979, i32 noundef 4, i32 noundef %4) #10
+  %2982 = load i32, ptr %2, align 4
+  %2983 = add i32 %2982, 4
+  store i32 %2983, ptr %2, align 4
+  %2984 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_xoffset, align 4
+  %2985 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2984, ptr noundef %0, i32 noundef %2983, i32 noundef 4, i32 noundef %4) #10
+  %2986 = load i32, ptr %2, align 4
+  %2987 = add i32 %2986, 4
+  store i32 %2987, ptr %2, align 4
+  %2988 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_yoffset, align 4
+  %2989 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2988, ptr noundef %0, i32 noundef %2987, i32 noundef 4, i32 noundef %4) #10
+  %2990 = load i32, ptr %2, align 4
+  %2991 = add i32 %2990, 4
+  store i32 %2991, ptr %2, align 4
+  %2992 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_zoffset, align 4
+  %2993 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2992, ptr noundef %0, i32 noundef %2991, i32 noundef 4, i32 noundef %4) #10
+  %2994 = load i32, ptr %2, align 4
+  %2995 = add i32 %2994, 4
+  store i32 %2995, ptr %2, align 4
+  %2996 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_width, align 4
+  %2997 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %2996, ptr noundef %0, i32 noundef %2995, i32 noundef 4, i32 noundef %4) #10
+  %2998 = load i32, ptr %2, align 4
+  %2999 = add i32 %2998, 4
+  store i32 %2999, ptr %2, align 4
+  %3000 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_height, align 4
+  %3001 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3000, ptr noundef %0, i32 noundef %2999, i32 noundef 4, i32 noundef %4) #10
+  %3002 = load i32, ptr %2, align 4
+  %3003 = add i32 %3002, 4
+  store i32 %3003, ptr %2, align 4
+  %3004 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_depth, align 4
+  %3005 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3004, ptr noundef %0, i32 noundef %3003, i32 noundef 4, i32 noundef %4) #10
+  %3006 = load i32, ptr %2, align 4
+  %3007 = add i32 %3006, 4
+  store i32 %3007, ptr %2, align 4
+  %3008 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_format, align 4
+  %3009 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3008, ptr noundef %0, i32 noundef %3007, i32 noundef 4, i32 noundef %4) #10
+  %3010 = load i32, ptr %2, align 4
+  %3011 = add i32 %3010, 4
+  store i32 %3011, ptr %2, align 4
+  %3012 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %3011, i32 noundef %4) #10
+  %3013 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_imageSize, align 4
+  %3014 = load i32, ptr %2, align 4
+  %3015 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3013, ptr noundef %0, i32 noundef %3014, i32 noundef 4, i32 noundef %4) #10
+  %3016 = load i32, ptr %2, align 4
+  %3017 = add i32 %3016, 4
+  store i32 %3017, ptr %2, align 4
+  %3018 = load i32, ptr @hf_x11_glx_render_CompressedTexSubImage3D_data, align 4
+  %spec.store.select.i.i2419 = tail call i32 @llvm.smax.i32(i32 %3012, i32 1)
+  %3019 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3018, ptr noundef %0, i32 noundef %3017, i32 noundef %spec.store.select.i.i2419, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3008:                                             ; preds = %34
-  %3009 = load i32, ptr @hf_x11_glx_render_WindowPos3fv_v, align 4
-  %3010 = load i32, ptr @hf_x11_glx_render_WindowPos3fv_v_item, align 4
-  %3011 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3009, ptr noundef %0, i32 noundef %28, i32 noundef 12, i32 noundef %4) #10
-  %3012 = load i32, ptr @ett_x11_list_of_float, align 4
-  %3013 = tail call ptr @proto_item_add_subtree(ptr noundef %3011, i32 noundef %3012) #10
+3020:                                             ; preds = %34
+  %3021 = load i32, ptr @hf_x11_glx_render_SampleCoverage_value, align 4
+  %3022 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3021, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3023 = load i32, ptr %2, align 4
+  %3024 = add i32 %3023, 4
+  store i32 %3024, ptr %2, align 4
+  %3025 = load i32, ptr @hf_x11_glx_render_SampleCoverage_invert, align 4
+  %3026 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3025, ptr noundef %0, i32 noundef %3024, i32 noundef 1, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+3027:                                             ; preds = %34
+  %3028 = load i32, ptr @hf_x11_glx_render_WindowPos3fv_v, align 4
+  %3029 = load i32, ptr @hf_x11_glx_render_WindowPos3fv_v_item, align 4
+  %3030 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3028, ptr noundef %0, i32 noundef %28, i32 noundef 12, i32 noundef %4) #10
+  %3031 = load i32, ptr @ett_x11_list_of_float, align 4
+  %3032 = tail call ptr @proto_item_add_subtree(ptr noundef %3030, i32 noundef %3031) #10
   %.pre.i.i2420 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2421
 
-.lr.ph.i.i2421:                                   ; preds = %.lr.ph.i.i2421, %3008
-  %3014 = phi i32 [ %3018, %.lr.ph.i.i2421 ], [ %.pre.i.i2420, %3008 ]
-  %.014.i.i2422 = phi i32 [ %3015, %.lr.ph.i.i2421 ], [ 3, %3008 ]
-  %3015 = add nsw i32 %.014.i.i2422, -1
-  %3016 = tail call ptr @proto_tree_add_item(ptr noundef %3013, i32 noundef %3010, ptr noundef %0, i32 noundef %3014, i32 noundef 4, i32 noundef %4) #10
-  %3017 = load i32, ptr %2, align 4
-  %3018 = add i32 %3017, 4
-  store i32 %3018, ptr %2, align 4
-  %.not.i.i2423 = icmp eq i32 %3015, 0
+.lr.ph.i.i2421:                                   ; preds = %.lr.ph.i.i2421, %3027
+  %3033 = phi i32 [ %3037, %.lr.ph.i.i2421 ], [ %.pre.i.i2420, %3027 ]
+  %.014.i.i2422 = phi i32 [ %3034, %.lr.ph.i.i2421 ], [ 3, %3027 ]
+  %3034 = add nsw i32 %.014.i.i2422, -1
+  %3035 = tail call ptr @proto_tree_add_item(ptr noundef %3032, i32 noundef %3029, ptr noundef %0, i32 noundef %3033, i32 noundef 4, i32 noundef %4) #10
+  %3036 = load i32, ptr %2, align 4
+  %3037 = add i32 %3036, 4
+  store i32 %3037, ptr %2, align 4
+  %.not.i.i2423 = icmp eq i32 %3034, 0
   br i1 %.not.i.i2423, label %mesa_CallLists.exit, label %.lr.ph.i.i2421, !llvm.loop !61
 
-3019:                                             ; preds = %34
-  %3020 = load i32, ptr @hf_x11_glx_render_BeginQuery_target, align 4
-  %3021 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3020, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3022 = load i32, ptr %2, align 4
-  %3023 = add i32 %3022, 4
-  store i32 %3023, ptr %2, align 4
-  %3024 = load i32, ptr @hf_x11_glx_render_BeginQuery_id, align 4
-  %3025 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3024, ptr noundef %0, i32 noundef %3023, i32 noundef 4, i32 noundef %4) #10
+3038:                                             ; preds = %34
+  %3039 = load i32, ptr @hf_x11_glx_render_BeginQuery_target, align 4
+  %3040 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3039, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3041 = load i32, ptr %2, align 4
+  %3042 = add i32 %3041, 4
+  store i32 %3042, ptr %2, align 4
+  %3043 = load i32, ptr @hf_x11_glx_render_BeginQuery_id, align 4
+  %3044 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3043, ptr noundef %0, i32 noundef %3042, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3026:                                             ; preds = %34
-  %3027 = load i32, ptr @hf_x11_glx_render_EndQuery_target, align 4
-  %3028 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3027, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+3045:                                             ; preds = %34
+  %3046 = load i32, ptr @hf_x11_glx_render_EndQuery_target, align 4
+  %3047 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3046, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3029:                                             ; preds = %34
-  %3030 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
-  %3031 = load i32, ptr @hf_x11_glx_render_DrawBuffers_n, align 4
-  %3032 = load i32, ptr %2, align 4
-  %3033 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3031, ptr noundef %0, i32 noundef %3032, i32 noundef 4, i32 noundef %4) #10
-  %3034 = load i32, ptr %2, align 4
-  %3035 = add i32 %3034, 4
-  store i32 %3035, ptr %2, align 4
-  %3036 = load i32, ptr @hf_x11_glx_render_DrawBuffers_bufs, align 4
-  %3037 = load i32, ptr @hf_x11_glx_render_DrawBuffers_bufs_item, align 4
-  %3038 = shl i32 %3030, 2
-  %3039 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3036, ptr noundef %0, i32 noundef %3035, i32 noundef %3038, i32 noundef %4) #10
-  %3040 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %3041 = tail call ptr @proto_item_add_subtree(ptr noundef %3039, i32 noundef %3040) #10
-  %.not13.i.i2425 = icmp eq i32 %3030, 0
+3048:                                             ; preds = %34
+  %3049 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
+  %3050 = load i32, ptr @hf_x11_glx_render_DrawBuffers_n, align 4
+  %3051 = load i32, ptr %2, align 4
+  %3052 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3050, ptr noundef %0, i32 noundef %3051, i32 noundef 4, i32 noundef %4) #10
+  %3053 = load i32, ptr %2, align 4
+  %3054 = add i32 %3053, 4
+  store i32 %3054, ptr %2, align 4
+  %3055 = load i32, ptr @hf_x11_glx_render_DrawBuffers_bufs, align 4
+  %3056 = load i32, ptr @hf_x11_glx_render_DrawBuffers_bufs_item, align 4
+  %3057 = shl i32 %3049, 2
+  %3058 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3055, ptr noundef %0, i32 noundef %3054, i32 noundef %3057, i32 noundef %4) #10
+  %3059 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %3060 = tail call ptr @proto_item_add_subtree(ptr noundef %3058, i32 noundef %3059) #10
+  %.not13.i.i2425 = icmp eq i32 %3049, 0
   br i1 %.not13.i.i2425, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2426
 
-.lr.ph.preheader.i.i2426:                         ; preds = %3029
+.lr.ph.preheader.i.i2426:                         ; preds = %3048
   %.pre.i.i2427 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2428
 
 .lr.ph.i.i2428:                                   ; preds = %.lr.ph.i.i2428, %.lr.ph.preheader.i.i2426
-  %3042 = phi i32 [ %3046, %.lr.ph.i.i2428 ], [ %.pre.i.i2427, %.lr.ph.preheader.i.i2426 ]
-  %.014.i.i2429 = phi i32 [ %3043, %.lr.ph.i.i2428 ], [ %3030, %.lr.ph.preheader.i.i2426 ]
-  %3043 = add i32 %.014.i.i2429, -1
-  %3044 = tail call ptr @proto_tree_add_item(ptr noundef %3041, i32 noundef %3037, ptr noundef %0, i32 noundef %3042, i32 noundef 4, i32 noundef %4) #10
-  %3045 = load i32, ptr %2, align 4
-  %3046 = add i32 %3045, 4
-  store i32 %3046, ptr %2, align 4
-  %.not.i.i2430 = icmp eq i32 %3043, 0
+  %3061 = phi i32 [ %3065, %.lr.ph.i.i2428 ], [ %.pre.i.i2427, %.lr.ph.preheader.i.i2426 ]
+  %.014.i.i2429 = phi i32 [ %3062, %.lr.ph.i.i2428 ], [ %3049, %.lr.ph.preheader.i.i2426 ]
+  %3062 = add i32 %.014.i.i2429, -1
+  %3063 = tail call ptr @proto_tree_add_item(ptr noundef %3060, i32 noundef %3056, ptr noundef %0, i32 noundef %3061, i32 noundef 4, i32 noundef %4) #10
+  %3064 = load i32, ptr %2, align 4
+  %3065 = add i32 %3064, 4
+  store i32 %3065, ptr %2, align 4
+  %.not.i.i2430 = icmp eq i32 %3062, 0
   br i1 %.not.i.i2430, label %mesa_CallLists.exit, label %.lr.ph.i.i2428, !llvm.loop !41
 
-3047:                                             ; preds = %34
-  %3048 = load i32, ptr @hf_x11_glx_render_SampleMaskSGIS_value, align 4
-  %3049 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3048, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3050 = load i32, ptr %2, align 4
-  %3051 = add i32 %3050, 4
-  store i32 %3051, ptr %2, align 4
-  %3052 = load i32, ptr @hf_x11_glx_render_SampleMaskSGIS_invert, align 4
-  %3053 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3052, ptr noundef %0, i32 noundef %3051, i32 noundef 1, i32 noundef %4) #10
+3066:                                             ; preds = %34
+  %3067 = load i32, ptr @hf_x11_glx_render_SampleMaskSGIS_value, align 4
+  %3068 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3067, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3069 = load i32, ptr %2, align 4
+  %3070 = add i32 %3069, 4
+  store i32 %3070, ptr %2, align 4
+  %3071 = load i32, ptr @hf_x11_glx_render_SampleMaskSGIS_invert, align 4
+  %3072 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3071, ptr noundef %0, i32 noundef %3070, i32 noundef 1, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3054:                                             ; preds = %34
-  %3055 = load i32, ptr @hf_x11_glx_render_SamplePatternSGIS_pattern, align 4
-  %3056 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3055, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+3073:                                             ; preds = %34
+  %3074 = load i32, ptr @hf_x11_glx_render_SamplePatternSGIS_pattern, align 4
+  %3075 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3074, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3057:                                             ; preds = %34
-  %3058 = load i32, ptr @hf_x11_glx_render_DetailTexFuncSGIS_target, align 4
-  %3059 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3058, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3060 = load i32, ptr %2, align 4
-  %3061 = add i32 %3060, 4
-  store i32 %3061, ptr %2, align 4
-  %3062 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %3061, i32 noundef %4) #10
-  %3063 = load i32, ptr @hf_x11_glx_render_DetailTexFuncSGIS_n, align 4
-  %3064 = load i32, ptr %2, align 4
-  %3065 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3063, ptr noundef %0, i32 noundef %3064, i32 noundef 4, i32 noundef %4) #10
-  %3066 = load i32, ptr %2, align 4
-  %3067 = add i32 %3066, 4
-  store i32 %3067, ptr %2, align 4
-  %3068 = load i32, ptr @hf_x11_glx_render_DetailTexFuncSGIS_points, align 4
-  %3069 = load i32, ptr @hf_x11_glx_render_DetailTexFuncSGIS_points_item, align 4
-  %3070 = shl i32 %3062, 2
-  %3071 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3068, ptr noundef %0, i32 noundef %3067, i32 noundef %3070, i32 noundef %4) #10
-  %3072 = load i32, ptr @ett_x11_list_of_float, align 4
-  %3073 = tail call ptr @proto_item_add_subtree(ptr noundef %3071, i32 noundef %3072) #10
-  %.not13.i.i2431 = icmp eq i32 %3062, 0
+3076:                                             ; preds = %34
+  %3077 = load i32, ptr @hf_x11_glx_render_DetailTexFuncSGIS_target, align 4
+  %3078 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3077, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3079 = load i32, ptr %2, align 4
+  %3080 = add i32 %3079, 4
+  store i32 %3080, ptr %2, align 4
+  %3081 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %3080, i32 noundef %4) #10
+  %3082 = load i32, ptr @hf_x11_glx_render_DetailTexFuncSGIS_n, align 4
+  %3083 = load i32, ptr %2, align 4
+  %3084 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3082, ptr noundef %0, i32 noundef %3083, i32 noundef 4, i32 noundef %4) #10
+  %3085 = load i32, ptr %2, align 4
+  %3086 = add i32 %3085, 4
+  store i32 %3086, ptr %2, align 4
+  %3087 = load i32, ptr @hf_x11_glx_render_DetailTexFuncSGIS_points, align 4
+  %3088 = load i32, ptr @hf_x11_glx_render_DetailTexFuncSGIS_points_item, align 4
+  %3089 = shl i32 %3081, 2
+  %3090 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3087, ptr noundef %0, i32 noundef %3086, i32 noundef %3089, i32 noundef %4) #10
+  %3091 = load i32, ptr @ett_x11_list_of_float, align 4
+  %3092 = tail call ptr @proto_item_add_subtree(ptr noundef %3090, i32 noundef %3091) #10
+  %.not13.i.i2431 = icmp eq i32 %3081, 0
   br i1 %.not13.i.i2431, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2432
 
-.lr.ph.preheader.i.i2432:                         ; preds = %3057
+.lr.ph.preheader.i.i2432:                         ; preds = %3076
   %.pre.i.i2433 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2434
 
 .lr.ph.i.i2434:                                   ; preds = %.lr.ph.i.i2434, %.lr.ph.preheader.i.i2432
-  %3074 = phi i32 [ %3078, %.lr.ph.i.i2434 ], [ %.pre.i.i2433, %.lr.ph.preheader.i.i2432 ]
-  %.014.i.i2435 = phi i32 [ %3075, %.lr.ph.i.i2434 ], [ %3062, %.lr.ph.preheader.i.i2432 ]
-  %3075 = add i32 %.014.i.i2435, -1
-  %3076 = tail call ptr @proto_tree_add_item(ptr noundef %3073, i32 noundef %3069, ptr noundef %0, i32 noundef %3074, i32 noundef 4, i32 noundef %4) #10
-  %3077 = load i32, ptr %2, align 4
-  %3078 = add i32 %3077, 4
-  store i32 %3078, ptr %2, align 4
-  %.not.i.i2436 = icmp eq i32 %3075, 0
+  %3093 = phi i32 [ %3097, %.lr.ph.i.i2434 ], [ %.pre.i.i2433, %.lr.ph.preheader.i.i2432 ]
+  %.014.i.i2435 = phi i32 [ %3094, %.lr.ph.i.i2434 ], [ %3081, %.lr.ph.preheader.i.i2432 ]
+  %3094 = add i32 %.014.i.i2435, -1
+  %3095 = tail call ptr @proto_tree_add_item(ptr noundef %3092, i32 noundef %3088, ptr noundef %0, i32 noundef %3093, i32 noundef 4, i32 noundef %4) #10
+  %3096 = load i32, ptr %2, align 4
+  %3097 = add i32 %3096, 4
+  store i32 %3097, ptr %2, align 4
+  %.not.i.i2436 = icmp eq i32 %3094, 0
   br i1 %.not.i.i2436, label %mesa_CallLists.exit, label %.lr.ph.i.i2434, !llvm.loop !61
 
-3079:                                             ; preds = %34
-  %3080 = load i32, ptr @hf_x11_glx_render_SharpenTexFuncSGIS_target, align 4
-  %3081 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3080, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3082 = load i32, ptr %2, align 4
-  %3083 = add i32 %3082, 4
-  store i32 %3083, ptr %2, align 4
-  %3084 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %3083, i32 noundef %4) #10
-  %3085 = load i32, ptr @hf_x11_glx_render_SharpenTexFuncSGIS_n, align 4
-  %3086 = load i32, ptr %2, align 4
-  %3087 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3085, ptr noundef %0, i32 noundef %3086, i32 noundef 4, i32 noundef %4) #10
-  %3088 = load i32, ptr %2, align 4
-  %3089 = add i32 %3088, 4
-  store i32 %3089, ptr %2, align 4
-  %3090 = load i32, ptr @hf_x11_glx_render_SharpenTexFuncSGIS_points, align 4
-  %3091 = load i32, ptr @hf_x11_glx_render_SharpenTexFuncSGIS_points_item, align 4
-  %3092 = shl i32 %3084, 2
-  %3093 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3090, ptr noundef %0, i32 noundef %3089, i32 noundef %3092, i32 noundef %4) #10
-  %3094 = load i32, ptr @ett_x11_list_of_float, align 4
-  %3095 = tail call ptr @proto_item_add_subtree(ptr noundef %3093, i32 noundef %3094) #10
-  %.not13.i.i2438 = icmp eq i32 %3084, 0
+3098:                                             ; preds = %34
+  %3099 = load i32, ptr @hf_x11_glx_render_SharpenTexFuncSGIS_target, align 4
+  %3100 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3099, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3101 = load i32, ptr %2, align 4
+  %3102 = add i32 %3101, 4
+  store i32 %3102, ptr %2, align 4
+  %3103 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %3102, i32 noundef %4) #10
+  %3104 = load i32, ptr @hf_x11_glx_render_SharpenTexFuncSGIS_n, align 4
+  %3105 = load i32, ptr %2, align 4
+  %3106 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3104, ptr noundef %0, i32 noundef %3105, i32 noundef 4, i32 noundef %4) #10
+  %3107 = load i32, ptr %2, align 4
+  %3108 = add i32 %3107, 4
+  store i32 %3108, ptr %2, align 4
+  %3109 = load i32, ptr @hf_x11_glx_render_SharpenTexFuncSGIS_points, align 4
+  %3110 = load i32, ptr @hf_x11_glx_render_SharpenTexFuncSGIS_points_item, align 4
+  %3111 = shl i32 %3103, 2
+  %3112 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3109, ptr noundef %0, i32 noundef %3108, i32 noundef %3111, i32 noundef %4) #10
+  %3113 = load i32, ptr @ett_x11_list_of_float, align 4
+  %3114 = tail call ptr @proto_item_add_subtree(ptr noundef %3112, i32 noundef %3113) #10
+  %.not13.i.i2438 = icmp eq i32 %3103, 0
   br i1 %.not13.i.i2438, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2439
 
-.lr.ph.preheader.i.i2439:                         ; preds = %3079
+.lr.ph.preheader.i.i2439:                         ; preds = %3098
   %.pre.i.i2440 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2441
 
 .lr.ph.i.i2441:                                   ; preds = %.lr.ph.i.i2441, %.lr.ph.preheader.i.i2439
-  %3096 = phi i32 [ %3100, %.lr.ph.i.i2441 ], [ %.pre.i.i2440, %.lr.ph.preheader.i.i2439 ]
-  %.014.i.i2442 = phi i32 [ %3097, %.lr.ph.i.i2441 ], [ %3084, %.lr.ph.preheader.i.i2439 ]
-  %3097 = add i32 %.014.i.i2442, -1
-  %3098 = tail call ptr @proto_tree_add_item(ptr noundef %3095, i32 noundef %3091, ptr noundef %0, i32 noundef %3096, i32 noundef 4, i32 noundef %4) #10
-  %3099 = load i32, ptr %2, align 4
-  %3100 = add i32 %3099, 4
-  store i32 %3100, ptr %2, align 4
-  %.not.i.i2443 = icmp eq i32 %3097, 0
+  %3115 = phi i32 [ %3119, %.lr.ph.i.i2441 ], [ %.pre.i.i2440, %.lr.ph.preheader.i.i2439 ]
+  %.014.i.i2442 = phi i32 [ %3116, %.lr.ph.i.i2441 ], [ %3103, %.lr.ph.preheader.i.i2439 ]
+  %3116 = add i32 %.014.i.i2442, -1
+  %3117 = tail call ptr @proto_tree_add_item(ptr noundef %3114, i32 noundef %3110, ptr noundef %0, i32 noundef %3115, i32 noundef 4, i32 noundef %4) #10
+  %3118 = load i32, ptr %2, align 4
+  %3119 = add i32 %3118, 4
+  store i32 %3119, ptr %2, align 4
+  %.not.i.i2443 = icmp eq i32 %3116, 0
   br i1 %.not.i.i2443, label %mesa_CallLists.exit, label %.lr.ph.i.i2441, !llvm.loop !61
 
-3101:                                             ; preds = %34
-  %3102 = load i32, ptr @hf_x11_glx_render_ColorTable_swapbytes, align 4
-  %3103 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3102, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %3104 = load i32, ptr %2, align 4
-  %3105 = add i32 %3104, 1
-  store i32 %3105, ptr %2, align 4
-  %3106 = load i32, ptr @hf_x11_glx_render_ColorTable_lsbfirst, align 4
-  %3107 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3106, ptr noundef %0, i32 noundef %3105, i32 noundef 1, i32 noundef %4) #10
-  %3108 = load i32, ptr %2, align 4
-  %3109 = add i32 %3108, 1
-  store i32 %3109, ptr %2, align 4
-  %3110 = load i32, ptr @hf_x11_unused, align 4
-  %3111 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3110, ptr noundef %0, i32 noundef %3109, i32 noundef 2, i32 noundef 0) #10
-  %3112 = load i32, ptr %2, align 4
-  %3113 = add i32 %3112, 2
-  store i32 %3113, ptr %2, align 4
-  %3114 = load i32, ptr @hf_x11_glx_render_ColorTable_rowlength, align 4
-  %3115 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3114, ptr noundef %0, i32 noundef %3113, i32 noundef 4, i32 noundef %4) #10
-  %3116 = load i32, ptr %2, align 4
-  %3117 = add i32 %3116, 4
-  store i32 %3117, ptr %2, align 4
-  %3118 = load i32, ptr @hf_x11_glx_render_ColorTable_skiprows, align 4
-  %3119 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3118, ptr noundef %0, i32 noundef %3117, i32 noundef 4, i32 noundef %4) #10
-  %3120 = load i32, ptr %2, align 4
-  %3121 = add i32 %3120, 4
-  store i32 %3121, ptr %2, align 4
-  %3122 = load i32, ptr @hf_x11_glx_render_ColorTable_skippixels, align 4
-  %3123 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3122, ptr noundef %0, i32 noundef %3121, i32 noundef 4, i32 noundef %4) #10
-  %3124 = load i32, ptr %2, align 4
-  %3125 = add i32 %3124, 4
-  store i32 %3125, ptr %2, align 4
-  %3126 = load i32, ptr @hf_x11_glx_render_ColorTable_alignment, align 4
-  %3127 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3126, ptr noundef %0, i32 noundef %3125, i32 noundef 4, i32 noundef %4) #10
-  %3128 = load i32, ptr %2, align 4
-  %3129 = add i32 %3128, 4
-  store i32 %3129, ptr %2, align 4
-  %3130 = load i32, ptr @hf_x11_glx_render_ColorTable_target, align 4
-  %3131 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3130, ptr noundef %0, i32 noundef %3129, i32 noundef 4, i32 noundef %4) #10
-  %3132 = load i32, ptr %2, align 4
-  %3133 = add i32 %3132, 4
-  store i32 %3133, ptr %2, align 4
-  %3134 = load i32, ptr @hf_x11_glx_render_ColorTable_internalformat, align 4
-  %3135 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3134, ptr noundef %0, i32 noundef %3133, i32 noundef 4, i32 noundef %4) #10
-  %3136 = load i32, ptr %2, align 4
-  %3137 = add i32 %3136, 4
-  store i32 %3137, ptr %2, align 4
-  %3138 = load i32, ptr @hf_x11_glx_render_ColorTable_width, align 4
-  %3139 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3138, ptr noundef %0, i32 noundef %3137, i32 noundef 4, i32 noundef %4) #10
-  %3140 = load i32, ptr %2, align 4
-  %3141 = add i32 %3140, 4
-  store i32 %3141, ptr %2, align 4
-  %3142 = load i32, ptr @hf_x11_glx_render_ColorTable_format, align 4
-  %3143 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3142, ptr noundef %0, i32 noundef %3141, i32 noundef 4, i32 noundef %4) #10
-  %3144 = load i32, ptr %2, align 4
-  %3145 = add i32 %3144, 4
-  store i32 %3145, ptr %2, align 4
-  %3146 = load i32, ptr @hf_x11_glx_render_ColorTable_type, align 4
-  %3147 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3146, ptr noundef %0, i32 noundef %3145, i32 noundef 4, i32 noundef %4) #10
-  %3148 = load i32, ptr %2, align 4
-  %3149 = add i32 %3148, 4
-  store i32 %3149, ptr %2, align 4
-  %3150 = load i32, ptr @hf_x11_glx_render_ColorTable_table, align 4
-  %3151 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 41)
-  %spec.store.select.i.i2445 = add nsw i32 %3151, -40
-  %3152 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3150, ptr noundef %0, i32 noundef %3149, i32 noundef %spec.store.select.i.i2445, i32 noundef %4) #10
+3120:                                             ; preds = %34
+  %3121 = load i32, ptr @hf_x11_glx_render_ColorTable_swapbytes, align 4
+  %3122 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3121, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %3123 = load i32, ptr %2, align 4
+  %3124 = add i32 %3123, 1
+  store i32 %3124, ptr %2, align 4
+  %3125 = load i32, ptr @hf_x11_glx_render_ColorTable_lsbfirst, align 4
+  %3126 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3125, ptr noundef %0, i32 noundef %3124, i32 noundef 1, i32 noundef %4) #10
+  %3127 = load i32, ptr %2, align 4
+  %3128 = add i32 %3127, 1
+  store i32 %3128, ptr %2, align 4
+  %3129 = load i32, ptr @hf_x11_unused, align 4
+  %3130 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3129, ptr noundef %0, i32 noundef %3128, i32 noundef 2, i32 noundef 0) #10
+  %3131 = load i32, ptr %2, align 4
+  %3132 = add i32 %3131, 2
+  store i32 %3132, ptr %2, align 4
+  %3133 = load i32, ptr @hf_x11_glx_render_ColorTable_rowlength, align 4
+  %3134 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3133, ptr noundef %0, i32 noundef %3132, i32 noundef 4, i32 noundef %4) #10
+  %3135 = load i32, ptr %2, align 4
+  %3136 = add i32 %3135, 4
+  store i32 %3136, ptr %2, align 4
+  %3137 = load i32, ptr @hf_x11_glx_render_ColorTable_skiprows, align 4
+  %3138 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3137, ptr noundef %0, i32 noundef %3136, i32 noundef 4, i32 noundef %4) #10
+  %3139 = load i32, ptr %2, align 4
+  %3140 = add i32 %3139, 4
+  store i32 %3140, ptr %2, align 4
+  %3141 = load i32, ptr @hf_x11_glx_render_ColorTable_skippixels, align 4
+  %3142 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3141, ptr noundef %0, i32 noundef %3140, i32 noundef 4, i32 noundef %4) #10
+  %3143 = load i32, ptr %2, align 4
+  %3144 = add i32 %3143, 4
+  store i32 %3144, ptr %2, align 4
+  %3145 = load i32, ptr @hf_x11_glx_render_ColorTable_alignment, align 4
+  %3146 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3145, ptr noundef %0, i32 noundef %3144, i32 noundef 4, i32 noundef %4) #10
+  %3147 = load i32, ptr %2, align 4
+  %3148 = add i32 %3147, 4
+  store i32 %3148, ptr %2, align 4
+  %3149 = load i32, ptr @hf_x11_glx_render_ColorTable_target, align 4
+  %3150 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3149, ptr noundef %0, i32 noundef %3148, i32 noundef 4, i32 noundef %4) #10
+  %3151 = load i32, ptr %2, align 4
+  %3152 = add i32 %3151, 4
+  store i32 %3152, ptr %2, align 4
+  %3153 = load i32, ptr @hf_x11_glx_render_ColorTable_internalformat, align 4
+  %3154 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3153, ptr noundef %0, i32 noundef %3152, i32 noundef 4, i32 noundef %4) #10
+  %3155 = load i32, ptr %2, align 4
+  %3156 = add i32 %3155, 4
+  store i32 %3156, ptr %2, align 4
+  %3157 = load i32, ptr @hf_x11_glx_render_ColorTable_width, align 4
+  %3158 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3157, ptr noundef %0, i32 noundef %3156, i32 noundef 4, i32 noundef %4) #10
+  %3159 = load i32, ptr %2, align 4
+  %3160 = add i32 %3159, 4
+  store i32 %3160, ptr %2, align 4
+  %3161 = load i32, ptr @hf_x11_glx_render_ColorTable_format, align 4
+  %3162 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3161, ptr noundef %0, i32 noundef %3160, i32 noundef 4, i32 noundef %4) #10
+  %3163 = load i32, ptr %2, align 4
+  %3164 = add i32 %3163, 4
+  store i32 %3164, ptr %2, align 4
+  %3165 = load i32, ptr @hf_x11_glx_render_ColorTable_type, align 4
+  %3166 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3165, ptr noundef %0, i32 noundef %3164, i32 noundef 4, i32 noundef %4) #10
+  %3167 = load i32, ptr %2, align 4
+  %3168 = add i32 %3167, 4
+  store i32 %3168, ptr %2, align 4
+  %3169 = load i32, ptr @hf_x11_glx_render_ColorTable_table, align 4
+  %3170 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 41)
+  %spec.store.select.i.i2445 = add nsw i32 %3170, -40
+  %3171 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3169, ptr noundef %0, i32 noundef %3168, i32 noundef %spec.store.select.i.i2445, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3153:                                             ; preds = %34
-  %3154 = load i32, ptr @hf_x11_glx_render_ColorTableParameterfv_target, align 4
-  %3155 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3154, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3156 = load i32, ptr %2, align 4
-  %3157 = add i32 %3156, 4
-  store i32 %3157, ptr %2, align 4
-  %3158 = load i32, ptr @hf_x11_glx_render_ColorTableParameterfv_pname, align 4
-  %3159 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3158, ptr noundef %0, i32 noundef %3157, i32 noundef 4, i32 noundef %4) #10
-  %3160 = load i32, ptr %2, align 4
-  %3161 = add i32 %3160, 4
-  store i32 %3161, ptr %2, align 4
-  %3162 = load i32, ptr @hf_x11_glx_render_ColorTableParameterfv_params, align 4
-  %3163 = load i32, ptr @hf_x11_glx_render_ColorTableParameterfv_params_item, align 4
-  %3164 = add nsw i32 %10, -12
-  %3165 = sdiv i32 %3164, 4
-  %3166 = shl nsw i32 %3165, 2
-  %3167 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3162, ptr noundef %0, i32 noundef %3161, i32 noundef %3166, i32 noundef %4) #10
-  %3168 = load i32, ptr @ett_x11_list_of_float, align 4
-  %3169 = tail call ptr @proto_item_add_subtree(ptr noundef %3167, i32 noundef %3168) #10
-  %.off.i2446 = add nsw i32 %10, -9
-  %.not13.i.i2447 = icmp ult i32 %.off.i2446, 7
+3172:                                             ; preds = %34
+  %3173 = load i32, ptr @hf_x11_glx_render_ColorTableParameterfv_target, align 4
+  %3174 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3173, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3175 = load i32, ptr %2, align 4
+  %3176 = add i32 %3175, 4
+  store i32 %3176, ptr %2, align 4
+  %3177 = load i32, ptr @hf_x11_glx_render_ColorTableParameterfv_pname, align 4
+  %3178 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3177, ptr noundef %0, i32 noundef %3176, i32 noundef 4, i32 noundef %4) #10
+  %3179 = load i32, ptr %2, align 4
+  %3180 = add i32 %3179, 4
+  store i32 %3180, ptr %2, align 4
+  %3181 = load i32, ptr @hf_x11_glx_render_ColorTableParameterfv_params, align 4
+  %3182 = load i32, ptr @hf_x11_glx_render_ColorTableParameterfv_params_item, align 4
+  %3183 = add nsw i32 %10, -12
+  %3184 = sdiv i32 %3183, 4
+  %3185 = shl nsw i32 %3184, 2
+  %3186 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3181, ptr noundef %0, i32 noundef %3180, i32 noundef %3185, i32 noundef %4) #10
+  %3187 = load i32, ptr @ett_x11_list_of_float, align 4
+  %3188 = tail call ptr @proto_item_add_subtree(ptr noundef %3186, i32 noundef %3187) #10
+  %3189 = add i16 %9, -9
+  %.not13.i.i2447 = icmp ult i16 %3189, 7
   br i1 %.not13.i.i2447, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2448
 
-.lr.ph.preheader.i.i2448:                         ; preds = %3153
+.lr.ph.preheader.i.i2448:                         ; preds = %3172
   %.pre.i.i2449 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2450
 
 .lr.ph.i.i2450:                                   ; preds = %.lr.ph.i.i2450, %.lr.ph.preheader.i.i2448
-  %3170 = phi i32 [ %3174, %.lr.ph.i.i2450 ], [ %.pre.i.i2449, %.lr.ph.preheader.i.i2448 ]
-  %.014.i.i2451 = phi i32 [ %3171, %.lr.ph.i.i2450 ], [ %3165, %.lr.ph.preheader.i.i2448 ]
-  %3171 = add i32 %.014.i.i2451, -1
-  %3172 = tail call ptr @proto_tree_add_item(ptr noundef %3169, i32 noundef %3163, ptr noundef %0, i32 noundef %3170, i32 noundef 4, i32 noundef %4) #10
-  %3173 = load i32, ptr %2, align 4
-  %3174 = add i32 %3173, 4
-  store i32 %3174, ptr %2, align 4
-  %.not.i.i2452 = icmp eq i32 %3171, 0
+  %3190 = phi i32 [ %3194, %.lr.ph.i.i2450 ], [ %.pre.i.i2449, %.lr.ph.preheader.i.i2448 ]
+  %.014.i.i2451 = phi i32 [ %3191, %.lr.ph.i.i2450 ], [ %3184, %.lr.ph.preheader.i.i2448 ]
+  %3191 = add i32 %.014.i.i2451, -1
+  %3192 = tail call ptr @proto_tree_add_item(ptr noundef %3188, i32 noundef %3182, ptr noundef %0, i32 noundef %3190, i32 noundef 4, i32 noundef %4) #10
+  %3193 = load i32, ptr %2, align 4
+  %3194 = add i32 %3193, 4
+  store i32 %3194, ptr %2, align 4
+  %.not.i.i2452 = icmp eq i32 %3191, 0
   br i1 %.not.i.i2452, label %mesa_CallLists.exit, label %.lr.ph.i.i2450, !llvm.loop !61
 
-3175:                                             ; preds = %34
-  %3176 = load i32, ptr @hf_x11_glx_render_ColorTableParameteriv_target, align 4
-  %3177 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3176, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3178 = load i32, ptr %2, align 4
-  %3179 = add i32 %3178, 4
-  store i32 %3179, ptr %2, align 4
-  %3180 = load i32, ptr @hf_x11_glx_render_ColorTableParameteriv_pname, align 4
-  %3181 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3180, ptr noundef %0, i32 noundef %3179, i32 noundef 4, i32 noundef %4) #10
-  %3182 = load i32, ptr %2, align 4
-  %3183 = add i32 %3182, 4
-  store i32 %3183, ptr %2, align 4
-  %3184 = load i32, ptr @hf_x11_glx_render_ColorTableParameteriv_params, align 4
-  %3185 = load i32, ptr @hf_x11_glx_render_ColorTableParameteriv_params_item, align 4
-  %3186 = add nsw i32 %10, -12
-  %3187 = sdiv i32 %3186, 4
-  %3188 = shl nsw i32 %3187, 2
-  %3189 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3184, ptr noundef %0, i32 noundef %3183, i32 noundef %3188, i32 noundef %4) #10
-  %3190 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %3191 = tail call ptr @proto_item_add_subtree(ptr noundef %3189, i32 noundef %3190) #10
-  %.off.i2454 = add nsw i32 %10, -9
-  %.not13.i.i2455 = icmp ult i32 %.off.i2454, 7
+3195:                                             ; preds = %34
+  %3196 = load i32, ptr @hf_x11_glx_render_ColorTableParameteriv_target, align 4
+  %3197 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3196, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3198 = load i32, ptr %2, align 4
+  %3199 = add i32 %3198, 4
+  store i32 %3199, ptr %2, align 4
+  %3200 = load i32, ptr @hf_x11_glx_render_ColorTableParameteriv_pname, align 4
+  %3201 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3200, ptr noundef %0, i32 noundef %3199, i32 noundef 4, i32 noundef %4) #10
+  %3202 = load i32, ptr %2, align 4
+  %3203 = add i32 %3202, 4
+  store i32 %3203, ptr %2, align 4
+  %3204 = load i32, ptr @hf_x11_glx_render_ColorTableParameteriv_params, align 4
+  %3205 = load i32, ptr @hf_x11_glx_render_ColorTableParameteriv_params_item, align 4
+  %3206 = add nsw i32 %10, -12
+  %3207 = sdiv i32 %3206, 4
+  %3208 = shl nsw i32 %3207, 2
+  %3209 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3204, ptr noundef %0, i32 noundef %3203, i32 noundef %3208, i32 noundef %4) #10
+  %3210 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %3211 = tail call ptr @proto_item_add_subtree(ptr noundef %3209, i32 noundef %3210) #10
+  %3212 = add i16 %9, -9
+  %.not13.i.i2455 = icmp ult i16 %3212, 7
   br i1 %.not13.i.i2455, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2456
 
-.lr.ph.preheader.i.i2456:                         ; preds = %3175
+.lr.ph.preheader.i.i2456:                         ; preds = %3195
   %.pre.i.i2457 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2458
 
 .lr.ph.i.i2458:                                   ; preds = %.lr.ph.i.i2458, %.lr.ph.preheader.i.i2456
-  %3192 = phi i32 [ %3196, %.lr.ph.i.i2458 ], [ %.pre.i.i2457, %.lr.ph.preheader.i.i2456 ]
-  %.014.i.i2459 = phi i32 [ %3193, %.lr.ph.i.i2458 ], [ %3187, %.lr.ph.preheader.i.i2456 ]
-  %3193 = add i32 %.014.i.i2459, -1
-  %3194 = tail call ptr @proto_tree_add_item(ptr noundef %3191, i32 noundef %3185, ptr noundef %0, i32 noundef %3192, i32 noundef 4, i32 noundef %4) #10
-  %3195 = load i32, ptr %2, align 4
-  %3196 = add i32 %3195, 4
-  store i32 %3196, ptr %2, align 4
-  %.not.i.i2460 = icmp eq i32 %3193, 0
+  %3213 = phi i32 [ %3217, %.lr.ph.i.i2458 ], [ %.pre.i.i2457, %.lr.ph.preheader.i.i2456 ]
+  %.014.i.i2459 = phi i32 [ %3214, %.lr.ph.i.i2458 ], [ %3207, %.lr.ph.preheader.i.i2456 ]
+  %3214 = add i32 %.014.i.i2459, -1
+  %3215 = tail call ptr @proto_tree_add_item(ptr noundef %3211, i32 noundef %3205, ptr noundef %0, i32 noundef %3213, i32 noundef 4, i32 noundef %4) #10
+  %3216 = load i32, ptr %2, align 4
+  %3217 = add i32 %3216, 4
+  store i32 %3217, ptr %2, align 4
+  %.not.i.i2460 = icmp eq i32 %3214, 0
   br i1 %.not.i.i2460, label %mesa_CallLists.exit, label %.lr.ph.i.i2458, !llvm.loop !60
 
-3197:                                             ; preds = %34
-  %3198 = load i32, ptr @hf_x11_glx_render_CopyColorTable_target, align 4
-  %3199 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3198, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3200 = load i32, ptr %2, align 4
-  %3201 = add i32 %3200, 4
-  store i32 %3201, ptr %2, align 4
-  %3202 = load i32, ptr @hf_x11_glx_render_CopyColorTable_internalformat, align 4
-  %3203 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3202, ptr noundef %0, i32 noundef %3201, i32 noundef 4, i32 noundef %4) #10
-  %3204 = load i32, ptr %2, align 4
-  %3205 = add i32 %3204, 4
-  store i32 %3205, ptr %2, align 4
-  %3206 = load i32, ptr @hf_x11_glx_render_CopyColorTable_x, align 4
-  %3207 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3206, ptr noundef %0, i32 noundef %3205, i32 noundef 4, i32 noundef %4) #10
-  %3208 = load i32, ptr %2, align 4
-  %3209 = add i32 %3208, 4
-  store i32 %3209, ptr %2, align 4
-  %3210 = load i32, ptr @hf_x11_glx_render_CopyColorTable_y, align 4
-  %3211 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3210, ptr noundef %0, i32 noundef %3209, i32 noundef 4, i32 noundef %4) #10
-  %3212 = load i32, ptr %2, align 4
-  %3213 = add i32 %3212, 4
-  store i32 %3213, ptr %2, align 4
-  %3214 = load i32, ptr @hf_x11_glx_render_CopyColorTable_width, align 4
-  %3215 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3214, ptr noundef %0, i32 noundef %3213, i32 noundef 4, i32 noundef %4) #10
+3218:                                             ; preds = %34
+  %3219 = load i32, ptr @hf_x11_glx_render_CopyColorTable_target, align 4
+  %3220 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3219, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3221 = load i32, ptr %2, align 4
+  %3222 = add i32 %3221, 4
+  store i32 %3222, ptr %2, align 4
+  %3223 = load i32, ptr @hf_x11_glx_render_CopyColorTable_internalformat, align 4
+  %3224 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3223, ptr noundef %0, i32 noundef %3222, i32 noundef 4, i32 noundef %4) #10
+  %3225 = load i32, ptr %2, align 4
+  %3226 = add i32 %3225, 4
+  store i32 %3226, ptr %2, align 4
+  %3227 = load i32, ptr @hf_x11_glx_render_CopyColorTable_x, align 4
+  %3228 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3227, ptr noundef %0, i32 noundef %3226, i32 noundef 4, i32 noundef %4) #10
+  %3229 = load i32, ptr %2, align 4
+  %3230 = add i32 %3229, 4
+  store i32 %3230, ptr %2, align 4
+  %3231 = load i32, ptr @hf_x11_glx_render_CopyColorTable_y, align 4
+  %3232 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3231, ptr noundef %0, i32 noundef %3230, i32 noundef 4, i32 noundef %4) #10
+  %3233 = load i32, ptr %2, align 4
+  %3234 = add i32 %3233, 4
+  store i32 %3234, ptr %2, align 4
+  %3235 = load i32, ptr @hf_x11_glx_render_CopyColorTable_width, align 4
+  %3236 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3235, ptr noundef %0, i32 noundef %3234, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3216:                                             ; preds = %34
-  %3217 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_swapbytes, align 4
-  %3218 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3217, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %3219 = load i32, ptr %2, align 4
-  %3220 = add i32 %3219, 1
-  store i32 %3220, ptr %2, align 4
-  %3221 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_lsbfirst, align 4
-  %3222 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3221, ptr noundef %0, i32 noundef %3220, i32 noundef 1, i32 noundef %4) #10
-  %3223 = load i32, ptr %2, align 4
-  %3224 = add i32 %3223, 1
-  store i32 %3224, ptr %2, align 4
-  %3225 = load i32, ptr @hf_x11_unused, align 4
-  %3226 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3225, ptr noundef %0, i32 noundef %3224, i32 noundef 2, i32 noundef 0) #10
-  %3227 = load i32, ptr %2, align 4
-  %3228 = add i32 %3227, 2
-  store i32 %3228, ptr %2, align 4
-  %3229 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_rowlength, align 4
-  %3230 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3229, ptr noundef %0, i32 noundef %3228, i32 noundef 4, i32 noundef %4) #10
-  %3231 = load i32, ptr %2, align 4
-  %3232 = add i32 %3231, 4
-  store i32 %3232, ptr %2, align 4
-  %3233 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_skiprows, align 4
-  %3234 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3233, ptr noundef %0, i32 noundef %3232, i32 noundef 4, i32 noundef %4) #10
-  %3235 = load i32, ptr %2, align 4
-  %3236 = add i32 %3235, 4
-  store i32 %3236, ptr %2, align 4
-  %3237 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_skippixels, align 4
-  %3238 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3237, ptr noundef %0, i32 noundef %3236, i32 noundef 4, i32 noundef %4) #10
-  %3239 = load i32, ptr %2, align 4
-  %3240 = add i32 %3239, 4
-  store i32 %3240, ptr %2, align 4
-  %3241 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_alignment, align 4
-  %3242 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3241, ptr noundef %0, i32 noundef %3240, i32 noundef 4, i32 noundef %4) #10
-  %3243 = load i32, ptr %2, align 4
-  %3244 = add i32 %3243, 4
-  store i32 %3244, ptr %2, align 4
-  %3245 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_target, align 4
-  %3246 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3245, ptr noundef %0, i32 noundef %3244, i32 noundef 4, i32 noundef %4) #10
-  %3247 = load i32, ptr %2, align 4
-  %3248 = add i32 %3247, 4
-  store i32 %3248, ptr %2, align 4
-  %3249 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_level, align 4
-  %3250 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3249, ptr noundef %0, i32 noundef %3248, i32 noundef 4, i32 noundef %4) #10
-  %3251 = load i32, ptr %2, align 4
-  %3252 = add i32 %3251, 4
-  store i32 %3252, ptr %2, align 4
-  %3253 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_internalformat, align 4
-  %3254 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3253, ptr noundef %0, i32 noundef %3252, i32 noundef 4, i32 noundef %4) #10
-  %3255 = load i32, ptr %2, align 4
-  %3256 = add i32 %3255, 4
-  store i32 %3256, ptr %2, align 4
-  %3257 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_width, align 4
-  %3258 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3257, ptr noundef %0, i32 noundef %3256, i32 noundef 4, i32 noundef %4) #10
-  %3259 = load i32, ptr %2, align 4
-  %3260 = add i32 %3259, 4
-  store i32 %3260, ptr %2, align 4
-  %3261 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_height, align 4
-  %3262 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3261, ptr noundef %0, i32 noundef %3260, i32 noundef 4, i32 noundef %4) #10
-  %3263 = load i32, ptr %2, align 4
-  %3264 = add i32 %3263, 4
-  store i32 %3264, ptr %2, align 4
-  %3265 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_depth, align 4
-  %3266 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3265, ptr noundef %0, i32 noundef %3264, i32 noundef 4, i32 noundef %4) #10
-  %3267 = load i32, ptr %2, align 4
-  %3268 = add i32 %3267, 4
-  store i32 %3268, ptr %2, align 4
-  %3269 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_size4d, align 4
-  %3270 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3269, ptr noundef %0, i32 noundef %3268, i32 noundef 4, i32 noundef %4) #10
-  %3271 = load i32, ptr %2, align 4
-  %3272 = add i32 %3271, 4
-  store i32 %3272, ptr %2, align 4
-  %3273 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_border, align 4
-  %3274 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3273, ptr noundef %0, i32 noundef %3272, i32 noundef 4, i32 noundef %4) #10
-  %3275 = load i32, ptr %2, align 4
-  %3276 = add i32 %3275, 4
-  store i32 %3276, ptr %2, align 4
-  %3277 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_format, align 4
-  %3278 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3277, ptr noundef %0, i32 noundef %3276, i32 noundef 4, i32 noundef %4) #10
-  %3279 = load i32, ptr %2, align 4
-  %3280 = add i32 %3279, 4
-  store i32 %3280, ptr %2, align 4
-  %3281 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_type, align 4
-  %3282 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3281, ptr noundef %0, i32 noundef %3280, i32 noundef 4, i32 noundef %4) #10
-  %3283 = load i32, ptr %2, align 4
-  %3284 = add i32 %3283, 4
-  store i32 %3284, ptr %2, align 4
-  %3285 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_pixels, align 4
-  %3286 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 61)
-  %spec.store.select.i.i2462 = add nsw i32 %3286, -60
-  %3287 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3285, ptr noundef %0, i32 noundef %3284, i32 noundef %spec.store.select.i.i2462, i32 noundef %4) #10
+3237:                                             ; preds = %34
+  %3238 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_swapbytes, align 4
+  %3239 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3238, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %3240 = load i32, ptr %2, align 4
+  %3241 = add i32 %3240, 1
+  store i32 %3241, ptr %2, align 4
+  %3242 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_lsbfirst, align 4
+  %3243 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3242, ptr noundef %0, i32 noundef %3241, i32 noundef 1, i32 noundef %4) #10
+  %3244 = load i32, ptr %2, align 4
+  %3245 = add i32 %3244, 1
+  store i32 %3245, ptr %2, align 4
+  %3246 = load i32, ptr @hf_x11_unused, align 4
+  %3247 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3246, ptr noundef %0, i32 noundef %3245, i32 noundef 2, i32 noundef 0) #10
+  %3248 = load i32, ptr %2, align 4
+  %3249 = add i32 %3248, 2
+  store i32 %3249, ptr %2, align 4
+  %3250 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_rowlength, align 4
+  %3251 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3250, ptr noundef %0, i32 noundef %3249, i32 noundef 4, i32 noundef %4) #10
+  %3252 = load i32, ptr %2, align 4
+  %3253 = add i32 %3252, 4
+  store i32 %3253, ptr %2, align 4
+  %3254 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_skiprows, align 4
+  %3255 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3254, ptr noundef %0, i32 noundef %3253, i32 noundef 4, i32 noundef %4) #10
+  %3256 = load i32, ptr %2, align 4
+  %3257 = add i32 %3256, 4
+  store i32 %3257, ptr %2, align 4
+  %3258 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_skippixels, align 4
+  %3259 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3258, ptr noundef %0, i32 noundef %3257, i32 noundef 4, i32 noundef %4) #10
+  %3260 = load i32, ptr %2, align 4
+  %3261 = add i32 %3260, 4
+  store i32 %3261, ptr %2, align 4
+  %3262 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_alignment, align 4
+  %3263 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3262, ptr noundef %0, i32 noundef %3261, i32 noundef 4, i32 noundef %4) #10
+  %3264 = load i32, ptr %2, align 4
+  %3265 = add i32 %3264, 4
+  store i32 %3265, ptr %2, align 4
+  %3266 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_target, align 4
+  %3267 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3266, ptr noundef %0, i32 noundef %3265, i32 noundef 4, i32 noundef %4) #10
+  %3268 = load i32, ptr %2, align 4
+  %3269 = add i32 %3268, 4
+  store i32 %3269, ptr %2, align 4
+  %3270 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_level, align 4
+  %3271 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3270, ptr noundef %0, i32 noundef %3269, i32 noundef 4, i32 noundef %4) #10
+  %3272 = load i32, ptr %2, align 4
+  %3273 = add i32 %3272, 4
+  store i32 %3273, ptr %2, align 4
+  %3274 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_internalformat, align 4
+  %3275 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3274, ptr noundef %0, i32 noundef %3273, i32 noundef 4, i32 noundef %4) #10
+  %3276 = load i32, ptr %2, align 4
+  %3277 = add i32 %3276, 4
+  store i32 %3277, ptr %2, align 4
+  %3278 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_width, align 4
+  %3279 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3278, ptr noundef %0, i32 noundef %3277, i32 noundef 4, i32 noundef %4) #10
+  %3280 = load i32, ptr %2, align 4
+  %3281 = add i32 %3280, 4
+  store i32 %3281, ptr %2, align 4
+  %3282 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_height, align 4
+  %3283 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3282, ptr noundef %0, i32 noundef %3281, i32 noundef 4, i32 noundef %4) #10
+  %3284 = load i32, ptr %2, align 4
+  %3285 = add i32 %3284, 4
+  store i32 %3285, ptr %2, align 4
+  %3286 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_depth, align 4
+  %3287 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3286, ptr noundef %0, i32 noundef %3285, i32 noundef 4, i32 noundef %4) #10
+  %3288 = load i32, ptr %2, align 4
+  %3289 = add i32 %3288, 4
+  store i32 %3289, ptr %2, align 4
+  %3290 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_size4d, align 4
+  %3291 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3290, ptr noundef %0, i32 noundef %3289, i32 noundef 4, i32 noundef %4) #10
+  %3292 = load i32, ptr %2, align 4
+  %3293 = add i32 %3292, 4
+  store i32 %3293, ptr %2, align 4
+  %3294 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_border, align 4
+  %3295 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3294, ptr noundef %0, i32 noundef %3293, i32 noundef 4, i32 noundef %4) #10
+  %3296 = load i32, ptr %2, align 4
+  %3297 = add i32 %3296, 4
+  store i32 %3297, ptr %2, align 4
+  %3298 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_format, align 4
+  %3299 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3298, ptr noundef %0, i32 noundef %3297, i32 noundef 4, i32 noundef %4) #10
+  %3300 = load i32, ptr %2, align 4
+  %3301 = add i32 %3300, 4
+  store i32 %3301, ptr %2, align 4
+  %3302 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_type, align 4
+  %3303 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3302, ptr noundef %0, i32 noundef %3301, i32 noundef 4, i32 noundef %4) #10
+  %3304 = load i32, ptr %2, align 4
+  %3305 = add i32 %3304, 4
+  store i32 %3305, ptr %2, align 4
+  %3306 = load i32, ptr @hf_x11_glx_render_TexImage4DSGIS_pixels, align 4
+  %3307 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 61)
+  %spec.store.select.i.i2462 = add nsw i32 %3307, -60
+  %3308 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3306, ptr noundef %0, i32 noundef %3305, i32 noundef %spec.store.select.i.i2462, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3288:                                             ; preds = %34
-  %3289 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_swapbytes, align 4
-  %3290 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3289, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %3291 = load i32, ptr %2, align 4
-  %3292 = add i32 %3291, 1
-  store i32 %3292, ptr %2, align 4
-  %3293 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_lsbfirst, align 4
-  %3294 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3293, ptr noundef %0, i32 noundef %3292, i32 noundef 1, i32 noundef %4) #10
-  %3295 = load i32, ptr %2, align 4
-  %3296 = add i32 %3295, 1
-  store i32 %3296, ptr %2, align 4
-  %3297 = load i32, ptr @hf_x11_unused, align 4
-  %3298 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3297, ptr noundef %0, i32 noundef %3296, i32 noundef 2, i32 noundef 0) #10
-  %3299 = load i32, ptr %2, align 4
-  %3300 = add i32 %3299, 2
-  store i32 %3300, ptr %2, align 4
-  %3301 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_rowlength, align 4
-  %3302 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3301, ptr noundef %0, i32 noundef %3300, i32 noundef 4, i32 noundef %4) #10
-  %3303 = load i32, ptr %2, align 4
-  %3304 = add i32 %3303, 4
-  store i32 %3304, ptr %2, align 4
-  %3305 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_skiprows, align 4
-  %3306 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3305, ptr noundef %0, i32 noundef %3304, i32 noundef 4, i32 noundef %4) #10
-  %3307 = load i32, ptr %2, align 4
-  %3308 = add i32 %3307, 4
-  store i32 %3308, ptr %2, align 4
-  %3309 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_skippixels, align 4
-  %3310 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3309, ptr noundef %0, i32 noundef %3308, i32 noundef 4, i32 noundef %4) #10
-  %3311 = load i32, ptr %2, align 4
-  %3312 = add i32 %3311, 4
-  store i32 %3312, ptr %2, align 4
-  %3313 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_alignment, align 4
-  %3314 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3313, ptr noundef %0, i32 noundef %3312, i32 noundef 4, i32 noundef %4) #10
-  %3315 = load i32, ptr %2, align 4
-  %3316 = add i32 %3315, 4
-  store i32 %3316, ptr %2, align 4
-  %3317 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_target, align 4
-  %3318 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3317, ptr noundef %0, i32 noundef %3316, i32 noundef 4, i32 noundef %4) #10
-  %3319 = load i32, ptr %2, align 4
-  %3320 = add i32 %3319, 4
-  store i32 %3320, ptr %2, align 4
-  %3321 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_level, align 4
-  %3322 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3321, ptr noundef %0, i32 noundef %3320, i32 noundef 4, i32 noundef %4) #10
-  %3323 = load i32, ptr %2, align 4
-  %3324 = add i32 %3323, 4
-  store i32 %3324, ptr %2, align 4
-  %3325 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_xoffset, align 4
-  %3326 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3325, ptr noundef %0, i32 noundef %3324, i32 noundef 4, i32 noundef %4) #10
-  %3327 = load i32, ptr %2, align 4
-  %3328 = add i32 %3327, 4
-  store i32 %3328, ptr %2, align 4
-  %3329 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_yoffset, align 4
-  %3330 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3329, ptr noundef %0, i32 noundef %3328, i32 noundef 4, i32 noundef %4) #10
-  %3331 = load i32, ptr %2, align 4
-  %3332 = add i32 %3331, 4
-  store i32 %3332, ptr %2, align 4
-  %3333 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_zoffset, align 4
-  %3334 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3333, ptr noundef %0, i32 noundef %3332, i32 noundef 4, i32 noundef %4) #10
-  %3335 = load i32, ptr %2, align 4
-  %3336 = add i32 %3335, 4
-  store i32 %3336, ptr %2, align 4
-  %3337 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_woffset, align 4
-  %3338 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3337, ptr noundef %0, i32 noundef %3336, i32 noundef 4, i32 noundef %4) #10
-  %3339 = load i32, ptr %2, align 4
-  %3340 = add i32 %3339, 4
-  store i32 %3340, ptr %2, align 4
-  %3341 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_width, align 4
-  %3342 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3341, ptr noundef %0, i32 noundef %3340, i32 noundef 4, i32 noundef %4) #10
-  %3343 = load i32, ptr %2, align 4
-  %3344 = add i32 %3343, 4
-  store i32 %3344, ptr %2, align 4
-  %3345 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_height, align 4
-  %3346 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3345, ptr noundef %0, i32 noundef %3344, i32 noundef 4, i32 noundef %4) #10
-  %3347 = load i32, ptr %2, align 4
-  %3348 = add i32 %3347, 4
-  store i32 %3348, ptr %2, align 4
-  %3349 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_depth, align 4
-  %3350 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3349, ptr noundef %0, i32 noundef %3348, i32 noundef 4, i32 noundef %4) #10
-  %3351 = load i32, ptr %2, align 4
-  %3352 = add i32 %3351, 4
-  store i32 %3352, ptr %2, align 4
-  %3353 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_size4d, align 4
-  %3354 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3353, ptr noundef %0, i32 noundef %3352, i32 noundef 4, i32 noundef %4) #10
-  %3355 = load i32, ptr %2, align 4
-  %3356 = add i32 %3355, 4
-  store i32 %3356, ptr %2, align 4
-  %3357 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_format, align 4
-  %3358 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3357, ptr noundef %0, i32 noundef %3356, i32 noundef 4, i32 noundef %4) #10
-  %3359 = load i32, ptr %2, align 4
-  %3360 = add i32 %3359, 4
-  store i32 %3360, ptr %2, align 4
-  %3361 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_type, align 4
-  %3362 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3361, ptr noundef %0, i32 noundef %3360, i32 noundef 4, i32 noundef %4) #10
-  %3363 = load i32, ptr %2, align 4
-  %3364 = add i32 %3363, 4
-  store i32 %3364, ptr %2, align 4
-  %3365 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_UNUSED, align 4
-  %3366 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3365, ptr noundef %0, i32 noundef %3364, i32 noundef 4, i32 noundef %4) #10
-  %3367 = load i32, ptr %2, align 4
-  %3368 = add i32 %3367, 4
-  store i32 %3368, ptr %2, align 4
-  %3369 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_pixels, align 4
-  %3370 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 73)
-  %spec.store.select.i.i2463 = add nsw i32 %3370, -72
-  %3371 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3369, ptr noundef %0, i32 noundef %3368, i32 noundef %spec.store.select.i.i2463, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-3372:                                             ; preds = %34
-  %3373 = load i32, ptr @hf_x11_glx_render_PixelTexGenSGIX_mode, align 4
-  %3374 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3373, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-3375:                                             ; preds = %34
-  %3376 = load i32, ptr @hf_x11_glx_render_TexFilterFuncSGIS_target, align 4
-  %3377 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3376, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3378 = load i32, ptr %2, align 4
-  %3379 = add i32 %3378, 4
-  store i32 %3379, ptr %2, align 4
-  %3380 = load i32, ptr @hf_x11_glx_render_TexFilterFuncSGIS_filter, align 4
-  %3381 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3380, ptr noundef %0, i32 noundef %3379, i32 noundef 4, i32 noundef %4) #10
-  %3382 = load i32, ptr %2, align 4
-  %3383 = add i32 %3382, 4
-  store i32 %3383, ptr %2, align 4
-  %3384 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %3383, i32 noundef %4) #10
-  %3385 = load i32, ptr @hf_x11_glx_render_TexFilterFuncSGIS_n, align 4
-  %3386 = load i32, ptr %2, align 4
-  %3387 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3385, ptr noundef %0, i32 noundef %3386, i32 noundef 4, i32 noundef %4) #10
+3309:                                             ; preds = %34
+  %3310 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_swapbytes, align 4
+  %3311 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3310, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %3312 = load i32, ptr %2, align 4
+  %3313 = add i32 %3312, 1
+  store i32 %3313, ptr %2, align 4
+  %3314 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_lsbfirst, align 4
+  %3315 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3314, ptr noundef %0, i32 noundef %3313, i32 noundef 1, i32 noundef %4) #10
+  %3316 = load i32, ptr %2, align 4
+  %3317 = add i32 %3316, 1
+  store i32 %3317, ptr %2, align 4
+  %3318 = load i32, ptr @hf_x11_unused, align 4
+  %3319 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3318, ptr noundef %0, i32 noundef %3317, i32 noundef 2, i32 noundef 0) #10
+  %3320 = load i32, ptr %2, align 4
+  %3321 = add i32 %3320, 2
+  store i32 %3321, ptr %2, align 4
+  %3322 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_rowlength, align 4
+  %3323 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3322, ptr noundef %0, i32 noundef %3321, i32 noundef 4, i32 noundef %4) #10
+  %3324 = load i32, ptr %2, align 4
+  %3325 = add i32 %3324, 4
+  store i32 %3325, ptr %2, align 4
+  %3326 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_skiprows, align 4
+  %3327 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3326, ptr noundef %0, i32 noundef %3325, i32 noundef 4, i32 noundef %4) #10
+  %3328 = load i32, ptr %2, align 4
+  %3329 = add i32 %3328, 4
+  store i32 %3329, ptr %2, align 4
+  %3330 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_skippixels, align 4
+  %3331 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3330, ptr noundef %0, i32 noundef %3329, i32 noundef 4, i32 noundef %4) #10
+  %3332 = load i32, ptr %2, align 4
+  %3333 = add i32 %3332, 4
+  store i32 %3333, ptr %2, align 4
+  %3334 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_alignment, align 4
+  %3335 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3334, ptr noundef %0, i32 noundef %3333, i32 noundef 4, i32 noundef %4) #10
+  %3336 = load i32, ptr %2, align 4
+  %3337 = add i32 %3336, 4
+  store i32 %3337, ptr %2, align 4
+  %3338 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_target, align 4
+  %3339 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3338, ptr noundef %0, i32 noundef %3337, i32 noundef 4, i32 noundef %4) #10
+  %3340 = load i32, ptr %2, align 4
+  %3341 = add i32 %3340, 4
+  store i32 %3341, ptr %2, align 4
+  %3342 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_level, align 4
+  %3343 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3342, ptr noundef %0, i32 noundef %3341, i32 noundef 4, i32 noundef %4) #10
+  %3344 = load i32, ptr %2, align 4
+  %3345 = add i32 %3344, 4
+  store i32 %3345, ptr %2, align 4
+  %3346 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_xoffset, align 4
+  %3347 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3346, ptr noundef %0, i32 noundef %3345, i32 noundef 4, i32 noundef %4) #10
+  %3348 = load i32, ptr %2, align 4
+  %3349 = add i32 %3348, 4
+  store i32 %3349, ptr %2, align 4
+  %3350 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_yoffset, align 4
+  %3351 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3350, ptr noundef %0, i32 noundef %3349, i32 noundef 4, i32 noundef %4) #10
+  %3352 = load i32, ptr %2, align 4
+  %3353 = add i32 %3352, 4
+  store i32 %3353, ptr %2, align 4
+  %3354 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_zoffset, align 4
+  %3355 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3354, ptr noundef %0, i32 noundef %3353, i32 noundef 4, i32 noundef %4) #10
+  %3356 = load i32, ptr %2, align 4
+  %3357 = add i32 %3356, 4
+  store i32 %3357, ptr %2, align 4
+  %3358 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_woffset, align 4
+  %3359 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3358, ptr noundef %0, i32 noundef %3357, i32 noundef 4, i32 noundef %4) #10
+  %3360 = load i32, ptr %2, align 4
+  %3361 = add i32 %3360, 4
+  store i32 %3361, ptr %2, align 4
+  %3362 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_width, align 4
+  %3363 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3362, ptr noundef %0, i32 noundef %3361, i32 noundef 4, i32 noundef %4) #10
+  %3364 = load i32, ptr %2, align 4
+  %3365 = add i32 %3364, 4
+  store i32 %3365, ptr %2, align 4
+  %3366 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_height, align 4
+  %3367 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3366, ptr noundef %0, i32 noundef %3365, i32 noundef 4, i32 noundef %4) #10
+  %3368 = load i32, ptr %2, align 4
+  %3369 = add i32 %3368, 4
+  store i32 %3369, ptr %2, align 4
+  %3370 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_depth, align 4
+  %3371 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3370, ptr noundef %0, i32 noundef %3369, i32 noundef 4, i32 noundef %4) #10
+  %3372 = load i32, ptr %2, align 4
+  %3373 = add i32 %3372, 4
+  store i32 %3373, ptr %2, align 4
+  %3374 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_size4d, align 4
+  %3375 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3374, ptr noundef %0, i32 noundef %3373, i32 noundef 4, i32 noundef %4) #10
+  %3376 = load i32, ptr %2, align 4
+  %3377 = add i32 %3376, 4
+  store i32 %3377, ptr %2, align 4
+  %3378 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_format, align 4
+  %3379 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3378, ptr noundef %0, i32 noundef %3377, i32 noundef 4, i32 noundef %4) #10
+  %3380 = load i32, ptr %2, align 4
+  %3381 = add i32 %3380, 4
+  store i32 %3381, ptr %2, align 4
+  %3382 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_type, align 4
+  %3383 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3382, ptr noundef %0, i32 noundef %3381, i32 noundef 4, i32 noundef %4) #10
+  %3384 = load i32, ptr %2, align 4
+  %3385 = add i32 %3384, 4
+  store i32 %3385, ptr %2, align 4
+  %3386 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_UNUSED, align 4
+  %3387 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3386, ptr noundef %0, i32 noundef %3385, i32 noundef 4, i32 noundef %4) #10
   %3388 = load i32, ptr %2, align 4
   %3389 = add i32 %3388, 4
   store i32 %3389, ptr %2, align 4
-  %3390 = load i32, ptr @hf_x11_glx_render_TexFilterFuncSGIS_weights, align 4
-  %3391 = load i32, ptr @hf_x11_glx_render_TexFilterFuncSGIS_weights_item, align 4
-  %3392 = shl i32 %3384, 2
-  %3393 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3390, ptr noundef %0, i32 noundef %3389, i32 noundef %3392, i32 noundef %4) #10
-  %3394 = load i32, ptr @ett_x11_list_of_float, align 4
-  %3395 = tail call ptr @proto_item_add_subtree(ptr noundef %3393, i32 noundef %3394) #10
-  %.not13.i.i2464 = icmp eq i32 %3384, 0
+  %3390 = load i32, ptr @hf_x11_glx_render_TexSubImage4DSGIS_pixels, align 4
+  %3391 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 73)
+  %spec.store.select.i.i2463 = add nsw i32 %3391, -72
+  %3392 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3390, ptr noundef %0, i32 noundef %3389, i32 noundef %spec.store.select.i.i2463, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+3393:                                             ; preds = %34
+  %3394 = load i32, ptr @hf_x11_glx_render_PixelTexGenSGIX_mode, align 4
+  %3395 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3394, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+3396:                                             ; preds = %34
+  %3397 = load i32, ptr @hf_x11_glx_render_TexFilterFuncSGIS_target, align 4
+  %3398 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3397, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3399 = load i32, ptr %2, align 4
+  %3400 = add i32 %3399, 4
+  store i32 %3400, ptr %2, align 4
+  %3401 = load i32, ptr @hf_x11_glx_render_TexFilterFuncSGIS_filter, align 4
+  %3402 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3401, ptr noundef %0, i32 noundef %3400, i32 noundef 4, i32 noundef %4) #10
+  %3403 = load i32, ptr %2, align 4
+  %3404 = add i32 %3403, 4
+  store i32 %3404, ptr %2, align 4
+  %3405 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %3404, i32 noundef %4) #10
+  %3406 = load i32, ptr @hf_x11_glx_render_TexFilterFuncSGIS_n, align 4
+  %3407 = load i32, ptr %2, align 4
+  %3408 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3406, ptr noundef %0, i32 noundef %3407, i32 noundef 4, i32 noundef %4) #10
+  %3409 = load i32, ptr %2, align 4
+  %3410 = add i32 %3409, 4
+  store i32 %3410, ptr %2, align 4
+  %3411 = load i32, ptr @hf_x11_glx_render_TexFilterFuncSGIS_weights, align 4
+  %3412 = load i32, ptr @hf_x11_glx_render_TexFilterFuncSGIS_weights_item, align 4
+  %3413 = shl i32 %3405, 2
+  %3414 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3411, ptr noundef %0, i32 noundef %3410, i32 noundef %3413, i32 noundef %4) #10
+  %3415 = load i32, ptr @ett_x11_list_of_float, align 4
+  %3416 = tail call ptr @proto_item_add_subtree(ptr noundef %3414, i32 noundef %3415) #10
+  %.not13.i.i2464 = icmp eq i32 %3405, 0
   br i1 %.not13.i.i2464, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2465
 
-.lr.ph.preheader.i.i2465:                         ; preds = %3375
+.lr.ph.preheader.i.i2465:                         ; preds = %3396
   %.pre.i.i2466 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2467
 
 .lr.ph.i.i2467:                                   ; preds = %.lr.ph.i.i2467, %.lr.ph.preheader.i.i2465
-  %3396 = phi i32 [ %3400, %.lr.ph.i.i2467 ], [ %.pre.i.i2466, %.lr.ph.preheader.i.i2465 ]
-  %.014.i.i2468 = phi i32 [ %3397, %.lr.ph.i.i2467 ], [ %3384, %.lr.ph.preheader.i.i2465 ]
-  %3397 = add i32 %.014.i.i2468, -1
-  %3398 = tail call ptr @proto_tree_add_item(ptr noundef %3395, i32 noundef %3391, ptr noundef %0, i32 noundef %3396, i32 noundef 4, i32 noundef %4) #10
-  %3399 = load i32, ptr %2, align 4
-  %3400 = add i32 %3399, 4
-  store i32 %3400, ptr %2, align 4
-  %.not.i.i2469 = icmp eq i32 %3397, 0
+  %3417 = phi i32 [ %3421, %.lr.ph.i.i2467 ], [ %.pre.i.i2466, %.lr.ph.preheader.i.i2465 ]
+  %.014.i.i2468 = phi i32 [ %3418, %.lr.ph.i.i2467 ], [ %3405, %.lr.ph.preheader.i.i2465 ]
+  %3418 = add i32 %.014.i.i2468, -1
+  %3419 = tail call ptr @proto_tree_add_item(ptr noundef %3416, i32 noundef %3412, ptr noundef %0, i32 noundef %3417, i32 noundef 4, i32 noundef %4) #10
+  %3420 = load i32, ptr %2, align 4
+  %3421 = add i32 %3420, 4
+  store i32 %3421, ptr %2, align 4
+  %.not.i.i2469 = icmp eq i32 %3418, 0
   br i1 %.not.i.i2469, label %mesa_CallLists.exit, label %.lr.ph.i.i2467, !llvm.loop !61
 
-3401:                                             ; preds = %34
-  %3402 = load i32, ptr @hf_x11_glx_render_PointParameterf_pname, align 4
-  %3403 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3402, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3404 = load i32, ptr %2, align 4
-  %3405 = add i32 %3404, 4
-  store i32 %3405, ptr %2, align 4
-  %3406 = load i32, ptr @hf_x11_glx_render_PointParameterf_param, align 4
-  %3407 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3406, ptr noundef %0, i32 noundef %3405, i32 noundef 4, i32 noundef %4) #10
+3422:                                             ; preds = %34
+  %3423 = load i32, ptr @hf_x11_glx_render_PointParameterf_pname, align 4
+  %3424 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3423, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3425 = load i32, ptr %2, align 4
+  %3426 = add i32 %3425, 4
+  store i32 %3426, ptr %2, align 4
+  %3427 = load i32, ptr @hf_x11_glx_render_PointParameterf_param, align 4
+  %3428 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3427, ptr noundef %0, i32 noundef %3426, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3408:                                             ; preds = %34
-  %3409 = load i32, ptr @hf_x11_glx_render_PointParameterfv_pname, align 4
-  %3410 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3409, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3411 = load i32, ptr %2, align 4
-  %3412 = add i32 %3411, 4
-  store i32 %3412, ptr %2, align 4
-  %3413 = load i32, ptr @hf_x11_glx_render_PointParameterfv_params, align 4
-  %3414 = load i32, ptr @hf_x11_glx_render_PointParameterfv_params_item, align 4
-  %3415 = add nsw i32 %10, -8
-  %3416 = sdiv i32 %3415, 4
-  %3417 = shl nsw i32 %3416, 2
-  %3418 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3413, ptr noundef %0, i32 noundef %3412, i32 noundef %3417, i32 noundef %4) #10
-  %3419 = load i32, ptr @ett_x11_list_of_float, align 4
-  %3420 = tail call ptr @proto_item_add_subtree(ptr noundef %3418, i32 noundef %3419) #10
-  %.off.i2471 = add nsw i32 %10, -5
-  %.not13.i.i2472 = icmp ult i32 %.off.i2471, 7
+3429:                                             ; preds = %34
+  %3430 = load i32, ptr @hf_x11_glx_render_PointParameterfv_pname, align 4
+  %3431 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3430, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3432 = load i32, ptr %2, align 4
+  %3433 = add i32 %3432, 4
+  store i32 %3433, ptr %2, align 4
+  %3434 = load i32, ptr @hf_x11_glx_render_PointParameterfv_params, align 4
+  %3435 = load i32, ptr @hf_x11_glx_render_PointParameterfv_params_item, align 4
+  %3436 = add nsw i32 %10, -8
+  %3437 = sdiv i32 %3436, 4
+  %3438 = shl nsw i32 %3437, 2
+  %3439 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3434, ptr noundef %0, i32 noundef %3433, i32 noundef %3438, i32 noundef %4) #10
+  %3440 = load i32, ptr @ett_x11_list_of_float, align 4
+  %3441 = tail call ptr @proto_item_add_subtree(ptr noundef %3439, i32 noundef %3440) #10
+  %3442 = add i16 %9, -5
+  %.not13.i.i2472 = icmp ult i16 %3442, 7
   br i1 %.not13.i.i2472, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2473
 
-.lr.ph.preheader.i.i2473:                         ; preds = %3408
+.lr.ph.preheader.i.i2473:                         ; preds = %3429
   %.pre.i.i2474 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2475
 
 .lr.ph.i.i2475:                                   ; preds = %.lr.ph.i.i2475, %.lr.ph.preheader.i.i2473
-  %3421 = phi i32 [ %3425, %.lr.ph.i.i2475 ], [ %.pre.i.i2474, %.lr.ph.preheader.i.i2473 ]
-  %.014.i.i2476 = phi i32 [ %3422, %.lr.ph.i.i2475 ], [ %3416, %.lr.ph.preheader.i.i2473 ]
-  %3422 = add i32 %.014.i.i2476, -1
-  %3423 = tail call ptr @proto_tree_add_item(ptr noundef %3420, i32 noundef %3414, ptr noundef %0, i32 noundef %3421, i32 noundef 4, i32 noundef %4) #10
-  %3424 = load i32, ptr %2, align 4
-  %3425 = add i32 %3424, 4
-  store i32 %3425, ptr %2, align 4
-  %.not.i.i2477 = icmp eq i32 %3422, 0
+  %3443 = phi i32 [ %3447, %.lr.ph.i.i2475 ], [ %.pre.i.i2474, %.lr.ph.preheader.i.i2473 ]
+  %.014.i.i2476 = phi i32 [ %3444, %.lr.ph.i.i2475 ], [ %3437, %.lr.ph.preheader.i.i2473 ]
+  %3444 = add i32 %.014.i.i2476, -1
+  %3445 = tail call ptr @proto_tree_add_item(ptr noundef %3441, i32 noundef %3435, ptr noundef %0, i32 noundef %3443, i32 noundef 4, i32 noundef %4) #10
+  %3446 = load i32, ptr %2, align 4
+  %3447 = add i32 %3446, 4
+  store i32 %3447, ptr %2, align 4
+  %.not.i.i2477 = icmp eq i32 %3444, 0
   br i1 %.not.i.i2477, label %mesa_CallLists.exit, label %.lr.ph.i.i2475, !llvm.loop !61
 
-3426:                                             ; preds = %34
-  %3427 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
-  %3428 = load i32, ptr @hf_x11_glx_render_FogFuncSGIS_n, align 4
-  %3429 = load i32, ptr %2, align 4
-  %3430 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3428, ptr noundef %0, i32 noundef %3429, i32 noundef 4, i32 noundef %4) #10
-  %3431 = load i32, ptr %2, align 4
-  %3432 = add i32 %3431, 4
-  store i32 %3432, ptr %2, align 4
-  %3433 = load i32, ptr @hf_x11_glx_render_FogFuncSGIS_points, align 4
-  %3434 = load i32, ptr @hf_x11_glx_render_FogFuncSGIS_points_item, align 4
-  %3435 = shl i32 %3427, 2
-  %3436 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3433, ptr noundef %0, i32 noundef %3432, i32 noundef %3435, i32 noundef %4) #10
-  %3437 = load i32, ptr @ett_x11_list_of_float, align 4
-  %3438 = tail call ptr @proto_item_add_subtree(ptr noundef %3436, i32 noundef %3437) #10
-  %.not13.i.i2479 = icmp eq i32 %3427, 0
+3448:                                             ; preds = %34
+  %3449 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
+  %3450 = load i32, ptr @hf_x11_glx_render_FogFuncSGIS_n, align 4
+  %3451 = load i32, ptr %2, align 4
+  %3452 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3450, ptr noundef %0, i32 noundef %3451, i32 noundef 4, i32 noundef %4) #10
+  %3453 = load i32, ptr %2, align 4
+  %3454 = add i32 %3453, 4
+  store i32 %3454, ptr %2, align 4
+  %3455 = load i32, ptr @hf_x11_glx_render_FogFuncSGIS_points, align 4
+  %3456 = load i32, ptr @hf_x11_glx_render_FogFuncSGIS_points_item, align 4
+  %3457 = shl i32 %3449, 2
+  %3458 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3455, ptr noundef %0, i32 noundef %3454, i32 noundef %3457, i32 noundef %4) #10
+  %3459 = load i32, ptr @ett_x11_list_of_float, align 4
+  %3460 = tail call ptr @proto_item_add_subtree(ptr noundef %3458, i32 noundef %3459) #10
+  %.not13.i.i2479 = icmp eq i32 %3449, 0
   br i1 %.not13.i.i2479, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2480
 
-.lr.ph.preheader.i.i2480:                         ; preds = %3426
+.lr.ph.preheader.i.i2480:                         ; preds = %3448
   %.pre.i.i2481 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2482
 
 .lr.ph.i.i2482:                                   ; preds = %.lr.ph.i.i2482, %.lr.ph.preheader.i.i2480
-  %3439 = phi i32 [ %3443, %.lr.ph.i.i2482 ], [ %.pre.i.i2481, %.lr.ph.preheader.i.i2480 ]
-  %.014.i.i2483 = phi i32 [ %3440, %.lr.ph.i.i2482 ], [ %3427, %.lr.ph.preheader.i.i2480 ]
-  %3440 = add i32 %.014.i.i2483, -1
-  %3441 = tail call ptr @proto_tree_add_item(ptr noundef %3438, i32 noundef %3434, ptr noundef %0, i32 noundef %3439, i32 noundef 4, i32 noundef %4) #10
-  %3442 = load i32, ptr %2, align 4
-  %3443 = add i32 %3442, 4
-  store i32 %3443, ptr %2, align 4
-  %.not.i.i2484 = icmp eq i32 %3440, 0
+  %3461 = phi i32 [ %3465, %.lr.ph.i.i2482 ], [ %.pre.i.i2481, %.lr.ph.preheader.i.i2480 ]
+  %.014.i.i2483 = phi i32 [ %3462, %.lr.ph.i.i2482 ], [ %3449, %.lr.ph.preheader.i.i2480 ]
+  %3462 = add i32 %.014.i.i2483, -1
+  %3463 = tail call ptr @proto_tree_add_item(ptr noundef %3460, i32 noundef %3456, ptr noundef %0, i32 noundef %3461, i32 noundef 4, i32 noundef %4) #10
+  %3464 = load i32, ptr %2, align 4
+  %3465 = add i32 %3464, 4
+  store i32 %3465, ptr %2, align 4
+  %.not.i.i2484 = icmp eq i32 %3462, 0
   br i1 %.not.i.i2484, label %mesa_CallLists.exit, label %.lr.ph.i.i2482, !llvm.loop !61
 
-3444:                                             ; preds = %34
-  %3445 = load i32, ptr @hf_x11_glx_render_ReferencePlaneSGIX_equation, align 4
-  %3446 = load i32, ptr @hf_x11_glx_render_ReferencePlaneSGIX_equation_item, align 4
-  %3447 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3445, ptr noundef %0, i32 noundef %28, i32 noundef 32, i32 noundef %4) #10
-  %3448 = load i32, ptr @ett_x11_list_of_double, align 4
-  %3449 = tail call ptr @proto_item_add_subtree(ptr noundef %3447, i32 noundef %3448) #10
+3466:                                             ; preds = %34
+  %3467 = load i32, ptr @hf_x11_glx_render_ReferencePlaneSGIX_equation, align 4
+  %3468 = load i32, ptr @hf_x11_glx_render_ReferencePlaneSGIX_equation_item, align 4
+  %3469 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3467, ptr noundef %0, i32 noundef %28, i32 noundef 32, i32 noundef %4) #10
+  %3470 = load i32, ptr @ett_x11_list_of_double, align 4
+  %3471 = tail call ptr @proto_item_add_subtree(ptr noundef %3469, i32 noundef %3470) #10
   %.pre.i.i2486 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2487
 
-.lr.ph.i.i2487:                                   ; preds = %.lr.ph.i.i2487, %3444
-  %3450 = phi i32 [ %3454, %.lr.ph.i.i2487 ], [ %.pre.i.i2486, %3444 ]
-  %.014.i.i2488 = phi i32 [ %3451, %.lr.ph.i.i2487 ], [ 4, %3444 ]
-  %3451 = add nsw i32 %.014.i.i2488, -1
-  %3452 = tail call ptr @proto_tree_add_item(ptr noundef %3449, i32 noundef %3446, ptr noundef %0, i32 noundef %3450, i32 noundef 8, i32 noundef %4) #10
-  %3453 = load i32, ptr %2, align 4
-  %3454 = add i32 %3453, 8
-  store i32 %3454, ptr %2, align 4
-  %.not.i.i2489 = icmp eq i32 %3451, 0
+.lr.ph.i.i2487:                                   ; preds = %.lr.ph.i.i2487, %3466
+  %3472 = phi i32 [ %3476, %.lr.ph.i.i2487 ], [ %.pre.i.i2486, %3466 ]
+  %.014.i.i2488 = phi i32 [ %3473, %.lr.ph.i.i2487 ], [ 4, %3466 ]
+  %3473 = add nsw i32 %.014.i.i2488, -1
+  %3474 = tail call ptr @proto_tree_add_item(ptr noundef %3471, i32 noundef %3468, ptr noundef %0, i32 noundef %3472, i32 noundef 8, i32 noundef %4) #10
+  %3475 = load i32, ptr %2, align 4
+  %3476 = add i32 %3475, 8
+  store i32 %3476, ptr %2, align 4
+  %.not.i.i2489 = icmp eq i32 %3473, 0
   br i1 %.not.i.i2489, label %mesa_CallLists.exit, label %.lr.ph.i.i2487, !llvm.loop !62
 
-3455:                                             ; preds = %34
-  %3456 = load i32, ptr @hf_x11_glx_render_FrameZoomSGIX_factor, align 4
-  %3457 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3456, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+3477:                                             ; preds = %34
+  %3478 = load i32, ptr @hf_x11_glx_render_FrameZoomSGIX_factor, align 4
+  %3479 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3478, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3458:                                             ; preds = %34
-  %3459 = load i32, ptr @hf_x11_glx_render_TextureColorMaskSGIS_red, align 4
-  %3460 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3459, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %3461 = load i32, ptr %2, align 4
-  %3462 = add i32 %3461, 1
-  store i32 %3462, ptr %2, align 4
-  %3463 = load i32, ptr @hf_x11_glx_render_TextureColorMaskSGIS_green, align 4
-  %3464 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3463, ptr noundef %0, i32 noundef %3462, i32 noundef 1, i32 noundef %4) #10
-  %3465 = load i32, ptr %2, align 4
-  %3466 = add i32 %3465, 1
-  store i32 %3466, ptr %2, align 4
-  %3467 = load i32, ptr @hf_x11_glx_render_TextureColorMaskSGIS_blue, align 4
-  %3468 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3467, ptr noundef %0, i32 noundef %3466, i32 noundef 1, i32 noundef %4) #10
-  %3469 = load i32, ptr %2, align 4
-  %3470 = add i32 %3469, 1
-  store i32 %3470, ptr %2, align 4
-  %3471 = load i32, ptr @hf_x11_glx_render_TextureColorMaskSGIS_alpha, align 4
-  %3472 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3471, ptr noundef %0, i32 noundef %3470, i32 noundef 1, i32 noundef %4) #10
+3480:                                             ; preds = %34
+  %3481 = load i32, ptr @hf_x11_glx_render_TextureColorMaskSGIS_red, align 4
+  %3482 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3481, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %3483 = load i32, ptr %2, align 4
+  %3484 = add i32 %3483, 1
+  store i32 %3484, ptr %2, align 4
+  %3485 = load i32, ptr @hf_x11_glx_render_TextureColorMaskSGIS_green, align 4
+  %3486 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3485, ptr noundef %0, i32 noundef %3484, i32 noundef 1, i32 noundef %4) #10
+  %3487 = load i32, ptr %2, align 4
+  %3488 = add i32 %3487, 1
+  store i32 %3488, ptr %2, align 4
+  %3489 = load i32, ptr @hf_x11_glx_render_TextureColorMaskSGIS_blue, align 4
+  %3490 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3489, ptr noundef %0, i32 noundef %3488, i32 noundef 1, i32 noundef %4) #10
+  %3491 = load i32, ptr %2, align 4
+  %3492 = add i32 %3491, 1
+  store i32 %3492, ptr %2, align 4
+  %3493 = load i32, ptr @hf_x11_glx_render_TextureColorMaskSGIS_alpha, align 4
+  %3494 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3493, ptr noundef %0, i32 noundef %3492, i32 noundef 1, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3473:                                             ; preds = %34
-  %3474 = load i32, ptr @hf_x11_glx_render_BlendColor_red, align 4
-  %3475 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3474, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3476 = load i32, ptr %2, align 4
-  %3477 = add i32 %3476, 4
-  store i32 %3477, ptr %2, align 4
-  %3478 = load i32, ptr @hf_x11_glx_render_BlendColor_green, align 4
-  %3479 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3478, ptr noundef %0, i32 noundef %3477, i32 noundef 4, i32 noundef %4) #10
-  %3480 = load i32, ptr %2, align 4
-  %3481 = add i32 %3480, 4
-  store i32 %3481, ptr %2, align 4
-  %3482 = load i32, ptr @hf_x11_glx_render_BlendColor_blue, align 4
-  %3483 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3482, ptr noundef %0, i32 noundef %3481, i32 noundef 4, i32 noundef %4) #10
-  %3484 = load i32, ptr %2, align 4
-  %3485 = add i32 %3484, 4
-  store i32 %3485, ptr %2, align 4
-  %3486 = load i32, ptr @hf_x11_glx_render_BlendColor_alpha, align 4
-  %3487 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3486, ptr noundef %0, i32 noundef %3485, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-3488:                                             ; preds = %34
-  %3489 = load i32, ptr @hf_x11_glx_render_BlendEquation_mode, align 4
-  %3490 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3489, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-3491:                                             ; preds = %34
-  %3492 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_swapbytes, align 4
-  %3493 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3492, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %3494 = load i32, ptr %2, align 4
-  %3495 = add i32 %3494, 1
-  store i32 %3495, ptr %2, align 4
-  %3496 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_lsbfirst, align 4
-  %3497 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3496, ptr noundef %0, i32 noundef %3495, i32 noundef 1, i32 noundef %4) #10
+3495:                                             ; preds = %34
+  %3496 = load i32, ptr @hf_x11_glx_render_BlendColor_red, align 4
+  %3497 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3496, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %3498 = load i32, ptr %2, align 4
-  %3499 = add i32 %3498, 1
+  %3499 = add i32 %3498, 4
   store i32 %3499, ptr %2, align 4
-  %3500 = load i32, ptr @hf_x11_unused, align 4
-  %3501 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3500, ptr noundef %0, i32 noundef %3499, i32 noundef 2, i32 noundef 0) #10
+  %3500 = load i32, ptr @hf_x11_glx_render_BlendColor_green, align 4
+  %3501 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3500, ptr noundef %0, i32 noundef %3499, i32 noundef 4, i32 noundef %4) #10
   %3502 = load i32, ptr %2, align 4
-  %3503 = add i32 %3502, 2
+  %3503 = add i32 %3502, 4
   store i32 %3503, ptr %2, align 4
-  %3504 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_rowlength, align 4
+  %3504 = load i32, ptr @hf_x11_glx_render_BlendColor_blue, align 4
   %3505 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3504, ptr noundef %0, i32 noundef %3503, i32 noundef 4, i32 noundef %4) #10
   %3506 = load i32, ptr %2, align 4
   %3507 = add i32 %3506, 4
   store i32 %3507, ptr %2, align 4
-  %3508 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_skiprows, align 4
+  %3508 = load i32, ptr @hf_x11_glx_render_BlendColor_alpha, align 4
   %3509 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3508, ptr noundef %0, i32 noundef %3507, i32 noundef 4, i32 noundef %4) #10
-  %3510 = load i32, ptr %2, align 4
-  %3511 = add i32 %3510, 4
-  store i32 %3511, ptr %2, align 4
-  %3512 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_skippixels, align 4
-  %3513 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3512, ptr noundef %0, i32 noundef %3511, i32 noundef 4, i32 noundef %4) #10
-  %3514 = load i32, ptr %2, align 4
-  %3515 = add i32 %3514, 4
-  store i32 %3515, ptr %2, align 4
-  %3516 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_alignment, align 4
-  %3517 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3516, ptr noundef %0, i32 noundef %3515, i32 noundef 4, i32 noundef %4) #10
-  %3518 = load i32, ptr %2, align 4
-  %3519 = add i32 %3518, 4
-  store i32 %3519, ptr %2, align 4
-  %3520 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_target, align 4
-  %3521 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3520, ptr noundef %0, i32 noundef %3519, i32 noundef 4, i32 noundef %4) #10
-  %3522 = load i32, ptr %2, align 4
-  %3523 = add i32 %3522, 4
-  store i32 %3523, ptr %2, align 4
-  %3524 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_level, align 4
-  %3525 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3524, ptr noundef %0, i32 noundef %3523, i32 noundef 4, i32 noundef %4) #10
-  %3526 = load i32, ptr %2, align 4
-  %3527 = add i32 %3526, 4
-  store i32 %3527, ptr %2, align 4
-  %3528 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_xoffset, align 4
-  %3529 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3528, ptr noundef %0, i32 noundef %3527, i32 noundef 4, i32 noundef %4) #10
-  %3530 = load i32, ptr %2, align 4
-  %3531 = add i32 %3530, 4
-  store i32 %3531, ptr %2, align 4
-  %3532 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_width, align 4
-  %3533 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3532, ptr noundef %0, i32 noundef %3531, i32 noundef 4, i32 noundef %4) #10
-  %3534 = load i32, ptr %2, align 4
-  %3535 = add i32 %3534, 4
-  store i32 %3535, ptr %2, align 4
-  %3536 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_format, align 4
-  %3537 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3536, ptr noundef %0, i32 noundef %3535, i32 noundef 4, i32 noundef %4) #10
-  %3538 = load i32, ptr %2, align 4
-  %3539 = add i32 %3538, 4
-  store i32 %3539, ptr %2, align 4
-  %3540 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_type, align 4
-  %3541 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3540, ptr noundef %0, i32 noundef %3539, i32 noundef 4, i32 noundef %4) #10
-  %3542 = load i32, ptr %2, align 4
-  %3543 = add i32 %3542, 4
-  store i32 %3543, ptr %2, align 4
-  %3544 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_UNUSED, align 4
-  %3545 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3544, ptr noundef %0, i32 noundef %3543, i32 noundef 4, i32 noundef %4) #10
-  %3546 = load i32, ptr %2, align 4
-  %3547 = add i32 %3546, 4
-  store i32 %3547, ptr %2, align 4
-  %3548 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_pixels, align 4
-  %3549 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 49)
-  %spec.store.select.i.i2491 = add nsw i32 %3549, -48
-  %3550 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3548, ptr noundef %0, i32 noundef %3547, i32 noundef %spec.store.select.i.i2491, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3551:                                             ; preds = %34
-  %3552 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_swapbytes, align 4
-  %3553 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3552, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %3554 = load i32, ptr %2, align 4
-  %3555 = add i32 %3554, 1
-  store i32 %3555, ptr %2, align 4
-  %3556 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_lsbfirst, align 4
-  %3557 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3556, ptr noundef %0, i32 noundef %3555, i32 noundef 1, i32 noundef %4) #10
-  %3558 = load i32, ptr %2, align 4
-  %3559 = add i32 %3558, 1
-  store i32 %3559, ptr %2, align 4
-  %3560 = load i32, ptr @hf_x11_unused, align 4
-  %3561 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3560, ptr noundef %0, i32 noundef %3559, i32 noundef 2, i32 noundef 0) #10
-  %3562 = load i32, ptr %2, align 4
-  %3563 = add i32 %3562, 2
-  store i32 %3563, ptr %2, align 4
-  %3564 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_rowlength, align 4
-  %3565 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3564, ptr noundef %0, i32 noundef %3563, i32 noundef 4, i32 noundef %4) #10
-  %3566 = load i32, ptr %2, align 4
-  %3567 = add i32 %3566, 4
-  store i32 %3567, ptr %2, align 4
-  %3568 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_skiprows, align 4
-  %3569 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3568, ptr noundef %0, i32 noundef %3567, i32 noundef 4, i32 noundef %4) #10
-  %3570 = load i32, ptr %2, align 4
-  %3571 = add i32 %3570, 4
-  store i32 %3571, ptr %2, align 4
-  %3572 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_skippixels, align 4
-  %3573 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3572, ptr noundef %0, i32 noundef %3571, i32 noundef 4, i32 noundef %4) #10
-  %3574 = load i32, ptr %2, align 4
-  %3575 = add i32 %3574, 4
-  store i32 %3575, ptr %2, align 4
-  %3576 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_alignment, align 4
-  %3577 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3576, ptr noundef %0, i32 noundef %3575, i32 noundef 4, i32 noundef %4) #10
-  %3578 = load i32, ptr %2, align 4
-  %3579 = add i32 %3578, 4
-  store i32 %3579, ptr %2, align 4
-  %3580 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_target, align 4
-  %3581 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3580, ptr noundef %0, i32 noundef %3579, i32 noundef 4, i32 noundef %4) #10
-  %3582 = load i32, ptr %2, align 4
-  %3583 = add i32 %3582, 4
-  store i32 %3583, ptr %2, align 4
-  %3584 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_level, align 4
-  %3585 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3584, ptr noundef %0, i32 noundef %3583, i32 noundef 4, i32 noundef %4) #10
-  %3586 = load i32, ptr %2, align 4
-  %3587 = add i32 %3586, 4
-  store i32 %3587, ptr %2, align 4
-  %3588 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_xoffset, align 4
-  %3589 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3588, ptr noundef %0, i32 noundef %3587, i32 noundef 4, i32 noundef %4) #10
-  %3590 = load i32, ptr %2, align 4
-  %3591 = add i32 %3590, 4
-  store i32 %3591, ptr %2, align 4
-  %3592 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_yoffset, align 4
-  %3593 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3592, ptr noundef %0, i32 noundef %3591, i32 noundef 4, i32 noundef %4) #10
-  %3594 = load i32, ptr %2, align 4
-  %3595 = add i32 %3594, 4
-  store i32 %3595, ptr %2, align 4
-  %3596 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_width, align 4
-  %3597 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3596, ptr noundef %0, i32 noundef %3595, i32 noundef 4, i32 noundef %4) #10
-  %3598 = load i32, ptr %2, align 4
-  %3599 = add i32 %3598, 4
-  store i32 %3599, ptr %2, align 4
-  %3600 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_height, align 4
-  %3601 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3600, ptr noundef %0, i32 noundef %3599, i32 noundef 4, i32 noundef %4) #10
-  %3602 = load i32, ptr %2, align 4
-  %3603 = add i32 %3602, 4
-  store i32 %3603, ptr %2, align 4
-  %3604 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_format, align 4
-  %3605 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3604, ptr noundef %0, i32 noundef %3603, i32 noundef 4, i32 noundef %4) #10
-  %3606 = load i32, ptr %2, align 4
-  %3607 = add i32 %3606, 4
-  store i32 %3607, ptr %2, align 4
-  %3608 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_type, align 4
-  %3609 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3608, ptr noundef %0, i32 noundef %3607, i32 noundef 4, i32 noundef %4) #10
-  %3610 = load i32, ptr %2, align 4
-  %3611 = add i32 %3610, 4
-  store i32 %3611, ptr %2, align 4
-  %3612 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_UNUSED, align 4
-  %3613 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3612, ptr noundef %0, i32 noundef %3611, i32 noundef 4, i32 noundef %4) #10
-  %3614 = load i32, ptr %2, align 4
-  %3615 = add i32 %3614, 4
-  store i32 %3615, ptr %2, align 4
-  %3616 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_pixels, align 4
-  %3617 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 57)
-  %spec.store.select.i.i2492 = add nsw i32 %3617, -56
-  %3618 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3616, ptr noundef %0, i32 noundef %3615, i32 noundef %spec.store.select.i.i2492, i32 noundef %4) #10
+3510:                                             ; preds = %34
+  %3511 = load i32, ptr @hf_x11_glx_render_BlendEquation_mode, align 4
+  %3512 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3511, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3619:                                             ; preds = %34
-  %3620 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_swapbytes, align 4
-  %3621 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3620, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %3622 = load i32, ptr %2, align 4
-  %3623 = add i32 %3622, 1
-  store i32 %3623, ptr %2, align 4
-  %3624 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_lsbfirst, align 4
-  %3625 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3624, ptr noundef %0, i32 noundef %3623, i32 noundef 1, i32 noundef %4) #10
-  %3626 = load i32, ptr %2, align 4
-  %3627 = add i32 %3626, 1
-  store i32 %3627, ptr %2, align 4
-  %3628 = load i32, ptr @hf_x11_unused, align 4
-  %3629 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3628, ptr noundef %0, i32 noundef %3627, i32 noundef 2, i32 noundef 0) #10
-  %3630 = load i32, ptr %2, align 4
-  %3631 = add i32 %3630, 2
-  store i32 %3631, ptr %2, align 4
-  %3632 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_rowlength, align 4
-  %3633 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3632, ptr noundef %0, i32 noundef %3631, i32 noundef 4, i32 noundef %4) #10
-  %3634 = load i32, ptr %2, align 4
-  %3635 = add i32 %3634, 4
-  store i32 %3635, ptr %2, align 4
-  %3636 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_skiprows, align 4
-  %3637 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3636, ptr noundef %0, i32 noundef %3635, i32 noundef 4, i32 noundef %4) #10
-  %3638 = load i32, ptr %2, align 4
-  %3639 = add i32 %3638, 4
-  store i32 %3639, ptr %2, align 4
-  %3640 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_skippixels, align 4
-  %3641 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3640, ptr noundef %0, i32 noundef %3639, i32 noundef 4, i32 noundef %4) #10
-  %3642 = load i32, ptr %2, align 4
-  %3643 = add i32 %3642, 4
-  store i32 %3643, ptr %2, align 4
-  %3644 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_alignment, align 4
-  %3645 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3644, ptr noundef %0, i32 noundef %3643, i32 noundef 4, i32 noundef %4) #10
-  %3646 = load i32, ptr %2, align 4
-  %3647 = add i32 %3646, 4
-  store i32 %3647, ptr %2, align 4
-  %3648 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_target, align 4
-  %3649 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3648, ptr noundef %0, i32 noundef %3647, i32 noundef 4, i32 noundef %4) #10
-  %3650 = load i32, ptr %2, align 4
-  %3651 = add i32 %3650, 4
-  store i32 %3651, ptr %2, align 4
-  %3652 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_internalformat, align 4
-  %3653 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3652, ptr noundef %0, i32 noundef %3651, i32 noundef 4, i32 noundef %4) #10
-  %3654 = load i32, ptr %2, align 4
-  %3655 = add i32 %3654, 4
-  store i32 %3655, ptr %2, align 4
-  %3656 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_width, align 4
-  %3657 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3656, ptr noundef %0, i32 noundef %3655, i32 noundef 4, i32 noundef %4) #10
-  %3658 = load i32, ptr %2, align 4
-  %3659 = add i32 %3658, 4
-  store i32 %3659, ptr %2, align 4
-  %3660 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_format, align 4
-  %3661 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3660, ptr noundef %0, i32 noundef %3659, i32 noundef 4, i32 noundef %4) #10
-  %3662 = load i32, ptr %2, align 4
-  %3663 = add i32 %3662, 4
-  store i32 %3663, ptr %2, align 4
-  %3664 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_type, align 4
-  %3665 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3664, ptr noundef %0, i32 noundef %3663, i32 noundef 4, i32 noundef %4) #10
-  %3666 = load i32, ptr %2, align 4
-  %3667 = add i32 %3666, 4
-  store i32 %3667, ptr %2, align 4
-  %3668 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_image, align 4
-  %3669 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 41)
-  %spec.store.select.i.i2493 = add nsw i32 %3669, -40
-  %3670 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3668, ptr noundef %0, i32 noundef %3667, i32 noundef %spec.store.select.i.i2493, i32 noundef %4) #10
+3513:                                             ; preds = %34
+  %3514 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_swapbytes, align 4
+  %3515 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3514, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %3516 = load i32, ptr %2, align 4
+  %3517 = add i32 %3516, 1
+  store i32 %3517, ptr %2, align 4
+  %3518 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_lsbfirst, align 4
+  %3519 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3518, ptr noundef %0, i32 noundef %3517, i32 noundef 1, i32 noundef %4) #10
+  %3520 = load i32, ptr %2, align 4
+  %3521 = add i32 %3520, 1
+  store i32 %3521, ptr %2, align 4
+  %3522 = load i32, ptr @hf_x11_unused, align 4
+  %3523 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3522, ptr noundef %0, i32 noundef %3521, i32 noundef 2, i32 noundef 0) #10
+  %3524 = load i32, ptr %2, align 4
+  %3525 = add i32 %3524, 2
+  store i32 %3525, ptr %2, align 4
+  %3526 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_rowlength, align 4
+  %3527 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3526, ptr noundef %0, i32 noundef %3525, i32 noundef 4, i32 noundef %4) #10
+  %3528 = load i32, ptr %2, align 4
+  %3529 = add i32 %3528, 4
+  store i32 %3529, ptr %2, align 4
+  %3530 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_skiprows, align 4
+  %3531 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3530, ptr noundef %0, i32 noundef %3529, i32 noundef 4, i32 noundef %4) #10
+  %3532 = load i32, ptr %2, align 4
+  %3533 = add i32 %3532, 4
+  store i32 %3533, ptr %2, align 4
+  %3534 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_skippixels, align 4
+  %3535 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3534, ptr noundef %0, i32 noundef %3533, i32 noundef 4, i32 noundef %4) #10
+  %3536 = load i32, ptr %2, align 4
+  %3537 = add i32 %3536, 4
+  store i32 %3537, ptr %2, align 4
+  %3538 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_alignment, align 4
+  %3539 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3538, ptr noundef %0, i32 noundef %3537, i32 noundef 4, i32 noundef %4) #10
+  %3540 = load i32, ptr %2, align 4
+  %3541 = add i32 %3540, 4
+  store i32 %3541, ptr %2, align 4
+  %3542 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_target, align 4
+  %3543 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3542, ptr noundef %0, i32 noundef %3541, i32 noundef 4, i32 noundef %4) #10
+  %3544 = load i32, ptr %2, align 4
+  %3545 = add i32 %3544, 4
+  store i32 %3545, ptr %2, align 4
+  %3546 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_level, align 4
+  %3547 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3546, ptr noundef %0, i32 noundef %3545, i32 noundef 4, i32 noundef %4) #10
+  %3548 = load i32, ptr %2, align 4
+  %3549 = add i32 %3548, 4
+  store i32 %3549, ptr %2, align 4
+  %3550 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_xoffset, align 4
+  %3551 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3550, ptr noundef %0, i32 noundef %3549, i32 noundef 4, i32 noundef %4) #10
+  %3552 = load i32, ptr %2, align 4
+  %3553 = add i32 %3552, 4
+  store i32 %3553, ptr %2, align 4
+  %3554 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_width, align 4
+  %3555 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3554, ptr noundef %0, i32 noundef %3553, i32 noundef 4, i32 noundef %4) #10
+  %3556 = load i32, ptr %2, align 4
+  %3557 = add i32 %3556, 4
+  store i32 %3557, ptr %2, align 4
+  %3558 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_format, align 4
+  %3559 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3558, ptr noundef %0, i32 noundef %3557, i32 noundef 4, i32 noundef %4) #10
+  %3560 = load i32, ptr %2, align 4
+  %3561 = add i32 %3560, 4
+  store i32 %3561, ptr %2, align 4
+  %3562 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_type, align 4
+  %3563 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3562, ptr noundef %0, i32 noundef %3561, i32 noundef 4, i32 noundef %4) #10
+  %3564 = load i32, ptr %2, align 4
+  %3565 = add i32 %3564, 4
+  store i32 %3565, ptr %2, align 4
+  %3566 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_UNUSED, align 4
+  %3567 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3566, ptr noundef %0, i32 noundef %3565, i32 noundef 4, i32 noundef %4) #10
+  %3568 = load i32, ptr %2, align 4
+  %3569 = add i32 %3568, 4
+  store i32 %3569, ptr %2, align 4
+  %3570 = load i32, ptr @hf_x11_glx_render_TexSubImage1D_pixels, align 4
+  %3571 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 49)
+  %spec.store.select.i.i2491 = add nsw i32 %3571, -48
+  %3572 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3570, ptr noundef %0, i32 noundef %3569, i32 noundef %spec.store.select.i.i2491, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3671:                                             ; preds = %34
-  %3672 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_swapbytes, align 4
-  %3673 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3672, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
-  %3674 = load i32, ptr %2, align 4
-  %3675 = add i32 %3674, 1
-  store i32 %3675, ptr %2, align 4
-  %3676 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_lsbfirst, align 4
-  %3677 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3676, ptr noundef %0, i32 noundef %3675, i32 noundef 1, i32 noundef %4) #10
-  %3678 = load i32, ptr %2, align 4
-  %3679 = add i32 %3678, 1
-  store i32 %3679, ptr %2, align 4
-  %3680 = load i32, ptr @hf_x11_unused, align 4
-  %3681 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3680, ptr noundef %0, i32 noundef %3679, i32 noundef 2, i32 noundef 0) #10
-  %3682 = load i32, ptr %2, align 4
-  %3683 = add i32 %3682, 2
-  store i32 %3683, ptr %2, align 4
-  %3684 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_rowlength, align 4
-  %3685 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3684, ptr noundef %0, i32 noundef %3683, i32 noundef 4, i32 noundef %4) #10
-  %3686 = load i32, ptr %2, align 4
-  %3687 = add i32 %3686, 4
-  store i32 %3687, ptr %2, align 4
-  %3688 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_skiprows, align 4
-  %3689 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3688, ptr noundef %0, i32 noundef %3687, i32 noundef 4, i32 noundef %4) #10
-  %3690 = load i32, ptr %2, align 4
-  %3691 = add i32 %3690, 4
-  store i32 %3691, ptr %2, align 4
-  %3692 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_skippixels, align 4
-  %3693 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3692, ptr noundef %0, i32 noundef %3691, i32 noundef 4, i32 noundef %4) #10
-  %3694 = load i32, ptr %2, align 4
-  %3695 = add i32 %3694, 4
-  store i32 %3695, ptr %2, align 4
-  %3696 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_alignment, align 4
-  %3697 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3696, ptr noundef %0, i32 noundef %3695, i32 noundef 4, i32 noundef %4) #10
-  %3698 = load i32, ptr %2, align 4
-  %3699 = add i32 %3698, 4
-  store i32 %3699, ptr %2, align 4
-  %3700 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_target, align 4
-  %3701 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3700, ptr noundef %0, i32 noundef %3699, i32 noundef 4, i32 noundef %4) #10
-  %3702 = load i32, ptr %2, align 4
-  %3703 = add i32 %3702, 4
-  store i32 %3703, ptr %2, align 4
-  %3704 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_internalformat, align 4
-  %3705 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3704, ptr noundef %0, i32 noundef %3703, i32 noundef 4, i32 noundef %4) #10
-  %3706 = load i32, ptr %2, align 4
-  %3707 = add i32 %3706, 4
-  store i32 %3707, ptr %2, align 4
-  %3708 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_width, align 4
-  %3709 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3708, ptr noundef %0, i32 noundef %3707, i32 noundef 4, i32 noundef %4) #10
-  %3710 = load i32, ptr %2, align 4
-  %3711 = add i32 %3710, 4
-  store i32 %3711, ptr %2, align 4
-  %3712 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_height, align 4
-  %3713 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3712, ptr noundef %0, i32 noundef %3711, i32 noundef 4, i32 noundef %4) #10
-  %3714 = load i32, ptr %2, align 4
-  %3715 = add i32 %3714, 4
-  store i32 %3715, ptr %2, align 4
-  %3716 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_format, align 4
-  %3717 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3716, ptr noundef %0, i32 noundef %3715, i32 noundef 4, i32 noundef %4) #10
-  %3718 = load i32, ptr %2, align 4
-  %3719 = add i32 %3718, 4
-  store i32 %3719, ptr %2, align 4
-  %3720 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_type, align 4
-  %3721 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3720, ptr noundef %0, i32 noundef %3719, i32 noundef 4, i32 noundef %4) #10
-  %3722 = load i32, ptr %2, align 4
-  %3723 = add i32 %3722, 4
-  store i32 %3723, ptr %2, align 4
-  %3724 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_image, align 4
-  %3725 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 45)
-  %spec.store.select.i.i2494 = add nsw i32 %3725, -44
-  %3726 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3724, ptr noundef %0, i32 noundef %3723, i32 noundef %spec.store.select.i.i2494, i32 noundef %4) #10
+3573:                                             ; preds = %34
+  %3574 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_swapbytes, align 4
+  %3575 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3574, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %3576 = load i32, ptr %2, align 4
+  %3577 = add i32 %3576, 1
+  store i32 %3577, ptr %2, align 4
+  %3578 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_lsbfirst, align 4
+  %3579 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3578, ptr noundef %0, i32 noundef %3577, i32 noundef 1, i32 noundef %4) #10
+  %3580 = load i32, ptr %2, align 4
+  %3581 = add i32 %3580, 1
+  store i32 %3581, ptr %2, align 4
+  %3582 = load i32, ptr @hf_x11_unused, align 4
+  %3583 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3582, ptr noundef %0, i32 noundef %3581, i32 noundef 2, i32 noundef 0) #10
+  %3584 = load i32, ptr %2, align 4
+  %3585 = add i32 %3584, 2
+  store i32 %3585, ptr %2, align 4
+  %3586 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_rowlength, align 4
+  %3587 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3586, ptr noundef %0, i32 noundef %3585, i32 noundef 4, i32 noundef %4) #10
+  %3588 = load i32, ptr %2, align 4
+  %3589 = add i32 %3588, 4
+  store i32 %3589, ptr %2, align 4
+  %3590 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_skiprows, align 4
+  %3591 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3590, ptr noundef %0, i32 noundef %3589, i32 noundef 4, i32 noundef %4) #10
+  %3592 = load i32, ptr %2, align 4
+  %3593 = add i32 %3592, 4
+  store i32 %3593, ptr %2, align 4
+  %3594 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_skippixels, align 4
+  %3595 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3594, ptr noundef %0, i32 noundef %3593, i32 noundef 4, i32 noundef %4) #10
+  %3596 = load i32, ptr %2, align 4
+  %3597 = add i32 %3596, 4
+  store i32 %3597, ptr %2, align 4
+  %3598 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_alignment, align 4
+  %3599 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3598, ptr noundef %0, i32 noundef %3597, i32 noundef 4, i32 noundef %4) #10
+  %3600 = load i32, ptr %2, align 4
+  %3601 = add i32 %3600, 4
+  store i32 %3601, ptr %2, align 4
+  %3602 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_target, align 4
+  %3603 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3602, ptr noundef %0, i32 noundef %3601, i32 noundef 4, i32 noundef %4) #10
+  %3604 = load i32, ptr %2, align 4
+  %3605 = add i32 %3604, 4
+  store i32 %3605, ptr %2, align 4
+  %3606 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_level, align 4
+  %3607 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3606, ptr noundef %0, i32 noundef %3605, i32 noundef 4, i32 noundef %4) #10
+  %3608 = load i32, ptr %2, align 4
+  %3609 = add i32 %3608, 4
+  store i32 %3609, ptr %2, align 4
+  %3610 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_xoffset, align 4
+  %3611 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3610, ptr noundef %0, i32 noundef %3609, i32 noundef 4, i32 noundef %4) #10
+  %3612 = load i32, ptr %2, align 4
+  %3613 = add i32 %3612, 4
+  store i32 %3613, ptr %2, align 4
+  %3614 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_yoffset, align 4
+  %3615 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3614, ptr noundef %0, i32 noundef %3613, i32 noundef 4, i32 noundef %4) #10
+  %3616 = load i32, ptr %2, align 4
+  %3617 = add i32 %3616, 4
+  store i32 %3617, ptr %2, align 4
+  %3618 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_width, align 4
+  %3619 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3618, ptr noundef %0, i32 noundef %3617, i32 noundef 4, i32 noundef %4) #10
+  %3620 = load i32, ptr %2, align 4
+  %3621 = add i32 %3620, 4
+  store i32 %3621, ptr %2, align 4
+  %3622 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_height, align 4
+  %3623 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3622, ptr noundef %0, i32 noundef %3621, i32 noundef 4, i32 noundef %4) #10
+  %3624 = load i32, ptr %2, align 4
+  %3625 = add i32 %3624, 4
+  store i32 %3625, ptr %2, align 4
+  %3626 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_format, align 4
+  %3627 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3626, ptr noundef %0, i32 noundef %3625, i32 noundef 4, i32 noundef %4) #10
+  %3628 = load i32, ptr %2, align 4
+  %3629 = add i32 %3628, 4
+  store i32 %3629, ptr %2, align 4
+  %3630 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_type, align 4
+  %3631 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3630, ptr noundef %0, i32 noundef %3629, i32 noundef 4, i32 noundef %4) #10
+  %3632 = load i32, ptr %2, align 4
+  %3633 = add i32 %3632, 4
+  store i32 %3633, ptr %2, align 4
+  %3634 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_UNUSED, align 4
+  %3635 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3634, ptr noundef %0, i32 noundef %3633, i32 noundef 4, i32 noundef %4) #10
+  %3636 = load i32, ptr %2, align 4
+  %3637 = add i32 %3636, 4
+  store i32 %3637, ptr %2, align 4
+  %3638 = load i32, ptr @hf_x11_glx_render_TexSubImage2D_pixels, align 4
+  %3639 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 57)
+  %spec.store.select.i.i2492 = add nsw i32 %3639, -56
+  %3640 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3638, ptr noundef %0, i32 noundef %3637, i32 noundef %spec.store.select.i.i2492, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3727:                                             ; preds = %34
-  %3728 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterf_target, align 4
-  %3729 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3728, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3730 = load i32, ptr %2, align 4
-  %3731 = add i32 %3730, 4
-  store i32 %3731, ptr %2, align 4
-  %3732 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterf_pname, align 4
-  %3733 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3732, ptr noundef %0, i32 noundef %3731, i32 noundef 4, i32 noundef %4) #10
-  %3734 = load i32, ptr %2, align 4
-  %3735 = add i32 %3734, 4
-  store i32 %3735, ptr %2, align 4
-  %3736 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterf_params, align 4
-  %3737 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3736, ptr noundef %0, i32 noundef %3735, i32 noundef 4, i32 noundef %4) #10
+3641:                                             ; preds = %34
+  %3642 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_swapbytes, align 4
+  %3643 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3642, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %3644 = load i32, ptr %2, align 4
+  %3645 = add i32 %3644, 1
+  store i32 %3645, ptr %2, align 4
+  %3646 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_lsbfirst, align 4
+  %3647 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3646, ptr noundef %0, i32 noundef %3645, i32 noundef 1, i32 noundef %4) #10
+  %3648 = load i32, ptr %2, align 4
+  %3649 = add i32 %3648, 1
+  store i32 %3649, ptr %2, align 4
+  %3650 = load i32, ptr @hf_x11_unused, align 4
+  %3651 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3650, ptr noundef %0, i32 noundef %3649, i32 noundef 2, i32 noundef 0) #10
+  %3652 = load i32, ptr %2, align 4
+  %3653 = add i32 %3652, 2
+  store i32 %3653, ptr %2, align 4
+  %3654 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_rowlength, align 4
+  %3655 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3654, ptr noundef %0, i32 noundef %3653, i32 noundef 4, i32 noundef %4) #10
+  %3656 = load i32, ptr %2, align 4
+  %3657 = add i32 %3656, 4
+  store i32 %3657, ptr %2, align 4
+  %3658 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_skiprows, align 4
+  %3659 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3658, ptr noundef %0, i32 noundef %3657, i32 noundef 4, i32 noundef %4) #10
+  %3660 = load i32, ptr %2, align 4
+  %3661 = add i32 %3660, 4
+  store i32 %3661, ptr %2, align 4
+  %3662 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_skippixels, align 4
+  %3663 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3662, ptr noundef %0, i32 noundef %3661, i32 noundef 4, i32 noundef %4) #10
+  %3664 = load i32, ptr %2, align 4
+  %3665 = add i32 %3664, 4
+  store i32 %3665, ptr %2, align 4
+  %3666 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_alignment, align 4
+  %3667 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3666, ptr noundef %0, i32 noundef %3665, i32 noundef 4, i32 noundef %4) #10
+  %3668 = load i32, ptr %2, align 4
+  %3669 = add i32 %3668, 4
+  store i32 %3669, ptr %2, align 4
+  %3670 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_target, align 4
+  %3671 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3670, ptr noundef %0, i32 noundef %3669, i32 noundef 4, i32 noundef %4) #10
+  %3672 = load i32, ptr %2, align 4
+  %3673 = add i32 %3672, 4
+  store i32 %3673, ptr %2, align 4
+  %3674 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_internalformat, align 4
+  %3675 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3674, ptr noundef %0, i32 noundef %3673, i32 noundef 4, i32 noundef %4) #10
+  %3676 = load i32, ptr %2, align 4
+  %3677 = add i32 %3676, 4
+  store i32 %3677, ptr %2, align 4
+  %3678 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_width, align 4
+  %3679 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3678, ptr noundef %0, i32 noundef %3677, i32 noundef 4, i32 noundef %4) #10
+  %3680 = load i32, ptr %2, align 4
+  %3681 = add i32 %3680, 4
+  store i32 %3681, ptr %2, align 4
+  %3682 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_format, align 4
+  %3683 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3682, ptr noundef %0, i32 noundef %3681, i32 noundef 4, i32 noundef %4) #10
+  %3684 = load i32, ptr %2, align 4
+  %3685 = add i32 %3684, 4
+  store i32 %3685, ptr %2, align 4
+  %3686 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_type, align 4
+  %3687 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3686, ptr noundef %0, i32 noundef %3685, i32 noundef 4, i32 noundef %4) #10
+  %3688 = load i32, ptr %2, align 4
+  %3689 = add i32 %3688, 4
+  store i32 %3689, ptr %2, align 4
+  %3690 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter1D_image, align 4
+  %3691 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 41)
+  %spec.store.select.i.i2493 = add nsw i32 %3691, -40
+  %3692 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3690, ptr noundef %0, i32 noundef %3689, i32 noundef %spec.store.select.i.i2493, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3738:                                             ; preds = %34
-  %3739 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterfv_target, align 4
-  %3740 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3739, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3741 = load i32, ptr %2, align 4
-  %3742 = add i32 %3741, 4
-  store i32 %3742, ptr %2, align 4
-  %3743 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterfv_pname, align 4
-  %3744 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3743, ptr noundef %0, i32 noundef %3742, i32 noundef 4, i32 noundef %4) #10
-  %3745 = load i32, ptr %2, align 4
-  %3746 = add i32 %3745, 4
-  store i32 %3746, ptr %2, align 4
-  %3747 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterfv_params, align 4
-  %3748 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterfv_params_item, align 4
-  %3749 = add nsw i32 %10, -12
-  %3750 = sdiv i32 %3749, 4
-  %3751 = shl nsw i32 %3750, 2
-  %3752 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3747, ptr noundef %0, i32 noundef %3746, i32 noundef %3751, i32 noundef %4) #10
-  %3753 = load i32, ptr @ett_x11_list_of_float, align 4
-  %3754 = tail call ptr @proto_item_add_subtree(ptr noundef %3752, i32 noundef %3753) #10
-  %.off.i2495 = add nsw i32 %10, -9
-  %.not13.i.i2496 = icmp ult i32 %.off.i2495, 7
-  br i1 %.not13.i.i2496, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2497
+3693:                                             ; preds = %34
+  %3694 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_swapbytes, align 4
+  %3695 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3694, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %3696 = load i32, ptr %2, align 4
+  %3697 = add i32 %3696, 1
+  store i32 %3697, ptr %2, align 4
+  %3698 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_lsbfirst, align 4
+  %3699 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3698, ptr noundef %0, i32 noundef %3697, i32 noundef 1, i32 noundef %4) #10
+  %3700 = load i32, ptr %2, align 4
+  %3701 = add i32 %3700, 1
+  store i32 %3701, ptr %2, align 4
+  %3702 = load i32, ptr @hf_x11_unused, align 4
+  %3703 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3702, ptr noundef %0, i32 noundef %3701, i32 noundef 2, i32 noundef 0) #10
+  %3704 = load i32, ptr %2, align 4
+  %3705 = add i32 %3704, 2
+  store i32 %3705, ptr %2, align 4
+  %3706 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_rowlength, align 4
+  %3707 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3706, ptr noundef %0, i32 noundef %3705, i32 noundef 4, i32 noundef %4) #10
+  %3708 = load i32, ptr %2, align 4
+  %3709 = add i32 %3708, 4
+  store i32 %3709, ptr %2, align 4
+  %3710 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_skiprows, align 4
+  %3711 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3710, ptr noundef %0, i32 noundef %3709, i32 noundef 4, i32 noundef %4) #10
+  %3712 = load i32, ptr %2, align 4
+  %3713 = add i32 %3712, 4
+  store i32 %3713, ptr %2, align 4
+  %3714 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_skippixels, align 4
+  %3715 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3714, ptr noundef %0, i32 noundef %3713, i32 noundef 4, i32 noundef %4) #10
+  %3716 = load i32, ptr %2, align 4
+  %3717 = add i32 %3716, 4
+  store i32 %3717, ptr %2, align 4
+  %3718 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_alignment, align 4
+  %3719 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3718, ptr noundef %0, i32 noundef %3717, i32 noundef 4, i32 noundef %4) #10
+  %3720 = load i32, ptr %2, align 4
+  %3721 = add i32 %3720, 4
+  store i32 %3721, ptr %2, align 4
+  %3722 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_target, align 4
+  %3723 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3722, ptr noundef %0, i32 noundef %3721, i32 noundef 4, i32 noundef %4) #10
+  %3724 = load i32, ptr %2, align 4
+  %3725 = add i32 %3724, 4
+  store i32 %3725, ptr %2, align 4
+  %3726 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_internalformat, align 4
+  %3727 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3726, ptr noundef %0, i32 noundef %3725, i32 noundef 4, i32 noundef %4) #10
+  %3728 = load i32, ptr %2, align 4
+  %3729 = add i32 %3728, 4
+  store i32 %3729, ptr %2, align 4
+  %3730 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_width, align 4
+  %3731 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3730, ptr noundef %0, i32 noundef %3729, i32 noundef 4, i32 noundef %4) #10
+  %3732 = load i32, ptr %2, align 4
+  %3733 = add i32 %3732, 4
+  store i32 %3733, ptr %2, align 4
+  %3734 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_height, align 4
+  %3735 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3734, ptr noundef %0, i32 noundef %3733, i32 noundef 4, i32 noundef %4) #10
+  %3736 = load i32, ptr %2, align 4
+  %3737 = add i32 %3736, 4
+  store i32 %3737, ptr %2, align 4
+  %3738 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_format, align 4
+  %3739 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3738, ptr noundef %0, i32 noundef %3737, i32 noundef 4, i32 noundef %4) #10
+  %3740 = load i32, ptr %2, align 4
+  %3741 = add i32 %3740, 4
+  store i32 %3741, ptr %2, align 4
+  %3742 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_type, align 4
+  %3743 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3742, ptr noundef %0, i32 noundef %3741, i32 noundef 4, i32 noundef %4) #10
+  %3744 = load i32, ptr %2, align 4
+  %3745 = add i32 %3744, 4
+  store i32 %3745, ptr %2, align 4
+  %3746 = load i32, ptr @hf_x11_glx_render_ConvolutionFilter2D_image, align 4
+  %3747 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 45)
+  %spec.store.select.i.i2494 = add nsw i32 %3747, -44
+  %3748 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3746, ptr noundef %0, i32 noundef %3745, i32 noundef %spec.store.select.i.i2494, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
 
-.lr.ph.preheader.i.i2497:                         ; preds = %3738
-  %.pre.i.i2498 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2499
-
-.lr.ph.i.i2499:                                   ; preds = %.lr.ph.i.i2499, %.lr.ph.preheader.i.i2497
-  %3755 = phi i32 [ %3759, %.lr.ph.i.i2499 ], [ %.pre.i.i2498, %.lr.ph.preheader.i.i2497 ]
-  %.014.i.i2500 = phi i32 [ %3756, %.lr.ph.i.i2499 ], [ %3750, %.lr.ph.preheader.i.i2497 ]
-  %3756 = add i32 %.014.i.i2500, -1
-  %3757 = tail call ptr @proto_tree_add_item(ptr noundef %3754, i32 noundef %3748, ptr noundef %0, i32 noundef %3755, i32 noundef 4, i32 noundef %4) #10
-  %3758 = load i32, ptr %2, align 4
-  %3759 = add i32 %3758, 4
-  store i32 %3759, ptr %2, align 4
-  %.not.i.i2501 = icmp eq i32 %3756, 0
-  br i1 %.not.i.i2501, label %mesa_CallLists.exit, label %.lr.ph.i.i2499, !llvm.loop !61
+3749:                                             ; preds = %34
+  %3750 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterf_target, align 4
+  %3751 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3750, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3752 = load i32, ptr %2, align 4
+  %3753 = add i32 %3752, 4
+  store i32 %3753, ptr %2, align 4
+  %3754 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterf_pname, align 4
+  %3755 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3754, ptr noundef %0, i32 noundef %3753, i32 noundef 4, i32 noundef %4) #10
+  %3756 = load i32, ptr %2, align 4
+  %3757 = add i32 %3756, 4
+  store i32 %3757, ptr %2, align 4
+  %3758 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterf_params, align 4
+  %3759 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3758, ptr noundef %0, i32 noundef %3757, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
 
 3760:                                             ; preds = %34
-  %3761 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteri_target, align 4
+  %3761 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterfv_target, align 4
   %3762 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3761, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %3763 = load i32, ptr %2, align 4
   %3764 = add i32 %3763, 4
   store i32 %3764, ptr %2, align 4
-  %3765 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteri_pname, align 4
+  %3765 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterfv_pname, align 4
   %3766 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3765, ptr noundef %0, i32 noundef %3764, i32 noundef 4, i32 noundef %4) #10
   %3767 = load i32, ptr %2, align 4
   %3768 = add i32 %3767, 4
   store i32 %3768, ptr %2, align 4
-  %3769 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteri_params, align 4
-  %3770 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3769, ptr noundef %0, i32 noundef %3768, i32 noundef 4, i32 noundef %4) #10
+  %3769 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterfv_params, align 4
+  %3770 = load i32, ptr @hf_x11_glx_render_ConvolutionParameterfv_params_item, align 4
+  %3771 = add nsw i32 %10, -12
+  %3772 = sdiv i32 %3771, 4
+  %3773 = shl nsw i32 %3772, 2
+  %3774 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3769, ptr noundef %0, i32 noundef %3768, i32 noundef %3773, i32 noundef %4) #10
+  %3775 = load i32, ptr @ett_x11_list_of_float, align 4
+  %3776 = tail call ptr @proto_item_add_subtree(ptr noundef %3774, i32 noundef %3775) #10
+  %3777 = add i16 %9, -9
+  %.not13.i.i2496 = icmp ult i16 %3777, 7
+  br i1 %.not13.i.i2496, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2497
+
+.lr.ph.preheader.i.i2497:                         ; preds = %3760
+  %.pre.i.i2498 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2499
+
+.lr.ph.i.i2499:                                   ; preds = %.lr.ph.i.i2499, %.lr.ph.preheader.i.i2497
+  %3778 = phi i32 [ %3782, %.lr.ph.i.i2499 ], [ %.pre.i.i2498, %.lr.ph.preheader.i.i2497 ]
+  %.014.i.i2500 = phi i32 [ %3779, %.lr.ph.i.i2499 ], [ %3772, %.lr.ph.preheader.i.i2497 ]
+  %3779 = add i32 %.014.i.i2500, -1
+  %3780 = tail call ptr @proto_tree_add_item(ptr noundef %3776, i32 noundef %3770, ptr noundef %0, i32 noundef %3778, i32 noundef 4, i32 noundef %4) #10
+  %3781 = load i32, ptr %2, align 4
+  %3782 = add i32 %3781, 4
+  store i32 %3782, ptr %2, align 4
+  %.not.i.i2501 = icmp eq i32 %3779, 0
+  br i1 %.not.i.i2501, label %mesa_CallLists.exit, label %.lr.ph.i.i2499, !llvm.loop !61
+
+3783:                                             ; preds = %34
+  %3784 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteri_target, align 4
+  %3785 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3784, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3786 = load i32, ptr %2, align 4
+  %3787 = add i32 %3786, 4
+  store i32 %3787, ptr %2, align 4
+  %3788 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteri_pname, align 4
+  %3789 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3788, ptr noundef %0, i32 noundef %3787, i32 noundef 4, i32 noundef %4) #10
+  %3790 = load i32, ptr %2, align 4
+  %3791 = add i32 %3790, 4
+  store i32 %3791, ptr %2, align 4
+  %3792 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteri_params, align 4
+  %3793 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3792, ptr noundef %0, i32 noundef %3791, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3771:                                             ; preds = %34
-  %3772 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteriv_target, align 4
-  %3773 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3772, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3774 = load i32, ptr %2, align 4
-  %3775 = add i32 %3774, 4
-  store i32 %3775, ptr %2, align 4
-  %3776 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteriv_pname, align 4
-  %3777 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3776, ptr noundef %0, i32 noundef %3775, i32 noundef 4, i32 noundef %4) #10
-  %3778 = load i32, ptr %2, align 4
-  %3779 = add i32 %3778, 4
-  store i32 %3779, ptr %2, align 4
-  %3780 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteriv_params, align 4
-  %3781 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteriv_params_item, align 4
-  %3782 = add nsw i32 %10, -12
-  %3783 = sdiv i32 %3782, 4
-  %3784 = shl nsw i32 %3783, 2
-  %3785 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3780, ptr noundef %0, i32 noundef %3779, i32 noundef %3784, i32 noundef %4) #10
-  %3786 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %3787 = tail call ptr @proto_item_add_subtree(ptr noundef %3785, i32 noundef %3786) #10
-  %.off.i2503 = add nsw i32 %10, -9
-  %.not13.i.i2504 = icmp ult i32 %.off.i2503, 7
+3794:                                             ; preds = %34
+  %3795 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteriv_target, align 4
+  %3796 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3795, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3797 = load i32, ptr %2, align 4
+  %3798 = add i32 %3797, 4
+  store i32 %3798, ptr %2, align 4
+  %3799 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteriv_pname, align 4
+  %3800 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3799, ptr noundef %0, i32 noundef %3798, i32 noundef 4, i32 noundef %4) #10
+  %3801 = load i32, ptr %2, align 4
+  %3802 = add i32 %3801, 4
+  store i32 %3802, ptr %2, align 4
+  %3803 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteriv_params, align 4
+  %3804 = load i32, ptr @hf_x11_glx_render_ConvolutionParameteriv_params_item, align 4
+  %3805 = add nsw i32 %10, -12
+  %3806 = sdiv i32 %3805, 4
+  %3807 = shl nsw i32 %3806, 2
+  %3808 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3803, ptr noundef %0, i32 noundef %3802, i32 noundef %3807, i32 noundef %4) #10
+  %3809 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %3810 = tail call ptr @proto_item_add_subtree(ptr noundef %3808, i32 noundef %3809) #10
+  %3811 = add i16 %9, -9
+  %.not13.i.i2504 = icmp ult i16 %3811, 7
   br i1 %.not13.i.i2504, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2505
 
-.lr.ph.preheader.i.i2505:                         ; preds = %3771
+.lr.ph.preheader.i.i2505:                         ; preds = %3794
   %.pre.i.i2506 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2507
 
 .lr.ph.i.i2507:                                   ; preds = %.lr.ph.i.i2507, %.lr.ph.preheader.i.i2505
-  %3788 = phi i32 [ %3792, %.lr.ph.i.i2507 ], [ %.pre.i.i2506, %.lr.ph.preheader.i.i2505 ]
-  %.014.i.i2508 = phi i32 [ %3789, %.lr.ph.i.i2507 ], [ %3783, %.lr.ph.preheader.i.i2505 ]
-  %3789 = add i32 %.014.i.i2508, -1
-  %3790 = tail call ptr @proto_tree_add_item(ptr noundef %3787, i32 noundef %3781, ptr noundef %0, i32 noundef %3788, i32 noundef 4, i32 noundef %4) #10
-  %3791 = load i32, ptr %2, align 4
-  %3792 = add i32 %3791, 4
-  store i32 %3792, ptr %2, align 4
-  %.not.i.i2509 = icmp eq i32 %3789, 0
-  br i1 %.not.i.i2509, label %mesa_CallLists.exit, label %.lr.ph.i.i2507, !llvm.loop !60
-
-3793:                                             ; preds = %34
-  %3794 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter1D_target, align 4
-  %3795 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3794, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3796 = load i32, ptr %2, align 4
-  %3797 = add i32 %3796, 4
-  store i32 %3797, ptr %2, align 4
-  %3798 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter1D_internalformat, align 4
-  %3799 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3798, ptr noundef %0, i32 noundef %3797, i32 noundef 4, i32 noundef %4) #10
-  %3800 = load i32, ptr %2, align 4
-  %3801 = add i32 %3800, 4
-  store i32 %3801, ptr %2, align 4
-  %3802 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter1D_x, align 4
-  %3803 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3802, ptr noundef %0, i32 noundef %3801, i32 noundef 4, i32 noundef %4) #10
-  %3804 = load i32, ptr %2, align 4
-  %3805 = add i32 %3804, 4
-  store i32 %3805, ptr %2, align 4
-  %3806 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter1D_y, align 4
-  %3807 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3806, ptr noundef %0, i32 noundef %3805, i32 noundef 4, i32 noundef %4) #10
-  %3808 = load i32, ptr %2, align 4
-  %3809 = add i32 %3808, 4
-  store i32 %3809, ptr %2, align 4
-  %3810 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter1D_width, align 4
-  %3811 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3810, ptr noundef %0, i32 noundef %3809, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-3812:                                             ; preds = %34
-  %3813 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter2D_target, align 4
-  %3814 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3813, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3812 = phi i32 [ %3816, %.lr.ph.i.i2507 ], [ %.pre.i.i2506, %.lr.ph.preheader.i.i2505 ]
+  %.014.i.i2508 = phi i32 [ %3813, %.lr.ph.i.i2507 ], [ %3806, %.lr.ph.preheader.i.i2505 ]
+  %3813 = add i32 %.014.i.i2508, -1
+  %3814 = tail call ptr @proto_tree_add_item(ptr noundef %3810, i32 noundef %3804, ptr noundef %0, i32 noundef %3812, i32 noundef 4, i32 noundef %4) #10
   %3815 = load i32, ptr %2, align 4
   %3816 = add i32 %3815, 4
   store i32 %3816, ptr %2, align 4
-  %3817 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter2D_internalformat, align 4
-  %3818 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3817, ptr noundef %0, i32 noundef %3816, i32 noundef 4, i32 noundef %4) #10
-  %3819 = load i32, ptr %2, align 4
-  %3820 = add i32 %3819, 4
-  store i32 %3820, ptr %2, align 4
-  %3821 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter2D_x, align 4
-  %3822 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3821, ptr noundef %0, i32 noundef %3820, i32 noundef 4, i32 noundef %4) #10
-  %3823 = load i32, ptr %2, align 4
-  %3824 = add i32 %3823, 4
-  store i32 %3824, ptr %2, align 4
-  %3825 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter2D_y, align 4
-  %3826 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3825, ptr noundef %0, i32 noundef %3824, i32 noundef 4, i32 noundef %4) #10
-  %3827 = load i32, ptr %2, align 4
-  %3828 = add i32 %3827, 4
-  store i32 %3828, ptr %2, align 4
-  %3829 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter2D_width, align 4
-  %3830 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3829, ptr noundef %0, i32 noundef %3828, i32 noundef 4, i32 noundef %4) #10
-  %3831 = load i32, ptr %2, align 4
-  %3832 = add i32 %3831, 4
-  store i32 %3832, ptr %2, align 4
-  %3833 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter2D_height, align 4
-  %3834 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3833, ptr noundef %0, i32 noundef %3832, i32 noundef 4, i32 noundef %4) #10
+  %.not.i.i2509 = icmp eq i32 %3813, 0
+  br i1 %.not.i.i2509, label %mesa_CallLists.exit, label %.lr.ph.i.i2507, !llvm.loop !60
+
+3817:                                             ; preds = %34
+  %3818 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter1D_target, align 4
+  %3819 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3818, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3820 = load i32, ptr %2, align 4
+  %3821 = add i32 %3820, 4
+  store i32 %3821, ptr %2, align 4
+  %3822 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter1D_internalformat, align 4
+  %3823 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3822, ptr noundef %0, i32 noundef %3821, i32 noundef 4, i32 noundef %4) #10
+  %3824 = load i32, ptr %2, align 4
+  %3825 = add i32 %3824, 4
+  store i32 %3825, ptr %2, align 4
+  %3826 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter1D_x, align 4
+  %3827 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3826, ptr noundef %0, i32 noundef %3825, i32 noundef 4, i32 noundef %4) #10
+  %3828 = load i32, ptr %2, align 4
+  %3829 = add i32 %3828, 4
+  store i32 %3829, ptr %2, align 4
+  %3830 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter1D_y, align 4
+  %3831 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3830, ptr noundef %0, i32 noundef %3829, i32 noundef 4, i32 noundef %4) #10
+  %3832 = load i32, ptr %2, align 4
+  %3833 = add i32 %3832, 4
+  store i32 %3833, ptr %2, align 4
+  %3834 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter1D_width, align 4
+  %3835 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3834, ptr noundef %0, i32 noundef %3833, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3835:                                             ; preds = %34
-  %3836 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_target, align 4
-  %3837 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3836, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3838 = load i32, ptr %2, align 4
-  %3839 = add i32 %3838, 4
-  store i32 %3839, ptr %2, align 4
-  %3840 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_internalformat, align 4
-  %3841 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3840, ptr noundef %0, i32 noundef %3839, i32 noundef 4, i32 noundef %4) #10
-  %3842 = load i32, ptr %2, align 4
-  %3843 = add i32 %3842, 4
-  store i32 %3843, ptr %2, align 4
-  %3844 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_width, align 4
-  %3845 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3844, ptr noundef %0, i32 noundef %3843, i32 noundef 4, i32 noundef %4) #10
-  %3846 = load i32, ptr %2, align 4
-  %3847 = add i32 %3846, 4
-  store i32 %3847, ptr %2, align 4
-  %3848 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_height, align 4
-  %3849 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3848, ptr noundef %0, i32 noundef %3847, i32 noundef 4, i32 noundef %4) #10
-  %3850 = load i32, ptr %2, align 4
-  %3851 = add i32 %3850, 4
-  store i32 %3851, ptr %2, align 4
-  %3852 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_format, align 4
-  %3853 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3852, ptr noundef %0, i32 noundef %3851, i32 noundef 4, i32 noundef %4) #10
-  %3854 = load i32, ptr %2, align 4
-  %3855 = add i32 %3854, 4
-  store i32 %3855, ptr %2, align 4
-  %3856 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_type, align 4
-  %3857 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3856, ptr noundef %0, i32 noundef %3855, i32 noundef 4, i32 noundef %4) #10
-  %3858 = load i32, ptr %2, align 4
-  %3859 = add i32 %3858, 4
-  store i32 %3859, ptr %2, align 4
-  %3860 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_row, align 4
-  %3861 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 25)
-  %spec.store.select.i.i2511 = add nsw i32 %3861, -24
-  %3862 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3860, ptr noundef %0, i32 noundef %3859, i32 noundef %spec.store.select.i.i2511, i32 noundef %4) #10
-  %3863 = load i32, ptr %2, align 4
-  %3864 = add i32 %3863, %spec.store.select.i.i2511
-  store i32 %3864, ptr %2, align 4
-  %3865 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_column, align 4
-  %3866 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3865, ptr noundef %0, i32 noundef %3864, i32 noundef %spec.store.select.i.i2511, i32 noundef %4) #10
+3836:                                             ; preds = %34
+  %3837 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter2D_target, align 4
+  %3838 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3837, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3839 = load i32, ptr %2, align 4
+  %3840 = add i32 %3839, 4
+  store i32 %3840, ptr %2, align 4
+  %3841 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter2D_internalformat, align 4
+  %3842 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3841, ptr noundef %0, i32 noundef %3840, i32 noundef 4, i32 noundef %4) #10
+  %3843 = load i32, ptr %2, align 4
+  %3844 = add i32 %3843, 4
+  store i32 %3844, ptr %2, align 4
+  %3845 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter2D_x, align 4
+  %3846 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3845, ptr noundef %0, i32 noundef %3844, i32 noundef 4, i32 noundef %4) #10
+  %3847 = load i32, ptr %2, align 4
+  %3848 = add i32 %3847, 4
+  store i32 %3848, ptr %2, align 4
+  %3849 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter2D_y, align 4
+  %3850 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3849, ptr noundef %0, i32 noundef %3848, i32 noundef 4, i32 noundef %4) #10
+  %3851 = load i32, ptr %2, align 4
+  %3852 = add i32 %3851, 4
+  store i32 %3852, ptr %2, align 4
+  %3853 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter2D_width, align 4
+  %3854 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3853, ptr noundef %0, i32 noundef %3852, i32 noundef 4, i32 noundef %4) #10
+  %3855 = load i32, ptr %2, align 4
+  %3856 = add i32 %3855, 4
+  store i32 %3856, ptr %2, align 4
+  %3857 = load i32, ptr @hf_x11_glx_render_CopyConvolutionFilter2D_height, align 4
+  %3858 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3857, ptr noundef %0, i32 noundef %3856, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3867:                                             ; preds = %34
-  %3868 = load i32, ptr @hf_x11_glx_render_Histogram_target, align 4
-  %3869 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3868, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+3859:                                             ; preds = %34
+  %3860 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_target, align 4
+  %3861 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3860, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3862 = load i32, ptr %2, align 4
+  %3863 = add i32 %3862, 4
+  store i32 %3863, ptr %2, align 4
+  %3864 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_internalformat, align 4
+  %3865 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3864, ptr noundef %0, i32 noundef %3863, i32 noundef 4, i32 noundef %4) #10
+  %3866 = load i32, ptr %2, align 4
+  %3867 = add i32 %3866, 4
+  store i32 %3867, ptr %2, align 4
+  %3868 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_width, align 4
+  %3869 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3868, ptr noundef %0, i32 noundef %3867, i32 noundef 4, i32 noundef %4) #10
   %3870 = load i32, ptr %2, align 4
   %3871 = add i32 %3870, 4
   store i32 %3871, ptr %2, align 4
-  %3872 = load i32, ptr @hf_x11_glx_render_Histogram_width, align 4
+  %3872 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_height, align 4
   %3873 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3872, ptr noundef %0, i32 noundef %3871, i32 noundef 4, i32 noundef %4) #10
   %3874 = load i32, ptr %2, align 4
   %3875 = add i32 %3874, 4
   store i32 %3875, ptr %2, align 4
-  %3876 = load i32, ptr @hf_x11_glx_render_Histogram_internalformat, align 4
+  %3876 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_format, align 4
   %3877 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3876, ptr noundef %0, i32 noundef %3875, i32 noundef 4, i32 noundef %4) #10
   %3878 = load i32, ptr %2, align 4
   %3879 = add i32 %3878, 4
   store i32 %3879, ptr %2, align 4
-  %3880 = load i32, ptr @hf_x11_glx_render_Histogram_sink, align 4
-  %3881 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3880, ptr noundef %0, i32 noundef %3879, i32 noundef 1, i32 noundef %4) #10
+  %3880 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_type, align 4
+  %3881 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3880, ptr noundef %0, i32 noundef %3879, i32 noundef 4, i32 noundef %4) #10
+  %3882 = load i32, ptr %2, align 4
+  %3883 = add i32 %3882, 4
+  store i32 %3883, ptr %2, align 4
+  %3884 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_row, align 4
+  %3885 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 25)
+  %spec.store.select.i.i2511 = add nsw i32 %3885, -24
+  %3886 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3884, ptr noundef %0, i32 noundef %3883, i32 noundef %spec.store.select.i.i2511, i32 noundef %4) #10
+  %3887 = load i32, ptr %2, align 4
+  %3888 = add i32 %3887, %spec.store.select.i.i2511
+  store i32 %3888, ptr %2, align 4
+  %3889 = load i32, ptr @hf_x11_glx_render_SeparableFilter2D_column, align 4
+  %3890 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3889, ptr noundef %0, i32 noundef %3888, i32 noundef %spec.store.select.i.i2511, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-3882:                                             ; preds = %34
-  %3883 = load i32, ptr @hf_x11_glx_render_Minmax_target, align 4
-  %3884 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3883, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %3885 = load i32, ptr %2, align 4
-  %3886 = add i32 %3885, 4
-  store i32 %3886, ptr %2, align 4
-  %3887 = load i32, ptr @hf_x11_glx_render_Minmax_internalformat, align 4
-  %3888 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3887, ptr noundef %0, i32 noundef %3886, i32 noundef 4, i32 noundef %4) #10
-  %3889 = load i32, ptr %2, align 4
-  %3890 = add i32 %3889, 4
-  store i32 %3890, ptr %2, align 4
-  %3891 = load i32, ptr @hf_x11_glx_render_Minmax_sink, align 4
-  %3892 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3891, ptr noundef %0, i32 noundef %3890, i32 noundef 1, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-3893:                                             ; preds = %34
-  %3894 = load i32, ptr @hf_x11_glx_render_ResetHistogram_target, align 4
-  %3895 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3894, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-3896:                                             ; preds = %34
-  %3897 = load i32, ptr @hf_x11_glx_render_ResetMinmax_target, align 4
-  %3898 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3897, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-3899:                                             ; preds = %34
-  %3900 = load i32, ptr @hf_x11_glx_render_TexImage3D_swapbytes, align 4
-  %3901 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3900, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+3891:                                             ; preds = %34
+  %3892 = load i32, ptr @hf_x11_glx_render_Histogram_target, align 4
+  %3893 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3892, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3894 = load i32, ptr %2, align 4
+  %3895 = add i32 %3894, 4
+  store i32 %3895, ptr %2, align 4
+  %3896 = load i32, ptr @hf_x11_glx_render_Histogram_width, align 4
+  %3897 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3896, ptr noundef %0, i32 noundef %3895, i32 noundef 4, i32 noundef %4) #10
+  %3898 = load i32, ptr %2, align 4
+  %3899 = add i32 %3898, 4
+  store i32 %3899, ptr %2, align 4
+  %3900 = load i32, ptr @hf_x11_glx_render_Histogram_internalformat, align 4
+  %3901 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3900, ptr noundef %0, i32 noundef %3899, i32 noundef 4, i32 noundef %4) #10
   %3902 = load i32, ptr %2, align 4
-  %3903 = add i32 %3902, 1
+  %3903 = add i32 %3902, 4
   store i32 %3903, ptr %2, align 4
-  %3904 = load i32, ptr @hf_x11_glx_render_TexImage3D_lsbfirst, align 4
+  %3904 = load i32, ptr @hf_x11_glx_render_Histogram_sink, align 4
   %3905 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3904, ptr noundef %0, i32 noundef %3903, i32 noundef 1, i32 noundef %4) #10
-  %3906 = load i32, ptr %2, align 4
-  %3907 = add i32 %3906, 1
-  store i32 %3907, ptr %2, align 4
-  %3908 = load i32, ptr @hf_x11_unused, align 4
-  %3909 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3908, ptr noundef %0, i32 noundef %3907, i32 noundef 2, i32 noundef 0) #10
-  %3910 = load i32, ptr %2, align 4
-  %3911 = add i32 %3910, 2
-  store i32 %3911, ptr %2, align 4
-  %3912 = load i32, ptr @hf_x11_glx_render_TexImage3D_rowlength, align 4
-  %3913 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3912, ptr noundef %0, i32 noundef %3911, i32 noundef 4, i32 noundef %4) #10
-  %3914 = load i32, ptr %2, align 4
-  %3915 = add i32 %3914, 4
-  store i32 %3915, ptr %2, align 4
-  %3916 = load i32, ptr @hf_x11_glx_render_TexImage3D_skiprows, align 4
-  %3917 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3916, ptr noundef %0, i32 noundef %3915, i32 noundef 4, i32 noundef %4) #10
-  %3918 = load i32, ptr %2, align 4
-  %3919 = add i32 %3918, 4
-  store i32 %3919, ptr %2, align 4
-  %3920 = load i32, ptr @hf_x11_glx_render_TexImage3D_skippixels, align 4
-  %3921 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3920, ptr noundef %0, i32 noundef %3919, i32 noundef 4, i32 noundef %4) #10
-  %3922 = load i32, ptr %2, align 4
-  %3923 = add i32 %3922, 4
-  store i32 %3923, ptr %2, align 4
-  %3924 = load i32, ptr @hf_x11_glx_render_TexImage3D_alignment, align 4
-  %3925 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3924, ptr noundef %0, i32 noundef %3923, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+3906:                                             ; preds = %34
+  %3907 = load i32, ptr @hf_x11_glx_render_Minmax_target, align 4
+  %3908 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3907, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %3909 = load i32, ptr %2, align 4
+  %3910 = add i32 %3909, 4
+  store i32 %3910, ptr %2, align 4
+  %3911 = load i32, ptr @hf_x11_glx_render_Minmax_internalformat, align 4
+  %3912 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3911, ptr noundef %0, i32 noundef %3910, i32 noundef 4, i32 noundef %4) #10
+  %3913 = load i32, ptr %2, align 4
+  %3914 = add i32 %3913, 4
+  store i32 %3914, ptr %2, align 4
+  %3915 = load i32, ptr @hf_x11_glx_render_Minmax_sink, align 4
+  %3916 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3915, ptr noundef %0, i32 noundef %3914, i32 noundef 1, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+3917:                                             ; preds = %34
+  %3918 = load i32, ptr @hf_x11_glx_render_ResetHistogram_target, align 4
+  %3919 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3918, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+3920:                                             ; preds = %34
+  %3921 = load i32, ptr @hf_x11_glx_render_ResetMinmax_target, align 4
+  %3922 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3921, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+3923:                                             ; preds = %34
+  %3924 = load i32, ptr @hf_x11_glx_render_TexImage3D_swapbytes, align 4
+  %3925 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3924, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
   %3926 = load i32, ptr %2, align 4
-  %3927 = add i32 %3926, 4
+  %3927 = add i32 %3926, 1
   store i32 %3927, ptr %2, align 4
-  %3928 = load i32, ptr @hf_x11_glx_render_TexImage3D_target, align 4
-  %3929 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3928, ptr noundef %0, i32 noundef %3927, i32 noundef 4, i32 noundef %4) #10
+  %3928 = load i32, ptr @hf_x11_glx_render_TexImage3D_lsbfirst, align 4
+  %3929 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3928, ptr noundef %0, i32 noundef %3927, i32 noundef 1, i32 noundef %4) #10
   %3930 = load i32, ptr %2, align 4
-  %3931 = add i32 %3930, 4
+  %3931 = add i32 %3930, 1
   store i32 %3931, ptr %2, align 4
-  %3932 = load i32, ptr @hf_x11_glx_render_TexImage3D_level, align 4
-  %3933 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3932, ptr noundef %0, i32 noundef %3931, i32 noundef 4, i32 noundef %4) #10
+  %3932 = load i32, ptr @hf_x11_unused, align 4
+  %3933 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3932, ptr noundef %0, i32 noundef %3931, i32 noundef 2, i32 noundef 0) #10
   %3934 = load i32, ptr %2, align 4
-  %3935 = add i32 %3934, 4
+  %3935 = add i32 %3934, 2
   store i32 %3935, ptr %2, align 4
-  %3936 = load i32, ptr @hf_x11_glx_render_TexImage3D_internalformat, align 4
+  %3936 = load i32, ptr @hf_x11_glx_render_TexImage3D_rowlength, align 4
   %3937 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3936, ptr noundef %0, i32 noundef %3935, i32 noundef 4, i32 noundef %4) #10
   %3938 = load i32, ptr %2, align 4
   %3939 = add i32 %3938, 4
   store i32 %3939, ptr %2, align 4
-  %3940 = load i32, ptr @hf_x11_glx_render_TexImage3D_width, align 4
+  %3940 = load i32, ptr @hf_x11_glx_render_TexImage3D_skiprows, align 4
   %3941 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3940, ptr noundef %0, i32 noundef %3939, i32 noundef 4, i32 noundef %4) #10
   %3942 = load i32, ptr %2, align 4
   %3943 = add i32 %3942, 4
   store i32 %3943, ptr %2, align 4
-  %3944 = load i32, ptr @hf_x11_glx_render_TexImage3D_height, align 4
+  %3944 = load i32, ptr @hf_x11_glx_render_TexImage3D_skippixels, align 4
   %3945 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3944, ptr noundef %0, i32 noundef %3943, i32 noundef 4, i32 noundef %4) #10
   %3946 = load i32, ptr %2, align 4
   %3947 = add i32 %3946, 4
   store i32 %3947, ptr %2, align 4
-  %3948 = load i32, ptr @hf_x11_glx_render_TexImage3D_depth, align 4
+  %3948 = load i32, ptr @hf_x11_glx_render_TexImage3D_alignment, align 4
   %3949 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3948, ptr noundef %0, i32 noundef %3947, i32 noundef 4, i32 noundef %4) #10
   %3950 = load i32, ptr %2, align 4
   %3951 = add i32 %3950, 4
   store i32 %3951, ptr %2, align 4
-  %3952 = load i32, ptr @hf_x11_glx_render_TexImage3D_border, align 4
+  %3952 = load i32, ptr @hf_x11_glx_render_TexImage3D_target, align 4
   %3953 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3952, ptr noundef %0, i32 noundef %3951, i32 noundef 4, i32 noundef %4) #10
   %3954 = load i32, ptr %2, align 4
   %3955 = add i32 %3954, 4
   store i32 %3955, ptr %2, align 4
-  %3956 = load i32, ptr @hf_x11_glx_render_TexImage3D_format, align 4
+  %3956 = load i32, ptr @hf_x11_glx_render_TexImage3D_level, align 4
   %3957 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3956, ptr noundef %0, i32 noundef %3955, i32 noundef 4, i32 noundef %4) #10
   %3958 = load i32, ptr %2, align 4
   %3959 = add i32 %3958, 4
   store i32 %3959, ptr %2, align 4
-  %3960 = load i32, ptr @hf_x11_glx_render_TexImage3D_type, align 4
+  %3960 = load i32, ptr @hf_x11_glx_render_TexImage3D_internalformat, align 4
   %3961 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3960, ptr noundef %0, i32 noundef %3959, i32 noundef 4, i32 noundef %4) #10
   %3962 = load i32, ptr %2, align 4
   %3963 = add i32 %3962, 4
   store i32 %3963, ptr %2, align 4
-  %3964 = load i32, ptr @hf_x11_glx_render_TexImage3D_pixels, align 4
-  %3965 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 57)
-  %spec.store.select.i.i2512 = add nsw i32 %3965, -56
-  %3966 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3964, ptr noundef %0, i32 noundef %3963, i32 noundef %spec.store.select.i.i2512, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-3967:                                             ; preds = %34
-  %3968 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_swapbytes, align 4
-  %3969 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3968, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
+  %3964 = load i32, ptr @hf_x11_glx_render_TexImage3D_width, align 4
+  %3965 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3964, ptr noundef %0, i32 noundef %3963, i32 noundef 4, i32 noundef %4) #10
+  %3966 = load i32, ptr %2, align 4
+  %3967 = add i32 %3966, 4
+  store i32 %3967, ptr %2, align 4
+  %3968 = load i32, ptr @hf_x11_glx_render_TexImage3D_height, align 4
+  %3969 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3968, ptr noundef %0, i32 noundef %3967, i32 noundef 4, i32 noundef %4) #10
   %3970 = load i32, ptr %2, align 4
-  %3971 = add i32 %3970, 1
+  %3971 = add i32 %3970, 4
   store i32 %3971, ptr %2, align 4
-  %3972 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_lsbfirst, align 4
-  %3973 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3972, ptr noundef %0, i32 noundef %3971, i32 noundef 1, i32 noundef %4) #10
+  %3972 = load i32, ptr @hf_x11_glx_render_TexImage3D_depth, align 4
+  %3973 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3972, ptr noundef %0, i32 noundef %3971, i32 noundef 4, i32 noundef %4) #10
   %3974 = load i32, ptr %2, align 4
-  %3975 = add i32 %3974, 1
+  %3975 = add i32 %3974, 4
   store i32 %3975, ptr %2, align 4
-  %3976 = load i32, ptr @hf_x11_unused, align 4
-  %3977 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3976, ptr noundef %0, i32 noundef %3975, i32 noundef 2, i32 noundef 0) #10
+  %3976 = load i32, ptr @hf_x11_glx_render_TexImage3D_border, align 4
+  %3977 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3976, ptr noundef %0, i32 noundef %3975, i32 noundef 4, i32 noundef %4) #10
   %3978 = load i32, ptr %2, align 4
-  %3979 = add i32 %3978, 2
+  %3979 = add i32 %3978, 4
   store i32 %3979, ptr %2, align 4
-  %3980 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_rowlength, align 4
+  %3980 = load i32, ptr @hf_x11_glx_render_TexImage3D_format, align 4
   %3981 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3980, ptr noundef %0, i32 noundef %3979, i32 noundef 4, i32 noundef %4) #10
   %3982 = load i32, ptr %2, align 4
   %3983 = add i32 %3982, 4
   store i32 %3983, ptr %2, align 4
-  %3984 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_skiprows, align 4
+  %3984 = load i32, ptr @hf_x11_glx_render_TexImage3D_type, align 4
   %3985 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3984, ptr noundef %0, i32 noundef %3983, i32 noundef 4, i32 noundef %4) #10
   %3986 = load i32, ptr %2, align 4
   %3987 = add i32 %3986, 4
   store i32 %3987, ptr %2, align 4
-  %3988 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_skippixels, align 4
-  %3989 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3988, ptr noundef %0, i32 noundef %3987, i32 noundef 4, i32 noundef %4) #10
-  %3990 = load i32, ptr %2, align 4
-  %3991 = add i32 %3990, 4
-  store i32 %3991, ptr %2, align 4
-  %3992 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_alignment, align 4
-  %3993 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3992, ptr noundef %0, i32 noundef %3991, i32 noundef 4, i32 noundef %4) #10
+  %3988 = load i32, ptr @hf_x11_glx_render_TexImage3D_pixels, align 4
+  %3989 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 57)
+  %spec.store.select.i.i2512 = add nsw i32 %3989, -56
+  %3990 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3988, ptr noundef %0, i32 noundef %3987, i32 noundef %spec.store.select.i.i2512, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+3991:                                             ; preds = %34
+  %3992 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_swapbytes, align 4
+  %3993 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3992, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %4) #10
   %3994 = load i32, ptr %2, align 4
-  %3995 = add i32 %3994, 4
+  %3995 = add i32 %3994, 1
   store i32 %3995, ptr %2, align 4
-  %3996 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_target, align 4
-  %3997 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3996, ptr noundef %0, i32 noundef %3995, i32 noundef 4, i32 noundef %4) #10
+  %3996 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_lsbfirst, align 4
+  %3997 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %3996, ptr noundef %0, i32 noundef %3995, i32 noundef 1, i32 noundef %4) #10
   %3998 = load i32, ptr %2, align 4
-  %3999 = add i32 %3998, 4
+  %3999 = add i32 %3998, 1
   store i32 %3999, ptr %2, align 4
-  %4000 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_level, align 4
-  %4001 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4000, ptr noundef %0, i32 noundef %3999, i32 noundef 4, i32 noundef %4) #10
+  %4000 = load i32, ptr @hf_x11_unused, align 4
+  %4001 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4000, ptr noundef %0, i32 noundef %3999, i32 noundef 2, i32 noundef 0) #10
   %4002 = load i32, ptr %2, align 4
-  %4003 = add i32 %4002, 4
+  %4003 = add i32 %4002, 2
   store i32 %4003, ptr %2, align 4
-  %4004 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_xoffset, align 4
+  %4004 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_rowlength, align 4
   %4005 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4004, ptr noundef %0, i32 noundef %4003, i32 noundef 4, i32 noundef %4) #10
   %4006 = load i32, ptr %2, align 4
   %4007 = add i32 %4006, 4
   store i32 %4007, ptr %2, align 4
-  %4008 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_yoffset, align 4
+  %4008 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_skiprows, align 4
   %4009 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4008, ptr noundef %0, i32 noundef %4007, i32 noundef 4, i32 noundef %4) #10
   %4010 = load i32, ptr %2, align 4
   %4011 = add i32 %4010, 4
   store i32 %4011, ptr %2, align 4
-  %4012 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_zoffset, align 4
+  %4012 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_skippixels, align 4
   %4013 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4012, ptr noundef %0, i32 noundef %4011, i32 noundef 4, i32 noundef %4) #10
   %4014 = load i32, ptr %2, align 4
   %4015 = add i32 %4014, 4
   store i32 %4015, ptr %2, align 4
-  %4016 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_width, align 4
+  %4016 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_alignment, align 4
   %4017 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4016, ptr noundef %0, i32 noundef %4015, i32 noundef 4, i32 noundef %4) #10
   %4018 = load i32, ptr %2, align 4
   %4019 = add i32 %4018, 4
   store i32 %4019, ptr %2, align 4
-  %4020 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_height, align 4
+  %4020 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_target, align 4
   %4021 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4020, ptr noundef %0, i32 noundef %4019, i32 noundef 4, i32 noundef %4) #10
   %4022 = load i32, ptr %2, align 4
   %4023 = add i32 %4022, 4
   store i32 %4023, ptr %2, align 4
-  %4024 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_depth, align 4
+  %4024 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_level, align 4
   %4025 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4024, ptr noundef %0, i32 noundef %4023, i32 noundef 4, i32 noundef %4) #10
   %4026 = load i32, ptr %2, align 4
   %4027 = add i32 %4026, 4
   store i32 %4027, ptr %2, align 4
-  %4028 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_format, align 4
+  %4028 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_xoffset, align 4
   %4029 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4028, ptr noundef %0, i32 noundef %4027, i32 noundef 4, i32 noundef %4) #10
   %4030 = load i32, ptr %2, align 4
   %4031 = add i32 %4030, 4
   store i32 %4031, ptr %2, align 4
-  %4032 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_type, align 4
+  %4032 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_yoffset, align 4
   %4033 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4032, ptr noundef %0, i32 noundef %4031, i32 noundef 4, i32 noundef %4) #10
   %4034 = load i32, ptr %2, align 4
   %4035 = add i32 %4034, 4
   store i32 %4035, ptr %2, align 4
-  %4036 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_UNUSED, align 4
+  %4036 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_zoffset, align 4
   %4037 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4036, ptr noundef %0, i32 noundef %4035, i32 noundef 4, i32 noundef %4) #10
   %4038 = load i32, ptr %2, align 4
   %4039 = add i32 %4038, 4
   store i32 %4039, ptr %2, align 4
-  %4040 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_pixels, align 4
-  %4041 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 65)
-  %spec.store.select.i.i2513 = add nsw i32 %4041, -64
-  %4042 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4040, ptr noundef %0, i32 noundef %4039, i32 noundef %spec.store.select.i.i2513, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-4043:                                             ; preds = %34
-  %4044 = load i32, ptr @hf_x11_glx_render_BindTexture_target, align 4
-  %4045 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4044, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4040 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_width, align 4
+  %4041 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4040, ptr noundef %0, i32 noundef %4039, i32 noundef 4, i32 noundef %4) #10
+  %4042 = load i32, ptr %2, align 4
+  %4043 = add i32 %4042, 4
+  store i32 %4043, ptr %2, align 4
+  %4044 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_height, align 4
+  %4045 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4044, ptr noundef %0, i32 noundef %4043, i32 noundef 4, i32 noundef %4) #10
   %4046 = load i32, ptr %2, align 4
   %4047 = add i32 %4046, 4
   store i32 %4047, ptr %2, align 4
-  %4048 = load i32, ptr @hf_x11_glx_render_BindTexture_texture, align 4
+  %4048 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_depth, align 4
   %4049 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4048, ptr noundef %0, i32 noundef %4047, i32 noundef 4, i32 noundef %4) #10
+  %4050 = load i32, ptr %2, align 4
+  %4051 = add i32 %4050, 4
+  store i32 %4051, ptr %2, align 4
+  %4052 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_format, align 4
+  %4053 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4052, ptr noundef %0, i32 noundef %4051, i32 noundef 4, i32 noundef %4) #10
+  %4054 = load i32, ptr %2, align 4
+  %4055 = add i32 %4054, 4
+  store i32 %4055, ptr %2, align 4
+  %4056 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_type, align 4
+  %4057 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4056, ptr noundef %0, i32 noundef %4055, i32 noundef 4, i32 noundef %4) #10
+  %4058 = load i32, ptr %2, align 4
+  %4059 = add i32 %4058, 4
+  store i32 %4059, ptr %2, align 4
+  %4060 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_UNUSED, align 4
+  %4061 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4060, ptr noundef %0, i32 noundef %4059, i32 noundef 4, i32 noundef %4) #10
+  %4062 = load i32, ptr %2, align 4
+  %4063 = add i32 %4062, 4
+  store i32 %4063, ptr %2, align 4
+  %4064 = load i32, ptr @hf_x11_glx_render_TexSubImage3D_pixels, align 4
+  %4065 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 2147483644) %35, i32 65)
+  %spec.store.select.i.i2513 = add nsw i32 %4065, -64
+  %4066 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4064, ptr noundef %0, i32 noundef %4063, i32 noundef %spec.store.select.i.i2513, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4050:                                             ; preds = %34
-  %4051 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
-  %4052 = load i32, ptr @hf_x11_glx_render_PrioritizeTextures_n, align 4
-  %4053 = load i32, ptr %2, align 4
-  %4054 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4052, ptr noundef %0, i32 noundef %4053, i32 noundef 4, i32 noundef %4) #10
-  %4055 = load i32, ptr %2, align 4
-  %4056 = add i32 %4055, 4
-  store i32 %4056, ptr %2, align 4
-  %4057 = load i32, ptr @hf_x11_glx_render_PrioritizeTextures_textures, align 4
-  %4058 = load i32, ptr @hf_x11_glx_render_PrioritizeTextures_textures_item, align 4
-  %4059 = shl i32 %4051, 2
-  %4060 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4057, ptr noundef %0, i32 noundef %4056, i32 noundef %4059, i32 noundef %4) #10
-  %4061 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4062 = tail call ptr @proto_item_add_subtree(ptr noundef %4060, i32 noundef %4061) #10
-  %.not13.i.i2514 = icmp eq i32 %4051, 0
+4067:                                             ; preds = %34
+  %4068 = load i32, ptr @hf_x11_glx_render_BindTexture_target, align 4
+  %4069 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4068, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4070 = load i32, ptr %2, align 4
+  %4071 = add i32 %4070, 4
+  store i32 %4071, ptr %2, align 4
+  %4072 = load i32, ptr @hf_x11_glx_render_BindTexture_texture, align 4
+  %4073 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4072, ptr noundef %0, i32 noundef %4071, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+4074:                                             ; preds = %34
+  %4075 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
+  %4076 = load i32, ptr @hf_x11_glx_render_PrioritizeTextures_n, align 4
+  %4077 = load i32, ptr %2, align 4
+  %4078 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4076, ptr noundef %0, i32 noundef %4077, i32 noundef 4, i32 noundef %4) #10
+  %4079 = load i32, ptr %2, align 4
+  %4080 = add i32 %4079, 4
+  store i32 %4080, ptr %2, align 4
+  %4081 = load i32, ptr @hf_x11_glx_render_PrioritizeTextures_textures, align 4
+  %4082 = load i32, ptr @hf_x11_glx_render_PrioritizeTextures_textures_item, align 4
+  %4083 = shl i32 %4075, 2
+  %4084 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4081, ptr noundef %0, i32 noundef %4080, i32 noundef %4083, i32 noundef %4) #10
+  %4085 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4086 = tail call ptr @proto_item_add_subtree(ptr noundef %4084, i32 noundef %4085) #10
+  %.not13.i.i2514 = icmp eq i32 %4075, 0
   %.pre.i2515 = load i32, ptr %2, align 4
   br i1 %.not13.i.i2514, label %listOfCard32.exit.i, label %.lr.ph.i.i2516
 
-.lr.ph.i.i2516:                                   ; preds = %4050, %.lr.ph.i.i2516
-  %4063 = phi i32 [ %4067, %.lr.ph.i.i2516 ], [ %.pre.i2515, %4050 ]
-  %.014.i.i2517 = phi i32 [ %4064, %.lr.ph.i.i2516 ], [ %4051, %4050 ]
-  %4064 = add i32 %.014.i.i2517, -1
-  %4065 = tail call ptr @proto_tree_add_item(ptr noundef %4062, i32 noundef %4058, ptr noundef %0, i32 noundef %4063, i32 noundef 4, i32 noundef %4) #10
-  %4066 = load i32, ptr %2, align 4
-  %4067 = add i32 %4066, 4
-  store i32 %4067, ptr %2, align 4
-  %.not.i.i2518 = icmp eq i32 %4064, 0
+.lr.ph.i.i2516:                                   ; preds = %4074, %.lr.ph.i.i2516
+  %4087 = phi i32 [ %4091, %.lr.ph.i.i2516 ], [ %.pre.i2515, %4074 ]
+  %.014.i.i2517 = phi i32 [ %4088, %.lr.ph.i.i2516 ], [ %4075, %4074 ]
+  %4088 = add i32 %.014.i.i2517, -1
+  %4089 = tail call ptr @proto_tree_add_item(ptr noundef %4086, i32 noundef %4082, ptr noundef %0, i32 noundef %4087, i32 noundef 4, i32 noundef %4) #10
+  %4090 = load i32, ptr %2, align 4
+  %4091 = add i32 %4090, 4
+  store i32 %4091, ptr %2, align 4
+  %.not.i.i2518 = icmp eq i32 %4088, 0
   br i1 %.not.i.i2518, label %listOfCard32.exit.i, label %.lr.ph.i.i2516, !llvm.loop !41
 
-listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %4050
-  %4068 = phi i32 [ %.pre.i2515, %4050 ], [ %4067, %.lr.ph.i.i2516 ]
-  %4069 = load i32, ptr @hf_x11_glx_render_PrioritizeTextures_priorities, align 4
-  %4070 = load i32, ptr @hf_x11_glx_render_PrioritizeTextures_priorities_item, align 4
-  %4071 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4069, ptr noundef %0, i32 noundef %4068, i32 noundef %4059, i32 noundef %4) #10
-  %4072 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4073 = tail call ptr @proto_item_add_subtree(ptr noundef %4071, i32 noundef %4072) #10
+listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %4074
+  %4092 = phi i32 [ %.pre.i2515, %4074 ], [ %4091, %.lr.ph.i.i2516 ]
+  %4093 = load i32, ptr @hf_x11_glx_render_PrioritizeTextures_priorities, align 4
+  %4094 = load i32, ptr @hf_x11_glx_render_PrioritizeTextures_priorities_item, align 4
+  %4095 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4093, ptr noundef %0, i32 noundef %4092, i32 noundef %4083, i32 noundef %4) #10
+  %4096 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4097 = tail call ptr @proto_item_add_subtree(ptr noundef %4095, i32 noundef %4096) #10
   br i1 %.not13.i.i2514, label %mesa_CallLists.exit, label %.lr.ph.preheader.i18.i
 
 .lr.ph.preheader.i18.i:                           ; preds = %listOfCard32.exit.i
@@ -47707,2406 +47707,2406 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   br label %.lr.ph.i20.i
 
 .lr.ph.i20.i:                                     ; preds = %.lr.ph.i20.i, %.lr.ph.preheader.i18.i
-  %4074 = phi i32 [ %4078, %.lr.ph.i20.i ], [ %.pre.i19.i, %.lr.ph.preheader.i18.i ]
-  %.014.i21.i = phi i32 [ %4075, %.lr.ph.i20.i ], [ %4051, %.lr.ph.preheader.i18.i ]
-  %4075 = add i32 %.014.i21.i, -1
-  %4076 = tail call ptr @proto_tree_add_item(ptr noundef %4073, i32 noundef %4070, ptr noundef %0, i32 noundef %4074, i32 noundef 4, i32 noundef %4) #10
-  %4077 = load i32, ptr %2, align 4
-  %4078 = add i32 %4077, 4
-  store i32 %4078, ptr %2, align 4
-  %.not.i22.i = icmp eq i32 %4075, 0
+  %4098 = phi i32 [ %4102, %.lr.ph.i20.i ], [ %.pre.i19.i, %.lr.ph.preheader.i18.i ]
+  %.014.i21.i = phi i32 [ %4099, %.lr.ph.i20.i ], [ %4075, %.lr.ph.preheader.i18.i ]
+  %4099 = add i32 %.014.i21.i, -1
+  %4100 = tail call ptr @proto_tree_add_item(ptr noundef %4097, i32 noundef %4094, ptr noundef %0, i32 noundef %4098, i32 noundef 4, i32 noundef %4) #10
+  %4101 = load i32, ptr %2, align 4
+  %4102 = add i32 %4101, 4
+  store i32 %4102, ptr %2, align 4
+  %.not.i22.i = icmp eq i32 %4099, 0
   br i1 %.not.i22.i, label %mesa_CallLists.exit, label %.lr.ph.i20.i, !llvm.loop !61
 
-4079:                                             ; preds = %34
-  %4080 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_target, align 4
-  %4081 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4080, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4082 = load i32, ptr %2, align 4
-  %4083 = add i32 %4082, 4
-  store i32 %4083, ptr %2, align 4
-  %4084 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_level, align 4
-  %4085 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4084, ptr noundef %0, i32 noundef %4083, i32 noundef 4, i32 noundef %4) #10
-  %4086 = load i32, ptr %2, align 4
-  %4087 = add i32 %4086, 4
-  store i32 %4087, ptr %2, align 4
-  %4088 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_internalformat, align 4
-  %4089 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4088, ptr noundef %0, i32 noundef %4087, i32 noundef 4, i32 noundef %4) #10
-  %4090 = load i32, ptr %2, align 4
-  %4091 = add i32 %4090, 4
-  store i32 %4091, ptr %2, align 4
-  %4092 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_x, align 4
-  %4093 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4092, ptr noundef %0, i32 noundef %4091, i32 noundef 4, i32 noundef %4) #10
-  %4094 = load i32, ptr %2, align 4
-  %4095 = add i32 %4094, 4
-  store i32 %4095, ptr %2, align 4
-  %4096 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_y, align 4
-  %4097 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4096, ptr noundef %0, i32 noundef %4095, i32 noundef 4, i32 noundef %4) #10
-  %4098 = load i32, ptr %2, align 4
-  %4099 = add i32 %4098, 4
-  store i32 %4099, ptr %2, align 4
-  %4100 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_width, align 4
-  %4101 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4100, ptr noundef %0, i32 noundef %4099, i32 noundef 4, i32 noundef %4) #10
-  %4102 = load i32, ptr %2, align 4
-  %4103 = add i32 %4102, 4
-  store i32 %4103, ptr %2, align 4
-  %4104 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_border, align 4
-  %4105 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4104, ptr noundef %0, i32 noundef %4103, i32 noundef 4, i32 noundef %4) #10
+4103:                                             ; preds = %34
+  %4104 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_target, align 4
+  %4105 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4104, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4106 = load i32, ptr %2, align 4
+  %4107 = add i32 %4106, 4
+  store i32 %4107, ptr %2, align 4
+  %4108 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_level, align 4
+  %4109 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4108, ptr noundef %0, i32 noundef %4107, i32 noundef 4, i32 noundef %4) #10
+  %4110 = load i32, ptr %2, align 4
+  %4111 = add i32 %4110, 4
+  store i32 %4111, ptr %2, align 4
+  %4112 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_internalformat, align 4
+  %4113 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4112, ptr noundef %0, i32 noundef %4111, i32 noundef 4, i32 noundef %4) #10
+  %4114 = load i32, ptr %2, align 4
+  %4115 = add i32 %4114, 4
+  store i32 %4115, ptr %2, align 4
+  %4116 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_x, align 4
+  %4117 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4116, ptr noundef %0, i32 noundef %4115, i32 noundef 4, i32 noundef %4) #10
+  %4118 = load i32, ptr %2, align 4
+  %4119 = add i32 %4118, 4
+  store i32 %4119, ptr %2, align 4
+  %4120 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_y, align 4
+  %4121 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4120, ptr noundef %0, i32 noundef %4119, i32 noundef 4, i32 noundef %4) #10
+  %4122 = load i32, ptr %2, align 4
+  %4123 = add i32 %4122, 4
+  store i32 %4123, ptr %2, align 4
+  %4124 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_width, align 4
+  %4125 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4124, ptr noundef %0, i32 noundef %4123, i32 noundef 4, i32 noundef %4) #10
+  %4126 = load i32, ptr %2, align 4
+  %4127 = add i32 %4126, 4
+  store i32 %4127, ptr %2, align 4
+  %4128 = load i32, ptr @hf_x11_glx_render_CopyTexImage1D_border, align 4
+  %4129 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4128, ptr noundef %0, i32 noundef %4127, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4106:                                             ; preds = %34
-  %4107 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_target, align 4
-  %4108 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4107, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4109 = load i32, ptr %2, align 4
-  %4110 = add i32 %4109, 4
-  store i32 %4110, ptr %2, align 4
-  %4111 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_level, align 4
-  %4112 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4111, ptr noundef %0, i32 noundef %4110, i32 noundef 4, i32 noundef %4) #10
-  %4113 = load i32, ptr %2, align 4
-  %4114 = add i32 %4113, 4
-  store i32 %4114, ptr %2, align 4
-  %4115 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_internalformat, align 4
-  %4116 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4115, ptr noundef %0, i32 noundef %4114, i32 noundef 4, i32 noundef %4) #10
-  %4117 = load i32, ptr %2, align 4
-  %4118 = add i32 %4117, 4
-  store i32 %4118, ptr %2, align 4
-  %4119 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_x, align 4
-  %4120 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4119, ptr noundef %0, i32 noundef %4118, i32 noundef 4, i32 noundef %4) #10
-  %4121 = load i32, ptr %2, align 4
-  %4122 = add i32 %4121, 4
-  store i32 %4122, ptr %2, align 4
-  %4123 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_y, align 4
-  %4124 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4123, ptr noundef %0, i32 noundef %4122, i32 noundef 4, i32 noundef %4) #10
-  %4125 = load i32, ptr %2, align 4
-  %4126 = add i32 %4125, 4
-  store i32 %4126, ptr %2, align 4
-  %4127 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_width, align 4
-  %4128 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4127, ptr noundef %0, i32 noundef %4126, i32 noundef 4, i32 noundef %4) #10
-  %4129 = load i32, ptr %2, align 4
-  %4130 = add i32 %4129, 4
-  store i32 %4130, ptr %2, align 4
-  %4131 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_height, align 4
-  %4132 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4131, ptr noundef %0, i32 noundef %4130, i32 noundef 4, i32 noundef %4) #10
+4130:                                             ; preds = %34
+  %4131 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_target, align 4
+  %4132 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4131, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4133 = load i32, ptr %2, align 4
   %4134 = add i32 %4133, 4
   store i32 %4134, ptr %2, align 4
-  %4135 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_border, align 4
+  %4135 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_level, align 4
   %4136 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4135, ptr noundef %0, i32 noundef %4134, i32 noundef 4, i32 noundef %4) #10
+  %4137 = load i32, ptr %2, align 4
+  %4138 = add i32 %4137, 4
+  store i32 %4138, ptr %2, align 4
+  %4139 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_internalformat, align 4
+  %4140 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4139, ptr noundef %0, i32 noundef %4138, i32 noundef 4, i32 noundef %4) #10
+  %4141 = load i32, ptr %2, align 4
+  %4142 = add i32 %4141, 4
+  store i32 %4142, ptr %2, align 4
+  %4143 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_x, align 4
+  %4144 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4143, ptr noundef %0, i32 noundef %4142, i32 noundef 4, i32 noundef %4) #10
+  %4145 = load i32, ptr %2, align 4
+  %4146 = add i32 %4145, 4
+  store i32 %4146, ptr %2, align 4
+  %4147 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_y, align 4
+  %4148 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4147, ptr noundef %0, i32 noundef %4146, i32 noundef 4, i32 noundef %4) #10
+  %4149 = load i32, ptr %2, align 4
+  %4150 = add i32 %4149, 4
+  store i32 %4150, ptr %2, align 4
+  %4151 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_width, align 4
+  %4152 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4151, ptr noundef %0, i32 noundef %4150, i32 noundef 4, i32 noundef %4) #10
+  %4153 = load i32, ptr %2, align 4
+  %4154 = add i32 %4153, 4
+  store i32 %4154, ptr %2, align 4
+  %4155 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_height, align 4
+  %4156 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4155, ptr noundef %0, i32 noundef %4154, i32 noundef 4, i32 noundef %4) #10
+  %4157 = load i32, ptr %2, align 4
+  %4158 = add i32 %4157, 4
+  store i32 %4158, ptr %2, align 4
+  %4159 = load i32, ptr @hf_x11_glx_render_CopyTexImage2D_border, align 4
+  %4160 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4159, ptr noundef %0, i32 noundef %4158, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4137:                                             ; preds = %34
-  %4138 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage1D_target, align 4
-  %4139 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4138, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4140 = load i32, ptr %2, align 4
-  %4141 = add i32 %4140, 4
-  store i32 %4141, ptr %2, align 4
-  %4142 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage1D_level, align 4
-  %4143 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4142, ptr noundef %0, i32 noundef %4141, i32 noundef 4, i32 noundef %4) #10
-  %4144 = load i32, ptr %2, align 4
-  %4145 = add i32 %4144, 4
-  store i32 %4145, ptr %2, align 4
-  %4146 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage1D_xoffset, align 4
-  %4147 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4146, ptr noundef %0, i32 noundef %4145, i32 noundef 4, i32 noundef %4) #10
-  %4148 = load i32, ptr %2, align 4
-  %4149 = add i32 %4148, 4
-  store i32 %4149, ptr %2, align 4
-  %4150 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage1D_x, align 4
-  %4151 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4150, ptr noundef %0, i32 noundef %4149, i32 noundef 4, i32 noundef %4) #10
-  %4152 = load i32, ptr %2, align 4
-  %4153 = add i32 %4152, 4
-  store i32 %4153, ptr %2, align 4
-  %4154 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage1D_y, align 4
-  %4155 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4154, ptr noundef %0, i32 noundef %4153, i32 noundef 4, i32 noundef %4) #10
-  %4156 = load i32, ptr %2, align 4
-  %4157 = add i32 %4156, 4
-  store i32 %4157, ptr %2, align 4
-  %4158 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage1D_width, align 4
-  %4159 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4158, ptr noundef %0, i32 noundef %4157, i32 noundef 4, i32 noundef %4) #10
+4161:                                             ; preds = %34
+  %4162 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage1D_target, align 4
+  %4163 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4162, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4164 = load i32, ptr %2, align 4
+  %4165 = add i32 %4164, 4
+  store i32 %4165, ptr %2, align 4
+  %4166 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage1D_level, align 4
+  %4167 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4166, ptr noundef %0, i32 noundef %4165, i32 noundef 4, i32 noundef %4) #10
+  %4168 = load i32, ptr %2, align 4
+  %4169 = add i32 %4168, 4
+  store i32 %4169, ptr %2, align 4
+  %4170 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage1D_xoffset, align 4
+  %4171 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4170, ptr noundef %0, i32 noundef %4169, i32 noundef 4, i32 noundef %4) #10
+  %4172 = load i32, ptr %2, align 4
+  %4173 = add i32 %4172, 4
+  store i32 %4173, ptr %2, align 4
+  %4174 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage1D_x, align 4
+  %4175 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4174, ptr noundef %0, i32 noundef %4173, i32 noundef 4, i32 noundef %4) #10
+  %4176 = load i32, ptr %2, align 4
+  %4177 = add i32 %4176, 4
+  store i32 %4177, ptr %2, align 4
+  %4178 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage1D_y, align 4
+  %4179 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4178, ptr noundef %0, i32 noundef %4177, i32 noundef 4, i32 noundef %4) #10
+  %4180 = load i32, ptr %2, align 4
+  %4181 = add i32 %4180, 4
+  store i32 %4181, ptr %2, align 4
+  %4182 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage1D_width, align 4
+  %4183 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4182, ptr noundef %0, i32 noundef %4181, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4160:                                             ; preds = %34
-  %4161 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_target, align 4
-  %4162 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4161, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4163 = load i32, ptr %2, align 4
-  %4164 = add i32 %4163, 4
-  store i32 %4164, ptr %2, align 4
-  %4165 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_level, align 4
-  %4166 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4165, ptr noundef %0, i32 noundef %4164, i32 noundef 4, i32 noundef %4) #10
-  %4167 = load i32, ptr %2, align 4
-  %4168 = add i32 %4167, 4
-  store i32 %4168, ptr %2, align 4
-  %4169 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_xoffset, align 4
-  %4170 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4169, ptr noundef %0, i32 noundef %4168, i32 noundef 4, i32 noundef %4) #10
-  %4171 = load i32, ptr %2, align 4
-  %4172 = add i32 %4171, 4
-  store i32 %4172, ptr %2, align 4
-  %4173 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_yoffset, align 4
-  %4174 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4173, ptr noundef %0, i32 noundef %4172, i32 noundef 4, i32 noundef %4) #10
-  %4175 = load i32, ptr %2, align 4
-  %4176 = add i32 %4175, 4
-  store i32 %4176, ptr %2, align 4
-  %4177 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_x, align 4
-  %4178 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4177, ptr noundef %0, i32 noundef %4176, i32 noundef 4, i32 noundef %4) #10
-  %4179 = load i32, ptr %2, align 4
-  %4180 = add i32 %4179, 4
-  store i32 %4180, ptr %2, align 4
-  %4181 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_y, align 4
-  %4182 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4181, ptr noundef %0, i32 noundef %4180, i32 noundef 4, i32 noundef %4) #10
-  %4183 = load i32, ptr %2, align 4
-  %4184 = add i32 %4183, 4
-  store i32 %4184, ptr %2, align 4
-  %4185 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_width, align 4
-  %4186 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4185, ptr noundef %0, i32 noundef %4184, i32 noundef 4, i32 noundef %4) #10
+4184:                                             ; preds = %34
+  %4185 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_target, align 4
+  %4186 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4185, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4187 = load i32, ptr %2, align 4
   %4188 = add i32 %4187, 4
   store i32 %4188, ptr %2, align 4
-  %4189 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_height, align 4
+  %4189 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_level, align 4
   %4190 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4189, ptr noundef %0, i32 noundef %4188, i32 noundef 4, i32 noundef %4) #10
+  %4191 = load i32, ptr %2, align 4
+  %4192 = add i32 %4191, 4
+  store i32 %4192, ptr %2, align 4
+  %4193 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_xoffset, align 4
+  %4194 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4193, ptr noundef %0, i32 noundef %4192, i32 noundef 4, i32 noundef %4) #10
+  %4195 = load i32, ptr %2, align 4
+  %4196 = add i32 %4195, 4
+  store i32 %4196, ptr %2, align 4
+  %4197 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_yoffset, align 4
+  %4198 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4197, ptr noundef %0, i32 noundef %4196, i32 noundef 4, i32 noundef %4) #10
+  %4199 = load i32, ptr %2, align 4
+  %4200 = add i32 %4199, 4
+  store i32 %4200, ptr %2, align 4
+  %4201 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_x, align 4
+  %4202 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4201, ptr noundef %0, i32 noundef %4200, i32 noundef 4, i32 noundef %4) #10
+  %4203 = load i32, ptr %2, align 4
+  %4204 = add i32 %4203, 4
+  store i32 %4204, ptr %2, align 4
+  %4205 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_y, align 4
+  %4206 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4205, ptr noundef %0, i32 noundef %4204, i32 noundef 4, i32 noundef %4) #10
+  %4207 = load i32, ptr %2, align 4
+  %4208 = add i32 %4207, 4
+  store i32 %4208, ptr %2, align 4
+  %4209 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_width, align 4
+  %4210 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4209, ptr noundef %0, i32 noundef %4208, i32 noundef 4, i32 noundef %4) #10
+  %4211 = load i32, ptr %2, align 4
+  %4212 = add i32 %4211, 4
+  store i32 %4212, ptr %2, align 4
+  %4213 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage2D_height, align 4
+  %4214 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4213, ptr noundef %0, i32 noundef %4212, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4191:                                             ; preds = %34
-  %4192 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_target, align 4
-  %4193 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4192, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4194 = load i32, ptr %2, align 4
-  %4195 = add i32 %4194, 4
-  store i32 %4195, ptr %2, align 4
-  %4196 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_level, align 4
-  %4197 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4196, ptr noundef %0, i32 noundef %4195, i32 noundef 4, i32 noundef %4) #10
-  %4198 = load i32, ptr %2, align 4
-  %4199 = add i32 %4198, 4
-  store i32 %4199, ptr %2, align 4
-  %4200 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_xoffset, align 4
-  %4201 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4200, ptr noundef %0, i32 noundef %4199, i32 noundef 4, i32 noundef %4) #10
-  %4202 = load i32, ptr %2, align 4
-  %4203 = add i32 %4202, 4
-  store i32 %4203, ptr %2, align 4
-  %4204 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_yoffset, align 4
-  %4205 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4204, ptr noundef %0, i32 noundef %4203, i32 noundef 4, i32 noundef %4) #10
-  %4206 = load i32, ptr %2, align 4
-  %4207 = add i32 %4206, 4
-  store i32 %4207, ptr %2, align 4
-  %4208 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_zoffset, align 4
-  %4209 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4208, ptr noundef %0, i32 noundef %4207, i32 noundef 4, i32 noundef %4) #10
-  %4210 = load i32, ptr %2, align 4
-  %4211 = add i32 %4210, 4
-  store i32 %4211, ptr %2, align 4
-  %4212 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_x, align 4
-  %4213 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4212, ptr noundef %0, i32 noundef %4211, i32 noundef 4, i32 noundef %4) #10
-  %4214 = load i32, ptr %2, align 4
-  %4215 = add i32 %4214, 4
-  store i32 %4215, ptr %2, align 4
-  %4216 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_y, align 4
-  %4217 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4216, ptr noundef %0, i32 noundef %4215, i32 noundef 4, i32 noundef %4) #10
+4215:                                             ; preds = %34
+  %4216 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_target, align 4
+  %4217 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4216, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4218 = load i32, ptr %2, align 4
   %4219 = add i32 %4218, 4
   store i32 %4219, ptr %2, align 4
-  %4220 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_width, align 4
+  %4220 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_level, align 4
   %4221 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4220, ptr noundef %0, i32 noundef %4219, i32 noundef 4, i32 noundef %4) #10
   %4222 = load i32, ptr %2, align 4
   %4223 = add i32 %4222, 4
   store i32 %4223, ptr %2, align 4
-  %4224 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_height, align 4
+  %4224 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_xoffset, align 4
   %4225 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4224, ptr noundef %0, i32 noundef %4223, i32 noundef 4, i32 noundef %4) #10
+  %4226 = load i32, ptr %2, align 4
+  %4227 = add i32 %4226, 4
+  store i32 %4227, ptr %2, align 4
+  %4228 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_yoffset, align 4
+  %4229 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4228, ptr noundef %0, i32 noundef %4227, i32 noundef 4, i32 noundef %4) #10
+  %4230 = load i32, ptr %2, align 4
+  %4231 = add i32 %4230, 4
+  store i32 %4231, ptr %2, align 4
+  %4232 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_zoffset, align 4
+  %4233 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4232, ptr noundef %0, i32 noundef %4231, i32 noundef 4, i32 noundef %4) #10
+  %4234 = load i32, ptr %2, align 4
+  %4235 = add i32 %4234, 4
+  store i32 %4235, ptr %2, align 4
+  %4236 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_x, align 4
+  %4237 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4236, ptr noundef %0, i32 noundef %4235, i32 noundef 4, i32 noundef %4) #10
+  %4238 = load i32, ptr %2, align 4
+  %4239 = add i32 %4238, 4
+  store i32 %4239, ptr %2, align 4
+  %4240 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_y, align 4
+  %4241 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4240, ptr noundef %0, i32 noundef %4239, i32 noundef 4, i32 noundef %4) #10
+  %4242 = load i32, ptr %2, align 4
+  %4243 = add i32 %4242, 4
+  store i32 %4243, ptr %2, align 4
+  %4244 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_width, align 4
+  %4245 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4244, ptr noundef %0, i32 noundef %4243, i32 noundef 4, i32 noundef %4) #10
+  %4246 = load i32, ptr %2, align 4
+  %4247 = add i32 %4246, 4
+  store i32 %4247, ptr %2, align 4
+  %4248 = load i32, ptr @hf_x11_glx_render_CopyTexSubImage3D_height, align 4
+  %4249 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4248, ptr noundef %0, i32 noundef %4247, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4226:                                             ; preds = %34
-  %4227 = load i32, ptr @hf_x11_glx_render_FogCoordfvEXT_coord, align 4
-  %4228 = load i32, ptr @hf_x11_glx_render_FogCoordfvEXT_coord_item, align 4
-  %4229 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4227, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4230 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4231 = tail call ptr @proto_item_add_subtree(ptr noundef %4229, i32 noundef %4230) #10
+4250:                                             ; preds = %34
+  %4251 = load i32, ptr @hf_x11_glx_render_FogCoordfvEXT_coord, align 4
+  %4252 = load i32, ptr @hf_x11_glx_render_FogCoordfvEXT_coord_item, align 4
+  %4253 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4251, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4254 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4255 = tail call ptr @proto_item_add_subtree(ptr noundef %4253, i32 noundef %4254) #10
   %.pre.i.i2521 = load i32, ptr %2, align 4
-  %4232 = tail call ptr @proto_tree_add_item(ptr noundef %4231, i32 noundef %4228, ptr noundef %0, i32 noundef %.pre.i.i2521, i32 noundef 4, i32 noundef %4) #10
+  %4256 = tail call ptr @proto_tree_add_item(ptr noundef %4255, i32 noundef %4252, ptr noundef %0, i32 noundef %.pre.i.i2521, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4233:                                             ; preds = %34
-  %4234 = load i32, ptr @hf_x11_glx_render_FogCoorddv_coord, align 4
-  %4235 = load i32, ptr @hf_x11_glx_render_FogCoorddv_coord_item, align 4
-  %4236 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4234, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
-  %4237 = load i32, ptr @ett_x11_list_of_double, align 4
-  %4238 = tail call ptr @proto_item_add_subtree(ptr noundef %4236, i32 noundef %4237) #10
+4257:                                             ; preds = %34
+  %4258 = load i32, ptr @hf_x11_glx_render_FogCoorddv_coord, align 4
+  %4259 = load i32, ptr @hf_x11_glx_render_FogCoorddv_coord_item, align 4
+  %4260 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4258, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
+  %4261 = load i32, ptr @ett_x11_list_of_double, align 4
+  %4262 = tail call ptr @proto_item_add_subtree(ptr noundef %4260, i32 noundef %4261) #10
   %.pre.i.i2523 = load i32, ptr %2, align 4
-  %4239 = tail call ptr @proto_tree_add_item(ptr noundef %4238, i32 noundef %4235, ptr noundef %0, i32 noundef %.pre.i.i2523, i32 noundef 8, i32 noundef %4) #10
+  %4263 = tail call ptr @proto_tree_add_item(ptr noundef %4262, i32 noundef %4259, ptr noundef %0, i32 noundef %.pre.i.i2523, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4240:                                             ; preds = %34
-  %4241 = load i32, ptr @hf_x11_glx_render_SecondaryColor3bv_v, align 4
-  %4242 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4241, ptr noundef %0, i32 noundef %28, i32 noundef 3, i32 noundef %4) #10
+4264:                                             ; preds = %34
+  %4265 = load i32, ptr @hf_x11_glx_render_SecondaryColor3bv_v, align 4
+  %4266 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4265, ptr noundef %0, i32 noundef %28, i32 noundef 3, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4243:                                             ; preds = %34
-  %4244 = load i32, ptr @hf_x11_glx_render_SecondaryColor3sv_v, align 4
-  %4245 = load i32, ptr @hf_x11_glx_render_SecondaryColor3sv_v_item, align 4
-  %4246 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4244, ptr noundef %0, i32 noundef %28, i32 noundef 6, i32 noundef %4) #10
-  %4247 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4248 = tail call ptr @proto_item_add_subtree(ptr noundef %4246, i32 noundef %4247) #10
+4267:                                             ; preds = %34
+  %4268 = load i32, ptr @hf_x11_glx_render_SecondaryColor3sv_v, align 4
+  %4269 = load i32, ptr @hf_x11_glx_render_SecondaryColor3sv_v_item, align 4
+  %4270 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4268, ptr noundef %0, i32 noundef %28, i32 noundef 6, i32 noundef %4) #10
+  %4271 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4272 = tail call ptr @proto_item_add_subtree(ptr noundef %4270, i32 noundef %4271) #10
   %.pre.i.i2524 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2525
 
-.lr.ph.i.i2525:                                   ; preds = %.lr.ph.i.i2525, %4243
-  %4249 = phi i32 [ %4253, %.lr.ph.i.i2525 ], [ %.pre.i.i2524, %4243 ]
-  %.014.i.i2526 = phi i32 [ %4250, %.lr.ph.i.i2525 ], [ 3, %4243 ]
-  %4250 = add nsw i32 %.014.i.i2526, -1
-  %4251 = tail call ptr @proto_tree_add_item(ptr noundef %4248, i32 noundef %4245, ptr noundef %0, i32 noundef %4249, i32 noundef 2, i32 noundef %4) #10
-  %4252 = load i32, ptr %2, align 4
-  %4253 = add i32 %4252, 2
-  store i32 %4253, ptr %2, align 4
-  %.not.i.i2527 = icmp eq i32 %4250, 0
+.lr.ph.i.i2525:                                   ; preds = %.lr.ph.i.i2525, %4267
+  %4273 = phi i32 [ %4277, %.lr.ph.i.i2525 ], [ %.pre.i.i2524, %4267 ]
+  %.014.i.i2526 = phi i32 [ %4274, %.lr.ph.i.i2525 ], [ 3, %4267 ]
+  %4274 = add nsw i32 %.014.i.i2526, -1
+  %4275 = tail call ptr @proto_tree_add_item(ptr noundef %4272, i32 noundef %4269, ptr noundef %0, i32 noundef %4273, i32 noundef 2, i32 noundef %4) #10
+  %4276 = load i32, ptr %2, align 4
+  %4277 = add i32 %4276, 2
+  store i32 %4277, ptr %2, align 4
+  %.not.i.i2527 = icmp eq i32 %4274, 0
   br i1 %.not.i.i2527, label %mesa_CallLists.exit, label %.lr.ph.i.i2525, !llvm.loop !59
 
-4254:                                             ; preds = %34
-  %4255 = load i32, ptr @hf_x11_glx_render_SecondaryColor3iv_v, align 4
-  %4256 = load i32, ptr @hf_x11_glx_render_SecondaryColor3iv_v_item, align 4
-  %4257 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4255, ptr noundef %0, i32 noundef %28, i32 noundef 12, i32 noundef %4) #10
-  %4258 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4259 = tail call ptr @proto_item_add_subtree(ptr noundef %4257, i32 noundef %4258) #10
+4278:                                             ; preds = %34
+  %4279 = load i32, ptr @hf_x11_glx_render_SecondaryColor3iv_v, align 4
+  %4280 = load i32, ptr @hf_x11_glx_render_SecondaryColor3iv_v_item, align 4
+  %4281 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4279, ptr noundef %0, i32 noundef %28, i32 noundef 12, i32 noundef %4) #10
+  %4282 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4283 = tail call ptr @proto_item_add_subtree(ptr noundef %4281, i32 noundef %4282) #10
   %.pre.i.i2529 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2530
 
-.lr.ph.i.i2530:                                   ; preds = %.lr.ph.i.i2530, %4254
-  %4260 = phi i32 [ %4264, %.lr.ph.i.i2530 ], [ %.pre.i.i2529, %4254 ]
-  %.014.i.i2531 = phi i32 [ %4261, %.lr.ph.i.i2530 ], [ 3, %4254 ]
-  %4261 = add nsw i32 %.014.i.i2531, -1
-  %4262 = tail call ptr @proto_tree_add_item(ptr noundef %4259, i32 noundef %4256, ptr noundef %0, i32 noundef %4260, i32 noundef 4, i32 noundef %4) #10
-  %4263 = load i32, ptr %2, align 4
-  %4264 = add i32 %4263, 4
-  store i32 %4264, ptr %2, align 4
-  %.not.i.i2532 = icmp eq i32 %4261, 0
+.lr.ph.i.i2530:                                   ; preds = %.lr.ph.i.i2530, %4278
+  %4284 = phi i32 [ %4288, %.lr.ph.i.i2530 ], [ %.pre.i.i2529, %4278 ]
+  %.014.i.i2531 = phi i32 [ %4285, %.lr.ph.i.i2530 ], [ 3, %4278 ]
+  %4285 = add nsw i32 %.014.i.i2531, -1
+  %4286 = tail call ptr @proto_tree_add_item(ptr noundef %4283, i32 noundef %4280, ptr noundef %0, i32 noundef %4284, i32 noundef 4, i32 noundef %4) #10
+  %4287 = load i32, ptr %2, align 4
+  %4288 = add i32 %4287, 4
+  store i32 %4288, ptr %2, align 4
+  %.not.i.i2532 = icmp eq i32 %4285, 0
   br i1 %.not.i.i2532, label %mesa_CallLists.exit, label %.lr.ph.i.i2530, !llvm.loop !60
 
-4265:                                             ; preds = %34
-  %4266 = load i32, ptr @hf_x11_glx_render_SecondaryColor3fvEXT_v, align 4
-  %4267 = load i32, ptr @hf_x11_glx_render_SecondaryColor3fvEXT_v_item, align 4
-  %4268 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4266, ptr noundef %0, i32 noundef %28, i32 noundef 12, i32 noundef %4) #10
-  %4269 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4270 = tail call ptr @proto_item_add_subtree(ptr noundef %4268, i32 noundef %4269) #10
+4289:                                             ; preds = %34
+  %4290 = load i32, ptr @hf_x11_glx_render_SecondaryColor3fvEXT_v, align 4
+  %4291 = load i32, ptr @hf_x11_glx_render_SecondaryColor3fvEXT_v_item, align 4
+  %4292 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4290, ptr noundef %0, i32 noundef %28, i32 noundef 12, i32 noundef %4) #10
+  %4293 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4294 = tail call ptr @proto_item_add_subtree(ptr noundef %4292, i32 noundef %4293) #10
   %.pre.i.i2534 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2535
 
-.lr.ph.i.i2535:                                   ; preds = %.lr.ph.i.i2535, %4265
-  %4271 = phi i32 [ %4275, %.lr.ph.i.i2535 ], [ %.pre.i.i2534, %4265 ]
-  %.014.i.i2536 = phi i32 [ %4272, %.lr.ph.i.i2535 ], [ 3, %4265 ]
-  %4272 = add nsw i32 %.014.i.i2536, -1
-  %4273 = tail call ptr @proto_tree_add_item(ptr noundef %4270, i32 noundef %4267, ptr noundef %0, i32 noundef %4271, i32 noundef 4, i32 noundef %4) #10
-  %4274 = load i32, ptr %2, align 4
-  %4275 = add i32 %4274, 4
-  store i32 %4275, ptr %2, align 4
-  %.not.i.i2537 = icmp eq i32 %4272, 0
+.lr.ph.i.i2535:                                   ; preds = %.lr.ph.i.i2535, %4289
+  %4295 = phi i32 [ %4299, %.lr.ph.i.i2535 ], [ %.pre.i.i2534, %4289 ]
+  %.014.i.i2536 = phi i32 [ %4296, %.lr.ph.i.i2535 ], [ 3, %4289 ]
+  %4296 = add nsw i32 %.014.i.i2536, -1
+  %4297 = tail call ptr @proto_tree_add_item(ptr noundef %4294, i32 noundef %4291, ptr noundef %0, i32 noundef %4295, i32 noundef 4, i32 noundef %4) #10
+  %4298 = load i32, ptr %2, align 4
+  %4299 = add i32 %4298, 4
+  store i32 %4299, ptr %2, align 4
+  %.not.i.i2537 = icmp eq i32 %4296, 0
   br i1 %.not.i.i2537, label %mesa_CallLists.exit, label %.lr.ph.i.i2535, !llvm.loop !61
 
-4276:                                             ; preds = %34
-  %4277 = load i32, ptr @hf_x11_glx_render_SecondaryColor3dv_v, align 4
-  %4278 = load i32, ptr @hf_x11_glx_render_SecondaryColor3dv_v_item, align 4
-  %4279 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4277, ptr noundef %0, i32 noundef %28, i32 noundef 24, i32 noundef %4) #10
-  %4280 = load i32, ptr @ett_x11_list_of_double, align 4
-  %4281 = tail call ptr @proto_item_add_subtree(ptr noundef %4279, i32 noundef %4280) #10
+4300:                                             ; preds = %34
+  %4301 = load i32, ptr @hf_x11_glx_render_SecondaryColor3dv_v, align 4
+  %4302 = load i32, ptr @hf_x11_glx_render_SecondaryColor3dv_v_item, align 4
+  %4303 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4301, ptr noundef %0, i32 noundef %28, i32 noundef 24, i32 noundef %4) #10
+  %4304 = load i32, ptr @ett_x11_list_of_double, align 4
+  %4305 = tail call ptr @proto_item_add_subtree(ptr noundef %4303, i32 noundef %4304) #10
   %.pre.i.i2539 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2540
 
-.lr.ph.i.i2540:                                   ; preds = %.lr.ph.i.i2540, %4276
-  %4282 = phi i32 [ %4286, %.lr.ph.i.i2540 ], [ %.pre.i.i2539, %4276 ]
-  %.014.i.i2541 = phi i32 [ %4283, %.lr.ph.i.i2540 ], [ 3, %4276 ]
-  %4283 = add nsw i32 %.014.i.i2541, -1
-  %4284 = tail call ptr @proto_tree_add_item(ptr noundef %4281, i32 noundef %4278, ptr noundef %0, i32 noundef %4282, i32 noundef 8, i32 noundef %4) #10
-  %4285 = load i32, ptr %2, align 4
-  %4286 = add i32 %4285, 8
-  store i32 %4286, ptr %2, align 4
-  %.not.i.i2542 = icmp eq i32 %4283, 0
+.lr.ph.i.i2540:                                   ; preds = %.lr.ph.i.i2540, %4300
+  %4306 = phi i32 [ %4310, %.lr.ph.i.i2540 ], [ %.pre.i.i2539, %4300 ]
+  %.014.i.i2541 = phi i32 [ %4307, %.lr.ph.i.i2540 ], [ 3, %4300 ]
+  %4307 = add nsw i32 %.014.i.i2541, -1
+  %4308 = tail call ptr @proto_tree_add_item(ptr noundef %4305, i32 noundef %4302, ptr noundef %0, i32 noundef %4306, i32 noundef 8, i32 noundef %4) #10
+  %4309 = load i32, ptr %2, align 4
+  %4310 = add i32 %4309, 8
+  store i32 %4310, ptr %2, align 4
+  %.not.i.i2542 = icmp eq i32 %4307, 0
   br i1 %.not.i.i2542, label %mesa_CallLists.exit, label %.lr.ph.i.i2540, !llvm.loop !62
 
-4287:                                             ; preds = %34
-  %4288 = load i32, ptr @hf_x11_glx_render_SecondaryColor3ubv_v, align 4
-  %4289 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4288, ptr noundef %0, i32 noundef %28, i32 noundef 3, i32 noundef %4) #10
+4311:                                             ; preds = %34
+  %4312 = load i32, ptr @hf_x11_glx_render_SecondaryColor3ubv_v, align 4
+  %4313 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4312, ptr noundef %0, i32 noundef %28, i32 noundef 3, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4290:                                             ; preds = %34
-  %4291 = load i32, ptr @hf_x11_glx_render_SecondaryColor3usv_v, align 4
-  %4292 = load i32, ptr @hf_x11_glx_render_SecondaryColor3usv_v_item, align 4
-  %4293 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4291, ptr noundef %0, i32 noundef %28, i32 noundef 6, i32 noundef %4) #10
-  %4294 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4295 = tail call ptr @proto_item_add_subtree(ptr noundef %4293, i32 noundef %4294) #10
+4314:                                             ; preds = %34
+  %4315 = load i32, ptr @hf_x11_glx_render_SecondaryColor3usv_v, align 4
+  %4316 = load i32, ptr @hf_x11_glx_render_SecondaryColor3usv_v_item, align 4
+  %4317 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4315, ptr noundef %0, i32 noundef %28, i32 noundef 6, i32 noundef %4) #10
+  %4318 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4319 = tail call ptr @proto_item_add_subtree(ptr noundef %4317, i32 noundef %4318) #10
   %.pre.i.i2544 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2545
 
-.lr.ph.i.i2545:                                   ; preds = %.lr.ph.i.i2545, %4290
-  %4296 = phi i32 [ %4300, %.lr.ph.i.i2545 ], [ %.pre.i.i2544, %4290 ]
-  %.014.i.i2546 = phi i32 [ %4297, %.lr.ph.i.i2545 ], [ 3, %4290 ]
-  %4297 = add nsw i32 %.014.i.i2546, -1
-  %4298 = tail call ptr @proto_tree_add_item(ptr noundef %4295, i32 noundef %4292, ptr noundef %0, i32 noundef %4296, i32 noundef 2, i32 noundef %4) #10
-  %4299 = load i32, ptr %2, align 4
-  %4300 = add i32 %4299, 2
-  store i32 %4300, ptr %2, align 4
-  %.not.i.i2547 = icmp eq i32 %4297, 0
+.lr.ph.i.i2545:                                   ; preds = %.lr.ph.i.i2545, %4314
+  %4320 = phi i32 [ %4324, %.lr.ph.i.i2545 ], [ %.pre.i.i2544, %4314 ]
+  %.014.i.i2546 = phi i32 [ %4321, %.lr.ph.i.i2545 ], [ 3, %4314 ]
+  %4321 = add nsw i32 %.014.i.i2546, -1
+  %4322 = tail call ptr @proto_tree_add_item(ptr noundef %4319, i32 noundef %4316, ptr noundef %0, i32 noundef %4320, i32 noundef 2, i32 noundef %4) #10
+  %4323 = load i32, ptr %2, align 4
+  %4324 = add i32 %4323, 2
+  store i32 %4324, ptr %2, align 4
+  %.not.i.i2547 = icmp eq i32 %4321, 0
   br i1 %.not.i.i2547, label %mesa_CallLists.exit, label %.lr.ph.i.i2545, !llvm.loop !40
 
-4301:                                             ; preds = %34
-  %4302 = load i32, ptr @hf_x11_glx_render_SecondaryColor3uiv_v, align 4
-  %4303 = load i32, ptr @hf_x11_glx_render_SecondaryColor3uiv_v_item, align 4
-  %4304 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4302, ptr noundef %0, i32 noundef %28, i32 noundef 12, i32 noundef %4) #10
-  %4305 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4306 = tail call ptr @proto_item_add_subtree(ptr noundef %4304, i32 noundef %4305) #10
+4325:                                             ; preds = %34
+  %4326 = load i32, ptr @hf_x11_glx_render_SecondaryColor3uiv_v, align 4
+  %4327 = load i32, ptr @hf_x11_glx_render_SecondaryColor3uiv_v_item, align 4
+  %4328 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4326, ptr noundef %0, i32 noundef %28, i32 noundef 12, i32 noundef %4) #10
+  %4329 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4330 = tail call ptr @proto_item_add_subtree(ptr noundef %4328, i32 noundef %4329) #10
   %.pre.i.i2549 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2550
 
-.lr.ph.i.i2550:                                   ; preds = %.lr.ph.i.i2550, %4301
-  %4307 = phi i32 [ %4311, %.lr.ph.i.i2550 ], [ %.pre.i.i2549, %4301 ]
-  %.014.i.i2551 = phi i32 [ %4308, %.lr.ph.i.i2550 ], [ 3, %4301 ]
-  %4308 = add nsw i32 %.014.i.i2551, -1
-  %4309 = tail call ptr @proto_tree_add_item(ptr noundef %4306, i32 noundef %4303, ptr noundef %0, i32 noundef %4307, i32 noundef 4, i32 noundef %4) #10
-  %4310 = load i32, ptr %2, align 4
-  %4311 = add i32 %4310, 4
-  store i32 %4311, ptr %2, align 4
-  %.not.i.i2552 = icmp eq i32 %4308, 0
+.lr.ph.i.i2550:                                   ; preds = %.lr.ph.i.i2550, %4325
+  %4331 = phi i32 [ %4335, %.lr.ph.i.i2550 ], [ %.pre.i.i2549, %4325 ]
+  %.014.i.i2551 = phi i32 [ %4332, %.lr.ph.i.i2550 ], [ 3, %4325 ]
+  %4332 = add nsw i32 %.014.i.i2551, -1
+  %4333 = tail call ptr @proto_tree_add_item(ptr noundef %4330, i32 noundef %4327, ptr noundef %0, i32 noundef %4331, i32 noundef 4, i32 noundef %4) #10
+  %4334 = load i32, ptr %2, align 4
+  %4335 = add i32 %4334, 4
+  store i32 %4335, ptr %2, align 4
+  %.not.i.i2552 = icmp eq i32 %4332, 0
   br i1 %.not.i.i2552, label %mesa_CallLists.exit, label %.lr.ph.i.i2550, !llvm.loop !41
 
-4312:                                             ; preds = %34
-  %4313 = load i32, ptr @hf_x11_glx_render_BlendFuncSeparate_sfactorRGB, align 4
-  %4314 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4313, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4315 = load i32, ptr %2, align 4
-  %4316 = add i32 %4315, 4
-  store i32 %4316, ptr %2, align 4
-  %4317 = load i32, ptr @hf_x11_glx_render_BlendFuncSeparate_dfactorRGB, align 4
-  %4318 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4317, ptr noundef %0, i32 noundef %4316, i32 noundef 4, i32 noundef %4) #10
-  %4319 = load i32, ptr %2, align 4
-  %4320 = add i32 %4319, 4
-  store i32 %4320, ptr %2, align 4
-  %4321 = load i32, ptr @hf_x11_glx_render_BlendFuncSeparate_sfactorAlpha, align 4
-  %4322 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4321, ptr noundef %0, i32 noundef %4320, i32 noundef 4, i32 noundef %4) #10
-  %4323 = load i32, ptr %2, align 4
-  %4324 = add i32 %4323, 4
-  store i32 %4324, ptr %2, align 4
-  %4325 = load i32, ptr @hf_x11_glx_render_BlendFuncSeparate_dfactorAlpha, align 4
-  %4326 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4325, ptr noundef %0, i32 noundef %4324, i32 noundef 4, i32 noundef %4) #10
+4336:                                             ; preds = %34
+  %4337 = load i32, ptr @hf_x11_glx_render_BlendFuncSeparate_sfactorRGB, align 4
+  %4338 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4337, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4339 = load i32, ptr %2, align 4
+  %4340 = add i32 %4339, 4
+  store i32 %4340, ptr %2, align 4
+  %4341 = load i32, ptr @hf_x11_glx_render_BlendFuncSeparate_dfactorRGB, align 4
+  %4342 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4341, ptr noundef %0, i32 noundef %4340, i32 noundef 4, i32 noundef %4) #10
+  %4343 = load i32, ptr %2, align 4
+  %4344 = add i32 %4343, 4
+  store i32 %4344, ptr %2, align 4
+  %4345 = load i32, ptr @hf_x11_glx_render_BlendFuncSeparate_sfactorAlpha, align 4
+  %4346 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4345, ptr noundef %0, i32 noundef %4344, i32 noundef 4, i32 noundef %4) #10
+  %4347 = load i32, ptr %2, align 4
+  %4348 = add i32 %4347, 4
+  store i32 %4348, ptr %2, align 4
+  %4349 = load i32, ptr @hf_x11_glx_render_BlendFuncSeparate_dfactorAlpha, align 4
+  %4350 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4349, ptr noundef %0, i32 noundef %4348, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4327:                                             ; preds = %34
-  %4328 = load i32, ptr @hf_x11_glx_render_VertexWeightfvEXT_weight, align 4
-  %4329 = load i32, ptr @hf_x11_glx_render_VertexWeightfvEXT_weight_item, align 4
-  %4330 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4328, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4331 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4332 = tail call ptr @proto_item_add_subtree(ptr noundef %4330, i32 noundef %4331) #10
+4351:                                             ; preds = %34
+  %4352 = load i32, ptr @hf_x11_glx_render_VertexWeightfvEXT_weight, align 4
+  %4353 = load i32, ptr @hf_x11_glx_render_VertexWeightfvEXT_weight_item, align 4
+  %4354 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4352, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4355 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4356 = tail call ptr @proto_item_add_subtree(ptr noundef %4354, i32 noundef %4355) #10
   %.pre.i.i2555 = load i32, ptr %2, align 4
-  %4333 = tail call ptr @proto_tree_add_item(ptr noundef %4332, i32 noundef %4329, ptr noundef %0, i32 noundef %.pre.i.i2555, i32 noundef 4, i32 noundef %4) #10
+  %4357 = tail call ptr @proto_tree_add_item(ptr noundef %4356, i32 noundef %4353, ptr noundef %0, i32 noundef %.pre.i.i2555, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4334:                                             ; preds = %34
-  %4335 = load i32, ptr @hf_x11_glx_render_CombinerParameterfNV_pname, align 4
-  %4336 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4335, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4337 = load i32, ptr %2, align 4
-  %4338 = add i32 %4337, 4
-  store i32 %4338, ptr %2, align 4
-  %4339 = load i32, ptr @hf_x11_glx_render_CombinerParameterfNV_param, align 4
-  %4340 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4339, ptr noundef %0, i32 noundef %4338, i32 noundef 4, i32 noundef %4) #10
+4358:                                             ; preds = %34
+  %4359 = load i32, ptr @hf_x11_glx_render_CombinerParameterfNV_pname, align 4
+  %4360 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4359, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4361 = load i32, ptr %2, align 4
+  %4362 = add i32 %4361, 4
+  store i32 %4362, ptr %2, align 4
+  %4363 = load i32, ptr @hf_x11_glx_render_CombinerParameterfNV_param, align 4
+  %4364 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4363, ptr noundef %0, i32 noundef %4362, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4341:                                             ; preds = %34
-  %4342 = load i32, ptr @hf_x11_glx_render_CombinerParameterfvNV_pname, align 4
-  %4343 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4342, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4344 = load i32, ptr %2, align 4
-  %4345 = add i32 %4344, 4
-  store i32 %4345, ptr %2, align 4
-  %4346 = load i32, ptr @hf_x11_glx_render_CombinerParameterfvNV_params, align 4
-  %4347 = load i32, ptr @hf_x11_glx_render_CombinerParameterfvNV_params_item, align 4
-  %4348 = add nsw i32 %10, -8
-  %4349 = sdiv i32 %4348, 4
-  %4350 = shl nsw i32 %4349, 2
-  %4351 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4346, ptr noundef %0, i32 noundef %4345, i32 noundef %4350, i32 noundef %4) #10
-  %4352 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4353 = tail call ptr @proto_item_add_subtree(ptr noundef %4351, i32 noundef %4352) #10
-  %.off.i2556 = add nsw i32 %10, -5
-  %.not13.i.i2557 = icmp ult i32 %.off.i2556, 7
+4365:                                             ; preds = %34
+  %4366 = load i32, ptr @hf_x11_glx_render_CombinerParameterfvNV_pname, align 4
+  %4367 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4366, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4368 = load i32, ptr %2, align 4
+  %4369 = add i32 %4368, 4
+  store i32 %4369, ptr %2, align 4
+  %4370 = load i32, ptr @hf_x11_glx_render_CombinerParameterfvNV_params, align 4
+  %4371 = load i32, ptr @hf_x11_glx_render_CombinerParameterfvNV_params_item, align 4
+  %4372 = add nsw i32 %10, -8
+  %4373 = sdiv i32 %4372, 4
+  %4374 = shl nsw i32 %4373, 2
+  %4375 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4370, ptr noundef %0, i32 noundef %4369, i32 noundef %4374, i32 noundef %4) #10
+  %4376 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4377 = tail call ptr @proto_item_add_subtree(ptr noundef %4375, i32 noundef %4376) #10
+  %4378 = add i16 %9, -5
+  %.not13.i.i2557 = icmp ult i16 %4378, 7
   br i1 %.not13.i.i2557, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2558
 
-.lr.ph.preheader.i.i2558:                         ; preds = %4341
+.lr.ph.preheader.i.i2558:                         ; preds = %4365
   %.pre.i.i2559 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2560
 
 .lr.ph.i.i2560:                                   ; preds = %.lr.ph.i.i2560, %.lr.ph.preheader.i.i2558
-  %4354 = phi i32 [ %4358, %.lr.ph.i.i2560 ], [ %.pre.i.i2559, %.lr.ph.preheader.i.i2558 ]
-  %.014.i.i2561 = phi i32 [ %4355, %.lr.ph.i.i2560 ], [ %4349, %.lr.ph.preheader.i.i2558 ]
-  %4355 = add i32 %.014.i.i2561, -1
-  %4356 = tail call ptr @proto_tree_add_item(ptr noundef %4353, i32 noundef %4347, ptr noundef %0, i32 noundef %4354, i32 noundef 4, i32 noundef %4) #10
-  %4357 = load i32, ptr %2, align 4
-  %4358 = add i32 %4357, 4
-  store i32 %4358, ptr %2, align 4
-  %.not.i.i2562 = icmp eq i32 %4355, 0
-  br i1 %.not.i.i2562, label %mesa_CallLists.exit, label %.lr.ph.i.i2560, !llvm.loop !61
-
-4359:                                             ; preds = %34
-  %4360 = load i32, ptr @hf_x11_glx_render_CombinerParameteriNV_pname, align 4
-  %4361 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4360, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4362 = load i32, ptr %2, align 4
-  %4363 = add i32 %4362, 4
-  store i32 %4363, ptr %2, align 4
-  %4364 = load i32, ptr @hf_x11_glx_render_CombinerParameteriNV_param, align 4
-  %4365 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4364, ptr noundef %0, i32 noundef %4363, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-4366:                                             ; preds = %34
-  %4367 = load i32, ptr @hf_x11_glx_render_CombinerParameterivNV_pname, align 4
-  %4368 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4367, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4369 = load i32, ptr %2, align 4
-  %4370 = add i32 %4369, 4
-  store i32 %4370, ptr %2, align 4
-  %4371 = load i32, ptr @hf_x11_glx_render_CombinerParameterivNV_params, align 4
-  %4372 = load i32, ptr @hf_x11_glx_render_CombinerParameterivNV_params_item, align 4
-  %4373 = add nsw i32 %10, -8
-  %4374 = sdiv i32 %4373, 4
-  %4375 = shl nsw i32 %4374, 2
-  %4376 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4371, ptr noundef %0, i32 noundef %4370, i32 noundef %4375, i32 noundef %4) #10
-  %4377 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4378 = tail call ptr @proto_item_add_subtree(ptr noundef %4376, i32 noundef %4377) #10
-  %.off.i2564 = add nsw i32 %10, -5
-  %.not13.i.i2565 = icmp ult i32 %.off.i2564, 7
-  br i1 %.not13.i.i2565, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2566
-
-.lr.ph.preheader.i.i2566:                         ; preds = %4366
-  %.pre.i.i2567 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2568
-
-.lr.ph.i.i2568:                                   ; preds = %.lr.ph.i.i2568, %.lr.ph.preheader.i.i2566
-  %4379 = phi i32 [ %4383, %.lr.ph.i.i2568 ], [ %.pre.i.i2567, %.lr.ph.preheader.i.i2566 ]
-  %.014.i.i2569 = phi i32 [ %4380, %.lr.ph.i.i2568 ], [ %4374, %.lr.ph.preheader.i.i2566 ]
-  %4380 = add i32 %.014.i.i2569, -1
-  %4381 = tail call ptr @proto_tree_add_item(ptr noundef %4378, i32 noundef %4372, ptr noundef %0, i32 noundef %4379, i32 noundef 4, i32 noundef %4) #10
+  %4379 = phi i32 [ %4383, %.lr.ph.i.i2560 ], [ %.pre.i.i2559, %.lr.ph.preheader.i.i2558 ]
+  %.014.i.i2561 = phi i32 [ %4380, %.lr.ph.i.i2560 ], [ %4373, %.lr.ph.preheader.i.i2558 ]
+  %4380 = add i32 %.014.i.i2561, -1
+  %4381 = tail call ptr @proto_tree_add_item(ptr noundef %4377, i32 noundef %4371, ptr noundef %0, i32 noundef %4379, i32 noundef 4, i32 noundef %4) #10
   %4382 = load i32, ptr %2, align 4
   %4383 = add i32 %4382, 4
   store i32 %4383, ptr %2, align 4
-  %.not.i.i2570 = icmp eq i32 %4380, 0
-  br i1 %.not.i.i2570, label %mesa_CallLists.exit, label %.lr.ph.i.i2568, !llvm.loop !60
+  %.not.i.i2562 = icmp eq i32 %4380, 0
+  br i1 %.not.i.i2562, label %mesa_CallLists.exit, label %.lr.ph.i.i2560, !llvm.loop !61
 
 4384:                                             ; preds = %34
-  %4385 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_stage, align 4
+  %4385 = load i32, ptr @hf_x11_glx_render_CombinerParameteriNV_pname, align 4
   %4386 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4385, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4387 = load i32, ptr %2, align 4
   %4388 = add i32 %4387, 4
   store i32 %4388, ptr %2, align 4
-  %4389 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_portion, align 4
+  %4389 = load i32, ptr @hf_x11_glx_render_CombinerParameteriNV_param, align 4
   %4390 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4389, ptr noundef %0, i32 noundef %4388, i32 noundef 4, i32 noundef %4) #10
-  %4391 = load i32, ptr %2, align 4
-  %4392 = add i32 %4391, 4
-  store i32 %4392, ptr %2, align 4
-  %4393 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_variable, align 4
-  %4394 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4393, ptr noundef %0, i32 noundef %4392, i32 noundef 4, i32 noundef %4) #10
-  %4395 = load i32, ptr %2, align 4
-  %4396 = add i32 %4395, 4
-  store i32 %4396, ptr %2, align 4
-  %4397 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_input, align 4
-  %4398 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4397, ptr noundef %0, i32 noundef %4396, i32 noundef 4, i32 noundef %4) #10
-  %4399 = load i32, ptr %2, align 4
-  %4400 = add i32 %4399, 4
-  store i32 %4400, ptr %2, align 4
-  %4401 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_mapping, align 4
-  %4402 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4401, ptr noundef %0, i32 noundef %4400, i32 noundef 4, i32 noundef %4) #10
-  %4403 = load i32, ptr %2, align 4
-  %4404 = add i32 %4403, 4
-  store i32 %4404, ptr %2, align 4
-  %4405 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_componentUsage, align 4
-  %4406 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4405, ptr noundef %0, i32 noundef %4404, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4407:                                             ; preds = %34
-  %4408 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_stage, align 4
-  %4409 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4408, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4410 = load i32, ptr %2, align 4
-  %4411 = add i32 %4410, 4
-  store i32 %4411, ptr %2, align 4
-  %4412 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_portion, align 4
-  %4413 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4412, ptr noundef %0, i32 noundef %4411, i32 noundef 4, i32 noundef %4) #10
-  %4414 = load i32, ptr %2, align 4
-  %4415 = add i32 %4414, 4
-  store i32 %4415, ptr %2, align 4
-  %4416 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_abOutput, align 4
-  %4417 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4416, ptr noundef %0, i32 noundef %4415, i32 noundef 4, i32 noundef %4) #10
-  %4418 = load i32, ptr %2, align 4
-  %4419 = add i32 %4418, 4
-  store i32 %4419, ptr %2, align 4
-  %4420 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_cdOutput, align 4
-  %4421 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4420, ptr noundef %0, i32 noundef %4419, i32 noundef 4, i32 noundef %4) #10
-  %4422 = load i32, ptr %2, align 4
-  %4423 = add i32 %4422, 4
-  store i32 %4423, ptr %2, align 4
-  %4424 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_sumOutput, align 4
-  %4425 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4424, ptr noundef %0, i32 noundef %4423, i32 noundef 4, i32 noundef %4) #10
-  %4426 = load i32, ptr %2, align 4
-  %4427 = add i32 %4426, 4
-  store i32 %4427, ptr %2, align 4
-  %4428 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_scale, align 4
-  %4429 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4428, ptr noundef %0, i32 noundef %4427, i32 noundef 4, i32 noundef %4) #10
-  %4430 = load i32, ptr %2, align 4
-  %4431 = add i32 %4430, 4
-  store i32 %4431, ptr %2, align 4
-  %4432 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_bias, align 4
-  %4433 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4432, ptr noundef %0, i32 noundef %4431, i32 noundef 4, i32 noundef %4) #10
-  %4434 = load i32, ptr %2, align 4
-  %4435 = add i32 %4434, 4
-  store i32 %4435, ptr %2, align 4
-  %4436 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_abDotProduct, align 4
-  %4437 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4436, ptr noundef %0, i32 noundef %4435, i32 noundef 1, i32 noundef %4) #10
-  %4438 = load i32, ptr %2, align 4
-  %4439 = add i32 %4438, 1
-  store i32 %4439, ptr %2, align 4
-  %4440 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_cdDotProduct, align 4
-  %4441 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4440, ptr noundef %0, i32 noundef %4439, i32 noundef 1, i32 noundef %4) #10
-  %4442 = load i32, ptr %2, align 4
-  %4443 = add i32 %4442, 1
-  store i32 %4443, ptr %2, align 4
-  %4444 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_muxSum, align 4
-  %4445 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4444, ptr noundef %0, i32 noundef %4443, i32 noundef 1, i32 noundef %4) #10
+4391:                                             ; preds = %34
+  %4392 = load i32, ptr @hf_x11_glx_render_CombinerParameterivNV_pname, align 4
+  %4393 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4392, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4394 = load i32, ptr %2, align 4
+  %4395 = add i32 %4394, 4
+  store i32 %4395, ptr %2, align 4
+  %4396 = load i32, ptr @hf_x11_glx_render_CombinerParameterivNV_params, align 4
+  %4397 = load i32, ptr @hf_x11_glx_render_CombinerParameterivNV_params_item, align 4
+  %4398 = add nsw i32 %10, -8
+  %4399 = sdiv i32 %4398, 4
+  %4400 = shl nsw i32 %4399, 2
+  %4401 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4396, ptr noundef %0, i32 noundef %4395, i32 noundef %4400, i32 noundef %4) #10
+  %4402 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4403 = tail call ptr @proto_item_add_subtree(ptr noundef %4401, i32 noundef %4402) #10
+  %4404 = add i16 %9, -5
+  %.not13.i.i2565 = icmp ult i16 %4404, 7
+  br i1 %.not13.i.i2565, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2566
+
+.lr.ph.preheader.i.i2566:                         ; preds = %4391
+  %.pre.i.i2567 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2568
+
+.lr.ph.i.i2568:                                   ; preds = %.lr.ph.i.i2568, %.lr.ph.preheader.i.i2566
+  %4405 = phi i32 [ %4409, %.lr.ph.i.i2568 ], [ %.pre.i.i2567, %.lr.ph.preheader.i.i2566 ]
+  %.014.i.i2569 = phi i32 [ %4406, %.lr.ph.i.i2568 ], [ %4399, %.lr.ph.preheader.i.i2566 ]
+  %4406 = add i32 %.014.i.i2569, -1
+  %4407 = tail call ptr @proto_tree_add_item(ptr noundef %4403, i32 noundef %4397, ptr noundef %0, i32 noundef %4405, i32 noundef 4, i32 noundef %4) #10
+  %4408 = load i32, ptr %2, align 4
+  %4409 = add i32 %4408, 4
+  store i32 %4409, ptr %2, align 4
+  %.not.i.i2570 = icmp eq i32 %4406, 0
+  br i1 %.not.i.i2570, label %mesa_CallLists.exit, label %.lr.ph.i.i2568, !llvm.loop !60
+
+4410:                                             ; preds = %34
+  %4411 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_stage, align 4
+  %4412 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4411, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4413 = load i32, ptr %2, align 4
+  %4414 = add i32 %4413, 4
+  store i32 %4414, ptr %2, align 4
+  %4415 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_portion, align 4
+  %4416 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4415, ptr noundef %0, i32 noundef %4414, i32 noundef 4, i32 noundef %4) #10
+  %4417 = load i32, ptr %2, align 4
+  %4418 = add i32 %4417, 4
+  store i32 %4418, ptr %2, align 4
+  %4419 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_variable, align 4
+  %4420 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4419, ptr noundef %0, i32 noundef %4418, i32 noundef 4, i32 noundef %4) #10
+  %4421 = load i32, ptr %2, align 4
+  %4422 = add i32 %4421, 4
+  store i32 %4422, ptr %2, align 4
+  %4423 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_input, align 4
+  %4424 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4423, ptr noundef %0, i32 noundef %4422, i32 noundef 4, i32 noundef %4) #10
+  %4425 = load i32, ptr %2, align 4
+  %4426 = add i32 %4425, 4
+  store i32 %4426, ptr %2, align 4
+  %4427 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_mapping, align 4
+  %4428 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4427, ptr noundef %0, i32 noundef %4426, i32 noundef 4, i32 noundef %4) #10
+  %4429 = load i32, ptr %2, align 4
+  %4430 = add i32 %4429, 4
+  store i32 %4430, ptr %2, align 4
+  %4431 = load i32, ptr @hf_x11_glx_render_CombinerInputNV_componentUsage, align 4
+  %4432 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4431, ptr noundef %0, i32 noundef %4430, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4446:                                             ; preds = %34
-  %4447 = load i32, ptr @hf_x11_glx_render_FinalCombinerInputNV_variable, align 4
-  %4448 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4447, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4449 = load i32, ptr %2, align 4
-  %4450 = add i32 %4449, 4
-  store i32 %4450, ptr %2, align 4
-  %4451 = load i32, ptr @hf_x11_glx_render_FinalCombinerInputNV_input, align 4
-  %4452 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4451, ptr noundef %0, i32 noundef %4450, i32 noundef 4, i32 noundef %4) #10
-  %4453 = load i32, ptr %2, align 4
-  %4454 = add i32 %4453, 4
-  store i32 %4454, ptr %2, align 4
-  %4455 = load i32, ptr @hf_x11_glx_render_FinalCombinerInputNV_mapping, align 4
-  %4456 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4455, ptr noundef %0, i32 noundef %4454, i32 noundef 4, i32 noundef %4) #10
-  %4457 = load i32, ptr %2, align 4
-  %4458 = add i32 %4457, 4
-  store i32 %4458, ptr %2, align 4
-  %4459 = load i32, ptr @hf_x11_glx_render_FinalCombinerInputNV_componentUsage, align 4
-  %4460 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4459, ptr noundef %0, i32 noundef %4458, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-4461:                                             ; preds = %34
-  %4462 = load i32, ptr @hf_x11_glx_render_BindProgramARB_target, align 4
-  %4463 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4462, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+4433:                                             ; preds = %34
+  %4434 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_stage, align 4
+  %4435 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4434, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4436 = load i32, ptr %2, align 4
+  %4437 = add i32 %4436, 4
+  store i32 %4437, ptr %2, align 4
+  %4438 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_portion, align 4
+  %4439 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4438, ptr noundef %0, i32 noundef %4437, i32 noundef 4, i32 noundef %4) #10
+  %4440 = load i32, ptr %2, align 4
+  %4441 = add i32 %4440, 4
+  store i32 %4441, ptr %2, align 4
+  %4442 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_abOutput, align 4
+  %4443 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4442, ptr noundef %0, i32 noundef %4441, i32 noundef 4, i32 noundef %4) #10
+  %4444 = load i32, ptr %2, align 4
+  %4445 = add i32 %4444, 4
+  store i32 %4445, ptr %2, align 4
+  %4446 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_cdOutput, align 4
+  %4447 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4446, ptr noundef %0, i32 noundef %4445, i32 noundef 4, i32 noundef %4) #10
+  %4448 = load i32, ptr %2, align 4
+  %4449 = add i32 %4448, 4
+  store i32 %4449, ptr %2, align 4
+  %4450 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_sumOutput, align 4
+  %4451 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4450, ptr noundef %0, i32 noundef %4449, i32 noundef 4, i32 noundef %4) #10
+  %4452 = load i32, ptr %2, align 4
+  %4453 = add i32 %4452, 4
+  store i32 %4453, ptr %2, align 4
+  %4454 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_scale, align 4
+  %4455 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4454, ptr noundef %0, i32 noundef %4453, i32 noundef 4, i32 noundef %4) #10
+  %4456 = load i32, ptr %2, align 4
+  %4457 = add i32 %4456, 4
+  store i32 %4457, ptr %2, align 4
+  %4458 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_bias, align 4
+  %4459 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4458, ptr noundef %0, i32 noundef %4457, i32 noundef 4, i32 noundef %4) #10
+  %4460 = load i32, ptr %2, align 4
+  %4461 = add i32 %4460, 4
+  store i32 %4461, ptr %2, align 4
+  %4462 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_abDotProduct, align 4
+  %4463 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4462, ptr noundef %0, i32 noundef %4461, i32 noundef 1, i32 noundef %4) #10
   %4464 = load i32, ptr %2, align 4
-  %4465 = add i32 %4464, 4
+  %4465 = add i32 %4464, 1
   store i32 %4465, ptr %2, align 4
-  %4466 = load i32, ptr @hf_x11_glx_render_BindProgramARB_program, align 4
-  %4467 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4466, ptr noundef %0, i32 noundef %4465, i32 noundef 4, i32 noundef %4) #10
+  %4466 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_cdDotProduct, align 4
+  %4467 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4466, ptr noundef %0, i32 noundef %4465, i32 noundef 1, i32 noundef %4) #10
+  %4468 = load i32, ptr %2, align 4
+  %4469 = add i32 %4468, 1
+  store i32 %4469, ptr %2, align 4
+  %4470 = load i32, ptr @hf_x11_glx_render_CombinerOutputNV_muxSum, align 4
+  %4471 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4470, ptr noundef %0, i32 noundef %4469, i32 noundef 1, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4468:                                             ; preds = %34
-  %4469 = load i32, ptr @hf_x11_glx_render_ExecuteProgramNV_target, align 4
-  %4470 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4469, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4471 = load i32, ptr %2, align 4
-  %4472 = add i32 %4471, 4
-  store i32 %4472, ptr %2, align 4
-  %4473 = load i32, ptr @hf_x11_glx_render_ExecuteProgramNV_id, align 4
-  %4474 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4473, ptr noundef %0, i32 noundef %4472, i32 noundef 4, i32 noundef %4) #10
+4472:                                             ; preds = %34
+  %4473 = load i32, ptr @hf_x11_glx_render_FinalCombinerInputNV_variable, align 4
+  %4474 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4473, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4475 = load i32, ptr %2, align 4
   %4476 = add i32 %4475, 4
   store i32 %4476, ptr %2, align 4
-  %4477 = load i32, ptr @hf_x11_glx_render_ExecuteProgramNV_params, align 4
-  %4478 = load i32, ptr @hf_x11_glx_render_ExecuteProgramNV_params_item, align 4
-  %4479 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4477, ptr noundef %0, i32 noundef %4476, i32 noundef 16, i32 noundef %4) #10
-  %4480 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4481 = tail call ptr @proto_item_add_subtree(ptr noundef %4479, i32 noundef %4480) #10
+  %4477 = load i32, ptr @hf_x11_glx_render_FinalCombinerInputNV_input, align 4
+  %4478 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4477, ptr noundef %0, i32 noundef %4476, i32 noundef 4, i32 noundef %4) #10
+  %4479 = load i32, ptr %2, align 4
+  %4480 = add i32 %4479, 4
+  store i32 %4480, ptr %2, align 4
+  %4481 = load i32, ptr @hf_x11_glx_render_FinalCombinerInputNV_mapping, align 4
+  %4482 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4481, ptr noundef %0, i32 noundef %4480, i32 noundef 4, i32 noundef %4) #10
+  %4483 = load i32, ptr %2, align 4
+  %4484 = add i32 %4483, 4
+  store i32 %4484, ptr %2, align 4
+  %4485 = load i32, ptr @hf_x11_glx_render_FinalCombinerInputNV_componentUsage, align 4
+  %4486 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4485, ptr noundef %0, i32 noundef %4484, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+4487:                                             ; preds = %34
+  %4488 = load i32, ptr @hf_x11_glx_render_BindProgramARB_target, align 4
+  %4489 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4488, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4490 = load i32, ptr %2, align 4
+  %4491 = add i32 %4490, 4
+  store i32 %4491, ptr %2, align 4
+  %4492 = load i32, ptr @hf_x11_glx_render_BindProgramARB_program, align 4
+  %4493 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4492, ptr noundef %0, i32 noundef %4491, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+4494:                                             ; preds = %34
+  %4495 = load i32, ptr @hf_x11_glx_render_ExecuteProgramNV_target, align 4
+  %4496 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4495, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4497 = load i32, ptr %2, align 4
+  %4498 = add i32 %4497, 4
+  store i32 %4498, ptr %2, align 4
+  %4499 = load i32, ptr @hf_x11_glx_render_ExecuteProgramNV_id, align 4
+  %4500 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4499, ptr noundef %0, i32 noundef %4498, i32 noundef 4, i32 noundef %4) #10
+  %4501 = load i32, ptr %2, align 4
+  %4502 = add i32 %4501, 4
+  store i32 %4502, ptr %2, align 4
+  %4503 = load i32, ptr @hf_x11_glx_render_ExecuteProgramNV_params, align 4
+  %4504 = load i32, ptr @hf_x11_glx_render_ExecuteProgramNV_params_item, align 4
+  %4505 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4503, ptr noundef %0, i32 noundef %4502, i32 noundef 16, i32 noundef %4) #10
+  %4506 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4507 = tail call ptr @proto_item_add_subtree(ptr noundef %4505, i32 noundef %4506) #10
   %.pre.i.i2572 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2573
 
-.lr.ph.i.i2573:                                   ; preds = %.lr.ph.i.i2573, %4468
-  %4482 = phi i32 [ %4486, %.lr.ph.i.i2573 ], [ %.pre.i.i2572, %4468 ]
-  %.014.i.i2574 = phi i32 [ %4483, %.lr.ph.i.i2573 ], [ 4, %4468 ]
-  %4483 = add nsw i32 %.014.i.i2574, -1
-  %4484 = tail call ptr @proto_tree_add_item(ptr noundef %4481, i32 noundef %4478, ptr noundef %0, i32 noundef %4482, i32 noundef 4, i32 noundef %4) #10
-  %4485 = load i32, ptr %2, align 4
-  %4486 = add i32 %4485, 4
-  store i32 %4486, ptr %2, align 4
-  %.not.i.i2575 = icmp eq i32 %4483, 0
+.lr.ph.i.i2573:                                   ; preds = %.lr.ph.i.i2573, %4494
+  %4508 = phi i32 [ %4512, %.lr.ph.i.i2573 ], [ %.pre.i.i2572, %4494 ]
+  %.014.i.i2574 = phi i32 [ %4509, %.lr.ph.i.i2573 ], [ 4, %4494 ]
+  %4509 = add nsw i32 %.014.i.i2574, -1
+  %4510 = tail call ptr @proto_tree_add_item(ptr noundef %4507, i32 noundef %4504, ptr noundef %0, i32 noundef %4508, i32 noundef 4, i32 noundef %4) #10
+  %4511 = load i32, ptr %2, align 4
+  %4512 = add i32 %4511, 4
+  store i32 %4512, ptr %2, align 4
+  %.not.i.i2575 = icmp eq i32 %4509, 0
   br i1 %.not.i.i2575, label %mesa_CallLists.exit, label %.lr.ph.i.i2573, !llvm.loop !61
 
-4487:                                             ; preds = %34
-  %4488 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
-  %4489 = load i32, ptr @hf_x11_glx_render_RequestResidentProgramsNV_n, align 4
-  %4490 = load i32, ptr %2, align 4
-  %4491 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4489, ptr noundef %0, i32 noundef %4490, i32 noundef 4, i32 noundef %4) #10
-  %4492 = load i32, ptr %2, align 4
-  %4493 = add i32 %4492, 4
-  store i32 %4493, ptr %2, align 4
-  %4494 = load i32, ptr @hf_x11_glx_render_RequestResidentProgramsNV_ids, align 4
-  %4495 = load i32, ptr @hf_x11_glx_render_RequestResidentProgramsNV_ids_item, align 4
-  %4496 = shl i32 %4488, 2
-  %4497 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4494, ptr noundef %0, i32 noundef %4493, i32 noundef %4496, i32 noundef %4) #10
-  %4498 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4499 = tail call ptr @proto_item_add_subtree(ptr noundef %4497, i32 noundef %4498) #10
-  %.not13.i.i2577 = icmp eq i32 %4488, 0
-  br i1 %.not13.i.i2577, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2578
-
-.lr.ph.preheader.i.i2578:                         ; preds = %4487
-  %.pre.i.i2579 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2580
-
-.lr.ph.i.i2580:                                   ; preds = %.lr.ph.i.i2580, %.lr.ph.preheader.i.i2578
-  %4500 = phi i32 [ %4504, %.lr.ph.i.i2580 ], [ %.pre.i.i2579, %.lr.ph.preheader.i.i2578 ]
-  %.014.i.i2581 = phi i32 [ %4501, %.lr.ph.i.i2580 ], [ %4488, %.lr.ph.preheader.i.i2578 ]
-  %4501 = add i32 %.014.i.i2581, -1
-  %4502 = tail call ptr @proto_tree_add_item(ptr noundef %4499, i32 noundef %4495, ptr noundef %0, i32 noundef %4500, i32 noundef 4, i32 noundef %4) #10
-  %4503 = load i32, ptr %2, align 4
-  %4504 = add i32 %4503, 4
-  store i32 %4504, ptr %2, align 4
-  %.not.i.i2582 = icmp eq i32 %4501, 0
-  br i1 %.not.i.i2582, label %mesa_CallLists.exit, label %.lr.ph.i.i2580, !llvm.loop !41
-
-4505:                                             ; preds = %34
-  %4506 = load i32, ptr @hf_x11_glx_render_LoadProgramNV_target, align 4
-  %4507 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4506, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4508 = load i32, ptr %2, align 4
-  %4509 = add i32 %4508, 4
-  store i32 %4509, ptr %2, align 4
-  %4510 = load i32, ptr @hf_x11_glx_render_LoadProgramNV_id, align 4
-  %4511 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4510, ptr noundef %0, i32 noundef %4509, i32 noundef 4, i32 noundef %4) #10
-  %4512 = load i32, ptr %2, align 4
-  %4513 = add i32 %4512, 4
-  store i32 %4513, ptr %2, align 4
-  %4514 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4513, i32 noundef %4) #10
-  %4515 = load i32, ptr @hf_x11_glx_render_LoadProgramNV_len, align 4
+4513:                                             ; preds = %34
+  %4514 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
+  %4515 = load i32, ptr @hf_x11_glx_render_RequestResidentProgramsNV_n, align 4
   %4516 = load i32, ptr %2, align 4
   %4517 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4515, ptr noundef %0, i32 noundef %4516, i32 noundef 4, i32 noundef %4) #10
   %4518 = load i32, ptr %2, align 4
   %4519 = add i32 %4518, 4
   store i32 %4519, ptr %2, align 4
-  %4520 = load i32, ptr @hf_x11_glx_render_LoadProgramNV_program, align 4
-  %spec.store.select.i.i2584 = tail call i32 @llvm.smax.i32(i32 %4514, i32 1)
-  %4521 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4520, ptr noundef %0, i32 noundef %4519, i32 noundef %spec.store.select.i.i2584, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
+  %4520 = load i32, ptr @hf_x11_glx_render_RequestResidentProgramsNV_ids, align 4
+  %4521 = load i32, ptr @hf_x11_glx_render_RequestResidentProgramsNV_ids_item, align 4
+  %4522 = shl i32 %4514, 2
+  %4523 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4520, ptr noundef %0, i32 noundef %4519, i32 noundef %4522, i32 noundef %4) #10
+  %4524 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4525 = tail call ptr @proto_item_add_subtree(ptr noundef %4523, i32 noundef %4524) #10
+  %.not13.i.i2577 = icmp eq i32 %4514, 0
+  br i1 %.not13.i.i2577, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2578
 
-4522:                                             ; preds = %34
-  %4523 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4fvARB_target, align 4
-  %4524 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4523, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4525 = load i32, ptr %2, align 4
-  %4526 = add i32 %4525, 4
-  store i32 %4526, ptr %2, align 4
-  %4527 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4fvARB_index, align 4
-  %4528 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4527, ptr noundef %0, i32 noundef %4526, i32 noundef 4, i32 noundef %4) #10
+.lr.ph.preheader.i.i2578:                         ; preds = %4513
+  %.pre.i.i2579 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2580
+
+.lr.ph.i.i2580:                                   ; preds = %.lr.ph.i.i2580, %.lr.ph.preheader.i.i2578
+  %4526 = phi i32 [ %4530, %.lr.ph.i.i2580 ], [ %.pre.i.i2579, %.lr.ph.preheader.i.i2578 ]
+  %.014.i.i2581 = phi i32 [ %4527, %.lr.ph.i.i2580 ], [ %4514, %.lr.ph.preheader.i.i2578 ]
+  %4527 = add i32 %.014.i.i2581, -1
+  %4528 = tail call ptr @proto_tree_add_item(ptr noundef %4525, i32 noundef %4521, ptr noundef %0, i32 noundef %4526, i32 noundef 4, i32 noundef %4) #10
   %4529 = load i32, ptr %2, align 4
   %4530 = add i32 %4529, 4
   store i32 %4530, ptr %2, align 4
-  %4531 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4fvARB_params, align 4
-  %4532 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4fvARB_params_item, align 4
-  %4533 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4531, ptr noundef %0, i32 noundef %4530, i32 noundef 16, i32 noundef %4) #10
-  %4534 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4535 = tail call ptr @proto_item_add_subtree(ptr noundef %4533, i32 noundef %4534) #10
-  %.pre.i.i2585 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2586
+  %.not.i.i2582 = icmp eq i32 %4527, 0
+  br i1 %.not.i.i2582, label %mesa_CallLists.exit, label %.lr.ph.i.i2580, !llvm.loop !41
 
-.lr.ph.i.i2586:                                   ; preds = %.lr.ph.i.i2586, %4522
-  %4536 = phi i32 [ %4540, %.lr.ph.i.i2586 ], [ %.pre.i.i2585, %4522 ]
-  %.014.i.i2587 = phi i32 [ %4537, %.lr.ph.i.i2586 ], [ 4, %4522 ]
-  %4537 = add nsw i32 %.014.i.i2587, -1
-  %4538 = tail call ptr @proto_tree_add_item(ptr noundef %4535, i32 noundef %4532, ptr noundef %0, i32 noundef %4536, i32 noundef 4, i32 noundef %4) #10
-  %4539 = load i32, ptr %2, align 4
-  %4540 = add i32 %4539, 4
-  store i32 %4540, ptr %2, align 4
-  %.not.i.i2588 = icmp eq i32 %4537, 0
-  br i1 %.not.i.i2588, label %mesa_CallLists.exit, label %.lr.ph.i.i2586, !llvm.loop !61
-
-4541:                                             ; preds = %34
-  %4542 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4dvARB_target, align 4
-  %4543 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4542, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+4531:                                             ; preds = %34
+  %4532 = load i32, ptr @hf_x11_glx_render_LoadProgramNV_target, align 4
+  %4533 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4532, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4534 = load i32, ptr %2, align 4
+  %4535 = add i32 %4534, 4
+  store i32 %4535, ptr %2, align 4
+  %4536 = load i32, ptr @hf_x11_glx_render_LoadProgramNV_id, align 4
+  %4537 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4536, ptr noundef %0, i32 noundef %4535, i32 noundef 4, i32 noundef %4) #10
+  %4538 = load i32, ptr %2, align 4
+  %4539 = add i32 %4538, 4
+  store i32 %4539, ptr %2, align 4
+  %4540 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4539, i32 noundef %4) #10
+  %4541 = load i32, ptr @hf_x11_glx_render_LoadProgramNV_len, align 4
+  %4542 = load i32, ptr %2, align 4
+  %4543 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4541, ptr noundef %0, i32 noundef %4542, i32 noundef 4, i32 noundef %4) #10
   %4544 = load i32, ptr %2, align 4
   %4545 = add i32 %4544, 4
   store i32 %4545, ptr %2, align 4
-  %4546 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4dvARB_index, align 4
-  %4547 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4546, ptr noundef %0, i32 noundef %4545, i32 noundef 4, i32 noundef %4) #10
-  %4548 = load i32, ptr %2, align 4
-  %4549 = add i32 %4548, 4
-  store i32 %4549, ptr %2, align 4
-  %4550 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4dvARB_params, align 4
-  %4551 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4dvARB_params_item, align 4
-  %4552 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4550, ptr noundef %0, i32 noundef %4549, i32 noundef 32, i32 noundef %4) #10
-  %4553 = load i32, ptr @ett_x11_list_of_double, align 4
-  %4554 = tail call ptr @proto_item_add_subtree(ptr noundef %4552, i32 noundef %4553) #10
+  %4546 = load i32, ptr @hf_x11_glx_render_LoadProgramNV_program, align 4
+  %spec.store.select.i.i2584 = tail call i32 @llvm.smax.i32(i32 %4540, i32 1)
+  %4547 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4546, ptr noundef %0, i32 noundef %4545, i32 noundef %spec.store.select.i.i2584, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+4548:                                             ; preds = %34
+  %4549 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4fvARB_target, align 4
+  %4550 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4549, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4551 = load i32, ptr %2, align 4
+  %4552 = add i32 %4551, 4
+  store i32 %4552, ptr %2, align 4
+  %4553 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4fvARB_index, align 4
+  %4554 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4553, ptr noundef %0, i32 noundef %4552, i32 noundef 4, i32 noundef %4) #10
+  %4555 = load i32, ptr %2, align 4
+  %4556 = add i32 %4555, 4
+  store i32 %4556, ptr %2, align 4
+  %4557 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4fvARB_params, align 4
+  %4558 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4fvARB_params_item, align 4
+  %4559 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4557, ptr noundef %0, i32 noundef %4556, i32 noundef 16, i32 noundef %4) #10
+  %4560 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4561 = tail call ptr @proto_item_add_subtree(ptr noundef %4559, i32 noundef %4560) #10
+  %.pre.i.i2585 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2586
+
+.lr.ph.i.i2586:                                   ; preds = %.lr.ph.i.i2586, %4548
+  %4562 = phi i32 [ %4566, %.lr.ph.i.i2586 ], [ %.pre.i.i2585, %4548 ]
+  %.014.i.i2587 = phi i32 [ %4563, %.lr.ph.i.i2586 ], [ 4, %4548 ]
+  %4563 = add nsw i32 %.014.i.i2587, -1
+  %4564 = tail call ptr @proto_tree_add_item(ptr noundef %4561, i32 noundef %4558, ptr noundef %0, i32 noundef %4562, i32 noundef 4, i32 noundef %4) #10
+  %4565 = load i32, ptr %2, align 4
+  %4566 = add i32 %4565, 4
+  store i32 %4566, ptr %2, align 4
+  %.not.i.i2588 = icmp eq i32 %4563, 0
+  br i1 %.not.i.i2588, label %mesa_CallLists.exit, label %.lr.ph.i.i2586, !llvm.loop !61
+
+4567:                                             ; preds = %34
+  %4568 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4dvARB_target, align 4
+  %4569 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4568, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4570 = load i32, ptr %2, align 4
+  %4571 = add i32 %4570, 4
+  store i32 %4571, ptr %2, align 4
+  %4572 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4dvARB_index, align 4
+  %4573 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4572, ptr noundef %0, i32 noundef %4571, i32 noundef 4, i32 noundef %4) #10
+  %4574 = load i32, ptr %2, align 4
+  %4575 = add i32 %4574, 4
+  store i32 %4575, ptr %2, align 4
+  %4576 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4dvARB_params, align 4
+  %4577 = load i32, ptr @hf_x11_glx_render_ProgramEnvParameter4dvARB_params_item, align 4
+  %4578 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4576, ptr noundef %0, i32 noundef %4575, i32 noundef 32, i32 noundef %4) #10
+  %4579 = load i32, ptr @ett_x11_list_of_double, align 4
+  %4580 = tail call ptr @proto_item_add_subtree(ptr noundef %4578, i32 noundef %4579) #10
   %.pre.i.i2590 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2591
 
-.lr.ph.i.i2591:                                   ; preds = %.lr.ph.i.i2591, %4541
-  %4555 = phi i32 [ %4559, %.lr.ph.i.i2591 ], [ %.pre.i.i2590, %4541 ]
-  %.014.i.i2592 = phi i32 [ %4556, %.lr.ph.i.i2591 ], [ 4, %4541 ]
-  %4556 = add nsw i32 %.014.i.i2592, -1
-  %4557 = tail call ptr @proto_tree_add_item(ptr noundef %4554, i32 noundef %4551, ptr noundef %0, i32 noundef %4555, i32 noundef 8, i32 noundef %4) #10
-  %4558 = load i32, ptr %2, align 4
-  %4559 = add i32 %4558, 8
-  store i32 %4559, ptr %2, align 4
-  %.not.i.i2593 = icmp eq i32 %4556, 0
+.lr.ph.i.i2591:                                   ; preds = %.lr.ph.i.i2591, %4567
+  %4581 = phi i32 [ %4585, %.lr.ph.i.i2591 ], [ %.pre.i.i2590, %4567 ]
+  %.014.i.i2592 = phi i32 [ %4582, %.lr.ph.i.i2591 ], [ 4, %4567 ]
+  %4582 = add nsw i32 %.014.i.i2592, -1
+  %4583 = tail call ptr @proto_tree_add_item(ptr noundef %4580, i32 noundef %4577, ptr noundef %0, i32 noundef %4581, i32 noundef 8, i32 noundef %4) #10
+  %4584 = load i32, ptr %2, align 4
+  %4585 = add i32 %4584, 8
+  store i32 %4585, ptr %2, align 4
+  %.not.i.i2593 = icmp eq i32 %4582, 0
   br i1 %.not.i.i2593, label %mesa_CallLists.exit, label %.lr.ph.i.i2591, !llvm.loop !62
 
-4560:                                             ; preds = %34
-  %4561 = load i32, ptr @hf_x11_glx_render_ProgramParameters4fvNV_target, align 4
-  %4562 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4561, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4563 = load i32, ptr %2, align 4
-  %4564 = add i32 %4563, 4
-  store i32 %4564, ptr %2, align 4
-  %4565 = load i32, ptr @hf_x11_glx_render_ProgramParameters4fvNV_index, align 4
-  %4566 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4565, ptr noundef %0, i32 noundef %4564, i32 noundef 4, i32 noundef %4) #10
-  %4567 = load i32, ptr %2, align 4
-  %4568 = add i32 %4567, 4
-  store i32 %4568, ptr %2, align 4
-  %4569 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4568, i32 noundef %4) #10
-  %4570 = load i32, ptr @hf_x11_glx_render_ProgramParameters4fvNV_num, align 4
-  %4571 = load i32, ptr %2, align 4
-  %4572 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4570, ptr noundef %0, i32 noundef %4571, i32 noundef 4, i32 noundef %4) #10
-  %4573 = load i32, ptr %2, align 4
-  %4574 = add i32 %4573, 4
-  store i32 %4574, ptr %2, align 4
-  %4575 = load i32, ptr @hf_x11_glx_render_ProgramParameters4fvNV_params, align 4
-  %4576 = load i32, ptr @hf_x11_glx_render_ProgramParameters4fvNV_params_item, align 4
-  %4577 = shl i32 %4569, 2
-  %4578 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4575, ptr noundef %0, i32 noundef %4574, i32 noundef %4577, i32 noundef %4) #10
-  %4579 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4580 = tail call ptr @proto_item_add_subtree(ptr noundef %4578, i32 noundef %4579) #10
-  %.not13.i.i2595 = icmp eq i32 %4569, 0
-  br i1 %.not13.i.i2595, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2596
-
-.lr.ph.preheader.i.i2596:                         ; preds = %4560
-  %.pre.i.i2597 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2598
-
-.lr.ph.i.i2598:                                   ; preds = %.lr.ph.i.i2598, %.lr.ph.preheader.i.i2596
-  %4581 = phi i32 [ %4585, %.lr.ph.i.i2598 ], [ %.pre.i.i2597, %.lr.ph.preheader.i.i2596 ]
-  %.014.i.i2599 = phi i32 [ %4582, %.lr.ph.i.i2598 ], [ %4569, %.lr.ph.preheader.i.i2596 ]
-  %4582 = add i32 %.014.i.i2599, -1
-  %4583 = tail call ptr @proto_tree_add_item(ptr noundef %4580, i32 noundef %4576, ptr noundef %0, i32 noundef %4581, i32 noundef 4, i32 noundef %4) #10
-  %4584 = load i32, ptr %2, align 4
-  %4585 = add i32 %4584, 4
-  store i32 %4585, ptr %2, align 4
-  %.not.i.i2600 = icmp eq i32 %4582, 0
-  br i1 %.not.i.i2600, label %mesa_CallLists.exit, label %.lr.ph.i.i2598, !llvm.loop !61
-
 4586:                                             ; preds = %34
-  %4587 = load i32, ptr @hf_x11_glx_render_ProgramParameters4dvNV_target, align 4
+  %4587 = load i32, ptr @hf_x11_glx_render_ProgramParameters4fvNV_target, align 4
   %4588 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4587, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4589 = load i32, ptr %2, align 4
   %4590 = add i32 %4589, 4
   store i32 %4590, ptr %2, align 4
-  %4591 = load i32, ptr @hf_x11_glx_render_ProgramParameters4dvNV_index, align 4
+  %4591 = load i32, ptr @hf_x11_glx_render_ProgramParameters4fvNV_index, align 4
   %4592 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4591, ptr noundef %0, i32 noundef %4590, i32 noundef 4, i32 noundef %4) #10
   %4593 = load i32, ptr %2, align 4
   %4594 = add i32 %4593, 4
   store i32 %4594, ptr %2, align 4
   %4595 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4594, i32 noundef %4) #10
-  %4596 = load i32, ptr @hf_x11_glx_render_ProgramParameters4dvNV_num, align 4
+  %4596 = load i32, ptr @hf_x11_glx_render_ProgramParameters4fvNV_num, align 4
   %4597 = load i32, ptr %2, align 4
   %4598 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4596, ptr noundef %0, i32 noundef %4597, i32 noundef 4, i32 noundef %4) #10
   %4599 = load i32, ptr %2, align 4
   %4600 = add i32 %4599, 4
   store i32 %4600, ptr %2, align 4
-  %4601 = load i32, ptr @hf_x11_glx_render_ProgramParameters4dvNV_params, align 4
-  %4602 = load i32, ptr @hf_x11_glx_render_ProgramParameters4dvNV_params_item, align 4
-  %4603 = shl i32 %4595, 3
+  %4601 = load i32, ptr @hf_x11_glx_render_ProgramParameters4fvNV_params, align 4
+  %4602 = load i32, ptr @hf_x11_glx_render_ProgramParameters4fvNV_params_item, align 4
+  %4603 = shl i32 %4595, 2
   %4604 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4601, ptr noundef %0, i32 noundef %4600, i32 noundef %4603, i32 noundef %4) #10
-  %4605 = load i32, ptr @ett_x11_list_of_double, align 4
+  %4605 = load i32, ptr @ett_x11_list_of_float, align 4
   %4606 = tail call ptr @proto_item_add_subtree(ptr noundef %4604, i32 noundef %4605) #10
-  %.not13.i.i2602 = icmp eq i32 %4595, 0
-  br i1 %.not13.i.i2602, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2603
+  %.not13.i.i2595 = icmp eq i32 %4595, 0
+  br i1 %.not13.i.i2595, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2596
 
-.lr.ph.preheader.i.i2603:                         ; preds = %4586
-  %.pre.i.i2604 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2605
+.lr.ph.preheader.i.i2596:                         ; preds = %4586
+  %.pre.i.i2597 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2598
 
-.lr.ph.i.i2605:                                   ; preds = %.lr.ph.i.i2605, %.lr.ph.preheader.i.i2603
-  %4607 = phi i32 [ %4611, %.lr.ph.i.i2605 ], [ %.pre.i.i2604, %.lr.ph.preheader.i.i2603 ]
-  %.014.i.i2606 = phi i32 [ %4608, %.lr.ph.i.i2605 ], [ %4595, %.lr.ph.preheader.i.i2603 ]
-  %4608 = add i32 %.014.i.i2606, -1
-  %4609 = tail call ptr @proto_tree_add_item(ptr noundef %4606, i32 noundef %4602, ptr noundef %0, i32 noundef %4607, i32 noundef 8, i32 noundef %4) #10
+.lr.ph.i.i2598:                                   ; preds = %.lr.ph.i.i2598, %.lr.ph.preheader.i.i2596
+  %4607 = phi i32 [ %4611, %.lr.ph.i.i2598 ], [ %.pre.i.i2597, %.lr.ph.preheader.i.i2596 ]
+  %.014.i.i2599 = phi i32 [ %4608, %.lr.ph.i.i2598 ], [ %4595, %.lr.ph.preheader.i.i2596 ]
+  %4608 = add i32 %.014.i.i2599, -1
+  %4609 = tail call ptr @proto_tree_add_item(ptr noundef %4606, i32 noundef %4602, ptr noundef %0, i32 noundef %4607, i32 noundef 4, i32 noundef %4) #10
   %4610 = load i32, ptr %2, align 4
-  %4611 = add i32 %4610, 8
+  %4611 = add i32 %4610, 4
   store i32 %4611, ptr %2, align 4
-  %.not.i.i2607 = icmp eq i32 %4608, 0
-  br i1 %.not.i.i2607, label %mesa_CallLists.exit, label %.lr.ph.i.i2605, !llvm.loop !62
+  %.not.i.i2600 = icmp eq i32 %4608, 0
+  br i1 %.not.i.i2600, label %mesa_CallLists.exit, label %.lr.ph.i.i2598, !llvm.loop !61
 
 4612:                                             ; preds = %34
-  %4613 = load i32, ptr @hf_x11_glx_render_TrackMatrixNV_target, align 4
+  %4613 = load i32, ptr @hf_x11_glx_render_ProgramParameters4dvNV_target, align 4
   %4614 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4613, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4615 = load i32, ptr %2, align 4
   %4616 = add i32 %4615, 4
   store i32 %4616, ptr %2, align 4
-  %4617 = load i32, ptr @hf_x11_glx_render_TrackMatrixNV_address, align 4
+  %4617 = load i32, ptr @hf_x11_glx_render_ProgramParameters4dvNV_index, align 4
   %4618 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4617, ptr noundef %0, i32 noundef %4616, i32 noundef 4, i32 noundef %4) #10
   %4619 = load i32, ptr %2, align 4
   %4620 = add i32 %4619, 4
   store i32 %4620, ptr %2, align 4
-  %4621 = load i32, ptr @hf_x11_glx_render_TrackMatrixNV_matrix, align 4
-  %4622 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4621, ptr noundef %0, i32 noundef %4620, i32 noundef 4, i32 noundef %4) #10
+  %4621 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4620, i32 noundef %4) #10
+  %4622 = load i32, ptr @hf_x11_glx_render_ProgramParameters4dvNV_num, align 4
   %4623 = load i32, ptr %2, align 4
-  %4624 = add i32 %4623, 4
-  store i32 %4624, ptr %2, align 4
-  %4625 = load i32, ptr @hf_x11_glx_render_TrackMatrixNV_transform, align 4
-  %4626 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4625, ptr noundef %0, i32 noundef %4624, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
+  %4624 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4622, ptr noundef %0, i32 noundef %4623, i32 noundef 4, i32 noundef %4) #10
+  %4625 = load i32, ptr %2, align 4
+  %4626 = add i32 %4625, 4
+  store i32 %4626, ptr %2, align 4
+  %4627 = load i32, ptr @hf_x11_glx_render_ProgramParameters4dvNV_params, align 4
+  %4628 = load i32, ptr @hf_x11_glx_render_ProgramParameters4dvNV_params_item, align 4
+  %4629 = shl i32 %4621, 3
+  %4630 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4627, ptr noundef %0, i32 noundef %4626, i32 noundef %4629, i32 noundef %4) #10
+  %4631 = load i32, ptr @ett_x11_list_of_double, align 4
+  %4632 = tail call ptr @proto_item_add_subtree(ptr noundef %4630, i32 noundef %4631) #10
+  %.not13.i.i2602 = icmp eq i32 %4621, 0
+  br i1 %.not13.i.i2602, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2603
 
-4627:                                             ; preds = %34
-  %4628 = load i32, ptr @hf_x11_glx_render_VertexAttrib1sv_index, align 4
-  %4629 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4628, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4630 = load i32, ptr %2, align 4
-  %4631 = add i32 %4630, 4
-  store i32 %4631, ptr %2, align 4
-  %4632 = load i32, ptr @hf_x11_glx_render_VertexAttrib1sv_v, align 4
-  %4633 = load i32, ptr @hf_x11_glx_render_VertexAttrib1sv_v_item, align 4
-  %4634 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4632, ptr noundef %0, i32 noundef %4631, i32 noundef 2, i32 noundef %4) #10
-  %4635 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4636 = tail call ptr @proto_item_add_subtree(ptr noundef %4634, i32 noundef %4635) #10
-  %.pre.i.i2610 = load i32, ptr %2, align 4
-  %4637 = tail call ptr @proto_tree_add_item(ptr noundef %4636, i32 noundef %4633, ptr noundef %0, i32 noundef %.pre.i.i2610, i32 noundef 2, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
+.lr.ph.preheader.i.i2603:                         ; preds = %4612
+  %.pre.i.i2604 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2605
+
+.lr.ph.i.i2605:                                   ; preds = %.lr.ph.i.i2605, %.lr.ph.preheader.i.i2603
+  %4633 = phi i32 [ %4637, %.lr.ph.i.i2605 ], [ %.pre.i.i2604, %.lr.ph.preheader.i.i2603 ]
+  %.014.i.i2606 = phi i32 [ %4634, %.lr.ph.i.i2605 ], [ %4621, %.lr.ph.preheader.i.i2603 ]
+  %4634 = add i32 %.014.i.i2606, -1
+  %4635 = tail call ptr @proto_tree_add_item(ptr noundef %4632, i32 noundef %4628, ptr noundef %0, i32 noundef %4633, i32 noundef 8, i32 noundef %4) #10
+  %4636 = load i32, ptr %2, align 4
+  %4637 = add i32 %4636, 8
+  store i32 %4637, ptr %2, align 4
+  %.not.i.i2607 = icmp eq i32 %4634, 0
+  br i1 %.not.i.i2607, label %mesa_CallLists.exit, label %.lr.ph.i.i2605, !llvm.loop !62
 
 4638:                                             ; preds = %34
-  %4639 = load i32, ptr @hf_x11_glx_render_VertexAttrib2sv_index, align 4
+  %4639 = load i32, ptr @hf_x11_glx_render_TrackMatrixNV_target, align 4
   %4640 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4639, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4641 = load i32, ptr %2, align 4
   %4642 = add i32 %4641, 4
   store i32 %4642, ptr %2, align 4
-  %4643 = load i32, ptr @hf_x11_glx_render_VertexAttrib2sv_v, align 4
-  %4644 = load i32, ptr @hf_x11_glx_render_VertexAttrib2sv_v_item, align 4
-  %4645 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4643, ptr noundef %0, i32 noundef %4642, i32 noundef 4, i32 noundef %4) #10
-  %4646 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4647 = tail call ptr @proto_item_add_subtree(ptr noundef %4645, i32 noundef %4646) #10
-  %.pre.i.i2611 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2612
-
-.lr.ph.i.i2612:                                   ; preds = %.lr.ph.i.i2612, %4638
-  %4648 = phi i32 [ %4652, %.lr.ph.i.i2612 ], [ %.pre.i.i2611, %4638 ]
-  %.014.i.i2613 = phi i32 [ %4649, %.lr.ph.i.i2612 ], [ 2, %4638 ]
-  %4649 = add nsw i32 %.014.i.i2613, -1
-  %4650 = tail call ptr @proto_tree_add_item(ptr noundef %4647, i32 noundef %4644, ptr noundef %0, i32 noundef %4648, i32 noundef 2, i32 noundef %4) #10
-  %4651 = load i32, ptr %2, align 4
-  %4652 = add i32 %4651, 2
-  store i32 %4652, ptr %2, align 4
-  %.not.i.i2614 = icmp eq i32 %4649, 0
-  br i1 %.not.i.i2614, label %mesa_CallLists.exit, label %.lr.ph.i.i2612, !llvm.loop !59
+  %4643 = load i32, ptr @hf_x11_glx_render_TrackMatrixNV_address, align 4
+  %4644 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4643, ptr noundef %0, i32 noundef %4642, i32 noundef 4, i32 noundef %4) #10
+  %4645 = load i32, ptr %2, align 4
+  %4646 = add i32 %4645, 4
+  store i32 %4646, ptr %2, align 4
+  %4647 = load i32, ptr @hf_x11_glx_render_TrackMatrixNV_matrix, align 4
+  %4648 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4647, ptr noundef %0, i32 noundef %4646, i32 noundef 4, i32 noundef %4) #10
+  %4649 = load i32, ptr %2, align 4
+  %4650 = add i32 %4649, 4
+  store i32 %4650, ptr %2, align 4
+  %4651 = load i32, ptr @hf_x11_glx_render_TrackMatrixNV_transform, align 4
+  %4652 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4651, ptr noundef %0, i32 noundef %4650, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
 
 4653:                                             ; preds = %34
-  %4654 = load i32, ptr @hf_x11_glx_render_VertexAttrib3sv_index, align 4
+  %4654 = load i32, ptr @hf_x11_glx_render_VertexAttrib1sv_index, align 4
   %4655 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4654, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4656 = load i32, ptr %2, align 4
   %4657 = add i32 %4656, 4
   store i32 %4657, ptr %2, align 4
-  %4658 = load i32, ptr @hf_x11_glx_render_VertexAttrib3sv_v, align 4
-  %4659 = load i32, ptr @hf_x11_glx_render_VertexAttrib3sv_v_item, align 4
-  %4660 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4658, ptr noundef %0, i32 noundef %4657, i32 noundef 6, i32 noundef %4) #10
+  %4658 = load i32, ptr @hf_x11_glx_render_VertexAttrib1sv_v, align 4
+  %4659 = load i32, ptr @hf_x11_glx_render_VertexAttrib1sv_v_item, align 4
+  %4660 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4658, ptr noundef %0, i32 noundef %4657, i32 noundef 2, i32 noundef %4) #10
   %4661 = load i32, ptr @ett_x11_list_of_card32, align 4
   %4662 = tail call ptr @proto_item_add_subtree(ptr noundef %4660, i32 noundef %4661) #10
+  %.pre.i.i2610 = load i32, ptr %2, align 4
+  %4663 = tail call ptr @proto_tree_add_item(ptr noundef %4662, i32 noundef %4659, ptr noundef %0, i32 noundef %.pre.i.i2610, i32 noundef 2, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+4664:                                             ; preds = %34
+  %4665 = load i32, ptr @hf_x11_glx_render_VertexAttrib2sv_index, align 4
+  %4666 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4665, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4667 = load i32, ptr %2, align 4
+  %4668 = add i32 %4667, 4
+  store i32 %4668, ptr %2, align 4
+  %4669 = load i32, ptr @hf_x11_glx_render_VertexAttrib2sv_v, align 4
+  %4670 = load i32, ptr @hf_x11_glx_render_VertexAttrib2sv_v_item, align 4
+  %4671 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4669, ptr noundef %0, i32 noundef %4668, i32 noundef 4, i32 noundef %4) #10
+  %4672 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4673 = tail call ptr @proto_item_add_subtree(ptr noundef %4671, i32 noundef %4672) #10
+  %.pre.i.i2611 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2612
+
+.lr.ph.i.i2612:                                   ; preds = %.lr.ph.i.i2612, %4664
+  %4674 = phi i32 [ %4678, %.lr.ph.i.i2612 ], [ %.pre.i.i2611, %4664 ]
+  %.014.i.i2613 = phi i32 [ %4675, %.lr.ph.i.i2612 ], [ 2, %4664 ]
+  %4675 = add nsw i32 %.014.i.i2613, -1
+  %4676 = tail call ptr @proto_tree_add_item(ptr noundef %4673, i32 noundef %4670, ptr noundef %0, i32 noundef %4674, i32 noundef 2, i32 noundef %4) #10
+  %4677 = load i32, ptr %2, align 4
+  %4678 = add i32 %4677, 2
+  store i32 %4678, ptr %2, align 4
+  %.not.i.i2614 = icmp eq i32 %4675, 0
+  br i1 %.not.i.i2614, label %mesa_CallLists.exit, label %.lr.ph.i.i2612, !llvm.loop !59
+
+4679:                                             ; preds = %34
+  %4680 = load i32, ptr @hf_x11_glx_render_VertexAttrib3sv_index, align 4
+  %4681 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4680, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4682 = load i32, ptr %2, align 4
+  %4683 = add i32 %4682, 4
+  store i32 %4683, ptr %2, align 4
+  %4684 = load i32, ptr @hf_x11_glx_render_VertexAttrib3sv_v, align 4
+  %4685 = load i32, ptr @hf_x11_glx_render_VertexAttrib3sv_v_item, align 4
+  %4686 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4684, ptr noundef %0, i32 noundef %4683, i32 noundef 6, i32 noundef %4) #10
+  %4687 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4688 = tail call ptr @proto_item_add_subtree(ptr noundef %4686, i32 noundef %4687) #10
   %.pre.i.i2616 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2617
 
-.lr.ph.i.i2617:                                   ; preds = %.lr.ph.i.i2617, %4653
-  %4663 = phi i32 [ %4667, %.lr.ph.i.i2617 ], [ %.pre.i.i2616, %4653 ]
-  %.014.i.i2618 = phi i32 [ %4664, %.lr.ph.i.i2617 ], [ 3, %4653 ]
-  %4664 = add nsw i32 %.014.i.i2618, -1
-  %4665 = tail call ptr @proto_tree_add_item(ptr noundef %4662, i32 noundef %4659, ptr noundef %0, i32 noundef %4663, i32 noundef 2, i32 noundef %4) #10
-  %4666 = load i32, ptr %2, align 4
-  %4667 = add i32 %4666, 2
-  store i32 %4667, ptr %2, align 4
-  %.not.i.i2619 = icmp eq i32 %4664, 0
+.lr.ph.i.i2617:                                   ; preds = %.lr.ph.i.i2617, %4679
+  %4689 = phi i32 [ %4693, %.lr.ph.i.i2617 ], [ %.pre.i.i2616, %4679 ]
+  %.014.i.i2618 = phi i32 [ %4690, %.lr.ph.i.i2617 ], [ 3, %4679 ]
+  %4690 = add nsw i32 %.014.i.i2618, -1
+  %4691 = tail call ptr @proto_tree_add_item(ptr noundef %4688, i32 noundef %4685, ptr noundef %0, i32 noundef %4689, i32 noundef 2, i32 noundef %4) #10
+  %4692 = load i32, ptr %2, align 4
+  %4693 = add i32 %4692, 2
+  store i32 %4693, ptr %2, align 4
+  %.not.i.i2619 = icmp eq i32 %4690, 0
   br i1 %.not.i.i2619, label %mesa_CallLists.exit, label %.lr.ph.i.i2617, !llvm.loop !59
 
-4668:                                             ; preds = %34
-  %4669 = load i32, ptr @hf_x11_glx_render_VertexAttrib4sv_index, align 4
-  %4670 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4669, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4671 = load i32, ptr %2, align 4
-  %4672 = add i32 %4671, 4
-  store i32 %4672, ptr %2, align 4
-  %4673 = load i32, ptr @hf_x11_glx_render_VertexAttrib4sv_v, align 4
-  %4674 = load i32, ptr @hf_x11_glx_render_VertexAttrib4sv_v_item, align 4
-  %4675 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4673, ptr noundef %0, i32 noundef %4672, i32 noundef 8, i32 noundef %4) #10
-  %4676 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4677 = tail call ptr @proto_item_add_subtree(ptr noundef %4675, i32 noundef %4676) #10
-  %.pre.i.i2621 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2622
-
-.lr.ph.i.i2622:                                   ; preds = %.lr.ph.i.i2622, %4668
-  %4678 = phi i32 [ %4682, %.lr.ph.i.i2622 ], [ %.pre.i.i2621, %4668 ]
-  %.014.i.i2623 = phi i32 [ %4679, %.lr.ph.i.i2622 ], [ 4, %4668 ]
-  %4679 = add nsw i32 %.014.i.i2623, -1
-  %4680 = tail call ptr @proto_tree_add_item(ptr noundef %4677, i32 noundef %4674, ptr noundef %0, i32 noundef %4678, i32 noundef 2, i32 noundef %4) #10
-  %4681 = load i32, ptr %2, align 4
-  %4682 = add i32 %4681, 2
-  store i32 %4682, ptr %2, align 4
-  %.not.i.i2624 = icmp eq i32 %4679, 0
-  br i1 %.not.i.i2624, label %mesa_CallLists.exit, label %.lr.ph.i.i2622, !llvm.loop !59
-
-4683:                                             ; preds = %34
-  %4684 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvARB_index, align 4
-  %4685 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4684, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4686 = load i32, ptr %2, align 4
-  %4687 = add i32 %4686, 4
-  store i32 %4687, ptr %2, align 4
-  %4688 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvARB_v, align 4
-  %4689 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvARB_v_item, align 4
-  %4690 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4688, ptr noundef %0, i32 noundef %4687, i32 noundef 4, i32 noundef %4) #10
-  %4691 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4692 = tail call ptr @proto_item_add_subtree(ptr noundef %4690, i32 noundef %4691) #10
-  %.pre.i.i2627 = load i32, ptr %2, align 4
-  %4693 = tail call ptr @proto_tree_add_item(ptr noundef %4692, i32 noundef %4689, ptr noundef %0, i32 noundef %.pre.i.i2627, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
 4694:                                             ; preds = %34
-  %4695 = load i32, ptr @hf_x11_glx_render_VertexAttrib2fvARB_index, align 4
+  %4695 = load i32, ptr @hf_x11_glx_render_VertexAttrib4sv_index, align 4
   %4696 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4695, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4697 = load i32, ptr %2, align 4
   %4698 = add i32 %4697, 4
   store i32 %4698, ptr %2, align 4
-  %4699 = load i32, ptr @hf_x11_glx_render_VertexAttrib2fvARB_v, align 4
-  %4700 = load i32, ptr @hf_x11_glx_render_VertexAttrib2fvARB_v_item, align 4
+  %4699 = load i32, ptr @hf_x11_glx_render_VertexAttrib4sv_v, align 4
+  %4700 = load i32, ptr @hf_x11_glx_render_VertexAttrib4sv_v_item, align 4
   %4701 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4699, ptr noundef %0, i32 noundef %4698, i32 noundef 8, i32 noundef %4) #10
-  %4702 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4702 = load i32, ptr @ett_x11_list_of_card32, align 4
   %4703 = tail call ptr @proto_item_add_subtree(ptr noundef %4701, i32 noundef %4702) #10
-  %.pre.i.i2628 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2629
+  %.pre.i.i2621 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2622
 
-.lr.ph.i.i2629:                                   ; preds = %.lr.ph.i.i2629, %4694
-  %4704 = phi i32 [ %4708, %.lr.ph.i.i2629 ], [ %.pre.i.i2628, %4694 ]
-  %.014.i.i2630 = phi i32 [ %4705, %.lr.ph.i.i2629 ], [ 2, %4694 ]
-  %4705 = add nsw i32 %.014.i.i2630, -1
-  %4706 = tail call ptr @proto_tree_add_item(ptr noundef %4703, i32 noundef %4700, ptr noundef %0, i32 noundef %4704, i32 noundef 4, i32 noundef %4) #10
+.lr.ph.i.i2622:                                   ; preds = %.lr.ph.i.i2622, %4694
+  %4704 = phi i32 [ %4708, %.lr.ph.i.i2622 ], [ %.pre.i.i2621, %4694 ]
+  %.014.i.i2623 = phi i32 [ %4705, %.lr.ph.i.i2622 ], [ 4, %4694 ]
+  %4705 = add nsw i32 %.014.i.i2623, -1
+  %4706 = tail call ptr @proto_tree_add_item(ptr noundef %4703, i32 noundef %4700, ptr noundef %0, i32 noundef %4704, i32 noundef 2, i32 noundef %4) #10
   %4707 = load i32, ptr %2, align 4
-  %4708 = add i32 %4707, 4
+  %4708 = add i32 %4707, 2
   store i32 %4708, ptr %2, align 4
-  %.not.i.i2631 = icmp eq i32 %4705, 0
-  br i1 %.not.i.i2631, label %mesa_CallLists.exit, label %.lr.ph.i.i2629, !llvm.loop !61
+  %.not.i.i2624 = icmp eq i32 %4705, 0
+  br i1 %.not.i.i2624, label %mesa_CallLists.exit, label %.lr.ph.i.i2622, !llvm.loop !59
 
 4709:                                             ; preds = %34
-  %4710 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvARB_index, align 4
+  %4710 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvARB_index, align 4
   %4711 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4710, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4712 = load i32, ptr %2, align 4
   %4713 = add i32 %4712, 4
   store i32 %4713, ptr %2, align 4
-  %4714 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvARB_v, align 4
-  %4715 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvARB_v_item, align 4
-  %4716 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4714, ptr noundef %0, i32 noundef %4713, i32 noundef 12, i32 noundef %4) #10
+  %4714 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvARB_v, align 4
+  %4715 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvARB_v_item, align 4
+  %4716 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4714, ptr noundef %0, i32 noundef %4713, i32 noundef 4, i32 noundef %4) #10
   %4717 = load i32, ptr @ett_x11_list_of_float, align 4
   %4718 = tail call ptr @proto_item_add_subtree(ptr noundef %4716, i32 noundef %4717) #10
+  %.pre.i.i2627 = load i32, ptr %2, align 4
+  %4719 = tail call ptr @proto_tree_add_item(ptr noundef %4718, i32 noundef %4715, ptr noundef %0, i32 noundef %.pre.i.i2627, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+4720:                                             ; preds = %34
+  %4721 = load i32, ptr @hf_x11_glx_render_VertexAttrib2fvARB_index, align 4
+  %4722 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4721, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4723 = load i32, ptr %2, align 4
+  %4724 = add i32 %4723, 4
+  store i32 %4724, ptr %2, align 4
+  %4725 = load i32, ptr @hf_x11_glx_render_VertexAttrib2fvARB_v, align 4
+  %4726 = load i32, ptr @hf_x11_glx_render_VertexAttrib2fvARB_v_item, align 4
+  %4727 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4725, ptr noundef %0, i32 noundef %4724, i32 noundef 8, i32 noundef %4) #10
+  %4728 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4729 = tail call ptr @proto_item_add_subtree(ptr noundef %4727, i32 noundef %4728) #10
+  %.pre.i.i2628 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2629
+
+.lr.ph.i.i2629:                                   ; preds = %.lr.ph.i.i2629, %4720
+  %4730 = phi i32 [ %4734, %.lr.ph.i.i2629 ], [ %.pre.i.i2628, %4720 ]
+  %.014.i.i2630 = phi i32 [ %4731, %.lr.ph.i.i2629 ], [ 2, %4720 ]
+  %4731 = add nsw i32 %.014.i.i2630, -1
+  %4732 = tail call ptr @proto_tree_add_item(ptr noundef %4729, i32 noundef %4726, ptr noundef %0, i32 noundef %4730, i32 noundef 4, i32 noundef %4) #10
+  %4733 = load i32, ptr %2, align 4
+  %4734 = add i32 %4733, 4
+  store i32 %4734, ptr %2, align 4
+  %.not.i.i2631 = icmp eq i32 %4731, 0
+  br i1 %.not.i.i2631, label %mesa_CallLists.exit, label %.lr.ph.i.i2629, !llvm.loop !61
+
+4735:                                             ; preds = %34
+  %4736 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvARB_index, align 4
+  %4737 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4736, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4738 = load i32, ptr %2, align 4
+  %4739 = add i32 %4738, 4
+  store i32 %4739, ptr %2, align 4
+  %4740 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvARB_v, align 4
+  %4741 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvARB_v_item, align 4
+  %4742 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4740, ptr noundef %0, i32 noundef %4739, i32 noundef 12, i32 noundef %4) #10
+  %4743 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4744 = tail call ptr @proto_item_add_subtree(ptr noundef %4742, i32 noundef %4743) #10
   %.pre.i.i2633 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2634
 
-.lr.ph.i.i2634:                                   ; preds = %.lr.ph.i.i2634, %4709
-  %4719 = phi i32 [ %4723, %.lr.ph.i.i2634 ], [ %.pre.i.i2633, %4709 ]
-  %.014.i.i2635 = phi i32 [ %4720, %.lr.ph.i.i2634 ], [ 3, %4709 ]
-  %4720 = add nsw i32 %.014.i.i2635, -1
-  %4721 = tail call ptr @proto_tree_add_item(ptr noundef %4718, i32 noundef %4715, ptr noundef %0, i32 noundef %4719, i32 noundef 4, i32 noundef %4) #10
-  %4722 = load i32, ptr %2, align 4
-  %4723 = add i32 %4722, 4
-  store i32 %4723, ptr %2, align 4
-  %.not.i.i2636 = icmp eq i32 %4720, 0
+.lr.ph.i.i2634:                                   ; preds = %.lr.ph.i.i2634, %4735
+  %4745 = phi i32 [ %4749, %.lr.ph.i.i2634 ], [ %.pre.i.i2633, %4735 ]
+  %.014.i.i2635 = phi i32 [ %4746, %.lr.ph.i.i2634 ], [ 3, %4735 ]
+  %4746 = add nsw i32 %.014.i.i2635, -1
+  %4747 = tail call ptr @proto_tree_add_item(ptr noundef %4744, i32 noundef %4741, ptr noundef %0, i32 noundef %4745, i32 noundef 4, i32 noundef %4) #10
+  %4748 = load i32, ptr %2, align 4
+  %4749 = add i32 %4748, 4
+  store i32 %4749, ptr %2, align 4
+  %.not.i.i2636 = icmp eq i32 %4746, 0
   br i1 %.not.i.i2636, label %mesa_CallLists.exit, label %.lr.ph.i.i2634, !llvm.loop !61
 
-4724:                                             ; preds = %34
-  %4725 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvARB_index, align 4
-  %4726 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4725, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4727 = load i32, ptr %2, align 4
-  %4728 = add i32 %4727, 4
-  store i32 %4728, ptr %2, align 4
-  %4729 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvARB_v, align 4
-  %4730 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvARB_v_item, align 4
-  %4731 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4729, ptr noundef %0, i32 noundef %4728, i32 noundef 16, i32 noundef %4) #10
-  %4732 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4733 = tail call ptr @proto_item_add_subtree(ptr noundef %4731, i32 noundef %4732) #10
-  %.pre.i.i2638 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2639
-
-.lr.ph.i.i2639:                                   ; preds = %.lr.ph.i.i2639, %4724
-  %4734 = phi i32 [ %4738, %.lr.ph.i.i2639 ], [ %.pre.i.i2638, %4724 ]
-  %.014.i.i2640 = phi i32 [ %4735, %.lr.ph.i.i2639 ], [ 4, %4724 ]
-  %4735 = add nsw i32 %.014.i.i2640, -1
-  %4736 = tail call ptr @proto_tree_add_item(ptr noundef %4733, i32 noundef %4730, ptr noundef %0, i32 noundef %4734, i32 noundef 4, i32 noundef %4) #10
-  %4737 = load i32, ptr %2, align 4
-  %4738 = add i32 %4737, 4
-  store i32 %4738, ptr %2, align 4
-  %.not.i.i2641 = icmp eq i32 %4735, 0
-  br i1 %.not.i.i2641, label %mesa_CallLists.exit, label %.lr.ph.i.i2639, !llvm.loop !61
-
-4739:                                             ; preds = %34
-  %4740 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dv_index, align 4
-  %4741 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4740, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4742 = load i32, ptr %2, align 4
-  %4743 = add i32 %4742, 4
-  store i32 %4743, ptr %2, align 4
-  %4744 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dv_v, align 4
-  %4745 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dv_v_item, align 4
-  %4746 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4744, ptr noundef %0, i32 noundef %4743, i32 noundef 8, i32 noundef %4) #10
-  %4747 = load i32, ptr @ett_x11_list_of_double, align 4
-  %4748 = tail call ptr @proto_item_add_subtree(ptr noundef %4746, i32 noundef %4747) #10
-  %.pre.i.i2644 = load i32, ptr %2, align 4
-  %4749 = tail call ptr @proto_tree_add_item(ptr noundef %4748, i32 noundef %4745, ptr noundef %0, i32 noundef %.pre.i.i2644, i32 noundef 8, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
 4750:                                             ; preds = %34
-  %4751 = load i32, ptr @hf_x11_glx_render_VertexAttrib2dv_index, align 4
+  %4751 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvARB_index, align 4
   %4752 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4751, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4753 = load i32, ptr %2, align 4
   %4754 = add i32 %4753, 4
   store i32 %4754, ptr %2, align 4
-  %4755 = load i32, ptr @hf_x11_glx_render_VertexAttrib2dv_v, align 4
-  %4756 = load i32, ptr @hf_x11_glx_render_VertexAttrib2dv_v_item, align 4
+  %4755 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvARB_v, align 4
+  %4756 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvARB_v_item, align 4
   %4757 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4755, ptr noundef %0, i32 noundef %4754, i32 noundef 16, i32 noundef %4) #10
-  %4758 = load i32, ptr @ett_x11_list_of_double, align 4
+  %4758 = load i32, ptr @ett_x11_list_of_float, align 4
   %4759 = tail call ptr @proto_item_add_subtree(ptr noundef %4757, i32 noundef %4758) #10
-  %.pre.i.i2645 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2646
+  %.pre.i.i2638 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2639
 
-.lr.ph.i.i2646:                                   ; preds = %.lr.ph.i.i2646, %4750
-  %4760 = phi i32 [ %4764, %.lr.ph.i.i2646 ], [ %.pre.i.i2645, %4750 ]
-  %.014.i.i2647 = phi i32 [ %4761, %.lr.ph.i.i2646 ], [ 2, %4750 ]
-  %4761 = add nsw i32 %.014.i.i2647, -1
-  %4762 = tail call ptr @proto_tree_add_item(ptr noundef %4759, i32 noundef %4756, ptr noundef %0, i32 noundef %4760, i32 noundef 8, i32 noundef %4) #10
+.lr.ph.i.i2639:                                   ; preds = %.lr.ph.i.i2639, %4750
+  %4760 = phi i32 [ %4764, %.lr.ph.i.i2639 ], [ %.pre.i.i2638, %4750 ]
+  %.014.i.i2640 = phi i32 [ %4761, %.lr.ph.i.i2639 ], [ 4, %4750 ]
+  %4761 = add nsw i32 %.014.i.i2640, -1
+  %4762 = tail call ptr @proto_tree_add_item(ptr noundef %4759, i32 noundef %4756, ptr noundef %0, i32 noundef %4760, i32 noundef 4, i32 noundef %4) #10
   %4763 = load i32, ptr %2, align 4
-  %4764 = add i32 %4763, 8
+  %4764 = add i32 %4763, 4
   store i32 %4764, ptr %2, align 4
-  %.not.i.i2648 = icmp eq i32 %4761, 0
-  br i1 %.not.i.i2648, label %mesa_CallLists.exit, label %.lr.ph.i.i2646, !llvm.loop !62
+  %.not.i.i2641 = icmp eq i32 %4761, 0
+  br i1 %.not.i.i2641, label %mesa_CallLists.exit, label %.lr.ph.i.i2639, !llvm.loop !61
 
 4765:                                             ; preds = %34
-  %4766 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dv_index, align 4
+  %4766 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dv_index, align 4
   %4767 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4766, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   %4768 = load i32, ptr %2, align 4
   %4769 = add i32 %4768, 4
   store i32 %4769, ptr %2, align 4
-  %4770 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dv_v, align 4
-  %4771 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dv_v_item, align 4
-  %4772 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4770, ptr noundef %0, i32 noundef %4769, i32 noundef 24, i32 noundef %4) #10
+  %4770 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dv_v, align 4
+  %4771 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dv_v_item, align 4
+  %4772 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4770, ptr noundef %0, i32 noundef %4769, i32 noundef 8, i32 noundef %4) #10
   %4773 = load i32, ptr @ett_x11_list_of_double, align 4
   %4774 = tail call ptr @proto_item_add_subtree(ptr noundef %4772, i32 noundef %4773) #10
+  %.pre.i.i2644 = load i32, ptr %2, align 4
+  %4775 = tail call ptr @proto_tree_add_item(ptr noundef %4774, i32 noundef %4771, ptr noundef %0, i32 noundef %.pre.i.i2644, i32 noundef 8, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+4776:                                             ; preds = %34
+  %4777 = load i32, ptr @hf_x11_glx_render_VertexAttrib2dv_index, align 4
+  %4778 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4777, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4779 = load i32, ptr %2, align 4
+  %4780 = add i32 %4779, 4
+  store i32 %4780, ptr %2, align 4
+  %4781 = load i32, ptr @hf_x11_glx_render_VertexAttrib2dv_v, align 4
+  %4782 = load i32, ptr @hf_x11_glx_render_VertexAttrib2dv_v_item, align 4
+  %4783 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4781, ptr noundef %0, i32 noundef %4780, i32 noundef 16, i32 noundef %4) #10
+  %4784 = load i32, ptr @ett_x11_list_of_double, align 4
+  %4785 = tail call ptr @proto_item_add_subtree(ptr noundef %4783, i32 noundef %4784) #10
+  %.pre.i.i2645 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2646
+
+.lr.ph.i.i2646:                                   ; preds = %.lr.ph.i.i2646, %4776
+  %4786 = phi i32 [ %4790, %.lr.ph.i.i2646 ], [ %.pre.i.i2645, %4776 ]
+  %.014.i.i2647 = phi i32 [ %4787, %.lr.ph.i.i2646 ], [ 2, %4776 ]
+  %4787 = add nsw i32 %.014.i.i2647, -1
+  %4788 = tail call ptr @proto_tree_add_item(ptr noundef %4785, i32 noundef %4782, ptr noundef %0, i32 noundef %4786, i32 noundef 8, i32 noundef %4) #10
+  %4789 = load i32, ptr %2, align 4
+  %4790 = add i32 %4789, 8
+  store i32 %4790, ptr %2, align 4
+  %.not.i.i2648 = icmp eq i32 %4787, 0
+  br i1 %.not.i.i2648, label %mesa_CallLists.exit, label %.lr.ph.i.i2646, !llvm.loop !62
+
+4791:                                             ; preds = %34
+  %4792 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dv_index, align 4
+  %4793 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4792, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4794 = load i32, ptr %2, align 4
+  %4795 = add i32 %4794, 4
+  store i32 %4795, ptr %2, align 4
+  %4796 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dv_v, align 4
+  %4797 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dv_v_item, align 4
+  %4798 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4796, ptr noundef %0, i32 noundef %4795, i32 noundef 24, i32 noundef %4) #10
+  %4799 = load i32, ptr @ett_x11_list_of_double, align 4
+  %4800 = tail call ptr @proto_item_add_subtree(ptr noundef %4798, i32 noundef %4799) #10
   %.pre.i.i2650 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2651
 
-.lr.ph.i.i2651:                                   ; preds = %.lr.ph.i.i2651, %4765
-  %4775 = phi i32 [ %4779, %.lr.ph.i.i2651 ], [ %.pre.i.i2650, %4765 ]
-  %.014.i.i2652 = phi i32 [ %4776, %.lr.ph.i.i2651 ], [ 3, %4765 ]
-  %4776 = add nsw i32 %.014.i.i2652, -1
-  %4777 = tail call ptr @proto_tree_add_item(ptr noundef %4774, i32 noundef %4771, ptr noundef %0, i32 noundef %4775, i32 noundef 8, i32 noundef %4) #10
-  %4778 = load i32, ptr %2, align 4
-  %4779 = add i32 %4778, 8
-  store i32 %4779, ptr %2, align 4
-  %.not.i.i2653 = icmp eq i32 %4776, 0
+.lr.ph.i.i2651:                                   ; preds = %.lr.ph.i.i2651, %4791
+  %4801 = phi i32 [ %4805, %.lr.ph.i.i2651 ], [ %.pre.i.i2650, %4791 ]
+  %.014.i.i2652 = phi i32 [ %4802, %.lr.ph.i.i2651 ], [ 3, %4791 ]
+  %4802 = add nsw i32 %.014.i.i2652, -1
+  %4803 = tail call ptr @proto_tree_add_item(ptr noundef %4800, i32 noundef %4797, ptr noundef %0, i32 noundef %4801, i32 noundef 8, i32 noundef %4) #10
+  %4804 = load i32, ptr %2, align 4
+  %4805 = add i32 %4804, 8
+  store i32 %4805, ptr %2, align 4
+  %.not.i.i2653 = icmp eq i32 %4802, 0
   br i1 %.not.i.i2653, label %mesa_CallLists.exit, label %.lr.ph.i.i2651, !llvm.loop !62
 
-4780:                                             ; preds = %34
-  %4781 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dv_index, align 4
-  %4782 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4781, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4783 = load i32, ptr %2, align 4
-  %4784 = add i32 %4783, 4
-  store i32 %4784, ptr %2, align 4
-  %4785 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dv_v, align 4
-  %4786 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dv_v_item, align 4
-  %4787 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4785, ptr noundef %0, i32 noundef %4784, i32 noundef 32, i32 noundef %4) #10
-  %4788 = load i32, ptr @ett_x11_list_of_double, align 4
-  %4789 = tail call ptr @proto_item_add_subtree(ptr noundef %4787, i32 noundef %4788) #10
+4806:                                             ; preds = %34
+  %4807 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dv_index, align 4
+  %4808 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4807, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4809 = load i32, ptr %2, align 4
+  %4810 = add i32 %4809, 4
+  store i32 %4810, ptr %2, align 4
+  %4811 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dv_v, align 4
+  %4812 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dv_v_item, align 4
+  %4813 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4811, ptr noundef %0, i32 noundef %4810, i32 noundef 32, i32 noundef %4) #10
+  %4814 = load i32, ptr @ett_x11_list_of_double, align 4
+  %4815 = tail call ptr @proto_item_add_subtree(ptr noundef %4813, i32 noundef %4814) #10
   %.pre.i.i2655 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2656
 
-.lr.ph.i.i2656:                                   ; preds = %.lr.ph.i.i2656, %4780
-  %4790 = phi i32 [ %4794, %.lr.ph.i.i2656 ], [ %.pre.i.i2655, %4780 ]
-  %.014.i.i2657 = phi i32 [ %4791, %.lr.ph.i.i2656 ], [ 4, %4780 ]
-  %4791 = add nsw i32 %.014.i.i2657, -1
-  %4792 = tail call ptr @proto_tree_add_item(ptr noundef %4789, i32 noundef %4786, ptr noundef %0, i32 noundef %4790, i32 noundef 8, i32 noundef %4) #10
-  %4793 = load i32, ptr %2, align 4
-  %4794 = add i32 %4793, 8
-  store i32 %4794, ptr %2, align 4
-  %.not.i.i2658 = icmp eq i32 %4791, 0
+.lr.ph.i.i2656:                                   ; preds = %.lr.ph.i.i2656, %4806
+  %4816 = phi i32 [ %4820, %.lr.ph.i.i2656 ], [ %.pre.i.i2655, %4806 ]
+  %.014.i.i2657 = phi i32 [ %4817, %.lr.ph.i.i2656 ], [ 4, %4806 ]
+  %4817 = add nsw i32 %.014.i.i2657, -1
+  %4818 = tail call ptr @proto_tree_add_item(ptr noundef %4815, i32 noundef %4812, ptr noundef %0, i32 noundef %4816, i32 noundef 8, i32 noundef %4) #10
+  %4819 = load i32, ptr %2, align 4
+  %4820 = add i32 %4819, 8
+  store i32 %4820, ptr %2, align 4
+  %.not.i.i2658 = icmp eq i32 %4817, 0
   br i1 %.not.i.i2658, label %mesa_CallLists.exit, label %.lr.ph.i.i2656, !llvm.loop !62
 
-4795:                                             ; preds = %34
-  %4796 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nubv_index, align 4
-  %4797 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4796, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4798 = load i32, ptr %2, align 4
-  %4799 = add i32 %4798, 4
-  store i32 %4799, ptr %2, align 4
-  %4800 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nubv_v, align 4
-  %4801 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4800, ptr noundef %0, i32 noundef %4799, i32 noundef 4, i32 noundef %4) #10
+4821:                                             ; preds = %34
+  %4822 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nubv_index, align 4
+  %4823 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4822, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4824 = load i32, ptr %2, align 4
+  %4825 = add i32 %4824, 4
+  store i32 %4825, ptr %2, align 4
+  %4826 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nubv_v, align 4
+  %4827 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4826, ptr noundef %0, i32 noundef %4825, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-4802:                                             ; preds = %34
-  %4803 = load i32, ptr @hf_x11_glx_render_VertexAttribs1svNV_index, align 4
-  %4804 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4803, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4805 = load i32, ptr %2, align 4
-  %4806 = add i32 %4805, 4
-  store i32 %4806, ptr %2, align 4
-  %4807 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4806, i32 noundef %4) #10
-  %4808 = load i32, ptr @hf_x11_glx_render_VertexAttribs1svNV_n, align 4
-  %4809 = load i32, ptr %2, align 4
-  %4810 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4808, ptr noundef %0, i32 noundef %4809, i32 noundef 4, i32 noundef %4) #10
-  %4811 = load i32, ptr %2, align 4
-  %4812 = add i32 %4811, 4
-  store i32 %4812, ptr %2, align 4
-  %4813 = load i32, ptr @hf_x11_glx_render_VertexAttribs1svNV_v, align 4
-  %4814 = load i32, ptr @hf_x11_glx_render_VertexAttribs1svNV_v_item, align 4
-  %4815 = shl i32 %4807, 1
-  %4816 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4813, ptr noundef %0, i32 noundef %4812, i32 noundef %4815, i32 noundef %4) #10
-  %4817 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4818 = tail call ptr @proto_item_add_subtree(ptr noundef %4816, i32 noundef %4817) #10
-  %.not13.i.i2660 = icmp eq i32 %4807, 0
+4828:                                             ; preds = %34
+  %4829 = load i32, ptr @hf_x11_glx_render_VertexAttribs1svNV_index, align 4
+  %4830 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4829, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4831 = load i32, ptr %2, align 4
+  %4832 = add i32 %4831, 4
+  store i32 %4832, ptr %2, align 4
+  %4833 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4832, i32 noundef %4) #10
+  %4834 = load i32, ptr @hf_x11_glx_render_VertexAttribs1svNV_n, align 4
+  %4835 = load i32, ptr %2, align 4
+  %4836 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4834, ptr noundef %0, i32 noundef %4835, i32 noundef 4, i32 noundef %4) #10
+  %4837 = load i32, ptr %2, align 4
+  %4838 = add i32 %4837, 4
+  store i32 %4838, ptr %2, align 4
+  %4839 = load i32, ptr @hf_x11_glx_render_VertexAttribs1svNV_v, align 4
+  %4840 = load i32, ptr @hf_x11_glx_render_VertexAttribs1svNV_v_item, align 4
+  %4841 = shl i32 %4833, 1
+  %4842 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4839, ptr noundef %0, i32 noundef %4838, i32 noundef %4841, i32 noundef %4) #10
+  %4843 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4844 = tail call ptr @proto_item_add_subtree(ptr noundef %4842, i32 noundef %4843) #10
+  %.not13.i.i2660 = icmp eq i32 %4833, 0
   br i1 %.not13.i.i2660, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2661
 
-.lr.ph.preheader.i.i2661:                         ; preds = %4802
+.lr.ph.preheader.i.i2661:                         ; preds = %4828
   %.pre.i.i2662 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2663
 
 .lr.ph.i.i2663:                                   ; preds = %.lr.ph.i.i2663, %.lr.ph.preheader.i.i2661
-  %4819 = phi i32 [ %4823, %.lr.ph.i.i2663 ], [ %.pre.i.i2662, %.lr.ph.preheader.i.i2661 ]
-  %.014.i.i2664 = phi i32 [ %4820, %.lr.ph.i.i2663 ], [ %4807, %.lr.ph.preheader.i.i2661 ]
-  %4820 = add i32 %.014.i.i2664, -1
-  %4821 = tail call ptr @proto_tree_add_item(ptr noundef %4818, i32 noundef %4814, ptr noundef %0, i32 noundef %4819, i32 noundef 2, i32 noundef %4) #10
-  %4822 = load i32, ptr %2, align 4
-  %4823 = add i32 %4822, 2
-  store i32 %4823, ptr %2, align 4
-  %.not.i.i2665 = icmp eq i32 %4820, 0
+  %4845 = phi i32 [ %4849, %.lr.ph.i.i2663 ], [ %.pre.i.i2662, %.lr.ph.preheader.i.i2661 ]
+  %.014.i.i2664 = phi i32 [ %4846, %.lr.ph.i.i2663 ], [ %4833, %.lr.ph.preheader.i.i2661 ]
+  %4846 = add i32 %.014.i.i2664, -1
+  %4847 = tail call ptr @proto_tree_add_item(ptr noundef %4844, i32 noundef %4840, ptr noundef %0, i32 noundef %4845, i32 noundef 2, i32 noundef %4) #10
+  %4848 = load i32, ptr %2, align 4
+  %4849 = add i32 %4848, 2
+  store i32 %4849, ptr %2, align 4
+  %.not.i.i2665 = icmp eq i32 %4846, 0
   br i1 %.not.i.i2665, label %mesa_CallLists.exit, label %.lr.ph.i.i2663, !llvm.loop !59
 
-4824:                                             ; preds = %34
-  %4825 = load i32, ptr @hf_x11_glx_render_VertexAttribs2svNV_index, align 4
-  %4826 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4825, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4827 = load i32, ptr %2, align 4
-  %4828 = add i32 %4827, 4
-  store i32 %4828, ptr %2, align 4
-  %4829 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4828, i32 noundef %4) #10
-  %4830 = load i32, ptr @hf_x11_glx_render_VertexAttribs2svNV_n, align 4
-  %4831 = load i32, ptr %2, align 4
-  %4832 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4830, ptr noundef %0, i32 noundef %4831, i32 noundef 4, i32 noundef %4) #10
-  %4833 = load i32, ptr %2, align 4
-  %4834 = add i32 %4833, 4
-  store i32 %4834, ptr %2, align 4
-  %4835 = load i32, ptr @hf_x11_glx_render_VertexAttribs2svNV_v, align 4
-  %4836 = load i32, ptr @hf_x11_glx_render_VertexAttribs2svNV_v_item, align 4
-  %4837 = shl i32 %4829, 1
-  %4838 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4835, ptr noundef %0, i32 noundef %4834, i32 noundef %4837, i32 noundef %4) #10
-  %4839 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4840 = tail call ptr @proto_item_add_subtree(ptr noundef %4838, i32 noundef %4839) #10
-  %.not13.i.i2667 = icmp eq i32 %4829, 0
+4850:                                             ; preds = %34
+  %4851 = load i32, ptr @hf_x11_glx_render_VertexAttribs2svNV_index, align 4
+  %4852 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4851, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4853 = load i32, ptr %2, align 4
+  %4854 = add i32 %4853, 4
+  store i32 %4854, ptr %2, align 4
+  %4855 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4854, i32 noundef %4) #10
+  %4856 = load i32, ptr @hf_x11_glx_render_VertexAttribs2svNV_n, align 4
+  %4857 = load i32, ptr %2, align 4
+  %4858 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4856, ptr noundef %0, i32 noundef %4857, i32 noundef 4, i32 noundef %4) #10
+  %4859 = load i32, ptr %2, align 4
+  %4860 = add i32 %4859, 4
+  store i32 %4860, ptr %2, align 4
+  %4861 = load i32, ptr @hf_x11_glx_render_VertexAttribs2svNV_v, align 4
+  %4862 = load i32, ptr @hf_x11_glx_render_VertexAttribs2svNV_v_item, align 4
+  %4863 = shl i32 %4855, 1
+  %4864 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4861, ptr noundef %0, i32 noundef %4860, i32 noundef %4863, i32 noundef %4) #10
+  %4865 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4866 = tail call ptr @proto_item_add_subtree(ptr noundef %4864, i32 noundef %4865) #10
+  %.not13.i.i2667 = icmp eq i32 %4855, 0
   br i1 %.not13.i.i2667, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2668
 
-.lr.ph.preheader.i.i2668:                         ; preds = %4824
+.lr.ph.preheader.i.i2668:                         ; preds = %4850
   %.pre.i.i2669 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2670
 
 .lr.ph.i.i2670:                                   ; preds = %.lr.ph.i.i2670, %.lr.ph.preheader.i.i2668
-  %4841 = phi i32 [ %4845, %.lr.ph.i.i2670 ], [ %.pre.i.i2669, %.lr.ph.preheader.i.i2668 ]
-  %.014.i.i2671 = phi i32 [ %4842, %.lr.ph.i.i2670 ], [ %4829, %.lr.ph.preheader.i.i2668 ]
-  %4842 = add i32 %.014.i.i2671, -1
-  %4843 = tail call ptr @proto_tree_add_item(ptr noundef %4840, i32 noundef %4836, ptr noundef %0, i32 noundef %4841, i32 noundef 2, i32 noundef %4) #10
-  %4844 = load i32, ptr %2, align 4
-  %4845 = add i32 %4844, 2
-  store i32 %4845, ptr %2, align 4
-  %.not.i.i2672 = icmp eq i32 %4842, 0
+  %4867 = phi i32 [ %4871, %.lr.ph.i.i2670 ], [ %.pre.i.i2669, %.lr.ph.preheader.i.i2668 ]
+  %.014.i.i2671 = phi i32 [ %4868, %.lr.ph.i.i2670 ], [ %4855, %.lr.ph.preheader.i.i2668 ]
+  %4868 = add i32 %.014.i.i2671, -1
+  %4869 = tail call ptr @proto_tree_add_item(ptr noundef %4866, i32 noundef %4862, ptr noundef %0, i32 noundef %4867, i32 noundef 2, i32 noundef %4) #10
+  %4870 = load i32, ptr %2, align 4
+  %4871 = add i32 %4870, 2
+  store i32 %4871, ptr %2, align 4
+  %.not.i.i2672 = icmp eq i32 %4868, 0
   br i1 %.not.i.i2672, label %mesa_CallLists.exit, label %.lr.ph.i.i2670, !llvm.loop !59
 
-4846:                                             ; preds = %34
-  %4847 = load i32, ptr @hf_x11_glx_render_VertexAttribs3svNV_index, align 4
-  %4848 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4847, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4849 = load i32, ptr %2, align 4
-  %4850 = add i32 %4849, 4
-  store i32 %4850, ptr %2, align 4
-  %4851 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4850, i32 noundef %4) #10
-  %4852 = load i32, ptr @hf_x11_glx_render_VertexAttribs3svNV_n, align 4
-  %4853 = load i32, ptr %2, align 4
-  %4854 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4852, ptr noundef %0, i32 noundef %4853, i32 noundef 4, i32 noundef %4) #10
-  %4855 = load i32, ptr %2, align 4
-  %4856 = add i32 %4855, 4
-  store i32 %4856, ptr %2, align 4
-  %4857 = load i32, ptr @hf_x11_glx_render_VertexAttribs3svNV_v, align 4
-  %4858 = load i32, ptr @hf_x11_glx_render_VertexAttribs3svNV_v_item, align 4
-  %4859 = shl i32 %4851, 1
-  %4860 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4857, ptr noundef %0, i32 noundef %4856, i32 noundef %4859, i32 noundef %4) #10
-  %4861 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4862 = tail call ptr @proto_item_add_subtree(ptr noundef %4860, i32 noundef %4861) #10
-  %.not13.i.i2674 = icmp eq i32 %4851, 0
+4872:                                             ; preds = %34
+  %4873 = load i32, ptr @hf_x11_glx_render_VertexAttribs3svNV_index, align 4
+  %4874 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4873, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4875 = load i32, ptr %2, align 4
+  %4876 = add i32 %4875, 4
+  store i32 %4876, ptr %2, align 4
+  %4877 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4876, i32 noundef %4) #10
+  %4878 = load i32, ptr @hf_x11_glx_render_VertexAttribs3svNV_n, align 4
+  %4879 = load i32, ptr %2, align 4
+  %4880 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4878, ptr noundef %0, i32 noundef %4879, i32 noundef 4, i32 noundef %4) #10
+  %4881 = load i32, ptr %2, align 4
+  %4882 = add i32 %4881, 4
+  store i32 %4882, ptr %2, align 4
+  %4883 = load i32, ptr @hf_x11_glx_render_VertexAttribs3svNV_v, align 4
+  %4884 = load i32, ptr @hf_x11_glx_render_VertexAttribs3svNV_v_item, align 4
+  %4885 = shl i32 %4877, 1
+  %4886 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4883, ptr noundef %0, i32 noundef %4882, i32 noundef %4885, i32 noundef %4) #10
+  %4887 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4888 = tail call ptr @proto_item_add_subtree(ptr noundef %4886, i32 noundef %4887) #10
+  %.not13.i.i2674 = icmp eq i32 %4877, 0
   br i1 %.not13.i.i2674, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2675
 
-.lr.ph.preheader.i.i2675:                         ; preds = %4846
+.lr.ph.preheader.i.i2675:                         ; preds = %4872
   %.pre.i.i2676 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2677
 
 .lr.ph.i.i2677:                                   ; preds = %.lr.ph.i.i2677, %.lr.ph.preheader.i.i2675
-  %4863 = phi i32 [ %4867, %.lr.ph.i.i2677 ], [ %.pre.i.i2676, %.lr.ph.preheader.i.i2675 ]
-  %.014.i.i2678 = phi i32 [ %4864, %.lr.ph.i.i2677 ], [ %4851, %.lr.ph.preheader.i.i2675 ]
-  %4864 = add i32 %.014.i.i2678, -1
-  %4865 = tail call ptr @proto_tree_add_item(ptr noundef %4862, i32 noundef %4858, ptr noundef %0, i32 noundef %4863, i32 noundef 2, i32 noundef %4) #10
-  %4866 = load i32, ptr %2, align 4
-  %4867 = add i32 %4866, 2
-  store i32 %4867, ptr %2, align 4
-  %.not.i.i2679 = icmp eq i32 %4864, 0
+  %4889 = phi i32 [ %4893, %.lr.ph.i.i2677 ], [ %.pre.i.i2676, %.lr.ph.preheader.i.i2675 ]
+  %.014.i.i2678 = phi i32 [ %4890, %.lr.ph.i.i2677 ], [ %4877, %.lr.ph.preheader.i.i2675 ]
+  %4890 = add i32 %.014.i.i2678, -1
+  %4891 = tail call ptr @proto_tree_add_item(ptr noundef %4888, i32 noundef %4884, ptr noundef %0, i32 noundef %4889, i32 noundef 2, i32 noundef %4) #10
+  %4892 = load i32, ptr %2, align 4
+  %4893 = add i32 %4892, 2
+  store i32 %4893, ptr %2, align 4
+  %.not.i.i2679 = icmp eq i32 %4890, 0
   br i1 %.not.i.i2679, label %mesa_CallLists.exit, label %.lr.ph.i.i2677, !llvm.loop !59
 
-4868:                                             ; preds = %34
-  %4869 = load i32, ptr @hf_x11_glx_render_VertexAttribs4svNV_index, align 4
-  %4870 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4869, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4871 = load i32, ptr %2, align 4
-  %4872 = add i32 %4871, 4
-  store i32 %4872, ptr %2, align 4
-  %4873 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4872, i32 noundef %4) #10
-  %4874 = load i32, ptr @hf_x11_glx_render_VertexAttribs4svNV_n, align 4
-  %4875 = load i32, ptr %2, align 4
-  %4876 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4874, ptr noundef %0, i32 noundef %4875, i32 noundef 4, i32 noundef %4) #10
-  %4877 = load i32, ptr %2, align 4
-  %4878 = add i32 %4877, 4
-  store i32 %4878, ptr %2, align 4
-  %4879 = load i32, ptr @hf_x11_glx_render_VertexAttribs4svNV_v, align 4
-  %4880 = load i32, ptr @hf_x11_glx_render_VertexAttribs4svNV_v_item, align 4
-  %4881 = shl i32 %4873, 1
-  %4882 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4879, ptr noundef %0, i32 noundef %4878, i32 noundef %4881, i32 noundef %4) #10
-  %4883 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %4884 = tail call ptr @proto_item_add_subtree(ptr noundef %4882, i32 noundef %4883) #10
-  %.not13.i.i2681 = icmp eq i32 %4873, 0
+4894:                                             ; preds = %34
+  %4895 = load i32, ptr @hf_x11_glx_render_VertexAttribs4svNV_index, align 4
+  %4896 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4895, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4897 = load i32, ptr %2, align 4
+  %4898 = add i32 %4897, 4
+  store i32 %4898, ptr %2, align 4
+  %4899 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4898, i32 noundef %4) #10
+  %4900 = load i32, ptr @hf_x11_glx_render_VertexAttribs4svNV_n, align 4
+  %4901 = load i32, ptr %2, align 4
+  %4902 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4900, ptr noundef %0, i32 noundef %4901, i32 noundef 4, i32 noundef %4) #10
+  %4903 = load i32, ptr %2, align 4
+  %4904 = add i32 %4903, 4
+  store i32 %4904, ptr %2, align 4
+  %4905 = load i32, ptr @hf_x11_glx_render_VertexAttribs4svNV_v, align 4
+  %4906 = load i32, ptr @hf_x11_glx_render_VertexAttribs4svNV_v_item, align 4
+  %4907 = shl i32 %4899, 1
+  %4908 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4905, ptr noundef %0, i32 noundef %4904, i32 noundef %4907, i32 noundef %4) #10
+  %4909 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %4910 = tail call ptr @proto_item_add_subtree(ptr noundef %4908, i32 noundef %4909) #10
+  %.not13.i.i2681 = icmp eq i32 %4899, 0
   br i1 %.not13.i.i2681, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2682
 
-.lr.ph.preheader.i.i2682:                         ; preds = %4868
+.lr.ph.preheader.i.i2682:                         ; preds = %4894
   %.pre.i.i2683 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2684
 
 .lr.ph.i.i2684:                                   ; preds = %.lr.ph.i.i2684, %.lr.ph.preheader.i.i2682
-  %4885 = phi i32 [ %4889, %.lr.ph.i.i2684 ], [ %.pre.i.i2683, %.lr.ph.preheader.i.i2682 ]
-  %.014.i.i2685 = phi i32 [ %4886, %.lr.ph.i.i2684 ], [ %4873, %.lr.ph.preheader.i.i2682 ]
-  %4886 = add i32 %.014.i.i2685, -1
-  %4887 = tail call ptr @proto_tree_add_item(ptr noundef %4884, i32 noundef %4880, ptr noundef %0, i32 noundef %4885, i32 noundef 2, i32 noundef %4) #10
-  %4888 = load i32, ptr %2, align 4
-  %4889 = add i32 %4888, 2
-  store i32 %4889, ptr %2, align 4
-  %.not.i.i2686 = icmp eq i32 %4886, 0
+  %4911 = phi i32 [ %4915, %.lr.ph.i.i2684 ], [ %.pre.i.i2683, %.lr.ph.preheader.i.i2682 ]
+  %.014.i.i2685 = phi i32 [ %4912, %.lr.ph.i.i2684 ], [ %4899, %.lr.ph.preheader.i.i2682 ]
+  %4912 = add i32 %.014.i.i2685, -1
+  %4913 = tail call ptr @proto_tree_add_item(ptr noundef %4910, i32 noundef %4906, ptr noundef %0, i32 noundef %4911, i32 noundef 2, i32 noundef %4) #10
+  %4914 = load i32, ptr %2, align 4
+  %4915 = add i32 %4914, 2
+  store i32 %4915, ptr %2, align 4
+  %.not.i.i2686 = icmp eq i32 %4912, 0
   br i1 %.not.i.i2686, label %mesa_CallLists.exit, label %.lr.ph.i.i2684, !llvm.loop !59
 
-4890:                                             ; preds = %34
-  %4891 = load i32, ptr @hf_x11_glx_render_VertexAttribs1fvNV_index, align 4
-  %4892 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4891, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4893 = load i32, ptr %2, align 4
-  %4894 = add i32 %4893, 4
-  store i32 %4894, ptr %2, align 4
-  %4895 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4894, i32 noundef %4) #10
-  %4896 = load i32, ptr @hf_x11_glx_render_VertexAttribs1fvNV_n, align 4
-  %4897 = load i32, ptr %2, align 4
-  %4898 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4896, ptr noundef %0, i32 noundef %4897, i32 noundef 4, i32 noundef %4) #10
-  %4899 = load i32, ptr %2, align 4
-  %4900 = add i32 %4899, 4
-  store i32 %4900, ptr %2, align 4
-  %4901 = load i32, ptr @hf_x11_glx_render_VertexAttribs1fvNV_v, align 4
-  %4902 = load i32, ptr @hf_x11_glx_render_VertexAttribs1fvNV_v_item, align 4
-  %4903 = shl i32 %4895, 2
-  %4904 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4901, ptr noundef %0, i32 noundef %4900, i32 noundef %4903, i32 noundef %4) #10
-  %4905 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4906 = tail call ptr @proto_item_add_subtree(ptr noundef %4904, i32 noundef %4905) #10
-  %.not13.i.i2688 = icmp eq i32 %4895, 0
+4916:                                             ; preds = %34
+  %4917 = load i32, ptr @hf_x11_glx_render_VertexAttribs1fvNV_index, align 4
+  %4918 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4917, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4919 = load i32, ptr %2, align 4
+  %4920 = add i32 %4919, 4
+  store i32 %4920, ptr %2, align 4
+  %4921 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4920, i32 noundef %4) #10
+  %4922 = load i32, ptr @hf_x11_glx_render_VertexAttribs1fvNV_n, align 4
+  %4923 = load i32, ptr %2, align 4
+  %4924 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4922, ptr noundef %0, i32 noundef %4923, i32 noundef 4, i32 noundef %4) #10
+  %4925 = load i32, ptr %2, align 4
+  %4926 = add i32 %4925, 4
+  store i32 %4926, ptr %2, align 4
+  %4927 = load i32, ptr @hf_x11_glx_render_VertexAttribs1fvNV_v, align 4
+  %4928 = load i32, ptr @hf_x11_glx_render_VertexAttribs1fvNV_v_item, align 4
+  %4929 = shl i32 %4921, 2
+  %4930 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4927, ptr noundef %0, i32 noundef %4926, i32 noundef %4929, i32 noundef %4) #10
+  %4931 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4932 = tail call ptr @proto_item_add_subtree(ptr noundef %4930, i32 noundef %4931) #10
+  %.not13.i.i2688 = icmp eq i32 %4921, 0
   br i1 %.not13.i.i2688, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2689
 
-.lr.ph.preheader.i.i2689:                         ; preds = %4890
+.lr.ph.preheader.i.i2689:                         ; preds = %4916
   %.pre.i.i2690 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2691
 
 .lr.ph.i.i2691:                                   ; preds = %.lr.ph.i.i2691, %.lr.ph.preheader.i.i2689
-  %4907 = phi i32 [ %4911, %.lr.ph.i.i2691 ], [ %.pre.i.i2690, %.lr.ph.preheader.i.i2689 ]
-  %.014.i.i2692 = phi i32 [ %4908, %.lr.ph.i.i2691 ], [ %4895, %.lr.ph.preheader.i.i2689 ]
-  %4908 = add i32 %.014.i.i2692, -1
-  %4909 = tail call ptr @proto_tree_add_item(ptr noundef %4906, i32 noundef %4902, ptr noundef %0, i32 noundef %4907, i32 noundef 4, i32 noundef %4) #10
-  %4910 = load i32, ptr %2, align 4
-  %4911 = add i32 %4910, 4
-  store i32 %4911, ptr %2, align 4
-  %.not.i.i2693 = icmp eq i32 %4908, 0
+  %4933 = phi i32 [ %4937, %.lr.ph.i.i2691 ], [ %.pre.i.i2690, %.lr.ph.preheader.i.i2689 ]
+  %.014.i.i2692 = phi i32 [ %4934, %.lr.ph.i.i2691 ], [ %4921, %.lr.ph.preheader.i.i2689 ]
+  %4934 = add i32 %.014.i.i2692, -1
+  %4935 = tail call ptr @proto_tree_add_item(ptr noundef %4932, i32 noundef %4928, ptr noundef %0, i32 noundef %4933, i32 noundef 4, i32 noundef %4) #10
+  %4936 = load i32, ptr %2, align 4
+  %4937 = add i32 %4936, 4
+  store i32 %4937, ptr %2, align 4
+  %.not.i.i2693 = icmp eq i32 %4934, 0
   br i1 %.not.i.i2693, label %mesa_CallLists.exit, label %.lr.ph.i.i2691, !llvm.loop !61
 
-4912:                                             ; preds = %34
-  %4913 = load i32, ptr @hf_x11_glx_render_VertexAttribs2fvNV_index, align 4
-  %4914 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4913, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4915 = load i32, ptr %2, align 4
-  %4916 = add i32 %4915, 4
-  store i32 %4916, ptr %2, align 4
-  %4917 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4916, i32 noundef %4) #10
-  %4918 = load i32, ptr @hf_x11_glx_render_VertexAttribs2fvNV_n, align 4
-  %4919 = load i32, ptr %2, align 4
-  %4920 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4918, ptr noundef %0, i32 noundef %4919, i32 noundef 4, i32 noundef %4) #10
-  %4921 = load i32, ptr %2, align 4
-  %4922 = add i32 %4921, 4
-  store i32 %4922, ptr %2, align 4
-  %4923 = load i32, ptr @hf_x11_glx_render_VertexAttribs2fvNV_v, align 4
-  %4924 = load i32, ptr @hf_x11_glx_render_VertexAttribs2fvNV_v_item, align 4
-  %4925 = shl i32 %4917, 2
-  %4926 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4923, ptr noundef %0, i32 noundef %4922, i32 noundef %4925, i32 noundef %4) #10
-  %4927 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4928 = tail call ptr @proto_item_add_subtree(ptr noundef %4926, i32 noundef %4927) #10
-  %.not13.i.i2695 = icmp eq i32 %4917, 0
+4938:                                             ; preds = %34
+  %4939 = load i32, ptr @hf_x11_glx_render_VertexAttribs2fvNV_index, align 4
+  %4940 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4939, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4941 = load i32, ptr %2, align 4
+  %4942 = add i32 %4941, 4
+  store i32 %4942, ptr %2, align 4
+  %4943 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4942, i32 noundef %4) #10
+  %4944 = load i32, ptr @hf_x11_glx_render_VertexAttribs2fvNV_n, align 4
+  %4945 = load i32, ptr %2, align 4
+  %4946 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4944, ptr noundef %0, i32 noundef %4945, i32 noundef 4, i32 noundef %4) #10
+  %4947 = load i32, ptr %2, align 4
+  %4948 = add i32 %4947, 4
+  store i32 %4948, ptr %2, align 4
+  %4949 = load i32, ptr @hf_x11_glx_render_VertexAttribs2fvNV_v, align 4
+  %4950 = load i32, ptr @hf_x11_glx_render_VertexAttribs2fvNV_v_item, align 4
+  %4951 = shl i32 %4943, 2
+  %4952 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4949, ptr noundef %0, i32 noundef %4948, i32 noundef %4951, i32 noundef %4) #10
+  %4953 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4954 = tail call ptr @proto_item_add_subtree(ptr noundef %4952, i32 noundef %4953) #10
+  %.not13.i.i2695 = icmp eq i32 %4943, 0
   br i1 %.not13.i.i2695, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2696
 
-.lr.ph.preheader.i.i2696:                         ; preds = %4912
+.lr.ph.preheader.i.i2696:                         ; preds = %4938
   %.pre.i.i2697 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2698
 
 .lr.ph.i.i2698:                                   ; preds = %.lr.ph.i.i2698, %.lr.ph.preheader.i.i2696
-  %4929 = phi i32 [ %4933, %.lr.ph.i.i2698 ], [ %.pre.i.i2697, %.lr.ph.preheader.i.i2696 ]
-  %.014.i.i2699 = phi i32 [ %4930, %.lr.ph.i.i2698 ], [ %4917, %.lr.ph.preheader.i.i2696 ]
-  %4930 = add i32 %.014.i.i2699, -1
-  %4931 = tail call ptr @proto_tree_add_item(ptr noundef %4928, i32 noundef %4924, ptr noundef %0, i32 noundef %4929, i32 noundef 4, i32 noundef %4) #10
-  %4932 = load i32, ptr %2, align 4
-  %4933 = add i32 %4932, 4
-  store i32 %4933, ptr %2, align 4
-  %.not.i.i2700 = icmp eq i32 %4930, 0
+  %4955 = phi i32 [ %4959, %.lr.ph.i.i2698 ], [ %.pre.i.i2697, %.lr.ph.preheader.i.i2696 ]
+  %.014.i.i2699 = phi i32 [ %4956, %.lr.ph.i.i2698 ], [ %4943, %.lr.ph.preheader.i.i2696 ]
+  %4956 = add i32 %.014.i.i2699, -1
+  %4957 = tail call ptr @proto_tree_add_item(ptr noundef %4954, i32 noundef %4950, ptr noundef %0, i32 noundef %4955, i32 noundef 4, i32 noundef %4) #10
+  %4958 = load i32, ptr %2, align 4
+  %4959 = add i32 %4958, 4
+  store i32 %4959, ptr %2, align 4
+  %.not.i.i2700 = icmp eq i32 %4956, 0
   br i1 %.not.i.i2700, label %mesa_CallLists.exit, label %.lr.ph.i.i2698, !llvm.loop !61
 
-4934:                                             ; preds = %34
-  %4935 = load i32, ptr @hf_x11_glx_render_VertexAttribs3fvNV_index, align 4
-  %4936 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4935, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4937 = load i32, ptr %2, align 4
-  %4938 = add i32 %4937, 4
-  store i32 %4938, ptr %2, align 4
-  %4939 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4938, i32 noundef %4) #10
-  %4940 = load i32, ptr @hf_x11_glx_render_VertexAttribs3fvNV_n, align 4
-  %4941 = load i32, ptr %2, align 4
-  %4942 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4940, ptr noundef %0, i32 noundef %4941, i32 noundef 4, i32 noundef %4) #10
-  %4943 = load i32, ptr %2, align 4
-  %4944 = add i32 %4943, 4
-  store i32 %4944, ptr %2, align 4
-  %4945 = load i32, ptr @hf_x11_glx_render_VertexAttribs3fvNV_v, align 4
-  %4946 = load i32, ptr @hf_x11_glx_render_VertexAttribs3fvNV_v_item, align 4
-  %4947 = shl i32 %4939, 2
-  %4948 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4945, ptr noundef %0, i32 noundef %4944, i32 noundef %4947, i32 noundef %4) #10
-  %4949 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4950 = tail call ptr @proto_item_add_subtree(ptr noundef %4948, i32 noundef %4949) #10
-  %.not13.i.i2702 = icmp eq i32 %4939, 0
+4960:                                             ; preds = %34
+  %4961 = load i32, ptr @hf_x11_glx_render_VertexAttribs3fvNV_index, align 4
+  %4962 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4961, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4963 = load i32, ptr %2, align 4
+  %4964 = add i32 %4963, 4
+  store i32 %4964, ptr %2, align 4
+  %4965 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4964, i32 noundef %4) #10
+  %4966 = load i32, ptr @hf_x11_glx_render_VertexAttribs3fvNV_n, align 4
+  %4967 = load i32, ptr %2, align 4
+  %4968 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4966, ptr noundef %0, i32 noundef %4967, i32 noundef 4, i32 noundef %4) #10
+  %4969 = load i32, ptr %2, align 4
+  %4970 = add i32 %4969, 4
+  store i32 %4970, ptr %2, align 4
+  %4971 = load i32, ptr @hf_x11_glx_render_VertexAttribs3fvNV_v, align 4
+  %4972 = load i32, ptr @hf_x11_glx_render_VertexAttribs3fvNV_v_item, align 4
+  %4973 = shl i32 %4965, 2
+  %4974 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4971, ptr noundef %0, i32 noundef %4970, i32 noundef %4973, i32 noundef %4) #10
+  %4975 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4976 = tail call ptr @proto_item_add_subtree(ptr noundef %4974, i32 noundef %4975) #10
+  %.not13.i.i2702 = icmp eq i32 %4965, 0
   br i1 %.not13.i.i2702, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2703
 
-.lr.ph.preheader.i.i2703:                         ; preds = %4934
+.lr.ph.preheader.i.i2703:                         ; preds = %4960
   %.pre.i.i2704 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2705
 
 .lr.ph.i.i2705:                                   ; preds = %.lr.ph.i.i2705, %.lr.ph.preheader.i.i2703
-  %4951 = phi i32 [ %4955, %.lr.ph.i.i2705 ], [ %.pre.i.i2704, %.lr.ph.preheader.i.i2703 ]
-  %.014.i.i2706 = phi i32 [ %4952, %.lr.ph.i.i2705 ], [ %4939, %.lr.ph.preheader.i.i2703 ]
-  %4952 = add i32 %.014.i.i2706, -1
-  %4953 = tail call ptr @proto_tree_add_item(ptr noundef %4950, i32 noundef %4946, ptr noundef %0, i32 noundef %4951, i32 noundef 4, i32 noundef %4) #10
-  %4954 = load i32, ptr %2, align 4
-  %4955 = add i32 %4954, 4
-  store i32 %4955, ptr %2, align 4
-  %.not.i.i2707 = icmp eq i32 %4952, 0
+  %4977 = phi i32 [ %4981, %.lr.ph.i.i2705 ], [ %.pre.i.i2704, %.lr.ph.preheader.i.i2703 ]
+  %.014.i.i2706 = phi i32 [ %4978, %.lr.ph.i.i2705 ], [ %4965, %.lr.ph.preheader.i.i2703 ]
+  %4978 = add i32 %.014.i.i2706, -1
+  %4979 = tail call ptr @proto_tree_add_item(ptr noundef %4976, i32 noundef %4972, ptr noundef %0, i32 noundef %4977, i32 noundef 4, i32 noundef %4) #10
+  %4980 = load i32, ptr %2, align 4
+  %4981 = add i32 %4980, 4
+  store i32 %4981, ptr %2, align 4
+  %.not.i.i2707 = icmp eq i32 %4978, 0
   br i1 %.not.i.i2707, label %mesa_CallLists.exit, label %.lr.ph.i.i2705, !llvm.loop !61
 
-4956:                                             ; preds = %34
-  %4957 = load i32, ptr @hf_x11_glx_render_VertexAttribs4fvNV_index, align 4
-  %4958 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4957, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4959 = load i32, ptr %2, align 4
-  %4960 = add i32 %4959, 4
-  store i32 %4960, ptr %2, align 4
-  %4961 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4960, i32 noundef %4) #10
-  %4962 = load i32, ptr @hf_x11_glx_render_VertexAttribs4fvNV_n, align 4
-  %4963 = load i32, ptr %2, align 4
-  %4964 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4962, ptr noundef %0, i32 noundef %4963, i32 noundef 4, i32 noundef %4) #10
-  %4965 = load i32, ptr %2, align 4
-  %4966 = add i32 %4965, 4
-  store i32 %4966, ptr %2, align 4
-  %4967 = load i32, ptr @hf_x11_glx_render_VertexAttribs4fvNV_v, align 4
-  %4968 = load i32, ptr @hf_x11_glx_render_VertexAttribs4fvNV_v_item, align 4
-  %4969 = shl i32 %4961, 2
-  %4970 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4967, ptr noundef %0, i32 noundef %4966, i32 noundef %4969, i32 noundef %4) #10
-  %4971 = load i32, ptr @ett_x11_list_of_float, align 4
-  %4972 = tail call ptr @proto_item_add_subtree(ptr noundef %4970, i32 noundef %4971) #10
-  %.not13.i.i2709 = icmp eq i32 %4961, 0
+4982:                                             ; preds = %34
+  %4983 = load i32, ptr @hf_x11_glx_render_VertexAttribs4fvNV_index, align 4
+  %4984 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4983, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %4985 = load i32, ptr %2, align 4
+  %4986 = add i32 %4985, 4
+  store i32 %4986, ptr %2, align 4
+  %4987 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4986, i32 noundef %4) #10
+  %4988 = load i32, ptr @hf_x11_glx_render_VertexAttribs4fvNV_n, align 4
+  %4989 = load i32, ptr %2, align 4
+  %4990 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4988, ptr noundef %0, i32 noundef %4989, i32 noundef 4, i32 noundef %4) #10
+  %4991 = load i32, ptr %2, align 4
+  %4992 = add i32 %4991, 4
+  store i32 %4992, ptr %2, align 4
+  %4993 = load i32, ptr @hf_x11_glx_render_VertexAttribs4fvNV_v, align 4
+  %4994 = load i32, ptr @hf_x11_glx_render_VertexAttribs4fvNV_v_item, align 4
+  %4995 = shl i32 %4987, 2
+  %4996 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4993, ptr noundef %0, i32 noundef %4992, i32 noundef %4995, i32 noundef %4) #10
+  %4997 = load i32, ptr @ett_x11_list_of_float, align 4
+  %4998 = tail call ptr @proto_item_add_subtree(ptr noundef %4996, i32 noundef %4997) #10
+  %.not13.i.i2709 = icmp eq i32 %4987, 0
   br i1 %.not13.i.i2709, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2710
 
-.lr.ph.preheader.i.i2710:                         ; preds = %4956
+.lr.ph.preheader.i.i2710:                         ; preds = %4982
   %.pre.i.i2711 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2712
 
 .lr.ph.i.i2712:                                   ; preds = %.lr.ph.i.i2712, %.lr.ph.preheader.i.i2710
-  %4973 = phi i32 [ %4977, %.lr.ph.i.i2712 ], [ %.pre.i.i2711, %.lr.ph.preheader.i.i2710 ]
-  %.014.i.i2713 = phi i32 [ %4974, %.lr.ph.i.i2712 ], [ %4961, %.lr.ph.preheader.i.i2710 ]
-  %4974 = add i32 %.014.i.i2713, -1
-  %4975 = tail call ptr @proto_tree_add_item(ptr noundef %4972, i32 noundef %4968, ptr noundef %0, i32 noundef %4973, i32 noundef 4, i32 noundef %4) #10
-  %4976 = load i32, ptr %2, align 4
-  %4977 = add i32 %4976, 4
-  store i32 %4977, ptr %2, align 4
-  %.not.i.i2714 = icmp eq i32 %4974, 0
+  %4999 = phi i32 [ %5003, %.lr.ph.i.i2712 ], [ %.pre.i.i2711, %.lr.ph.preheader.i.i2710 ]
+  %.014.i.i2713 = phi i32 [ %5000, %.lr.ph.i.i2712 ], [ %4987, %.lr.ph.preheader.i.i2710 ]
+  %5000 = add i32 %.014.i.i2713, -1
+  %5001 = tail call ptr @proto_tree_add_item(ptr noundef %4998, i32 noundef %4994, ptr noundef %0, i32 noundef %4999, i32 noundef 4, i32 noundef %4) #10
+  %5002 = load i32, ptr %2, align 4
+  %5003 = add i32 %5002, 4
+  store i32 %5003, ptr %2, align 4
+  %.not.i.i2714 = icmp eq i32 %5000, 0
   br i1 %.not.i.i2714, label %mesa_CallLists.exit, label %.lr.ph.i.i2712, !llvm.loop !61
 
-4978:                                             ; preds = %34
-  %4979 = load i32, ptr @hf_x11_glx_render_VertexAttribs1dvNV_index, align 4
-  %4980 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4979, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %4981 = load i32, ptr %2, align 4
-  %4982 = add i32 %4981, 4
-  store i32 %4982, ptr %2, align 4
-  %4983 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %4982, i32 noundef %4) #10
-  %4984 = load i32, ptr @hf_x11_glx_render_VertexAttribs1dvNV_n, align 4
-  %4985 = load i32, ptr %2, align 4
-  %4986 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4984, ptr noundef %0, i32 noundef %4985, i32 noundef 4, i32 noundef %4) #10
-  %4987 = load i32, ptr %2, align 4
-  %4988 = add i32 %4987, 4
-  store i32 %4988, ptr %2, align 4
-  %4989 = load i32, ptr @hf_x11_glx_render_VertexAttribs1dvNV_v, align 4
-  %4990 = load i32, ptr @hf_x11_glx_render_VertexAttribs1dvNV_v_item, align 4
-  %4991 = shl i32 %4983, 3
-  %4992 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %4989, ptr noundef %0, i32 noundef %4988, i32 noundef %4991, i32 noundef %4) #10
-  %4993 = load i32, ptr @ett_x11_list_of_double, align 4
-  %4994 = tail call ptr @proto_item_add_subtree(ptr noundef %4992, i32 noundef %4993) #10
-  %.not13.i.i2716 = icmp eq i32 %4983, 0
+5004:                                             ; preds = %34
+  %5005 = load i32, ptr @hf_x11_glx_render_VertexAttribs1dvNV_index, align 4
+  %5006 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5005, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5007 = load i32, ptr %2, align 4
+  %5008 = add i32 %5007, 4
+  store i32 %5008, ptr %2, align 4
+  %5009 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5008, i32 noundef %4) #10
+  %5010 = load i32, ptr @hf_x11_glx_render_VertexAttribs1dvNV_n, align 4
+  %5011 = load i32, ptr %2, align 4
+  %5012 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5010, ptr noundef %0, i32 noundef %5011, i32 noundef 4, i32 noundef %4) #10
+  %5013 = load i32, ptr %2, align 4
+  %5014 = add i32 %5013, 4
+  store i32 %5014, ptr %2, align 4
+  %5015 = load i32, ptr @hf_x11_glx_render_VertexAttribs1dvNV_v, align 4
+  %5016 = load i32, ptr @hf_x11_glx_render_VertexAttribs1dvNV_v_item, align 4
+  %5017 = shl i32 %5009, 3
+  %5018 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5015, ptr noundef %0, i32 noundef %5014, i32 noundef %5017, i32 noundef %4) #10
+  %5019 = load i32, ptr @ett_x11_list_of_double, align 4
+  %5020 = tail call ptr @proto_item_add_subtree(ptr noundef %5018, i32 noundef %5019) #10
+  %.not13.i.i2716 = icmp eq i32 %5009, 0
   br i1 %.not13.i.i2716, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2717
 
-.lr.ph.preheader.i.i2717:                         ; preds = %4978
+.lr.ph.preheader.i.i2717:                         ; preds = %5004
   %.pre.i.i2718 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2719
 
 .lr.ph.i.i2719:                                   ; preds = %.lr.ph.i.i2719, %.lr.ph.preheader.i.i2717
-  %4995 = phi i32 [ %4999, %.lr.ph.i.i2719 ], [ %.pre.i.i2718, %.lr.ph.preheader.i.i2717 ]
-  %.014.i.i2720 = phi i32 [ %4996, %.lr.ph.i.i2719 ], [ %4983, %.lr.ph.preheader.i.i2717 ]
-  %4996 = add i32 %.014.i.i2720, -1
-  %4997 = tail call ptr @proto_tree_add_item(ptr noundef %4994, i32 noundef %4990, ptr noundef %0, i32 noundef %4995, i32 noundef 8, i32 noundef %4) #10
-  %4998 = load i32, ptr %2, align 4
-  %4999 = add i32 %4998, 8
-  store i32 %4999, ptr %2, align 4
-  %.not.i.i2721 = icmp eq i32 %4996, 0
+  %5021 = phi i32 [ %5025, %.lr.ph.i.i2719 ], [ %.pre.i.i2718, %.lr.ph.preheader.i.i2717 ]
+  %.014.i.i2720 = phi i32 [ %5022, %.lr.ph.i.i2719 ], [ %5009, %.lr.ph.preheader.i.i2717 ]
+  %5022 = add i32 %.014.i.i2720, -1
+  %5023 = tail call ptr @proto_tree_add_item(ptr noundef %5020, i32 noundef %5016, ptr noundef %0, i32 noundef %5021, i32 noundef 8, i32 noundef %4) #10
+  %5024 = load i32, ptr %2, align 4
+  %5025 = add i32 %5024, 8
+  store i32 %5025, ptr %2, align 4
+  %.not.i.i2721 = icmp eq i32 %5022, 0
   br i1 %.not.i.i2721, label %mesa_CallLists.exit, label %.lr.ph.i.i2719, !llvm.loop !62
 
-5000:                                             ; preds = %34
-  %5001 = load i32, ptr @hf_x11_glx_render_VertexAttribs2dvNV_index, align 4
-  %5002 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5001, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5003 = load i32, ptr %2, align 4
-  %5004 = add i32 %5003, 4
-  store i32 %5004, ptr %2, align 4
-  %5005 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5004, i32 noundef %4) #10
-  %5006 = load i32, ptr @hf_x11_glx_render_VertexAttribs2dvNV_n, align 4
-  %5007 = load i32, ptr %2, align 4
-  %5008 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5006, ptr noundef %0, i32 noundef %5007, i32 noundef 4, i32 noundef %4) #10
-  %5009 = load i32, ptr %2, align 4
-  %5010 = add i32 %5009, 4
-  store i32 %5010, ptr %2, align 4
-  %5011 = load i32, ptr @hf_x11_glx_render_VertexAttribs2dvNV_v, align 4
-  %5012 = load i32, ptr @hf_x11_glx_render_VertexAttribs2dvNV_v_item, align 4
-  %5013 = shl i32 %5005, 3
-  %5014 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5011, ptr noundef %0, i32 noundef %5010, i32 noundef %5013, i32 noundef %4) #10
-  %5015 = load i32, ptr @ett_x11_list_of_double, align 4
-  %5016 = tail call ptr @proto_item_add_subtree(ptr noundef %5014, i32 noundef %5015) #10
-  %.not13.i.i2723 = icmp eq i32 %5005, 0
+5026:                                             ; preds = %34
+  %5027 = load i32, ptr @hf_x11_glx_render_VertexAttribs2dvNV_index, align 4
+  %5028 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5027, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5029 = load i32, ptr %2, align 4
+  %5030 = add i32 %5029, 4
+  store i32 %5030, ptr %2, align 4
+  %5031 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5030, i32 noundef %4) #10
+  %5032 = load i32, ptr @hf_x11_glx_render_VertexAttribs2dvNV_n, align 4
+  %5033 = load i32, ptr %2, align 4
+  %5034 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5032, ptr noundef %0, i32 noundef %5033, i32 noundef 4, i32 noundef %4) #10
+  %5035 = load i32, ptr %2, align 4
+  %5036 = add i32 %5035, 4
+  store i32 %5036, ptr %2, align 4
+  %5037 = load i32, ptr @hf_x11_glx_render_VertexAttribs2dvNV_v, align 4
+  %5038 = load i32, ptr @hf_x11_glx_render_VertexAttribs2dvNV_v_item, align 4
+  %5039 = shl i32 %5031, 3
+  %5040 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5037, ptr noundef %0, i32 noundef %5036, i32 noundef %5039, i32 noundef %4) #10
+  %5041 = load i32, ptr @ett_x11_list_of_double, align 4
+  %5042 = tail call ptr @proto_item_add_subtree(ptr noundef %5040, i32 noundef %5041) #10
+  %.not13.i.i2723 = icmp eq i32 %5031, 0
   br i1 %.not13.i.i2723, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2724
 
-.lr.ph.preheader.i.i2724:                         ; preds = %5000
+.lr.ph.preheader.i.i2724:                         ; preds = %5026
   %.pre.i.i2725 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2726
 
 .lr.ph.i.i2726:                                   ; preds = %.lr.ph.i.i2726, %.lr.ph.preheader.i.i2724
-  %5017 = phi i32 [ %5021, %.lr.ph.i.i2726 ], [ %.pre.i.i2725, %.lr.ph.preheader.i.i2724 ]
-  %.014.i.i2727 = phi i32 [ %5018, %.lr.ph.i.i2726 ], [ %5005, %.lr.ph.preheader.i.i2724 ]
-  %5018 = add i32 %.014.i.i2727, -1
-  %5019 = tail call ptr @proto_tree_add_item(ptr noundef %5016, i32 noundef %5012, ptr noundef %0, i32 noundef %5017, i32 noundef 8, i32 noundef %4) #10
-  %5020 = load i32, ptr %2, align 4
-  %5021 = add i32 %5020, 8
-  store i32 %5021, ptr %2, align 4
-  %.not.i.i2728 = icmp eq i32 %5018, 0
+  %5043 = phi i32 [ %5047, %.lr.ph.i.i2726 ], [ %.pre.i.i2725, %.lr.ph.preheader.i.i2724 ]
+  %.014.i.i2727 = phi i32 [ %5044, %.lr.ph.i.i2726 ], [ %5031, %.lr.ph.preheader.i.i2724 ]
+  %5044 = add i32 %.014.i.i2727, -1
+  %5045 = tail call ptr @proto_tree_add_item(ptr noundef %5042, i32 noundef %5038, ptr noundef %0, i32 noundef %5043, i32 noundef 8, i32 noundef %4) #10
+  %5046 = load i32, ptr %2, align 4
+  %5047 = add i32 %5046, 8
+  store i32 %5047, ptr %2, align 4
+  %.not.i.i2728 = icmp eq i32 %5044, 0
   br i1 %.not.i.i2728, label %mesa_CallLists.exit, label %.lr.ph.i.i2726, !llvm.loop !62
 
-5022:                                             ; preds = %34
-  %5023 = load i32, ptr @hf_x11_glx_render_VertexAttribs3dvNV_index, align 4
-  %5024 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5023, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5025 = load i32, ptr %2, align 4
-  %5026 = add i32 %5025, 4
-  store i32 %5026, ptr %2, align 4
-  %5027 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5026, i32 noundef %4) #10
-  %5028 = load i32, ptr @hf_x11_glx_render_VertexAttribs3dvNV_n, align 4
-  %5029 = load i32, ptr %2, align 4
-  %5030 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5028, ptr noundef %0, i32 noundef %5029, i32 noundef 4, i32 noundef %4) #10
-  %5031 = load i32, ptr %2, align 4
-  %5032 = add i32 %5031, 4
-  store i32 %5032, ptr %2, align 4
-  %5033 = load i32, ptr @hf_x11_glx_render_VertexAttribs3dvNV_v, align 4
-  %5034 = load i32, ptr @hf_x11_glx_render_VertexAttribs3dvNV_v_item, align 4
-  %5035 = shl i32 %5027, 3
-  %5036 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5033, ptr noundef %0, i32 noundef %5032, i32 noundef %5035, i32 noundef %4) #10
-  %5037 = load i32, ptr @ett_x11_list_of_double, align 4
-  %5038 = tail call ptr @proto_item_add_subtree(ptr noundef %5036, i32 noundef %5037) #10
-  %.not13.i.i2730 = icmp eq i32 %5027, 0
+5048:                                             ; preds = %34
+  %5049 = load i32, ptr @hf_x11_glx_render_VertexAttribs3dvNV_index, align 4
+  %5050 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5049, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5051 = load i32, ptr %2, align 4
+  %5052 = add i32 %5051, 4
+  store i32 %5052, ptr %2, align 4
+  %5053 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5052, i32 noundef %4) #10
+  %5054 = load i32, ptr @hf_x11_glx_render_VertexAttribs3dvNV_n, align 4
+  %5055 = load i32, ptr %2, align 4
+  %5056 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5054, ptr noundef %0, i32 noundef %5055, i32 noundef 4, i32 noundef %4) #10
+  %5057 = load i32, ptr %2, align 4
+  %5058 = add i32 %5057, 4
+  store i32 %5058, ptr %2, align 4
+  %5059 = load i32, ptr @hf_x11_glx_render_VertexAttribs3dvNV_v, align 4
+  %5060 = load i32, ptr @hf_x11_glx_render_VertexAttribs3dvNV_v_item, align 4
+  %5061 = shl i32 %5053, 3
+  %5062 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5059, ptr noundef %0, i32 noundef %5058, i32 noundef %5061, i32 noundef %4) #10
+  %5063 = load i32, ptr @ett_x11_list_of_double, align 4
+  %5064 = tail call ptr @proto_item_add_subtree(ptr noundef %5062, i32 noundef %5063) #10
+  %.not13.i.i2730 = icmp eq i32 %5053, 0
   br i1 %.not13.i.i2730, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2731
 
-.lr.ph.preheader.i.i2731:                         ; preds = %5022
+.lr.ph.preheader.i.i2731:                         ; preds = %5048
   %.pre.i.i2732 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2733
 
 .lr.ph.i.i2733:                                   ; preds = %.lr.ph.i.i2733, %.lr.ph.preheader.i.i2731
-  %5039 = phi i32 [ %5043, %.lr.ph.i.i2733 ], [ %.pre.i.i2732, %.lr.ph.preheader.i.i2731 ]
-  %.014.i.i2734 = phi i32 [ %5040, %.lr.ph.i.i2733 ], [ %5027, %.lr.ph.preheader.i.i2731 ]
-  %5040 = add i32 %.014.i.i2734, -1
-  %5041 = tail call ptr @proto_tree_add_item(ptr noundef %5038, i32 noundef %5034, ptr noundef %0, i32 noundef %5039, i32 noundef 8, i32 noundef %4) #10
-  %5042 = load i32, ptr %2, align 4
-  %5043 = add i32 %5042, 8
-  store i32 %5043, ptr %2, align 4
-  %.not.i.i2735 = icmp eq i32 %5040, 0
+  %5065 = phi i32 [ %5069, %.lr.ph.i.i2733 ], [ %.pre.i.i2732, %.lr.ph.preheader.i.i2731 ]
+  %.014.i.i2734 = phi i32 [ %5066, %.lr.ph.i.i2733 ], [ %5053, %.lr.ph.preheader.i.i2731 ]
+  %5066 = add i32 %.014.i.i2734, -1
+  %5067 = tail call ptr @proto_tree_add_item(ptr noundef %5064, i32 noundef %5060, ptr noundef %0, i32 noundef %5065, i32 noundef 8, i32 noundef %4) #10
+  %5068 = load i32, ptr %2, align 4
+  %5069 = add i32 %5068, 8
+  store i32 %5069, ptr %2, align 4
+  %.not.i.i2735 = icmp eq i32 %5066, 0
   br i1 %.not.i.i2735, label %mesa_CallLists.exit, label %.lr.ph.i.i2733, !llvm.loop !62
 
-5044:                                             ; preds = %34
-  %5045 = load i32, ptr @hf_x11_glx_render_VertexAttribs4dvNV_index, align 4
-  %5046 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5045, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5047 = load i32, ptr %2, align 4
-  %5048 = add i32 %5047, 4
-  store i32 %5048, ptr %2, align 4
-  %5049 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5048, i32 noundef %4) #10
-  %5050 = load i32, ptr @hf_x11_glx_render_VertexAttribs4dvNV_n, align 4
-  %5051 = load i32, ptr %2, align 4
-  %5052 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5050, ptr noundef %0, i32 noundef %5051, i32 noundef 4, i32 noundef %4) #10
-  %5053 = load i32, ptr %2, align 4
-  %5054 = add i32 %5053, 4
-  store i32 %5054, ptr %2, align 4
-  %5055 = load i32, ptr @hf_x11_glx_render_VertexAttribs4dvNV_v, align 4
-  %5056 = load i32, ptr @hf_x11_glx_render_VertexAttribs4dvNV_v_item, align 4
-  %5057 = shl i32 %5049, 3
-  %5058 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5055, ptr noundef %0, i32 noundef %5054, i32 noundef %5057, i32 noundef %4) #10
-  %5059 = load i32, ptr @ett_x11_list_of_double, align 4
-  %5060 = tail call ptr @proto_item_add_subtree(ptr noundef %5058, i32 noundef %5059) #10
-  %.not13.i.i2737 = icmp eq i32 %5049, 0
+5070:                                             ; preds = %34
+  %5071 = load i32, ptr @hf_x11_glx_render_VertexAttribs4dvNV_index, align 4
+  %5072 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5071, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5073 = load i32, ptr %2, align 4
+  %5074 = add i32 %5073, 4
+  store i32 %5074, ptr %2, align 4
+  %5075 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5074, i32 noundef %4) #10
+  %5076 = load i32, ptr @hf_x11_glx_render_VertexAttribs4dvNV_n, align 4
+  %5077 = load i32, ptr %2, align 4
+  %5078 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5076, ptr noundef %0, i32 noundef %5077, i32 noundef 4, i32 noundef %4) #10
+  %5079 = load i32, ptr %2, align 4
+  %5080 = add i32 %5079, 4
+  store i32 %5080, ptr %2, align 4
+  %5081 = load i32, ptr @hf_x11_glx_render_VertexAttribs4dvNV_v, align 4
+  %5082 = load i32, ptr @hf_x11_glx_render_VertexAttribs4dvNV_v_item, align 4
+  %5083 = shl i32 %5075, 3
+  %5084 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5081, ptr noundef %0, i32 noundef %5080, i32 noundef %5083, i32 noundef %4) #10
+  %5085 = load i32, ptr @ett_x11_list_of_double, align 4
+  %5086 = tail call ptr @proto_item_add_subtree(ptr noundef %5084, i32 noundef %5085) #10
+  %.not13.i.i2737 = icmp eq i32 %5075, 0
   br i1 %.not13.i.i2737, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2738
 
-.lr.ph.preheader.i.i2738:                         ; preds = %5044
+.lr.ph.preheader.i.i2738:                         ; preds = %5070
   %.pre.i.i2739 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2740
 
 .lr.ph.i.i2740:                                   ; preds = %.lr.ph.i.i2740, %.lr.ph.preheader.i.i2738
-  %5061 = phi i32 [ %5065, %.lr.ph.i.i2740 ], [ %.pre.i.i2739, %.lr.ph.preheader.i.i2738 ]
-  %.014.i.i2741 = phi i32 [ %5062, %.lr.ph.i.i2740 ], [ %5049, %.lr.ph.preheader.i.i2738 ]
-  %5062 = add i32 %.014.i.i2741, -1
-  %5063 = tail call ptr @proto_tree_add_item(ptr noundef %5060, i32 noundef %5056, ptr noundef %0, i32 noundef %5061, i32 noundef 8, i32 noundef %4) #10
-  %5064 = load i32, ptr %2, align 4
-  %5065 = add i32 %5064, 8
-  store i32 %5065, ptr %2, align 4
-  %.not.i.i2742 = icmp eq i32 %5062, 0
+  %5087 = phi i32 [ %5091, %.lr.ph.i.i2740 ], [ %.pre.i.i2739, %.lr.ph.preheader.i.i2738 ]
+  %.014.i.i2741 = phi i32 [ %5088, %.lr.ph.i.i2740 ], [ %5075, %.lr.ph.preheader.i.i2738 ]
+  %5088 = add i32 %.014.i.i2741, -1
+  %5089 = tail call ptr @proto_tree_add_item(ptr noundef %5086, i32 noundef %5082, ptr noundef %0, i32 noundef %5087, i32 noundef 8, i32 noundef %4) #10
+  %5090 = load i32, ptr %2, align 4
+  %5091 = add i32 %5090, 8
+  store i32 %5091, ptr %2, align 4
+  %.not.i.i2742 = icmp eq i32 %5088, 0
   br i1 %.not.i.i2742, label %mesa_CallLists.exit, label %.lr.ph.i.i2740, !llvm.loop !62
 
-5066:                                             ; preds = %34
-  %5067 = load i32, ptr @hf_x11_glx_render_VertexAttribs4ubvNV_index, align 4
-  %5068 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5067, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5069 = load i32, ptr %2, align 4
-  %5070 = add i32 %5069, 4
-  store i32 %5070, ptr %2, align 4
-  %5071 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5070, i32 noundef %4) #10
-  %5072 = load i32, ptr @hf_x11_glx_render_VertexAttribs4ubvNV_n, align 4
-  %5073 = load i32, ptr %2, align 4
-  %5074 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5072, ptr noundef %0, i32 noundef %5073, i32 noundef 4, i32 noundef %4) #10
-  %5075 = load i32, ptr %2, align 4
-  %5076 = add i32 %5075, 4
-  store i32 %5076, ptr %2, align 4
-  %5077 = load i32, ptr @hf_x11_glx_render_VertexAttribs4ubvNV_v, align 4
-  %spec.store.select.i.i2744 = tail call i32 @llvm.smax.i32(i32 %5071, i32 1)
-  %5078 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5077, ptr noundef %0, i32 noundef %5076, i32 noundef %spec.store.select.i.i2744, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-5079:                                             ; preds = %34
-  %5080 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4fvARB_target, align 4
-  %5081 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5080, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5082 = load i32, ptr %2, align 4
-  %5083 = add i32 %5082, 4
-  store i32 %5083, ptr %2, align 4
-  %5084 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4fvARB_index, align 4
-  %5085 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5084, ptr noundef %0, i32 noundef %5083, i32 noundef 4, i32 noundef %4) #10
-  %5086 = load i32, ptr %2, align 4
-  %5087 = add i32 %5086, 4
-  store i32 %5087, ptr %2, align 4
-  %5088 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4fvARB_params, align 4
-  %5089 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4fvARB_params_item, align 4
-  %5090 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5088, ptr noundef %0, i32 noundef %5087, i32 noundef 16, i32 noundef %4) #10
-  %5091 = load i32, ptr @ett_x11_list_of_float, align 4
-  %5092 = tail call ptr @proto_item_add_subtree(ptr noundef %5090, i32 noundef %5091) #10
-  %.pre.i.i2745 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2746
-
-.lr.ph.i.i2746:                                   ; preds = %.lr.ph.i.i2746, %5079
-  %5093 = phi i32 [ %5097, %.lr.ph.i.i2746 ], [ %.pre.i.i2745, %5079 ]
-  %.014.i.i2747 = phi i32 [ %5094, %.lr.ph.i.i2746 ], [ 4, %5079 ]
-  %5094 = add nsw i32 %.014.i.i2747, -1
-  %5095 = tail call ptr @proto_tree_add_item(ptr noundef %5092, i32 noundef %5089, ptr noundef %0, i32 noundef %5093, i32 noundef 4, i32 noundef %4) #10
-  %5096 = load i32, ptr %2, align 4
-  %5097 = add i32 %5096, 4
-  store i32 %5097, ptr %2, align 4
-  %.not.i.i2748 = icmp eq i32 %5094, 0
-  br i1 %.not.i.i2748, label %mesa_CallLists.exit, label %.lr.ph.i.i2746, !llvm.loop !61
-
-5098:                                             ; preds = %34
-  %5099 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4dvARB_target, align 4
-  %5100 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5099, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+5092:                                             ; preds = %34
+  %5093 = load i32, ptr @hf_x11_glx_render_VertexAttribs4ubvNV_index, align 4
+  %5094 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5093, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5095 = load i32, ptr %2, align 4
+  %5096 = add i32 %5095, 4
+  store i32 %5096, ptr %2, align 4
+  %5097 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5096, i32 noundef %4) #10
+  %5098 = load i32, ptr @hf_x11_glx_render_VertexAttribs4ubvNV_n, align 4
+  %5099 = load i32, ptr %2, align 4
+  %5100 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5098, ptr noundef %0, i32 noundef %5099, i32 noundef 4, i32 noundef %4) #10
   %5101 = load i32, ptr %2, align 4
   %5102 = add i32 %5101, 4
   store i32 %5102, ptr %2, align 4
-  %5103 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4dvARB_index, align 4
-  %5104 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5103, ptr noundef %0, i32 noundef %5102, i32 noundef 4, i32 noundef %4) #10
-  %5105 = load i32, ptr %2, align 4
-  %5106 = add i32 %5105, 4
-  store i32 %5106, ptr %2, align 4
-  %5107 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4dvARB_params, align 4
-  %5108 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4dvARB_params_item, align 4
-  %5109 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5107, ptr noundef %0, i32 noundef %5106, i32 noundef 32, i32 noundef %4) #10
-  %5110 = load i32, ptr @ett_x11_list_of_double, align 4
-  %5111 = tail call ptr @proto_item_add_subtree(ptr noundef %5109, i32 noundef %5110) #10
+  %5103 = load i32, ptr @hf_x11_glx_render_VertexAttribs4ubvNV_v, align 4
+  %spec.store.select.i.i2744 = tail call i32 @llvm.smax.i32(i32 %5097, i32 1)
+  %5104 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5103, ptr noundef %0, i32 noundef %5102, i32 noundef %spec.store.select.i.i2744, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+5105:                                             ; preds = %34
+  %5106 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4fvARB_target, align 4
+  %5107 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5106, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5108 = load i32, ptr %2, align 4
+  %5109 = add i32 %5108, 4
+  store i32 %5109, ptr %2, align 4
+  %5110 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4fvARB_index, align 4
+  %5111 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5110, ptr noundef %0, i32 noundef %5109, i32 noundef 4, i32 noundef %4) #10
+  %5112 = load i32, ptr %2, align 4
+  %5113 = add i32 %5112, 4
+  store i32 %5113, ptr %2, align 4
+  %5114 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4fvARB_params, align 4
+  %5115 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4fvARB_params_item, align 4
+  %5116 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5114, ptr noundef %0, i32 noundef %5113, i32 noundef 16, i32 noundef %4) #10
+  %5117 = load i32, ptr @ett_x11_list_of_float, align 4
+  %5118 = tail call ptr @proto_item_add_subtree(ptr noundef %5116, i32 noundef %5117) #10
+  %.pre.i.i2745 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2746
+
+.lr.ph.i.i2746:                                   ; preds = %.lr.ph.i.i2746, %5105
+  %5119 = phi i32 [ %5123, %.lr.ph.i.i2746 ], [ %.pre.i.i2745, %5105 ]
+  %.014.i.i2747 = phi i32 [ %5120, %.lr.ph.i.i2746 ], [ 4, %5105 ]
+  %5120 = add nsw i32 %.014.i.i2747, -1
+  %5121 = tail call ptr @proto_tree_add_item(ptr noundef %5118, i32 noundef %5115, ptr noundef %0, i32 noundef %5119, i32 noundef 4, i32 noundef %4) #10
+  %5122 = load i32, ptr %2, align 4
+  %5123 = add i32 %5122, 4
+  store i32 %5123, ptr %2, align 4
+  %.not.i.i2748 = icmp eq i32 %5120, 0
+  br i1 %.not.i.i2748, label %mesa_CallLists.exit, label %.lr.ph.i.i2746, !llvm.loop !61
+
+5124:                                             ; preds = %34
+  %5125 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4dvARB_target, align 4
+  %5126 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5125, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5127 = load i32, ptr %2, align 4
+  %5128 = add i32 %5127, 4
+  store i32 %5128, ptr %2, align 4
+  %5129 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4dvARB_index, align 4
+  %5130 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5129, ptr noundef %0, i32 noundef %5128, i32 noundef 4, i32 noundef %4) #10
+  %5131 = load i32, ptr %2, align 4
+  %5132 = add i32 %5131, 4
+  store i32 %5132, ptr %2, align 4
+  %5133 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4dvARB_params, align 4
+  %5134 = load i32, ptr @hf_x11_glx_render_ProgramLocalParameter4dvARB_params_item, align 4
+  %5135 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5133, ptr noundef %0, i32 noundef %5132, i32 noundef 32, i32 noundef %4) #10
+  %5136 = load i32, ptr @ett_x11_list_of_double, align 4
+  %5137 = tail call ptr @proto_item_add_subtree(ptr noundef %5135, i32 noundef %5136) #10
   %.pre.i.i2750 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2751
 
-.lr.ph.i.i2751:                                   ; preds = %.lr.ph.i.i2751, %5098
-  %5112 = phi i32 [ %5116, %.lr.ph.i.i2751 ], [ %.pre.i.i2750, %5098 ]
-  %.014.i.i2752 = phi i32 [ %5113, %.lr.ph.i.i2751 ], [ 4, %5098 ]
-  %5113 = add nsw i32 %.014.i.i2752, -1
-  %5114 = tail call ptr @proto_tree_add_item(ptr noundef %5111, i32 noundef %5108, ptr noundef %0, i32 noundef %5112, i32 noundef 8, i32 noundef %4) #10
-  %5115 = load i32, ptr %2, align 4
-  %5116 = add i32 %5115, 8
-  store i32 %5116, ptr %2, align 4
-  %.not.i.i2753 = icmp eq i32 %5113, 0
+.lr.ph.i.i2751:                                   ; preds = %.lr.ph.i.i2751, %5124
+  %5138 = phi i32 [ %5142, %.lr.ph.i.i2751 ], [ %.pre.i.i2750, %5124 ]
+  %.014.i.i2752 = phi i32 [ %5139, %.lr.ph.i.i2751 ], [ 4, %5124 ]
+  %5139 = add nsw i32 %.014.i.i2752, -1
+  %5140 = tail call ptr @proto_tree_add_item(ptr noundef %5137, i32 noundef %5134, ptr noundef %0, i32 noundef %5138, i32 noundef 8, i32 noundef %4) #10
+  %5141 = load i32, ptr %2, align 4
+  %5142 = add i32 %5141, 8
+  store i32 %5142, ptr %2, align 4
+  %.not.i.i2753 = icmp eq i32 %5139, 0
   br i1 %.not.i.i2753, label %mesa_CallLists.exit, label %.lr.ph.i.i2751, !llvm.loop !62
 
-5117:                                             ; preds = %34
-  %5118 = load i32, ptr @hf_x11_glx_render_ProgramStringARB_target, align 4
-  %5119 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5118, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5120 = load i32, ptr %2, align 4
-  %5121 = add i32 %5120, 4
-  store i32 %5121, ptr %2, align 4
-  %5122 = load i32, ptr @hf_x11_glx_render_ProgramStringARB_format, align 4
-  %5123 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5122, ptr noundef %0, i32 noundef %5121, i32 noundef 4, i32 noundef %4) #10
-  %5124 = load i32, ptr %2, align 4
-  %5125 = add i32 %5124, 4
-  store i32 %5125, ptr %2, align 4
-  %5126 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5125, i32 noundef %4) #10
-  %5127 = load i32, ptr @hf_x11_glx_render_ProgramStringARB_len, align 4
-  %5128 = load i32, ptr %2, align 4
-  %5129 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5127, ptr noundef %0, i32 noundef %5128, i32 noundef 4, i32 noundef %4) #10
-  %5130 = load i32, ptr %2, align 4
-  %5131 = add i32 %5130, 4
-  store i32 %5131, ptr %2, align 4
-  %5132 = load i32, ptr @hf_x11_glx_render_ProgramStringARB_string, align 4
-  %spec.store.select.i.i2755 = tail call i32 @llvm.smax.i32(i32 %5126, i32 1)
-  %5133 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5132, ptr noundef %0, i32 noundef %5131, i32 noundef %spec.store.select.i.i2755, i32 noundef %4) #10
+5143:                                             ; preds = %34
+  %5144 = load i32, ptr @hf_x11_glx_render_ProgramStringARB_target, align 4
+  %5145 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5144, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5146 = load i32, ptr %2, align 4
+  %5147 = add i32 %5146, 4
+  store i32 %5147, ptr %2, align 4
+  %5148 = load i32, ptr @hf_x11_glx_render_ProgramStringARB_format, align 4
+  %5149 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5148, ptr noundef %0, i32 noundef %5147, i32 noundef 4, i32 noundef %4) #10
+  %5150 = load i32, ptr %2, align 4
+  %5151 = add i32 %5150, 4
+  store i32 %5151, ptr %2, align 4
+  %5152 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5151, i32 noundef %4) #10
+  %5153 = load i32, ptr @hf_x11_glx_render_ProgramStringARB_len, align 4
+  %5154 = load i32, ptr %2, align 4
+  %5155 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5153, ptr noundef %0, i32 noundef %5154, i32 noundef 4, i32 noundef %4) #10
+  %5156 = load i32, ptr %2, align 4
+  %5157 = add i32 %5156, 4
+  store i32 %5157, ptr %2, align 4
+  %5158 = load i32, ptr @hf_x11_glx_render_ProgramStringARB_string, align 4
+  %spec.store.select.i.i2755 = tail call i32 @llvm.smax.i32(i32 %5152, i32 1)
+  %5159 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5158, ptr noundef %0, i32 noundef %5157, i32 noundef %spec.store.select.i.i2755, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-5134:                                             ; preds = %34
-  %5135 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4fvNV_id, align 4
-  %5136 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5135, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5137 = load i32, ptr %2, align 4
-  %5138 = add i32 %5137, 4
-  store i32 %5138, ptr %2, align 4
-  %5139 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5138, i32 noundef %4) #10
-  %5140 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4fvNV_len, align 4
-  %5141 = load i32, ptr %2, align 4
-  %5142 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5140, ptr noundef %0, i32 noundef %5141, i32 noundef 4, i32 noundef %4) #10
-  %5143 = load i32, ptr %2, align 4
-  %5144 = add i32 %5143, 4
-  store i32 %5144, ptr %2, align 4
-  %5145 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4fvNV_name, align 4
-  %spec.store.select.i.i2756 = tail call i32 @llvm.smax.i32(i32 %5139, i32 1)
-  %5146 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5145, ptr noundef %0, i32 noundef %5144, i32 noundef %spec.store.select.i.i2756, i32 noundef %4) #10
-  %5147 = load i32, ptr %2, align 4
-  %5148 = add i32 %5147, %spec.store.select.i.i2756
-  store i32 %5148, ptr %2, align 4
-  %5149 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4fvNV_v, align 4
-  %5150 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4fvNV_v_item, align 4
-  %5151 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5149, ptr noundef %0, i32 noundef %5148, i32 noundef 16, i32 noundef %4) #10
-  %5152 = load i32, ptr @ett_x11_list_of_float, align 4
-  %5153 = tail call ptr @proto_item_add_subtree(ptr noundef %5151, i32 noundef %5152) #10
+5160:                                             ; preds = %34
+  %5161 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4fvNV_id, align 4
+  %5162 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5161, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5163 = load i32, ptr %2, align 4
+  %5164 = add i32 %5163, 4
+  store i32 %5164, ptr %2, align 4
+  %5165 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5164, i32 noundef %4) #10
+  %5166 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4fvNV_len, align 4
+  %5167 = load i32, ptr %2, align 4
+  %5168 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5166, ptr noundef %0, i32 noundef %5167, i32 noundef 4, i32 noundef %4) #10
+  %5169 = load i32, ptr %2, align 4
+  %5170 = add i32 %5169, 4
+  store i32 %5170, ptr %2, align 4
+  %5171 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4fvNV_name, align 4
+  %spec.store.select.i.i2756 = tail call i32 @llvm.smax.i32(i32 %5165, i32 1)
+  %5172 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5171, ptr noundef %0, i32 noundef %5170, i32 noundef %spec.store.select.i.i2756, i32 noundef %4) #10
+  %5173 = load i32, ptr %2, align 4
+  %5174 = add i32 %5173, %spec.store.select.i.i2756
+  store i32 %5174, ptr %2, align 4
+  %5175 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4fvNV_v, align 4
+  %5176 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4fvNV_v_item, align 4
+  %5177 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5175, ptr noundef %0, i32 noundef %5174, i32 noundef 16, i32 noundef %4) #10
+  %5178 = load i32, ptr @ett_x11_list_of_float, align 4
+  %5179 = tail call ptr @proto_item_add_subtree(ptr noundef %5177, i32 noundef %5178) #10
   %.pre.i.i2757 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2758
 
-.lr.ph.i.i2758:                                   ; preds = %.lr.ph.i.i2758, %5134
-  %5154 = phi i32 [ %5158, %.lr.ph.i.i2758 ], [ %.pre.i.i2757, %5134 ]
-  %.014.i.i2759 = phi i32 [ %5155, %.lr.ph.i.i2758 ], [ 4, %5134 ]
-  %5155 = add nsw i32 %.014.i.i2759, -1
-  %5156 = tail call ptr @proto_tree_add_item(ptr noundef %5153, i32 noundef %5150, ptr noundef %0, i32 noundef %5154, i32 noundef 4, i32 noundef %4) #10
-  %5157 = load i32, ptr %2, align 4
-  %5158 = add i32 %5157, 4
-  store i32 %5158, ptr %2, align 4
-  %.not.i.i2760 = icmp eq i32 %5155, 0
+.lr.ph.i.i2758:                                   ; preds = %.lr.ph.i.i2758, %5160
+  %5180 = phi i32 [ %5184, %.lr.ph.i.i2758 ], [ %.pre.i.i2757, %5160 ]
+  %.014.i.i2759 = phi i32 [ %5181, %.lr.ph.i.i2758 ], [ 4, %5160 ]
+  %5181 = add nsw i32 %.014.i.i2759, -1
+  %5182 = tail call ptr @proto_tree_add_item(ptr noundef %5179, i32 noundef %5176, ptr noundef %0, i32 noundef %5180, i32 noundef 4, i32 noundef %4) #10
+  %5183 = load i32, ptr %2, align 4
+  %5184 = add i32 %5183, 4
+  store i32 %5184, ptr %2, align 4
+  %.not.i.i2760 = icmp eq i32 %5181, 0
   br i1 %.not.i.i2760, label %mesa_CallLists.exit, label %.lr.ph.i.i2758, !llvm.loop !61
 
-5159:                                             ; preds = %34
-  %5160 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4dvNV_id, align 4
-  %5161 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5160, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5162 = load i32, ptr %2, align 4
-  %5163 = add i32 %5162, 4
-  store i32 %5163, ptr %2, align 4
-  %5164 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5163, i32 noundef %4) #10
-  %5165 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4dvNV_len, align 4
-  %5166 = load i32, ptr %2, align 4
-  %5167 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5165, ptr noundef %0, i32 noundef %5166, i32 noundef 4, i32 noundef %4) #10
-  %5168 = load i32, ptr %2, align 4
-  %5169 = add i32 %5168, 4
-  store i32 %5169, ptr %2, align 4
-  %5170 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4dvNV_name, align 4
-  %spec.store.select.i.i2762 = tail call i32 @llvm.smax.i32(i32 %5164, i32 1)
-  %5171 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5170, ptr noundef %0, i32 noundef %5169, i32 noundef %spec.store.select.i.i2762, i32 noundef %4) #10
-  %5172 = load i32, ptr %2, align 4
-  %5173 = add i32 %5172, %spec.store.select.i.i2762
-  store i32 %5173, ptr %2, align 4
-  %5174 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4dvNV_v, align 4
-  %5175 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4dvNV_v_item, align 4
-  %5176 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5174, ptr noundef %0, i32 noundef %5173, i32 noundef 32, i32 noundef %4) #10
-  %5177 = load i32, ptr @ett_x11_list_of_double, align 4
-  %5178 = tail call ptr @proto_item_add_subtree(ptr noundef %5176, i32 noundef %5177) #10
+5185:                                             ; preds = %34
+  %5186 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4dvNV_id, align 4
+  %5187 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5186, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5188 = load i32, ptr %2, align 4
+  %5189 = add i32 %5188, 4
+  store i32 %5189, ptr %2, align 4
+  %5190 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %5189, i32 noundef %4) #10
+  %5191 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4dvNV_len, align 4
+  %5192 = load i32, ptr %2, align 4
+  %5193 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5191, ptr noundef %0, i32 noundef %5192, i32 noundef 4, i32 noundef %4) #10
+  %5194 = load i32, ptr %2, align 4
+  %5195 = add i32 %5194, 4
+  store i32 %5195, ptr %2, align 4
+  %5196 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4dvNV_name, align 4
+  %spec.store.select.i.i2762 = tail call i32 @llvm.smax.i32(i32 %5190, i32 1)
+  %5197 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5196, ptr noundef %0, i32 noundef %5195, i32 noundef %spec.store.select.i.i2762, i32 noundef %4) #10
+  %5198 = load i32, ptr %2, align 4
+  %5199 = add i32 %5198, %spec.store.select.i.i2762
+  store i32 %5199, ptr %2, align 4
+  %5200 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4dvNV_v, align 4
+  %5201 = load i32, ptr @hf_x11_glx_render_ProgramNamedParameter4dvNV_v_item, align 4
+  %5202 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5200, ptr noundef %0, i32 noundef %5199, i32 noundef 32, i32 noundef %4) #10
+  %5203 = load i32, ptr @ett_x11_list_of_double, align 4
+  %5204 = tail call ptr @proto_item_add_subtree(ptr noundef %5202, i32 noundef %5203) #10
   %.pre.i.i2763 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2764
 
-.lr.ph.i.i2764:                                   ; preds = %.lr.ph.i.i2764, %5159
-  %5179 = phi i32 [ %5183, %.lr.ph.i.i2764 ], [ %.pre.i.i2763, %5159 ]
-  %.014.i.i2765 = phi i32 [ %5180, %.lr.ph.i.i2764 ], [ 4, %5159 ]
-  %5180 = add nsw i32 %.014.i.i2765, -1
-  %5181 = tail call ptr @proto_tree_add_item(ptr noundef %5178, i32 noundef %5175, ptr noundef %0, i32 noundef %5179, i32 noundef 8, i32 noundef %4) #10
-  %5182 = load i32, ptr %2, align 4
-  %5183 = add i32 %5182, 8
-  store i32 %5183, ptr %2, align 4
-  %.not.i.i2766 = icmp eq i32 %5180, 0
+.lr.ph.i.i2764:                                   ; preds = %.lr.ph.i.i2764, %5185
+  %5205 = phi i32 [ %5209, %.lr.ph.i.i2764 ], [ %.pre.i.i2763, %5185 ]
+  %.014.i.i2765 = phi i32 [ %5206, %.lr.ph.i.i2764 ], [ 4, %5185 ]
+  %5206 = add nsw i32 %.014.i.i2765, -1
+  %5207 = tail call ptr @proto_tree_add_item(ptr noundef %5204, i32 noundef %5201, ptr noundef %0, i32 noundef %5205, i32 noundef 8, i32 noundef %4) #10
+  %5208 = load i32, ptr %2, align 4
+  %5209 = add i32 %5208, 8
+  store i32 %5209, ptr %2, align 4
+  %.not.i.i2766 = icmp eq i32 %5206, 0
   br i1 %.not.i.i2766, label %mesa_CallLists.exit, label %.lr.ph.i.i2764, !llvm.loop !62
 
-5184:                                             ; preds = %34
-  %5185 = load i32, ptr @hf_x11_glx_render_ActiveStencilFaceEXT_face, align 4
-  %5186 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5185, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+5210:                                             ; preds = %34
+  %5211 = load i32, ptr @hf_x11_glx_render_ActiveStencilFaceEXT_face, align 4
+  %5212 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5211, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-5187:                                             ; preds = %34
-  %5188 = load i32, ptr @hf_x11_glx_render_PointParameteri_pname, align 4
-  %5189 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5188, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5190 = load i32, ptr %2, align 4
-  %5191 = add i32 %5190, 4
-  store i32 %5191, ptr %2, align 4
-  %5192 = load i32, ptr @hf_x11_glx_render_PointParameteri_param, align 4
-  %5193 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5192, ptr noundef %0, i32 noundef %5191, i32 noundef 4, i32 noundef %4) #10
+5213:                                             ; preds = %34
+  %5214 = load i32, ptr @hf_x11_glx_render_PointParameteri_pname, align 4
+  %5215 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5214, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5216 = load i32, ptr %2, align 4
+  %5217 = add i32 %5216, 4
+  store i32 %5217, ptr %2, align 4
+  %5218 = load i32, ptr @hf_x11_glx_render_PointParameteri_param, align 4
+  %5219 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5218, ptr noundef %0, i32 noundef %5217, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-5194:                                             ; preds = %34
-  %5195 = load i32, ptr @hf_x11_glx_render_PointParameteriv_pname, align 4
-  %5196 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5195, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5197 = load i32, ptr %2, align 4
-  %5198 = add i32 %5197, 4
-  store i32 %5198, ptr %2, align 4
-  %5199 = load i32, ptr @hf_x11_glx_render_PointParameteriv_params, align 4
-  %5200 = load i32, ptr @hf_x11_glx_render_PointParameteriv_params_item, align 4
-  %5201 = add nsw i32 %10, -8
-  %5202 = sdiv i32 %5201, 4
-  %5203 = shl nsw i32 %5202, 2
-  %5204 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5199, ptr noundef %0, i32 noundef %5198, i32 noundef %5203, i32 noundef %4) #10
-  %5205 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5206 = tail call ptr @proto_item_add_subtree(ptr noundef %5204, i32 noundef %5205) #10
-  %.off.i2768 = add nsw i32 %10, -5
-  %.not13.i.i2769 = icmp ult i32 %.off.i2768, 7
+5220:                                             ; preds = %34
+  %5221 = load i32, ptr @hf_x11_glx_render_PointParameteriv_pname, align 4
+  %5222 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5221, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5223 = load i32, ptr %2, align 4
+  %5224 = add i32 %5223, 4
+  store i32 %5224, ptr %2, align 4
+  %5225 = load i32, ptr @hf_x11_glx_render_PointParameteriv_params, align 4
+  %5226 = load i32, ptr @hf_x11_glx_render_PointParameteriv_params_item, align 4
+  %5227 = add nsw i32 %10, -8
+  %5228 = sdiv i32 %5227, 4
+  %5229 = shl nsw i32 %5228, 2
+  %5230 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5225, ptr noundef %0, i32 noundef %5224, i32 noundef %5229, i32 noundef %4) #10
+  %5231 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5232 = tail call ptr @proto_item_add_subtree(ptr noundef %5230, i32 noundef %5231) #10
+  %5233 = add i16 %9, -5
+  %.not13.i.i2769 = icmp ult i16 %5233, 7
   br i1 %.not13.i.i2769, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2770
 
-.lr.ph.preheader.i.i2770:                         ; preds = %5194
+.lr.ph.preheader.i.i2770:                         ; preds = %5220
   %.pre.i.i2771 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2772
 
 .lr.ph.i.i2772:                                   ; preds = %.lr.ph.i.i2772, %.lr.ph.preheader.i.i2770
-  %5207 = phi i32 [ %5211, %.lr.ph.i.i2772 ], [ %.pre.i.i2771, %.lr.ph.preheader.i.i2770 ]
-  %.014.i.i2773 = phi i32 [ %5208, %.lr.ph.i.i2772 ], [ %5202, %.lr.ph.preheader.i.i2770 ]
-  %5208 = add i32 %.014.i.i2773, -1
-  %5209 = tail call ptr @proto_tree_add_item(ptr noundef %5206, i32 noundef %5200, ptr noundef %0, i32 noundef %5207, i32 noundef 4, i32 noundef %4) #10
-  %5210 = load i32, ptr %2, align 4
-  %5211 = add i32 %5210, 4
-  store i32 %5211, ptr %2, align 4
-  %.not.i.i2774 = icmp eq i32 %5208, 0
+  %5234 = phi i32 [ %5238, %.lr.ph.i.i2772 ], [ %.pre.i.i2771, %.lr.ph.preheader.i.i2770 ]
+  %.014.i.i2773 = phi i32 [ %5235, %.lr.ph.i.i2772 ], [ %5228, %.lr.ph.preheader.i.i2770 ]
+  %5235 = add i32 %.014.i.i2773, -1
+  %5236 = tail call ptr @proto_tree_add_item(ptr noundef %5232, i32 noundef %5226, ptr noundef %0, i32 noundef %5234, i32 noundef 4, i32 noundef %4) #10
+  %5237 = load i32, ptr %2, align 4
+  %5238 = add i32 %5237, 4
+  store i32 %5238, ptr %2, align 4
+  %.not.i.i2774 = icmp eq i32 %5235, 0
   br i1 %.not.i.i2774, label %mesa_CallLists.exit, label %.lr.ph.i.i2772, !llvm.loop !60
 
-5212:                                             ; preds = %34
-  %5213 = load i32, ptr @hf_x11_glx_render_BlendEquationSeparate_modeRGB, align 4
-  %5214 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5213, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5215 = load i32, ptr %2, align 4
-  %5216 = add i32 %5215, 4
-  store i32 %5216, ptr %2, align 4
-  %5217 = load i32, ptr @hf_x11_glx_render_BlendEquationSeparate_modeA, align 4
-  %5218 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5217, ptr noundef %0, i32 noundef %5216, i32 noundef 4, i32 noundef %4) #10
+5239:                                             ; preds = %34
+  %5240 = load i32, ptr @hf_x11_glx_render_BlendEquationSeparate_modeRGB, align 4
+  %5241 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5240, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5242 = load i32, ptr %2, align 4
+  %5243 = add i32 %5242, 4
+  store i32 %5243, ptr %2, align 4
+  %5244 = load i32, ptr @hf_x11_glx_render_BlendEquationSeparate_modeA, align 4
+  %5245 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5244, ptr noundef %0, i32 noundef %5243, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-5219:                                             ; preds = %34
-  %5220 = load i32, ptr @hf_x11_glx_render_DepthBoundsEXT_zmin, align 4
-  %5221 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5220, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
-  %5222 = load i32, ptr %2, align 4
-  %5223 = add i32 %5222, 8
-  store i32 %5223, ptr %2, align 4
-  %5224 = load i32, ptr @hf_x11_glx_render_DepthBoundsEXT_zmax, align 4
-  %5225 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5224, ptr noundef %0, i32 noundef %5223, i32 noundef 8, i32 noundef %4) #10
+5246:                                             ; preds = %34
+  %5247 = load i32, ptr @hf_x11_glx_render_DepthBoundsEXT_zmin, align 4
+  %5248 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5247, ptr noundef %0, i32 noundef %28, i32 noundef 8, i32 noundef %4) #10
+  %5249 = load i32, ptr %2, align 4
+  %5250 = add i32 %5249, 8
+  store i32 %5250, ptr %2, align 4
+  %5251 = load i32, ptr @hf_x11_glx_render_DepthBoundsEXT_zmax, align 4
+  %5252 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5251, ptr noundef %0, i32 noundef %5250, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-5226:                                             ; preds = %34
-  %5227 = load i32, ptr @hf_x11_glx_render_VertexAttrib4bv_index, align 4
-  %5228 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5227, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5229 = load i32, ptr %2, align 4
-  %5230 = add i32 %5229, 4
-  store i32 %5230, ptr %2, align 4
-  %5231 = load i32, ptr @hf_x11_glx_render_VertexAttrib4bv_v, align 4
-  %5232 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5231, ptr noundef %0, i32 noundef %5230, i32 noundef 4, i32 noundef %4) #10
+5253:                                             ; preds = %34
+  %5254 = load i32, ptr @hf_x11_glx_render_VertexAttrib4bv_index, align 4
+  %5255 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5254, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5256 = load i32, ptr %2, align 4
+  %5257 = add i32 %5256, 4
+  store i32 %5257, ptr %2, align 4
+  %5258 = load i32, ptr @hf_x11_glx_render_VertexAttrib4bv_v, align 4
+  %5259 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5258, ptr noundef %0, i32 noundef %5257, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-5233:                                             ; preds = %34
-  %5234 = load i32, ptr @hf_x11_glx_render_VertexAttrib4iv_index, align 4
-  %5235 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5234, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5236 = load i32, ptr %2, align 4
-  %5237 = add i32 %5236, 4
-  store i32 %5237, ptr %2, align 4
-  %5238 = load i32, ptr @hf_x11_glx_render_VertexAttrib4iv_v, align 4
-  %5239 = load i32, ptr @hf_x11_glx_render_VertexAttrib4iv_v_item, align 4
-  %5240 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5238, ptr noundef %0, i32 noundef %5237, i32 noundef 16, i32 noundef %4) #10
-  %5241 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5242 = tail call ptr @proto_item_add_subtree(ptr noundef %5240, i32 noundef %5241) #10
+5260:                                             ; preds = %34
+  %5261 = load i32, ptr @hf_x11_glx_render_VertexAttrib4iv_index, align 4
+  %5262 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5261, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5263 = load i32, ptr %2, align 4
+  %5264 = add i32 %5263, 4
+  store i32 %5264, ptr %2, align 4
+  %5265 = load i32, ptr @hf_x11_glx_render_VertexAttrib4iv_v, align 4
+  %5266 = load i32, ptr @hf_x11_glx_render_VertexAttrib4iv_v_item, align 4
+  %5267 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5265, ptr noundef %0, i32 noundef %5264, i32 noundef 16, i32 noundef %4) #10
+  %5268 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5269 = tail call ptr @proto_item_add_subtree(ptr noundef %5267, i32 noundef %5268) #10
   %.pre.i.i2776 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2777
 
-.lr.ph.i.i2777:                                   ; preds = %.lr.ph.i.i2777, %5233
-  %5243 = phi i32 [ %5247, %.lr.ph.i.i2777 ], [ %.pre.i.i2776, %5233 ]
-  %.014.i.i2778 = phi i32 [ %5244, %.lr.ph.i.i2777 ], [ 4, %5233 ]
-  %5244 = add nsw i32 %.014.i.i2778, -1
-  %5245 = tail call ptr @proto_tree_add_item(ptr noundef %5242, i32 noundef %5239, ptr noundef %0, i32 noundef %5243, i32 noundef 4, i32 noundef %4) #10
-  %5246 = load i32, ptr %2, align 4
-  %5247 = add i32 %5246, 4
-  store i32 %5247, ptr %2, align 4
-  %.not.i.i2779 = icmp eq i32 %5244, 0
-  br i1 %.not.i.i2779, label %mesa_CallLists.exit, label %.lr.ph.i.i2777, !llvm.loop !60
-
-5248:                                             ; preds = %34
-  %5249 = load i32, ptr @hf_x11_glx_render_VertexAttrib4ubv_index, align 4
-  %5250 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5249, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5251 = load i32, ptr %2, align 4
-  %5252 = add i32 %5251, 4
-  store i32 %5252, ptr %2, align 4
-  %5253 = load i32, ptr @hf_x11_glx_render_VertexAttrib4ubv_v, align 4
-  %5254 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5253, ptr noundef %0, i32 noundef %5252, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-5255:                                             ; preds = %34
-  %5256 = load i32, ptr @hf_x11_glx_render_VertexAttrib4usv_index, align 4
-  %5257 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5256, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5258 = load i32, ptr %2, align 4
-  %5259 = add i32 %5258, 4
-  store i32 %5259, ptr %2, align 4
-  %5260 = load i32, ptr @hf_x11_glx_render_VertexAttrib4usv_v, align 4
-  %5261 = load i32, ptr @hf_x11_glx_render_VertexAttrib4usv_v_item, align 4
-  %5262 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5260, ptr noundef %0, i32 noundef %5259, i32 noundef 8, i32 noundef %4) #10
-  %5263 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5264 = tail call ptr @proto_item_add_subtree(ptr noundef %5262, i32 noundef %5263) #10
-  %.pre.i.i2781 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2782
-
-.lr.ph.i.i2782:                                   ; preds = %.lr.ph.i.i2782, %5255
-  %5265 = phi i32 [ %5269, %.lr.ph.i.i2782 ], [ %.pre.i.i2781, %5255 ]
-  %.014.i.i2783 = phi i32 [ %5266, %.lr.ph.i.i2782 ], [ 4, %5255 ]
-  %5266 = add nsw i32 %.014.i.i2783, -1
-  %5267 = tail call ptr @proto_tree_add_item(ptr noundef %5264, i32 noundef %5261, ptr noundef %0, i32 noundef %5265, i32 noundef 2, i32 noundef %4) #10
-  %5268 = load i32, ptr %2, align 4
-  %5269 = add i32 %5268, 2
-  store i32 %5269, ptr %2, align 4
-  %.not.i.i2784 = icmp eq i32 %5266, 0
-  br i1 %.not.i.i2784, label %mesa_CallLists.exit, label %.lr.ph.i.i2782, !llvm.loop !40
-
-5270:                                             ; preds = %34
-  %5271 = load i32, ptr @hf_x11_glx_render_VertexAttrib4uiv_index, align 4
-  %5272 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5271, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+.lr.ph.i.i2777:                                   ; preds = %.lr.ph.i.i2777, %5260
+  %5270 = phi i32 [ %5274, %.lr.ph.i.i2777 ], [ %.pre.i.i2776, %5260 ]
+  %.014.i.i2778 = phi i32 [ %5271, %.lr.ph.i.i2777 ], [ 4, %5260 ]
+  %5271 = add nsw i32 %.014.i.i2778, -1
+  %5272 = tail call ptr @proto_tree_add_item(ptr noundef %5269, i32 noundef %5266, ptr noundef %0, i32 noundef %5270, i32 noundef 4, i32 noundef %4) #10
   %5273 = load i32, ptr %2, align 4
   %5274 = add i32 %5273, 4
   store i32 %5274, ptr %2, align 4
-  %5275 = load i32, ptr @hf_x11_glx_render_VertexAttrib4uiv_v, align 4
-  %5276 = load i32, ptr @hf_x11_glx_render_VertexAttrib4uiv_v_item, align 4
-  %5277 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5275, ptr noundef %0, i32 noundef %5274, i32 noundef 16, i32 noundef %4) #10
-  %5278 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5279 = tail call ptr @proto_item_add_subtree(ptr noundef %5277, i32 noundef %5278) #10
+  %.not.i.i2779 = icmp eq i32 %5271, 0
+  br i1 %.not.i.i2779, label %mesa_CallLists.exit, label %.lr.ph.i.i2777, !llvm.loop !60
+
+5275:                                             ; preds = %34
+  %5276 = load i32, ptr @hf_x11_glx_render_VertexAttrib4ubv_index, align 4
+  %5277 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5276, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5278 = load i32, ptr %2, align 4
+  %5279 = add i32 %5278, 4
+  store i32 %5279, ptr %2, align 4
+  %5280 = load i32, ptr @hf_x11_glx_render_VertexAttrib4ubv_v, align 4
+  %5281 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5280, ptr noundef %0, i32 noundef %5279, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+5282:                                             ; preds = %34
+  %5283 = load i32, ptr @hf_x11_glx_render_VertexAttrib4usv_index, align 4
+  %5284 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5283, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5285 = load i32, ptr %2, align 4
+  %5286 = add i32 %5285, 4
+  store i32 %5286, ptr %2, align 4
+  %5287 = load i32, ptr @hf_x11_glx_render_VertexAttrib4usv_v, align 4
+  %5288 = load i32, ptr @hf_x11_glx_render_VertexAttrib4usv_v_item, align 4
+  %5289 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5287, ptr noundef %0, i32 noundef %5286, i32 noundef 8, i32 noundef %4) #10
+  %5290 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5291 = tail call ptr @proto_item_add_subtree(ptr noundef %5289, i32 noundef %5290) #10
+  %.pre.i.i2781 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2782
+
+.lr.ph.i.i2782:                                   ; preds = %.lr.ph.i.i2782, %5282
+  %5292 = phi i32 [ %5296, %.lr.ph.i.i2782 ], [ %.pre.i.i2781, %5282 ]
+  %.014.i.i2783 = phi i32 [ %5293, %.lr.ph.i.i2782 ], [ 4, %5282 ]
+  %5293 = add nsw i32 %.014.i.i2783, -1
+  %5294 = tail call ptr @proto_tree_add_item(ptr noundef %5291, i32 noundef %5288, ptr noundef %0, i32 noundef %5292, i32 noundef 2, i32 noundef %4) #10
+  %5295 = load i32, ptr %2, align 4
+  %5296 = add i32 %5295, 2
+  store i32 %5296, ptr %2, align 4
+  %.not.i.i2784 = icmp eq i32 %5293, 0
+  br i1 %.not.i.i2784, label %mesa_CallLists.exit, label %.lr.ph.i.i2782, !llvm.loop !40
+
+5297:                                             ; preds = %34
+  %5298 = load i32, ptr @hf_x11_glx_render_VertexAttrib4uiv_index, align 4
+  %5299 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5298, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5300 = load i32, ptr %2, align 4
+  %5301 = add i32 %5300, 4
+  store i32 %5301, ptr %2, align 4
+  %5302 = load i32, ptr @hf_x11_glx_render_VertexAttrib4uiv_v, align 4
+  %5303 = load i32, ptr @hf_x11_glx_render_VertexAttrib4uiv_v_item, align 4
+  %5304 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5302, ptr noundef %0, i32 noundef %5301, i32 noundef 16, i32 noundef %4) #10
+  %5305 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5306 = tail call ptr @proto_item_add_subtree(ptr noundef %5304, i32 noundef %5305) #10
   %.pre.i.i2786 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2787
 
-.lr.ph.i.i2787:                                   ; preds = %.lr.ph.i.i2787, %5270
-  %5280 = phi i32 [ %5284, %.lr.ph.i.i2787 ], [ %.pre.i.i2786, %5270 ]
-  %.014.i.i2788 = phi i32 [ %5281, %.lr.ph.i.i2787 ], [ 4, %5270 ]
-  %5281 = add nsw i32 %.014.i.i2788, -1
-  %5282 = tail call ptr @proto_tree_add_item(ptr noundef %5279, i32 noundef %5276, ptr noundef %0, i32 noundef %5280, i32 noundef 4, i32 noundef %4) #10
-  %5283 = load i32, ptr %2, align 4
-  %5284 = add i32 %5283, 4
-  store i32 %5284, ptr %2, align 4
-  %.not.i.i2789 = icmp eq i32 %5281, 0
-  br i1 %.not.i.i2789, label %mesa_CallLists.exit, label %.lr.ph.i.i2787, !llvm.loop !41
-
-5285:                                             ; preds = %34
-  %5286 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nbv_index, align 4
-  %5287 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5286, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5288 = load i32, ptr %2, align 4
-  %5289 = add i32 %5288, 4
-  store i32 %5289, ptr %2, align 4
-  %5290 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nbv_v, align 4
-  %5291 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5290, ptr noundef %0, i32 noundef %5289, i32 noundef 4, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-5292:                                             ; preds = %34
-  %5293 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nsv_index, align 4
-  %5294 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5293, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5295 = load i32, ptr %2, align 4
-  %5296 = add i32 %5295, 4
-  store i32 %5296, ptr %2, align 4
-  %5297 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nsv_v, align 4
-  %5298 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nsv_v_item, align 4
-  %5299 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5297, ptr noundef %0, i32 noundef %5296, i32 noundef 8, i32 noundef %4) #10
-  %5300 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5301 = tail call ptr @proto_item_add_subtree(ptr noundef %5299, i32 noundef %5300) #10
-  %.pre.i.i2791 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2792
-
-.lr.ph.i.i2792:                                   ; preds = %.lr.ph.i.i2792, %5292
-  %5302 = phi i32 [ %5306, %.lr.ph.i.i2792 ], [ %.pre.i.i2791, %5292 ]
-  %.014.i.i2793 = phi i32 [ %5303, %.lr.ph.i.i2792 ], [ 4, %5292 ]
-  %5303 = add nsw i32 %.014.i.i2793, -1
-  %5304 = tail call ptr @proto_tree_add_item(ptr noundef %5301, i32 noundef %5298, ptr noundef %0, i32 noundef %5302, i32 noundef 2, i32 noundef %4) #10
-  %5305 = load i32, ptr %2, align 4
-  %5306 = add i32 %5305, 2
-  store i32 %5306, ptr %2, align 4
-  %.not.i.i2794 = icmp eq i32 %5303, 0
-  br i1 %.not.i.i2794, label %mesa_CallLists.exit, label %.lr.ph.i.i2792, !llvm.loop !59
-
-5307:                                             ; preds = %34
-  %5308 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Niv_index, align 4
-  %5309 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5308, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+.lr.ph.i.i2787:                                   ; preds = %.lr.ph.i.i2787, %5297
+  %5307 = phi i32 [ %5311, %.lr.ph.i.i2787 ], [ %.pre.i.i2786, %5297 ]
+  %.014.i.i2788 = phi i32 [ %5308, %.lr.ph.i.i2787 ], [ 4, %5297 ]
+  %5308 = add nsw i32 %.014.i.i2788, -1
+  %5309 = tail call ptr @proto_tree_add_item(ptr noundef %5306, i32 noundef %5303, ptr noundef %0, i32 noundef %5307, i32 noundef 4, i32 noundef %4) #10
   %5310 = load i32, ptr %2, align 4
   %5311 = add i32 %5310, 4
   store i32 %5311, ptr %2, align 4
-  %5312 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Niv_v, align 4
-  %5313 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Niv_v_item, align 4
-  %5314 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5312, ptr noundef %0, i32 noundef %5311, i32 noundef 16, i32 noundef %4) #10
-  %5315 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5316 = tail call ptr @proto_item_add_subtree(ptr noundef %5314, i32 noundef %5315) #10
+  %.not.i.i2789 = icmp eq i32 %5308, 0
+  br i1 %.not.i.i2789, label %mesa_CallLists.exit, label %.lr.ph.i.i2787, !llvm.loop !41
+
+5312:                                             ; preds = %34
+  %5313 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nbv_index, align 4
+  %5314 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5313, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5315 = load i32, ptr %2, align 4
+  %5316 = add i32 %5315, 4
+  store i32 %5316, ptr %2, align 4
+  %5317 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nbv_v, align 4
+  %5318 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5317, ptr noundef %0, i32 noundef %5316, i32 noundef 4, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+5319:                                             ; preds = %34
+  %5320 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nsv_index, align 4
+  %5321 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5320, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5322 = load i32, ptr %2, align 4
+  %5323 = add i32 %5322, 4
+  store i32 %5323, ptr %2, align 4
+  %5324 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nsv_v, align 4
+  %5325 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nsv_v_item, align 4
+  %5326 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5324, ptr noundef %0, i32 noundef %5323, i32 noundef 8, i32 noundef %4) #10
+  %5327 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5328 = tail call ptr @proto_item_add_subtree(ptr noundef %5326, i32 noundef %5327) #10
+  %.pre.i.i2791 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2792
+
+.lr.ph.i.i2792:                                   ; preds = %.lr.ph.i.i2792, %5319
+  %5329 = phi i32 [ %5333, %.lr.ph.i.i2792 ], [ %.pre.i.i2791, %5319 ]
+  %.014.i.i2793 = phi i32 [ %5330, %.lr.ph.i.i2792 ], [ 4, %5319 ]
+  %5330 = add nsw i32 %.014.i.i2793, -1
+  %5331 = tail call ptr @proto_tree_add_item(ptr noundef %5328, i32 noundef %5325, ptr noundef %0, i32 noundef %5329, i32 noundef 2, i32 noundef %4) #10
+  %5332 = load i32, ptr %2, align 4
+  %5333 = add i32 %5332, 2
+  store i32 %5333, ptr %2, align 4
+  %.not.i.i2794 = icmp eq i32 %5330, 0
+  br i1 %.not.i.i2794, label %mesa_CallLists.exit, label %.lr.ph.i.i2792, !llvm.loop !59
+
+5334:                                             ; preds = %34
+  %5335 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Niv_index, align 4
+  %5336 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5335, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5337 = load i32, ptr %2, align 4
+  %5338 = add i32 %5337, 4
+  store i32 %5338, ptr %2, align 4
+  %5339 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Niv_v, align 4
+  %5340 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Niv_v_item, align 4
+  %5341 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5339, ptr noundef %0, i32 noundef %5338, i32 noundef 16, i32 noundef %4) #10
+  %5342 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5343 = tail call ptr @proto_item_add_subtree(ptr noundef %5341, i32 noundef %5342) #10
   %.pre.i.i2796 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2797
 
-.lr.ph.i.i2797:                                   ; preds = %.lr.ph.i.i2797, %5307
-  %5317 = phi i32 [ %5321, %.lr.ph.i.i2797 ], [ %.pre.i.i2796, %5307 ]
-  %.014.i.i2798 = phi i32 [ %5318, %.lr.ph.i.i2797 ], [ 4, %5307 ]
-  %5318 = add nsw i32 %.014.i.i2798, -1
-  %5319 = tail call ptr @proto_tree_add_item(ptr noundef %5316, i32 noundef %5313, ptr noundef %0, i32 noundef %5317, i32 noundef 4, i32 noundef %4) #10
-  %5320 = load i32, ptr %2, align 4
-  %5321 = add i32 %5320, 4
-  store i32 %5321, ptr %2, align 4
-  %.not.i.i2799 = icmp eq i32 %5318, 0
+.lr.ph.i.i2797:                                   ; preds = %.lr.ph.i.i2797, %5334
+  %5344 = phi i32 [ %5348, %.lr.ph.i.i2797 ], [ %.pre.i.i2796, %5334 ]
+  %.014.i.i2798 = phi i32 [ %5345, %.lr.ph.i.i2797 ], [ 4, %5334 ]
+  %5345 = add nsw i32 %.014.i.i2798, -1
+  %5346 = tail call ptr @proto_tree_add_item(ptr noundef %5343, i32 noundef %5340, ptr noundef %0, i32 noundef %5344, i32 noundef 4, i32 noundef %4) #10
+  %5347 = load i32, ptr %2, align 4
+  %5348 = add i32 %5347, 4
+  store i32 %5348, ptr %2, align 4
+  %.not.i.i2799 = icmp eq i32 %5345, 0
   br i1 %.not.i.i2799, label %mesa_CallLists.exit, label %.lr.ph.i.i2797, !llvm.loop !60
 
-5322:                                             ; preds = %34
-  %5323 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nusv_index, align 4
-  %5324 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5323, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5325 = load i32, ptr %2, align 4
-  %5326 = add i32 %5325, 4
-  store i32 %5326, ptr %2, align 4
-  %5327 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nusv_v, align 4
-  %5328 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nusv_v_item, align 4
-  %5329 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5327, ptr noundef %0, i32 noundef %5326, i32 noundef 8, i32 noundef %4) #10
-  %5330 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5331 = tail call ptr @proto_item_add_subtree(ptr noundef %5329, i32 noundef %5330) #10
+5349:                                             ; preds = %34
+  %5350 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nusv_index, align 4
+  %5351 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5350, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5352 = load i32, ptr %2, align 4
+  %5353 = add i32 %5352, 4
+  store i32 %5353, ptr %2, align 4
+  %5354 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nusv_v, align 4
+  %5355 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nusv_v_item, align 4
+  %5356 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5354, ptr noundef %0, i32 noundef %5353, i32 noundef 8, i32 noundef %4) #10
+  %5357 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5358 = tail call ptr @proto_item_add_subtree(ptr noundef %5356, i32 noundef %5357) #10
   %.pre.i.i2801 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2802
 
-.lr.ph.i.i2802:                                   ; preds = %.lr.ph.i.i2802, %5322
-  %5332 = phi i32 [ %5336, %.lr.ph.i.i2802 ], [ %.pre.i.i2801, %5322 ]
-  %.014.i.i2803 = phi i32 [ %5333, %.lr.ph.i.i2802 ], [ 4, %5322 ]
-  %5333 = add nsw i32 %.014.i.i2803, -1
-  %5334 = tail call ptr @proto_tree_add_item(ptr noundef %5331, i32 noundef %5328, ptr noundef %0, i32 noundef %5332, i32 noundef 2, i32 noundef %4) #10
-  %5335 = load i32, ptr %2, align 4
-  %5336 = add i32 %5335, 2
-  store i32 %5336, ptr %2, align 4
-  %.not.i.i2804 = icmp eq i32 %5333, 0
+.lr.ph.i.i2802:                                   ; preds = %.lr.ph.i.i2802, %5349
+  %5359 = phi i32 [ %5363, %.lr.ph.i.i2802 ], [ %.pre.i.i2801, %5349 ]
+  %.014.i.i2803 = phi i32 [ %5360, %.lr.ph.i.i2802 ], [ 4, %5349 ]
+  %5360 = add nsw i32 %.014.i.i2803, -1
+  %5361 = tail call ptr @proto_tree_add_item(ptr noundef %5358, i32 noundef %5355, ptr noundef %0, i32 noundef %5359, i32 noundef 2, i32 noundef %4) #10
+  %5362 = load i32, ptr %2, align 4
+  %5363 = add i32 %5362, 2
+  store i32 %5363, ptr %2, align 4
+  %.not.i.i2804 = icmp eq i32 %5360, 0
   br i1 %.not.i.i2804, label %mesa_CallLists.exit, label %.lr.ph.i.i2802, !llvm.loop !40
 
-5337:                                             ; preds = %34
-  %5338 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nuiv_index, align 4
-  %5339 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5338, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5340 = load i32, ptr %2, align 4
-  %5341 = add i32 %5340, 4
-  store i32 %5341, ptr %2, align 4
-  %5342 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nuiv_v, align 4
-  %5343 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nuiv_v_item, align 4
-  %5344 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5342, ptr noundef %0, i32 noundef %5341, i32 noundef 16, i32 noundef %4) #10
-  %5345 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5346 = tail call ptr @proto_item_add_subtree(ptr noundef %5344, i32 noundef %5345) #10
+5364:                                             ; preds = %34
+  %5365 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nuiv_index, align 4
+  %5366 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5365, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5367 = load i32, ptr %2, align 4
+  %5368 = add i32 %5367, 4
+  store i32 %5368, ptr %2, align 4
+  %5369 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nuiv_v, align 4
+  %5370 = load i32, ptr @hf_x11_glx_render_VertexAttrib4Nuiv_v_item, align 4
+  %5371 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5369, ptr noundef %0, i32 noundef %5368, i32 noundef 16, i32 noundef %4) #10
+  %5372 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5373 = tail call ptr @proto_item_add_subtree(ptr noundef %5371, i32 noundef %5372) #10
   %.pre.i.i2806 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2807
 
-.lr.ph.i.i2807:                                   ; preds = %.lr.ph.i.i2807, %5337
-  %5347 = phi i32 [ %5351, %.lr.ph.i.i2807 ], [ %.pre.i.i2806, %5337 ]
-  %.014.i.i2808 = phi i32 [ %5348, %.lr.ph.i.i2807 ], [ 4, %5337 ]
-  %5348 = add nsw i32 %.014.i.i2808, -1
-  %5349 = tail call ptr @proto_tree_add_item(ptr noundef %5346, i32 noundef %5343, ptr noundef %0, i32 noundef %5347, i32 noundef 4, i32 noundef %4) #10
-  %5350 = load i32, ptr %2, align 4
-  %5351 = add i32 %5350, 4
-  store i32 %5351, ptr %2, align 4
-  %.not.i.i2809 = icmp eq i32 %5348, 0
+.lr.ph.i.i2807:                                   ; preds = %.lr.ph.i.i2807, %5364
+  %5374 = phi i32 [ %5378, %.lr.ph.i.i2807 ], [ %.pre.i.i2806, %5364 ]
+  %.014.i.i2808 = phi i32 [ %5375, %.lr.ph.i.i2807 ], [ 4, %5364 ]
+  %5375 = add nsw i32 %.014.i.i2808, -1
+  %5376 = tail call ptr @proto_tree_add_item(ptr noundef %5373, i32 noundef %5370, ptr noundef %0, i32 noundef %5374, i32 noundef 4, i32 noundef %4) #10
+  %5377 = load i32, ptr %2, align 4
+  %5378 = add i32 %5377, 4
+  store i32 %5378, ptr %2, align 4
+  %.not.i.i2809 = icmp eq i32 %5375, 0
   br i1 %.not.i.i2809, label %mesa_CallLists.exit, label %.lr.ph.i.i2807, !llvm.loop !41
 
-5352:                                             ; preds = %34
-  %5353 = load i32, ptr @hf_x11_glx_render_VertexAttrib1svNV_index, align 4
-  %5354 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5353, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5355 = load i32, ptr %2, align 4
-  %5356 = add i32 %5355, 4
-  store i32 %5356, ptr %2, align 4
-  %5357 = load i32, ptr @hf_x11_glx_render_VertexAttrib1svNV_v, align 4
-  %5358 = load i32, ptr @hf_x11_glx_render_VertexAttrib1svNV_v_item, align 4
-  %5359 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5357, ptr noundef %0, i32 noundef %5356, i32 noundef 2, i32 noundef %4) #10
-  %5360 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5361 = tail call ptr @proto_item_add_subtree(ptr noundef %5359, i32 noundef %5360) #10
+5379:                                             ; preds = %34
+  %5380 = load i32, ptr @hf_x11_glx_render_VertexAttrib1svNV_index, align 4
+  %5381 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5380, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5382 = load i32, ptr %2, align 4
+  %5383 = add i32 %5382, 4
+  store i32 %5383, ptr %2, align 4
+  %5384 = load i32, ptr @hf_x11_glx_render_VertexAttrib1svNV_v, align 4
+  %5385 = load i32, ptr @hf_x11_glx_render_VertexAttrib1svNV_v_item, align 4
+  %5386 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5384, ptr noundef %0, i32 noundef %5383, i32 noundef 2, i32 noundef %4) #10
+  %5387 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5388 = tail call ptr @proto_item_add_subtree(ptr noundef %5386, i32 noundef %5387) #10
   %.pre.i.i2812 = load i32, ptr %2, align 4
-  %5362 = tail call ptr @proto_tree_add_item(ptr noundef %5361, i32 noundef %5358, ptr noundef %0, i32 noundef %.pre.i.i2812, i32 noundef 2, i32 noundef %4) #10
+  %5389 = tail call ptr @proto_tree_add_item(ptr noundef %5388, i32 noundef %5385, ptr noundef %0, i32 noundef %.pre.i.i2812, i32 noundef 2, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-5363:                                             ; preds = %34
-  %5364 = load i32, ptr @hf_x11_glx_render_VertexAttrib2svNV_index, align 4
-  %5365 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5364, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5366 = load i32, ptr %2, align 4
-  %5367 = add i32 %5366, 4
-  store i32 %5367, ptr %2, align 4
-  %5368 = load i32, ptr @hf_x11_glx_render_VertexAttrib2svNV_v, align 4
-  %5369 = load i32, ptr @hf_x11_glx_render_VertexAttrib2svNV_v_item, align 4
-  %5370 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5368, ptr noundef %0, i32 noundef %5367, i32 noundef 4, i32 noundef %4) #10
-  %5371 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5372 = tail call ptr @proto_item_add_subtree(ptr noundef %5370, i32 noundef %5371) #10
+5390:                                             ; preds = %34
+  %5391 = load i32, ptr @hf_x11_glx_render_VertexAttrib2svNV_index, align 4
+  %5392 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5391, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5393 = load i32, ptr %2, align 4
+  %5394 = add i32 %5393, 4
+  store i32 %5394, ptr %2, align 4
+  %5395 = load i32, ptr @hf_x11_glx_render_VertexAttrib2svNV_v, align 4
+  %5396 = load i32, ptr @hf_x11_glx_render_VertexAttrib2svNV_v_item, align 4
+  %5397 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5395, ptr noundef %0, i32 noundef %5394, i32 noundef 4, i32 noundef %4) #10
+  %5398 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5399 = tail call ptr @proto_item_add_subtree(ptr noundef %5397, i32 noundef %5398) #10
   %.pre.i.i2813 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2814
 
-.lr.ph.i.i2814:                                   ; preds = %.lr.ph.i.i2814, %5363
-  %5373 = phi i32 [ %5377, %.lr.ph.i.i2814 ], [ %.pre.i.i2813, %5363 ]
-  %.014.i.i2815 = phi i32 [ %5374, %.lr.ph.i.i2814 ], [ 2, %5363 ]
-  %5374 = add nsw i32 %.014.i.i2815, -1
-  %5375 = tail call ptr @proto_tree_add_item(ptr noundef %5372, i32 noundef %5369, ptr noundef %0, i32 noundef %5373, i32 noundef 2, i32 noundef %4) #10
-  %5376 = load i32, ptr %2, align 4
-  %5377 = add i32 %5376, 2
-  store i32 %5377, ptr %2, align 4
-  %.not.i.i2816 = icmp eq i32 %5374, 0
+.lr.ph.i.i2814:                                   ; preds = %.lr.ph.i.i2814, %5390
+  %5400 = phi i32 [ %5404, %.lr.ph.i.i2814 ], [ %.pre.i.i2813, %5390 ]
+  %.014.i.i2815 = phi i32 [ %5401, %.lr.ph.i.i2814 ], [ 2, %5390 ]
+  %5401 = add nsw i32 %.014.i.i2815, -1
+  %5402 = tail call ptr @proto_tree_add_item(ptr noundef %5399, i32 noundef %5396, ptr noundef %0, i32 noundef %5400, i32 noundef 2, i32 noundef %4) #10
+  %5403 = load i32, ptr %2, align 4
+  %5404 = add i32 %5403, 2
+  store i32 %5404, ptr %2, align 4
+  %.not.i.i2816 = icmp eq i32 %5401, 0
   br i1 %.not.i.i2816, label %mesa_CallLists.exit, label %.lr.ph.i.i2814, !llvm.loop !59
 
-5378:                                             ; preds = %34
-  %5379 = load i32, ptr @hf_x11_glx_render_VertexAttrib3svNV_index, align 4
-  %5380 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5379, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5381 = load i32, ptr %2, align 4
-  %5382 = add i32 %5381, 4
-  store i32 %5382, ptr %2, align 4
-  %5383 = load i32, ptr @hf_x11_glx_render_VertexAttrib3svNV_v, align 4
-  %5384 = load i32, ptr @hf_x11_glx_render_VertexAttrib3svNV_v_item, align 4
-  %5385 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5383, ptr noundef %0, i32 noundef %5382, i32 noundef 6, i32 noundef %4) #10
-  %5386 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5387 = tail call ptr @proto_item_add_subtree(ptr noundef %5385, i32 noundef %5386) #10
+5405:                                             ; preds = %34
+  %5406 = load i32, ptr @hf_x11_glx_render_VertexAttrib3svNV_index, align 4
+  %5407 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5406, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5408 = load i32, ptr %2, align 4
+  %5409 = add i32 %5408, 4
+  store i32 %5409, ptr %2, align 4
+  %5410 = load i32, ptr @hf_x11_glx_render_VertexAttrib3svNV_v, align 4
+  %5411 = load i32, ptr @hf_x11_glx_render_VertexAttrib3svNV_v_item, align 4
+  %5412 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5410, ptr noundef %0, i32 noundef %5409, i32 noundef 6, i32 noundef %4) #10
+  %5413 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5414 = tail call ptr @proto_item_add_subtree(ptr noundef %5412, i32 noundef %5413) #10
   %.pre.i.i2818 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2819
 
-.lr.ph.i.i2819:                                   ; preds = %.lr.ph.i.i2819, %5378
-  %5388 = phi i32 [ %5392, %.lr.ph.i.i2819 ], [ %.pre.i.i2818, %5378 ]
-  %.014.i.i2820 = phi i32 [ %5389, %.lr.ph.i.i2819 ], [ 3, %5378 ]
-  %5389 = add nsw i32 %.014.i.i2820, -1
-  %5390 = tail call ptr @proto_tree_add_item(ptr noundef %5387, i32 noundef %5384, ptr noundef %0, i32 noundef %5388, i32 noundef 2, i32 noundef %4) #10
-  %5391 = load i32, ptr %2, align 4
-  %5392 = add i32 %5391, 2
-  store i32 %5392, ptr %2, align 4
-  %.not.i.i2821 = icmp eq i32 %5389, 0
+.lr.ph.i.i2819:                                   ; preds = %.lr.ph.i.i2819, %5405
+  %5415 = phi i32 [ %5419, %.lr.ph.i.i2819 ], [ %.pre.i.i2818, %5405 ]
+  %.014.i.i2820 = phi i32 [ %5416, %.lr.ph.i.i2819 ], [ 3, %5405 ]
+  %5416 = add nsw i32 %.014.i.i2820, -1
+  %5417 = tail call ptr @proto_tree_add_item(ptr noundef %5414, i32 noundef %5411, ptr noundef %0, i32 noundef %5415, i32 noundef 2, i32 noundef %4) #10
+  %5418 = load i32, ptr %2, align 4
+  %5419 = add i32 %5418, 2
+  store i32 %5419, ptr %2, align 4
+  %.not.i.i2821 = icmp eq i32 %5416, 0
   br i1 %.not.i.i2821, label %mesa_CallLists.exit, label %.lr.ph.i.i2819, !llvm.loop !59
 
-5393:                                             ; preds = %34
-  %5394 = load i32, ptr @hf_x11_glx_render_VertexAttrib4svNV_index, align 4
-  %5395 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5394, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5396 = load i32, ptr %2, align 4
-  %5397 = add i32 %5396, 4
-  store i32 %5397, ptr %2, align 4
-  %5398 = load i32, ptr @hf_x11_glx_render_VertexAttrib4svNV_v, align 4
-  %5399 = load i32, ptr @hf_x11_glx_render_VertexAttrib4svNV_v_item, align 4
-  %5400 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5398, ptr noundef %0, i32 noundef %5397, i32 noundef 8, i32 noundef %4) #10
-  %5401 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5402 = tail call ptr @proto_item_add_subtree(ptr noundef %5400, i32 noundef %5401) #10
+5420:                                             ; preds = %34
+  %5421 = load i32, ptr @hf_x11_glx_render_VertexAttrib4svNV_index, align 4
+  %5422 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5421, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5423 = load i32, ptr %2, align 4
+  %5424 = add i32 %5423, 4
+  store i32 %5424, ptr %2, align 4
+  %5425 = load i32, ptr @hf_x11_glx_render_VertexAttrib4svNV_v, align 4
+  %5426 = load i32, ptr @hf_x11_glx_render_VertexAttrib4svNV_v_item, align 4
+  %5427 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5425, ptr noundef %0, i32 noundef %5424, i32 noundef 8, i32 noundef %4) #10
+  %5428 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5429 = tail call ptr @proto_item_add_subtree(ptr noundef %5427, i32 noundef %5428) #10
   %.pre.i.i2823 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2824
 
-.lr.ph.i.i2824:                                   ; preds = %.lr.ph.i.i2824, %5393
-  %5403 = phi i32 [ %5407, %.lr.ph.i.i2824 ], [ %.pre.i.i2823, %5393 ]
-  %.014.i.i2825 = phi i32 [ %5404, %.lr.ph.i.i2824 ], [ 4, %5393 ]
-  %5404 = add nsw i32 %.014.i.i2825, -1
-  %5405 = tail call ptr @proto_tree_add_item(ptr noundef %5402, i32 noundef %5399, ptr noundef %0, i32 noundef %5403, i32 noundef 2, i32 noundef %4) #10
-  %5406 = load i32, ptr %2, align 4
-  %5407 = add i32 %5406, 2
-  store i32 %5407, ptr %2, align 4
-  %.not.i.i2826 = icmp eq i32 %5404, 0
+.lr.ph.i.i2824:                                   ; preds = %.lr.ph.i.i2824, %5420
+  %5430 = phi i32 [ %5434, %.lr.ph.i.i2824 ], [ %.pre.i.i2823, %5420 ]
+  %.014.i.i2825 = phi i32 [ %5431, %.lr.ph.i.i2824 ], [ 4, %5420 ]
+  %5431 = add nsw i32 %.014.i.i2825, -1
+  %5432 = tail call ptr @proto_tree_add_item(ptr noundef %5429, i32 noundef %5426, ptr noundef %0, i32 noundef %5430, i32 noundef 2, i32 noundef %4) #10
+  %5433 = load i32, ptr %2, align 4
+  %5434 = add i32 %5433, 2
+  store i32 %5434, ptr %2, align 4
+  %.not.i.i2826 = icmp eq i32 %5431, 0
   br i1 %.not.i.i2826, label %mesa_CallLists.exit, label %.lr.ph.i.i2824, !llvm.loop !59
 
-5408:                                             ; preds = %34
-  %5409 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvNV_index, align 4
-  %5410 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5409, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5411 = load i32, ptr %2, align 4
-  %5412 = add i32 %5411, 4
-  store i32 %5412, ptr %2, align 4
-  %5413 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvNV_v, align 4
-  %5414 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvNV_v_item, align 4
-  %5415 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5413, ptr noundef %0, i32 noundef %5412, i32 noundef 4, i32 noundef %4) #10
-  %5416 = load i32, ptr @ett_x11_list_of_float, align 4
-  %5417 = tail call ptr @proto_item_add_subtree(ptr noundef %5415, i32 noundef %5416) #10
+5435:                                             ; preds = %34
+  %5436 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvNV_index, align 4
+  %5437 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5436, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5438 = load i32, ptr %2, align 4
+  %5439 = add i32 %5438, 4
+  store i32 %5439, ptr %2, align 4
+  %5440 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvNV_v, align 4
+  %5441 = load i32, ptr @hf_x11_glx_render_VertexAttrib1fvNV_v_item, align 4
+  %5442 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5440, ptr noundef %0, i32 noundef %5439, i32 noundef 4, i32 noundef %4) #10
+  %5443 = load i32, ptr @ett_x11_list_of_float, align 4
+  %5444 = tail call ptr @proto_item_add_subtree(ptr noundef %5442, i32 noundef %5443) #10
   %.pre.i.i2829 = load i32, ptr %2, align 4
-  %5418 = tail call ptr @proto_tree_add_item(ptr noundef %5417, i32 noundef %5414, ptr noundef %0, i32 noundef %.pre.i.i2829, i32 noundef 4, i32 noundef %4) #10
+  %5445 = tail call ptr @proto_tree_add_item(ptr noundef %5444, i32 noundef %5441, ptr noundef %0, i32 noundef %.pre.i.i2829, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-5419:                                             ; preds = %34
-  %5420 = load i32, ptr @hf_x11_glx_render_VertexAttrib2fvNV_index, align 4
-  %5421 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5420, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5422 = load i32, ptr %2, align 4
-  %5423 = add i32 %5422, 4
-  store i32 %5423, ptr %2, align 4
-  %5424 = load i32, ptr @hf_x11_glx_render_VertexAttrib2fvNV_v, align 4
-  %5425 = load i32, ptr @hf_x11_glx_render_VertexAttrib2fvNV_v_item, align 4
-  %5426 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5424, ptr noundef %0, i32 noundef %5423, i32 noundef 8, i32 noundef %4) #10
-  %5427 = load i32, ptr @ett_x11_list_of_float, align 4
-  %5428 = tail call ptr @proto_item_add_subtree(ptr noundef %5426, i32 noundef %5427) #10
+5446:                                             ; preds = %34
+  %5447 = load i32, ptr @hf_x11_glx_render_VertexAttrib2fvNV_index, align 4
+  %5448 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5447, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5449 = load i32, ptr %2, align 4
+  %5450 = add i32 %5449, 4
+  store i32 %5450, ptr %2, align 4
+  %5451 = load i32, ptr @hf_x11_glx_render_VertexAttrib2fvNV_v, align 4
+  %5452 = load i32, ptr @hf_x11_glx_render_VertexAttrib2fvNV_v_item, align 4
+  %5453 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5451, ptr noundef %0, i32 noundef %5450, i32 noundef 8, i32 noundef %4) #10
+  %5454 = load i32, ptr @ett_x11_list_of_float, align 4
+  %5455 = tail call ptr @proto_item_add_subtree(ptr noundef %5453, i32 noundef %5454) #10
   %.pre.i.i2830 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2831
 
-.lr.ph.i.i2831:                                   ; preds = %.lr.ph.i.i2831, %5419
-  %5429 = phi i32 [ %5433, %.lr.ph.i.i2831 ], [ %.pre.i.i2830, %5419 ]
-  %.014.i.i2832 = phi i32 [ %5430, %.lr.ph.i.i2831 ], [ 2, %5419 ]
-  %5430 = add nsw i32 %.014.i.i2832, -1
-  %5431 = tail call ptr @proto_tree_add_item(ptr noundef %5428, i32 noundef %5425, ptr noundef %0, i32 noundef %5429, i32 noundef 4, i32 noundef %4) #10
-  %5432 = load i32, ptr %2, align 4
-  %5433 = add i32 %5432, 4
-  store i32 %5433, ptr %2, align 4
-  %.not.i.i2833 = icmp eq i32 %5430, 0
+.lr.ph.i.i2831:                                   ; preds = %.lr.ph.i.i2831, %5446
+  %5456 = phi i32 [ %5460, %.lr.ph.i.i2831 ], [ %.pre.i.i2830, %5446 ]
+  %.014.i.i2832 = phi i32 [ %5457, %.lr.ph.i.i2831 ], [ 2, %5446 ]
+  %5457 = add nsw i32 %.014.i.i2832, -1
+  %5458 = tail call ptr @proto_tree_add_item(ptr noundef %5455, i32 noundef %5452, ptr noundef %0, i32 noundef %5456, i32 noundef 4, i32 noundef %4) #10
+  %5459 = load i32, ptr %2, align 4
+  %5460 = add i32 %5459, 4
+  store i32 %5460, ptr %2, align 4
+  %.not.i.i2833 = icmp eq i32 %5457, 0
   br i1 %.not.i.i2833, label %mesa_CallLists.exit, label %.lr.ph.i.i2831, !llvm.loop !61
 
-5434:                                             ; preds = %34
-  %5435 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvNV_index, align 4
-  %5436 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5435, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5437 = load i32, ptr %2, align 4
-  %5438 = add i32 %5437, 4
-  store i32 %5438, ptr %2, align 4
-  %5439 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvNV_v, align 4
-  %5440 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvNV_v_item, align 4
-  %5441 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5439, ptr noundef %0, i32 noundef %5438, i32 noundef 12, i32 noundef %4) #10
-  %5442 = load i32, ptr @ett_x11_list_of_float, align 4
-  %5443 = tail call ptr @proto_item_add_subtree(ptr noundef %5441, i32 noundef %5442) #10
+5461:                                             ; preds = %34
+  %5462 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvNV_index, align 4
+  %5463 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5462, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5464 = load i32, ptr %2, align 4
+  %5465 = add i32 %5464, 4
+  store i32 %5465, ptr %2, align 4
+  %5466 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvNV_v, align 4
+  %5467 = load i32, ptr @hf_x11_glx_render_VertexAttrib3fvNV_v_item, align 4
+  %5468 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5466, ptr noundef %0, i32 noundef %5465, i32 noundef 12, i32 noundef %4) #10
+  %5469 = load i32, ptr @ett_x11_list_of_float, align 4
+  %5470 = tail call ptr @proto_item_add_subtree(ptr noundef %5468, i32 noundef %5469) #10
   %.pre.i.i2835 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2836
 
-.lr.ph.i.i2836:                                   ; preds = %.lr.ph.i.i2836, %5434
-  %5444 = phi i32 [ %5448, %.lr.ph.i.i2836 ], [ %.pre.i.i2835, %5434 ]
-  %.014.i.i2837 = phi i32 [ %5445, %.lr.ph.i.i2836 ], [ 3, %5434 ]
-  %5445 = add nsw i32 %.014.i.i2837, -1
-  %5446 = tail call ptr @proto_tree_add_item(ptr noundef %5443, i32 noundef %5440, ptr noundef %0, i32 noundef %5444, i32 noundef 4, i32 noundef %4) #10
-  %5447 = load i32, ptr %2, align 4
-  %5448 = add i32 %5447, 4
-  store i32 %5448, ptr %2, align 4
-  %.not.i.i2838 = icmp eq i32 %5445, 0
+.lr.ph.i.i2836:                                   ; preds = %.lr.ph.i.i2836, %5461
+  %5471 = phi i32 [ %5475, %.lr.ph.i.i2836 ], [ %.pre.i.i2835, %5461 ]
+  %.014.i.i2837 = phi i32 [ %5472, %.lr.ph.i.i2836 ], [ 3, %5461 ]
+  %5472 = add nsw i32 %.014.i.i2837, -1
+  %5473 = tail call ptr @proto_tree_add_item(ptr noundef %5470, i32 noundef %5467, ptr noundef %0, i32 noundef %5471, i32 noundef 4, i32 noundef %4) #10
+  %5474 = load i32, ptr %2, align 4
+  %5475 = add i32 %5474, 4
+  store i32 %5475, ptr %2, align 4
+  %.not.i.i2838 = icmp eq i32 %5472, 0
   br i1 %.not.i.i2838, label %mesa_CallLists.exit, label %.lr.ph.i.i2836, !llvm.loop !61
 
-5449:                                             ; preds = %34
-  %5450 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvNV_index, align 4
-  %5451 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5450, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5452 = load i32, ptr %2, align 4
-  %5453 = add i32 %5452, 4
-  store i32 %5453, ptr %2, align 4
-  %5454 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvNV_v, align 4
-  %5455 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvNV_v_item, align 4
-  %5456 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5454, ptr noundef %0, i32 noundef %5453, i32 noundef 16, i32 noundef %4) #10
-  %5457 = load i32, ptr @ett_x11_list_of_float, align 4
-  %5458 = tail call ptr @proto_item_add_subtree(ptr noundef %5456, i32 noundef %5457) #10
+5476:                                             ; preds = %34
+  %5477 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvNV_index, align 4
+  %5478 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5477, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5479 = load i32, ptr %2, align 4
+  %5480 = add i32 %5479, 4
+  store i32 %5480, ptr %2, align 4
+  %5481 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvNV_v, align 4
+  %5482 = load i32, ptr @hf_x11_glx_render_VertexAttrib4fvNV_v_item, align 4
+  %5483 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5481, ptr noundef %0, i32 noundef %5480, i32 noundef 16, i32 noundef %4) #10
+  %5484 = load i32, ptr @ett_x11_list_of_float, align 4
+  %5485 = tail call ptr @proto_item_add_subtree(ptr noundef %5483, i32 noundef %5484) #10
   %.pre.i.i2840 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2841
 
-.lr.ph.i.i2841:                                   ; preds = %.lr.ph.i.i2841, %5449
-  %5459 = phi i32 [ %5463, %.lr.ph.i.i2841 ], [ %.pre.i.i2840, %5449 ]
-  %.014.i.i2842 = phi i32 [ %5460, %.lr.ph.i.i2841 ], [ 4, %5449 ]
-  %5460 = add nsw i32 %.014.i.i2842, -1
-  %5461 = tail call ptr @proto_tree_add_item(ptr noundef %5458, i32 noundef %5455, ptr noundef %0, i32 noundef %5459, i32 noundef 4, i32 noundef %4) #10
-  %5462 = load i32, ptr %2, align 4
-  %5463 = add i32 %5462, 4
-  store i32 %5463, ptr %2, align 4
-  %.not.i.i2843 = icmp eq i32 %5460, 0
+.lr.ph.i.i2841:                                   ; preds = %.lr.ph.i.i2841, %5476
+  %5486 = phi i32 [ %5490, %.lr.ph.i.i2841 ], [ %.pre.i.i2840, %5476 ]
+  %.014.i.i2842 = phi i32 [ %5487, %.lr.ph.i.i2841 ], [ 4, %5476 ]
+  %5487 = add nsw i32 %.014.i.i2842, -1
+  %5488 = tail call ptr @proto_tree_add_item(ptr noundef %5485, i32 noundef %5482, ptr noundef %0, i32 noundef %5486, i32 noundef 4, i32 noundef %4) #10
+  %5489 = load i32, ptr %2, align 4
+  %5490 = add i32 %5489, 4
+  store i32 %5490, ptr %2, align 4
+  %.not.i.i2843 = icmp eq i32 %5487, 0
   br i1 %.not.i.i2843, label %mesa_CallLists.exit, label %.lr.ph.i.i2841, !llvm.loop !61
 
-5464:                                             ; preds = %34
-  %5465 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dvNV_index, align 4
-  %5466 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5465, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5467 = load i32, ptr %2, align 4
-  %5468 = add i32 %5467, 4
-  store i32 %5468, ptr %2, align 4
-  %5469 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dvNV_v, align 4
-  %5470 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dvNV_v_item, align 4
-  %5471 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5469, ptr noundef %0, i32 noundef %5468, i32 noundef 8, i32 noundef %4) #10
-  %5472 = load i32, ptr @ett_x11_list_of_double, align 4
-  %5473 = tail call ptr @proto_item_add_subtree(ptr noundef %5471, i32 noundef %5472) #10
+5491:                                             ; preds = %34
+  %5492 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dvNV_index, align 4
+  %5493 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5492, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5494 = load i32, ptr %2, align 4
+  %5495 = add i32 %5494, 4
+  store i32 %5495, ptr %2, align 4
+  %5496 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dvNV_v, align 4
+  %5497 = load i32, ptr @hf_x11_glx_render_VertexAttrib1dvNV_v_item, align 4
+  %5498 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5496, ptr noundef %0, i32 noundef %5495, i32 noundef 8, i32 noundef %4) #10
+  %5499 = load i32, ptr @ett_x11_list_of_double, align 4
+  %5500 = tail call ptr @proto_item_add_subtree(ptr noundef %5498, i32 noundef %5499) #10
   %.pre.i.i2846 = load i32, ptr %2, align 4
-  %5474 = tail call ptr @proto_tree_add_item(ptr noundef %5473, i32 noundef %5470, ptr noundef %0, i32 noundef %.pre.i.i2846, i32 noundef 8, i32 noundef %4) #10
+  %5501 = tail call ptr @proto_tree_add_item(ptr noundef %5500, i32 noundef %5497, ptr noundef %0, i32 noundef %.pre.i.i2846, i32 noundef 8, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-5475:                                             ; preds = %34
-  %5476 = load i32, ptr @hf_x11_glx_render_VertexAttrib2dvNV_index, align 4
-  %5477 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5476, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5478 = load i32, ptr %2, align 4
-  %5479 = add i32 %5478, 4
-  store i32 %5479, ptr %2, align 4
-  %5480 = load i32, ptr @hf_x11_glx_render_VertexAttrib2dvNV_v, align 4
-  %5481 = load i32, ptr @hf_x11_glx_render_VertexAttrib2dvNV_v_item, align 4
-  %5482 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5480, ptr noundef %0, i32 noundef %5479, i32 noundef 16, i32 noundef %4) #10
-  %5483 = load i32, ptr @ett_x11_list_of_double, align 4
-  %5484 = tail call ptr @proto_item_add_subtree(ptr noundef %5482, i32 noundef %5483) #10
+5502:                                             ; preds = %34
+  %5503 = load i32, ptr @hf_x11_glx_render_VertexAttrib2dvNV_index, align 4
+  %5504 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5503, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5505 = load i32, ptr %2, align 4
+  %5506 = add i32 %5505, 4
+  store i32 %5506, ptr %2, align 4
+  %5507 = load i32, ptr @hf_x11_glx_render_VertexAttrib2dvNV_v, align 4
+  %5508 = load i32, ptr @hf_x11_glx_render_VertexAttrib2dvNV_v_item, align 4
+  %5509 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5507, ptr noundef %0, i32 noundef %5506, i32 noundef 16, i32 noundef %4) #10
+  %5510 = load i32, ptr @ett_x11_list_of_double, align 4
+  %5511 = tail call ptr @proto_item_add_subtree(ptr noundef %5509, i32 noundef %5510) #10
   %.pre.i.i2847 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2848
 
-.lr.ph.i.i2848:                                   ; preds = %.lr.ph.i.i2848, %5475
-  %5485 = phi i32 [ %5489, %.lr.ph.i.i2848 ], [ %.pre.i.i2847, %5475 ]
-  %.014.i.i2849 = phi i32 [ %5486, %.lr.ph.i.i2848 ], [ 2, %5475 ]
-  %5486 = add nsw i32 %.014.i.i2849, -1
-  %5487 = tail call ptr @proto_tree_add_item(ptr noundef %5484, i32 noundef %5481, ptr noundef %0, i32 noundef %5485, i32 noundef 8, i32 noundef %4) #10
-  %5488 = load i32, ptr %2, align 4
-  %5489 = add i32 %5488, 8
-  store i32 %5489, ptr %2, align 4
-  %.not.i.i2850 = icmp eq i32 %5486, 0
+.lr.ph.i.i2848:                                   ; preds = %.lr.ph.i.i2848, %5502
+  %5512 = phi i32 [ %5516, %.lr.ph.i.i2848 ], [ %.pre.i.i2847, %5502 ]
+  %.014.i.i2849 = phi i32 [ %5513, %.lr.ph.i.i2848 ], [ 2, %5502 ]
+  %5513 = add nsw i32 %.014.i.i2849, -1
+  %5514 = tail call ptr @proto_tree_add_item(ptr noundef %5511, i32 noundef %5508, ptr noundef %0, i32 noundef %5512, i32 noundef 8, i32 noundef %4) #10
+  %5515 = load i32, ptr %2, align 4
+  %5516 = add i32 %5515, 8
+  store i32 %5516, ptr %2, align 4
+  %.not.i.i2850 = icmp eq i32 %5513, 0
   br i1 %.not.i.i2850, label %mesa_CallLists.exit, label %.lr.ph.i.i2848, !llvm.loop !62
 
-5490:                                             ; preds = %34
-  %5491 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dvNV_index, align 4
-  %5492 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5491, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5493 = load i32, ptr %2, align 4
-  %5494 = add i32 %5493, 4
-  store i32 %5494, ptr %2, align 4
-  %5495 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dvNV_v, align 4
-  %5496 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dvNV_v_item, align 4
-  %5497 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5495, ptr noundef %0, i32 noundef %5494, i32 noundef 24, i32 noundef %4) #10
-  %5498 = load i32, ptr @ett_x11_list_of_double, align 4
-  %5499 = tail call ptr @proto_item_add_subtree(ptr noundef %5497, i32 noundef %5498) #10
+5517:                                             ; preds = %34
+  %5518 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dvNV_index, align 4
+  %5519 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5518, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5520 = load i32, ptr %2, align 4
+  %5521 = add i32 %5520, 4
+  store i32 %5521, ptr %2, align 4
+  %5522 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dvNV_v, align 4
+  %5523 = load i32, ptr @hf_x11_glx_render_VertexAttrib3dvNV_v_item, align 4
+  %5524 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5522, ptr noundef %0, i32 noundef %5521, i32 noundef 24, i32 noundef %4) #10
+  %5525 = load i32, ptr @ett_x11_list_of_double, align 4
+  %5526 = tail call ptr @proto_item_add_subtree(ptr noundef %5524, i32 noundef %5525) #10
   %.pre.i.i2852 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2853
 
-.lr.ph.i.i2853:                                   ; preds = %.lr.ph.i.i2853, %5490
-  %5500 = phi i32 [ %5504, %.lr.ph.i.i2853 ], [ %.pre.i.i2852, %5490 ]
-  %.014.i.i2854 = phi i32 [ %5501, %.lr.ph.i.i2853 ], [ 3, %5490 ]
-  %5501 = add nsw i32 %.014.i.i2854, -1
-  %5502 = tail call ptr @proto_tree_add_item(ptr noundef %5499, i32 noundef %5496, ptr noundef %0, i32 noundef %5500, i32 noundef 8, i32 noundef %4) #10
-  %5503 = load i32, ptr %2, align 4
-  %5504 = add i32 %5503, 8
-  store i32 %5504, ptr %2, align 4
-  %.not.i.i2855 = icmp eq i32 %5501, 0
+.lr.ph.i.i2853:                                   ; preds = %.lr.ph.i.i2853, %5517
+  %5527 = phi i32 [ %5531, %.lr.ph.i.i2853 ], [ %.pre.i.i2852, %5517 ]
+  %.014.i.i2854 = phi i32 [ %5528, %.lr.ph.i.i2853 ], [ 3, %5517 ]
+  %5528 = add nsw i32 %.014.i.i2854, -1
+  %5529 = tail call ptr @proto_tree_add_item(ptr noundef %5526, i32 noundef %5523, ptr noundef %0, i32 noundef %5527, i32 noundef 8, i32 noundef %4) #10
+  %5530 = load i32, ptr %2, align 4
+  %5531 = add i32 %5530, 8
+  store i32 %5531, ptr %2, align 4
+  %.not.i.i2855 = icmp eq i32 %5528, 0
   br i1 %.not.i.i2855, label %mesa_CallLists.exit, label %.lr.ph.i.i2853, !llvm.loop !62
 
-5505:                                             ; preds = %34
-  %5506 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dvNV_index, align 4
-  %5507 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5506, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5508 = load i32, ptr %2, align 4
-  %5509 = add i32 %5508, 4
-  store i32 %5509, ptr %2, align 4
-  %5510 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dvNV_v, align 4
-  %5511 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dvNV_v_item, align 4
-  %5512 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5510, ptr noundef %0, i32 noundef %5509, i32 noundef 32, i32 noundef %4) #10
-  %5513 = load i32, ptr @ett_x11_list_of_double, align 4
-  %5514 = tail call ptr @proto_item_add_subtree(ptr noundef %5512, i32 noundef %5513) #10
+5532:                                             ; preds = %34
+  %5533 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dvNV_index, align 4
+  %5534 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5533, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5535 = load i32, ptr %2, align 4
+  %5536 = add i32 %5535, 4
+  store i32 %5536, ptr %2, align 4
+  %5537 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dvNV_v, align 4
+  %5538 = load i32, ptr @hf_x11_glx_render_VertexAttrib4dvNV_v_item, align 4
+  %5539 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5537, ptr noundef %0, i32 noundef %5536, i32 noundef 32, i32 noundef %4) #10
+  %5540 = load i32, ptr @ett_x11_list_of_double, align 4
+  %5541 = tail call ptr @proto_item_add_subtree(ptr noundef %5539, i32 noundef %5540) #10
   %.pre.i.i2857 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2858
 
-.lr.ph.i.i2858:                                   ; preds = %.lr.ph.i.i2858, %5505
-  %5515 = phi i32 [ %5519, %.lr.ph.i.i2858 ], [ %.pre.i.i2857, %5505 ]
-  %.014.i.i2859 = phi i32 [ %5516, %.lr.ph.i.i2858 ], [ 4, %5505 ]
-  %5516 = add nsw i32 %.014.i.i2859, -1
-  %5517 = tail call ptr @proto_tree_add_item(ptr noundef %5514, i32 noundef %5511, ptr noundef %0, i32 noundef %5515, i32 noundef 8, i32 noundef %4) #10
-  %5518 = load i32, ptr %2, align 4
-  %5519 = add i32 %5518, 8
-  store i32 %5519, ptr %2, align 4
-  %.not.i.i2860 = icmp eq i32 %5516, 0
+.lr.ph.i.i2858:                                   ; preds = %.lr.ph.i.i2858, %5532
+  %5542 = phi i32 [ %5546, %.lr.ph.i.i2858 ], [ %.pre.i.i2857, %5532 ]
+  %.014.i.i2859 = phi i32 [ %5543, %.lr.ph.i.i2858 ], [ 4, %5532 ]
+  %5543 = add nsw i32 %.014.i.i2859, -1
+  %5544 = tail call ptr @proto_tree_add_item(ptr noundef %5541, i32 noundef %5538, ptr noundef %0, i32 noundef %5542, i32 noundef 8, i32 noundef %4) #10
+  %5545 = load i32, ptr %2, align 4
+  %5546 = add i32 %5545, 8
+  store i32 %5546, ptr %2, align 4
+  %.not.i.i2860 = icmp eq i32 %5543, 0
   br i1 %.not.i.i2860, label %mesa_CallLists.exit, label %.lr.ph.i.i2858, !llvm.loop !62
 
-5520:                                             ; preds = %34
-  %5521 = load i32, ptr @hf_x11_glx_render_VertexAttrib4ubvNV_index, align 4
-  %5522 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5521, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
-  %5523 = load i32, ptr %2, align 4
-  %5524 = add i32 %5523, 4
-  store i32 %5524, ptr %2, align 4
-  %5525 = load i32, ptr @hf_x11_glx_render_VertexAttrib4ubvNV_v, align 4
-  %5526 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5525, ptr noundef %0, i32 noundef %5524, i32 noundef 4, i32 noundef %4) #10
+5547:                                             ; preds = %34
+  %5548 = load i32, ptr @hf_x11_glx_render_VertexAttrib4ubvNV_index, align 4
+  %5549 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5548, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+  %5550 = load i32, ptr %2, align 4
+  %5551 = add i32 %5550, 4
+  store i32 %5551, ptr %2, align 4
+  %5552 = load i32, ptr @hf_x11_glx_render_VertexAttrib4ubvNV_v, align 4
+  %5553 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5552, ptr noundef %0, i32 noundef %5551, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
-
-5527:                                             ; preds = %34
-  %5528 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
-  %5529 = load i32, ptr @hf_x11_glx_render_MatrixIndexubvARB_size, align 4
-  %5530 = load i32, ptr %2, align 4
-  %5531 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5529, ptr noundef %0, i32 noundef %5530, i32 noundef 4, i32 noundef %4) #10
-  %5532 = load i32, ptr %2, align 4
-  %5533 = add i32 %5532, 4
-  store i32 %5533, ptr %2, align 4
-  %5534 = load i32, ptr @hf_x11_glx_render_MatrixIndexubvARB_indices, align 4
-  %spec.store.select.i.i2862 = tail call i32 @llvm.smax.i32(i32 %5528, i32 1)
-  %5535 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5534, ptr noundef %0, i32 noundef %5533, i32 noundef %spec.store.select.i.i2862, i32 noundef %4) #10
-  br label %mesa_CallLists.exit.sink.split
-
-5536:                                             ; preds = %34
-  %5537 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
-  %5538 = load i32, ptr @hf_x11_glx_render_MatrixIndexusvARB_size, align 4
-  %5539 = load i32, ptr %2, align 4
-  %5540 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5538, ptr noundef %0, i32 noundef %5539, i32 noundef 4, i32 noundef %4) #10
-  %5541 = load i32, ptr %2, align 4
-  %5542 = add i32 %5541, 4
-  store i32 %5542, ptr %2, align 4
-  %5543 = load i32, ptr @hf_x11_glx_render_MatrixIndexusvARB_indices, align 4
-  %5544 = load i32, ptr @hf_x11_glx_render_MatrixIndexusvARB_indices_item, align 4
-  %5545 = shl i32 %5537, 1
-  %5546 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5543, ptr noundef %0, i32 noundef %5542, i32 noundef %5545, i32 noundef %4) #10
-  %5547 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5548 = tail call ptr @proto_item_add_subtree(ptr noundef %5546, i32 noundef %5547) #10
-  %.not13.i.i2863 = icmp eq i32 %5537, 0
-  br i1 %.not13.i.i2863, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2864
-
-.lr.ph.preheader.i.i2864:                         ; preds = %5536
-  %.pre.i.i2865 = load i32, ptr %2, align 4
-  br label %.lr.ph.i.i2866
-
-.lr.ph.i.i2866:                                   ; preds = %.lr.ph.i.i2866, %.lr.ph.preheader.i.i2864
-  %5549 = phi i32 [ %5553, %.lr.ph.i.i2866 ], [ %.pre.i.i2865, %.lr.ph.preheader.i.i2864 ]
-  %.014.i.i2867 = phi i32 [ %5550, %.lr.ph.i.i2866 ], [ %5537, %.lr.ph.preheader.i.i2864 ]
-  %5550 = add i32 %.014.i.i2867, -1
-  %5551 = tail call ptr @proto_tree_add_item(ptr noundef %5548, i32 noundef %5544, ptr noundef %0, i32 noundef %5549, i32 noundef 2, i32 noundef %4) #10
-  %5552 = load i32, ptr %2, align 4
-  %5553 = add i32 %5552, 2
-  store i32 %5553, ptr %2, align 4
-  %.not.i.i2868 = icmp eq i32 %5550, 0
-  br i1 %.not.i.i2868, label %mesa_CallLists.exit, label %.lr.ph.i.i2866, !llvm.loop !40
 
 5554:                                             ; preds = %34
   %5555 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
-  %5556 = load i32, ptr @hf_x11_glx_render_MatrixIndexuivARB_size, align 4
+  %5556 = load i32, ptr @hf_x11_glx_render_MatrixIndexubvARB_size, align 4
   %5557 = load i32, ptr %2, align 4
   %5558 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5556, ptr noundef %0, i32 noundef %5557, i32 noundef 4, i32 noundef %4) #10
   %5559 = load i32, ptr %2, align 4
   %5560 = add i32 %5559, 4
   store i32 %5560, ptr %2, align 4
-  %5561 = load i32, ptr @hf_x11_glx_render_MatrixIndexuivARB_indices, align 4
-  %5562 = load i32, ptr @hf_x11_glx_render_MatrixIndexuivARB_indices_item, align 4
-  %5563 = shl i32 %5555, 2
-  %5564 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5561, ptr noundef %0, i32 noundef %5560, i32 noundef %5563, i32 noundef %4) #10
-  %5565 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %5566 = tail call ptr @proto_item_add_subtree(ptr noundef %5564, i32 noundef %5565) #10
-  %.not13.i.i2870 = icmp eq i32 %5555, 0
+  %5561 = load i32, ptr @hf_x11_glx_render_MatrixIndexubvARB_indices, align 4
+  %spec.store.select.i.i2862 = tail call i32 @llvm.smax.i32(i32 %5555, i32 1)
+  %5562 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5561, ptr noundef %0, i32 noundef %5560, i32 noundef %spec.store.select.i.i2862, i32 noundef %4) #10
+  br label %mesa_CallLists.exit.sink.split
+
+5563:                                             ; preds = %34
+  %5564 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
+  %5565 = load i32, ptr @hf_x11_glx_render_MatrixIndexusvARB_size, align 4
+  %5566 = load i32, ptr %2, align 4
+  %5567 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5565, ptr noundef %0, i32 noundef %5566, i32 noundef 4, i32 noundef %4) #10
+  %5568 = load i32, ptr %2, align 4
+  %5569 = add i32 %5568, 4
+  store i32 %5569, ptr %2, align 4
+  %5570 = load i32, ptr @hf_x11_glx_render_MatrixIndexusvARB_indices, align 4
+  %5571 = load i32, ptr @hf_x11_glx_render_MatrixIndexusvARB_indices_item, align 4
+  %5572 = shl i32 %5564, 1
+  %5573 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5570, ptr noundef %0, i32 noundef %5569, i32 noundef %5572, i32 noundef %4) #10
+  %5574 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5575 = tail call ptr @proto_item_add_subtree(ptr noundef %5573, i32 noundef %5574) #10
+  %.not13.i.i2863 = icmp eq i32 %5564, 0
+  br i1 %.not13.i.i2863, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2864
+
+.lr.ph.preheader.i.i2864:                         ; preds = %5563
+  %.pre.i.i2865 = load i32, ptr %2, align 4
+  br label %.lr.ph.i.i2866
+
+.lr.ph.i.i2866:                                   ; preds = %.lr.ph.i.i2866, %.lr.ph.preheader.i.i2864
+  %5576 = phi i32 [ %5580, %.lr.ph.i.i2866 ], [ %.pre.i.i2865, %.lr.ph.preheader.i.i2864 ]
+  %.014.i.i2867 = phi i32 [ %5577, %.lr.ph.i.i2866 ], [ %5564, %.lr.ph.preheader.i.i2864 ]
+  %5577 = add i32 %.014.i.i2867, -1
+  %5578 = tail call ptr @proto_tree_add_item(ptr noundef %5575, i32 noundef %5571, ptr noundef %0, i32 noundef %5576, i32 noundef 2, i32 noundef %4) #10
+  %5579 = load i32, ptr %2, align 4
+  %5580 = add i32 %5579, 2
+  store i32 %5580, ptr %2, align 4
+  %.not.i.i2868 = icmp eq i32 %5577, 0
+  br i1 %.not.i.i2868, label %mesa_CallLists.exit, label %.lr.ph.i.i2866, !llvm.loop !40
+
+5581:                                             ; preds = %34
+  %5582 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %28, i32 noundef %4) #10
+  %5583 = load i32, ptr @hf_x11_glx_render_MatrixIndexuivARB_size, align 4
+  %5584 = load i32, ptr %2, align 4
+  %5585 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5583, ptr noundef %0, i32 noundef %5584, i32 noundef 4, i32 noundef %4) #10
+  %5586 = load i32, ptr %2, align 4
+  %5587 = add i32 %5586, 4
+  store i32 %5587, ptr %2, align 4
+  %5588 = load i32, ptr @hf_x11_glx_render_MatrixIndexuivARB_indices, align 4
+  %5589 = load i32, ptr @hf_x11_glx_render_MatrixIndexuivARB_indices_item, align 4
+  %5590 = shl i32 %5582, 2
+  %5591 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5588, ptr noundef %0, i32 noundef %5587, i32 noundef %5590, i32 noundef %4) #10
+  %5592 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %5593 = tail call ptr @proto_item_add_subtree(ptr noundef %5591, i32 noundef %5592) #10
+  %.not13.i.i2870 = icmp eq i32 %5582, 0
   br i1 %.not13.i.i2870, label %mesa_CallLists.exit, label %.lr.ph.preheader.i.i2871
 
-.lr.ph.preheader.i.i2871:                         ; preds = %5554
+.lr.ph.preheader.i.i2871:                         ; preds = %5581
   %.pre.i.i2872 = load i32, ptr %2, align 4
   br label %.lr.ph.i.i2873
 
 .lr.ph.i.i2873:                                   ; preds = %.lr.ph.i.i2873, %.lr.ph.preheader.i.i2871
-  %5567 = phi i32 [ %5571, %.lr.ph.i.i2873 ], [ %.pre.i.i2872, %.lr.ph.preheader.i.i2871 ]
-  %.014.i.i2874 = phi i32 [ %5568, %.lr.ph.i.i2873 ], [ %5555, %.lr.ph.preheader.i.i2871 ]
-  %5568 = add i32 %.014.i.i2874, -1
-  %5569 = tail call ptr @proto_tree_add_item(ptr noundef %5566, i32 noundef %5562, ptr noundef %0, i32 noundef %5567, i32 noundef 4, i32 noundef %4) #10
-  %5570 = load i32, ptr %2, align 4
-  %5571 = add i32 %5570, 4
-  store i32 %5571, ptr %2, align 4
-  %.not.i.i2875 = icmp eq i32 %5568, 0
+  %5594 = phi i32 [ %5598, %.lr.ph.i.i2873 ], [ %.pre.i.i2872, %.lr.ph.preheader.i.i2871 ]
+  %.014.i.i2874 = phi i32 [ %5595, %.lr.ph.i.i2873 ], [ %5582, %.lr.ph.preheader.i.i2871 ]
+  %5595 = add i32 %.014.i.i2874, -1
+  %5596 = tail call ptr @proto_tree_add_item(ptr noundef %5593, i32 noundef %5589, ptr noundef %0, i32 noundef %5594, i32 noundef 4, i32 noundef %4) #10
+  %5597 = load i32, ptr %2, align 4
+  %5598 = add i32 %5597, 4
+  store i32 %5598, ptr %2, align 4
+  %.not.i.i2875 = icmp eq i32 %5595, 0
   br i1 %.not.i.i2875, label %mesa_CallLists.exit, label %.lr.ph.i.i2873, !llvm.loop !41
 
-5572:                                             ; preds = %34
-  %5573 = load i32, ptr @hf_x11_glx_render_CurrentPaletteMatrixARB_index, align 4
-  %5574 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5573, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
+5599:                                             ; preds = %34
+  %5600 = load i32, ptr @hf_x11_glx_render_CurrentPaletteMatrixARB_index, align 4
+  %5601 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5600, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %4) #10
   br label %mesa_CallLists.exit.sink.split
 
-5575:                                             ; preds = %.thread, %34
-  %5576 = phi i32 [ %33, %.thread ], [ %36, %34 ]
-  %5577 = phi i32 [ %32, %.thread ], [ %28, %34 ]
-  %5578 = phi i32 [ %31, %.thread ], [ %35, %34 ]
+5602:                                             ; preds = %.thread, %34
+  %5603 = phi i32 [ %33, %.thread ], [ %36, %34 ]
+  %5604 = phi i32 [ %32, %.thread ], [ %28, %34 ]
+  %5605 = phi i32 [ %31, %.thread ], [ %35, %34 ]
   %.018432880 = phi i32 [ %.03064, %.thread ], [ %10, %34 ]
-  %5579 = load i32, ptr @hf_x11_undecoded, align 4
-  %5580 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5579, ptr noundef %0, i32 noundef %5577, i32 noundef %5578, i32 noundef 0) #10
+  %5606 = load i32, ptr @hf_x11_undecoded, align 4
+  %5607 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5606, ptr noundef %0, i32 noundef %5604, i32 noundef %5605, i32 noundef 0) #10
   br label %mesa_CallLists.exit.sink.split
 
-mesa_CallLists.exit.sink.split:                   ; preds = %53, %62, %listOfInt16.exit.i, %listOfCard16.exit.i, %listOfCard16.exit164.i, %158, %180, %190, %37, %194, %197, %200, %256, %303, %328, %375, %400, %403, %410, %417, %424, %431, %694, %701, %708, %715, %1001, %1008, %1011, %1036, %1061, %1064, %1071, %1104, %1137, %1162, %1187, %1194, %1197, %1230, %1263, %1266, %1273, %1305, %1320, %1323, %1356, %1389, %1449, %1513, %1546, %1579, %1612, %1645, %1678, %1681, %1684, %1687, %1690, %1693, %1708, %1711, %1726, %1729, %1732, %1735, %1750, %1753, %1756, %1763, %1766, %1769, %1940, %1951, %1962, %1985, %2008, %2015, %2044, %2055, %2058, %2077, %2084, %2091, %2098, %2101, %2112, %2123, %2126, %2133, %2140, %2213, %2216, %2235, %2283, %2290, %2335, %2360, %2383, %2398, %2413, %2424, %2435, %2446, %2457, %2472, %2479, %2490, %2493, %2545, %2564, %2567, %2578, %2589, %2600, %2791, %2820, %2853, %2890, %2919, %2956, %3001, %3019, %3026, %3047, %3054, %3101, %3197, %3216, %3288, %3372, %3401, %3455, %3458, %3473, %3488, %3491, %3551, %3619, %3671, %3727, %3760, %3793, %3812, %3835, %3867, %3882, %3893, %3896, %3899, %3967, %4043, %4079, %4106, %4137, %4160, %4191, %4226, %4233, %4240, %4287, %4312, %4327, %4334, %4359, %4384, %4407, %4446, %4461, %4505, %4612, %4627, %4683, %4739, %4795, %5066, %5117, %5184, %5187, %5212, %5219, %5226, %5248, %5285, %5352, %5408, %5464, %5520, %5527, %5572, %5575
-  %.sink191.i.sink = phi i32 [ %5578, %5575 ], [ 4, %5572 ], [ %spec.store.select.i.i2862, %5527 ], [ 4, %5520 ], [ 8, %5464 ], [ 4, %5408 ], [ 2, %5352 ], [ 4, %5285 ], [ 4, %5248 ], [ 4, %5226 ], [ 8, %5219 ], [ 4, %5212 ], [ 4, %5187 ], [ 4, %5184 ], [ %spec.store.select.i.i2755, %5117 ], [ %spec.store.select.i.i2744, %5066 ], [ 4, %4795 ], [ 8, %4739 ], [ 4, %4683 ], [ 2, %4627 ], [ 4, %4612 ], [ %spec.store.select.i.i2584, %4505 ], [ 4, %4461 ], [ 4, %4446 ], [ 1, %4407 ], [ 4, %4384 ], [ 4, %4359 ], [ 4, %4334 ], [ 4, %4327 ], [ 4, %4312 ], [ 3, %4287 ], [ 3, %4240 ], [ 8, %4233 ], [ 4, %4226 ], [ 4, %4191 ], [ 4, %4160 ], [ 4, %4137 ], [ 4, %4106 ], [ 4, %4079 ], [ 4, %4043 ], [ %spec.store.select.i.i2513, %3967 ], [ %spec.store.select.i.i2512, %3899 ], [ 4, %3896 ], [ 4, %3893 ], [ 1, %3882 ], [ 1, %3867 ], [ %spec.store.select.i.i2511, %3835 ], [ 4, %3812 ], [ 4, %3793 ], [ 4, %3760 ], [ 4, %3727 ], [ %spec.store.select.i.i2494, %3671 ], [ %spec.store.select.i.i2493, %3619 ], [ %spec.store.select.i.i2492, %3551 ], [ %spec.store.select.i.i2491, %3491 ], [ 4, %3488 ], [ 4, %3473 ], [ 1, %3458 ], [ 4, %3455 ], [ 4, %3401 ], [ 4, %3372 ], [ %spec.store.select.i.i2463, %3288 ], [ %spec.store.select.i.i2462, %3216 ], [ 4, %3197 ], [ %spec.store.select.i.i2445, %3101 ], [ 4, %3054 ], [ 1, %3047 ], [ 4, %3026 ], [ 4, %3019 ], [ 1, %3001 ], [ %spec.store.select.i.i2419, %2956 ], [ %spec.store.select.i.i2418, %2919 ], [ %spec.store.select.i.i2417, %2890 ], [ %spec.store.select.i.i2416, %2853 ], [ %spec.store.select.i.i2415, %2820 ], [ %spec.store.select.i.i2414, %2791 ], [ 2, %2600 ], [ 4, %2589 ], [ 4, %2578 ], [ 8, %2567 ], [ 4, %2564 ], [ 4, %2545 ], [ %spec.store.select.i.i2345, %2493 ], [ 1, %2490 ], [ 4, %2479 ], [ 4, %2472 ], [ 4, %2457 ], [ 4, %2446 ], [ 8, %2435 ], [ 4, %2424 ], [ 8, %2413 ], [ 4, %2398 ], [ 8, %2383 ], [ 8, %2360 ], [ 4, %2335 ], [ 8, %2290 ], [ 8, %2283 ], [ %spec.store.select.i.i2324, %2235 ], [ 4, %2216 ], [ 4, %2213 ], [ 4, %2140 ], [ 4, %2133 ], [ 4, %2126 ], [ 4, %2123 ], [ 4, %2112 ], [ 4, %2101 ], [ 4, %2098 ], [ 4, %2091 ], [ 4, %2084 ], [ 4, %2077 ], [ 4, %2058 ], [ 4, %2055 ], [ 4, %2044 ], [ 4, %2015 ], [ 8, %2008 ], [ 4, %1985 ], [ 8, %1962 ], [ 4, %1951 ], [ 8, %1940 ], [ 4, %1769 ], [ 4, %1766 ], [ 4, %1763 ], [ 4, %1756 ], [ 4, %1753 ], [ 1, %1750 ], [ 1, %1735 ], [ 4, %1732 ], [ 8, %1729 ], [ 4, %1726 ], [ 4, %1711 ], [ 4, %1708 ], [ 4, %1693 ], [ 4, %1690 ], [ 4, %1687 ], [ 4, %1684 ], [ 4, %1681 ], [ 4, %1678 ], [ 4, %1645 ], [ 4, %1612 ], [ 8, %1579 ], [ 4, %1546 ], [ 4, %1513 ], [ %spec.store.select.i.i2217, %1449 ], [ %spec.store.select.i.i2216, %1389 ], [ 4, %1356 ], [ 4, %1323 ], [ 4, %1320 ], [ 4, %1305 ], [ %spec.store.select.i.i2199, %1273 ], [ 4, %1266 ], [ 4, %1263 ], [ 4, %1230 ], [ 4, %1197 ], [ 4, %1194 ], [ 2, %1187 ], [ 4, %1162 ], [ 4, %1137 ], [ 4, %1104 ], [ 4, %1071 ], [ 4, %1064 ], [ 4, %1061 ], [ 4, %1036 ], [ 4, %1011 ], [ 4, %1008 ], [ 4, %1001 ], [ 2, %715 ], [ 4, %708 ], [ 4, %701 ], [ 8, %694 ], [ 3, %431 ], [ 2, %424 ], [ 4, %417 ], [ 4, %410 ], [ 8, %403 ], [ 1, %400 ], [ 4, %375 ], [ 4, %328 ], [ 3, %303 ], [ 3, %256 ], [ %spec.store.select.i.i1847, %200 ], [ 4, %197 ], [ 4, %194 ], [ 4, %37 ], [ %192, %190 ], [ %188, %180 ], [ %166, %158 ], [ %156, %listOfCard16.exit164.i ], [ %103, %listOfCard16.exit.i ], [ %86, %listOfInt16.exit.i ], [ %69, %62 ], [ %60, %53 ]
-  %.ph = phi i32 [ %5576, %5575 ], [ %36, %5572 ], [ %36, %5527 ], [ %36, %5520 ], [ %36, %5464 ], [ %36, %5408 ], [ %36, %5352 ], [ %36, %5285 ], [ %36, %5248 ], [ %36, %5226 ], [ %36, %5219 ], [ %36, %5212 ], [ %36, %5187 ], [ %36, %5184 ], [ %36, %5117 ], [ %36, %5066 ], [ %36, %4795 ], [ %36, %4739 ], [ %36, %4683 ], [ %36, %4627 ], [ %36, %4612 ], [ %36, %4505 ], [ %36, %4461 ], [ %36, %4446 ], [ %36, %4407 ], [ %36, %4384 ], [ %36, %4359 ], [ %36, %4334 ], [ %36, %4327 ], [ %36, %4312 ], [ %36, %4287 ], [ %36, %4240 ], [ %36, %4233 ], [ %36, %4226 ], [ %36, %4191 ], [ %36, %4160 ], [ %36, %4137 ], [ %36, %4106 ], [ %36, %4079 ], [ %36, %4043 ], [ %36, %3967 ], [ %36, %3899 ], [ %36, %3896 ], [ %36, %3893 ], [ %36, %3882 ], [ %36, %3867 ], [ %36, %3835 ], [ %36, %3812 ], [ %36, %3793 ], [ %36, %3760 ], [ %36, %3727 ], [ %36, %3671 ], [ %36, %3619 ], [ %36, %3551 ], [ %36, %3491 ], [ %36, %3488 ], [ %36, %3473 ], [ %36, %3458 ], [ %36, %3455 ], [ %36, %3401 ], [ %36, %3372 ], [ %36, %3288 ], [ %36, %3216 ], [ %36, %3197 ], [ %36, %3101 ], [ %36, %3054 ], [ %36, %3047 ], [ %36, %3026 ], [ %36, %3019 ], [ %36, %3001 ], [ %36, %2956 ], [ %36, %2919 ], [ %36, %2890 ], [ %36, %2853 ], [ %36, %2820 ], [ %36, %2791 ], [ %36, %2600 ], [ %36, %2589 ], [ %36, %2578 ], [ %36, %2567 ], [ %36, %2564 ], [ %36, %2545 ], [ %36, %2493 ], [ %36, %2490 ], [ %36, %2479 ], [ %36, %2472 ], [ %36, %2457 ], [ %36, %2446 ], [ %36, %2435 ], [ %36, %2424 ], [ %36, %2413 ], [ %36, %2398 ], [ %36, %2383 ], [ %36, %2360 ], [ %36, %2335 ], [ %36, %2290 ], [ %36, %2283 ], [ %36, %2235 ], [ %36, %2216 ], [ %36, %2213 ], [ %36, %2140 ], [ %36, %2133 ], [ %36, %2126 ], [ %36, %2123 ], [ %36, %2112 ], [ %36, %2101 ], [ %36, %2098 ], [ %36, %2091 ], [ %36, %2084 ], [ %36, %2077 ], [ %36, %2058 ], [ %36, %2055 ], [ %36, %2044 ], [ %36, %2015 ], [ %36, %2008 ], [ %36, %1985 ], [ %36, %1962 ], [ %36, %1951 ], [ %36, %1940 ], [ %36, %1769 ], [ %36, %1766 ], [ %36, %1763 ], [ %36, %1756 ], [ %36, %1753 ], [ %36, %1750 ], [ %36, %1735 ], [ %36, %1732 ], [ %36, %1729 ], [ %36, %1726 ], [ %36, %1711 ], [ %36, %1708 ], [ %36, %1693 ], [ %36, %1690 ], [ %36, %1687 ], [ %36, %1684 ], [ %36, %1681 ], [ %36, %1678 ], [ %36, %1645 ], [ %36, %1612 ], [ %36, %1579 ], [ %36, %1546 ], [ %36, %1513 ], [ %36, %1449 ], [ %36, %1389 ], [ %36, %1356 ], [ %36, %1323 ], [ %36, %1320 ], [ %36, %1305 ], [ %36, %1273 ], [ %36, %1266 ], [ %36, %1263 ], [ %36, %1230 ], [ %36, %1197 ], [ %36, %1194 ], [ %36, %1187 ], [ %36, %1162 ], [ %36, %1137 ], [ %36, %1104 ], [ %36, %1071 ], [ %36, %1064 ], [ %36, %1061 ], [ %36, %1036 ], [ %36, %1011 ], [ %36, %1008 ], [ %36, %1001 ], [ %36, %715 ], [ %36, %708 ], [ %36, %701 ], [ %36, %694 ], [ %36, %431 ], [ %36, %424 ], [ %36, %417 ], [ %36, %410 ], [ %36, %403 ], [ %36, %400 ], [ %36, %375 ], [ %36, %328 ], [ %36, %303 ], [ %36, %256 ], [ %36, %200 ], [ %36, %197 ], [ %36, %194 ], [ %36, %37 ], [ %36, %190 ], [ %36, %180 ], [ %36, %158 ], [ %36, %listOfCard16.exit164.i ], [ %36, %listOfCard16.exit.i ], [ %36, %listOfInt16.exit.i ], [ %36, %62 ], [ %36, %53 ]
-  %.018432879.ph = phi i32 [ %.018432880, %5575 ], [ %10, %5572 ], [ %10, %5527 ], [ %10, %5520 ], [ %10, %5464 ], [ %10, %5408 ], [ %10, %5352 ], [ %10, %5285 ], [ %10, %5248 ], [ %10, %5226 ], [ %10, %5219 ], [ %10, %5212 ], [ %10, %5187 ], [ %10, %5184 ], [ %10, %5117 ], [ %10, %5066 ], [ %10, %4795 ], [ %10, %4739 ], [ %10, %4683 ], [ %10, %4627 ], [ %10, %4612 ], [ %10, %4505 ], [ %10, %4461 ], [ %10, %4446 ], [ %10, %4407 ], [ %10, %4384 ], [ %10, %4359 ], [ %10, %4334 ], [ %10, %4327 ], [ %10, %4312 ], [ %10, %4287 ], [ %10, %4240 ], [ %10, %4233 ], [ %10, %4226 ], [ %10, %4191 ], [ %10, %4160 ], [ %10, %4137 ], [ %10, %4106 ], [ %10, %4079 ], [ %10, %4043 ], [ %10, %3967 ], [ %10, %3899 ], [ %10, %3896 ], [ %10, %3893 ], [ %10, %3882 ], [ %10, %3867 ], [ %10, %3835 ], [ %10, %3812 ], [ %10, %3793 ], [ %10, %3760 ], [ %10, %3727 ], [ %10, %3671 ], [ %10, %3619 ], [ %10, %3551 ], [ %10, %3491 ], [ %10, %3488 ], [ %10, %3473 ], [ %10, %3458 ], [ %10, %3455 ], [ %10, %3401 ], [ %10, %3372 ], [ %10, %3288 ], [ %10, %3216 ], [ %10, %3197 ], [ %10, %3101 ], [ %10, %3054 ], [ %10, %3047 ], [ %10, %3026 ], [ %10, %3019 ], [ %10, %3001 ], [ %10, %2956 ], [ %10, %2919 ], [ %10, %2890 ], [ %10, %2853 ], [ %10, %2820 ], [ %10, %2791 ], [ %10, %2600 ], [ %10, %2589 ], [ %10, %2578 ], [ %10, %2567 ], [ %10, %2564 ], [ %10, %2545 ], [ %10, %2493 ], [ %10, %2490 ], [ %10, %2479 ], [ %10, %2472 ], [ %10, %2457 ], [ %10, %2446 ], [ %10, %2435 ], [ %10, %2424 ], [ %10, %2413 ], [ %10, %2398 ], [ %10, %2383 ], [ %10, %2360 ], [ %10, %2335 ], [ %10, %2290 ], [ %10, %2283 ], [ %10, %2235 ], [ %10, %2216 ], [ %10, %2213 ], [ %10, %2140 ], [ %10, %2133 ], [ %10, %2126 ], [ %10, %2123 ], [ %10, %2112 ], [ %10, %2101 ], [ %10, %2098 ], [ %10, %2091 ], [ %10, %2084 ], [ %10, %2077 ], [ %10, %2058 ], [ %10, %2055 ], [ %10, %2044 ], [ %10, %2015 ], [ %10, %2008 ], [ %10, %1985 ], [ %10, %1962 ], [ %10, %1951 ], [ %10, %1940 ], [ %10, %1769 ], [ %10, %1766 ], [ %10, %1763 ], [ %10, %1756 ], [ %10, %1753 ], [ %10, %1750 ], [ %10, %1735 ], [ %10, %1732 ], [ %10, %1729 ], [ %10, %1726 ], [ %10, %1711 ], [ %10, %1708 ], [ %10, %1693 ], [ %10, %1690 ], [ %10, %1687 ], [ %10, %1684 ], [ %10, %1681 ], [ %10, %1678 ], [ %10, %1645 ], [ %10, %1612 ], [ %10, %1579 ], [ %10, %1546 ], [ %10, %1513 ], [ %10, %1449 ], [ %10, %1389 ], [ %10, %1356 ], [ %10, %1323 ], [ %10, %1320 ], [ %10, %1305 ], [ %10, %1273 ], [ %10, %1266 ], [ %10, %1263 ], [ %10, %1230 ], [ %10, %1197 ], [ %10, %1194 ], [ %10, %1187 ], [ %10, %1162 ], [ %10, %1137 ], [ %10, %1104 ], [ %10, %1071 ], [ %10, %1064 ], [ %10, %1061 ], [ %10, %1036 ], [ %10, %1011 ], [ %10, %1008 ], [ %10, %1001 ], [ %10, %715 ], [ %10, %708 ], [ %10, %701 ], [ %10, %694 ], [ %10, %431 ], [ %10, %424 ], [ %10, %417 ], [ %10, %410 ], [ %10, %403 ], [ %10, %400 ], [ %10, %375 ], [ %10, %328 ], [ %10, %303 ], [ %10, %256 ], [ %10, %200 ], [ %10, %197 ], [ %10, %194 ], [ %10, %37 ], [ %10, %190 ], [ %10, %180 ], [ %10, %158 ], [ %10, %listOfCard16.exit164.i ], [ %10, %listOfCard16.exit.i ], [ %10, %listOfInt16.exit.i ], [ %10, %62 ], [ %10, %53 ]
-  %5581 = load i32, ptr %2, align 4
-  %5582 = add i32 %5581, %.sink191.i.sink
-  store i32 %5582, ptr %2, align 4
+mesa_CallLists.exit.sink.split:                   ; preds = %53, %62, %listOfInt16.exit.i, %listOfCard16.exit.i, %listOfCard16.exit164.i, %158, %180, %190, %37, %194, %197, %200, %256, %303, %328, %375, %400, %403, %410, %417, %424, %431, %694, %701, %708, %715, %1001, %1008, %1011, %1037, %1063, %1066, %1073, %1107, %1141, %1167, %1193, %1200, %1203, %1237, %1271, %1274, %1281, %1313, %1328, %1331, %1365, %1399, %1459, %1523, %1557, %1591, %1625, %1659, %1693, %1696, %1699, %1702, %1705, %1708, %1723, %1726, %1741, %1744, %1747, %1750, %1765, %1768, %1771, %1778, %1781, %1784, %1959, %1970, %1981, %2004, %2027, %2034, %2063, %2074, %2077, %2096, %2103, %2110, %2117, %2120, %2131, %2142, %2145, %2152, %2159, %2232, %2235, %2254, %2302, %2309, %2354, %2379, %2402, %2417, %2432, %2443, %2454, %2465, %2476, %2491, %2498, %2509, %2512, %2564, %2583, %2586, %2597, %2608, %2619, %2810, %2839, %2872, %2909, %2938, %2975, %3020, %3038, %3045, %3066, %3073, %3120, %3218, %3237, %3309, %3393, %3422, %3477, %3480, %3495, %3510, %3513, %3573, %3641, %3693, %3749, %3783, %3817, %3836, %3859, %3891, %3906, %3917, %3920, %3923, %3991, %4067, %4103, %4130, %4161, %4184, %4215, %4250, %4257, %4264, %4311, %4336, %4351, %4358, %4384, %4410, %4433, %4472, %4487, %4531, %4638, %4653, %4709, %4765, %4821, %5092, %5143, %5210, %5213, %5239, %5246, %5253, %5275, %5312, %5379, %5435, %5491, %5547, %5554, %5599, %5602
+  %.sink191.i.sink = phi i32 [ %5605, %5602 ], [ 4, %5599 ], [ %spec.store.select.i.i2862, %5554 ], [ 4, %5547 ], [ 8, %5491 ], [ 4, %5435 ], [ 2, %5379 ], [ 4, %5312 ], [ 4, %5275 ], [ 4, %5253 ], [ 8, %5246 ], [ 4, %5239 ], [ 4, %5213 ], [ 4, %5210 ], [ %spec.store.select.i.i2755, %5143 ], [ %spec.store.select.i.i2744, %5092 ], [ 4, %4821 ], [ 8, %4765 ], [ 4, %4709 ], [ 2, %4653 ], [ 4, %4638 ], [ %spec.store.select.i.i2584, %4531 ], [ 4, %4487 ], [ 4, %4472 ], [ 1, %4433 ], [ 4, %4410 ], [ 4, %4384 ], [ 4, %4358 ], [ 4, %4351 ], [ 4, %4336 ], [ 3, %4311 ], [ 3, %4264 ], [ 8, %4257 ], [ 4, %4250 ], [ 4, %4215 ], [ 4, %4184 ], [ 4, %4161 ], [ 4, %4130 ], [ 4, %4103 ], [ 4, %4067 ], [ %spec.store.select.i.i2513, %3991 ], [ %spec.store.select.i.i2512, %3923 ], [ 4, %3920 ], [ 4, %3917 ], [ 1, %3906 ], [ 1, %3891 ], [ %spec.store.select.i.i2511, %3859 ], [ 4, %3836 ], [ 4, %3817 ], [ 4, %3783 ], [ 4, %3749 ], [ %spec.store.select.i.i2494, %3693 ], [ %spec.store.select.i.i2493, %3641 ], [ %spec.store.select.i.i2492, %3573 ], [ %spec.store.select.i.i2491, %3513 ], [ 4, %3510 ], [ 4, %3495 ], [ 1, %3480 ], [ 4, %3477 ], [ 4, %3422 ], [ 4, %3393 ], [ %spec.store.select.i.i2463, %3309 ], [ %spec.store.select.i.i2462, %3237 ], [ 4, %3218 ], [ %spec.store.select.i.i2445, %3120 ], [ 4, %3073 ], [ 1, %3066 ], [ 4, %3045 ], [ 4, %3038 ], [ 1, %3020 ], [ %spec.store.select.i.i2419, %2975 ], [ %spec.store.select.i.i2418, %2938 ], [ %spec.store.select.i.i2417, %2909 ], [ %spec.store.select.i.i2416, %2872 ], [ %spec.store.select.i.i2415, %2839 ], [ %spec.store.select.i.i2414, %2810 ], [ 2, %2619 ], [ 4, %2608 ], [ 4, %2597 ], [ 8, %2586 ], [ 4, %2583 ], [ 4, %2564 ], [ %spec.store.select.i.i2345, %2512 ], [ 1, %2509 ], [ 4, %2498 ], [ 4, %2491 ], [ 4, %2476 ], [ 4, %2465 ], [ 8, %2454 ], [ 4, %2443 ], [ 8, %2432 ], [ 4, %2417 ], [ 8, %2402 ], [ 8, %2379 ], [ 4, %2354 ], [ 8, %2309 ], [ 8, %2302 ], [ %spec.store.select.i.i2324, %2254 ], [ 4, %2235 ], [ 4, %2232 ], [ 4, %2159 ], [ 4, %2152 ], [ 4, %2145 ], [ 4, %2142 ], [ 4, %2131 ], [ 4, %2120 ], [ 4, %2117 ], [ 4, %2110 ], [ 4, %2103 ], [ 4, %2096 ], [ 4, %2077 ], [ 4, %2074 ], [ 4, %2063 ], [ 4, %2034 ], [ 8, %2027 ], [ 4, %2004 ], [ 8, %1981 ], [ 4, %1970 ], [ 8, %1959 ], [ 4, %1784 ], [ 4, %1781 ], [ 4, %1778 ], [ 4, %1771 ], [ 4, %1768 ], [ 1, %1765 ], [ 1, %1750 ], [ 4, %1747 ], [ 8, %1744 ], [ 4, %1741 ], [ 4, %1726 ], [ 4, %1723 ], [ 4, %1708 ], [ 4, %1705 ], [ 4, %1702 ], [ 4, %1699 ], [ 4, %1696 ], [ 4, %1693 ], [ 4, %1659 ], [ 4, %1625 ], [ 8, %1591 ], [ 4, %1557 ], [ 4, %1523 ], [ %spec.store.select.i.i2217, %1459 ], [ %spec.store.select.i.i2216, %1399 ], [ 4, %1365 ], [ 4, %1331 ], [ 4, %1328 ], [ 4, %1313 ], [ %spec.store.select.i.i2199, %1281 ], [ 4, %1274 ], [ 4, %1271 ], [ 4, %1237 ], [ 4, %1203 ], [ 4, %1200 ], [ 2, %1193 ], [ 4, %1167 ], [ 4, %1141 ], [ 4, %1107 ], [ 4, %1073 ], [ 4, %1066 ], [ 4, %1063 ], [ 4, %1037 ], [ 4, %1011 ], [ 4, %1008 ], [ 4, %1001 ], [ 2, %715 ], [ 4, %708 ], [ 4, %701 ], [ 8, %694 ], [ 3, %431 ], [ 2, %424 ], [ 4, %417 ], [ 4, %410 ], [ 8, %403 ], [ 1, %400 ], [ 4, %375 ], [ 4, %328 ], [ 3, %303 ], [ 3, %256 ], [ %spec.store.select.i.i1847, %200 ], [ 4, %197 ], [ 4, %194 ], [ 4, %37 ], [ %192, %190 ], [ %188, %180 ], [ %166, %158 ], [ %156, %listOfCard16.exit164.i ], [ %103, %listOfCard16.exit.i ], [ %86, %listOfInt16.exit.i ], [ %69, %62 ], [ %60, %53 ]
+  %.ph = phi i32 [ %5603, %5602 ], [ %36, %5599 ], [ %36, %5554 ], [ %36, %5547 ], [ %36, %5491 ], [ %36, %5435 ], [ %36, %5379 ], [ %36, %5312 ], [ %36, %5275 ], [ %36, %5253 ], [ %36, %5246 ], [ %36, %5239 ], [ %36, %5213 ], [ %36, %5210 ], [ %36, %5143 ], [ %36, %5092 ], [ %36, %4821 ], [ %36, %4765 ], [ %36, %4709 ], [ %36, %4653 ], [ %36, %4638 ], [ %36, %4531 ], [ %36, %4487 ], [ %36, %4472 ], [ %36, %4433 ], [ %36, %4410 ], [ %36, %4384 ], [ %36, %4358 ], [ %36, %4351 ], [ %36, %4336 ], [ %36, %4311 ], [ %36, %4264 ], [ %36, %4257 ], [ %36, %4250 ], [ %36, %4215 ], [ %36, %4184 ], [ %36, %4161 ], [ %36, %4130 ], [ %36, %4103 ], [ %36, %4067 ], [ %36, %3991 ], [ %36, %3923 ], [ %36, %3920 ], [ %36, %3917 ], [ %36, %3906 ], [ %36, %3891 ], [ %36, %3859 ], [ %36, %3836 ], [ %36, %3817 ], [ %36, %3783 ], [ %36, %3749 ], [ %36, %3693 ], [ %36, %3641 ], [ %36, %3573 ], [ %36, %3513 ], [ %36, %3510 ], [ %36, %3495 ], [ %36, %3480 ], [ %36, %3477 ], [ %36, %3422 ], [ %36, %3393 ], [ %36, %3309 ], [ %36, %3237 ], [ %36, %3218 ], [ %36, %3120 ], [ %36, %3073 ], [ %36, %3066 ], [ %36, %3045 ], [ %36, %3038 ], [ %36, %3020 ], [ %36, %2975 ], [ %36, %2938 ], [ %36, %2909 ], [ %36, %2872 ], [ %36, %2839 ], [ %36, %2810 ], [ %36, %2619 ], [ %36, %2608 ], [ %36, %2597 ], [ %36, %2586 ], [ %36, %2583 ], [ %36, %2564 ], [ %36, %2512 ], [ %36, %2509 ], [ %36, %2498 ], [ %36, %2491 ], [ %36, %2476 ], [ %36, %2465 ], [ %36, %2454 ], [ %36, %2443 ], [ %36, %2432 ], [ %36, %2417 ], [ %36, %2402 ], [ %36, %2379 ], [ %36, %2354 ], [ %36, %2309 ], [ %36, %2302 ], [ %36, %2254 ], [ %36, %2235 ], [ %36, %2232 ], [ %36, %2159 ], [ %36, %2152 ], [ %36, %2145 ], [ %36, %2142 ], [ %36, %2131 ], [ %36, %2120 ], [ %36, %2117 ], [ %36, %2110 ], [ %36, %2103 ], [ %36, %2096 ], [ %36, %2077 ], [ %36, %2074 ], [ %36, %2063 ], [ %36, %2034 ], [ %36, %2027 ], [ %36, %2004 ], [ %36, %1981 ], [ %36, %1970 ], [ %36, %1959 ], [ %36, %1784 ], [ %36, %1781 ], [ %36, %1778 ], [ %36, %1771 ], [ %36, %1768 ], [ %36, %1765 ], [ %36, %1750 ], [ %36, %1747 ], [ %36, %1744 ], [ %36, %1741 ], [ %36, %1726 ], [ %36, %1723 ], [ %36, %1708 ], [ %36, %1705 ], [ %36, %1702 ], [ %36, %1699 ], [ %36, %1696 ], [ %36, %1693 ], [ %36, %1659 ], [ %36, %1625 ], [ %36, %1591 ], [ %36, %1557 ], [ %36, %1523 ], [ %36, %1459 ], [ %36, %1399 ], [ %36, %1365 ], [ %36, %1331 ], [ %36, %1328 ], [ %36, %1313 ], [ %36, %1281 ], [ %36, %1274 ], [ %36, %1271 ], [ %36, %1237 ], [ %36, %1203 ], [ %36, %1200 ], [ %36, %1193 ], [ %36, %1167 ], [ %36, %1141 ], [ %36, %1107 ], [ %36, %1073 ], [ %36, %1066 ], [ %36, %1063 ], [ %36, %1037 ], [ %36, %1011 ], [ %36, %1008 ], [ %36, %1001 ], [ %36, %715 ], [ %36, %708 ], [ %36, %701 ], [ %36, %694 ], [ %36, %431 ], [ %36, %424 ], [ %36, %417 ], [ %36, %410 ], [ %36, %403 ], [ %36, %400 ], [ %36, %375 ], [ %36, %328 ], [ %36, %303 ], [ %36, %256 ], [ %36, %200 ], [ %36, %197 ], [ %36, %194 ], [ %36, %37 ], [ %36, %190 ], [ %36, %180 ], [ %36, %158 ], [ %36, %listOfCard16.exit164.i ], [ %36, %listOfCard16.exit.i ], [ %36, %listOfInt16.exit.i ], [ %36, %62 ], [ %36, %53 ]
+  %.018432879.ph = phi i32 [ %.018432880, %5602 ], [ %10, %5599 ], [ %10, %5554 ], [ %10, %5547 ], [ %10, %5491 ], [ %10, %5435 ], [ %10, %5379 ], [ %10, %5312 ], [ %10, %5275 ], [ %10, %5253 ], [ %10, %5246 ], [ %10, %5239 ], [ %10, %5213 ], [ %10, %5210 ], [ %10, %5143 ], [ %10, %5092 ], [ %10, %4821 ], [ %10, %4765 ], [ %10, %4709 ], [ %10, %4653 ], [ %10, %4638 ], [ %10, %4531 ], [ %10, %4487 ], [ %10, %4472 ], [ %10, %4433 ], [ %10, %4410 ], [ %10, %4384 ], [ %10, %4358 ], [ %10, %4351 ], [ %10, %4336 ], [ %10, %4311 ], [ %10, %4264 ], [ %10, %4257 ], [ %10, %4250 ], [ %10, %4215 ], [ %10, %4184 ], [ %10, %4161 ], [ %10, %4130 ], [ %10, %4103 ], [ %10, %4067 ], [ %10, %3991 ], [ %10, %3923 ], [ %10, %3920 ], [ %10, %3917 ], [ %10, %3906 ], [ %10, %3891 ], [ %10, %3859 ], [ %10, %3836 ], [ %10, %3817 ], [ %10, %3783 ], [ %10, %3749 ], [ %10, %3693 ], [ %10, %3641 ], [ %10, %3573 ], [ %10, %3513 ], [ %10, %3510 ], [ %10, %3495 ], [ %10, %3480 ], [ %10, %3477 ], [ %10, %3422 ], [ %10, %3393 ], [ %10, %3309 ], [ %10, %3237 ], [ %10, %3218 ], [ %10, %3120 ], [ %10, %3073 ], [ %10, %3066 ], [ %10, %3045 ], [ %10, %3038 ], [ %10, %3020 ], [ %10, %2975 ], [ %10, %2938 ], [ %10, %2909 ], [ %10, %2872 ], [ %10, %2839 ], [ %10, %2810 ], [ %10, %2619 ], [ %10, %2608 ], [ %10, %2597 ], [ %10, %2586 ], [ %10, %2583 ], [ %10, %2564 ], [ %10, %2512 ], [ %10, %2509 ], [ %10, %2498 ], [ %10, %2491 ], [ %10, %2476 ], [ %10, %2465 ], [ %10, %2454 ], [ %10, %2443 ], [ %10, %2432 ], [ %10, %2417 ], [ %10, %2402 ], [ %10, %2379 ], [ %10, %2354 ], [ %10, %2309 ], [ %10, %2302 ], [ %10, %2254 ], [ %10, %2235 ], [ %10, %2232 ], [ %10, %2159 ], [ %10, %2152 ], [ %10, %2145 ], [ %10, %2142 ], [ %10, %2131 ], [ %10, %2120 ], [ %10, %2117 ], [ %10, %2110 ], [ %10, %2103 ], [ %10, %2096 ], [ %10, %2077 ], [ %10, %2074 ], [ %10, %2063 ], [ %10, %2034 ], [ %10, %2027 ], [ %10, %2004 ], [ %10, %1981 ], [ %10, %1970 ], [ %10, %1959 ], [ %10, %1784 ], [ %10, %1781 ], [ %10, %1778 ], [ %10, %1771 ], [ %10, %1768 ], [ %10, %1765 ], [ %10, %1750 ], [ %10, %1747 ], [ %10, %1744 ], [ %10, %1741 ], [ %10, %1726 ], [ %10, %1723 ], [ %10, %1708 ], [ %10, %1705 ], [ %10, %1702 ], [ %10, %1699 ], [ %10, %1696 ], [ %10, %1693 ], [ %10, %1659 ], [ %10, %1625 ], [ %10, %1591 ], [ %10, %1557 ], [ %10, %1523 ], [ %10, %1459 ], [ %10, %1399 ], [ %10, %1365 ], [ %10, %1331 ], [ %10, %1328 ], [ %10, %1313 ], [ %10, %1281 ], [ %10, %1274 ], [ %10, %1271 ], [ %10, %1237 ], [ %10, %1203 ], [ %10, %1200 ], [ %10, %1193 ], [ %10, %1167 ], [ %10, %1141 ], [ %10, %1107 ], [ %10, %1073 ], [ %10, %1066 ], [ %10, %1063 ], [ %10, %1037 ], [ %10, %1011 ], [ %10, %1008 ], [ %10, %1001 ], [ %10, %715 ], [ %10, %708 ], [ %10, %701 ], [ %10, %694 ], [ %10, %431 ], [ %10, %424 ], [ %10, %417 ], [ %10, %410 ], [ %10, %403 ], [ %10, %400 ], [ %10, %375 ], [ %10, %328 ], [ %10, %303 ], [ %10, %256 ], [ %10, %200 ], [ %10, %197 ], [ %10, %194 ], [ %10, %37 ], [ %10, %190 ], [ %10, %180 ], [ %10, %158 ], [ %10, %listOfCard16.exit164.i ], [ %10, %listOfCard16.exit.i ], [ %10, %listOfInt16.exit.i ], [ %10, %62 ], [ %10, %53 ]
+  %5608 = load i32, ptr %2, align 4
+  %5609 = add i32 %5608, %.sink191.i.sink
+  store i32 %5609, ptr %2, align 4
   br label %mesa_CallLists.exit
 
-mesa_CallLists.exit:                              ; preds = %.lr.ph.i.i2873, %.lr.ph.i.i2866, %.lr.ph.i.i2858, %.lr.ph.i.i2853, %.lr.ph.i.i2848, %.lr.ph.i.i2841, %.lr.ph.i.i2836, %.lr.ph.i.i2831, %.lr.ph.i.i2824, %.lr.ph.i.i2819, %.lr.ph.i.i2814, %.lr.ph.i.i2807, %.lr.ph.i.i2802, %.lr.ph.i.i2797, %.lr.ph.i.i2792, %.lr.ph.i.i2787, %.lr.ph.i.i2782, %.lr.ph.i.i2777, %.lr.ph.i.i2772, %.lr.ph.i.i2764, %.lr.ph.i.i2758, %.lr.ph.i.i2751, %.lr.ph.i.i2746, %.lr.ph.i.i2740, %.lr.ph.i.i2733, %.lr.ph.i.i2726, %.lr.ph.i.i2719, %.lr.ph.i.i2712, %.lr.ph.i.i2705, %.lr.ph.i.i2698, %.lr.ph.i.i2691, %.lr.ph.i.i2684, %.lr.ph.i.i2677, %.lr.ph.i.i2670, %.lr.ph.i.i2663, %.lr.ph.i.i2656, %.lr.ph.i.i2651, %.lr.ph.i.i2646, %.lr.ph.i.i2639, %.lr.ph.i.i2634, %.lr.ph.i.i2629, %.lr.ph.i.i2622, %.lr.ph.i.i2617, %.lr.ph.i.i2612, %.lr.ph.i.i2605, %.lr.ph.i.i2598, %.lr.ph.i.i2591, %.lr.ph.i.i2586, %.lr.ph.i.i2580, %.lr.ph.i.i2573, %.lr.ph.i.i2568, %.lr.ph.i.i2560, %.lr.ph.i.i2550, %.lr.ph.i.i2545, %.lr.ph.i.i2540, %.lr.ph.i.i2535, %.lr.ph.i.i2530, %.lr.ph.i.i2525, %.lr.ph.i20.i, %.lr.ph.i.i2507, %.lr.ph.i.i2499, %.lr.ph.i.i2487, %.lr.ph.i.i2482, %.lr.ph.i.i2475, %.lr.ph.i.i2467, %.lr.ph.i.i2458, %.lr.ph.i.i2450, %.lr.ph.i.i2441, %.lr.ph.i.i2434, %.lr.ph.i.i2428, %.lr.ph.i.i2421, %.lr.ph.i.i2410, %.lr.ph.i.i2405, %.lr.ph.i.i2400, %.lr.ph.i.i2395, %.lr.ph.i.i2390, %.lr.ph.i.i2385, %.lr.ph.i.i2380, %.lr.ph.i.i2375, %.lr.ph.i.i2370, %.lr.ph.i.i2365, %.lr.ph.i.i2360, %.lr.ph.i.i2355, %.lr.ph.i.i2341, %.lr.ph.i.i2336, %.lr.ph.i.i2331, %.lr.ph.i.i2326, %.lr.ph.i.i2320, %.lr.ph.i.i2314, %.lr.ph.i.i2307, %.lr.ph.i.i2300, %.lr.ph.i.i2295, %.lr.ph.i.i2286, %.lr.ph.i.i2278, %.lr.ph.i.i2270, %.lr.ph.i.i2262, %.lr.ph.i.i2254, %.lr.ph.i.i2246, %.lr.ph.i.i2238, %.lr.ph.i.i2230, %.lr.ph.i.i2222, %.lr.ph.i.i2212, %.lr.ph.i.i2204, %.lr.ph.i.i2195, %.lr.ph.i.i2187, %.lr.ph.i.i2179, %.lr.ph.i.i2171, %.lr.ph.i.i2163, %.lr.ph.i.i2155, %.lr.ph.i.i2147, %.lr.ph.i.i2139, %.lr.ph.i.i2133, %.lr.ph.i.i2128, %.lr.ph.i.i2123, %.lr.ph.i.i2118, %.lr.ph.i.i2113, %.lr.ph.i.i2108, %.lr.ph.i.i2103, %.lr.ph.i.i2098, %.lr.ph.i.i2093, %.lr.ph.i.i2088, %.lr.ph.i.i2083, %.lr.ph.i.i2078, %.lr.ph.i.i2073, %.lr.ph.i.i2068, %.lr.ph.i.i2063, %.lr.ph.i.i2058, %.lr.ph.i.i2053, %.lr.ph.i.i2048, %.lr.ph.i.i2043, %.lr.ph.i.i2038, %.lr.ph.i.i2033, %.lr.ph.i.i2028, %.lr.ph.i.i2023, %.lr.ph.i.i2018, %.lr.ph.i.i2013, %.lr.ph.i8.i2001, %.lr.ph.i8.i1992, %.lr.ph.i8.i1984, %.lr.ph.i8.i, %.lr.ph.i.i1971, %.lr.ph.i.i1967, %.lr.ph.i.i1963, %.lr.ph.i.i1959, %.lr.ph.i.i1954, %.lr.ph.i.i1950, %.lr.ph.i.i1946, %.lr.ph.i.i1942, %.lr.ph.i.i1937, %.lr.ph.i.i1933, %.lr.ph.i.i1929, %.lr.ph.i.i1925, %.lr.ph.i.i1920, %.lr.ph.i.i1916, %.lr.ph.i.i1912, %.lr.ph.i.i1908, %.lr.ph.i.i1895, %.lr.ph.i.i1891, %.lr.ph.i.i1886, %.lr.ph.i.i1882, %.lr.ph.i.i1878, %.lr.ph.i.i1874, %.lr.ph.i.i1869, %.lr.ph.i.i1865, %.lr.ph.i.i1860, %.lr.ph.i.i1856, %.lr.ph.i.i1852, %.lr.ph.i.i1848, %.lr.ph.i168.i, %.lr.ph.i155.i, %.lr.ph.i149.i, %.lr.ph.i143.i, %mesa_CallLists.exit.sink.split, %5554, %5536, %5194, %5044, %5022, %5000, %4978, %4956, %4934, %4912, %4890, %4868, %4846, %4824, %4802, %4586, %4560, %4487, %4366, %4341, %listOfCard32.exit.i, %3771, %3738, %3426, %3408, %3375, %3175, %3153, %3079, %3057, %34, %3029, %34, %34, %34, %2191, %2169, %2147, %1890, %1840, %1806, %1772, %34, %34, %34, %1656, %1623, %1590, %1557, %1524, %1367, %1334, %1241, %1208, %1169, %1144, %1115, %1082, %1043, %1018, %34, %168, %129, %117, %105
-  %5583 = phi i32 [ %36, %105 ], [ %36, %117 ], [ %36, %129 ], [ %36, %168 ], [ %36, %34 ], [ %36, %1018 ], [ %36, %1043 ], [ %36, %1082 ], [ %36, %1115 ], [ %36, %1144 ], [ %36, %1169 ], [ %36, %1208 ], [ %36, %1241 ], [ %36, %1334 ], [ %36, %1367 ], [ %36, %1524 ], [ %36, %1557 ], [ %36, %1590 ], [ %36, %1623 ], [ %36, %1656 ], [ %36, %34 ], [ %36, %34 ], [ %36, %34 ], [ %36, %1772 ], [ %36, %1806 ], [ %36, %1840 ], [ %36, %1890 ], [ %36, %2147 ], [ %36, %2169 ], [ %36, %2191 ], [ %36, %34 ], [ %36, %34 ], [ %36, %34 ], [ %36, %3029 ], [ %36, %34 ], [ %36, %3057 ], [ %36, %3079 ], [ %36, %3153 ], [ %36, %3175 ], [ %36, %3375 ], [ %36, %3408 ], [ %36, %3426 ], [ %36, %3738 ], [ %36, %3771 ], [ %36, %listOfCard32.exit.i ], [ %36, %4341 ], [ %36, %4366 ], [ %36, %4487 ], [ %36, %4560 ], [ %36, %4586 ], [ %36, %4802 ], [ %36, %4824 ], [ %36, %4846 ], [ %36, %4868 ], [ %36, %4890 ], [ %36, %4912 ], [ %36, %4934 ], [ %36, %4956 ], [ %36, %4978 ], [ %36, %5000 ], [ %36, %5022 ], [ %36, %5044 ], [ %36, %5194 ], [ %36, %5536 ], [ %36, %5554 ], [ %.ph, %mesa_CallLists.exit.sink.split ], [ %36, %.lr.ph.i143.i ], [ %36, %.lr.ph.i149.i ], [ %36, %.lr.ph.i155.i ], [ %36, %.lr.ph.i168.i ], [ %36, %.lr.ph.i.i1848 ], [ %36, %.lr.ph.i.i1852 ], [ %36, %.lr.ph.i.i1856 ], [ %36, %.lr.ph.i.i1860 ], [ %36, %.lr.ph.i.i1865 ], [ %36, %.lr.ph.i.i1869 ], [ %36, %.lr.ph.i.i1874 ], [ %36, %.lr.ph.i.i1878 ], [ %36, %.lr.ph.i.i1882 ], [ %36, %.lr.ph.i.i1886 ], [ %36, %.lr.ph.i.i1891 ], [ %36, %.lr.ph.i.i1895 ], [ %36, %.lr.ph.i.i1908 ], [ %36, %.lr.ph.i.i1912 ], [ %36, %.lr.ph.i.i1916 ], [ %36, %.lr.ph.i.i1920 ], [ %36, %.lr.ph.i.i1925 ], [ %36, %.lr.ph.i.i1929 ], [ %36, %.lr.ph.i.i1933 ], [ %36, %.lr.ph.i.i1937 ], [ %36, %.lr.ph.i.i1942 ], [ %36, %.lr.ph.i.i1946 ], [ %36, %.lr.ph.i.i1950 ], [ %36, %.lr.ph.i.i1954 ], [ %36, %.lr.ph.i.i1959 ], [ %36, %.lr.ph.i.i1963 ], [ %36, %.lr.ph.i.i1967 ], [ %36, %.lr.ph.i.i1971 ], [ %36, %.lr.ph.i8.i ], [ %36, %.lr.ph.i8.i1984 ], [ %36, %.lr.ph.i8.i1992 ], [ %36, %.lr.ph.i8.i2001 ], [ %36, %.lr.ph.i.i2013 ], [ %36, %.lr.ph.i.i2018 ], [ %36, %.lr.ph.i.i2023 ], [ %36, %.lr.ph.i.i2028 ], [ %36, %.lr.ph.i.i2033 ], [ %36, %.lr.ph.i.i2038 ], [ %36, %.lr.ph.i.i2043 ], [ %36, %.lr.ph.i.i2048 ], [ %36, %.lr.ph.i.i2053 ], [ %36, %.lr.ph.i.i2058 ], [ %36, %.lr.ph.i.i2063 ], [ %36, %.lr.ph.i.i2068 ], [ %36, %.lr.ph.i.i2073 ], [ %36, %.lr.ph.i.i2078 ], [ %36, %.lr.ph.i.i2083 ], [ %36, %.lr.ph.i.i2088 ], [ %36, %.lr.ph.i.i2093 ], [ %36, %.lr.ph.i.i2098 ], [ %36, %.lr.ph.i.i2103 ], [ %36, %.lr.ph.i.i2108 ], [ %36, %.lr.ph.i.i2113 ], [ %36, %.lr.ph.i.i2118 ], [ %36, %.lr.ph.i.i2123 ], [ %36, %.lr.ph.i.i2128 ], [ %36, %.lr.ph.i.i2133 ], [ %36, %.lr.ph.i.i2139 ], [ %36, %.lr.ph.i.i2147 ], [ %36, %.lr.ph.i.i2155 ], [ %36, %.lr.ph.i.i2163 ], [ %36, %.lr.ph.i.i2171 ], [ %36, %.lr.ph.i.i2179 ], [ %36, %.lr.ph.i.i2187 ], [ %36, %.lr.ph.i.i2195 ], [ %36, %.lr.ph.i.i2204 ], [ %36, %.lr.ph.i.i2212 ], [ %36, %.lr.ph.i.i2222 ], [ %36, %.lr.ph.i.i2230 ], [ %36, %.lr.ph.i.i2238 ], [ %36, %.lr.ph.i.i2246 ], [ %36, %.lr.ph.i.i2254 ], [ %36, %.lr.ph.i.i2262 ], [ %36, %.lr.ph.i.i2270 ], [ %36, %.lr.ph.i.i2278 ], [ %36, %.lr.ph.i.i2286 ], [ %36, %.lr.ph.i.i2295 ], [ %36, %.lr.ph.i.i2300 ], [ %36, %.lr.ph.i.i2307 ], [ %36, %.lr.ph.i.i2314 ], [ %36, %.lr.ph.i.i2320 ], [ %36, %.lr.ph.i.i2326 ], [ %36, %.lr.ph.i.i2331 ], [ %36, %.lr.ph.i.i2336 ], [ %36, %.lr.ph.i.i2341 ], [ %36, %.lr.ph.i.i2355 ], [ %36, %.lr.ph.i.i2360 ], [ %36, %.lr.ph.i.i2365 ], [ %36, %.lr.ph.i.i2370 ], [ %36, %.lr.ph.i.i2375 ], [ %36, %.lr.ph.i.i2380 ], [ %36, %.lr.ph.i.i2385 ], [ %36, %.lr.ph.i.i2390 ], [ %36, %.lr.ph.i.i2395 ], [ %36, %.lr.ph.i.i2400 ], [ %36, %.lr.ph.i.i2405 ], [ %36, %.lr.ph.i.i2410 ], [ %36, %.lr.ph.i.i2421 ], [ %36, %.lr.ph.i.i2428 ], [ %36, %.lr.ph.i.i2434 ], [ %36, %.lr.ph.i.i2441 ], [ %36, %.lr.ph.i.i2450 ], [ %36, %.lr.ph.i.i2458 ], [ %36, %.lr.ph.i.i2467 ], [ %36, %.lr.ph.i.i2475 ], [ %36, %.lr.ph.i.i2482 ], [ %36, %.lr.ph.i.i2487 ], [ %36, %.lr.ph.i.i2499 ], [ %36, %.lr.ph.i.i2507 ], [ %36, %.lr.ph.i20.i ], [ %36, %.lr.ph.i.i2525 ], [ %36, %.lr.ph.i.i2530 ], [ %36, %.lr.ph.i.i2535 ], [ %36, %.lr.ph.i.i2540 ], [ %36, %.lr.ph.i.i2545 ], [ %36, %.lr.ph.i.i2550 ], [ %36, %.lr.ph.i.i2560 ], [ %36, %.lr.ph.i.i2568 ], [ %36, %.lr.ph.i.i2573 ], [ %36, %.lr.ph.i.i2580 ], [ %36, %.lr.ph.i.i2586 ], [ %36, %.lr.ph.i.i2591 ], [ %36, %.lr.ph.i.i2598 ], [ %36, %.lr.ph.i.i2605 ], [ %36, %.lr.ph.i.i2612 ], [ %36, %.lr.ph.i.i2617 ], [ %36, %.lr.ph.i.i2622 ], [ %36, %.lr.ph.i.i2629 ], [ %36, %.lr.ph.i.i2634 ], [ %36, %.lr.ph.i.i2639 ], [ %36, %.lr.ph.i.i2646 ], [ %36, %.lr.ph.i.i2651 ], [ %36, %.lr.ph.i.i2656 ], [ %36, %.lr.ph.i.i2663 ], [ %36, %.lr.ph.i.i2670 ], [ %36, %.lr.ph.i.i2677 ], [ %36, %.lr.ph.i.i2684 ], [ %36, %.lr.ph.i.i2691 ], [ %36, %.lr.ph.i.i2698 ], [ %36, %.lr.ph.i.i2705 ], [ %36, %.lr.ph.i.i2712 ], [ %36, %.lr.ph.i.i2719 ], [ %36, %.lr.ph.i.i2726 ], [ %36, %.lr.ph.i.i2733 ], [ %36, %.lr.ph.i.i2740 ], [ %36, %.lr.ph.i.i2746 ], [ %36, %.lr.ph.i.i2751 ], [ %36, %.lr.ph.i.i2758 ], [ %36, %.lr.ph.i.i2764 ], [ %36, %.lr.ph.i.i2772 ], [ %36, %.lr.ph.i.i2777 ], [ %36, %.lr.ph.i.i2782 ], [ %36, %.lr.ph.i.i2787 ], [ %36, %.lr.ph.i.i2792 ], [ %36, %.lr.ph.i.i2797 ], [ %36, %.lr.ph.i.i2802 ], [ %36, %.lr.ph.i.i2807 ], [ %36, %.lr.ph.i.i2814 ], [ %36, %.lr.ph.i.i2819 ], [ %36, %.lr.ph.i.i2824 ], [ %36, %.lr.ph.i.i2831 ], [ %36, %.lr.ph.i.i2836 ], [ %36, %.lr.ph.i.i2841 ], [ %36, %.lr.ph.i.i2848 ], [ %36, %.lr.ph.i.i2853 ], [ %36, %.lr.ph.i.i2858 ], [ %36, %.lr.ph.i.i2866 ], [ %36, %.lr.ph.i.i2873 ]
-  %.018432879 = phi i32 [ %10, %105 ], [ %10, %117 ], [ %10, %129 ], [ %10, %168 ], [ %10, %34 ], [ %10, %1018 ], [ %10, %1043 ], [ %10, %1082 ], [ %10, %1115 ], [ %10, %1144 ], [ %10, %1169 ], [ %10, %1208 ], [ %10, %1241 ], [ %10, %1334 ], [ %10, %1367 ], [ %10, %1524 ], [ %10, %1557 ], [ %10, %1590 ], [ %10, %1623 ], [ %10, %1656 ], [ %10, %34 ], [ %10, %34 ], [ %10, %34 ], [ %10, %1772 ], [ %10, %1806 ], [ %10, %1840 ], [ %10, %1890 ], [ %10, %2147 ], [ %10, %2169 ], [ %10, %2191 ], [ %10, %34 ], [ %10, %34 ], [ %10, %34 ], [ %10, %3029 ], [ %10, %34 ], [ %10, %3057 ], [ %10, %3079 ], [ %10, %3153 ], [ %10, %3175 ], [ %10, %3375 ], [ %10, %3408 ], [ %10, %3426 ], [ %10, %3738 ], [ %10, %3771 ], [ %10, %listOfCard32.exit.i ], [ %10, %4341 ], [ %10, %4366 ], [ %10, %4487 ], [ %10, %4560 ], [ %10, %4586 ], [ %10, %4802 ], [ %10, %4824 ], [ %10, %4846 ], [ %10, %4868 ], [ %10, %4890 ], [ %10, %4912 ], [ %10, %4934 ], [ %10, %4956 ], [ %10, %4978 ], [ %10, %5000 ], [ %10, %5022 ], [ %10, %5044 ], [ %10, %5194 ], [ %10, %5536 ], [ %10, %5554 ], [ %.018432879.ph, %mesa_CallLists.exit.sink.split ], [ %10, %.lr.ph.i143.i ], [ %10, %.lr.ph.i149.i ], [ %10, %.lr.ph.i155.i ], [ %10, %.lr.ph.i168.i ], [ %10, %.lr.ph.i.i1848 ], [ %10, %.lr.ph.i.i1852 ], [ %10, %.lr.ph.i.i1856 ], [ %10, %.lr.ph.i.i1860 ], [ %10, %.lr.ph.i.i1865 ], [ %10, %.lr.ph.i.i1869 ], [ %10, %.lr.ph.i.i1874 ], [ %10, %.lr.ph.i.i1878 ], [ %10, %.lr.ph.i.i1882 ], [ %10, %.lr.ph.i.i1886 ], [ %10, %.lr.ph.i.i1891 ], [ %10, %.lr.ph.i.i1895 ], [ %10, %.lr.ph.i.i1908 ], [ %10, %.lr.ph.i.i1912 ], [ %10, %.lr.ph.i.i1916 ], [ %10, %.lr.ph.i.i1920 ], [ %10, %.lr.ph.i.i1925 ], [ %10, %.lr.ph.i.i1929 ], [ %10, %.lr.ph.i.i1933 ], [ %10, %.lr.ph.i.i1937 ], [ %10, %.lr.ph.i.i1942 ], [ %10, %.lr.ph.i.i1946 ], [ %10, %.lr.ph.i.i1950 ], [ %10, %.lr.ph.i.i1954 ], [ %10, %.lr.ph.i.i1959 ], [ %10, %.lr.ph.i.i1963 ], [ %10, %.lr.ph.i.i1967 ], [ %10, %.lr.ph.i.i1971 ], [ %10, %.lr.ph.i8.i ], [ %10, %.lr.ph.i8.i1984 ], [ %10, %.lr.ph.i8.i1992 ], [ %10, %.lr.ph.i8.i2001 ], [ %10, %.lr.ph.i.i2013 ], [ %10, %.lr.ph.i.i2018 ], [ %10, %.lr.ph.i.i2023 ], [ %10, %.lr.ph.i.i2028 ], [ %10, %.lr.ph.i.i2033 ], [ %10, %.lr.ph.i.i2038 ], [ %10, %.lr.ph.i.i2043 ], [ %10, %.lr.ph.i.i2048 ], [ %10, %.lr.ph.i.i2053 ], [ %10, %.lr.ph.i.i2058 ], [ %10, %.lr.ph.i.i2063 ], [ %10, %.lr.ph.i.i2068 ], [ %10, %.lr.ph.i.i2073 ], [ %10, %.lr.ph.i.i2078 ], [ %10, %.lr.ph.i.i2083 ], [ %10, %.lr.ph.i.i2088 ], [ %10, %.lr.ph.i.i2093 ], [ %10, %.lr.ph.i.i2098 ], [ %10, %.lr.ph.i.i2103 ], [ %10, %.lr.ph.i.i2108 ], [ %10, %.lr.ph.i.i2113 ], [ %10, %.lr.ph.i.i2118 ], [ %10, %.lr.ph.i.i2123 ], [ %10, %.lr.ph.i.i2128 ], [ %10, %.lr.ph.i.i2133 ], [ %10, %.lr.ph.i.i2139 ], [ %10, %.lr.ph.i.i2147 ], [ %10, %.lr.ph.i.i2155 ], [ %10, %.lr.ph.i.i2163 ], [ %10, %.lr.ph.i.i2171 ], [ %10, %.lr.ph.i.i2179 ], [ %10, %.lr.ph.i.i2187 ], [ %10, %.lr.ph.i.i2195 ], [ %10, %.lr.ph.i.i2204 ], [ %10, %.lr.ph.i.i2212 ], [ %10, %.lr.ph.i.i2222 ], [ %10, %.lr.ph.i.i2230 ], [ %10, %.lr.ph.i.i2238 ], [ %10, %.lr.ph.i.i2246 ], [ %10, %.lr.ph.i.i2254 ], [ %10, %.lr.ph.i.i2262 ], [ %10, %.lr.ph.i.i2270 ], [ %10, %.lr.ph.i.i2278 ], [ %10, %.lr.ph.i.i2286 ], [ %10, %.lr.ph.i.i2295 ], [ %10, %.lr.ph.i.i2300 ], [ %10, %.lr.ph.i.i2307 ], [ %10, %.lr.ph.i.i2314 ], [ %10, %.lr.ph.i.i2320 ], [ %10, %.lr.ph.i.i2326 ], [ %10, %.lr.ph.i.i2331 ], [ %10, %.lr.ph.i.i2336 ], [ %10, %.lr.ph.i.i2341 ], [ %10, %.lr.ph.i.i2355 ], [ %10, %.lr.ph.i.i2360 ], [ %10, %.lr.ph.i.i2365 ], [ %10, %.lr.ph.i.i2370 ], [ %10, %.lr.ph.i.i2375 ], [ %10, %.lr.ph.i.i2380 ], [ %10, %.lr.ph.i.i2385 ], [ %10, %.lr.ph.i.i2390 ], [ %10, %.lr.ph.i.i2395 ], [ %10, %.lr.ph.i.i2400 ], [ %10, %.lr.ph.i.i2405 ], [ %10, %.lr.ph.i.i2410 ], [ %10, %.lr.ph.i.i2421 ], [ %10, %.lr.ph.i.i2428 ], [ %10, %.lr.ph.i.i2434 ], [ %10, %.lr.ph.i.i2441 ], [ %10, %.lr.ph.i.i2450 ], [ %10, %.lr.ph.i.i2458 ], [ %10, %.lr.ph.i.i2467 ], [ %10, %.lr.ph.i.i2475 ], [ %10, %.lr.ph.i.i2482 ], [ %10, %.lr.ph.i.i2487 ], [ %10, %.lr.ph.i.i2499 ], [ %10, %.lr.ph.i.i2507 ], [ %10, %.lr.ph.i20.i ], [ %10, %.lr.ph.i.i2525 ], [ %10, %.lr.ph.i.i2530 ], [ %10, %.lr.ph.i.i2535 ], [ %10, %.lr.ph.i.i2540 ], [ %10, %.lr.ph.i.i2545 ], [ %10, %.lr.ph.i.i2550 ], [ %10, %.lr.ph.i.i2560 ], [ %10, %.lr.ph.i.i2568 ], [ %10, %.lr.ph.i.i2573 ], [ %10, %.lr.ph.i.i2580 ], [ %10, %.lr.ph.i.i2586 ], [ %10, %.lr.ph.i.i2591 ], [ %10, %.lr.ph.i.i2598 ], [ %10, %.lr.ph.i.i2605 ], [ %10, %.lr.ph.i.i2612 ], [ %10, %.lr.ph.i.i2617 ], [ %10, %.lr.ph.i.i2622 ], [ %10, %.lr.ph.i.i2629 ], [ %10, %.lr.ph.i.i2634 ], [ %10, %.lr.ph.i.i2639 ], [ %10, %.lr.ph.i.i2646 ], [ %10, %.lr.ph.i.i2651 ], [ %10, %.lr.ph.i.i2656 ], [ %10, %.lr.ph.i.i2663 ], [ %10, %.lr.ph.i.i2670 ], [ %10, %.lr.ph.i.i2677 ], [ %10, %.lr.ph.i.i2684 ], [ %10, %.lr.ph.i.i2691 ], [ %10, %.lr.ph.i.i2698 ], [ %10, %.lr.ph.i.i2705 ], [ %10, %.lr.ph.i.i2712 ], [ %10, %.lr.ph.i.i2719 ], [ %10, %.lr.ph.i.i2726 ], [ %10, %.lr.ph.i.i2733 ], [ %10, %.lr.ph.i.i2740 ], [ %10, %.lr.ph.i.i2746 ], [ %10, %.lr.ph.i.i2751 ], [ %10, %.lr.ph.i.i2758 ], [ %10, %.lr.ph.i.i2764 ], [ %10, %.lr.ph.i.i2772 ], [ %10, %.lr.ph.i.i2777 ], [ %10, %.lr.ph.i.i2782 ], [ %10, %.lr.ph.i.i2787 ], [ %10, %.lr.ph.i.i2792 ], [ %10, %.lr.ph.i.i2797 ], [ %10, %.lr.ph.i.i2802 ], [ %10, %.lr.ph.i.i2807 ], [ %10, %.lr.ph.i.i2814 ], [ %10, %.lr.ph.i.i2819 ], [ %10, %.lr.ph.i.i2824 ], [ %10, %.lr.ph.i.i2831 ], [ %10, %.lr.ph.i.i2836 ], [ %10, %.lr.ph.i.i2841 ], [ %10, %.lr.ph.i.i2848 ], [ %10, %.lr.ph.i.i2853 ], [ %10, %.lr.ph.i.i2858 ], [ %10, %.lr.ph.i.i2866 ], [ %10, %.lr.ph.i.i2873 ]
-  %5584 = load i32, ptr %2, align 4
-  %5585 = icmp slt i32 %5584, %5583
-  br i1 %5585, label %5586, label %5590
+mesa_CallLists.exit:                              ; preds = %.lr.ph.i.i2873, %.lr.ph.i.i2866, %.lr.ph.i.i2858, %.lr.ph.i.i2853, %.lr.ph.i.i2848, %.lr.ph.i.i2841, %.lr.ph.i.i2836, %.lr.ph.i.i2831, %.lr.ph.i.i2824, %.lr.ph.i.i2819, %.lr.ph.i.i2814, %.lr.ph.i.i2807, %.lr.ph.i.i2802, %.lr.ph.i.i2797, %.lr.ph.i.i2792, %.lr.ph.i.i2787, %.lr.ph.i.i2782, %.lr.ph.i.i2777, %.lr.ph.i.i2772, %.lr.ph.i.i2764, %.lr.ph.i.i2758, %.lr.ph.i.i2751, %.lr.ph.i.i2746, %.lr.ph.i.i2740, %.lr.ph.i.i2733, %.lr.ph.i.i2726, %.lr.ph.i.i2719, %.lr.ph.i.i2712, %.lr.ph.i.i2705, %.lr.ph.i.i2698, %.lr.ph.i.i2691, %.lr.ph.i.i2684, %.lr.ph.i.i2677, %.lr.ph.i.i2670, %.lr.ph.i.i2663, %.lr.ph.i.i2656, %.lr.ph.i.i2651, %.lr.ph.i.i2646, %.lr.ph.i.i2639, %.lr.ph.i.i2634, %.lr.ph.i.i2629, %.lr.ph.i.i2622, %.lr.ph.i.i2617, %.lr.ph.i.i2612, %.lr.ph.i.i2605, %.lr.ph.i.i2598, %.lr.ph.i.i2591, %.lr.ph.i.i2586, %.lr.ph.i.i2580, %.lr.ph.i.i2573, %.lr.ph.i.i2568, %.lr.ph.i.i2560, %.lr.ph.i.i2550, %.lr.ph.i.i2545, %.lr.ph.i.i2540, %.lr.ph.i.i2535, %.lr.ph.i.i2530, %.lr.ph.i.i2525, %.lr.ph.i20.i, %.lr.ph.i.i2507, %.lr.ph.i.i2499, %.lr.ph.i.i2487, %.lr.ph.i.i2482, %.lr.ph.i.i2475, %.lr.ph.i.i2467, %.lr.ph.i.i2458, %.lr.ph.i.i2450, %.lr.ph.i.i2441, %.lr.ph.i.i2434, %.lr.ph.i.i2428, %.lr.ph.i.i2421, %.lr.ph.i.i2410, %.lr.ph.i.i2405, %.lr.ph.i.i2400, %.lr.ph.i.i2395, %.lr.ph.i.i2390, %.lr.ph.i.i2385, %.lr.ph.i.i2380, %.lr.ph.i.i2375, %.lr.ph.i.i2370, %.lr.ph.i.i2365, %.lr.ph.i.i2360, %.lr.ph.i.i2355, %.lr.ph.i.i2341, %.lr.ph.i.i2336, %.lr.ph.i.i2331, %.lr.ph.i.i2326, %.lr.ph.i.i2320, %.lr.ph.i.i2314, %.lr.ph.i.i2307, %.lr.ph.i.i2300, %.lr.ph.i.i2295, %.lr.ph.i.i2286, %.lr.ph.i.i2278, %.lr.ph.i.i2270, %.lr.ph.i.i2262, %.lr.ph.i.i2254, %.lr.ph.i.i2246, %.lr.ph.i.i2238, %.lr.ph.i.i2230, %.lr.ph.i.i2222, %.lr.ph.i.i2212, %.lr.ph.i.i2204, %.lr.ph.i.i2195, %.lr.ph.i.i2187, %.lr.ph.i.i2179, %.lr.ph.i.i2171, %.lr.ph.i.i2163, %.lr.ph.i.i2155, %.lr.ph.i.i2147, %.lr.ph.i.i2139, %.lr.ph.i.i2133, %.lr.ph.i.i2128, %.lr.ph.i.i2123, %.lr.ph.i.i2118, %.lr.ph.i.i2113, %.lr.ph.i.i2108, %.lr.ph.i.i2103, %.lr.ph.i.i2098, %.lr.ph.i.i2093, %.lr.ph.i.i2088, %.lr.ph.i.i2083, %.lr.ph.i.i2078, %.lr.ph.i.i2073, %.lr.ph.i.i2068, %.lr.ph.i.i2063, %.lr.ph.i.i2058, %.lr.ph.i.i2053, %.lr.ph.i.i2048, %.lr.ph.i.i2043, %.lr.ph.i.i2038, %.lr.ph.i.i2033, %.lr.ph.i.i2028, %.lr.ph.i.i2023, %.lr.ph.i.i2018, %.lr.ph.i.i2013, %.lr.ph.i8.i2001, %.lr.ph.i8.i1992, %.lr.ph.i8.i1984, %.lr.ph.i8.i, %.lr.ph.i.i1971, %.lr.ph.i.i1967, %.lr.ph.i.i1963, %.lr.ph.i.i1959, %.lr.ph.i.i1954, %.lr.ph.i.i1950, %.lr.ph.i.i1946, %.lr.ph.i.i1942, %.lr.ph.i.i1937, %.lr.ph.i.i1933, %.lr.ph.i.i1929, %.lr.ph.i.i1925, %.lr.ph.i.i1920, %.lr.ph.i.i1916, %.lr.ph.i.i1912, %.lr.ph.i.i1908, %.lr.ph.i.i1895, %.lr.ph.i.i1891, %.lr.ph.i.i1886, %.lr.ph.i.i1882, %.lr.ph.i.i1878, %.lr.ph.i.i1874, %.lr.ph.i.i1869, %.lr.ph.i.i1865, %.lr.ph.i.i1860, %.lr.ph.i.i1856, %.lr.ph.i.i1852, %.lr.ph.i.i1848, %.lr.ph.i168.i, %.lr.ph.i155.i, %.lr.ph.i149.i, %.lr.ph.i143.i, %mesa_CallLists.exit.sink.split, %5581, %5563, %5220, %5070, %5048, %5026, %5004, %4982, %4960, %4938, %4916, %4894, %4872, %4850, %4828, %4612, %4586, %4513, %4391, %4365, %listOfCard32.exit.i, %3794, %3760, %3448, %3429, %3396, %3195, %3172, %3098, %3076, %34, %3048, %34, %34, %34, %2210, %2188, %2166, %1908, %1857, %1822, %1787, %34, %34, %34, %1670, %1636, %1602, %1568, %1534, %1376, %1342, %1248, %1214, %1174, %1148, %1118, %1084, %1044, %1018, %34, %168, %129, %117, %105
+  %5610 = phi i32 [ %36, %105 ], [ %36, %117 ], [ %36, %129 ], [ %36, %168 ], [ %36, %34 ], [ %36, %1018 ], [ %36, %1044 ], [ %36, %1084 ], [ %36, %1118 ], [ %36, %1148 ], [ %36, %1174 ], [ %36, %1214 ], [ %36, %1248 ], [ %36, %1342 ], [ %36, %1376 ], [ %36, %1534 ], [ %36, %1568 ], [ %36, %1602 ], [ %36, %1636 ], [ %36, %1670 ], [ %36, %34 ], [ %36, %34 ], [ %36, %34 ], [ %36, %1787 ], [ %36, %1822 ], [ %36, %1857 ], [ %36, %1908 ], [ %36, %2166 ], [ %36, %2188 ], [ %36, %2210 ], [ %36, %34 ], [ %36, %34 ], [ %36, %34 ], [ %36, %3048 ], [ %36, %34 ], [ %36, %3076 ], [ %36, %3098 ], [ %36, %3172 ], [ %36, %3195 ], [ %36, %3396 ], [ %36, %3429 ], [ %36, %3448 ], [ %36, %3760 ], [ %36, %3794 ], [ %36, %listOfCard32.exit.i ], [ %36, %4365 ], [ %36, %4391 ], [ %36, %4513 ], [ %36, %4586 ], [ %36, %4612 ], [ %36, %4828 ], [ %36, %4850 ], [ %36, %4872 ], [ %36, %4894 ], [ %36, %4916 ], [ %36, %4938 ], [ %36, %4960 ], [ %36, %4982 ], [ %36, %5004 ], [ %36, %5026 ], [ %36, %5048 ], [ %36, %5070 ], [ %36, %5220 ], [ %36, %5563 ], [ %36, %5581 ], [ %.ph, %mesa_CallLists.exit.sink.split ], [ %36, %.lr.ph.i143.i ], [ %36, %.lr.ph.i149.i ], [ %36, %.lr.ph.i155.i ], [ %36, %.lr.ph.i168.i ], [ %36, %.lr.ph.i.i1848 ], [ %36, %.lr.ph.i.i1852 ], [ %36, %.lr.ph.i.i1856 ], [ %36, %.lr.ph.i.i1860 ], [ %36, %.lr.ph.i.i1865 ], [ %36, %.lr.ph.i.i1869 ], [ %36, %.lr.ph.i.i1874 ], [ %36, %.lr.ph.i.i1878 ], [ %36, %.lr.ph.i.i1882 ], [ %36, %.lr.ph.i.i1886 ], [ %36, %.lr.ph.i.i1891 ], [ %36, %.lr.ph.i.i1895 ], [ %36, %.lr.ph.i.i1908 ], [ %36, %.lr.ph.i.i1912 ], [ %36, %.lr.ph.i.i1916 ], [ %36, %.lr.ph.i.i1920 ], [ %36, %.lr.ph.i.i1925 ], [ %36, %.lr.ph.i.i1929 ], [ %36, %.lr.ph.i.i1933 ], [ %36, %.lr.ph.i.i1937 ], [ %36, %.lr.ph.i.i1942 ], [ %36, %.lr.ph.i.i1946 ], [ %36, %.lr.ph.i.i1950 ], [ %36, %.lr.ph.i.i1954 ], [ %36, %.lr.ph.i.i1959 ], [ %36, %.lr.ph.i.i1963 ], [ %36, %.lr.ph.i.i1967 ], [ %36, %.lr.ph.i.i1971 ], [ %36, %.lr.ph.i8.i ], [ %36, %.lr.ph.i8.i1984 ], [ %36, %.lr.ph.i8.i1992 ], [ %36, %.lr.ph.i8.i2001 ], [ %36, %.lr.ph.i.i2013 ], [ %36, %.lr.ph.i.i2018 ], [ %36, %.lr.ph.i.i2023 ], [ %36, %.lr.ph.i.i2028 ], [ %36, %.lr.ph.i.i2033 ], [ %36, %.lr.ph.i.i2038 ], [ %36, %.lr.ph.i.i2043 ], [ %36, %.lr.ph.i.i2048 ], [ %36, %.lr.ph.i.i2053 ], [ %36, %.lr.ph.i.i2058 ], [ %36, %.lr.ph.i.i2063 ], [ %36, %.lr.ph.i.i2068 ], [ %36, %.lr.ph.i.i2073 ], [ %36, %.lr.ph.i.i2078 ], [ %36, %.lr.ph.i.i2083 ], [ %36, %.lr.ph.i.i2088 ], [ %36, %.lr.ph.i.i2093 ], [ %36, %.lr.ph.i.i2098 ], [ %36, %.lr.ph.i.i2103 ], [ %36, %.lr.ph.i.i2108 ], [ %36, %.lr.ph.i.i2113 ], [ %36, %.lr.ph.i.i2118 ], [ %36, %.lr.ph.i.i2123 ], [ %36, %.lr.ph.i.i2128 ], [ %36, %.lr.ph.i.i2133 ], [ %36, %.lr.ph.i.i2139 ], [ %36, %.lr.ph.i.i2147 ], [ %36, %.lr.ph.i.i2155 ], [ %36, %.lr.ph.i.i2163 ], [ %36, %.lr.ph.i.i2171 ], [ %36, %.lr.ph.i.i2179 ], [ %36, %.lr.ph.i.i2187 ], [ %36, %.lr.ph.i.i2195 ], [ %36, %.lr.ph.i.i2204 ], [ %36, %.lr.ph.i.i2212 ], [ %36, %.lr.ph.i.i2222 ], [ %36, %.lr.ph.i.i2230 ], [ %36, %.lr.ph.i.i2238 ], [ %36, %.lr.ph.i.i2246 ], [ %36, %.lr.ph.i.i2254 ], [ %36, %.lr.ph.i.i2262 ], [ %36, %.lr.ph.i.i2270 ], [ %36, %.lr.ph.i.i2278 ], [ %36, %.lr.ph.i.i2286 ], [ %36, %.lr.ph.i.i2295 ], [ %36, %.lr.ph.i.i2300 ], [ %36, %.lr.ph.i.i2307 ], [ %36, %.lr.ph.i.i2314 ], [ %36, %.lr.ph.i.i2320 ], [ %36, %.lr.ph.i.i2326 ], [ %36, %.lr.ph.i.i2331 ], [ %36, %.lr.ph.i.i2336 ], [ %36, %.lr.ph.i.i2341 ], [ %36, %.lr.ph.i.i2355 ], [ %36, %.lr.ph.i.i2360 ], [ %36, %.lr.ph.i.i2365 ], [ %36, %.lr.ph.i.i2370 ], [ %36, %.lr.ph.i.i2375 ], [ %36, %.lr.ph.i.i2380 ], [ %36, %.lr.ph.i.i2385 ], [ %36, %.lr.ph.i.i2390 ], [ %36, %.lr.ph.i.i2395 ], [ %36, %.lr.ph.i.i2400 ], [ %36, %.lr.ph.i.i2405 ], [ %36, %.lr.ph.i.i2410 ], [ %36, %.lr.ph.i.i2421 ], [ %36, %.lr.ph.i.i2428 ], [ %36, %.lr.ph.i.i2434 ], [ %36, %.lr.ph.i.i2441 ], [ %36, %.lr.ph.i.i2450 ], [ %36, %.lr.ph.i.i2458 ], [ %36, %.lr.ph.i.i2467 ], [ %36, %.lr.ph.i.i2475 ], [ %36, %.lr.ph.i.i2482 ], [ %36, %.lr.ph.i.i2487 ], [ %36, %.lr.ph.i.i2499 ], [ %36, %.lr.ph.i.i2507 ], [ %36, %.lr.ph.i20.i ], [ %36, %.lr.ph.i.i2525 ], [ %36, %.lr.ph.i.i2530 ], [ %36, %.lr.ph.i.i2535 ], [ %36, %.lr.ph.i.i2540 ], [ %36, %.lr.ph.i.i2545 ], [ %36, %.lr.ph.i.i2550 ], [ %36, %.lr.ph.i.i2560 ], [ %36, %.lr.ph.i.i2568 ], [ %36, %.lr.ph.i.i2573 ], [ %36, %.lr.ph.i.i2580 ], [ %36, %.lr.ph.i.i2586 ], [ %36, %.lr.ph.i.i2591 ], [ %36, %.lr.ph.i.i2598 ], [ %36, %.lr.ph.i.i2605 ], [ %36, %.lr.ph.i.i2612 ], [ %36, %.lr.ph.i.i2617 ], [ %36, %.lr.ph.i.i2622 ], [ %36, %.lr.ph.i.i2629 ], [ %36, %.lr.ph.i.i2634 ], [ %36, %.lr.ph.i.i2639 ], [ %36, %.lr.ph.i.i2646 ], [ %36, %.lr.ph.i.i2651 ], [ %36, %.lr.ph.i.i2656 ], [ %36, %.lr.ph.i.i2663 ], [ %36, %.lr.ph.i.i2670 ], [ %36, %.lr.ph.i.i2677 ], [ %36, %.lr.ph.i.i2684 ], [ %36, %.lr.ph.i.i2691 ], [ %36, %.lr.ph.i.i2698 ], [ %36, %.lr.ph.i.i2705 ], [ %36, %.lr.ph.i.i2712 ], [ %36, %.lr.ph.i.i2719 ], [ %36, %.lr.ph.i.i2726 ], [ %36, %.lr.ph.i.i2733 ], [ %36, %.lr.ph.i.i2740 ], [ %36, %.lr.ph.i.i2746 ], [ %36, %.lr.ph.i.i2751 ], [ %36, %.lr.ph.i.i2758 ], [ %36, %.lr.ph.i.i2764 ], [ %36, %.lr.ph.i.i2772 ], [ %36, %.lr.ph.i.i2777 ], [ %36, %.lr.ph.i.i2782 ], [ %36, %.lr.ph.i.i2787 ], [ %36, %.lr.ph.i.i2792 ], [ %36, %.lr.ph.i.i2797 ], [ %36, %.lr.ph.i.i2802 ], [ %36, %.lr.ph.i.i2807 ], [ %36, %.lr.ph.i.i2814 ], [ %36, %.lr.ph.i.i2819 ], [ %36, %.lr.ph.i.i2824 ], [ %36, %.lr.ph.i.i2831 ], [ %36, %.lr.ph.i.i2836 ], [ %36, %.lr.ph.i.i2841 ], [ %36, %.lr.ph.i.i2848 ], [ %36, %.lr.ph.i.i2853 ], [ %36, %.lr.ph.i.i2858 ], [ %36, %.lr.ph.i.i2866 ], [ %36, %.lr.ph.i.i2873 ]
+  %.018432879 = phi i32 [ %10, %105 ], [ %10, %117 ], [ %10, %129 ], [ %10, %168 ], [ %10, %34 ], [ %10, %1018 ], [ %10, %1044 ], [ %10, %1084 ], [ %10, %1118 ], [ %10, %1148 ], [ %10, %1174 ], [ %10, %1214 ], [ %10, %1248 ], [ %10, %1342 ], [ %10, %1376 ], [ %10, %1534 ], [ %10, %1568 ], [ %10, %1602 ], [ %10, %1636 ], [ %10, %1670 ], [ %10, %34 ], [ %10, %34 ], [ %10, %34 ], [ %10, %1787 ], [ %10, %1822 ], [ %10, %1857 ], [ %10, %1908 ], [ %10, %2166 ], [ %10, %2188 ], [ %10, %2210 ], [ %10, %34 ], [ %10, %34 ], [ %10, %34 ], [ %10, %3048 ], [ %10, %34 ], [ %10, %3076 ], [ %10, %3098 ], [ %10, %3172 ], [ %10, %3195 ], [ %10, %3396 ], [ %10, %3429 ], [ %10, %3448 ], [ %10, %3760 ], [ %10, %3794 ], [ %10, %listOfCard32.exit.i ], [ %10, %4365 ], [ %10, %4391 ], [ %10, %4513 ], [ %10, %4586 ], [ %10, %4612 ], [ %10, %4828 ], [ %10, %4850 ], [ %10, %4872 ], [ %10, %4894 ], [ %10, %4916 ], [ %10, %4938 ], [ %10, %4960 ], [ %10, %4982 ], [ %10, %5004 ], [ %10, %5026 ], [ %10, %5048 ], [ %10, %5070 ], [ %10, %5220 ], [ %10, %5563 ], [ %10, %5581 ], [ %.018432879.ph, %mesa_CallLists.exit.sink.split ], [ %10, %.lr.ph.i143.i ], [ %10, %.lr.ph.i149.i ], [ %10, %.lr.ph.i155.i ], [ %10, %.lr.ph.i168.i ], [ %10, %.lr.ph.i.i1848 ], [ %10, %.lr.ph.i.i1852 ], [ %10, %.lr.ph.i.i1856 ], [ %10, %.lr.ph.i.i1860 ], [ %10, %.lr.ph.i.i1865 ], [ %10, %.lr.ph.i.i1869 ], [ %10, %.lr.ph.i.i1874 ], [ %10, %.lr.ph.i.i1878 ], [ %10, %.lr.ph.i.i1882 ], [ %10, %.lr.ph.i.i1886 ], [ %10, %.lr.ph.i.i1891 ], [ %10, %.lr.ph.i.i1895 ], [ %10, %.lr.ph.i.i1908 ], [ %10, %.lr.ph.i.i1912 ], [ %10, %.lr.ph.i.i1916 ], [ %10, %.lr.ph.i.i1920 ], [ %10, %.lr.ph.i.i1925 ], [ %10, %.lr.ph.i.i1929 ], [ %10, %.lr.ph.i.i1933 ], [ %10, %.lr.ph.i.i1937 ], [ %10, %.lr.ph.i.i1942 ], [ %10, %.lr.ph.i.i1946 ], [ %10, %.lr.ph.i.i1950 ], [ %10, %.lr.ph.i.i1954 ], [ %10, %.lr.ph.i.i1959 ], [ %10, %.lr.ph.i.i1963 ], [ %10, %.lr.ph.i.i1967 ], [ %10, %.lr.ph.i.i1971 ], [ %10, %.lr.ph.i8.i ], [ %10, %.lr.ph.i8.i1984 ], [ %10, %.lr.ph.i8.i1992 ], [ %10, %.lr.ph.i8.i2001 ], [ %10, %.lr.ph.i.i2013 ], [ %10, %.lr.ph.i.i2018 ], [ %10, %.lr.ph.i.i2023 ], [ %10, %.lr.ph.i.i2028 ], [ %10, %.lr.ph.i.i2033 ], [ %10, %.lr.ph.i.i2038 ], [ %10, %.lr.ph.i.i2043 ], [ %10, %.lr.ph.i.i2048 ], [ %10, %.lr.ph.i.i2053 ], [ %10, %.lr.ph.i.i2058 ], [ %10, %.lr.ph.i.i2063 ], [ %10, %.lr.ph.i.i2068 ], [ %10, %.lr.ph.i.i2073 ], [ %10, %.lr.ph.i.i2078 ], [ %10, %.lr.ph.i.i2083 ], [ %10, %.lr.ph.i.i2088 ], [ %10, %.lr.ph.i.i2093 ], [ %10, %.lr.ph.i.i2098 ], [ %10, %.lr.ph.i.i2103 ], [ %10, %.lr.ph.i.i2108 ], [ %10, %.lr.ph.i.i2113 ], [ %10, %.lr.ph.i.i2118 ], [ %10, %.lr.ph.i.i2123 ], [ %10, %.lr.ph.i.i2128 ], [ %10, %.lr.ph.i.i2133 ], [ %10, %.lr.ph.i.i2139 ], [ %10, %.lr.ph.i.i2147 ], [ %10, %.lr.ph.i.i2155 ], [ %10, %.lr.ph.i.i2163 ], [ %10, %.lr.ph.i.i2171 ], [ %10, %.lr.ph.i.i2179 ], [ %10, %.lr.ph.i.i2187 ], [ %10, %.lr.ph.i.i2195 ], [ %10, %.lr.ph.i.i2204 ], [ %10, %.lr.ph.i.i2212 ], [ %10, %.lr.ph.i.i2222 ], [ %10, %.lr.ph.i.i2230 ], [ %10, %.lr.ph.i.i2238 ], [ %10, %.lr.ph.i.i2246 ], [ %10, %.lr.ph.i.i2254 ], [ %10, %.lr.ph.i.i2262 ], [ %10, %.lr.ph.i.i2270 ], [ %10, %.lr.ph.i.i2278 ], [ %10, %.lr.ph.i.i2286 ], [ %10, %.lr.ph.i.i2295 ], [ %10, %.lr.ph.i.i2300 ], [ %10, %.lr.ph.i.i2307 ], [ %10, %.lr.ph.i.i2314 ], [ %10, %.lr.ph.i.i2320 ], [ %10, %.lr.ph.i.i2326 ], [ %10, %.lr.ph.i.i2331 ], [ %10, %.lr.ph.i.i2336 ], [ %10, %.lr.ph.i.i2341 ], [ %10, %.lr.ph.i.i2355 ], [ %10, %.lr.ph.i.i2360 ], [ %10, %.lr.ph.i.i2365 ], [ %10, %.lr.ph.i.i2370 ], [ %10, %.lr.ph.i.i2375 ], [ %10, %.lr.ph.i.i2380 ], [ %10, %.lr.ph.i.i2385 ], [ %10, %.lr.ph.i.i2390 ], [ %10, %.lr.ph.i.i2395 ], [ %10, %.lr.ph.i.i2400 ], [ %10, %.lr.ph.i.i2405 ], [ %10, %.lr.ph.i.i2410 ], [ %10, %.lr.ph.i.i2421 ], [ %10, %.lr.ph.i.i2428 ], [ %10, %.lr.ph.i.i2434 ], [ %10, %.lr.ph.i.i2441 ], [ %10, %.lr.ph.i.i2450 ], [ %10, %.lr.ph.i.i2458 ], [ %10, %.lr.ph.i.i2467 ], [ %10, %.lr.ph.i.i2475 ], [ %10, %.lr.ph.i.i2482 ], [ %10, %.lr.ph.i.i2487 ], [ %10, %.lr.ph.i.i2499 ], [ %10, %.lr.ph.i.i2507 ], [ %10, %.lr.ph.i20.i ], [ %10, %.lr.ph.i.i2525 ], [ %10, %.lr.ph.i.i2530 ], [ %10, %.lr.ph.i.i2535 ], [ %10, %.lr.ph.i.i2540 ], [ %10, %.lr.ph.i.i2545 ], [ %10, %.lr.ph.i.i2550 ], [ %10, %.lr.ph.i.i2560 ], [ %10, %.lr.ph.i.i2568 ], [ %10, %.lr.ph.i.i2573 ], [ %10, %.lr.ph.i.i2580 ], [ %10, %.lr.ph.i.i2586 ], [ %10, %.lr.ph.i.i2591 ], [ %10, %.lr.ph.i.i2598 ], [ %10, %.lr.ph.i.i2605 ], [ %10, %.lr.ph.i.i2612 ], [ %10, %.lr.ph.i.i2617 ], [ %10, %.lr.ph.i.i2622 ], [ %10, %.lr.ph.i.i2629 ], [ %10, %.lr.ph.i.i2634 ], [ %10, %.lr.ph.i.i2639 ], [ %10, %.lr.ph.i.i2646 ], [ %10, %.lr.ph.i.i2651 ], [ %10, %.lr.ph.i.i2656 ], [ %10, %.lr.ph.i.i2663 ], [ %10, %.lr.ph.i.i2670 ], [ %10, %.lr.ph.i.i2677 ], [ %10, %.lr.ph.i.i2684 ], [ %10, %.lr.ph.i.i2691 ], [ %10, %.lr.ph.i.i2698 ], [ %10, %.lr.ph.i.i2705 ], [ %10, %.lr.ph.i.i2712 ], [ %10, %.lr.ph.i.i2719 ], [ %10, %.lr.ph.i.i2726 ], [ %10, %.lr.ph.i.i2733 ], [ %10, %.lr.ph.i.i2740 ], [ %10, %.lr.ph.i.i2746 ], [ %10, %.lr.ph.i.i2751 ], [ %10, %.lr.ph.i.i2758 ], [ %10, %.lr.ph.i.i2764 ], [ %10, %.lr.ph.i.i2772 ], [ %10, %.lr.ph.i.i2777 ], [ %10, %.lr.ph.i.i2782 ], [ %10, %.lr.ph.i.i2787 ], [ %10, %.lr.ph.i.i2792 ], [ %10, %.lr.ph.i.i2797 ], [ %10, %.lr.ph.i.i2802 ], [ %10, %.lr.ph.i.i2807 ], [ %10, %.lr.ph.i.i2814 ], [ %10, %.lr.ph.i.i2819 ], [ %10, %.lr.ph.i.i2824 ], [ %10, %.lr.ph.i.i2831 ], [ %10, %.lr.ph.i.i2836 ], [ %10, %.lr.ph.i.i2841 ], [ %10, %.lr.ph.i.i2848 ], [ %10, %.lr.ph.i.i2853 ], [ %10, %.lr.ph.i.i2858 ], [ %10, %.lr.ph.i.i2866 ], [ %10, %.lr.ph.i.i2873 ]
+  %5611 = load i32, ptr %2, align 4
+  %5612 = icmp slt i32 %5611, %5610
+  br i1 %5612, label %5613, label %5617
 
-5586:                                             ; preds = %mesa_CallLists.exit
-  %5587 = load i32, ptr @hf_x11_unused, align 4
-  %5588 = sub i32 %5583, %5584
-  %5589 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5587, ptr noundef %0, i32 noundef %5584, i32 noundef %5588, i32 noundef 0) #10
-  store i32 %5583, ptr %2, align 4
-  br label %5590
+5613:                                             ; preds = %mesa_CallLists.exit
+  %5614 = load i32, ptr @hf_x11_unused, align 4
+  %5615 = sub i32 %5610, %5611
+  %5616 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5614, ptr noundef %0, i32 noundef %5611, i32 noundef %5615, i32 noundef 0) #10
+  store i32 %5610, ptr %2, align 4
+  br label %5617
 
-5590:                                             ; preds = %5586, %mesa_CallLists.exit
-  %5591 = phi i32 [ %5583, %5586 ], [ %5584, %mesa_CallLists.exit ]
-  %5592 = sub nsw i32 %.03064, %.018432879
-  %5593 = icmp sgt i32 %5592, 3
-  br i1 %5593, label %.lr.ph, label %._crit_edge, !llvm.loop !63
+5617:                                             ; preds = %5613, %mesa_CallLists.exit
+  %5618 = phi i32 [ %5610, %5613 ], [ %5611, %mesa_CallLists.exit ]
+  %5619 = sub nsw i32 %.03064, %.018432879
+  %5620 = icmp sgt i32 %5619, 3
+  br i1 %5620, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %5590, %6
+._crit_edge:                                      ; preds = %5617, %6
   ret void
 }
 

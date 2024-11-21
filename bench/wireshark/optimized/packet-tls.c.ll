@@ -3511,11 +3511,11 @@ define internal fastcc i32 @dissect_ssl2_record(ptr noundef %0, ptr noundef %1, 
   %24 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 268435455, ptr %24, align 8
   store i32 1, ptr %5, align 4
-  br label %313
+  br label %314
 
 25:                                               ; preds = %19, %14
   %26 = add i32 %12, %3
-  br label %313
+  br label %314
 
 27:                                               ; preds = %7
   br i1 %.not, label %35, label %28
@@ -3571,11 +3571,11 @@ define internal fastcc i32 @dissect_ssl2_record(ptr noundef %0, ptr noundef %1, 
   %60 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 %59, ptr %60, align 8
   store i32 1, ptr %5, align 4
-  br label %313
+  br label %314
 
 61:                                               ; preds = %54, %49
   %62 = add i32 %12, %3
-  br label %313
+  br label %314
 
 63:                                               ; preds = %46
   %64 = add i32 %11, %3
@@ -3672,7 +3672,7 @@ proto_item_set_generated.exit:                    ; preds = %109, %106, %103, %s
   %113 = load ptr, ptr %76, align 8
   tail call void @col_append_sep_str(ptr noundef %113, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.948) #11
   %114 = add i32 %.0145, %64
-  br label %313
+  br label %314
 
 115:                                              ; preds = %82, %87, %ssl_looks_like_valid_v2_handshake.exit
   %116 = load ptr, ptr %76, align 8
@@ -3989,46 +3989,46 @@ proto_item_set_generated.exit:                    ; preds = %109, %106, %103, %s
   %297 = load i32, ptr getelementptr inbounds (i8, ptr @dissect_ssl3_hf, i64 508), align 4
   %298 = udiv i16 %281, 3
   %.zext.i171 = zext nneg i16 %298 to i32
-  %.off.i = add nsw i32 %283, -3
-  %299 = icmp ult i32 %.off.i, 3
-  %300 = select i1 %299, ptr @.str.26, ptr @.str.955
-  %301 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef nonnull %68, i32 noundef %297, ptr noundef %0, i32 noundef %.064.i, i32 noundef %283, ptr noundef nonnull @.str.958, i32 noundef %.zext.i171, ptr noundef nonnull %300) #11
-  %302 = load i32, ptr getelementptr inbounds (i8, ptr @dissect_ssl3_hf, i64 1168), align 4
-  %303 = call ptr @proto_item_add_subtree(ptr noundef %301, i32 noundef %302) #11
-  %.not75.i = icmp eq ptr %303, null
-  %spec.select.i172 = select i1 %.not75.i, ptr %68, ptr %303
-  br label %304
+  %299 = add i16 %281, -3
+  %300 = icmp ult i16 %299, 3
+  %301 = select i1 %300, ptr @.str.26, ptr @.str.955
+  %302 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef nonnull %68, i32 noundef %297, ptr noundef %0, i32 noundef %.064.i, i32 noundef %283, ptr noundef nonnull @.str.958, i32 noundef %.zext.i171, ptr noundef nonnull %301) #11
+  %303 = load i32, ptr getelementptr inbounds (i8, ptr @dissect_ssl3_hf, i64 1168), align 4
+  %304 = call ptr @proto_item_add_subtree(ptr noundef %302, i32 noundef %303) #11
+  %.not75.i = icmp eq ptr %304, null
+  %spec.select.i172 = select i1 %.not75.i, ptr %68, ptr %304
+  br label %305
 
-304:                                              ; preds = %304, %296
-  %.280.i = phi i32 [ %.064.i, %296 ], [ %307, %304 ]
-  %.06579.i = phi i16 [ %281, %296 ], [ %308, %304 ]
-  %305 = load i32, ptr @hf_ssl2_handshake_cipher_spec, align 4
-  %306 = call ptr @proto_tree_add_item(ptr noundef nonnull %spec.select.i172, i32 noundef %305, ptr noundef %0, i32 noundef %.280.i, i32 noundef 3, i32 noundef 0) #11
-  %307 = add i32 %.280.i, 3
-  %308 = add i16 %.06579.i, -3
-  %.not76.i = icmp eq i16 %308, 0
-  br i1 %.not76.i, label %.loopexit.i, label %304, !llvm.loop !11
+305:                                              ; preds = %305, %296
+  %.280.i = phi i32 [ %.064.i, %296 ], [ %308, %305 ]
+  %.06579.i = phi i16 [ %281, %296 ], [ %309, %305 ]
+  %306 = load i32, ptr @hf_ssl2_handshake_cipher_spec, align 4
+  %307 = call ptr @proto_tree_add_item(ptr noundef nonnull %spec.select.i172, i32 noundef %306, ptr noundef %0, i32 noundef %.280.i, i32 noundef 3, i32 noundef 0) #11
+  %308 = add i32 %.280.i, 3
+  %309 = add i16 %.06579.i, -3
+  %.not76.i = icmp eq i16 %309, 0
+  br i1 %.not76.i, label %.loopexit.i, label %305, !llvm.loop !11
 
-.loopexit.i:                                      ; preds = %304, %295
-  %.1.i173 = phi i32 [ %.064.i, %295 ], [ %307, %304 ]
+.loopexit.i:                                      ; preds = %305, %295
+  %.1.i173 = phi i32 [ %.064.i, %295 ], [ %308, %305 ]
   %.not77.i = icmp eq i16 %286, 0
-  br i1 %.not77.i, label %dissect_ssl2_hnd_server_hello.exit, label %309
+  br i1 %.not77.i, label %dissect_ssl2_hnd_server_hello.exit, label %310
 
-309:                                              ; preds = %.loopexit.i
-  %310 = load i32, ptr @hf_ssl2_handshake_connection_id, align 4
-  %311 = call ptr @proto_tree_add_item(ptr noundef nonnull %68, i32 noundef %310, ptr noundef %0, i32 noundef %.1.i173, i32 noundef %288, i32 noundef 0) #11
+310:                                              ; preds = %.loopexit.i
+  %311 = load i32, ptr @hf_ssl2_handshake_connection_id, align 4
+  %312 = call ptr @proto_tree_add_item(ptr noundef nonnull %68, i32 noundef %311, ptr noundef %0, i32 noundef %.1.i173, i32 noundef %288, i32 noundef 0) #11
   br label %dissect_ssl2_hnd_server_hello.exit
 
-dissect_ssl2_hnd_server_hello.exit:               ; preds = %261, %262, %.loopexit.i, %309
+dissect_ssl2_hnd_server_hello.exit:               ; preds = %261, %262, %.loopexit.i, %310
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8)
   br label %dissect_ssl2_hnd_client_hello.exit
 
 dissect_ssl2_hnd_client_hello.exit:               ; preds = %257, %256, %228, %214, %211, %209, %168, %143, %141, %dissect_ssl2_hnd_server_hello.exit
-  %312 = add i32 %.0145, %64
-  br label %313
+  %313 = add i32 %.0145, %64
+  br label %314
 
-313:                                              ; preds = %dissect_ssl2_hnd_client_hello.exit, %proto_item_set_generated.exit, %61, %57, %25, %22
-  %.0 = phi i32 [ %3, %22 ], [ %26, %25 ], [ %3, %57 ], [ %62, %61 ], [ %312, %dissect_ssl2_hnd_client_hello.exit ], [ %114, %proto_item_set_generated.exit ]
+314:                                              ; preds = %dissect_ssl2_hnd_client_hello.exit, %proto_item_set_generated.exit, %61, %57, %25, %22
+  %.0 = phi i32 [ %3, %22 ], [ %26, %25 ], [ %3, %57 ], [ %62, %61 ], [ %313, %dissect_ssl2_hnd_client_hello.exit ], [ %114, %proto_item_set_generated.exit ]
   ret i32 %.0
 }
 

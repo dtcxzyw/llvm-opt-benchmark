@@ -4003,8 +4003,8 @@ define internal i64 @strcasehash(i64 noundef %0) #18 {
   %.0912 = phi ptr [ %5, %.lr.ph ], [ %2, %1 ]
   %5 = getelementptr i8, ptr %.0912, i64 1
   %6 = zext i8 %4 to i32
-  %7 = add nsw i32 %6, -65
-  %8 = icmp ult i32 %7, 26
+  %7 = add i8 %4, -65
+  %8 = icmp ult i8 %7, 26
   %9 = or disjoint i32 %6, 32
   %spec.select = select i1 %8, i32 %9, i32 %6
   %10 = zext nneg i32 %spec.select to i64

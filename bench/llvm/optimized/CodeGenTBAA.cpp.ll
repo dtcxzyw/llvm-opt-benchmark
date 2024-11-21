@@ -692,10 +692,9 @@ _ZN5clang7CodeGen11CodeGenTBAA20createScalarTypeNodeEN4llvm9StringRefEPNS2_6MDNo
   %238 = load i64, ptr %237, align 8
   %239 = and i64 %238, 68719476736
   %.not54 = icmp ne i64 %239, 0
-  %240 = zext i8 %156 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %240, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
-  %or.cond115 = select i1 %.not54, i1 %switch.i.i.i.i.i.i.i.i.i, i1 false
+  %240 = add i8 %156, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %240, 5
+  %or.cond115 = and i1 %switch.i.i.i.i.i.i.i.i.i, %.not54
   br i1 %or.cond115, label %241, label %244
 
 241:                                              ; preds = %234

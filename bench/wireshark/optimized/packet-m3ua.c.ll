@@ -2540,10 +2540,10 @@ define internal fastcc void @dissect_circuit_range_parameter(ptr noundef %0, ptr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %20, %3
-  %.off = add nsw i32 %6, -12
-  %33 = icmp ult i32 %.off, 8
-  %34 = select i1 %33, ptr @.str.314, ptr @.str.315
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.336, i32 noundef %8, ptr noundef nonnull %34) #5
+  %33 = add i16 %5, -12
+  %34 = icmp ult i16 %33, 8
+  %35 = select i1 %34, ptr @.str.314, ptr @.str.315
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.336, i32 noundef %8, ptr noundef nonnull %35) #5
   ret void
 }
 

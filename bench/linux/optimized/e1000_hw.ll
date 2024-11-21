@@ -6778,8 +6778,8 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_get_cable_length(ptr nocaptur
   %51 = phi i16 [ %47, %45 ], [ %49, %48 ]
   %52 = zext nneg i16 %51 to i64
   %53 = getelementptr [128 x i16], ptr @e1000_igp_cable_length_table, i64 0, i64 %52
-  %54 = add nsw i64 %52, -24
-  %55 = icmp ult i64 %54, 104
+  %54 = add nsw i16 %51, -24
+  %55 = icmp ult i16 %54, 104
   %.pre = load i16, ptr %53, align 2
   %56 = add i16 %.pre, -10
   %spec.select = select i1 %55, i16 %56, i16 0

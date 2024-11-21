@@ -26864,8 +26864,8 @@ define internal void @deflate_compress_greedy(ptr noalias noundef %0, ptr nounde
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %58
-  %61 = add nsw i64 %53, -45
-  %62 = icmp ult i64 %61, 35
+  %61 = add nsw i32 %48, -45
+  %62 = icmp ult i32 %61, 35
   %63 = select i1 %62, i32 %56, i32 4
   br label %calculate_min_match_len.exit
 
@@ -26874,14 +26874,14 @@ define internal void @deflate_compress_greedy(ptr noalias noundef %0, ptr nounde
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %64
-  %67 = add nsw i64 %53, -16
-  %68 = icmp ult i64 %67, 64
+  %67 = add nsw i32 %48, -16
+  %68 = icmp ult i32 %67, 64
   %69 = select i1 %68, i32 %56, i32 5
   br label %calculate_min_match_len.exit
 
 70:                                               ; preds = %64
-  %71 = add nsw i64 %53, -8
-  %72 = icmp ult i64 %71, 72
+  %71 = add nsw i32 %48, -8
+  %72 = icmp ult i32 %71, 72
   %73 = select i1 %72, i32 %56, i32 7
   br label %calculate_min_match_len.exit
 
@@ -27735,8 +27735,8 @@ define internal void @deflate_compress_lazy(ptr noalias noundef %0, ptr noundef 
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %60
-  %63 = add nsw i64 %55, -45
-  %64 = icmp ult i64 %63, 35
+  %63 = add nsw i32 %50, -45
+  %64 = icmp ult i32 %63, 35
   %65 = select i1 %64, i32 %58, i32 4
   br label %calculate_min_match_len.exit
 
@@ -27745,14 +27745,14 @@ define internal void @deflate_compress_lazy(ptr noalias noundef %0, ptr noundef 
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %66
-  %69 = add nsw i64 %55, -16
-  %70 = icmp ult i64 %69, 64
+  %69 = add nsw i32 %50, -16
+  %70 = icmp ult i32 %69, 64
   %71 = select i1 %70, i32 %58, i32 5
   br label %calculate_min_match_len.exit
 
 72:                                               ; preds = %66
-  %73 = add nsw i64 %55, -8
-  %74 = icmp ult i64 %73, 72
+  %73 = add nsw i32 %50, -8
+  %74 = icmp ult i32 %73, 72
   %75 = select i1 %74, i32 %58, i32 7
   br label %calculate_min_match_len.exit
 
@@ -27827,8 +27827,8 @@ calculate_min_match_len.exit:                     ; preds = %52, %54, %62, %68, 
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %95
-  %98 = add nsw i64 %90, -45
-  %99 = icmp ult i64 %98, 35
+  %98 = add nsw i32 %spec.select.i, -45
+  %99 = icmp ult i32 %98, 35
   %100 = select i1 %99, i32 %93, i32 4
   br label %recalculate_min_match_len.exit
 
@@ -27837,14 +27837,14 @@ calculate_min_match_len.exit:                     ; preds = %52, %54, %62, %68, 
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %101
-  %104 = add nsw i64 %90, -16
-  %105 = icmp ult i64 %104, 64
+  %104 = add nsw i32 %spec.select.i, -16
+  %105 = icmp ult i32 %104, 64
   %106 = select i1 %105, i32 %93, i32 5
   br label %recalculate_min_match_len.exit
 
 107:                                              ; preds = %101
-  %108 = add nsw i64 %90, -8
-  %109 = icmp ult i64 %108, 72
+  %108 = add nsw i32 %spec.select.i, -8
+  %109 = icmp ult i32 %108, 72
   %110 = select i1 %109, i32 %93, i32 7
   br label %recalculate_min_match_len.exit
 
@@ -29321,8 +29321,8 @@ define internal void @deflate_compress_lazy2(ptr noalias noundef %0, ptr noundef
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %60
-  %63 = add nsw i64 %55, -45
-  %64 = icmp ult i64 %63, 35
+  %63 = add nsw i32 %50, -45
+  %64 = icmp ult i32 %63, 35
   %65 = select i1 %64, i32 %58, i32 4
   br label %calculate_min_match_len.exit
 
@@ -29331,14 +29331,14 @@ define internal void @deflate_compress_lazy2(ptr noalias noundef %0, ptr noundef
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %66
-  %69 = add nsw i64 %55, -16
-  %70 = icmp ult i64 %69, 64
+  %69 = add nsw i32 %50, -16
+  %70 = icmp ult i32 %69, 64
   %71 = select i1 %70, i32 %58, i32 5
   br label %calculate_min_match_len.exit
 
 72:                                               ; preds = %66
-  %73 = add nsw i64 %55, -8
-  %74 = icmp ult i64 %73, 72
+  %73 = add nsw i32 %50, -8
+  %74 = icmp ult i32 %73, 72
   %75 = select i1 %74, i32 %58, i32 7
   br label %calculate_min_match_len.exit
 
@@ -29413,8 +29413,8 @@ calculate_min_match_len.exit:                     ; preds = %52, %54, %62, %68, 
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %95
-  %98 = add nsw i64 %90, -45
-  %99 = icmp ult i64 %98, 35
+  %98 = add nsw i32 %spec.select.i, -45
+  %99 = icmp ult i32 %98, 35
   %100 = select i1 %99, i32 %93, i32 4
   br label %recalculate_min_match_len.exit
 
@@ -29423,14 +29423,14 @@ calculate_min_match_len.exit:                     ; preds = %52, %54, %62, %68, 
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %101
-  %104 = add nsw i64 %90, -16
-  %105 = icmp ult i64 %104, 64
+  %104 = add nsw i32 %spec.select.i, -16
+  %105 = icmp ult i32 %104, 64
   %106 = select i1 %105, i32 %93, i32 5
   br label %recalculate_min_match_len.exit
 
 107:                                              ; preds = %101
-  %108 = add nsw i64 %90, -8
-  %109 = icmp ult i64 %108, 72
+  %108 = add nsw i32 %spec.select.i, -8
+  %109 = icmp ult i32 %108, 72
   %110 = select i1 %109, i32 %93, i32 7
   br label %recalculate_min_match_len.exit
 
@@ -31397,8 +31397,8 @@ define internal void @deflate_compress_near_optimal(ptr noalias noundef %0, ptr 
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %62
-  %65 = add nsw i64 %57, -45
-  %66 = icmp ult i64 %65, 35
+  %65 = add nsw i32 %52, -45
+  %66 = icmp ult i32 %65, 35
   %67 = select i1 %66, i32 %60, i32 4
   br label %calculate_min_match_len.exit
 
@@ -31407,14 +31407,14 @@ define internal void @deflate_compress_near_optimal(ptr noalias noundef %0, ptr 
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %68
-  %71 = add nsw i64 %57, -16
-  %72 = icmp ult i64 %71, 64
+  %71 = add nsw i32 %52, -16
+  %72 = icmp ult i32 %71, 64
   %73 = select i1 %72, i32 %60, i32 5
   br label %calculate_min_match_len.exit
 
 74:                                               ; preds = %68
-  %75 = add nsw i64 %57, -8
-  %76 = icmp ult i64 %75, 72
+  %75 = add nsw i32 %52, -8
+  %76 = icmp ult i32 %75, 72
   %77 = select i1 %76, i32 %60, i32 7
   br label %calculate_min_match_len.exit
 
@@ -34214,8 +34214,8 @@ deflate_compute_true_cost.exit._crit_edge:        ; preds = %deflate_compute_tru
   br i1 %109, label %110, label %114
 
 110:                                              ; preds = %108
-  %111 = add nsw i64 %103, -45
-  %112 = icmp ult i64 %111, 35
+  %111 = add nsw i32 %spec.store.select.i.i, -45
+  %112 = icmp ult i32 %111, 35
   %113 = select i1 %112, i32 %106, i32 4
   br label %choose_min_match_len.exit.i.i
 
@@ -34224,14 +34224,14 @@ deflate_compute_true_cost.exit._crit_edge:        ; preds = %deflate_compute_tru
   br i1 %115, label %116, label %120
 
 116:                                              ; preds = %114
-  %117 = add nsw i64 %103, -16
-  %118 = icmp ult i64 %117, 64
+  %117 = add nsw i32 %spec.store.select.i.i, -16
+  %118 = icmp ult i32 %117, 64
   %119 = select i1 %118, i32 %106, i32 5
   br label %choose_min_match_len.exit.i.i
 
 120:                                              ; preds = %114
-  %121 = add nsw i64 %103, -8
-  %122 = icmp ult i64 %121, 72
+  %121 = add nsw i32 %spec.store.select.i.i, -8
+  %122 = icmp ult i32 %121, 72
   %123 = select i1 %122, i32 %106, i32 7
   br label %choose_min_match_len.exit.i.i
 

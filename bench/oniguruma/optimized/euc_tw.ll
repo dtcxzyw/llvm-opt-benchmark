@@ -34,35 +34,34 @@ define internal range(i32 -400, 5) i32 @euctw_code_to_mbclen(i32 noundef %0) #3 
 2:                                                ; preds = %1
   %.mask = and i32 %0, -16777216
   %3 = icmp eq i32 %.mask, -1912602624
-  br i1 %3, label %17, label %16
+  br i1 %3, label %16, label %15
 
 4:                                                ; preds = %1
   %.not7 = icmp samesign ult i32 %0, 65536
-  br i1 %.not7, label %5, label %17
+  br i1 %.not7, label %5, label %16
 
 5:                                                ; preds = %4
   %.not8 = icmp samesign ult i32 %0, 256
-  br i1 %.not8, label %11, label %6
+  br i1 %.not8, label %10, label %6
 
 6:                                                ; preds = %5
   %7 = lshr i32 %0, 8
-  %8 = zext nneg i32 %7 to i64
-  %9 = add nsw i64 %8, -161
-  %10 = icmp ult i64 %9, 94
-  br i1 %10, label %17, label %16
+  %8 = add nsw i32 %7, -161
+  %9 = icmp ult i32 %8, 94
+  br i1 %9, label %16, label %15
 
-11:                                               ; preds = %5
-  %12 = zext nneg i32 %0 to i64
-  %13 = getelementptr inbounds [256 x i32], ptr @EncLen_EUCTW, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
-  %15 = icmp eq i32 %14, 1
-  br i1 %15, label %17, label %16
+10:                                               ; preds = %5
+  %11 = zext nneg i32 %0 to i64
+  %12 = getelementptr inbounds [256 x i32], ptr @EncLen_EUCTW, i64 0, i64 %11
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp eq i32 %13, 1
+  br i1 %14, label %16, label %15
 
-16:                                               ; preds = %11, %6, %2
-  br label %17
+15:                                               ; preds = %10, %6, %2
+  br label %16
 
-17:                                               ; preds = %11, %6, %4, %2, %16
-  %.0 = phi i32 [ -400, %16 ], [ 4, %2 ], [ -400, %4 ], [ 2, %6 ], [ 1, %11 ]
+16:                                               ; preds = %10, %6, %4, %2, %15
+  %.0 = phi i32 [ -400, %15 ], [ 4, %2 ], [ -400, %4 ], [ 2, %6 ], [ 1, %10 ]
   ret i32 %.0
 }
 

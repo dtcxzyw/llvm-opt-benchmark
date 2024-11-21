@@ -15345,8 +15345,8 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_parenINS_11__
 _ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.i.i: ; preds = %62
   %.0.i.i.i.in.i.i = zext nneg i8 %11 to i32
   %.0.i.i.i.i.i = add nsw i32 %.0.i.i.i.in.i.i, -48
-  %67 = add nsw i32 %.0.i.i.i.in.i.i, -49
-  %or.cond.i.i = icmp ult i32 %67, 9
+  %67 = add nsw i8 %11, -49
+  %or.cond.i.i = icmp ult i8 %67, 9
   br i1 %or.cond.i.i, label %68, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE15__parse_BACKREFINS_11__wrap_iterIPKcEEEET_S9_S9_.exit
 
 68:                                               ; preds = %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.i.i
@@ -15771,8 +15771,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt3__111basic_regexIcNS_12r
 _ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit: ; preds = %2
   %.0.i.i.i.in = zext nneg i8 %1 to i32
   %.0.i.i.i = add nsw i32 %.0.i.i.i.in, -48
-  %7 = add nsw i32 %.0.i.i.i.in, -49
-  %or.cond = icmp ult i32 %7, 9
+  %7 = add nsw i8 %1, -49
+  %or.cond = icmp ult i8 %7, 9
   br i1 %or.cond, label %8, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.thread
 
 8:                                                ; preds = %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit

@@ -40959,88 +40959,86 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIZNK12_GLOBAL__N_114P
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i8, ptr %4, align 16
-  %6 = zext i8 %5 to i32
-  %7 = add nsw i32 %6, -7
-  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %7, -5
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %8, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3.i.i
+  %6 = add i8 %5, -7
+  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %6, -5
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %7, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3.i.i
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %9, align 8
-  %10 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -16
-  %11 = inttoptr i64 %10 to ptr
-  %12 = load ptr, ptr %11, align 16
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load i8, ptr %13, align 16
-  %15 = zext i8 %14 to i32
-  %.off.i.i.i.i.i.i.i.i5.i.i.i = add nsw i32 %15, -2
-  %switch.i.i.i.i.i.i.i.i6.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i5.i.i.i, 5
-  br i1 %switch.i.i.i.i.i.i.i.i6.i.i.i, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i.i, label %_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit
+7:                                                ; preds = %0
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %8, align 8
+  %9 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -16
+  %10 = inttoptr i64 %9 to ptr
+  %11 = load ptr, ptr %10, align 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load i8, ptr %12, align 16
+  %14 = add i8 %13, -2
+  %switch.i.i.i.i.i.i.i.i5.i.i.i = icmp ult i8 %14, 5
+  br i1 %switch.i.i.i.i.i.i.i.i5.i.i.i, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i.i, label %_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit
 
-_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i.i: ; preds = %8
-  %16 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %3) #22
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit._ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3_crit_edge.i.i
+_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i.i: ; preds = %7
+  %15 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %3) #22
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit._ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3_crit_edge.i.i
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit._ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3_crit_edge.i.i: ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i.i
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 16
   br label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3.i.i
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3.i.i: ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit._ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3_crit_edge.i.i, %0
-  %18 = phi i8 [ %.pre.i.i, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit._ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3_crit_edge.i.i ], [ %5, %0 ]
-  %.0.i5.i.i = phi ptr [ %16, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit._ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3_crit_edge.i.i ], [ %3, %0 ]
-  %19 = and i8 %18, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i.i = icmp eq i8 %19, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i, label %20, label %_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit
+  %17 = phi i8 [ %.pre.i.i, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit._ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3_crit_edge.i.i ], [ %5, %0 ]
+  %.0.i5.i.i = phi ptr [ %15, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit._ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3_crit_edge.i.i ], [ %3, %0 ]
+  %18 = and i8 %17, -2
+  %spec.select.i.i.i.i.i.i.i.i.not.i.i = icmp eq i8 %18, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i, label %19, label %_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit
 
-20:                                               ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i5.i.i, i64 16
-  %22 = load i32, ptr %21, align 16
-  %23 = and i32 %22, 33554432
-  %.not.i.i.i = icmp eq i32 %23, 0
-  %24 = getelementptr inbounds nuw i8, ptr %.0.i5.i.i, i64 40
-  br i1 %.not.i.i.i, label %31, label %25
+19:                                               ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i5.i.i, i64 16
+  %21 = load i32, ptr %20, align 16
+  %22 = and i32 %21, 33554432
+  %.not.i.i.i = icmp eq i32 %22, 0
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i5.i.i, i64 40
+  br i1 %.not.i.i.i, label %30, label %24
 
-25:                                               ; preds = %20
-  %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp ult i32 %28, 65
-  %30 = load ptr, ptr %26, align 8
-  %.0.in.i.i.i.i = select i1 %29, ptr %26, ptr %30
-  br label %31
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %23, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp ult i32 %27, 65
+  %29 = load ptr, ptr %25, align 8
+  %.0.in.i.i.i.i = select i1 %28, ptr %25, ptr %29
+  br label %30
 
-31:                                               ; preds = %25, %20
-  %.in.i.i.i = phi ptr [ %.0.in.i.i.i.i, %25 ], [ %24, %20 ]
-  %32 = load i64, ptr %.in.i.i.i, align 8
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit, label %34
+30:                                               ; preds = %24, %19
+  %.in.i.i.i = phi ptr [ %.0.in.i.i.i.i, %24 ], [ %23, %19 ]
+  %31 = load i64, ptr %.in.i.i.i, align 8
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit, label %33
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i5.i.i, i64 32
-  %.sroa.0.0.copyload.i13.i.i = load i64, ptr %35, align 16
-  %36 = and i64 %.sroa.0.0.copyload.i13.i.i, -16
-  %37 = inttoptr i64 %36 to ptr
-  %38 = load ptr, ptr %37, align 16
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %.sroa.0.0.copyload.i.i.i.i15.i.i = load i64, ptr %39, align 8
-  %40 = and i64 %.sroa.0.0.copyload.i.i.i.i15.i.i, -16
-  %41 = inttoptr i64 %40 to ptr
-  %42 = load ptr, ptr %41, align 16
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i8, ptr %43, align 16
-  %45 = icmp ne i8 %44, 47
-  %46 = icmp eq ptr %42, null
-  %47 = or i1 %46, %45
-  br i1 %47, label %_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit, label %48
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i5.i.i, i64 32
+  %.sroa.0.0.copyload.i13.i.i = load i64, ptr %34, align 16
+  %35 = and i64 %.sroa.0.0.copyload.i13.i.i, -16
+  %36 = inttoptr i64 %35 to ptr
+  %37 = load ptr, ptr %36, align 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %.sroa.0.0.copyload.i.i.i.i15.i.i = load i64, ptr %38, align 8
+  %39 = and i64 %.sroa.0.0.copyload.i.i.i.i15.i.i, -16
+  %40 = inttoptr i64 %39 to ptr
+  %41 = load ptr, ptr %40, align 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i8, ptr %42, align 16
+  %44 = icmp ne i8 %43, 47
+  %45 = icmp eq ptr %41, null
+  %46 = or i1 %45, %44
+  br i1 %46, label %_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit, label %47
 
-48:                                               ; preds = %34
-  %49 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %42) #22
-  tail call fastcc void @_ZNK12_GLOBAL__N_114PaddingChecker11visitRecordEPKN5clang10RecordDeclEm(ptr noundef nonnull align 8 dereferenceable(152) %.0.val, ptr noundef %49, i64 noundef %32)
+47:                                               ; preds = %33
+  %48 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %41) #22
+  tail call fastcc void @_ZNK12_GLOBAL__N_114PaddingChecker11visitRecordEPKN5clang10RecordDeclEm(ptr noundef nonnull align 8 dereferenceable(152) %.0.val, ptr noundef %48, i64 noundef %31)
   br label %_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit
 
-_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit: ; preds = %8, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i.i, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3.i.i, %31, %34, %48
+_ZZNK12_GLOBAL__N_114PaddingChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor12VisitVarDeclEPKNS1_7VarDeclE.exit: ; preds = %7, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.i.i, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread3.i.i, %30, %33, %47
   ret void
 }
 

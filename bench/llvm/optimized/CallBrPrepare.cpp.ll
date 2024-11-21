@@ -301,8 +301,8 @@ define internal fastcc void @_ZL11FindCallBrsRN4llvm8FunctionE(ptr dead_on_unwin
   %.not1316 = icmp eq ptr %.sroa.010.015, %5
   br i1 %.not1316, label %._crit_edge, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
-_ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %2, %40
-  %.sroa.010.017 = phi ptr [ %.sroa.010.0, %40 ], [ %.sroa.010.015, %2 ]
+_ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %2, %39
+  %.sroa.010.017 = phi ptr [ %.sroa.010.0, %39 ], [ %.sroa.010.015, %2 ]
   %6 = icmp eq ptr %.sroa.010.017, null
   %7 = getelementptr inbounds i8, ptr %.sroa.010.017, i64 -24
   %8 = select i1 %6, ptr null, ptr %7
@@ -312,58 +312,57 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %2, %40
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds i8, ptr %10, i64 -24
   %13 = load i8, ptr %12, align 8
-  %14 = zext i8 %13 to i32
-  %15 = add nsw i32 %14, -30
-  %16 = icmp ult i32 %15, 11
-  %spec.select.i.i = select i1 %16, ptr %12, ptr null
-  %17 = load i8, ptr %spec.select.i.i, align 8
-  %.not = icmp eq i8 %17, 40
-  br i1 %.not, label %18, label %40
+  %14 = add i8 %13, -30
+  %15 = icmp ult i8 %14, 11
+  %spec.select.i.i = select i1 %15, ptr %12, ptr null
+  %16 = load i8, ptr %spec.select.i.i, align 8
+  %.not = icmp eq i8 %16, 40
+  br i1 %.not, label %17, label %39
 
-18:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
-  %19 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load i32, ptr %21, align 8
-  %23 = and i32 %22, 255
-  %24 = icmp eq i32 %23, 7
-  br i1 %24, label %40, label %25
+17:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
+  %18 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = and i32 %21, 255
+  %23 = icmp eq i32 %22, 7
+  br i1 %23, label %39, label %24
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %40, label %29
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %39, label %28
 
-29:                                               ; preds = %25
-  %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  %31 = add i64 %30, 1
-  %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  %.not.i.i.i = icmp ugt i64 %31, %32
-  br i1 %.not.i.i.i, label %33, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10CallBrInstELb1EE9push_backES2_.exit
+28:                                               ; preds = %24
+  %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  %30 = add i64 %29, 1
+  %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  %.not.i.i.i = icmp ugt i64 %30, %31
+  br i1 %.not.i.i.i, label %32, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10CallBrInstELb1EE9push_backES2_.exit
 
-33:                                               ; preds = %29
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i64 noundef %31, i64 noundef 8) #11
+32:                                               ; preds = %28
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i64 noundef %30, i64 noundef 8) #11
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10CallBrInstELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_10CallBrInstELb1EE9push_backES2_.exit: ; preds = %29, %33
-  %34 = load ptr, ptr %0, align 8
-  %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
-  %37 = ptrtoint ptr %spec.select.i.i to i64
-  store i64 %37, ptr %36, align 1
-  %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  %39 = add i64 %38, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %39) #11
-  br label %40
+_ZN4llvm23SmallVectorTemplateBaseIPNS_10CallBrInstELb1EE9push_backES2_.exit: ; preds = %28, %32
+  %33 = load ptr, ptr %0, align 8
+  %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %36 = ptrtoint ptr %spec.select.i.i to i64
+  store i64 %36, ptr %35, align 1
+  %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  %38 = add i64 %37, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %38) #11
+  br label %39
 
-40:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10CallBrInstELb1EE9push_backES2_.exit, %25, %18
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 8
-  %.sroa.010.0 = load ptr, ptr %41, align 8
+39:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10CallBrInstELb1EE9push_backES2_.exit, %24, %17
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 8
+  %.sroa.010.0 = load ptr, ptr %40, align 8
   %.not13 = icmp eq ptr %.sroa.010.0, %5
   br i1 %.not13, label %._crit_edge, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
-._crit_edge:                                      ; preds = %40, %2
+._crit_edge:                                      ; preds = %39, %2
   ret void
 }
 

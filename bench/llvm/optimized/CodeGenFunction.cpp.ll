@@ -16025,9 +16025,8 @@ _ZNK5clang10ASTContext20getBuiltinVaListTypeEv.exit: ; preds = %12, %14
   %21 = load ptr, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i8, ptr %22, align 16
-  %24 = zext i8 %23 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %24, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %24 = add i8 %23, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %24, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %25, label %26
 
 25:                                               ; preds = %_ZNK5clang10ASTContext20getBuiltinVaListTypeEv.exit

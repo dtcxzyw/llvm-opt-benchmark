@@ -4571,9 +4571,8 @@ _ZNSt12_Vector_baseIPN18OpenImageIO_v2_6_08PSDInput11ChannelInfoESaIS3_EE13_M_de
 
 _ZNSt6vectorIPN18OpenImageIO_v2_6_08PSDInput11ChannelInfoESaIS3_EE7reserveEm.exit155: ; preds = %if.end.i133, %_ZNSt12_Vector_baseIPN18OpenImageIO_v2_6_08PSDInput11ChannelInfoESaIS3_EE13_M_deallocateEPS3_m.exit.i150
   %73 = load i16, ptr %color_mode, align 2
-  %idxprom120226 = zext i16 %73 to i64
-  %74 = add nsw i64 %idxprom120226, -5
-  %cmp122228.not = icmp ult i64 %74, 4
+  %74 = add i16 %73, -5
+  %cmp122228.not = icmp ult i16 %74, 4
   br i1 %cmp122228.not, label %for.end130, label %for.body123.lr.ph
 
 for.body123.lr.ph:                                ; preds = %_ZNSt6vectorIPN18OpenImageIO_v2_6_08PSDInput11ChannelInfoESaIS3_EE7reserveEm.exit155
@@ -9692,12 +9691,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
-  %idxprom14 = zext i16 %2 to i64
-  %3 = add nsw i64 %idxprom14, -5
-  %cmp416.not = icmp ult i64 %3, 4
+  %3 = add i16 %2, -5
+  %cmp416.not = icmp ult i16 %3, 4
   br i1 %cmp416.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %idxprom14 = zext i16 %2 to i64
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %spec, i64 112
   br label %for.body
 

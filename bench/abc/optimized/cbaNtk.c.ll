@@ -270,4562 +270,4559 @@ Vec_IntStart.exit:
   %exitcond1191.not = icmp eq i64 %indvars.iv.next1189, 90
   br i1 %exitcond1191.not, label %.preheader, label %.preheader1171, !llvm.loop !9
 
-32:                                               ; preds = %.lr.ph, %2454
-  %indvars.iv1192 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next1193, %2454 ]
-  %.01179 = phi i32 [ -1, %.lr.ph ], [ %.2, %2454 ]
-  %.03271178 = phi i32 [ 0, %.lr.ph ], [ %.2329, %2454 ]
+32:                                               ; preds = %.lr.ph, %2447
+  %indvars.iv1192 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next1193, %2447 ]
+  %.01179 = phi i32 [ -1, %.lr.ph ], [ %.2, %2447 ]
+  %.03271178 = phi i32 [ 0, %.lr.ph ], [ %.2329, %2447 ]
   %.val358 = load ptr, ptr %20, align 8
   %33 = getelementptr inbounds i8, ptr %.val358, i64 %indvars.iv1192
   %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
   %.not346 = icmp eq i8 %34, 0
-  br i1 %.not346, label %2454, label %36
+  br i1 %.not346, label %2447, label %35
 
-36:                                               ; preds = %32
-  %37 = trunc nuw nsw i64 %indvars.iv1192 to i32
-  %38 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %37)
-  %39 = icmp sgt i32 %38, 2097151
-  br i1 %39, label %40, label %107
+35:                                               ; preds = %32
+  %36 = trunc nuw nsw i64 %indvars.iv1192 to i32
+  %37 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %36)
+  %38 = icmp sgt i32 %37, 2097151
+  br i1 %38, label %39, label %106
 
-40:                                               ; preds = %36
+39:                                               ; preds = %35
   %.val.i = load ptr, ptr %21, align 8
-  %41 = getelementptr inbounds i32, ptr %.val.i, i64 %indvars.iv1192
-  %42 = load i32, ptr %41, align 4
-  %.not.i.i = icmp sgt i32 %42, -1
-  br i1 %.not.i.i, label %48, label %43
+  %40 = getelementptr inbounds i32, ptr %.val.i, i64 %indvars.iv1192
+  %41 = load i32, ptr %40, align 4
+  %.not.i.i = icmp sgt i32 %41, -1
+  br i1 %.not.i.i, label %47, label %42
 
-43:                                               ; preds = %40
+42:                                               ; preds = %39
   %.val.i.i = load ptr, ptr %0, align 8
-  %44 = getelementptr i8, ptr %.val.i.i, i64 24
-  %.val.val.i.i = load ptr, ptr %44, align 8
-  %45 = xor i32 %42, -1
-  %46 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i, i32 noundef range(i32 -2147483648, 2147483647) %45) #26
-  %47 = call i32 @atoi(ptr nocapture noundef %46) #27
+  %43 = getelementptr i8, ptr %.val.i.i, i64 24
+  %.val.val.i.i = load ptr, ptr %43, align 8
+  %44 = xor i32 %41, -1
+  %45 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i, i32 noundef range(i32 -2147483648, 2147483647) %44) #26
+  %46 = call i32 @atoi(ptr nocapture noundef %45) #27
   br label %Cba_ObjRangeSize.exit
 
-48:                                               ; preds = %40
+47:                                               ; preds = %39
   %.val.i.i.i.i = load i32, ptr %22, align 4
-  %49 = icmp slt i32 %.val.i.i.i.i, 1
-  br i1 %49, label %Cba_NtkRangeSize.exit.i.i, label %Cba_FonRange.exit.i.i
+  %48 = icmp slt i32 %.val.i.i.i.i, 1
+  br i1 %48, label %Cba_NtkRangeSize.exit.i.i, label %Cba_FonRange.exit.i.i
 
-Cba_FonRange.exit.i.i:                            ; preds = %48
-  %50 = add nuw nsw i32 %42, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %50, i32 noundef 0)
+Cba_FonRange.exit.i.i:                            ; preds = %47
+  %49 = add nuw nsw i32 %41, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %49, i32 noundef 0)
   %.val.i.i.i.i.i = load ptr, ptr %24, align 8
-  %51 = zext nneg i32 %42 to i64
-  %52 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %.not.i.i.i.i = icmp ult i32 %53, 2
-  br i1 %.not.i.i.i.i, label %Cba_NtkRangeSize.exit.i.i, label %54
+  %50 = zext nneg i32 %41 to i64
+  %51 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i, i64 %50
+  %52 = load i32, ptr %51, align 4
+  %.not.i.i.i.i = icmp ult i32 %52, 2
+  br i1 %.not.i.i.i.i, label %Cba_NtkRangeSize.exit.i.i, label %53
 
-54:                                               ; preds = %Cba_FonRange.exit.i.i
-  %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 40
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = shl nsw i32 %53, 1
-  %61 = and i32 %60, -4
-  %62 = getelementptr i8, ptr %59, i64 8
-  %.val.i.i.i.i.i.i = load ptr, ptr %62, align 8
-  %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %64, i64 4
-  %67 = load i32, ptr %66, align 4
-  %68 = sub nsw i32 %65, %67
+53:                                               ; preds = %Cba_FonRange.exit.i.i
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 40
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = shl nsw i32 %52, 1
+  %60 = and i32 %59, -4
+  %61 = getelementptr i8, ptr %58, i64 8
+  %.val.i.i.i.i.i.i = load ptr, ptr %61, align 8
+  %62 = sext i32 %60 to i64
+  %63 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i, i64 %62
+  %64 = load i32, ptr %63, align 4
+  %65 = getelementptr inbounds i8, ptr %63, i64 4
+  %66 = load i32, ptr %65, align 4
+  %67 = sub nsw i32 %64, %66
   br label %Cba_NtkRangeSize.exit.i.i
 
-Cba_NtkRangeSize.exit.i.i:                        ; preds = %54, %Cba_FonRange.exit.i.i, %48
-  %69 = phi i32 [ %68, %54 ], [ 0, %Cba_FonRange.exit.i.i ], [ 0, %48 ]
-  %70 = call i32 @llvm.abs.i32(i32 %69, i1 true)
-  %71 = add nuw nsw i32 %70, 1
+Cba_NtkRangeSize.exit.i.i:                        ; preds = %53, %Cba_FonRange.exit.i.i, %47
+  %68 = phi i32 [ %67, %53 ], [ 0, %Cba_FonRange.exit.i.i ], [ 0, %47 ]
+  %69 = call i32 @llvm.abs.i32(i32 %68, i1 true)
+  %70 = add nuw nsw i32 %69, 1
   br label %Cba_ObjRangeSize.exit
 
-Cba_ObjRangeSize.exit:                            ; preds = %43, %Cba_NtkRangeSize.exit.i.i
-  %72 = phi i32 [ %47, %43 ], [ %71, %Cba_NtkRangeSize.exit.i.i ]
+Cba_ObjRangeSize.exit:                            ; preds = %42, %Cba_NtkRangeSize.exit.i.i
+  %71 = phi i32 [ %46, %42 ], [ %70, %Cba_NtkRangeSize.exit.i.i ]
   %.val.i496 = load ptr, ptr %21, align 8
-  %73 = getelementptr inbounds i32, ptr %.val.i496, i64 %indvars.iv1192
-  %74 = load i32, ptr %73, align 4
-  %.not.i.i497 = icmp sgt i32 %74, -1
-  br i1 %.not.i.i497, label %80, label %75
+  %72 = getelementptr inbounds i32, ptr %.val.i496, i64 %indvars.iv1192
+  %73 = load i32, ptr %72, align 4
+  %.not.i.i497 = icmp sgt i32 %73, -1
+  br i1 %.not.i.i497, label %79, label %74
 
-75:                                               ; preds = %Cba_ObjRangeSize.exit
+74:                                               ; preds = %Cba_ObjRangeSize.exit
   %.val.i.i498 = load ptr, ptr %0, align 8
-  %76 = getelementptr i8, ptr %.val.i.i498, i64 24
-  %.val.val.i.i499 = load ptr, ptr %76, align 8
-  %77 = xor i32 %74, -1
-  %78 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i499, i32 noundef range(i32 -2147483648, 2147483647) %77) #26
-  %79 = call i32 @atoi(ptr nocapture noundef %78) #27
+  %75 = getelementptr i8, ptr %.val.i.i498, i64 24
+  %.val.val.i.i499 = load ptr, ptr %75, align 8
+  %76 = xor i32 %73, -1
+  %77 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i499, i32 noundef range(i32 -2147483648, 2147483647) %76) #26
+  %78 = call i32 @atoi(ptr nocapture noundef %77) #27
   br label %Cba_ObjRangeSize.exit506
 
-80:                                               ; preds = %Cba_ObjRangeSize.exit
+79:                                               ; preds = %Cba_ObjRangeSize.exit
   %.val.i.i.i.i500 = load i32, ptr %22, align 4
-  %81 = icmp slt i32 %.val.i.i.i.i500, 1
-  br i1 %81, label %Cba_NtkRangeSize.exit.i.i505, label %Cba_FonRange.exit.i.i501
+  %80 = icmp slt i32 %.val.i.i.i.i500, 1
+  br i1 %80, label %Cba_NtkRangeSize.exit.i.i505, label %Cba_FonRange.exit.i.i501
 
-Cba_FonRange.exit.i.i501:                         ; preds = %80
-  %82 = add nuw nsw i32 %74, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %82, i32 noundef 0)
+Cba_FonRange.exit.i.i501:                         ; preds = %79
+  %81 = add nuw nsw i32 %73, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %81, i32 noundef 0)
   %.val.i.i.i.i.i502 = load ptr, ptr %24, align 8
-  %83 = zext nneg i32 %74 to i64
-  %84 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i502, i64 %83
-  %85 = load i32, ptr %84, align 4
-  %.not.i.i.i.i503 = icmp ult i32 %85, 2
-  br i1 %.not.i.i.i.i503, label %Cba_NtkRangeSize.exit.i.i505, label %86
+  %82 = zext nneg i32 %73 to i64
+  %83 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i502, i64 %82
+  %84 = load i32, ptr %83, align 4
+  %.not.i.i.i.i503 = icmp ult i32 %84, 2
+  br i1 %.not.i.i.i.i503, label %Cba_NtkRangeSize.exit.i.i505, label %85
 
-86:                                               ; preds = %Cba_FonRange.exit.i.i501
-  %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 40
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = shl nsw i32 %85, 1
-  %93 = and i32 %92, -4
-  %94 = getelementptr i8, ptr %91, i64 8
-  %.val.i.i.i.i.i.i504 = load ptr, ptr %94, align 8
-  %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i504, i64 %95
-  %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %96, i64 4
-  %99 = load i32, ptr %98, align 4
-  %100 = sub nsw i32 %97, %99
+85:                                               ; preds = %Cba_FonRange.exit.i.i501
+  %86 = load ptr, ptr %0, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 40
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = shl nsw i32 %84, 1
+  %92 = and i32 %91, -4
+  %93 = getelementptr i8, ptr %90, i64 8
+  %.val.i.i.i.i.i.i504 = load ptr, ptr %93, align 8
+  %94 = sext i32 %92 to i64
+  %95 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i504, i64 %94
+  %96 = load i32, ptr %95, align 4
+  %97 = getelementptr inbounds i8, ptr %95, i64 4
+  %98 = load i32, ptr %97, align 4
+  %99 = sub nsw i32 %96, %98
   br label %Cba_NtkRangeSize.exit.i.i505
 
-Cba_NtkRangeSize.exit.i.i505:                     ; preds = %86, %Cba_FonRange.exit.i.i501, %80
-  %101 = phi i32 [ %100, %86 ], [ 0, %Cba_FonRange.exit.i.i501 ], [ 0, %80 ]
-  %102 = call i32 @llvm.abs.i32(i32 %101, i1 true)
-  %103 = add nuw nsw i32 %102, 1
+Cba_NtkRangeSize.exit.i.i505:                     ; preds = %85, %Cba_FonRange.exit.i.i501, %79
+  %100 = phi i32 [ %99, %85 ], [ 0, %Cba_FonRange.exit.i.i501 ], [ 0, %79 ]
+  %101 = call i32 @llvm.abs.i32(i32 %100, i1 true)
+  %102 = add nuw nsw i32 %101, 1
   br label %Cba_ObjRangeSize.exit506
 
-Cba_ObjRangeSize.exit506:                         ; preds = %75, %Cba_NtkRangeSize.exit.i.i505
-  %104 = phi i32 [ %79, %75 ], [ %103, %Cba_NtkRangeSize.exit.i.i505 ]
-  %105 = and i32 %104, 1048575
-  %106 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %37, i32 noundef %72, i32 noundef %105)
-  br label %107
+Cba_ObjRangeSize.exit506:                         ; preds = %74, %Cba_NtkRangeSize.exit.i.i505
+  %103 = phi i32 [ %78, %74 ], [ %102, %Cba_NtkRangeSize.exit.i.i505 ]
+  %104 = and i32 %103, 1048575
+  %105 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %36, i32 noundef %71, i32 noundef %104)
+  br label %106
 
-107:                                              ; preds = %Cba_ObjRangeSize.exit506, %36
+106:                                              ; preds = %Cba_ObjRangeSize.exit506, %35
   %.val.i.i.i.i507 = load i32, ptr %22, align 4
-  %108 = icmp slt i32 %.val.i.i.i.i507, 1
-  br i1 %108, label %Cba_ObjLeft.exit.thread, label %Cba_FonRange.exit.i.i508
+  %107 = icmp slt i32 %.val.i.i.i.i507, 1
+  br i1 %107, label %Cba_ObjLeft.exit.thread, label %Cba_FonRange.exit.i.i508
 
-Cba_FonRange.exit.i.i508:                         ; preds = %107
+Cba_FonRange.exit.i.i508:                         ; preds = %106
   %.val.i509 = load ptr, ptr %21, align 8
-  %109 = getelementptr inbounds i32, ptr %.val.i509, i64 %indvars.iv1192
-  %110 = load i32, ptr %109, align 4
-  %111 = add nsw i32 %110, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %111, i32 noundef 0)
+  %108 = getelementptr inbounds i32, ptr %.val.i509, i64 %indvars.iv1192
+  %109 = load i32, ptr %108, align 4
+  %110 = add nsw i32 %109, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %110, i32 noundef 0)
   %.val.i.i.i.i.i510 = load ptr, ptr %24, align 8
-  %112 = sext i32 %110 to i64
-  %113 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i510, i64 %112
-  %114 = load i32, ptr %113, align 4
-  %.not.i.i.i = icmp ult i32 %114, 2
+  %111 = sext i32 %109 to i64
+  %112 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i510, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %.not.i.i.i = icmp ult i32 %113, 2
   br i1 %.not.i.i.i, label %Cba_ObjLeft.exit.thread, label %Cba_ObjLeft.exit
 
 Cba_ObjLeft.exit:                                 ; preds = %Cba_FonRange.exit.i.i508
-  %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 40
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = shl nsw i32 %114, 1
-  %121 = and i32 %120, -4
-  %122 = getelementptr i8, ptr %119, i64 8
-  %.val.i.i.i2.i.i = load ptr, ptr %122, align 8
-  %123 = sext i32 %121 to i64
-  %124 = getelementptr inbounds i32, ptr %.val.i.i.i2.i.i, i64 %123
-  %125 = load i32, ptr %124, align 4
-  %.not347 = icmp eq i32 %125, 0
-  br i1 %.not347, label %Cba_ObjLeft.exit.thread, label %126
+  %114 = load ptr, ptr %0, align 8
+  %115 = getelementptr inbounds i8, ptr %114, i64 40
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = shl nsw i32 %113, 1
+  %120 = and i32 %119, -4
+  %121 = getelementptr i8, ptr %118, i64 8
+  %.val.i.i.i2.i.i = load ptr, ptr %121, align 8
+  %122 = sext i32 %120 to i64
+  %123 = getelementptr inbounds i32, ptr %.val.i.i.i2.i.i, i64 %122
+  %124 = load i32, ptr %123, align 4
+  %.not347 = icmp eq i32 %124, 0
+  br i1 %.not347, label %Cba_ObjLeft.exit.thread, label %125
 
-126:                                              ; preds = %Cba_ObjLeft.exit
+125:                                              ; preds = %Cba_ObjLeft.exit
   %.val.i.i.i.i511 = load i32, ptr %22, align 4
-  %127 = icmp slt i32 %.val.i.i.i.i511, 1
-  br i1 %127, label %Cba_ObjLeft.exit.thread, label %Cba_FonRange.exit.i.i512
+  %126 = icmp slt i32 %.val.i.i.i.i511, 1
+  br i1 %126, label %Cba_ObjLeft.exit.thread, label %Cba_FonRange.exit.i.i512
 
-Cba_FonRange.exit.i.i512:                         ; preds = %126
+Cba_FonRange.exit.i.i512:                         ; preds = %125
   %.val.i513 = load ptr, ptr %21, align 8
-  %128 = getelementptr inbounds i32, ptr %.val.i513, i64 %indvars.iv1192
-  %129 = load i32, ptr %128, align 4
-  %130 = add nsw i32 %129, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %130, i32 noundef 0)
+  %127 = getelementptr inbounds i32, ptr %.val.i513, i64 %indvars.iv1192
+  %128 = load i32, ptr %127, align 4
+  %129 = add nsw i32 %128, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %129, i32 noundef 0)
   %.val.i.i.i.i.i514 = load ptr, ptr %24, align 8
-  %131 = sext i32 %129 to i64
-  %132 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i514, i64 %131
-  %133 = load i32, ptr %132, align 4
-  %.not.i.i.i515 = icmp ult i32 %133, 2
+  %130 = sext i32 %128 to i64
+  %131 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i514, i64 %130
+  %132 = load i32, ptr %131, align 4
+  %.not.i.i.i515 = icmp ult i32 %132, 2
   br i1 %.not.i.i.i515, label %Cba_ObjLeft.exit.thread, label %Cba_ObjRight.exit
 
 Cba_ObjRight.exit:                                ; preds = %Cba_FonRange.exit.i.i512
-  %134 = load ptr, ptr %0, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 40
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 8
-  %138 = load ptr, ptr %137, align 8
-  %139 = shl nsw i32 %133, 1
-  %140 = and i32 %139, -4
-  %141 = getelementptr i8, ptr %138, i64 8
-  %.val.i.i.i2.i.i516 = load ptr, ptr %141, align 8
-  %142 = sext i32 %140 to i64
-  %143 = getelementptr inbounds i32, ptr %.val.i.i.i2.i.i516, i64 %142
-  %144 = getelementptr inbounds i8, ptr %143, i64 4
-  %145 = load i32, ptr %144, align 4
-  %.not348 = icmp eq i32 %145, 0
-  br i1 %.not348, label %Cba_ObjLeft.exit.thread, label %146
+  %133 = load ptr, ptr %0, align 8
+  %134 = getelementptr inbounds i8, ptr %133, i64 40
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %137 = load ptr, ptr %136, align 8
+  %138 = shl nsw i32 %132, 1
+  %139 = and i32 %138, -4
+  %140 = getelementptr i8, ptr %137, i64 8
+  %.val.i.i.i2.i.i516 = load ptr, ptr %140, align 8
+  %141 = sext i32 %139 to i64
+  %142 = getelementptr inbounds i32, ptr %.val.i.i.i2.i.i516, i64 %141
+  %143 = getelementptr inbounds i8, ptr %142, i64 4
+  %144 = load i32, ptr %143, align 4
+  %.not348 = icmp eq i32 %144, 0
+  br i1 %.not348, label %Cba_ObjLeft.exit.thread, label %145
 
-146:                                              ; preds = %Cba_ObjRight.exit
-  %147 = icmp eq i32 %.01179, -1
-  %spec.store.select = select i1 %147, i32 1, i32 %.01179
-  %148 = add nsw i32 %.03271178, 1
+145:                                              ; preds = %Cba_ObjRight.exit
+  %146 = icmp eq i32 %.01179, -1
+  %spec.store.select = select i1 %146, i32 1, i32 %.01179
+  %147 = add nsw i32 %.03271178, 1
   br label %Cba_ObjLeft.exit.thread
 
-Cba_ObjLeft.exit.thread:                          ; preds = %126, %Cba_FonRange.exit.i.i512, %107, %Cba_FonRange.exit.i.i508, %146, %Cba_ObjRight.exit, %Cba_ObjLeft.exit
-  %.1328 = phi i32 [ %148, %146 ], [ %.03271178, %Cba_ObjRight.exit ], [ %.03271178, %Cba_ObjLeft.exit ], [ %.03271178, %Cba_FonRange.exit.i.i508 ], [ %.03271178, %107 ], [ %.03271178, %Cba_FonRange.exit.i.i512 ], [ %.03271178, %126 ]
-  %.1 = phi i32 [ %spec.store.select, %146 ], [ %.01179, %Cba_ObjRight.exit ], [ %.01179, %Cba_ObjLeft.exit ], [ %.01179, %Cba_FonRange.exit.i.i508 ], [ %.01179, %107 ], [ %.01179, %Cba_FonRange.exit.i.i512 ], [ %.01179, %126 ]
+Cba_ObjLeft.exit.thread:                          ; preds = %125, %Cba_FonRange.exit.i.i512, %106, %Cba_FonRange.exit.i.i508, %145, %Cba_ObjRight.exit, %Cba_ObjLeft.exit
+  %.1328 = phi i32 [ %147, %145 ], [ %.03271178, %Cba_ObjRight.exit ], [ %.03271178, %Cba_ObjLeft.exit ], [ %.03271178, %Cba_FonRange.exit.i.i508 ], [ %.03271178, %106 ], [ %.03271178, %Cba_FonRange.exit.i.i512 ], [ %.03271178, %125 ]
+  %.1 = phi i32 [ %spec.store.select, %145 ], [ %.01179, %Cba_ObjRight.exit ], [ %.01179, %Cba_ObjLeft.exit ], [ %.01179, %Cba_FonRange.exit.i.i508 ], [ %.01179, %106 ], [ %.01179, %Cba_FonRange.exit.i.i512 ], [ %.01179, %125 ]
   %.val362 = load ptr, ptr %20, align 8
-  %149 = getelementptr inbounds i8, ptr %.val362, i64 %indvars.iv1192
-  %150 = load i8, ptr %149, align 1
-  %.not1164 = icmp eq i8 %150, 1
-  br i1 %.not1164, label %158, label %151
+  %148 = getelementptr inbounds i8, ptr %.val362, i64 %indvars.iv1192
+  %149 = load i8, ptr %148, align 1
+  %.not1164 = icmp eq i8 %149, 1
+  br i1 %.not1164, label %157, label %150
 
-151:                                              ; preds = %Cba_ObjLeft.exit.thread
-  switch i8 %34, label %.split335 [
-    i8 8, label %152
-    i8 89, label %158
+150:                                              ; preds = %Cba_ObjLeft.exit.thread
+  switch i8 %34, label %171 [
+    i8 8, label %151
+    i8 89, label %157
+    i8 57, label %.split335.thread
+    i8 56, label %.split335.thread
+    i8 55, label %.split335.thread
+    i8 33, label %.split335.thread
+    i8 32, label %.split335.thread
+    i8 31, label %.split335.thread
+    i8 30, label %.split335.thread
+    i8 29, label %.split335.thread
+    i8 28, label %.split335.thread
+    i8 27, label %.split335.thread
+    i8 9, label %.split335.thread
   ]
 
-152:                                              ; preds = %151
+151:                                              ; preds = %150
   %.val363 = load ptr, ptr %25, align 8
   %.val364 = load ptr, ptr %26, align 8
-  %153 = getelementptr inbounds i32, ptr %.val363, i64 %indvars.iv1192
-  %154 = load i32, ptr %153, align 4
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds i32, ptr %.val364, i64 %155
-  %157 = load i32, ptr %156, align 4
-  %.not350 = icmp sgt i32 %157, -1
-  br i1 %.not350, label %.split335.thread, label %158
+  %152 = getelementptr inbounds i32, ptr %.val363, i64 %indvars.iv1192
+  %153 = load i32, ptr %152, align 4
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds i32, ptr %.val364, i64 %154
+  %156 = load i32, ptr %155, align 4
+  %.not350 = icmp sgt i32 %156, -1
+  br i1 %.not350, label %.split335.thread, label %157
 
-158:                                              ; preds = %151, %152, %Cba_ObjLeft.exit.thread
-  %159 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %37)
-  %160 = sext i32 %159 to i64
-  br label %212
+157:                                              ; preds = %150, %151, %Cba_ObjLeft.exit.thread
+  %158 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %36)
+  %159 = sext i32 %158 to i64
+  br label %205
 
-.split335:                                        ; preds = %151
-  %161 = and i32 %35, 254
-  %or.cond.i = icmp ne i32 %161, 8
-  %162 = icmp ne i8 %34, 33
-  %or.cond3.i.not1169 = and i1 %162, %or.cond.i
-  %163 = add nsw i32 %35, -58
-  %164 = icmp ult i32 %163, -3
-  %or.cond9.i.not1167 = and i1 %164, %or.cond3.i.not1169
-  %165 = add nsw i32 %35, -33
-  %166 = icmp ult i32 %165, -6
-  %narrow.i.not = select i1 %or.cond9.i.not1167, i1 %166, i1 false
-  br i1 %narrow.i.not, label %178, label %.split335.thread
-
-.split335.thread:                                 ; preds = %152, %.split335
-  %167 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %37)
+.split335.thread:                                 ; preds = %150, %150, %150, %150, %150, %150, %150, %150, %150, %150, %150, %151
+  %160 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %36)
   %.val365 = load ptr, ptr %25, align 8
   %.val366 = load ptr, ptr %26, align 8
-  %168 = getelementptr inbounds i32, ptr %.val365, i64 %indvars.iv1192
-  %169 = load i32, ptr %168, align 4
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds i32, ptr %.val366, i64 %170
-  %172 = load i32, ptr %171, align 4
-  %173 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %172)
-  %174 = sext i32 %173 to i64
-  %175 = shl nsw i64 %174, 21
-  %176 = sext i32 %167 to i64
-  %177 = or i64 %175, %176
-  br label %212
+  %161 = getelementptr inbounds i32, ptr %.val365, i64 %indvars.iv1192
+  %162 = load i32, ptr %161, align 4
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds i32, ptr %.val366, i64 %163
+  %165 = load i32, ptr %164, align 4
+  %166 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %165)
+  %167 = sext i32 %166 to i64
+  %168 = shl nsw i64 %167, 21
+  %169 = sext i32 %160 to i64
+  %170 = or i64 %168, %169
+  br label %205
 
-178:                                              ; preds = %.split335
+171:                                              ; preds = %150
   %.val455 = load ptr, ptr %25, align 8
-  %179 = getelementptr i32, ptr %.val455, i64 %indvars.iv1192
-  %180 = getelementptr i8, ptr %179, i64 4
-  %181 = load i32, ptr %180, align 4
-  %182 = load i32, ptr %179, align 4
-  %183 = sub nsw i32 %181, %182
-  %184 = icmp eq i32 %183, 1
-  %185 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %37)
+  %172 = getelementptr i32, ptr %.val455, i64 %indvars.iv1192
+  %173 = getelementptr i8, ptr %172, i64 4
+  %174 = load i32, ptr %173, align 4
+  %175 = load i32, ptr %172, align 4
+  %176 = sub nsw i32 %174, %175
+  %177 = icmp eq i32 %176, 1
+  %178 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %36)
   %.val367 = load ptr, ptr %25, align 8
   %.val368 = load ptr, ptr %26, align 8
-  %186 = getelementptr inbounds i32, ptr %.val367, i64 %indvars.iv1192
-  %187 = load i32, ptr %186, align 4
-  %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i32, ptr %.val368, i64 %188
-  %190 = load i32, ptr %189, align 4
-  %191 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %190)
-  br i1 %184, label %192, label %197
+  %179 = getelementptr inbounds i32, ptr %.val367, i64 %indvars.iv1192
+  %180 = load i32, ptr %179, align 4
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds i32, ptr %.val368, i64 %181
+  %183 = load i32, ptr %182, align 4
+  %184 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %183)
+  br i1 %177, label %185, label %190
 
-192:                                              ; preds = %178
-  %193 = sext i32 %191 to i64
-  %194 = shl nsw i64 %193, 21
-  %195 = sext i32 %185 to i64
-  %196 = or i64 %194, %195
-  br label %212
+185:                                              ; preds = %171
+  %186 = sext i32 %184 to i64
+  %187 = shl nsw i64 %186, 21
+  %188 = sext i32 %178 to i64
+  %189 = or i64 %187, %188
+  br label %205
 
-197:                                              ; preds = %178
+190:                                              ; preds = %171
   %.val371 = load ptr, ptr %25, align 8
   %.val372 = load ptr, ptr %26, align 8
-  %198 = getelementptr inbounds i32, ptr %.val371, i64 %indvars.iv1192
-  %199 = load i32, ptr %198, align 4
-  %200 = sext i32 %199 to i64
-  %201 = getelementptr i32, ptr %.val372, i64 %200
-  %202 = getelementptr i8, ptr %201, i64 4
-  %203 = load i32, ptr %202, align 4
-  %204 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %203)
-  %205 = zext i32 %204 to i64
-  %206 = shl i64 %205, 42
-  %207 = sext i32 %191 to i64
-  %208 = shl nsw i64 %207, 21
-  %209 = sext i32 %185 to i64
-  %210 = or i64 %208, %209
-  %211 = or i64 %210, %206
-  br label %212
+  %191 = getelementptr inbounds i32, ptr %.val371, i64 %indvars.iv1192
+  %192 = load i32, ptr %191, align 4
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr i32, ptr %.val372, i64 %193
+  %195 = getelementptr i8, ptr %194, i64 4
+  %196 = load i32, ptr %195, align 4
+  %197 = call fastcc i32 @Cba_ObjSign(ptr noundef nonnull %0, i32 noundef %196)
+  %198 = zext i32 %197 to i64
+  %199 = shl i64 %198, 42
+  %200 = sext i32 %184 to i64
+  %201 = shl nsw i64 %200, 21
+  %202 = sext i32 %178 to i64
+  %203 = or i64 %201, %202
+  %204 = or i64 %203, %199
+  br label %205
 
-212:                                              ; preds = %.split335.thread, %197, %192, %158
-  %.0333 = phi i64 [ %160, %158 ], [ %177, %.split335.thread ], [ %196, %192 ], [ %211, %197 ]
+205:                                              ; preds = %.split335.thread, %190, %185, %157
+  %.0333 = phi i64 [ %159, %157 ], [ %170, %.split335.thread ], [ %189, %185 ], [ %204, %190 ]
   %.val459 = load ptr, ptr %8, align 8
   %.val460 = load ptr, ptr %11, align 8
-  %213 = zext i8 %34 to i64
-  %214 = getelementptr inbounds ptr, ptr %.val459, i64 %213
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds ptr, ptr %.val460, i64 %213
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr i8, ptr %215, i64 4
-  %.val16.i = load i32, ptr %218, align 4
-  %219 = icmp sgt i32 %.val16.i, 0
-  br i1 %219, label %.lr.ph.i, label %.critedge.i
+  %206 = zext i8 %34 to i64
+  %207 = getelementptr inbounds ptr, ptr %.val459, i64 %206
+  %208 = load ptr, ptr %207, align 8
+  %209 = getelementptr inbounds ptr, ptr %.val460, i64 %206
+  %210 = load ptr, ptr %209, align 8
+  %211 = getelementptr i8, ptr %208, i64 4
+  %.val16.i = load i32, ptr %211, align 4
+  %212 = icmp sgt i32 %.val16.i, 0
+  br i1 %212, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %212
-  %220 = getelementptr i8, ptr %215, i64 8
-  %.val17.i = load ptr, ptr %220, align 8
+.lr.ph.i:                                         ; preds = %205
+  %213 = getelementptr i8, ptr %208, i64 8
+  %.val17.i = load ptr, ptr %213, align 8
   %wide.trip.count.i = zext nneg i32 %.val16.i to i64
-  br label %222
+  br label %215
 
-221:                                              ; preds = %222
+214:                                              ; preds = %215
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %222, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.critedge.i, label %215, !llvm.loop !10
 
-222:                                              ; preds = %221, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %221 ]
-  %223 = getelementptr inbounds i64, ptr %.val17.i, i64 %indvars.iv.i
-  %224 = load i64, ptr %223, align 8
-  %225 = icmp eq i64 %224, %.0333
-  br i1 %225, label %226, label %221
+215:                                              ; preds = %214, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %214 ]
+  %216 = getelementptr inbounds i64, ptr %.val17.i, i64 %indvars.iv.i
+  %217 = load i64, ptr %216, align 8
+  %218 = icmp eq i64 %217, %.0333
+  br i1 %218, label %219, label %214
 
-226:                                              ; preds = %222
-  %227 = getelementptr i8, ptr %217, i64 8
-  %.val18.i = load ptr, ptr %227, align 8
-  %228 = getelementptr inbounds i64, ptr %.val18.i, i64 %indvars.iv.i
-  %229 = load i64, ptr %228, align 8
-  %230 = add i64 %229, 1
-  store i64 %230, ptr %228, align 8
+219:                                              ; preds = %215
+  %220 = getelementptr i8, ptr %210, i64 8
+  %.val18.i = load ptr, ptr %220, align 8
+  %221 = getelementptr inbounds i64, ptr %.val18.i, i64 %indvars.iv.i
+  %222 = load i64, ptr %221, align 8
+  %223 = add i64 %222, 1
+  store i64 %223, ptr %221, align 8
   br label %Cba_NtkPrintDistribAddOne.exit
 
-.critedge.i:                                      ; preds = %221, %212
-  %231 = load i32, ptr %215, align 8
-  %232 = icmp eq i32 %.val16.i, %231
-  br i1 %232, label %233, label %.Vec_WrdGrow.exit10_crit_edge.i.i
+.critedge.i:                                      ; preds = %214, %205
+  %224 = load i32, ptr %208, align 8
+  %225 = icmp eq i32 %.val16.i, %224
+  br i1 %225, label %226, label %.Vec_WrdGrow.exit10_crit_edge.i.i
 
 .Vec_WrdGrow.exit10_crit_edge.i.i:                ; preds = %.critedge.i
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %215, i64 8
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %208, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %Vec_WrdPush.exit.i
 
-233:                                              ; preds = %.critedge.i
-  %234 = icmp slt i32 %.val16.i, 16
-  br i1 %234, label %235, label %243
+226:                                              ; preds = %.critedge.i
+  %227 = icmp slt i32 %.val16.i, 16
+  br i1 %227, label %228, label %236
 
-235:                                              ; preds = %233
-  %236 = getelementptr inbounds i8, ptr %215, i64 8
-  %237 = load ptr, ptr %236, align 8
-  %.not9.i.i.i = icmp eq ptr %237, null
-  br i1 %.not9.i.i.i, label %240, label %238
+228:                                              ; preds = %226
+  %229 = getelementptr inbounds i8, ptr %208, i64 8
+  %230 = load ptr, ptr %229, align 8
+  %.not9.i.i.i = icmp eq ptr %230, null
+  br i1 %.not9.i.i.i, label %233, label %231
 
-238:                                              ; preds = %235
-  %239 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %237, i64 noundef 128) #28
+231:                                              ; preds = %228
+  %232 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %230, i64 noundef 128) #28
   br label %Vec_WrdGrow.exit.i.i
 
-240:                                              ; preds = %235
-  %241 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #25
+233:                                              ; preds = %228
+  %234 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #25
   br label %Vec_WrdGrow.exit.i.i
 
-Vec_WrdGrow.exit.i.i:                             ; preds = %240, %238
-  %242 = phi ptr [ %239, %238 ], [ %241, %240 ]
-  store ptr %242, ptr %236, align 8
-  store i32 16, ptr %215, align 8
+Vec_WrdGrow.exit.i.i:                             ; preds = %233, %231
+  %235 = phi ptr [ %232, %231 ], [ %234, %233 ]
+  store ptr %235, ptr %229, align 8
+  store i32 16, ptr %208, align 8
   br label %Vec_WrdPush.exit.i
 
-243:                                              ; preds = %233
-  %244 = shl nuw nsw i32 %.val16.i, 1
-  %245 = getelementptr inbounds i8, ptr %215, i64 8
-  %246 = load ptr, ptr %245, align 8
-  %.not9.i9.i.i = icmp eq ptr %246, null
-  %247 = zext nneg i32 %244 to i64
-  %248 = shl nuw nsw i64 %247, 3
-  br i1 %.not9.i9.i.i, label %251, label %249
+236:                                              ; preds = %226
+  %237 = shl nuw nsw i32 %.val16.i, 1
+  %238 = getelementptr inbounds i8, ptr %208, i64 8
+  %239 = load ptr, ptr %238, align 8
+  %.not9.i9.i.i = icmp eq ptr %239, null
+  %240 = zext nneg i32 %237 to i64
+  %241 = shl nuw nsw i64 %240, 3
+  br i1 %.not9.i9.i.i, label %244, label %242
 
-249:                                              ; preds = %243
-  %250 = call ptr @realloc(ptr noundef nonnull %246, i64 noundef %248) #28
-  br label %253
+242:                                              ; preds = %236
+  %243 = call ptr @realloc(ptr noundef nonnull %239, i64 noundef %241) #28
+  br label %246
 
-251:                                              ; preds = %243
-  %252 = call noalias ptr @malloc(i64 noundef %248) #25
-  br label %253
+244:                                              ; preds = %236
+  %245 = call noalias ptr @malloc(i64 noundef %241) #25
+  br label %246
 
-253:                                              ; preds = %251, %249
-  %254 = phi ptr [ %250, %249 ], [ %252, %251 ]
-  store ptr %254, ptr %245, align 8
-  store i32 %244, ptr %215, align 8
+246:                                              ; preds = %244, %242
+  %247 = phi ptr [ %243, %242 ], [ %245, %244 ]
+  store ptr %247, ptr %238, align 8
+  store i32 %237, ptr %208, align 8
   br label %Vec_WrdPush.exit.i
 
-Vec_WrdPush.exit.i:                               ; preds = %253, %Vec_WrdGrow.exit.i.i, %.Vec_WrdGrow.exit10_crit_edge.i.i
-  %255 = phi ptr [ %.pre.i.i, %.Vec_WrdGrow.exit10_crit_edge.i.i ], [ %254, %253 ], [ %242, %Vec_WrdGrow.exit.i.i ]
-  %256 = load i32, ptr %218, align 4
-  %257 = add nsw i32 %256, 1
-  store i32 %257, ptr %218, align 4
-  %258 = sext i32 %256 to i64
-  %259 = getelementptr inbounds i64, ptr %255, i64 %258
-  store i64 %.0333, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %217, i64 4
-  %261 = load i32, ptr %260, align 4
-  %262 = load i32, ptr %217, align 8
-  %263 = icmp eq i32 %261, %262
-  br i1 %263, label %264, label %.Vec_WrdGrow.exit10_crit_edge.i19.i
+Vec_WrdPush.exit.i:                               ; preds = %246, %Vec_WrdGrow.exit.i.i, %.Vec_WrdGrow.exit10_crit_edge.i.i
+  %248 = phi ptr [ %.pre.i.i, %.Vec_WrdGrow.exit10_crit_edge.i.i ], [ %247, %246 ], [ %235, %Vec_WrdGrow.exit.i.i ]
+  %249 = load i32, ptr %211, align 4
+  %250 = add nsw i32 %249, 1
+  store i32 %250, ptr %211, align 4
+  %251 = sext i32 %249 to i64
+  %252 = getelementptr inbounds i64, ptr %248, i64 %251
+  store i64 %.0333, ptr %252, align 8
+  %253 = getelementptr inbounds i8, ptr %210, i64 4
+  %254 = load i32, ptr %253, align 4
+  %255 = load i32, ptr %210, align 8
+  %256 = icmp eq i32 %254, %255
+  br i1 %256, label %257, label %.Vec_WrdGrow.exit10_crit_edge.i19.i
 
 .Vec_WrdGrow.exit10_crit_edge.i19.i:              ; preds = %Vec_WrdPush.exit.i
-  %.phi.trans.insert.i20.i = getelementptr inbounds i8, ptr %217, i64 8
+  %.phi.trans.insert.i20.i = getelementptr inbounds i8, ptr %210, i64 8
   %.pre.i21.i = load ptr, ptr %.phi.trans.insert.i20.i, align 8
   br label %Vec_WrdPush.exit25.i
 
-264:                                              ; preds = %Vec_WrdPush.exit.i
-  %265 = icmp slt i32 %261, 16
-  br i1 %265, label %266, label %274
+257:                                              ; preds = %Vec_WrdPush.exit.i
+  %258 = icmp slt i32 %254, 16
+  br i1 %258, label %259, label %267
 
-266:                                              ; preds = %264
-  %267 = getelementptr inbounds i8, ptr %217, i64 8
-  %268 = load ptr, ptr %267, align 8
-  %.not9.i.i23.i = icmp eq ptr %268, null
-  br i1 %.not9.i.i23.i, label %271, label %269
+259:                                              ; preds = %257
+  %260 = getelementptr inbounds i8, ptr %210, i64 8
+  %261 = load ptr, ptr %260, align 8
+  %.not9.i.i23.i = icmp eq ptr %261, null
+  br i1 %.not9.i.i23.i, label %264, label %262
 
-269:                                              ; preds = %266
-  %270 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %268, i64 noundef 128) #28
+262:                                              ; preds = %259
+  %263 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %261, i64 noundef 128) #28
   br label %Vec_WrdGrow.exit.i24.i
 
-271:                                              ; preds = %266
-  %272 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #25
+264:                                              ; preds = %259
+  %265 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #25
   br label %Vec_WrdGrow.exit.i24.i
 
-Vec_WrdGrow.exit.i24.i:                           ; preds = %271, %269
-  %273 = phi ptr [ %270, %269 ], [ %272, %271 ]
-  store ptr %273, ptr %267, align 8
-  store i32 16, ptr %217, align 8
+Vec_WrdGrow.exit.i24.i:                           ; preds = %264, %262
+  %266 = phi ptr [ %263, %262 ], [ %265, %264 ]
+  store ptr %266, ptr %260, align 8
+  store i32 16, ptr %210, align 8
   br label %Vec_WrdPush.exit25.i
 
-274:                                              ; preds = %264
-  %275 = shl nuw nsw i32 %261, 1
-  %276 = getelementptr inbounds i8, ptr %217, i64 8
-  %277 = load ptr, ptr %276, align 8
-  %.not9.i9.i22.i = icmp eq ptr %277, null
-  %278 = zext nneg i32 %275 to i64
-  %279 = shl nuw nsw i64 %278, 3
-  br i1 %.not9.i9.i22.i, label %282, label %280
+267:                                              ; preds = %257
+  %268 = shl nuw nsw i32 %254, 1
+  %269 = getelementptr inbounds i8, ptr %210, i64 8
+  %270 = load ptr, ptr %269, align 8
+  %.not9.i9.i22.i = icmp eq ptr %270, null
+  %271 = zext nneg i32 %268 to i64
+  %272 = shl nuw nsw i64 %271, 3
+  br i1 %.not9.i9.i22.i, label %275, label %273
 
-280:                                              ; preds = %274
-  %281 = call ptr @realloc(ptr noundef nonnull %277, i64 noundef %279) #28
-  br label %284
+273:                                              ; preds = %267
+  %274 = call ptr @realloc(ptr noundef nonnull %270, i64 noundef %272) #28
+  br label %277
 
-282:                                              ; preds = %274
-  %283 = call noalias ptr @malloc(i64 noundef %279) #25
-  br label %284
+275:                                              ; preds = %267
+  %276 = call noalias ptr @malloc(i64 noundef %272) #25
+  br label %277
 
-284:                                              ; preds = %282, %280
-  %285 = phi ptr [ %281, %280 ], [ %283, %282 ]
-  store ptr %285, ptr %276, align 8
-  store i32 %275, ptr %217, align 8
+277:                                              ; preds = %275, %273
+  %278 = phi ptr [ %274, %273 ], [ %276, %275 ]
+  store ptr %278, ptr %269, align 8
+  store i32 %268, ptr %210, align 8
   br label %Vec_WrdPush.exit25.i
 
-Vec_WrdPush.exit25.i:                             ; preds = %284, %Vec_WrdGrow.exit.i24.i, %.Vec_WrdGrow.exit10_crit_edge.i19.i
-  %286 = phi ptr [ %.pre.i21.i, %.Vec_WrdGrow.exit10_crit_edge.i19.i ], [ %285, %284 ], [ %273, %Vec_WrdGrow.exit.i24.i ]
-  %287 = load i32, ptr %260, align 4
-  %288 = add nsw i32 %287, 1
-  store i32 %288, ptr %260, align 4
-  %289 = sext i32 %287 to i64
-  %290 = getelementptr inbounds i64, ptr %286, i64 %289
-  store i64 1, ptr %290, align 8
+Vec_WrdPush.exit25.i:                             ; preds = %277, %Vec_WrdGrow.exit.i24.i, %.Vec_WrdGrow.exit10_crit_edge.i19.i
+  %279 = phi ptr [ %.pre.i21.i, %.Vec_WrdGrow.exit10_crit_edge.i19.i ], [ %278, %277 ], [ %266, %Vec_WrdGrow.exit.i24.i ]
+  %280 = load i32, ptr %253, align 4
+  %281 = add nsw i32 %280, 1
+  store i32 %281, ptr %253, align 4
+  %282 = sext i32 %280 to i64
+  %283 = getelementptr inbounds i64, ptr %279, i64 %282
+  store i64 1, ptr %283, align 8
   br label %Cba_NtkPrintDistribAddOne.exit
 
-Cba_NtkPrintDistribAddOne.exit:                   ; preds = %226, %Vec_WrdPush.exit25.i
-  switch i8 %34, label %2454 [
-    i8 18, label %291
-    i8 66, label %335
-    i8 68, label %415
-    i8 65, label %528
-    i8 67, label %641
-    i8 70, label %754
-    i8 69, label %867
-    i8 56, label %2329
-    i8 10, label %980
-    i8 12, label %1022
-    i8 14, label %1064
-    i8 55, label %2286
-    i8 54, label %2201
-    i8 33, label %1107
-    i8 34, label %1149
-    i8 36, label %1231
-    i8 38, label %1313
-    i8 63, label %1396
-    i8 64, label %1440
-    i8 59, label %1484
-    i8 62, label %1528
-    i8 60, label %1572
-    i8 61, label %1616
-    i8 27, label %1660
-    i8 29, label %1702
-    i8 31, label %1744
-    i8 47, label %1788
-    i8 48, label %1831
-    i8 49, label %1874
-    i8 51, label %1957
-    i8 52, label %2079
+Cba_NtkPrintDistribAddOne.exit:                   ; preds = %219, %Vec_WrdPush.exit25.i
+  switch i8 %34, label %2447 [
+    i8 18, label %284
+    i8 66, label %328
+    i8 68, label %408
+    i8 65, label %521
+    i8 67, label %634
+    i8 70, label %747
+    i8 69, label %860
+    i8 56, label %2322
+    i8 10, label %973
+    i8 12, label %1015
+    i8 14, label %1057
+    i8 55, label %2279
+    i8 54, label %2194
+    i8 33, label %1100
+    i8 34, label %1142
+    i8 36, label %1224
+    i8 38, label %1306
+    i8 63, label %1389
+    i8 64, label %1433
+    i8 59, label %1477
+    i8 62, label %1521
+    i8 60, label %1565
+    i8 61, label %1609
+    i8 27, label %1653
+    i8 29, label %1695
+    i8 31, label %1737
+    i8 47, label %1781
+    i8 48, label %1824
+    i8 49, label %1867
+    i8 51, label %1950
+    i8 52, label %2072
   ]
 
-291:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
+284:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val.i517 = load ptr, ptr %21, align 8
-  %292 = getelementptr inbounds i32, ptr %.val.i517, i64 %indvars.iv1192
-  %293 = load i32, ptr %292, align 4
-  %.not.i.i518 = icmp sgt i32 %293, -1
-  br i1 %.not.i.i518, label %299, label %294
+  %285 = getelementptr inbounds i32, ptr %.val.i517, i64 %indvars.iv1192
+  %286 = load i32, ptr %285, align 4
+  %.not.i.i518 = icmp sgt i32 %286, -1
+  br i1 %.not.i.i518, label %292, label %287
 
-294:                                              ; preds = %291
+287:                                              ; preds = %284
   %.val.i.i519 = load ptr, ptr %0, align 8
-  %295 = getelementptr i8, ptr %.val.i.i519, i64 24
-  %.val.val.i.i520 = load ptr, ptr %295, align 8
-  %296 = xor i32 %293, -1
-  %297 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i520, i32 noundef range(i32 -2147483648, 2147483647) %296) #26
-  %298 = call i32 @atoi(ptr nocapture noundef %297) #27
+  %288 = getelementptr i8, ptr %.val.i.i519, i64 24
+  %.val.val.i.i520 = load ptr, ptr %288, align 8
+  %289 = xor i32 %286, -1
+  %290 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i520, i32 noundef range(i32 -2147483648, 2147483647) %289) #26
+  %291 = call i32 @atoi(ptr nocapture noundef %290) #27
   br label %Cba_ObjRangeSize.exit527
 
-299:                                              ; preds = %291
+292:                                              ; preds = %284
   %.val.i.i.i.i521 = load i32, ptr %22, align 4
-  %300 = icmp slt i32 %.val.i.i.i.i521, 1
-  br i1 %300, label %Cba_NtkRangeSize.exit.i.i526, label %Cba_FonRange.exit.i.i522
+  %293 = icmp slt i32 %.val.i.i.i.i521, 1
+  br i1 %293, label %Cba_NtkRangeSize.exit.i.i526, label %Cba_FonRange.exit.i.i522
 
-Cba_FonRange.exit.i.i522:                         ; preds = %299
-  %301 = add nuw nsw i32 %293, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %301, i32 noundef 0)
+Cba_FonRange.exit.i.i522:                         ; preds = %292
+  %294 = add nuw nsw i32 %286, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %294, i32 noundef 0)
   %.val.i.i.i.i.i523 = load ptr, ptr %24, align 8
-  %302 = zext nneg i32 %293 to i64
-  %303 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i523, i64 %302
-  %304 = load i32, ptr %303, align 4
-  %.not.i.i.i.i524 = icmp ult i32 %304, 2
-  br i1 %.not.i.i.i.i524, label %Cba_NtkRangeSize.exit.i.i526, label %305
+  %295 = zext nneg i32 %286 to i64
+  %296 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i523, i64 %295
+  %297 = load i32, ptr %296, align 4
+  %.not.i.i.i.i524 = icmp ult i32 %297, 2
+  br i1 %.not.i.i.i.i524, label %Cba_NtkRangeSize.exit.i.i526, label %298
 
-305:                                              ; preds = %Cba_FonRange.exit.i.i522
-  %306 = load ptr, ptr %0, align 8
-  %307 = getelementptr inbounds i8, ptr %306, i64 40
-  %308 = load ptr, ptr %307, align 8
-  %309 = getelementptr inbounds i8, ptr %308, i64 8
-  %310 = load ptr, ptr %309, align 8
-  %311 = shl nsw i32 %304, 1
-  %312 = and i32 %311, -4
-  %313 = getelementptr i8, ptr %310, i64 8
-  %.val.i.i.i.i.i.i525 = load ptr, ptr %313, align 8
-  %314 = sext i32 %312 to i64
-  %315 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i525, i64 %314
-  %316 = load i32, ptr %315, align 4
-  %317 = getelementptr inbounds i8, ptr %315, i64 4
-  %318 = load i32, ptr %317, align 4
-  %319 = sub nsw i32 %316, %318
+298:                                              ; preds = %Cba_FonRange.exit.i.i522
+  %299 = load ptr, ptr %0, align 8
+  %300 = getelementptr inbounds i8, ptr %299, i64 40
+  %301 = load ptr, ptr %300, align 8
+  %302 = getelementptr inbounds i8, ptr %301, i64 8
+  %303 = load ptr, ptr %302, align 8
+  %304 = shl nsw i32 %297, 1
+  %305 = and i32 %304, -4
+  %306 = getelementptr i8, ptr %303, i64 8
+  %.val.i.i.i.i.i.i525 = load ptr, ptr %306, align 8
+  %307 = sext i32 %305 to i64
+  %308 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i525, i64 %307
+  %309 = load i32, ptr %308, align 4
+  %310 = getelementptr inbounds i8, ptr %308, i64 4
+  %311 = load i32, ptr %310, align 4
+  %312 = sub nsw i32 %309, %311
   br label %Cba_NtkRangeSize.exit.i.i526
 
-Cba_NtkRangeSize.exit.i.i526:                     ; preds = %305, %Cba_FonRange.exit.i.i522, %299
-  %320 = phi i32 [ %319, %305 ], [ 0, %Cba_FonRange.exit.i.i522 ], [ 0, %299 ]
-  %321 = call i32 @llvm.abs.i32(i32 %320, i1 true)
-  %322 = add nuw nsw i32 %321, 1
+Cba_NtkRangeSize.exit.i.i526:                     ; preds = %298, %Cba_FonRange.exit.i.i522, %292
+  %313 = phi i32 [ %312, %298 ], [ 0, %Cba_FonRange.exit.i.i522 ], [ 0, %292 ]
+  %314 = call i32 @llvm.abs.i32(i32 %313, i1 true)
+  %315 = add nuw nsw i32 %314, 1
   br label %Cba_ObjRangeSize.exit527
 
-Cba_ObjRangeSize.exit527:                         ; preds = %294, %Cba_NtkRangeSize.exit.i.i526
-  %323 = phi i32 [ %298, %294 ], [ %322, %Cba_NtkRangeSize.exit.i.i526 ]
-  %324 = mul nsw i32 %323, 3
+Cba_ObjRangeSize.exit527:                         ; preds = %287, %Cba_NtkRangeSize.exit.i.i526
+  %316 = phi i32 [ %291, %287 ], [ %315, %Cba_NtkRangeSize.exit.i.i526 ]
+  %317 = mul nsw i32 %316, 3
   %.val456 = load ptr, ptr %25, align 8
-  %325 = getelementptr i32, ptr %.val456, i64 %indvars.iv1192
-  %326 = getelementptr i8, ptr %325, i64 4
-  %327 = load i32, ptr %326, align 4
-  %328 = load i32, ptr %325, align 4
-  %329 = add i32 %327, -2
-  %330 = sub i32 %329, %328
-  %331 = mul nsw i32 %324, %330
+  %318 = getelementptr i32, ptr %.val456, i64 %indvars.iv1192
+  %319 = getelementptr i8, ptr %318, i64 4
+  %320 = load i32, ptr %319, align 4
+  %321 = load i32, ptr %318, align 4
+  %322 = add i32 %320, -2
+  %323 = sub i32 %322, %321
+  %324 = mul nsw i32 %317, %323
   %.val461 = load ptr, ptr %5, align 8
-  %332 = getelementptr inbounds i8, ptr %.val461, i64 72
-  %333 = load i32, ptr %332, align 4
-  %334 = add nsw i32 %333, %331
-  store i32 %334, ptr %332, align 4
-  br label %2454
+  %325 = getelementptr inbounds i8, ptr %.val461, i64 72
+  %326 = load i32, ptr %325, align 4
+  %327 = add nsw i32 %326, %324
+  store i32 %327, ptr %325, align 4
+  br label %2447
 
-335:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
+328:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val373 = load ptr, ptr %25, align 8
   %.val374 = load ptr, ptr %26, align 8
-  %336 = getelementptr inbounds i32, ptr %.val373, i64 %indvars.iv1192
-  %337 = load i32, ptr %336, align 4
-  %338 = sext i32 %337 to i64
-  %339 = getelementptr inbounds i32, ptr %.val374, i64 %338
-  %340 = load i32, ptr %339, align 4
+  %329 = getelementptr inbounds i32, ptr %.val373, i64 %indvars.iv1192
+  %330 = load i32, ptr %329, align 4
+  %331 = sext i32 %330 to i64
+  %332 = getelementptr inbounds i32, ptr %.val374, i64 %331
+  %333 = load i32, ptr %332, align 4
   %.val.i528 = load ptr, ptr %21, align 8
-  %341 = sext i32 %340 to i64
-  %342 = getelementptr inbounds i32, ptr %.val.i528, i64 %341
-  %343 = load i32, ptr %342, align 4
-  %.not.i.i529 = icmp sgt i32 %343, -1
-  br i1 %.not.i.i529, label %349, label %344
+  %334 = sext i32 %333 to i64
+  %335 = getelementptr inbounds i32, ptr %.val.i528, i64 %334
+  %336 = load i32, ptr %335, align 4
+  %.not.i.i529 = icmp sgt i32 %336, -1
+  br i1 %.not.i.i529, label %342, label %337
 
-344:                                              ; preds = %335
+337:                                              ; preds = %328
   %.val.i.i530 = load ptr, ptr %0, align 8
-  %345 = getelementptr i8, ptr %.val.i.i530, i64 24
-  %.val.val.i.i531 = load ptr, ptr %345, align 8
-  %346 = xor i32 %343, -1
-  %347 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i531, i32 noundef range(i32 -2147483648, 2147483647) %346) #26
-  %348 = call i32 @atoi(ptr nocapture noundef %347) #27
+  %338 = getelementptr i8, ptr %.val.i.i530, i64 24
+  %.val.val.i.i531 = load ptr, ptr %338, align 8
+  %339 = xor i32 %336, -1
+  %340 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i531, i32 noundef range(i32 -2147483648, 2147483647) %339) #26
+  %341 = call i32 @atoi(ptr nocapture noundef %340) #27
   br label %Cba_ObjRangeSize.exit538
 
-349:                                              ; preds = %335
+342:                                              ; preds = %328
   %.val.i.i.i.i532 = load i32, ptr %22, align 4
-  %350 = icmp slt i32 %.val.i.i.i.i532, 1
-  br i1 %350, label %Cba_NtkRangeSize.exit.i.i537, label %Cba_FonRange.exit.i.i533
+  %343 = icmp slt i32 %.val.i.i.i.i532, 1
+  br i1 %343, label %Cba_NtkRangeSize.exit.i.i537, label %Cba_FonRange.exit.i.i533
 
-Cba_FonRange.exit.i.i533:                         ; preds = %349
-  %351 = add nuw nsw i32 %343, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %351, i32 noundef 0)
+Cba_FonRange.exit.i.i533:                         ; preds = %342
+  %344 = add nuw nsw i32 %336, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %344, i32 noundef 0)
   %.val.i.i.i.i.i534 = load ptr, ptr %24, align 8
-  %352 = zext nneg i32 %343 to i64
-  %353 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i534, i64 %352
-  %354 = load i32, ptr %353, align 4
-  %.not.i.i.i.i535 = icmp ult i32 %354, 2
-  br i1 %.not.i.i.i.i535, label %Cba_NtkRangeSize.exit.i.i537, label %355
+  %345 = zext nneg i32 %336 to i64
+  %346 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i534, i64 %345
+  %347 = load i32, ptr %346, align 4
+  %.not.i.i.i.i535 = icmp ult i32 %347, 2
+  br i1 %.not.i.i.i.i535, label %Cba_NtkRangeSize.exit.i.i537, label %348
 
-355:                                              ; preds = %Cba_FonRange.exit.i.i533
-  %356 = load ptr, ptr %0, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 40
-  %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr inbounds i8, ptr %358, i64 8
-  %360 = load ptr, ptr %359, align 8
-  %361 = shl nsw i32 %354, 1
-  %362 = and i32 %361, -4
-  %363 = getelementptr i8, ptr %360, i64 8
-  %.val.i.i.i.i.i.i536 = load ptr, ptr %363, align 8
-  %364 = sext i32 %362 to i64
-  %365 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i536, i64 %364
-  %366 = load i32, ptr %365, align 4
-  %367 = getelementptr inbounds i8, ptr %365, i64 4
-  %368 = load i32, ptr %367, align 4
-  %369 = sub nsw i32 %366, %368
+348:                                              ; preds = %Cba_FonRange.exit.i.i533
+  %349 = load ptr, ptr %0, align 8
+  %350 = getelementptr inbounds i8, ptr %349, i64 40
+  %351 = load ptr, ptr %350, align 8
+  %352 = getelementptr inbounds i8, ptr %351, i64 8
+  %353 = load ptr, ptr %352, align 8
+  %354 = shl nsw i32 %347, 1
+  %355 = and i32 %354, -4
+  %356 = getelementptr i8, ptr %353, i64 8
+  %.val.i.i.i.i.i.i536 = load ptr, ptr %356, align 8
+  %357 = sext i32 %355 to i64
+  %358 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i536, i64 %357
+  %359 = load i32, ptr %358, align 4
+  %360 = getelementptr inbounds i8, ptr %358, i64 4
+  %361 = load i32, ptr %360, align 4
+  %362 = sub nsw i32 %359, %361
   br label %Cba_NtkRangeSize.exit.i.i537
 
-Cba_NtkRangeSize.exit.i.i537:                     ; preds = %355, %Cba_FonRange.exit.i.i533, %349
-  %370 = phi i32 [ %369, %355 ], [ 0, %Cba_FonRange.exit.i.i533 ], [ 0, %349 ]
-  %371 = call i32 @llvm.abs.i32(i32 %370, i1 true)
-  %372 = add nuw nsw i32 %371, 1
+Cba_NtkRangeSize.exit.i.i537:                     ; preds = %348, %Cba_FonRange.exit.i.i533, %342
+  %363 = phi i32 [ %362, %348 ], [ 0, %Cba_FonRange.exit.i.i533 ], [ 0, %342 ]
+  %364 = call i32 @llvm.abs.i32(i32 %363, i1 true)
+  %365 = add nuw nsw i32 %364, 1
   br label %Cba_ObjRangeSize.exit538
 
-Cba_ObjRangeSize.exit538:                         ; preds = %344, %Cba_NtkRangeSize.exit.i.i537
-  %373 = phi i32 [ %348, %344 ], [ %372, %Cba_NtkRangeSize.exit.i.i537 ]
+Cba_ObjRangeSize.exit538:                         ; preds = %337, %Cba_NtkRangeSize.exit.i.i537
+  %366 = phi i32 [ %341, %337 ], [ %365, %Cba_NtkRangeSize.exit.i.i537 ]
   %.val.i539 = load ptr, ptr %21, align 8
-  %374 = getelementptr inbounds i32, ptr %.val.i539, i64 %indvars.iv1192
-  %375 = load i32, ptr %374, align 4
-  %.not.i.i540 = icmp sgt i32 %375, -1
-  br i1 %.not.i.i540, label %381, label %376
+  %367 = getelementptr inbounds i32, ptr %.val.i539, i64 %indvars.iv1192
+  %368 = load i32, ptr %367, align 4
+  %.not.i.i540 = icmp sgt i32 %368, -1
+  br i1 %.not.i.i540, label %374, label %369
 
-376:                                              ; preds = %Cba_ObjRangeSize.exit538
+369:                                              ; preds = %Cba_ObjRangeSize.exit538
   %.val.i.i541 = load ptr, ptr %0, align 8
-  %377 = getelementptr i8, ptr %.val.i.i541, i64 24
-  %.val.val.i.i542 = load ptr, ptr %377, align 8
-  %378 = xor i32 %375, -1
-  %379 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i542, i32 noundef range(i32 -2147483648, 2147483647) %378) #26
-  %380 = call i32 @atoi(ptr nocapture noundef %379) #27
+  %370 = getelementptr i8, ptr %.val.i.i541, i64 24
+  %.val.val.i.i542 = load ptr, ptr %370, align 8
+  %371 = xor i32 %368, -1
+  %372 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i542, i32 noundef range(i32 -2147483648, 2147483647) %371) #26
+  %373 = call i32 @atoi(ptr nocapture noundef %372) #27
   br label %Cba_ObjRangeSize.exit549
 
-381:                                              ; preds = %Cba_ObjRangeSize.exit538
+374:                                              ; preds = %Cba_ObjRangeSize.exit538
   %.val.i.i.i.i543 = load i32, ptr %22, align 4
-  %382 = icmp slt i32 %.val.i.i.i.i543, 1
-  br i1 %382, label %Cba_NtkRangeSize.exit.i.i548, label %Cba_FonRange.exit.i.i544
+  %375 = icmp slt i32 %.val.i.i.i.i543, 1
+  br i1 %375, label %Cba_NtkRangeSize.exit.i.i548, label %Cba_FonRange.exit.i.i544
 
-Cba_FonRange.exit.i.i544:                         ; preds = %381
-  %383 = add nuw nsw i32 %375, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %383, i32 noundef 0)
+Cba_FonRange.exit.i.i544:                         ; preds = %374
+  %376 = add nuw nsw i32 %368, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %376, i32 noundef 0)
   %.val.i.i.i.i.i545 = load ptr, ptr %24, align 8
-  %384 = zext nneg i32 %375 to i64
-  %385 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i545, i64 %384
-  %386 = load i32, ptr %385, align 4
-  %.not.i.i.i.i546 = icmp ult i32 %386, 2
-  br i1 %.not.i.i.i.i546, label %Cba_NtkRangeSize.exit.i.i548, label %387
+  %377 = zext nneg i32 %368 to i64
+  %378 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i545, i64 %377
+  %379 = load i32, ptr %378, align 4
+  %.not.i.i.i.i546 = icmp ult i32 %379, 2
+  br i1 %.not.i.i.i.i546, label %Cba_NtkRangeSize.exit.i.i548, label %380
 
-387:                                              ; preds = %Cba_FonRange.exit.i.i544
-  %388 = load ptr, ptr %0, align 8
-  %389 = getelementptr inbounds i8, ptr %388, i64 40
-  %390 = load ptr, ptr %389, align 8
-  %391 = getelementptr inbounds i8, ptr %390, i64 8
-  %392 = load ptr, ptr %391, align 8
-  %393 = shl nsw i32 %386, 1
-  %394 = and i32 %393, -4
-  %395 = getelementptr i8, ptr %392, i64 8
-  %.val.i.i.i.i.i.i547 = load ptr, ptr %395, align 8
-  %396 = sext i32 %394 to i64
-  %397 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i547, i64 %396
-  %398 = load i32, ptr %397, align 4
-  %399 = getelementptr inbounds i8, ptr %397, i64 4
-  %400 = load i32, ptr %399, align 4
-  %401 = sub nsw i32 %398, %400
+380:                                              ; preds = %Cba_FonRange.exit.i.i544
+  %381 = load ptr, ptr %0, align 8
+  %382 = getelementptr inbounds i8, ptr %381, i64 40
+  %383 = load ptr, ptr %382, align 8
+  %384 = getelementptr inbounds i8, ptr %383, i64 8
+  %385 = load ptr, ptr %384, align 8
+  %386 = shl nsw i32 %379, 1
+  %387 = and i32 %386, -4
+  %388 = getelementptr i8, ptr %385, i64 8
+  %.val.i.i.i.i.i.i547 = load ptr, ptr %388, align 8
+  %389 = sext i32 %387 to i64
+  %390 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i547, i64 %389
+  %391 = load i32, ptr %390, align 4
+  %392 = getelementptr inbounds i8, ptr %390, i64 4
+  %393 = load i32, ptr %392, align 4
+  %394 = sub nsw i32 %391, %393
   br label %Cba_NtkRangeSize.exit.i.i548
 
-Cba_NtkRangeSize.exit.i.i548:                     ; preds = %387, %Cba_FonRange.exit.i.i544, %381
-  %402 = phi i32 [ %401, %387 ], [ 0, %Cba_FonRange.exit.i.i544 ], [ 0, %381 ]
-  %403 = call i32 @llvm.abs.i32(i32 %402, i1 true)
-  %404 = add nuw nsw i32 %403, 1
+Cba_NtkRangeSize.exit.i.i548:                     ; preds = %380, %Cba_FonRange.exit.i.i544, %374
+  %395 = phi i32 [ %394, %380 ], [ 0, %Cba_FonRange.exit.i.i544 ], [ 0, %374 ]
+  %396 = call i32 @llvm.abs.i32(i32 %395, i1 true)
+  %397 = add nuw nsw i32 %396, 1
   br label %Cba_ObjRangeSize.exit549
 
-Cba_ObjRangeSize.exit549:                         ; preds = %376, %Cba_NtkRangeSize.exit.i.i548
-  %405 = phi i32 [ %380, %376 ], [ %404, %Cba_NtkRangeSize.exit.i.i548 ]
-  %406 = icmp ult i32 %405, 2
-  %407 = add i32 %405, -1
-  %408 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %407, i1 true)
-  %409 = sub nuw nsw i32 32, %408
-  %.09.i = select i1 %406, i32 %405, i32 %409
-  %410 = call noundef i32 @llvm.smin.i32(i32 %373, i32 %.09.i)
-  %411 = mul nsw i32 %410, 3
+Cba_ObjRangeSize.exit549:                         ; preds = %369, %Cba_NtkRangeSize.exit.i.i548
+  %398 = phi i32 [ %373, %369 ], [ %397, %Cba_NtkRangeSize.exit.i.i548 ]
+  %399 = icmp ult i32 %398, 2
+  %400 = add i32 %398, -1
+  %401 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %400, i1 true)
+  %402 = sub nuw nsw i32 32, %401
+  %.09.i = select i1 %399, i32 %398, i32 %402
+  %403 = call noundef i32 @llvm.smin.i32(i32 %366, i32 %.09.i)
+  %404 = mul nsw i32 %403, 3
   %.val462 = load ptr, ptr %5, align 8
-  %412 = getelementptr inbounds i8, ptr %.val462, i64 264
-  %413 = load i32, ptr %412, align 4
-  %414 = add nsw i32 %411, %413
-  store i32 %414, ptr %412, align 4
-  br label %2454
+  %405 = getelementptr inbounds i8, ptr %.val462, i64 264
+  %406 = load i32, ptr %405, align 4
+  %407 = add nsw i32 %404, %406
+  store i32 %407, ptr %405, align 4
+  br label %2447
 
-415:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
+408:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val.i550 = load ptr, ptr %21, align 8
-  %416 = getelementptr inbounds i32, ptr %.val.i550, i64 %indvars.iv1192
-  %417 = load i32, ptr %416, align 4
-  %.not.i.i551 = icmp sgt i32 %417, -1
-  br i1 %.not.i.i551, label %423, label %418
+  %409 = getelementptr inbounds i32, ptr %.val.i550, i64 %indvars.iv1192
+  %410 = load i32, ptr %409, align 4
+  %.not.i.i551 = icmp sgt i32 %410, -1
+  br i1 %.not.i.i551, label %416, label %411
 
-418:                                              ; preds = %415
+411:                                              ; preds = %408
   %.val.i.i552 = load ptr, ptr %0, align 8
-  %419 = getelementptr i8, ptr %.val.i.i552, i64 24
-  %.val.val.i.i553 = load ptr, ptr %419, align 8
-  %420 = xor i32 %417, -1
-  %421 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i553, i32 noundef range(i32 -2147483648, 2147483647) %420) #26
-  %422 = call i32 @atoi(ptr nocapture noundef %421) #27
+  %412 = getelementptr i8, ptr %.val.i.i552, i64 24
+  %.val.val.i.i553 = load ptr, ptr %412, align 8
+  %413 = xor i32 %410, -1
+  %414 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i553, i32 noundef range(i32 -2147483648, 2147483647) %413) #26
+  %415 = call i32 @atoi(ptr nocapture noundef %414) #27
   br label %Cba_ObjRangeSize.exit560
 
-423:                                              ; preds = %415
+416:                                              ; preds = %408
   %.val.i.i.i.i554 = load i32, ptr %22, align 4
-  %424 = icmp slt i32 %.val.i.i.i.i554, 1
-  br i1 %424, label %Cba_NtkRangeSize.exit.i.i559, label %Cba_FonRange.exit.i.i555
+  %417 = icmp slt i32 %.val.i.i.i.i554, 1
+  br i1 %417, label %Cba_NtkRangeSize.exit.i.i559, label %Cba_FonRange.exit.i.i555
 
-Cba_FonRange.exit.i.i555:                         ; preds = %423
-  %425 = add nuw nsw i32 %417, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %425, i32 noundef 0)
+Cba_FonRange.exit.i.i555:                         ; preds = %416
+  %418 = add nuw nsw i32 %410, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %418, i32 noundef 0)
   %.val.i.i.i.i.i556 = load ptr, ptr %24, align 8
-  %426 = zext nneg i32 %417 to i64
-  %427 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i556, i64 %426
-  %428 = load i32, ptr %427, align 4
-  %.not.i.i.i.i557 = icmp ult i32 %428, 2
-  br i1 %.not.i.i.i.i557, label %Cba_NtkRangeSize.exit.i.i559, label %429
+  %419 = zext nneg i32 %410 to i64
+  %420 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i556, i64 %419
+  %421 = load i32, ptr %420, align 4
+  %.not.i.i.i.i557 = icmp ult i32 %421, 2
+  br i1 %.not.i.i.i.i557, label %Cba_NtkRangeSize.exit.i.i559, label %422
 
-429:                                              ; preds = %Cba_FonRange.exit.i.i555
-  %430 = load ptr, ptr %0, align 8
-  %431 = getelementptr inbounds i8, ptr %430, i64 40
-  %432 = load ptr, ptr %431, align 8
-  %433 = getelementptr inbounds i8, ptr %432, i64 8
-  %434 = load ptr, ptr %433, align 8
-  %435 = shl nsw i32 %428, 1
-  %436 = and i32 %435, -4
-  %437 = getelementptr i8, ptr %434, i64 8
-  %.val.i.i.i.i.i.i558 = load ptr, ptr %437, align 8
-  %438 = sext i32 %436 to i64
-  %439 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i558, i64 %438
-  %440 = load i32, ptr %439, align 4
-  %441 = getelementptr inbounds i8, ptr %439, i64 4
-  %442 = load i32, ptr %441, align 4
-  %443 = sub nsw i32 %440, %442
+422:                                              ; preds = %Cba_FonRange.exit.i.i555
+  %423 = load ptr, ptr %0, align 8
+  %424 = getelementptr inbounds i8, ptr %423, i64 40
+  %425 = load ptr, ptr %424, align 8
+  %426 = getelementptr inbounds i8, ptr %425, i64 8
+  %427 = load ptr, ptr %426, align 8
+  %428 = shl nsw i32 %421, 1
+  %429 = and i32 %428, -4
+  %430 = getelementptr i8, ptr %427, i64 8
+  %.val.i.i.i.i.i.i558 = load ptr, ptr %430, align 8
+  %431 = sext i32 %429 to i64
+  %432 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i558, i64 %431
+  %433 = load i32, ptr %432, align 4
+  %434 = getelementptr inbounds i8, ptr %432, i64 4
+  %435 = load i32, ptr %434, align 4
+  %436 = sub nsw i32 %433, %435
   br label %Cba_NtkRangeSize.exit.i.i559
 
-Cba_NtkRangeSize.exit.i.i559:                     ; preds = %429, %Cba_FonRange.exit.i.i555, %423
-  %444 = phi i32 [ %443, %429 ], [ 0, %Cba_FonRange.exit.i.i555 ], [ 0, %423 ]
-  %445 = call i32 @llvm.abs.i32(i32 %444, i1 true)
-  %446 = add nuw nsw i32 %445, 1
+Cba_NtkRangeSize.exit.i.i559:                     ; preds = %422, %Cba_FonRange.exit.i.i555, %416
+  %437 = phi i32 [ %436, %422 ], [ 0, %Cba_FonRange.exit.i.i555 ], [ 0, %416 ]
+  %438 = call i32 @llvm.abs.i32(i32 %437, i1 true)
+  %439 = add nuw nsw i32 %438, 1
   br label %Cba_ObjRangeSize.exit560
 
-Cba_ObjRangeSize.exit560:                         ; preds = %418, %Cba_NtkRangeSize.exit.i.i559
-  %447 = phi i32 [ %422, %418 ], [ %446, %Cba_NtkRangeSize.exit.i.i559 ]
+Cba_ObjRangeSize.exit560:                         ; preds = %411, %Cba_NtkRangeSize.exit.i.i559
+  %440 = phi i32 [ %415, %411 ], [ %439, %Cba_NtkRangeSize.exit.i.i559 ]
   %.val375 = load ptr, ptr %25, align 8
   %.val376 = load ptr, ptr %26, align 8
-  %448 = getelementptr inbounds i32, ptr %.val375, i64 %indvars.iv1192
-  %449 = load i32, ptr %448, align 4
-  %450 = sext i32 %449 to i64
-  %451 = getelementptr inbounds i32, ptr %.val376, i64 %450
-  %452 = load i32, ptr %451, align 4
+  %441 = getelementptr inbounds i32, ptr %.val375, i64 %indvars.iv1192
+  %442 = load i32, ptr %441, align 4
+  %443 = sext i32 %442 to i64
+  %444 = getelementptr inbounds i32, ptr %.val376, i64 %443
+  %445 = load i32, ptr %444, align 4
   %.val.i561 = load ptr, ptr %21, align 8
-  %453 = sext i32 %452 to i64
-  %454 = getelementptr inbounds i32, ptr %.val.i561, i64 %453
-  %455 = load i32, ptr %454, align 4
-  %.not.i.i562 = icmp sgt i32 %455, -1
-  br i1 %.not.i.i562, label %461, label %456
+  %446 = sext i32 %445 to i64
+  %447 = getelementptr inbounds i32, ptr %.val.i561, i64 %446
+  %448 = load i32, ptr %447, align 4
+  %.not.i.i562 = icmp sgt i32 %448, -1
+  br i1 %.not.i.i562, label %454, label %449
 
-456:                                              ; preds = %Cba_ObjRangeSize.exit560
+449:                                              ; preds = %Cba_ObjRangeSize.exit560
   %.val.i.i563 = load ptr, ptr %0, align 8
-  %457 = getelementptr i8, ptr %.val.i.i563, i64 24
-  %.val.val.i.i564 = load ptr, ptr %457, align 8
-  %458 = xor i32 %455, -1
-  %459 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i564, i32 noundef range(i32 -2147483648, 2147483647) %458) #26
-  %460 = call i32 @atoi(ptr nocapture noundef %459) #27
+  %450 = getelementptr i8, ptr %.val.i.i563, i64 24
+  %.val.val.i.i564 = load ptr, ptr %450, align 8
+  %451 = xor i32 %448, -1
+  %452 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i564, i32 noundef range(i32 -2147483648, 2147483647) %451) #26
+  %453 = call i32 @atoi(ptr nocapture noundef %452) #27
   br label %Cba_ObjRangeSize.exit571
 
-461:                                              ; preds = %Cba_ObjRangeSize.exit560
+454:                                              ; preds = %Cba_ObjRangeSize.exit560
   %.val.i.i.i.i565 = load i32, ptr %22, align 4
-  %462 = icmp slt i32 %.val.i.i.i.i565, 1
-  br i1 %462, label %Cba_NtkRangeSize.exit.i.i570, label %Cba_FonRange.exit.i.i566
+  %455 = icmp slt i32 %.val.i.i.i.i565, 1
+  br i1 %455, label %Cba_NtkRangeSize.exit.i.i570, label %Cba_FonRange.exit.i.i566
 
-Cba_FonRange.exit.i.i566:                         ; preds = %461
-  %463 = add nuw nsw i32 %455, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %463, i32 noundef 0)
+Cba_FonRange.exit.i.i566:                         ; preds = %454
+  %456 = add nuw nsw i32 %448, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %456, i32 noundef 0)
   %.val.i.i.i.i.i567 = load ptr, ptr %24, align 8
-  %464 = zext nneg i32 %455 to i64
-  %465 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i567, i64 %464
-  %466 = load i32, ptr %465, align 4
-  %.not.i.i.i.i568 = icmp ult i32 %466, 2
-  br i1 %.not.i.i.i.i568, label %Cba_NtkRangeSize.exit.i.i570, label %467
+  %457 = zext nneg i32 %448 to i64
+  %458 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i567, i64 %457
+  %459 = load i32, ptr %458, align 4
+  %.not.i.i.i.i568 = icmp ult i32 %459, 2
+  br i1 %.not.i.i.i.i568, label %Cba_NtkRangeSize.exit.i.i570, label %460
 
-467:                                              ; preds = %Cba_FonRange.exit.i.i566
-  %468 = load ptr, ptr %0, align 8
-  %469 = getelementptr inbounds i8, ptr %468, i64 40
-  %470 = load ptr, ptr %469, align 8
-  %471 = getelementptr inbounds i8, ptr %470, i64 8
-  %472 = load ptr, ptr %471, align 8
-  %473 = shl nsw i32 %466, 1
-  %474 = and i32 %473, -4
-  %475 = getelementptr i8, ptr %472, i64 8
-  %.val.i.i.i.i.i.i569 = load ptr, ptr %475, align 8
-  %476 = sext i32 %474 to i64
-  %477 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i569, i64 %476
-  %478 = load i32, ptr %477, align 4
-  %479 = getelementptr inbounds i8, ptr %477, i64 4
-  %480 = load i32, ptr %479, align 4
-  %481 = sub nsw i32 %478, %480
+460:                                              ; preds = %Cba_FonRange.exit.i.i566
+  %461 = load ptr, ptr %0, align 8
+  %462 = getelementptr inbounds i8, ptr %461, i64 40
+  %463 = load ptr, ptr %462, align 8
+  %464 = getelementptr inbounds i8, ptr %463, i64 8
+  %465 = load ptr, ptr %464, align 8
+  %466 = shl nsw i32 %459, 1
+  %467 = and i32 %466, -4
+  %468 = getelementptr i8, ptr %465, i64 8
+  %.val.i.i.i.i.i.i569 = load ptr, ptr %468, align 8
+  %469 = sext i32 %467 to i64
+  %470 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i569, i64 %469
+  %471 = load i32, ptr %470, align 4
+  %472 = getelementptr inbounds i8, ptr %470, i64 4
+  %473 = load i32, ptr %472, align 4
+  %474 = sub nsw i32 %471, %473
   br label %Cba_NtkRangeSize.exit.i.i570
 
-Cba_NtkRangeSize.exit.i.i570:                     ; preds = %467, %Cba_FonRange.exit.i.i566, %461
-  %482 = phi i32 [ %481, %467 ], [ 0, %Cba_FonRange.exit.i.i566 ], [ 0, %461 ]
-  %483 = call i32 @llvm.abs.i32(i32 %482, i1 true)
-  %484 = add nuw nsw i32 %483, 1
+Cba_NtkRangeSize.exit.i.i570:                     ; preds = %460, %Cba_FonRange.exit.i.i566, %454
+  %475 = phi i32 [ %474, %460 ], [ 0, %Cba_FonRange.exit.i.i566 ], [ 0, %454 ]
+  %476 = call i32 @llvm.abs.i32(i32 %475, i1 true)
+  %477 = add nuw nsw i32 %476, 1
   br label %Cba_ObjRangeSize.exit571
 
-Cba_ObjRangeSize.exit571:                         ; preds = %456, %Cba_NtkRangeSize.exit.i.i570
-  %485 = phi i32 [ %460, %456 ], [ %484, %Cba_NtkRangeSize.exit.i.i570 ]
+Cba_ObjRangeSize.exit571:                         ; preds = %449, %Cba_NtkRangeSize.exit.i.i570
+  %478 = phi i32 [ %453, %449 ], [ %477, %Cba_NtkRangeSize.exit.i.i570 ]
   %.val.i572 = load ptr, ptr %21, align 8
-  %486 = getelementptr inbounds i32, ptr %.val.i572, i64 %indvars.iv1192
-  %487 = load i32, ptr %486, align 4
-  %.not.i.i573 = icmp sgt i32 %487, -1
-  br i1 %.not.i.i573, label %493, label %488
+  %479 = getelementptr inbounds i32, ptr %.val.i572, i64 %indvars.iv1192
+  %480 = load i32, ptr %479, align 4
+  %.not.i.i573 = icmp sgt i32 %480, -1
+  br i1 %.not.i.i573, label %486, label %481
 
-488:                                              ; preds = %Cba_ObjRangeSize.exit571
+481:                                              ; preds = %Cba_ObjRangeSize.exit571
   %.val.i.i574 = load ptr, ptr %0, align 8
-  %489 = getelementptr i8, ptr %.val.i.i574, i64 24
-  %.val.val.i.i575 = load ptr, ptr %489, align 8
-  %490 = xor i32 %487, -1
-  %491 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i575, i32 noundef range(i32 -2147483648, 2147483647) %490) #26
-  %492 = call i32 @atoi(ptr nocapture noundef %491) #27
+  %482 = getelementptr i8, ptr %.val.i.i574, i64 24
+  %.val.val.i.i575 = load ptr, ptr %482, align 8
+  %483 = xor i32 %480, -1
+  %484 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i575, i32 noundef range(i32 -2147483648, 2147483647) %483) #26
+  %485 = call i32 @atoi(ptr nocapture noundef %484) #27
   br label %Cba_ObjRangeSize.exit582
 
-493:                                              ; preds = %Cba_ObjRangeSize.exit571
+486:                                              ; preds = %Cba_ObjRangeSize.exit571
   %.val.i.i.i.i576 = load i32, ptr %22, align 4
-  %494 = icmp slt i32 %.val.i.i.i.i576, 1
-  br i1 %494, label %Cba_NtkRangeSize.exit.i.i581, label %Cba_FonRange.exit.i.i577
+  %487 = icmp slt i32 %.val.i.i.i.i576, 1
+  br i1 %487, label %Cba_NtkRangeSize.exit.i.i581, label %Cba_FonRange.exit.i.i577
 
-Cba_FonRange.exit.i.i577:                         ; preds = %493
-  %495 = add nuw nsw i32 %487, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %495, i32 noundef 0)
+Cba_FonRange.exit.i.i577:                         ; preds = %486
+  %488 = add nuw nsw i32 %480, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %488, i32 noundef 0)
   %.val.i.i.i.i.i578 = load ptr, ptr %24, align 8
-  %496 = zext nneg i32 %487 to i64
-  %497 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i578, i64 %496
-  %498 = load i32, ptr %497, align 4
-  %.not.i.i.i.i579 = icmp ult i32 %498, 2
-  br i1 %.not.i.i.i.i579, label %Cba_NtkRangeSize.exit.i.i581, label %499
+  %489 = zext nneg i32 %480 to i64
+  %490 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i578, i64 %489
+  %491 = load i32, ptr %490, align 4
+  %.not.i.i.i.i579 = icmp ult i32 %491, 2
+  br i1 %.not.i.i.i.i579, label %Cba_NtkRangeSize.exit.i.i581, label %492
 
-499:                                              ; preds = %Cba_FonRange.exit.i.i577
-  %500 = load ptr, ptr %0, align 8
-  %501 = getelementptr inbounds i8, ptr %500, i64 40
-  %502 = load ptr, ptr %501, align 8
-  %503 = getelementptr inbounds i8, ptr %502, i64 8
-  %504 = load ptr, ptr %503, align 8
-  %505 = shl nsw i32 %498, 1
-  %506 = and i32 %505, -4
-  %507 = getelementptr i8, ptr %504, i64 8
-  %.val.i.i.i.i.i.i580 = load ptr, ptr %507, align 8
-  %508 = sext i32 %506 to i64
-  %509 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i580, i64 %508
-  %510 = load i32, ptr %509, align 4
-  %511 = getelementptr inbounds i8, ptr %509, i64 4
-  %512 = load i32, ptr %511, align 4
-  %513 = sub nsw i32 %510, %512
+492:                                              ; preds = %Cba_FonRange.exit.i.i577
+  %493 = load ptr, ptr %0, align 8
+  %494 = getelementptr inbounds i8, ptr %493, i64 40
+  %495 = load ptr, ptr %494, align 8
+  %496 = getelementptr inbounds i8, ptr %495, i64 8
+  %497 = load ptr, ptr %496, align 8
+  %498 = shl nsw i32 %491, 1
+  %499 = and i32 %498, -4
+  %500 = getelementptr i8, ptr %497, i64 8
+  %.val.i.i.i.i.i.i580 = load ptr, ptr %500, align 8
+  %501 = sext i32 %499 to i64
+  %502 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i580, i64 %501
+  %503 = load i32, ptr %502, align 4
+  %504 = getelementptr inbounds i8, ptr %502, i64 4
+  %505 = load i32, ptr %504, align 4
+  %506 = sub nsw i32 %503, %505
   br label %Cba_NtkRangeSize.exit.i.i581
 
-Cba_NtkRangeSize.exit.i.i581:                     ; preds = %499, %Cba_FonRange.exit.i.i577, %493
-  %514 = phi i32 [ %513, %499 ], [ 0, %Cba_FonRange.exit.i.i577 ], [ 0, %493 ]
-  %515 = call i32 @llvm.abs.i32(i32 %514, i1 true)
-  %516 = add nuw nsw i32 %515, 1
+Cba_NtkRangeSize.exit.i.i581:                     ; preds = %492, %Cba_FonRange.exit.i.i577, %486
+  %507 = phi i32 [ %506, %492 ], [ 0, %Cba_FonRange.exit.i.i577 ], [ 0, %486 ]
+  %508 = call i32 @llvm.abs.i32(i32 %507, i1 true)
+  %509 = add nuw nsw i32 %508, 1
   br label %Cba_ObjRangeSize.exit582
 
-Cba_ObjRangeSize.exit582:                         ; preds = %488, %Cba_NtkRangeSize.exit.i.i581
-  %517 = phi i32 [ %492, %488 ], [ %516, %Cba_NtkRangeSize.exit.i.i581 ]
-  %518 = icmp ult i32 %517, 2
-  %519 = add i32 %517, -1
-  %520 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %519, i1 true)
-  %521 = sub nuw nsw i32 32, %520
-  %.09.i583 = select i1 %518, i32 %517, i32 %521
-  %522 = call noundef i32 @llvm.smin.i32(i32 %485, i32 %.09.i583)
-  %523 = mul i32 %447, 3
-  %524 = mul i32 %523, %522
+Cba_ObjRangeSize.exit582:                         ; preds = %481, %Cba_NtkRangeSize.exit.i.i581
+  %510 = phi i32 [ %485, %481 ], [ %509, %Cba_NtkRangeSize.exit.i.i581 ]
+  %511 = icmp ult i32 %510, 2
+  %512 = add i32 %510, -1
+  %513 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %512, i1 true)
+  %514 = sub nuw nsw i32 32, %513
+  %.09.i583 = select i1 %511, i32 %510, i32 %514
+  %515 = call noundef i32 @llvm.smin.i32(i32 %478, i32 %.09.i583)
+  %516 = mul i32 %440, 3
+  %517 = mul i32 %516, %515
   %.val463 = load ptr, ptr %5, align 8
-  %525 = getelementptr inbounds i8, ptr %.val463, i64 272
-  %526 = load i32, ptr %525, align 4
-  %527 = add nsw i32 %524, %526
-  store i32 %527, ptr %525, align 4
-  br label %2454
+  %518 = getelementptr inbounds i8, ptr %.val463, i64 272
+  %519 = load i32, ptr %518, align 4
+  %520 = add nsw i32 %517, %519
+  store i32 %520, ptr %518, align 4
+  br label %2447
 
-528:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
+521:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val.i584 = load ptr, ptr %21, align 8
-  %529 = getelementptr inbounds i32, ptr %.val.i584, i64 %indvars.iv1192
-  %530 = load i32, ptr %529, align 4
-  %.not.i.i585 = icmp sgt i32 %530, -1
-  br i1 %.not.i.i585, label %536, label %531
+  %522 = getelementptr inbounds i32, ptr %.val.i584, i64 %indvars.iv1192
+  %523 = load i32, ptr %522, align 4
+  %.not.i.i585 = icmp sgt i32 %523, -1
+  br i1 %.not.i.i585, label %529, label %524
 
-531:                                              ; preds = %528
+524:                                              ; preds = %521
   %.val.i.i586 = load ptr, ptr %0, align 8
-  %532 = getelementptr i8, ptr %.val.i.i586, i64 24
-  %.val.val.i.i587 = load ptr, ptr %532, align 8
-  %533 = xor i32 %530, -1
-  %534 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i587, i32 noundef range(i32 -2147483648, 2147483647) %533) #26
-  %535 = call i32 @atoi(ptr nocapture noundef %534) #27
+  %525 = getelementptr i8, ptr %.val.i.i586, i64 24
+  %.val.val.i.i587 = load ptr, ptr %525, align 8
+  %526 = xor i32 %523, -1
+  %527 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i587, i32 noundef range(i32 -2147483648, 2147483647) %526) #26
+  %528 = call i32 @atoi(ptr nocapture noundef %527) #27
   br label %Cba_ObjRangeSize.exit594
 
-536:                                              ; preds = %528
+529:                                              ; preds = %521
   %.val.i.i.i.i588 = load i32, ptr %22, align 4
-  %537 = icmp slt i32 %.val.i.i.i.i588, 1
-  br i1 %537, label %Cba_NtkRangeSize.exit.i.i593, label %Cba_FonRange.exit.i.i589
+  %530 = icmp slt i32 %.val.i.i.i.i588, 1
+  br i1 %530, label %Cba_NtkRangeSize.exit.i.i593, label %Cba_FonRange.exit.i.i589
 
-Cba_FonRange.exit.i.i589:                         ; preds = %536
-  %538 = add nuw nsw i32 %530, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %538, i32 noundef 0)
+Cba_FonRange.exit.i.i589:                         ; preds = %529
+  %531 = add nuw nsw i32 %523, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %531, i32 noundef 0)
   %.val.i.i.i.i.i590 = load ptr, ptr %24, align 8
-  %539 = zext nneg i32 %530 to i64
-  %540 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i590, i64 %539
-  %541 = load i32, ptr %540, align 4
-  %.not.i.i.i.i591 = icmp ult i32 %541, 2
-  br i1 %.not.i.i.i.i591, label %Cba_NtkRangeSize.exit.i.i593, label %542
+  %532 = zext nneg i32 %523 to i64
+  %533 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i590, i64 %532
+  %534 = load i32, ptr %533, align 4
+  %.not.i.i.i.i591 = icmp ult i32 %534, 2
+  br i1 %.not.i.i.i.i591, label %Cba_NtkRangeSize.exit.i.i593, label %535
 
-542:                                              ; preds = %Cba_FonRange.exit.i.i589
-  %543 = load ptr, ptr %0, align 8
-  %544 = getelementptr inbounds i8, ptr %543, i64 40
-  %545 = load ptr, ptr %544, align 8
-  %546 = getelementptr inbounds i8, ptr %545, i64 8
-  %547 = load ptr, ptr %546, align 8
-  %548 = shl nsw i32 %541, 1
-  %549 = and i32 %548, -4
-  %550 = getelementptr i8, ptr %547, i64 8
-  %.val.i.i.i.i.i.i592 = load ptr, ptr %550, align 8
-  %551 = sext i32 %549 to i64
-  %552 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i592, i64 %551
-  %553 = load i32, ptr %552, align 4
-  %554 = getelementptr inbounds i8, ptr %552, i64 4
-  %555 = load i32, ptr %554, align 4
-  %556 = sub nsw i32 %553, %555
+535:                                              ; preds = %Cba_FonRange.exit.i.i589
+  %536 = load ptr, ptr %0, align 8
+  %537 = getelementptr inbounds i8, ptr %536, i64 40
+  %538 = load ptr, ptr %537, align 8
+  %539 = getelementptr inbounds i8, ptr %538, i64 8
+  %540 = load ptr, ptr %539, align 8
+  %541 = shl nsw i32 %534, 1
+  %542 = and i32 %541, -4
+  %543 = getelementptr i8, ptr %540, i64 8
+  %.val.i.i.i.i.i.i592 = load ptr, ptr %543, align 8
+  %544 = sext i32 %542 to i64
+  %545 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i592, i64 %544
+  %546 = load i32, ptr %545, align 4
+  %547 = getelementptr inbounds i8, ptr %545, i64 4
+  %548 = load i32, ptr %547, align 4
+  %549 = sub nsw i32 %546, %548
   br label %Cba_NtkRangeSize.exit.i.i593
 
-Cba_NtkRangeSize.exit.i.i593:                     ; preds = %542, %Cba_FonRange.exit.i.i589, %536
-  %557 = phi i32 [ %556, %542 ], [ 0, %Cba_FonRange.exit.i.i589 ], [ 0, %536 ]
-  %558 = call i32 @llvm.abs.i32(i32 %557, i1 true)
-  %559 = add nuw nsw i32 %558, 1
+Cba_NtkRangeSize.exit.i.i593:                     ; preds = %535, %Cba_FonRange.exit.i.i589, %529
+  %550 = phi i32 [ %549, %535 ], [ 0, %Cba_FonRange.exit.i.i589 ], [ 0, %529 ]
+  %551 = call i32 @llvm.abs.i32(i32 %550, i1 true)
+  %552 = add nuw nsw i32 %551, 1
   br label %Cba_ObjRangeSize.exit594
 
-Cba_ObjRangeSize.exit594:                         ; preds = %531, %Cba_NtkRangeSize.exit.i.i593
-  %560 = phi i32 [ %535, %531 ], [ %559, %Cba_NtkRangeSize.exit.i.i593 ]
+Cba_ObjRangeSize.exit594:                         ; preds = %524, %Cba_NtkRangeSize.exit.i.i593
+  %553 = phi i32 [ %528, %524 ], [ %552, %Cba_NtkRangeSize.exit.i.i593 ]
   %.val377 = load ptr, ptr %25, align 8
   %.val378 = load ptr, ptr %26, align 8
-  %561 = getelementptr inbounds i32, ptr %.val377, i64 %indvars.iv1192
-  %562 = load i32, ptr %561, align 4
-  %563 = sext i32 %562 to i64
-  %564 = getelementptr inbounds i32, ptr %.val378, i64 %563
-  %565 = load i32, ptr %564, align 4
+  %554 = getelementptr inbounds i32, ptr %.val377, i64 %indvars.iv1192
+  %555 = load i32, ptr %554, align 4
+  %556 = sext i32 %555 to i64
+  %557 = getelementptr inbounds i32, ptr %.val378, i64 %556
+  %558 = load i32, ptr %557, align 4
   %.val.i595 = load ptr, ptr %21, align 8
-  %566 = sext i32 %565 to i64
-  %567 = getelementptr inbounds i32, ptr %.val.i595, i64 %566
-  %568 = load i32, ptr %567, align 4
-  %.not.i.i596 = icmp sgt i32 %568, -1
-  br i1 %.not.i.i596, label %574, label %569
+  %559 = sext i32 %558 to i64
+  %560 = getelementptr inbounds i32, ptr %.val.i595, i64 %559
+  %561 = load i32, ptr %560, align 4
+  %.not.i.i596 = icmp sgt i32 %561, -1
+  br i1 %.not.i.i596, label %567, label %562
 
-569:                                              ; preds = %Cba_ObjRangeSize.exit594
+562:                                              ; preds = %Cba_ObjRangeSize.exit594
   %.val.i.i597 = load ptr, ptr %0, align 8
-  %570 = getelementptr i8, ptr %.val.i.i597, i64 24
-  %.val.val.i.i598 = load ptr, ptr %570, align 8
-  %571 = xor i32 %568, -1
-  %572 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i598, i32 noundef range(i32 -2147483648, 2147483647) %571) #26
-  %573 = call i32 @atoi(ptr nocapture noundef %572) #27
+  %563 = getelementptr i8, ptr %.val.i.i597, i64 24
+  %.val.val.i.i598 = load ptr, ptr %563, align 8
+  %564 = xor i32 %561, -1
+  %565 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i598, i32 noundef range(i32 -2147483648, 2147483647) %564) #26
+  %566 = call i32 @atoi(ptr nocapture noundef %565) #27
   br label %Cba_ObjRangeSize.exit605
 
-574:                                              ; preds = %Cba_ObjRangeSize.exit594
+567:                                              ; preds = %Cba_ObjRangeSize.exit594
   %.val.i.i.i.i599 = load i32, ptr %22, align 4
-  %575 = icmp slt i32 %.val.i.i.i.i599, 1
-  br i1 %575, label %Cba_NtkRangeSize.exit.i.i604, label %Cba_FonRange.exit.i.i600
+  %568 = icmp slt i32 %.val.i.i.i.i599, 1
+  br i1 %568, label %Cba_NtkRangeSize.exit.i.i604, label %Cba_FonRange.exit.i.i600
 
-Cba_FonRange.exit.i.i600:                         ; preds = %574
-  %576 = add nuw nsw i32 %568, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %576, i32 noundef 0)
+Cba_FonRange.exit.i.i600:                         ; preds = %567
+  %569 = add nuw nsw i32 %561, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %569, i32 noundef 0)
   %.val.i.i.i.i.i601 = load ptr, ptr %24, align 8
-  %577 = zext nneg i32 %568 to i64
-  %578 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i601, i64 %577
-  %579 = load i32, ptr %578, align 4
-  %.not.i.i.i.i602 = icmp ult i32 %579, 2
-  br i1 %.not.i.i.i.i602, label %Cba_NtkRangeSize.exit.i.i604, label %580
+  %570 = zext nneg i32 %561 to i64
+  %571 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i601, i64 %570
+  %572 = load i32, ptr %571, align 4
+  %.not.i.i.i.i602 = icmp ult i32 %572, 2
+  br i1 %.not.i.i.i.i602, label %Cba_NtkRangeSize.exit.i.i604, label %573
 
-580:                                              ; preds = %Cba_FonRange.exit.i.i600
-  %581 = load ptr, ptr %0, align 8
-  %582 = getelementptr inbounds i8, ptr %581, i64 40
-  %583 = load ptr, ptr %582, align 8
-  %584 = getelementptr inbounds i8, ptr %583, i64 8
-  %585 = load ptr, ptr %584, align 8
-  %586 = shl nsw i32 %579, 1
-  %587 = and i32 %586, -4
-  %588 = getelementptr i8, ptr %585, i64 8
-  %.val.i.i.i.i.i.i603 = load ptr, ptr %588, align 8
-  %589 = sext i32 %587 to i64
-  %590 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i603, i64 %589
-  %591 = load i32, ptr %590, align 4
-  %592 = getelementptr inbounds i8, ptr %590, i64 4
-  %593 = load i32, ptr %592, align 4
-  %594 = sub nsw i32 %591, %593
+573:                                              ; preds = %Cba_FonRange.exit.i.i600
+  %574 = load ptr, ptr %0, align 8
+  %575 = getelementptr inbounds i8, ptr %574, i64 40
+  %576 = load ptr, ptr %575, align 8
+  %577 = getelementptr inbounds i8, ptr %576, i64 8
+  %578 = load ptr, ptr %577, align 8
+  %579 = shl nsw i32 %572, 1
+  %580 = and i32 %579, -4
+  %581 = getelementptr i8, ptr %578, i64 8
+  %.val.i.i.i.i.i.i603 = load ptr, ptr %581, align 8
+  %582 = sext i32 %580 to i64
+  %583 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i603, i64 %582
+  %584 = load i32, ptr %583, align 4
+  %585 = getelementptr inbounds i8, ptr %583, i64 4
+  %586 = load i32, ptr %585, align 4
+  %587 = sub nsw i32 %584, %586
   br label %Cba_NtkRangeSize.exit.i.i604
 
-Cba_NtkRangeSize.exit.i.i604:                     ; preds = %580, %Cba_FonRange.exit.i.i600, %574
-  %595 = phi i32 [ %594, %580 ], [ 0, %Cba_FonRange.exit.i.i600 ], [ 0, %574 ]
-  %596 = call i32 @llvm.abs.i32(i32 %595, i1 true)
-  %597 = add nuw nsw i32 %596, 1
+Cba_NtkRangeSize.exit.i.i604:                     ; preds = %573, %Cba_FonRange.exit.i.i600, %567
+  %588 = phi i32 [ %587, %573 ], [ 0, %Cba_FonRange.exit.i.i600 ], [ 0, %567 ]
+  %589 = call i32 @llvm.abs.i32(i32 %588, i1 true)
+  %590 = add nuw nsw i32 %589, 1
   br label %Cba_ObjRangeSize.exit605
 
-Cba_ObjRangeSize.exit605:                         ; preds = %569, %Cba_NtkRangeSize.exit.i.i604
-  %598 = phi i32 [ %573, %569 ], [ %597, %Cba_NtkRangeSize.exit.i.i604 ]
+Cba_ObjRangeSize.exit605:                         ; preds = %562, %Cba_NtkRangeSize.exit.i.i604
+  %591 = phi i32 [ %566, %562 ], [ %590, %Cba_NtkRangeSize.exit.i.i604 ]
   %.val.i606 = load ptr, ptr %21, align 8
-  %599 = getelementptr inbounds i32, ptr %.val.i606, i64 %indvars.iv1192
-  %600 = load i32, ptr %599, align 4
-  %.not.i.i607 = icmp sgt i32 %600, -1
-  br i1 %.not.i.i607, label %606, label %601
+  %592 = getelementptr inbounds i32, ptr %.val.i606, i64 %indvars.iv1192
+  %593 = load i32, ptr %592, align 4
+  %.not.i.i607 = icmp sgt i32 %593, -1
+  br i1 %.not.i.i607, label %599, label %594
 
-601:                                              ; preds = %Cba_ObjRangeSize.exit605
+594:                                              ; preds = %Cba_ObjRangeSize.exit605
   %.val.i.i608 = load ptr, ptr %0, align 8
-  %602 = getelementptr i8, ptr %.val.i.i608, i64 24
-  %.val.val.i.i609 = load ptr, ptr %602, align 8
-  %603 = xor i32 %600, -1
-  %604 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i609, i32 noundef range(i32 -2147483648, 2147483647) %603) #26
-  %605 = call i32 @atoi(ptr nocapture noundef %604) #27
+  %595 = getelementptr i8, ptr %.val.i.i608, i64 24
+  %.val.val.i.i609 = load ptr, ptr %595, align 8
+  %596 = xor i32 %593, -1
+  %597 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i609, i32 noundef range(i32 -2147483648, 2147483647) %596) #26
+  %598 = call i32 @atoi(ptr nocapture noundef %597) #27
   br label %Cba_ObjRangeSize.exit616
 
-606:                                              ; preds = %Cba_ObjRangeSize.exit605
+599:                                              ; preds = %Cba_ObjRangeSize.exit605
   %.val.i.i.i.i610 = load i32, ptr %22, align 4
-  %607 = icmp slt i32 %.val.i.i.i.i610, 1
-  br i1 %607, label %Cba_NtkRangeSize.exit.i.i615, label %Cba_FonRange.exit.i.i611
+  %600 = icmp slt i32 %.val.i.i.i.i610, 1
+  br i1 %600, label %Cba_NtkRangeSize.exit.i.i615, label %Cba_FonRange.exit.i.i611
 
-Cba_FonRange.exit.i.i611:                         ; preds = %606
-  %608 = add nuw nsw i32 %600, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %608, i32 noundef 0)
+Cba_FonRange.exit.i.i611:                         ; preds = %599
+  %601 = add nuw nsw i32 %593, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %601, i32 noundef 0)
   %.val.i.i.i.i.i612 = load ptr, ptr %24, align 8
-  %609 = zext nneg i32 %600 to i64
-  %610 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i612, i64 %609
-  %611 = load i32, ptr %610, align 4
-  %.not.i.i.i.i613 = icmp ult i32 %611, 2
-  br i1 %.not.i.i.i.i613, label %Cba_NtkRangeSize.exit.i.i615, label %612
+  %602 = zext nneg i32 %593 to i64
+  %603 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i612, i64 %602
+  %604 = load i32, ptr %603, align 4
+  %.not.i.i.i.i613 = icmp ult i32 %604, 2
+  br i1 %.not.i.i.i.i613, label %Cba_NtkRangeSize.exit.i.i615, label %605
 
-612:                                              ; preds = %Cba_FonRange.exit.i.i611
-  %613 = load ptr, ptr %0, align 8
-  %614 = getelementptr inbounds i8, ptr %613, i64 40
-  %615 = load ptr, ptr %614, align 8
-  %616 = getelementptr inbounds i8, ptr %615, i64 8
-  %617 = load ptr, ptr %616, align 8
-  %618 = shl nsw i32 %611, 1
-  %619 = and i32 %618, -4
-  %620 = getelementptr i8, ptr %617, i64 8
-  %.val.i.i.i.i.i.i614 = load ptr, ptr %620, align 8
-  %621 = sext i32 %619 to i64
-  %622 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i614, i64 %621
-  %623 = load i32, ptr %622, align 4
-  %624 = getelementptr inbounds i8, ptr %622, i64 4
-  %625 = load i32, ptr %624, align 4
-  %626 = sub nsw i32 %623, %625
+605:                                              ; preds = %Cba_FonRange.exit.i.i611
+  %606 = load ptr, ptr %0, align 8
+  %607 = getelementptr inbounds i8, ptr %606, i64 40
+  %608 = load ptr, ptr %607, align 8
+  %609 = getelementptr inbounds i8, ptr %608, i64 8
+  %610 = load ptr, ptr %609, align 8
+  %611 = shl nsw i32 %604, 1
+  %612 = and i32 %611, -4
+  %613 = getelementptr i8, ptr %610, i64 8
+  %.val.i.i.i.i.i.i614 = load ptr, ptr %613, align 8
+  %614 = sext i32 %612 to i64
+  %615 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i614, i64 %614
+  %616 = load i32, ptr %615, align 4
+  %617 = getelementptr inbounds i8, ptr %615, i64 4
+  %618 = load i32, ptr %617, align 4
+  %619 = sub nsw i32 %616, %618
   br label %Cba_NtkRangeSize.exit.i.i615
 
-Cba_NtkRangeSize.exit.i.i615:                     ; preds = %612, %Cba_FonRange.exit.i.i611, %606
-  %627 = phi i32 [ %626, %612 ], [ 0, %Cba_FonRange.exit.i.i611 ], [ 0, %606 ]
-  %628 = call i32 @llvm.abs.i32(i32 %627, i1 true)
-  %629 = add nuw nsw i32 %628, 1
+Cba_NtkRangeSize.exit.i.i615:                     ; preds = %605, %Cba_FonRange.exit.i.i611, %599
+  %620 = phi i32 [ %619, %605 ], [ 0, %Cba_FonRange.exit.i.i611 ], [ 0, %599 ]
+  %621 = call i32 @llvm.abs.i32(i32 %620, i1 true)
+  %622 = add nuw nsw i32 %621, 1
   br label %Cba_ObjRangeSize.exit616
 
-Cba_ObjRangeSize.exit616:                         ; preds = %601, %Cba_NtkRangeSize.exit.i.i615
-  %630 = phi i32 [ %605, %601 ], [ %629, %Cba_NtkRangeSize.exit.i.i615 ]
-  %631 = icmp ult i32 %630, 2
-  %632 = add i32 %630, -1
-  %633 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %632, i1 true)
-  %634 = sub nuw nsw i32 32, %633
-  %.09.i617 = select i1 %631, i32 %630, i32 %634
-  %635 = call noundef i32 @llvm.smin.i32(i32 %598, i32 %.09.i617)
-  %636 = mul i32 %560, 3
-  %637 = mul i32 %636, %635
+Cba_ObjRangeSize.exit616:                         ; preds = %594, %Cba_NtkRangeSize.exit.i.i615
+  %623 = phi i32 [ %598, %594 ], [ %622, %Cba_NtkRangeSize.exit.i.i615 ]
+  %624 = icmp ult i32 %623, 2
+  %625 = add i32 %623, -1
+  %626 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %625, i1 true)
+  %627 = sub nuw nsw i32 32, %626
+  %.09.i617 = select i1 %624, i32 %623, i32 %627
+  %628 = call noundef i32 @llvm.smin.i32(i32 %591, i32 %.09.i617)
+  %629 = mul i32 %553, 3
+  %630 = mul i32 %629, %628
   %.val464 = load ptr, ptr %5, align 8
-  %638 = getelementptr inbounds i8, ptr %.val464, i64 260
-  %639 = load i32, ptr %638, align 4
-  %640 = add nsw i32 %637, %639
-  store i32 %640, ptr %638, align 4
-  br label %2454
+  %631 = getelementptr inbounds i8, ptr %.val464, i64 260
+  %632 = load i32, ptr %631, align 4
+  %633 = add nsw i32 %630, %632
+  store i32 %633, ptr %631, align 4
+  br label %2447
 
-641:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
+634:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val.i618 = load ptr, ptr %21, align 8
-  %642 = getelementptr inbounds i32, ptr %.val.i618, i64 %indvars.iv1192
-  %643 = load i32, ptr %642, align 4
-  %.not.i.i619 = icmp sgt i32 %643, -1
-  br i1 %.not.i.i619, label %649, label %644
+  %635 = getelementptr inbounds i32, ptr %.val.i618, i64 %indvars.iv1192
+  %636 = load i32, ptr %635, align 4
+  %.not.i.i619 = icmp sgt i32 %636, -1
+  br i1 %.not.i.i619, label %642, label %637
 
-644:                                              ; preds = %641
+637:                                              ; preds = %634
   %.val.i.i620 = load ptr, ptr %0, align 8
-  %645 = getelementptr i8, ptr %.val.i.i620, i64 24
-  %.val.val.i.i621 = load ptr, ptr %645, align 8
-  %646 = xor i32 %643, -1
-  %647 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i621, i32 noundef range(i32 -2147483648, 2147483647) %646) #26
-  %648 = call i32 @atoi(ptr nocapture noundef %647) #27
+  %638 = getelementptr i8, ptr %.val.i.i620, i64 24
+  %.val.val.i.i621 = load ptr, ptr %638, align 8
+  %639 = xor i32 %636, -1
+  %640 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i621, i32 noundef range(i32 -2147483648, 2147483647) %639) #26
+  %641 = call i32 @atoi(ptr nocapture noundef %640) #27
   br label %Cba_ObjRangeSize.exit628
 
-649:                                              ; preds = %641
+642:                                              ; preds = %634
   %.val.i.i.i.i622 = load i32, ptr %22, align 4
-  %650 = icmp slt i32 %.val.i.i.i.i622, 1
-  br i1 %650, label %Cba_NtkRangeSize.exit.i.i627, label %Cba_FonRange.exit.i.i623
+  %643 = icmp slt i32 %.val.i.i.i.i622, 1
+  br i1 %643, label %Cba_NtkRangeSize.exit.i.i627, label %Cba_FonRange.exit.i.i623
 
-Cba_FonRange.exit.i.i623:                         ; preds = %649
-  %651 = add nuw nsw i32 %643, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %651, i32 noundef 0)
+Cba_FonRange.exit.i.i623:                         ; preds = %642
+  %644 = add nuw nsw i32 %636, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %644, i32 noundef 0)
   %.val.i.i.i.i.i624 = load ptr, ptr %24, align 8
-  %652 = zext nneg i32 %643 to i64
-  %653 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i624, i64 %652
-  %654 = load i32, ptr %653, align 4
-  %.not.i.i.i.i625 = icmp ult i32 %654, 2
-  br i1 %.not.i.i.i.i625, label %Cba_NtkRangeSize.exit.i.i627, label %655
+  %645 = zext nneg i32 %636 to i64
+  %646 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i624, i64 %645
+  %647 = load i32, ptr %646, align 4
+  %.not.i.i.i.i625 = icmp ult i32 %647, 2
+  br i1 %.not.i.i.i.i625, label %Cba_NtkRangeSize.exit.i.i627, label %648
 
-655:                                              ; preds = %Cba_FonRange.exit.i.i623
-  %656 = load ptr, ptr %0, align 8
-  %657 = getelementptr inbounds i8, ptr %656, i64 40
-  %658 = load ptr, ptr %657, align 8
-  %659 = getelementptr inbounds i8, ptr %658, i64 8
-  %660 = load ptr, ptr %659, align 8
-  %661 = shl nsw i32 %654, 1
-  %662 = and i32 %661, -4
-  %663 = getelementptr i8, ptr %660, i64 8
-  %.val.i.i.i.i.i.i626 = load ptr, ptr %663, align 8
-  %664 = sext i32 %662 to i64
-  %665 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i626, i64 %664
-  %666 = load i32, ptr %665, align 4
-  %667 = getelementptr inbounds i8, ptr %665, i64 4
-  %668 = load i32, ptr %667, align 4
-  %669 = sub nsw i32 %666, %668
+648:                                              ; preds = %Cba_FonRange.exit.i.i623
+  %649 = load ptr, ptr %0, align 8
+  %650 = getelementptr inbounds i8, ptr %649, i64 40
+  %651 = load ptr, ptr %650, align 8
+  %652 = getelementptr inbounds i8, ptr %651, i64 8
+  %653 = load ptr, ptr %652, align 8
+  %654 = shl nsw i32 %647, 1
+  %655 = and i32 %654, -4
+  %656 = getelementptr i8, ptr %653, i64 8
+  %.val.i.i.i.i.i.i626 = load ptr, ptr %656, align 8
+  %657 = sext i32 %655 to i64
+  %658 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i626, i64 %657
+  %659 = load i32, ptr %658, align 4
+  %660 = getelementptr inbounds i8, ptr %658, i64 4
+  %661 = load i32, ptr %660, align 4
+  %662 = sub nsw i32 %659, %661
   br label %Cba_NtkRangeSize.exit.i.i627
 
-Cba_NtkRangeSize.exit.i.i627:                     ; preds = %655, %Cba_FonRange.exit.i.i623, %649
-  %670 = phi i32 [ %669, %655 ], [ 0, %Cba_FonRange.exit.i.i623 ], [ 0, %649 ]
-  %671 = call i32 @llvm.abs.i32(i32 %670, i1 true)
-  %672 = add nuw nsw i32 %671, 1
+Cba_NtkRangeSize.exit.i.i627:                     ; preds = %648, %Cba_FonRange.exit.i.i623, %642
+  %663 = phi i32 [ %662, %648 ], [ 0, %Cba_FonRange.exit.i.i623 ], [ 0, %642 ]
+  %664 = call i32 @llvm.abs.i32(i32 %663, i1 true)
+  %665 = add nuw nsw i32 %664, 1
   br label %Cba_ObjRangeSize.exit628
 
-Cba_ObjRangeSize.exit628:                         ; preds = %644, %Cba_NtkRangeSize.exit.i.i627
-  %673 = phi i32 [ %648, %644 ], [ %672, %Cba_NtkRangeSize.exit.i.i627 ]
+Cba_ObjRangeSize.exit628:                         ; preds = %637, %Cba_NtkRangeSize.exit.i.i627
+  %666 = phi i32 [ %641, %637 ], [ %665, %Cba_NtkRangeSize.exit.i.i627 ]
   %.val379 = load ptr, ptr %25, align 8
   %.val380 = load ptr, ptr %26, align 8
-  %674 = getelementptr inbounds i32, ptr %.val379, i64 %indvars.iv1192
-  %675 = load i32, ptr %674, align 4
-  %676 = sext i32 %675 to i64
-  %677 = getelementptr inbounds i32, ptr %.val380, i64 %676
-  %678 = load i32, ptr %677, align 4
+  %667 = getelementptr inbounds i32, ptr %.val379, i64 %indvars.iv1192
+  %668 = load i32, ptr %667, align 4
+  %669 = sext i32 %668 to i64
+  %670 = getelementptr inbounds i32, ptr %.val380, i64 %669
+  %671 = load i32, ptr %670, align 4
   %.val.i629 = load ptr, ptr %21, align 8
-  %679 = sext i32 %678 to i64
-  %680 = getelementptr inbounds i32, ptr %.val.i629, i64 %679
-  %681 = load i32, ptr %680, align 4
-  %.not.i.i630 = icmp sgt i32 %681, -1
-  br i1 %.not.i.i630, label %687, label %682
+  %672 = sext i32 %671 to i64
+  %673 = getelementptr inbounds i32, ptr %.val.i629, i64 %672
+  %674 = load i32, ptr %673, align 4
+  %.not.i.i630 = icmp sgt i32 %674, -1
+  br i1 %.not.i.i630, label %680, label %675
 
-682:                                              ; preds = %Cba_ObjRangeSize.exit628
+675:                                              ; preds = %Cba_ObjRangeSize.exit628
   %.val.i.i631 = load ptr, ptr %0, align 8
-  %683 = getelementptr i8, ptr %.val.i.i631, i64 24
-  %.val.val.i.i632 = load ptr, ptr %683, align 8
-  %684 = xor i32 %681, -1
-  %685 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i632, i32 noundef range(i32 -2147483648, 2147483647) %684) #26
-  %686 = call i32 @atoi(ptr nocapture noundef %685) #27
+  %676 = getelementptr i8, ptr %.val.i.i631, i64 24
+  %.val.val.i.i632 = load ptr, ptr %676, align 8
+  %677 = xor i32 %674, -1
+  %678 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i632, i32 noundef range(i32 -2147483648, 2147483647) %677) #26
+  %679 = call i32 @atoi(ptr nocapture noundef %678) #27
   br label %Cba_ObjRangeSize.exit639
 
-687:                                              ; preds = %Cba_ObjRangeSize.exit628
+680:                                              ; preds = %Cba_ObjRangeSize.exit628
   %.val.i.i.i.i633 = load i32, ptr %22, align 4
-  %688 = icmp slt i32 %.val.i.i.i.i633, 1
-  br i1 %688, label %Cba_NtkRangeSize.exit.i.i638, label %Cba_FonRange.exit.i.i634
+  %681 = icmp slt i32 %.val.i.i.i.i633, 1
+  br i1 %681, label %Cba_NtkRangeSize.exit.i.i638, label %Cba_FonRange.exit.i.i634
 
-Cba_FonRange.exit.i.i634:                         ; preds = %687
-  %689 = add nuw nsw i32 %681, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %689, i32 noundef 0)
+Cba_FonRange.exit.i.i634:                         ; preds = %680
+  %682 = add nuw nsw i32 %674, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %682, i32 noundef 0)
   %.val.i.i.i.i.i635 = load ptr, ptr %24, align 8
-  %690 = zext nneg i32 %681 to i64
-  %691 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i635, i64 %690
-  %692 = load i32, ptr %691, align 4
-  %.not.i.i.i.i636 = icmp ult i32 %692, 2
-  br i1 %.not.i.i.i.i636, label %Cba_NtkRangeSize.exit.i.i638, label %693
+  %683 = zext nneg i32 %674 to i64
+  %684 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i635, i64 %683
+  %685 = load i32, ptr %684, align 4
+  %.not.i.i.i.i636 = icmp ult i32 %685, 2
+  br i1 %.not.i.i.i.i636, label %Cba_NtkRangeSize.exit.i.i638, label %686
 
-693:                                              ; preds = %Cba_FonRange.exit.i.i634
-  %694 = load ptr, ptr %0, align 8
-  %695 = getelementptr inbounds i8, ptr %694, i64 40
-  %696 = load ptr, ptr %695, align 8
-  %697 = getelementptr inbounds i8, ptr %696, i64 8
-  %698 = load ptr, ptr %697, align 8
-  %699 = shl nsw i32 %692, 1
-  %700 = and i32 %699, -4
-  %701 = getelementptr i8, ptr %698, i64 8
-  %.val.i.i.i.i.i.i637 = load ptr, ptr %701, align 8
-  %702 = sext i32 %700 to i64
-  %703 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i637, i64 %702
-  %704 = load i32, ptr %703, align 4
-  %705 = getelementptr inbounds i8, ptr %703, i64 4
-  %706 = load i32, ptr %705, align 4
-  %707 = sub nsw i32 %704, %706
+686:                                              ; preds = %Cba_FonRange.exit.i.i634
+  %687 = load ptr, ptr %0, align 8
+  %688 = getelementptr inbounds i8, ptr %687, i64 40
+  %689 = load ptr, ptr %688, align 8
+  %690 = getelementptr inbounds i8, ptr %689, i64 8
+  %691 = load ptr, ptr %690, align 8
+  %692 = shl nsw i32 %685, 1
+  %693 = and i32 %692, -4
+  %694 = getelementptr i8, ptr %691, i64 8
+  %.val.i.i.i.i.i.i637 = load ptr, ptr %694, align 8
+  %695 = sext i32 %693 to i64
+  %696 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i637, i64 %695
+  %697 = load i32, ptr %696, align 4
+  %698 = getelementptr inbounds i8, ptr %696, i64 4
+  %699 = load i32, ptr %698, align 4
+  %700 = sub nsw i32 %697, %699
   br label %Cba_NtkRangeSize.exit.i.i638
 
-Cba_NtkRangeSize.exit.i.i638:                     ; preds = %693, %Cba_FonRange.exit.i.i634, %687
-  %708 = phi i32 [ %707, %693 ], [ 0, %Cba_FonRange.exit.i.i634 ], [ 0, %687 ]
-  %709 = call i32 @llvm.abs.i32(i32 %708, i1 true)
-  %710 = add nuw nsw i32 %709, 1
+Cba_NtkRangeSize.exit.i.i638:                     ; preds = %686, %Cba_FonRange.exit.i.i634, %680
+  %701 = phi i32 [ %700, %686 ], [ 0, %Cba_FonRange.exit.i.i634 ], [ 0, %680 ]
+  %702 = call i32 @llvm.abs.i32(i32 %701, i1 true)
+  %703 = add nuw nsw i32 %702, 1
   br label %Cba_ObjRangeSize.exit639
 
-Cba_ObjRangeSize.exit639:                         ; preds = %682, %Cba_NtkRangeSize.exit.i.i638
-  %711 = phi i32 [ %686, %682 ], [ %710, %Cba_NtkRangeSize.exit.i.i638 ]
+Cba_ObjRangeSize.exit639:                         ; preds = %675, %Cba_NtkRangeSize.exit.i.i638
+  %704 = phi i32 [ %679, %675 ], [ %703, %Cba_NtkRangeSize.exit.i.i638 ]
   %.val.i640 = load ptr, ptr %21, align 8
-  %712 = getelementptr inbounds i32, ptr %.val.i640, i64 %indvars.iv1192
-  %713 = load i32, ptr %712, align 4
-  %.not.i.i641 = icmp sgt i32 %713, -1
-  br i1 %.not.i.i641, label %719, label %714
+  %705 = getelementptr inbounds i32, ptr %.val.i640, i64 %indvars.iv1192
+  %706 = load i32, ptr %705, align 4
+  %.not.i.i641 = icmp sgt i32 %706, -1
+  br i1 %.not.i.i641, label %712, label %707
 
-714:                                              ; preds = %Cba_ObjRangeSize.exit639
+707:                                              ; preds = %Cba_ObjRangeSize.exit639
   %.val.i.i642 = load ptr, ptr %0, align 8
-  %715 = getelementptr i8, ptr %.val.i.i642, i64 24
-  %.val.val.i.i643 = load ptr, ptr %715, align 8
-  %716 = xor i32 %713, -1
-  %717 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i643, i32 noundef range(i32 -2147483648, 2147483647) %716) #26
-  %718 = call i32 @atoi(ptr nocapture noundef %717) #27
+  %708 = getelementptr i8, ptr %.val.i.i642, i64 24
+  %.val.val.i.i643 = load ptr, ptr %708, align 8
+  %709 = xor i32 %706, -1
+  %710 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i643, i32 noundef range(i32 -2147483648, 2147483647) %709) #26
+  %711 = call i32 @atoi(ptr nocapture noundef %710) #27
   br label %Cba_ObjRangeSize.exit650
 
-719:                                              ; preds = %Cba_ObjRangeSize.exit639
+712:                                              ; preds = %Cba_ObjRangeSize.exit639
   %.val.i.i.i.i644 = load i32, ptr %22, align 4
-  %720 = icmp slt i32 %.val.i.i.i.i644, 1
-  br i1 %720, label %Cba_NtkRangeSize.exit.i.i649, label %Cba_FonRange.exit.i.i645
+  %713 = icmp slt i32 %.val.i.i.i.i644, 1
+  br i1 %713, label %Cba_NtkRangeSize.exit.i.i649, label %Cba_FonRange.exit.i.i645
 
-Cba_FonRange.exit.i.i645:                         ; preds = %719
-  %721 = add nuw nsw i32 %713, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %721, i32 noundef 0)
+Cba_FonRange.exit.i.i645:                         ; preds = %712
+  %714 = add nuw nsw i32 %706, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %714, i32 noundef 0)
   %.val.i.i.i.i.i646 = load ptr, ptr %24, align 8
-  %722 = zext nneg i32 %713 to i64
-  %723 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i646, i64 %722
-  %724 = load i32, ptr %723, align 4
-  %.not.i.i.i.i647 = icmp ult i32 %724, 2
-  br i1 %.not.i.i.i.i647, label %Cba_NtkRangeSize.exit.i.i649, label %725
+  %715 = zext nneg i32 %706 to i64
+  %716 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i646, i64 %715
+  %717 = load i32, ptr %716, align 4
+  %.not.i.i.i.i647 = icmp ult i32 %717, 2
+  br i1 %.not.i.i.i.i647, label %Cba_NtkRangeSize.exit.i.i649, label %718
 
-725:                                              ; preds = %Cba_FonRange.exit.i.i645
-  %726 = load ptr, ptr %0, align 8
-  %727 = getelementptr inbounds i8, ptr %726, i64 40
-  %728 = load ptr, ptr %727, align 8
-  %729 = getelementptr inbounds i8, ptr %728, i64 8
-  %730 = load ptr, ptr %729, align 8
-  %731 = shl nsw i32 %724, 1
-  %732 = and i32 %731, -4
-  %733 = getelementptr i8, ptr %730, i64 8
-  %.val.i.i.i.i.i.i648 = load ptr, ptr %733, align 8
-  %734 = sext i32 %732 to i64
-  %735 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i648, i64 %734
-  %736 = load i32, ptr %735, align 4
-  %737 = getelementptr inbounds i8, ptr %735, i64 4
-  %738 = load i32, ptr %737, align 4
-  %739 = sub nsw i32 %736, %738
+718:                                              ; preds = %Cba_FonRange.exit.i.i645
+  %719 = load ptr, ptr %0, align 8
+  %720 = getelementptr inbounds i8, ptr %719, i64 40
+  %721 = load ptr, ptr %720, align 8
+  %722 = getelementptr inbounds i8, ptr %721, i64 8
+  %723 = load ptr, ptr %722, align 8
+  %724 = shl nsw i32 %717, 1
+  %725 = and i32 %724, -4
+  %726 = getelementptr i8, ptr %723, i64 8
+  %.val.i.i.i.i.i.i648 = load ptr, ptr %726, align 8
+  %727 = sext i32 %725 to i64
+  %728 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i648, i64 %727
+  %729 = load i32, ptr %728, align 4
+  %730 = getelementptr inbounds i8, ptr %728, i64 4
+  %731 = load i32, ptr %730, align 4
+  %732 = sub nsw i32 %729, %731
   br label %Cba_NtkRangeSize.exit.i.i649
 
-Cba_NtkRangeSize.exit.i.i649:                     ; preds = %725, %Cba_FonRange.exit.i.i645, %719
-  %740 = phi i32 [ %739, %725 ], [ 0, %Cba_FonRange.exit.i.i645 ], [ 0, %719 ]
-  %741 = call i32 @llvm.abs.i32(i32 %740, i1 true)
-  %742 = add nuw nsw i32 %741, 1
+Cba_NtkRangeSize.exit.i.i649:                     ; preds = %718, %Cba_FonRange.exit.i.i645, %712
+  %733 = phi i32 [ %732, %718 ], [ 0, %Cba_FonRange.exit.i.i645 ], [ 0, %712 ]
+  %734 = call i32 @llvm.abs.i32(i32 %733, i1 true)
+  %735 = add nuw nsw i32 %734, 1
   br label %Cba_ObjRangeSize.exit650
 
-Cba_ObjRangeSize.exit650:                         ; preds = %714, %Cba_NtkRangeSize.exit.i.i649
-  %743 = phi i32 [ %718, %714 ], [ %742, %Cba_NtkRangeSize.exit.i.i649 ]
-  %744 = icmp ult i32 %743, 2
-  %745 = add i32 %743, -1
-  %746 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %745, i1 true)
-  %747 = sub nuw nsw i32 32, %746
-  %.09.i651 = select i1 %744, i32 %743, i32 %747
-  %748 = call noundef i32 @llvm.smin.i32(i32 %711, i32 %.09.i651)
-  %749 = mul i32 %673, 3
-  %750 = mul i32 %749, %748
+Cba_ObjRangeSize.exit650:                         ; preds = %707, %Cba_NtkRangeSize.exit.i.i649
+  %736 = phi i32 [ %711, %707 ], [ %735, %Cba_NtkRangeSize.exit.i.i649 ]
+  %737 = icmp ult i32 %736, 2
+  %738 = add i32 %736, -1
+  %739 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %738, i1 true)
+  %740 = sub nuw nsw i32 32, %739
+  %.09.i651 = select i1 %737, i32 %736, i32 %740
+  %741 = call noundef i32 @llvm.smin.i32(i32 %704, i32 %.09.i651)
+  %742 = mul i32 %666, 3
+  %743 = mul i32 %742, %741
   %.val465 = load ptr, ptr %5, align 8
-  %751 = getelementptr inbounds i8, ptr %.val465, i64 268
-  %752 = load i32, ptr %751, align 4
-  %753 = add nsw i32 %750, %752
-  store i32 %753, ptr %751, align 4
-  br label %2454
+  %744 = getelementptr inbounds i8, ptr %.val465, i64 268
+  %745 = load i32, ptr %744, align 4
+  %746 = add nsw i32 %743, %745
+  store i32 %746, ptr %744, align 4
+  br label %2447
 
-754:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
+747:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val.i652 = load ptr, ptr %21, align 8
-  %755 = getelementptr inbounds i32, ptr %.val.i652, i64 %indvars.iv1192
-  %756 = load i32, ptr %755, align 4
-  %.not.i.i653 = icmp sgt i32 %756, -1
-  br i1 %.not.i.i653, label %762, label %757
+  %748 = getelementptr inbounds i32, ptr %.val.i652, i64 %indvars.iv1192
+  %749 = load i32, ptr %748, align 4
+  %.not.i.i653 = icmp sgt i32 %749, -1
+  br i1 %.not.i.i653, label %755, label %750
 
-757:                                              ; preds = %754
+750:                                              ; preds = %747
   %.val.i.i654 = load ptr, ptr %0, align 8
-  %758 = getelementptr i8, ptr %.val.i.i654, i64 24
-  %.val.val.i.i655 = load ptr, ptr %758, align 8
-  %759 = xor i32 %756, -1
-  %760 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i655, i32 noundef range(i32 -2147483648, 2147483647) %759) #26
-  %761 = call i32 @atoi(ptr nocapture noundef %760) #27
+  %751 = getelementptr i8, ptr %.val.i.i654, i64 24
+  %.val.val.i.i655 = load ptr, ptr %751, align 8
+  %752 = xor i32 %749, -1
+  %753 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i655, i32 noundef range(i32 -2147483648, 2147483647) %752) #26
+  %754 = call i32 @atoi(ptr nocapture noundef %753) #27
   br label %Cba_ObjRangeSize.exit662
 
-762:                                              ; preds = %754
+755:                                              ; preds = %747
   %.val.i.i.i.i656 = load i32, ptr %22, align 4
-  %763 = icmp slt i32 %.val.i.i.i.i656, 1
-  br i1 %763, label %Cba_NtkRangeSize.exit.i.i661, label %Cba_FonRange.exit.i.i657
+  %756 = icmp slt i32 %.val.i.i.i.i656, 1
+  br i1 %756, label %Cba_NtkRangeSize.exit.i.i661, label %Cba_FonRange.exit.i.i657
 
-Cba_FonRange.exit.i.i657:                         ; preds = %762
-  %764 = add nuw nsw i32 %756, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %764, i32 noundef 0)
+Cba_FonRange.exit.i.i657:                         ; preds = %755
+  %757 = add nuw nsw i32 %749, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %757, i32 noundef 0)
   %.val.i.i.i.i.i658 = load ptr, ptr %24, align 8
-  %765 = zext nneg i32 %756 to i64
-  %766 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i658, i64 %765
-  %767 = load i32, ptr %766, align 4
-  %.not.i.i.i.i659 = icmp ult i32 %767, 2
-  br i1 %.not.i.i.i.i659, label %Cba_NtkRangeSize.exit.i.i661, label %768
+  %758 = zext nneg i32 %749 to i64
+  %759 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i658, i64 %758
+  %760 = load i32, ptr %759, align 4
+  %.not.i.i.i.i659 = icmp ult i32 %760, 2
+  br i1 %.not.i.i.i.i659, label %Cba_NtkRangeSize.exit.i.i661, label %761
 
-768:                                              ; preds = %Cba_FonRange.exit.i.i657
-  %769 = load ptr, ptr %0, align 8
-  %770 = getelementptr inbounds i8, ptr %769, i64 40
-  %771 = load ptr, ptr %770, align 8
-  %772 = getelementptr inbounds i8, ptr %771, i64 8
-  %773 = load ptr, ptr %772, align 8
-  %774 = shl nsw i32 %767, 1
-  %775 = and i32 %774, -4
-  %776 = getelementptr i8, ptr %773, i64 8
-  %.val.i.i.i.i.i.i660 = load ptr, ptr %776, align 8
-  %777 = sext i32 %775 to i64
-  %778 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i660, i64 %777
-  %779 = load i32, ptr %778, align 4
-  %780 = getelementptr inbounds i8, ptr %778, i64 4
-  %781 = load i32, ptr %780, align 4
-  %782 = sub nsw i32 %779, %781
+761:                                              ; preds = %Cba_FonRange.exit.i.i657
+  %762 = load ptr, ptr %0, align 8
+  %763 = getelementptr inbounds i8, ptr %762, i64 40
+  %764 = load ptr, ptr %763, align 8
+  %765 = getelementptr inbounds i8, ptr %764, i64 8
+  %766 = load ptr, ptr %765, align 8
+  %767 = shl nsw i32 %760, 1
+  %768 = and i32 %767, -4
+  %769 = getelementptr i8, ptr %766, i64 8
+  %.val.i.i.i.i.i.i660 = load ptr, ptr %769, align 8
+  %770 = sext i32 %768 to i64
+  %771 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i660, i64 %770
+  %772 = load i32, ptr %771, align 4
+  %773 = getelementptr inbounds i8, ptr %771, i64 4
+  %774 = load i32, ptr %773, align 4
+  %775 = sub nsw i32 %772, %774
   br label %Cba_NtkRangeSize.exit.i.i661
 
-Cba_NtkRangeSize.exit.i.i661:                     ; preds = %768, %Cba_FonRange.exit.i.i657, %762
-  %783 = phi i32 [ %782, %768 ], [ 0, %Cba_FonRange.exit.i.i657 ], [ 0, %762 ]
-  %784 = call i32 @llvm.abs.i32(i32 %783, i1 true)
-  %785 = add nuw nsw i32 %784, 1
+Cba_NtkRangeSize.exit.i.i661:                     ; preds = %761, %Cba_FonRange.exit.i.i657, %755
+  %776 = phi i32 [ %775, %761 ], [ 0, %Cba_FonRange.exit.i.i657 ], [ 0, %755 ]
+  %777 = call i32 @llvm.abs.i32(i32 %776, i1 true)
+  %778 = add nuw nsw i32 %777, 1
   br label %Cba_ObjRangeSize.exit662
 
-Cba_ObjRangeSize.exit662:                         ; preds = %757, %Cba_NtkRangeSize.exit.i.i661
-  %786 = phi i32 [ %761, %757 ], [ %785, %Cba_NtkRangeSize.exit.i.i661 ]
+Cba_ObjRangeSize.exit662:                         ; preds = %750, %Cba_NtkRangeSize.exit.i.i661
+  %779 = phi i32 [ %754, %750 ], [ %778, %Cba_NtkRangeSize.exit.i.i661 ]
   %.val381 = load ptr, ptr %25, align 8
   %.val382 = load ptr, ptr %26, align 8
-  %787 = getelementptr inbounds i32, ptr %.val381, i64 %indvars.iv1192
-  %788 = load i32, ptr %787, align 4
-  %789 = sext i32 %788 to i64
-  %790 = getelementptr inbounds i32, ptr %.val382, i64 %789
-  %791 = load i32, ptr %790, align 4
+  %780 = getelementptr inbounds i32, ptr %.val381, i64 %indvars.iv1192
+  %781 = load i32, ptr %780, align 4
+  %782 = sext i32 %781 to i64
+  %783 = getelementptr inbounds i32, ptr %.val382, i64 %782
+  %784 = load i32, ptr %783, align 4
   %.val.i663 = load ptr, ptr %21, align 8
-  %792 = sext i32 %791 to i64
-  %793 = getelementptr inbounds i32, ptr %.val.i663, i64 %792
-  %794 = load i32, ptr %793, align 4
-  %.not.i.i664 = icmp sgt i32 %794, -1
-  br i1 %.not.i.i664, label %800, label %795
+  %785 = sext i32 %784 to i64
+  %786 = getelementptr inbounds i32, ptr %.val.i663, i64 %785
+  %787 = load i32, ptr %786, align 4
+  %.not.i.i664 = icmp sgt i32 %787, -1
+  br i1 %.not.i.i664, label %793, label %788
 
-795:                                              ; preds = %Cba_ObjRangeSize.exit662
+788:                                              ; preds = %Cba_ObjRangeSize.exit662
   %.val.i.i665 = load ptr, ptr %0, align 8
-  %796 = getelementptr i8, ptr %.val.i.i665, i64 24
-  %.val.val.i.i666 = load ptr, ptr %796, align 8
-  %797 = xor i32 %794, -1
-  %798 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i666, i32 noundef range(i32 -2147483648, 2147483647) %797) #26
-  %799 = call i32 @atoi(ptr nocapture noundef %798) #27
+  %789 = getelementptr i8, ptr %.val.i.i665, i64 24
+  %.val.val.i.i666 = load ptr, ptr %789, align 8
+  %790 = xor i32 %787, -1
+  %791 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i666, i32 noundef range(i32 -2147483648, 2147483647) %790) #26
+  %792 = call i32 @atoi(ptr nocapture noundef %791) #27
   br label %Cba_ObjRangeSize.exit673
 
-800:                                              ; preds = %Cba_ObjRangeSize.exit662
+793:                                              ; preds = %Cba_ObjRangeSize.exit662
   %.val.i.i.i.i667 = load i32, ptr %22, align 4
-  %801 = icmp slt i32 %.val.i.i.i.i667, 1
-  br i1 %801, label %Cba_NtkRangeSize.exit.i.i672, label %Cba_FonRange.exit.i.i668
+  %794 = icmp slt i32 %.val.i.i.i.i667, 1
+  br i1 %794, label %Cba_NtkRangeSize.exit.i.i672, label %Cba_FonRange.exit.i.i668
 
-Cba_FonRange.exit.i.i668:                         ; preds = %800
-  %802 = add nuw nsw i32 %794, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %802, i32 noundef 0)
+Cba_FonRange.exit.i.i668:                         ; preds = %793
+  %795 = add nuw nsw i32 %787, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %795, i32 noundef 0)
   %.val.i.i.i.i.i669 = load ptr, ptr %24, align 8
-  %803 = zext nneg i32 %794 to i64
-  %804 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i669, i64 %803
-  %805 = load i32, ptr %804, align 4
-  %.not.i.i.i.i670 = icmp ult i32 %805, 2
-  br i1 %.not.i.i.i.i670, label %Cba_NtkRangeSize.exit.i.i672, label %806
+  %796 = zext nneg i32 %787 to i64
+  %797 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i669, i64 %796
+  %798 = load i32, ptr %797, align 4
+  %.not.i.i.i.i670 = icmp ult i32 %798, 2
+  br i1 %.not.i.i.i.i670, label %Cba_NtkRangeSize.exit.i.i672, label %799
 
-806:                                              ; preds = %Cba_FonRange.exit.i.i668
-  %807 = load ptr, ptr %0, align 8
-  %808 = getelementptr inbounds i8, ptr %807, i64 40
-  %809 = load ptr, ptr %808, align 8
-  %810 = getelementptr inbounds i8, ptr %809, i64 8
-  %811 = load ptr, ptr %810, align 8
-  %812 = shl nsw i32 %805, 1
-  %813 = and i32 %812, -4
-  %814 = getelementptr i8, ptr %811, i64 8
-  %.val.i.i.i.i.i.i671 = load ptr, ptr %814, align 8
-  %815 = sext i32 %813 to i64
-  %816 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i671, i64 %815
-  %817 = load i32, ptr %816, align 4
-  %818 = getelementptr inbounds i8, ptr %816, i64 4
-  %819 = load i32, ptr %818, align 4
-  %820 = sub nsw i32 %817, %819
+799:                                              ; preds = %Cba_FonRange.exit.i.i668
+  %800 = load ptr, ptr %0, align 8
+  %801 = getelementptr inbounds i8, ptr %800, i64 40
+  %802 = load ptr, ptr %801, align 8
+  %803 = getelementptr inbounds i8, ptr %802, i64 8
+  %804 = load ptr, ptr %803, align 8
+  %805 = shl nsw i32 %798, 1
+  %806 = and i32 %805, -4
+  %807 = getelementptr i8, ptr %804, i64 8
+  %.val.i.i.i.i.i.i671 = load ptr, ptr %807, align 8
+  %808 = sext i32 %806 to i64
+  %809 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i671, i64 %808
+  %810 = load i32, ptr %809, align 4
+  %811 = getelementptr inbounds i8, ptr %809, i64 4
+  %812 = load i32, ptr %811, align 4
+  %813 = sub nsw i32 %810, %812
   br label %Cba_NtkRangeSize.exit.i.i672
 
-Cba_NtkRangeSize.exit.i.i672:                     ; preds = %806, %Cba_FonRange.exit.i.i668, %800
-  %821 = phi i32 [ %820, %806 ], [ 0, %Cba_FonRange.exit.i.i668 ], [ 0, %800 ]
-  %822 = call i32 @llvm.abs.i32(i32 %821, i1 true)
-  %823 = add nuw nsw i32 %822, 1
+Cba_NtkRangeSize.exit.i.i672:                     ; preds = %799, %Cba_FonRange.exit.i.i668, %793
+  %814 = phi i32 [ %813, %799 ], [ 0, %Cba_FonRange.exit.i.i668 ], [ 0, %793 ]
+  %815 = call i32 @llvm.abs.i32(i32 %814, i1 true)
+  %816 = add nuw nsw i32 %815, 1
   br label %Cba_ObjRangeSize.exit673
 
-Cba_ObjRangeSize.exit673:                         ; preds = %795, %Cba_NtkRangeSize.exit.i.i672
-  %824 = phi i32 [ %799, %795 ], [ %823, %Cba_NtkRangeSize.exit.i.i672 ]
+Cba_ObjRangeSize.exit673:                         ; preds = %788, %Cba_NtkRangeSize.exit.i.i672
+  %817 = phi i32 [ %792, %788 ], [ %816, %Cba_NtkRangeSize.exit.i.i672 ]
   %.val.i674 = load ptr, ptr %21, align 8
-  %825 = getelementptr inbounds i32, ptr %.val.i674, i64 %indvars.iv1192
-  %826 = load i32, ptr %825, align 4
-  %.not.i.i675 = icmp sgt i32 %826, -1
-  br i1 %.not.i.i675, label %832, label %827
+  %818 = getelementptr inbounds i32, ptr %.val.i674, i64 %indvars.iv1192
+  %819 = load i32, ptr %818, align 4
+  %.not.i.i675 = icmp sgt i32 %819, -1
+  br i1 %.not.i.i675, label %825, label %820
 
-827:                                              ; preds = %Cba_ObjRangeSize.exit673
+820:                                              ; preds = %Cba_ObjRangeSize.exit673
   %.val.i.i676 = load ptr, ptr %0, align 8
-  %828 = getelementptr i8, ptr %.val.i.i676, i64 24
-  %.val.val.i.i677 = load ptr, ptr %828, align 8
-  %829 = xor i32 %826, -1
-  %830 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i677, i32 noundef range(i32 -2147483648, 2147483647) %829) #26
-  %831 = call i32 @atoi(ptr nocapture noundef %830) #27
+  %821 = getelementptr i8, ptr %.val.i.i676, i64 24
+  %.val.val.i.i677 = load ptr, ptr %821, align 8
+  %822 = xor i32 %819, -1
+  %823 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i677, i32 noundef range(i32 -2147483648, 2147483647) %822) #26
+  %824 = call i32 @atoi(ptr nocapture noundef %823) #27
   br label %Cba_ObjRangeSize.exit684
 
-832:                                              ; preds = %Cba_ObjRangeSize.exit673
+825:                                              ; preds = %Cba_ObjRangeSize.exit673
   %.val.i.i.i.i678 = load i32, ptr %22, align 4
-  %833 = icmp slt i32 %.val.i.i.i.i678, 1
-  br i1 %833, label %Cba_NtkRangeSize.exit.i.i683, label %Cba_FonRange.exit.i.i679
+  %826 = icmp slt i32 %.val.i.i.i.i678, 1
+  br i1 %826, label %Cba_NtkRangeSize.exit.i.i683, label %Cba_FonRange.exit.i.i679
 
-Cba_FonRange.exit.i.i679:                         ; preds = %832
-  %834 = add nuw nsw i32 %826, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %834, i32 noundef 0)
+Cba_FonRange.exit.i.i679:                         ; preds = %825
+  %827 = add nuw nsw i32 %819, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %827, i32 noundef 0)
   %.val.i.i.i.i.i680 = load ptr, ptr %24, align 8
-  %835 = zext nneg i32 %826 to i64
-  %836 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i680, i64 %835
-  %837 = load i32, ptr %836, align 4
-  %.not.i.i.i.i681 = icmp ult i32 %837, 2
-  br i1 %.not.i.i.i.i681, label %Cba_NtkRangeSize.exit.i.i683, label %838
+  %828 = zext nneg i32 %819 to i64
+  %829 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i680, i64 %828
+  %830 = load i32, ptr %829, align 4
+  %.not.i.i.i.i681 = icmp ult i32 %830, 2
+  br i1 %.not.i.i.i.i681, label %Cba_NtkRangeSize.exit.i.i683, label %831
 
-838:                                              ; preds = %Cba_FonRange.exit.i.i679
-  %839 = load ptr, ptr %0, align 8
-  %840 = getelementptr inbounds i8, ptr %839, i64 40
-  %841 = load ptr, ptr %840, align 8
-  %842 = getelementptr inbounds i8, ptr %841, i64 8
-  %843 = load ptr, ptr %842, align 8
-  %844 = shl nsw i32 %837, 1
-  %845 = and i32 %844, -4
-  %846 = getelementptr i8, ptr %843, i64 8
-  %.val.i.i.i.i.i.i682 = load ptr, ptr %846, align 8
-  %847 = sext i32 %845 to i64
-  %848 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i682, i64 %847
-  %849 = load i32, ptr %848, align 4
-  %850 = getelementptr inbounds i8, ptr %848, i64 4
-  %851 = load i32, ptr %850, align 4
-  %852 = sub nsw i32 %849, %851
+831:                                              ; preds = %Cba_FonRange.exit.i.i679
+  %832 = load ptr, ptr %0, align 8
+  %833 = getelementptr inbounds i8, ptr %832, i64 40
+  %834 = load ptr, ptr %833, align 8
+  %835 = getelementptr inbounds i8, ptr %834, i64 8
+  %836 = load ptr, ptr %835, align 8
+  %837 = shl nsw i32 %830, 1
+  %838 = and i32 %837, -4
+  %839 = getelementptr i8, ptr %836, i64 8
+  %.val.i.i.i.i.i.i682 = load ptr, ptr %839, align 8
+  %840 = sext i32 %838 to i64
+  %841 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i682, i64 %840
+  %842 = load i32, ptr %841, align 4
+  %843 = getelementptr inbounds i8, ptr %841, i64 4
+  %844 = load i32, ptr %843, align 4
+  %845 = sub nsw i32 %842, %844
   br label %Cba_NtkRangeSize.exit.i.i683
 
-Cba_NtkRangeSize.exit.i.i683:                     ; preds = %838, %Cba_FonRange.exit.i.i679, %832
-  %853 = phi i32 [ %852, %838 ], [ 0, %Cba_FonRange.exit.i.i679 ], [ 0, %832 ]
-  %854 = call i32 @llvm.abs.i32(i32 %853, i1 true)
-  %855 = add nuw nsw i32 %854, 1
+Cba_NtkRangeSize.exit.i.i683:                     ; preds = %831, %Cba_FonRange.exit.i.i679, %825
+  %846 = phi i32 [ %845, %831 ], [ 0, %Cba_FonRange.exit.i.i679 ], [ 0, %825 ]
+  %847 = call i32 @llvm.abs.i32(i32 %846, i1 true)
+  %848 = add nuw nsw i32 %847, 1
   br label %Cba_ObjRangeSize.exit684
 
-Cba_ObjRangeSize.exit684:                         ; preds = %827, %Cba_NtkRangeSize.exit.i.i683
-  %856 = phi i32 [ %831, %827 ], [ %855, %Cba_NtkRangeSize.exit.i.i683 ]
-  %857 = icmp ult i32 %856, 2
-  %858 = add i32 %856, -1
-  %859 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %858, i1 true)
-  %860 = sub nuw nsw i32 32, %859
-  %.09.i685 = select i1 %857, i32 %856, i32 %860
-  %861 = call noundef i32 @llvm.smin.i32(i32 %824, i32 %.09.i685)
-  %862 = mul i32 %786, 3
-  %863 = mul i32 %862, %861
+Cba_ObjRangeSize.exit684:                         ; preds = %820, %Cba_NtkRangeSize.exit.i.i683
+  %849 = phi i32 [ %824, %820 ], [ %848, %Cba_NtkRangeSize.exit.i.i683 ]
+  %850 = icmp ult i32 %849, 2
+  %851 = add i32 %849, -1
+  %852 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %851, i1 true)
+  %853 = sub nuw nsw i32 32, %852
+  %.09.i685 = select i1 %850, i32 %849, i32 %853
+  %854 = call noundef i32 @llvm.smin.i32(i32 %817, i32 %.09.i685)
+  %855 = mul i32 %779, 3
+  %856 = mul i32 %855, %854
   %.val466 = load ptr, ptr %5, align 8
-  %864 = getelementptr inbounds i8, ptr %.val466, i64 280
-  %865 = load i32, ptr %864, align 4
-  %866 = add nsw i32 %863, %865
-  store i32 %866, ptr %864, align 4
-  br label %2454
+  %857 = getelementptr inbounds i8, ptr %.val466, i64 280
+  %858 = load i32, ptr %857, align 4
+  %859 = add nsw i32 %856, %858
+  store i32 %859, ptr %857, align 4
+  br label %2447
 
-867:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
+860:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val.i686 = load ptr, ptr %21, align 8
-  %868 = getelementptr inbounds i32, ptr %.val.i686, i64 %indvars.iv1192
-  %869 = load i32, ptr %868, align 4
-  %.not.i.i687 = icmp sgt i32 %869, -1
-  br i1 %.not.i.i687, label %875, label %870
+  %861 = getelementptr inbounds i32, ptr %.val.i686, i64 %indvars.iv1192
+  %862 = load i32, ptr %861, align 4
+  %.not.i.i687 = icmp sgt i32 %862, -1
+  br i1 %.not.i.i687, label %868, label %863
 
-870:                                              ; preds = %867
+863:                                              ; preds = %860
   %.val.i.i688 = load ptr, ptr %0, align 8
-  %871 = getelementptr i8, ptr %.val.i.i688, i64 24
-  %.val.val.i.i689 = load ptr, ptr %871, align 8
-  %872 = xor i32 %869, -1
-  %873 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i689, i32 noundef range(i32 -2147483648, 2147483647) %872) #26
-  %874 = call i32 @atoi(ptr nocapture noundef %873) #27
+  %864 = getelementptr i8, ptr %.val.i.i688, i64 24
+  %.val.val.i.i689 = load ptr, ptr %864, align 8
+  %865 = xor i32 %862, -1
+  %866 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i689, i32 noundef range(i32 -2147483648, 2147483647) %865) #26
+  %867 = call i32 @atoi(ptr nocapture noundef %866) #27
   br label %Cba_ObjRangeSize.exit696
 
-875:                                              ; preds = %867
+868:                                              ; preds = %860
   %.val.i.i.i.i690 = load i32, ptr %22, align 4
-  %876 = icmp slt i32 %.val.i.i.i.i690, 1
-  br i1 %876, label %Cba_NtkRangeSize.exit.i.i695, label %Cba_FonRange.exit.i.i691
+  %869 = icmp slt i32 %.val.i.i.i.i690, 1
+  br i1 %869, label %Cba_NtkRangeSize.exit.i.i695, label %Cba_FonRange.exit.i.i691
 
-Cba_FonRange.exit.i.i691:                         ; preds = %875
-  %877 = add nuw nsw i32 %869, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %877, i32 noundef 0)
+Cba_FonRange.exit.i.i691:                         ; preds = %868
+  %870 = add nuw nsw i32 %862, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %870, i32 noundef 0)
   %.val.i.i.i.i.i692 = load ptr, ptr %24, align 8
-  %878 = zext nneg i32 %869 to i64
-  %879 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i692, i64 %878
-  %880 = load i32, ptr %879, align 4
-  %.not.i.i.i.i693 = icmp ult i32 %880, 2
-  br i1 %.not.i.i.i.i693, label %Cba_NtkRangeSize.exit.i.i695, label %881
+  %871 = zext nneg i32 %862 to i64
+  %872 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i692, i64 %871
+  %873 = load i32, ptr %872, align 4
+  %.not.i.i.i.i693 = icmp ult i32 %873, 2
+  br i1 %.not.i.i.i.i693, label %Cba_NtkRangeSize.exit.i.i695, label %874
 
-881:                                              ; preds = %Cba_FonRange.exit.i.i691
-  %882 = load ptr, ptr %0, align 8
-  %883 = getelementptr inbounds i8, ptr %882, i64 40
-  %884 = load ptr, ptr %883, align 8
-  %885 = getelementptr inbounds i8, ptr %884, i64 8
-  %886 = load ptr, ptr %885, align 8
-  %887 = shl nsw i32 %880, 1
-  %888 = and i32 %887, -4
-  %889 = getelementptr i8, ptr %886, i64 8
-  %.val.i.i.i.i.i.i694 = load ptr, ptr %889, align 8
-  %890 = sext i32 %888 to i64
-  %891 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i694, i64 %890
-  %892 = load i32, ptr %891, align 4
-  %893 = getelementptr inbounds i8, ptr %891, i64 4
-  %894 = load i32, ptr %893, align 4
-  %895 = sub nsw i32 %892, %894
+874:                                              ; preds = %Cba_FonRange.exit.i.i691
+  %875 = load ptr, ptr %0, align 8
+  %876 = getelementptr inbounds i8, ptr %875, i64 40
+  %877 = load ptr, ptr %876, align 8
+  %878 = getelementptr inbounds i8, ptr %877, i64 8
+  %879 = load ptr, ptr %878, align 8
+  %880 = shl nsw i32 %873, 1
+  %881 = and i32 %880, -4
+  %882 = getelementptr i8, ptr %879, i64 8
+  %.val.i.i.i.i.i.i694 = load ptr, ptr %882, align 8
+  %883 = sext i32 %881 to i64
+  %884 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i694, i64 %883
+  %885 = load i32, ptr %884, align 4
+  %886 = getelementptr inbounds i8, ptr %884, i64 4
+  %887 = load i32, ptr %886, align 4
+  %888 = sub nsw i32 %885, %887
   br label %Cba_NtkRangeSize.exit.i.i695
 
-Cba_NtkRangeSize.exit.i.i695:                     ; preds = %881, %Cba_FonRange.exit.i.i691, %875
-  %896 = phi i32 [ %895, %881 ], [ 0, %Cba_FonRange.exit.i.i691 ], [ 0, %875 ]
-  %897 = call i32 @llvm.abs.i32(i32 %896, i1 true)
-  %898 = add nuw nsw i32 %897, 1
+Cba_NtkRangeSize.exit.i.i695:                     ; preds = %874, %Cba_FonRange.exit.i.i691, %868
+  %889 = phi i32 [ %888, %874 ], [ 0, %Cba_FonRange.exit.i.i691 ], [ 0, %868 ]
+  %890 = call i32 @llvm.abs.i32(i32 %889, i1 true)
+  %891 = add nuw nsw i32 %890, 1
   br label %Cba_ObjRangeSize.exit696
 
-Cba_ObjRangeSize.exit696:                         ; preds = %870, %Cba_NtkRangeSize.exit.i.i695
-  %899 = phi i32 [ %874, %870 ], [ %898, %Cba_NtkRangeSize.exit.i.i695 ]
+Cba_ObjRangeSize.exit696:                         ; preds = %863, %Cba_NtkRangeSize.exit.i.i695
+  %892 = phi i32 [ %867, %863 ], [ %891, %Cba_NtkRangeSize.exit.i.i695 ]
   %.val383 = load ptr, ptr %25, align 8
   %.val384 = load ptr, ptr %26, align 8
-  %900 = getelementptr inbounds i32, ptr %.val383, i64 %indvars.iv1192
-  %901 = load i32, ptr %900, align 4
-  %902 = sext i32 %901 to i64
-  %903 = getelementptr inbounds i32, ptr %.val384, i64 %902
-  %904 = load i32, ptr %903, align 4
+  %893 = getelementptr inbounds i32, ptr %.val383, i64 %indvars.iv1192
+  %894 = load i32, ptr %893, align 4
+  %895 = sext i32 %894 to i64
+  %896 = getelementptr inbounds i32, ptr %.val384, i64 %895
+  %897 = load i32, ptr %896, align 4
   %.val.i697 = load ptr, ptr %21, align 8
-  %905 = sext i32 %904 to i64
-  %906 = getelementptr inbounds i32, ptr %.val.i697, i64 %905
-  %907 = load i32, ptr %906, align 4
-  %.not.i.i698 = icmp sgt i32 %907, -1
-  br i1 %.not.i.i698, label %913, label %908
+  %898 = sext i32 %897 to i64
+  %899 = getelementptr inbounds i32, ptr %.val.i697, i64 %898
+  %900 = load i32, ptr %899, align 4
+  %.not.i.i698 = icmp sgt i32 %900, -1
+  br i1 %.not.i.i698, label %906, label %901
 
-908:                                              ; preds = %Cba_ObjRangeSize.exit696
+901:                                              ; preds = %Cba_ObjRangeSize.exit696
   %.val.i.i699 = load ptr, ptr %0, align 8
-  %909 = getelementptr i8, ptr %.val.i.i699, i64 24
-  %.val.val.i.i700 = load ptr, ptr %909, align 8
-  %910 = xor i32 %907, -1
-  %911 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i700, i32 noundef range(i32 -2147483648, 2147483647) %910) #26
-  %912 = call i32 @atoi(ptr nocapture noundef %911) #27
+  %902 = getelementptr i8, ptr %.val.i.i699, i64 24
+  %.val.val.i.i700 = load ptr, ptr %902, align 8
+  %903 = xor i32 %900, -1
+  %904 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i700, i32 noundef range(i32 -2147483648, 2147483647) %903) #26
+  %905 = call i32 @atoi(ptr nocapture noundef %904) #27
   br label %Cba_ObjRangeSize.exit707
 
-913:                                              ; preds = %Cba_ObjRangeSize.exit696
+906:                                              ; preds = %Cba_ObjRangeSize.exit696
   %.val.i.i.i.i701 = load i32, ptr %22, align 4
-  %914 = icmp slt i32 %.val.i.i.i.i701, 1
-  br i1 %914, label %Cba_NtkRangeSize.exit.i.i706, label %Cba_FonRange.exit.i.i702
+  %907 = icmp slt i32 %.val.i.i.i.i701, 1
+  br i1 %907, label %Cba_NtkRangeSize.exit.i.i706, label %Cba_FonRange.exit.i.i702
 
-Cba_FonRange.exit.i.i702:                         ; preds = %913
-  %915 = add nuw nsw i32 %907, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %915, i32 noundef 0)
+Cba_FonRange.exit.i.i702:                         ; preds = %906
+  %908 = add nuw nsw i32 %900, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %908, i32 noundef 0)
   %.val.i.i.i.i.i703 = load ptr, ptr %24, align 8
-  %916 = zext nneg i32 %907 to i64
-  %917 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i703, i64 %916
-  %918 = load i32, ptr %917, align 4
-  %.not.i.i.i.i704 = icmp ult i32 %918, 2
-  br i1 %.not.i.i.i.i704, label %Cba_NtkRangeSize.exit.i.i706, label %919
+  %909 = zext nneg i32 %900 to i64
+  %910 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i703, i64 %909
+  %911 = load i32, ptr %910, align 4
+  %.not.i.i.i.i704 = icmp ult i32 %911, 2
+  br i1 %.not.i.i.i.i704, label %Cba_NtkRangeSize.exit.i.i706, label %912
 
-919:                                              ; preds = %Cba_FonRange.exit.i.i702
-  %920 = load ptr, ptr %0, align 8
-  %921 = getelementptr inbounds i8, ptr %920, i64 40
-  %922 = load ptr, ptr %921, align 8
-  %923 = getelementptr inbounds i8, ptr %922, i64 8
-  %924 = load ptr, ptr %923, align 8
-  %925 = shl nsw i32 %918, 1
-  %926 = and i32 %925, -4
-  %927 = getelementptr i8, ptr %924, i64 8
-  %.val.i.i.i.i.i.i705 = load ptr, ptr %927, align 8
-  %928 = sext i32 %926 to i64
-  %929 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i705, i64 %928
-  %930 = load i32, ptr %929, align 4
-  %931 = getelementptr inbounds i8, ptr %929, i64 4
-  %932 = load i32, ptr %931, align 4
-  %933 = sub nsw i32 %930, %932
+912:                                              ; preds = %Cba_FonRange.exit.i.i702
+  %913 = load ptr, ptr %0, align 8
+  %914 = getelementptr inbounds i8, ptr %913, i64 40
+  %915 = load ptr, ptr %914, align 8
+  %916 = getelementptr inbounds i8, ptr %915, i64 8
+  %917 = load ptr, ptr %916, align 8
+  %918 = shl nsw i32 %911, 1
+  %919 = and i32 %918, -4
+  %920 = getelementptr i8, ptr %917, i64 8
+  %.val.i.i.i.i.i.i705 = load ptr, ptr %920, align 8
+  %921 = sext i32 %919 to i64
+  %922 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i705, i64 %921
+  %923 = load i32, ptr %922, align 4
+  %924 = getelementptr inbounds i8, ptr %922, i64 4
+  %925 = load i32, ptr %924, align 4
+  %926 = sub nsw i32 %923, %925
   br label %Cba_NtkRangeSize.exit.i.i706
 
-Cba_NtkRangeSize.exit.i.i706:                     ; preds = %919, %Cba_FonRange.exit.i.i702, %913
-  %934 = phi i32 [ %933, %919 ], [ 0, %Cba_FonRange.exit.i.i702 ], [ 0, %913 ]
-  %935 = call i32 @llvm.abs.i32(i32 %934, i1 true)
-  %936 = add nuw nsw i32 %935, 1
+Cba_NtkRangeSize.exit.i.i706:                     ; preds = %912, %Cba_FonRange.exit.i.i702, %906
+  %927 = phi i32 [ %926, %912 ], [ 0, %Cba_FonRange.exit.i.i702 ], [ 0, %906 ]
+  %928 = call i32 @llvm.abs.i32(i32 %927, i1 true)
+  %929 = add nuw nsw i32 %928, 1
   br label %Cba_ObjRangeSize.exit707
 
-Cba_ObjRangeSize.exit707:                         ; preds = %908, %Cba_NtkRangeSize.exit.i.i706
-  %937 = phi i32 [ %912, %908 ], [ %936, %Cba_NtkRangeSize.exit.i.i706 ]
+Cba_ObjRangeSize.exit707:                         ; preds = %901, %Cba_NtkRangeSize.exit.i.i706
+  %930 = phi i32 [ %905, %901 ], [ %929, %Cba_NtkRangeSize.exit.i.i706 ]
   %.val.i708 = load ptr, ptr %21, align 8
-  %938 = getelementptr inbounds i32, ptr %.val.i708, i64 %indvars.iv1192
-  %939 = load i32, ptr %938, align 4
-  %.not.i.i709 = icmp sgt i32 %939, -1
-  br i1 %.not.i.i709, label %945, label %940
+  %931 = getelementptr inbounds i32, ptr %.val.i708, i64 %indvars.iv1192
+  %932 = load i32, ptr %931, align 4
+  %.not.i.i709 = icmp sgt i32 %932, -1
+  br i1 %.not.i.i709, label %938, label %933
 
-940:                                              ; preds = %Cba_ObjRangeSize.exit707
+933:                                              ; preds = %Cba_ObjRangeSize.exit707
   %.val.i.i710 = load ptr, ptr %0, align 8
-  %941 = getelementptr i8, ptr %.val.i.i710, i64 24
-  %.val.val.i.i711 = load ptr, ptr %941, align 8
-  %942 = xor i32 %939, -1
-  %943 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i711, i32 noundef range(i32 -2147483648, 2147483647) %942) #26
-  %944 = call i32 @atoi(ptr nocapture noundef %943) #27
+  %934 = getelementptr i8, ptr %.val.i.i710, i64 24
+  %.val.val.i.i711 = load ptr, ptr %934, align 8
+  %935 = xor i32 %932, -1
+  %936 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i711, i32 noundef range(i32 -2147483648, 2147483647) %935) #26
+  %937 = call i32 @atoi(ptr nocapture noundef %936) #27
   br label %Cba_ObjRangeSize.exit718
 
-945:                                              ; preds = %Cba_ObjRangeSize.exit707
+938:                                              ; preds = %Cba_ObjRangeSize.exit707
   %.val.i.i.i.i712 = load i32, ptr %22, align 4
-  %946 = icmp slt i32 %.val.i.i.i.i712, 1
-  br i1 %946, label %Cba_NtkRangeSize.exit.i.i717, label %Cba_FonRange.exit.i.i713
+  %939 = icmp slt i32 %.val.i.i.i.i712, 1
+  br i1 %939, label %Cba_NtkRangeSize.exit.i.i717, label %Cba_FonRange.exit.i.i713
 
-Cba_FonRange.exit.i.i713:                         ; preds = %945
-  %947 = add nuw nsw i32 %939, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %947, i32 noundef 0)
+Cba_FonRange.exit.i.i713:                         ; preds = %938
+  %940 = add nuw nsw i32 %932, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %940, i32 noundef 0)
   %.val.i.i.i.i.i714 = load ptr, ptr %24, align 8
-  %948 = zext nneg i32 %939 to i64
-  %949 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i714, i64 %948
-  %950 = load i32, ptr %949, align 4
-  %.not.i.i.i.i715 = icmp ult i32 %950, 2
-  br i1 %.not.i.i.i.i715, label %Cba_NtkRangeSize.exit.i.i717, label %951
+  %941 = zext nneg i32 %932 to i64
+  %942 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i714, i64 %941
+  %943 = load i32, ptr %942, align 4
+  %.not.i.i.i.i715 = icmp ult i32 %943, 2
+  br i1 %.not.i.i.i.i715, label %Cba_NtkRangeSize.exit.i.i717, label %944
 
-951:                                              ; preds = %Cba_FonRange.exit.i.i713
-  %952 = load ptr, ptr %0, align 8
-  %953 = getelementptr inbounds i8, ptr %952, i64 40
-  %954 = load ptr, ptr %953, align 8
-  %955 = getelementptr inbounds i8, ptr %954, i64 8
-  %956 = load ptr, ptr %955, align 8
-  %957 = shl nsw i32 %950, 1
-  %958 = and i32 %957, -4
-  %959 = getelementptr i8, ptr %956, i64 8
-  %.val.i.i.i.i.i.i716 = load ptr, ptr %959, align 8
-  %960 = sext i32 %958 to i64
-  %961 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i716, i64 %960
-  %962 = load i32, ptr %961, align 4
-  %963 = getelementptr inbounds i8, ptr %961, i64 4
-  %964 = load i32, ptr %963, align 4
-  %965 = sub nsw i32 %962, %964
+944:                                              ; preds = %Cba_FonRange.exit.i.i713
+  %945 = load ptr, ptr %0, align 8
+  %946 = getelementptr inbounds i8, ptr %945, i64 40
+  %947 = load ptr, ptr %946, align 8
+  %948 = getelementptr inbounds i8, ptr %947, i64 8
+  %949 = load ptr, ptr %948, align 8
+  %950 = shl nsw i32 %943, 1
+  %951 = and i32 %950, -4
+  %952 = getelementptr i8, ptr %949, i64 8
+  %.val.i.i.i.i.i.i716 = load ptr, ptr %952, align 8
+  %953 = sext i32 %951 to i64
+  %954 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i716, i64 %953
+  %955 = load i32, ptr %954, align 4
+  %956 = getelementptr inbounds i8, ptr %954, i64 4
+  %957 = load i32, ptr %956, align 4
+  %958 = sub nsw i32 %955, %957
   br label %Cba_NtkRangeSize.exit.i.i717
 
-Cba_NtkRangeSize.exit.i.i717:                     ; preds = %951, %Cba_FonRange.exit.i.i713, %945
-  %966 = phi i32 [ %965, %951 ], [ 0, %Cba_FonRange.exit.i.i713 ], [ 0, %945 ]
-  %967 = call i32 @llvm.abs.i32(i32 %966, i1 true)
-  %968 = add nuw nsw i32 %967, 1
+Cba_NtkRangeSize.exit.i.i717:                     ; preds = %944, %Cba_FonRange.exit.i.i713, %938
+  %959 = phi i32 [ %958, %944 ], [ 0, %Cba_FonRange.exit.i.i713 ], [ 0, %938 ]
+  %960 = call i32 @llvm.abs.i32(i32 %959, i1 true)
+  %961 = add nuw nsw i32 %960, 1
   br label %Cba_ObjRangeSize.exit718
 
-Cba_ObjRangeSize.exit718:                         ; preds = %940, %Cba_NtkRangeSize.exit.i.i717
-  %969 = phi i32 [ %944, %940 ], [ %968, %Cba_NtkRangeSize.exit.i.i717 ]
-  %970 = icmp ult i32 %969, 2
-  %971 = add i32 %969, -1
-  %972 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %971, i1 true)
-  %973 = sub nuw nsw i32 32, %972
-  %.09.i719 = select i1 %970, i32 %969, i32 %973
-  %974 = call noundef i32 @llvm.smin.i32(i32 %937, i32 %.09.i719)
-  %975 = mul i32 %899, 3
-  %976 = mul i32 %975, %974
+Cba_ObjRangeSize.exit718:                         ; preds = %933, %Cba_NtkRangeSize.exit.i.i717
+  %962 = phi i32 [ %937, %933 ], [ %961, %Cba_NtkRangeSize.exit.i.i717 ]
+  %963 = icmp ult i32 %962, 2
+  %964 = add i32 %962, -1
+  %965 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %964, i1 true)
+  %966 = sub nuw nsw i32 32, %965
+  %.09.i719 = select i1 %963, i32 %962, i32 %966
+  %967 = call noundef i32 @llvm.smin.i32(i32 %930, i32 %.09.i719)
+  %968 = mul i32 %892, 3
+  %969 = mul i32 %968, %967
   %.val467 = load ptr, ptr %5, align 8
-  %977 = getelementptr inbounds i8, ptr %.val467, i64 276
-  %978 = load i32, ptr %977, align 4
-  %979 = add nsw i32 %976, %978
-  store i32 %979, ptr %977, align 4
-  br label %2454
+  %970 = getelementptr inbounds i8, ptr %.val467, i64 276
+  %971 = load i32, ptr %970, align 4
+  %972 = add nsw i32 %969, %971
+  store i32 %972, ptr %970, align 4
+  br label %2447
 
-980:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
+973:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val385 = load ptr, ptr %25, align 8
   %.val386 = load ptr, ptr %26, align 8
-  %981 = getelementptr inbounds i32, ptr %.val385, i64 %indvars.iv1192
-  %982 = load i32, ptr %981, align 4
-  %983 = sext i32 %982 to i64
-  %984 = getelementptr inbounds i32, ptr %.val386, i64 %983
-  %985 = load i32, ptr %984, align 4
+  %974 = getelementptr inbounds i32, ptr %.val385, i64 %indvars.iv1192
+  %975 = load i32, ptr %974, align 4
+  %976 = sext i32 %975 to i64
+  %977 = getelementptr inbounds i32, ptr %.val386, i64 %976
+  %978 = load i32, ptr %977, align 4
   %.val.i720 = load ptr, ptr %21, align 8
-  %986 = sext i32 %985 to i64
-  %987 = getelementptr inbounds i32, ptr %.val.i720, i64 %986
-  %988 = load i32, ptr %987, align 4
-  %.not.i.i721 = icmp sgt i32 %988, -1
-  br i1 %.not.i.i721, label %994, label %989
+  %979 = sext i32 %978 to i64
+  %980 = getelementptr inbounds i32, ptr %.val.i720, i64 %979
+  %981 = load i32, ptr %980, align 4
+  %.not.i.i721 = icmp sgt i32 %981, -1
+  br i1 %.not.i.i721, label %987, label %982
 
-989:                                              ; preds = %980
+982:                                              ; preds = %973
   %.val.i.i722 = load ptr, ptr %0, align 8
-  %990 = getelementptr i8, ptr %.val.i.i722, i64 24
-  %.val.val.i.i723 = load ptr, ptr %990, align 8
-  %991 = xor i32 %988, -1
-  %992 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i723, i32 noundef range(i32 -2147483648, 2147483647) %991) #26
-  %993 = call i32 @atoi(ptr nocapture noundef %992) #27
+  %983 = getelementptr i8, ptr %.val.i.i722, i64 24
+  %.val.val.i.i723 = load ptr, ptr %983, align 8
+  %984 = xor i32 %981, -1
+  %985 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i723, i32 noundef range(i32 -2147483648, 2147483647) %984) #26
+  %986 = call i32 @atoi(ptr nocapture noundef %985) #27
   br label %Cba_ObjRangeSize.exit730
 
-994:                                              ; preds = %980
+987:                                              ; preds = %973
   %.val.i.i.i.i724 = load i32, ptr %22, align 4
-  %995 = icmp slt i32 %.val.i.i.i.i724, 1
-  br i1 %995, label %Cba_NtkRangeSize.exit.i.i729, label %Cba_FonRange.exit.i.i725
+  %988 = icmp slt i32 %.val.i.i.i.i724, 1
+  br i1 %988, label %Cba_NtkRangeSize.exit.i.i729, label %Cba_FonRange.exit.i.i725
 
-Cba_FonRange.exit.i.i725:                         ; preds = %994
-  %996 = add nuw nsw i32 %988, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %996, i32 noundef 0)
+Cba_FonRange.exit.i.i725:                         ; preds = %987
+  %989 = add nuw nsw i32 %981, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %989, i32 noundef 0)
   %.val.i.i.i.i.i726 = load ptr, ptr %24, align 8
-  %997 = zext nneg i32 %988 to i64
-  %998 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i726, i64 %997
-  %999 = load i32, ptr %998, align 4
-  %.not.i.i.i.i727 = icmp ult i32 %999, 2
-  br i1 %.not.i.i.i.i727, label %Cba_NtkRangeSize.exit.i.i729, label %1000
+  %990 = zext nneg i32 %981 to i64
+  %991 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i726, i64 %990
+  %992 = load i32, ptr %991, align 4
+  %.not.i.i.i.i727 = icmp ult i32 %992, 2
+  br i1 %.not.i.i.i.i727, label %Cba_NtkRangeSize.exit.i.i729, label %993
 
-1000:                                             ; preds = %Cba_FonRange.exit.i.i725
-  %1001 = load ptr, ptr %0, align 8
-  %1002 = getelementptr inbounds i8, ptr %1001, i64 40
-  %1003 = load ptr, ptr %1002, align 8
-  %1004 = getelementptr inbounds i8, ptr %1003, i64 8
-  %1005 = load ptr, ptr %1004, align 8
-  %1006 = shl nsw i32 %999, 1
-  %1007 = and i32 %1006, -4
-  %1008 = getelementptr i8, ptr %1005, i64 8
-  %.val.i.i.i.i.i.i728 = load ptr, ptr %1008, align 8
-  %1009 = sext i32 %1007 to i64
-  %1010 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i728, i64 %1009
-  %1011 = load i32, ptr %1010, align 4
-  %1012 = getelementptr inbounds i8, ptr %1010, i64 4
-  %1013 = load i32, ptr %1012, align 4
-  %1014 = sub nsw i32 %1011, %1013
+993:                                              ; preds = %Cba_FonRange.exit.i.i725
+  %994 = load ptr, ptr %0, align 8
+  %995 = getelementptr inbounds i8, ptr %994, i64 40
+  %996 = load ptr, ptr %995, align 8
+  %997 = getelementptr inbounds i8, ptr %996, i64 8
+  %998 = load ptr, ptr %997, align 8
+  %999 = shl nsw i32 %992, 1
+  %1000 = and i32 %999, -4
+  %1001 = getelementptr i8, ptr %998, i64 8
+  %.val.i.i.i.i.i.i728 = load ptr, ptr %1001, align 8
+  %1002 = sext i32 %1000 to i64
+  %1003 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i728, i64 %1002
+  %1004 = load i32, ptr %1003, align 4
+  %1005 = getelementptr inbounds i8, ptr %1003, i64 4
+  %1006 = load i32, ptr %1005, align 4
+  %1007 = sub nsw i32 %1004, %1006
   br label %Cba_NtkRangeSize.exit.i.i729
 
-Cba_NtkRangeSize.exit.i.i729:                     ; preds = %1000, %Cba_FonRange.exit.i.i725, %994
-  %1015 = phi i32 [ %1014, %1000 ], [ 0, %Cba_FonRange.exit.i.i725 ], [ 0, %994 ]
-  %1016 = call i32 @llvm.abs.i32(i32 %1015, i1 true)
-  %1017 = add nuw nsw i32 %1016, 1
+Cba_NtkRangeSize.exit.i.i729:                     ; preds = %993, %Cba_FonRange.exit.i.i725, %987
+  %1008 = phi i32 [ %1007, %993 ], [ 0, %Cba_FonRange.exit.i.i725 ], [ 0, %987 ]
+  %1009 = call i32 @llvm.abs.i32(i32 %1008, i1 true)
+  %1010 = add nuw nsw i32 %1009, 1
   br label %Cba_ObjRangeSize.exit730
 
-Cba_ObjRangeSize.exit730:                         ; preds = %989, %Cba_NtkRangeSize.exit.i.i729
-  %1018 = phi i32 [ %993, %989 ], [ %1017, %Cba_NtkRangeSize.exit.i.i729 ]
+Cba_ObjRangeSize.exit730:                         ; preds = %982, %Cba_NtkRangeSize.exit.i.i729
+  %1011 = phi i32 [ %986, %982 ], [ %1010, %Cba_NtkRangeSize.exit.i.i729 ]
   %.val469 = load ptr, ptr %5, align 8
-  %1019 = getelementptr inbounds i8, ptr %.val469, i64 40
-  %1020 = load i32, ptr %1019, align 4
-  %1021 = add nsw i32 %1020, %1018
-  store i32 %1021, ptr %1019, align 4
-  br label %2454
+  %1012 = getelementptr inbounds i8, ptr %.val469, i64 40
+  %1013 = load i32, ptr %1012, align 4
+  %1014 = add nsw i32 %1013, %1011
+  store i32 %1014, ptr %1012, align 4
+  br label %2447
 
-1022:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1015:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val387 = load ptr, ptr %25, align 8
   %.val388 = load ptr, ptr %26, align 8
-  %1023 = getelementptr inbounds i32, ptr %.val387, i64 %indvars.iv1192
-  %1024 = load i32, ptr %1023, align 4
-  %1025 = sext i32 %1024 to i64
-  %1026 = getelementptr inbounds i32, ptr %.val388, i64 %1025
-  %1027 = load i32, ptr %1026, align 4
+  %1016 = getelementptr inbounds i32, ptr %.val387, i64 %indvars.iv1192
+  %1017 = load i32, ptr %1016, align 4
+  %1018 = sext i32 %1017 to i64
+  %1019 = getelementptr inbounds i32, ptr %.val388, i64 %1018
+  %1020 = load i32, ptr %1019, align 4
   %.val.i731 = load ptr, ptr %21, align 8
-  %1028 = sext i32 %1027 to i64
-  %1029 = getelementptr inbounds i32, ptr %.val.i731, i64 %1028
-  %1030 = load i32, ptr %1029, align 4
-  %.not.i.i732 = icmp sgt i32 %1030, -1
-  br i1 %.not.i.i732, label %1036, label %1031
+  %1021 = sext i32 %1020 to i64
+  %1022 = getelementptr inbounds i32, ptr %.val.i731, i64 %1021
+  %1023 = load i32, ptr %1022, align 4
+  %.not.i.i732 = icmp sgt i32 %1023, -1
+  br i1 %.not.i.i732, label %1029, label %1024
 
-1031:                                             ; preds = %1022
+1024:                                             ; preds = %1015
   %.val.i.i733 = load ptr, ptr %0, align 8
-  %1032 = getelementptr i8, ptr %.val.i.i733, i64 24
-  %.val.val.i.i734 = load ptr, ptr %1032, align 8
-  %1033 = xor i32 %1030, -1
-  %1034 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i734, i32 noundef range(i32 -2147483648, 2147483647) %1033) #26
-  %1035 = call i32 @atoi(ptr nocapture noundef %1034) #27
+  %1025 = getelementptr i8, ptr %.val.i.i733, i64 24
+  %.val.val.i.i734 = load ptr, ptr %1025, align 8
+  %1026 = xor i32 %1023, -1
+  %1027 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i734, i32 noundef range(i32 -2147483648, 2147483647) %1026) #26
+  %1028 = call i32 @atoi(ptr nocapture noundef %1027) #27
   br label %Cba_ObjRangeSize.exit741
 
-1036:                                             ; preds = %1022
+1029:                                             ; preds = %1015
   %.val.i.i.i.i735 = load i32, ptr %22, align 4
-  %1037 = icmp slt i32 %.val.i.i.i.i735, 1
-  br i1 %1037, label %Cba_NtkRangeSize.exit.i.i740, label %Cba_FonRange.exit.i.i736
+  %1030 = icmp slt i32 %.val.i.i.i.i735, 1
+  br i1 %1030, label %Cba_NtkRangeSize.exit.i.i740, label %Cba_FonRange.exit.i.i736
 
-Cba_FonRange.exit.i.i736:                         ; preds = %1036
-  %1038 = add nuw nsw i32 %1030, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1038, i32 noundef 0)
+Cba_FonRange.exit.i.i736:                         ; preds = %1029
+  %1031 = add nuw nsw i32 %1023, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1031, i32 noundef 0)
   %.val.i.i.i.i.i737 = load ptr, ptr %24, align 8
-  %1039 = zext nneg i32 %1030 to i64
-  %1040 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i737, i64 %1039
-  %1041 = load i32, ptr %1040, align 4
-  %.not.i.i.i.i738 = icmp ult i32 %1041, 2
-  br i1 %.not.i.i.i.i738, label %Cba_NtkRangeSize.exit.i.i740, label %1042
+  %1032 = zext nneg i32 %1023 to i64
+  %1033 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i737, i64 %1032
+  %1034 = load i32, ptr %1033, align 4
+  %.not.i.i.i.i738 = icmp ult i32 %1034, 2
+  br i1 %.not.i.i.i.i738, label %Cba_NtkRangeSize.exit.i.i740, label %1035
 
-1042:                                             ; preds = %Cba_FonRange.exit.i.i736
-  %1043 = load ptr, ptr %0, align 8
-  %1044 = getelementptr inbounds i8, ptr %1043, i64 40
-  %1045 = load ptr, ptr %1044, align 8
-  %1046 = getelementptr inbounds i8, ptr %1045, i64 8
-  %1047 = load ptr, ptr %1046, align 8
-  %1048 = shl nsw i32 %1041, 1
-  %1049 = and i32 %1048, -4
-  %1050 = getelementptr i8, ptr %1047, i64 8
-  %.val.i.i.i.i.i.i739 = load ptr, ptr %1050, align 8
-  %1051 = sext i32 %1049 to i64
-  %1052 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i739, i64 %1051
-  %1053 = load i32, ptr %1052, align 4
-  %1054 = getelementptr inbounds i8, ptr %1052, i64 4
-  %1055 = load i32, ptr %1054, align 4
-  %1056 = sub nsw i32 %1053, %1055
+1035:                                             ; preds = %Cba_FonRange.exit.i.i736
+  %1036 = load ptr, ptr %0, align 8
+  %1037 = getelementptr inbounds i8, ptr %1036, i64 40
+  %1038 = load ptr, ptr %1037, align 8
+  %1039 = getelementptr inbounds i8, ptr %1038, i64 8
+  %1040 = load ptr, ptr %1039, align 8
+  %1041 = shl nsw i32 %1034, 1
+  %1042 = and i32 %1041, -4
+  %1043 = getelementptr i8, ptr %1040, i64 8
+  %.val.i.i.i.i.i.i739 = load ptr, ptr %1043, align 8
+  %1044 = sext i32 %1042 to i64
+  %1045 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i739, i64 %1044
+  %1046 = load i32, ptr %1045, align 4
+  %1047 = getelementptr inbounds i8, ptr %1045, i64 4
+  %1048 = load i32, ptr %1047, align 4
+  %1049 = sub nsw i32 %1046, %1048
   br label %Cba_NtkRangeSize.exit.i.i740
 
-Cba_NtkRangeSize.exit.i.i740:                     ; preds = %1042, %Cba_FonRange.exit.i.i736, %1036
-  %1057 = phi i32 [ %1056, %1042 ], [ 0, %Cba_FonRange.exit.i.i736 ], [ 0, %1036 ]
-  %1058 = call i32 @llvm.abs.i32(i32 %1057, i1 true)
-  %1059 = add nuw nsw i32 %1058, 1
+Cba_NtkRangeSize.exit.i.i740:                     ; preds = %1035, %Cba_FonRange.exit.i.i736, %1029
+  %1050 = phi i32 [ %1049, %1035 ], [ 0, %Cba_FonRange.exit.i.i736 ], [ 0, %1029 ]
+  %1051 = call i32 @llvm.abs.i32(i32 %1050, i1 true)
+  %1052 = add nuw nsw i32 %1051, 1
   br label %Cba_ObjRangeSize.exit741
 
-Cba_ObjRangeSize.exit741:                         ; preds = %1031, %Cba_NtkRangeSize.exit.i.i740
-  %1060 = phi i32 [ %1035, %1031 ], [ %1059, %Cba_NtkRangeSize.exit.i.i740 ]
+Cba_ObjRangeSize.exit741:                         ; preds = %1024, %Cba_NtkRangeSize.exit.i.i740
+  %1053 = phi i32 [ %1028, %1024 ], [ %1052, %Cba_NtkRangeSize.exit.i.i740 ]
   %.val470 = load ptr, ptr %5, align 8
-  %1061 = getelementptr inbounds i8, ptr %.val470, i64 48
-  %1062 = load i32, ptr %1061, align 4
-  %1063 = add nsw i32 %1062, %1060
-  store i32 %1063, ptr %1061, align 4
-  br label %2454
+  %1054 = getelementptr inbounds i8, ptr %.val470, i64 48
+  %1055 = load i32, ptr %1054, align 4
+  %1056 = add nsw i32 %1055, %1053
+  store i32 %1056, ptr %1054, align 4
+  br label %2447
 
-1064:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1057:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val389 = load ptr, ptr %25, align 8
   %.val390 = load ptr, ptr %26, align 8
-  %1065 = getelementptr inbounds i32, ptr %.val389, i64 %indvars.iv1192
-  %1066 = load i32, ptr %1065, align 4
-  %1067 = sext i32 %1066 to i64
-  %1068 = getelementptr inbounds i32, ptr %.val390, i64 %1067
-  %1069 = load i32, ptr %1068, align 4
+  %1058 = getelementptr inbounds i32, ptr %.val389, i64 %indvars.iv1192
+  %1059 = load i32, ptr %1058, align 4
+  %1060 = sext i32 %1059 to i64
+  %1061 = getelementptr inbounds i32, ptr %.val390, i64 %1060
+  %1062 = load i32, ptr %1061, align 4
   %.val.i742 = load ptr, ptr %21, align 8
-  %1070 = sext i32 %1069 to i64
-  %1071 = getelementptr inbounds i32, ptr %.val.i742, i64 %1070
-  %1072 = load i32, ptr %1071, align 4
-  %.not.i.i743 = icmp sgt i32 %1072, -1
-  br i1 %.not.i.i743, label %1078, label %1073
+  %1063 = sext i32 %1062 to i64
+  %1064 = getelementptr inbounds i32, ptr %.val.i742, i64 %1063
+  %1065 = load i32, ptr %1064, align 4
+  %.not.i.i743 = icmp sgt i32 %1065, -1
+  br i1 %.not.i.i743, label %1071, label %1066
 
-1073:                                             ; preds = %1064
+1066:                                             ; preds = %1057
   %.val.i.i744 = load ptr, ptr %0, align 8
-  %1074 = getelementptr i8, ptr %.val.i.i744, i64 24
-  %.val.val.i.i745 = load ptr, ptr %1074, align 8
-  %1075 = xor i32 %1072, -1
-  %1076 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i745, i32 noundef range(i32 -2147483648, 2147483647) %1075) #26
-  %1077 = call i32 @atoi(ptr nocapture noundef %1076) #27
+  %1067 = getelementptr i8, ptr %.val.i.i744, i64 24
+  %.val.val.i.i745 = load ptr, ptr %1067, align 8
+  %1068 = xor i32 %1065, -1
+  %1069 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i745, i32 noundef range(i32 -2147483648, 2147483647) %1068) #26
+  %1070 = call i32 @atoi(ptr nocapture noundef %1069) #27
   br label %Cba_ObjRangeSize.exit752
 
-1078:                                             ; preds = %1064
+1071:                                             ; preds = %1057
   %.val.i.i.i.i746 = load i32, ptr %22, align 4
-  %1079 = icmp slt i32 %.val.i.i.i.i746, 1
-  br i1 %1079, label %Cba_NtkRangeSize.exit.i.i751, label %Cba_FonRange.exit.i.i747
+  %1072 = icmp slt i32 %.val.i.i.i.i746, 1
+  br i1 %1072, label %Cba_NtkRangeSize.exit.i.i751, label %Cba_FonRange.exit.i.i747
 
-Cba_FonRange.exit.i.i747:                         ; preds = %1078
-  %1080 = add nuw nsw i32 %1072, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1080, i32 noundef 0)
+Cba_FonRange.exit.i.i747:                         ; preds = %1071
+  %1073 = add nuw nsw i32 %1065, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1073, i32 noundef 0)
   %.val.i.i.i.i.i748 = load ptr, ptr %24, align 8
-  %1081 = zext nneg i32 %1072 to i64
-  %1082 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i748, i64 %1081
-  %1083 = load i32, ptr %1082, align 4
-  %.not.i.i.i.i749 = icmp ult i32 %1083, 2
-  br i1 %.not.i.i.i.i749, label %Cba_NtkRangeSize.exit.i.i751, label %1084
+  %1074 = zext nneg i32 %1065 to i64
+  %1075 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i748, i64 %1074
+  %1076 = load i32, ptr %1075, align 4
+  %.not.i.i.i.i749 = icmp ult i32 %1076, 2
+  br i1 %.not.i.i.i.i749, label %Cba_NtkRangeSize.exit.i.i751, label %1077
 
-1084:                                             ; preds = %Cba_FonRange.exit.i.i747
-  %1085 = load ptr, ptr %0, align 8
-  %1086 = getelementptr inbounds i8, ptr %1085, i64 40
-  %1087 = load ptr, ptr %1086, align 8
-  %1088 = getelementptr inbounds i8, ptr %1087, i64 8
-  %1089 = load ptr, ptr %1088, align 8
-  %1090 = shl nsw i32 %1083, 1
-  %1091 = and i32 %1090, -4
-  %1092 = getelementptr i8, ptr %1089, i64 8
-  %.val.i.i.i.i.i.i750 = load ptr, ptr %1092, align 8
-  %1093 = sext i32 %1091 to i64
-  %1094 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i750, i64 %1093
-  %1095 = load i32, ptr %1094, align 4
-  %1096 = getelementptr inbounds i8, ptr %1094, i64 4
-  %1097 = load i32, ptr %1096, align 4
-  %1098 = sub nsw i32 %1095, %1097
+1077:                                             ; preds = %Cba_FonRange.exit.i.i747
+  %1078 = load ptr, ptr %0, align 8
+  %1079 = getelementptr inbounds i8, ptr %1078, i64 40
+  %1080 = load ptr, ptr %1079, align 8
+  %1081 = getelementptr inbounds i8, ptr %1080, i64 8
+  %1082 = load ptr, ptr %1081, align 8
+  %1083 = shl nsw i32 %1076, 1
+  %1084 = and i32 %1083, -4
+  %1085 = getelementptr i8, ptr %1082, i64 8
+  %.val.i.i.i.i.i.i750 = load ptr, ptr %1085, align 8
+  %1086 = sext i32 %1084 to i64
+  %1087 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i750, i64 %1086
+  %1088 = load i32, ptr %1087, align 4
+  %1089 = getelementptr inbounds i8, ptr %1087, i64 4
+  %1090 = load i32, ptr %1089, align 4
+  %1091 = sub nsw i32 %1088, %1090
   br label %Cba_NtkRangeSize.exit.i.i751
 
-Cba_NtkRangeSize.exit.i.i751:                     ; preds = %1084, %Cba_FonRange.exit.i.i747, %1078
-  %1099 = phi i32 [ %1098, %1084 ], [ 0, %Cba_FonRange.exit.i.i747 ], [ 0, %1078 ]
-  %1100 = call i32 @llvm.abs.i32(i32 %1099, i1 true)
-  %1101 = add nuw nsw i32 %1100, 1
+Cba_NtkRangeSize.exit.i.i751:                     ; preds = %1077, %Cba_FonRange.exit.i.i747, %1071
+  %1092 = phi i32 [ %1091, %1077 ], [ 0, %Cba_FonRange.exit.i.i747 ], [ 0, %1071 ]
+  %1093 = call i32 @llvm.abs.i32(i32 %1092, i1 true)
+  %1094 = add nuw nsw i32 %1093, 1
   br label %Cba_ObjRangeSize.exit752
 
-Cba_ObjRangeSize.exit752:                         ; preds = %1073, %Cba_NtkRangeSize.exit.i.i751
-  %1102 = phi i32 [ %1077, %1073 ], [ %1101, %Cba_NtkRangeSize.exit.i.i751 ]
-  %1103 = mul nsw i32 %1102, 3
+Cba_ObjRangeSize.exit752:                         ; preds = %1066, %Cba_NtkRangeSize.exit.i.i751
+  %1095 = phi i32 [ %1070, %1066 ], [ %1094, %Cba_NtkRangeSize.exit.i.i751 ]
+  %1096 = mul nsw i32 %1095, 3
   %.val471 = load ptr, ptr %5, align 8
-  %1104 = getelementptr inbounds i8, ptr %.val471, i64 56
-  %1105 = load i32, ptr %1104, align 4
-  %1106 = add nsw i32 %1105, %1103
-  store i32 %1106, ptr %1104, align 4
-  br label %2454
+  %1097 = getelementptr inbounds i8, ptr %.val471, i64 56
+  %1098 = load i32, ptr %1097, align 4
+  %1099 = add nsw i32 %1098, %1096
+  store i32 %1099, ptr %1097, align 4
+  br label %2447
 
-1107:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1100:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val391 = load ptr, ptr %25, align 8
   %.val392 = load ptr, ptr %26, align 8
-  %1108 = getelementptr inbounds i32, ptr %.val391, i64 %indvars.iv1192
-  %1109 = load i32, ptr %1108, align 4
-  %1110 = sext i32 %1109 to i64
-  %1111 = getelementptr inbounds i32, ptr %.val392, i64 %1110
-  %1112 = load i32, ptr %1111, align 4
+  %1101 = getelementptr inbounds i32, ptr %.val391, i64 %indvars.iv1192
+  %1102 = load i32, ptr %1101, align 4
+  %1103 = sext i32 %1102 to i64
+  %1104 = getelementptr inbounds i32, ptr %.val392, i64 %1103
+  %1105 = load i32, ptr %1104, align 4
   %.val.i753 = load ptr, ptr %21, align 8
-  %1113 = sext i32 %1112 to i64
-  %1114 = getelementptr inbounds i32, ptr %.val.i753, i64 %1113
-  %1115 = load i32, ptr %1114, align 4
-  %.not.i.i754 = icmp sgt i32 %1115, -1
-  br i1 %.not.i.i754, label %1122, label %1116
+  %1106 = sext i32 %1105 to i64
+  %1107 = getelementptr inbounds i32, ptr %.val.i753, i64 %1106
+  %1108 = load i32, ptr %1107, align 4
+  %.not.i.i754 = icmp sgt i32 %1108, -1
+  br i1 %.not.i.i754, label %1115, label %1109
 
-1116:                                             ; preds = %1107
+1109:                                             ; preds = %1100
   %.val.i.i755 = load ptr, ptr %0, align 8
-  %1117 = getelementptr i8, ptr %.val.i.i755, i64 24
-  %.val.val.i.i756 = load ptr, ptr %1117, align 8
-  %1118 = xor i32 %1115, -1
-  %1119 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i756, i32 noundef range(i32 -2147483648, 2147483647) %1118) #26
-  %1120 = call i32 @atoi(ptr nocapture noundef %1119) #27
-  %1121 = add nsw i32 %1120, -1
+  %1110 = getelementptr i8, ptr %.val.i.i755, i64 24
+  %.val.val.i.i756 = load ptr, ptr %1110, align 8
+  %1111 = xor i32 %1108, -1
+  %1112 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i756, i32 noundef range(i32 -2147483648, 2147483647) %1111) #26
+  %1113 = call i32 @atoi(ptr nocapture noundef %1112) #27
+  %1114 = add nsw i32 %1113, -1
   br label %Cba_ObjRangeSize.exit763
 
-1122:                                             ; preds = %1107
+1115:                                             ; preds = %1100
   %.val.i.i.i.i757 = load i32, ptr %22, align 4
-  %1123 = icmp slt i32 %.val.i.i.i.i757, 1
-  br i1 %1123, label %Cba_NtkRangeSize.exit.i.i762, label %Cba_FonRange.exit.i.i758
+  %1116 = icmp slt i32 %.val.i.i.i.i757, 1
+  br i1 %1116, label %Cba_NtkRangeSize.exit.i.i762, label %Cba_FonRange.exit.i.i758
 
-Cba_FonRange.exit.i.i758:                         ; preds = %1122
-  %1124 = add nuw nsw i32 %1115, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1124, i32 noundef 0)
+Cba_FonRange.exit.i.i758:                         ; preds = %1115
+  %1117 = add nuw nsw i32 %1108, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1117, i32 noundef 0)
   %.val.i.i.i.i.i759 = load ptr, ptr %24, align 8
-  %1125 = zext nneg i32 %1115 to i64
-  %1126 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i759, i64 %1125
-  %1127 = load i32, ptr %1126, align 4
-  %.not.i.i.i.i760 = icmp ult i32 %1127, 2
-  br i1 %.not.i.i.i.i760, label %Cba_NtkRangeSize.exit.i.i762, label %1128
+  %1118 = zext nneg i32 %1108 to i64
+  %1119 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i759, i64 %1118
+  %1120 = load i32, ptr %1119, align 4
+  %.not.i.i.i.i760 = icmp ult i32 %1120, 2
+  br i1 %.not.i.i.i.i760, label %Cba_NtkRangeSize.exit.i.i762, label %1121
 
-1128:                                             ; preds = %Cba_FonRange.exit.i.i758
-  %1129 = load ptr, ptr %0, align 8
-  %1130 = getelementptr inbounds i8, ptr %1129, i64 40
-  %1131 = load ptr, ptr %1130, align 8
-  %1132 = getelementptr inbounds i8, ptr %1131, i64 8
-  %1133 = load ptr, ptr %1132, align 8
-  %1134 = shl nsw i32 %1127, 1
-  %1135 = and i32 %1134, -4
-  %1136 = getelementptr i8, ptr %1133, i64 8
-  %.val.i.i.i.i.i.i761 = load ptr, ptr %1136, align 8
-  %1137 = sext i32 %1135 to i64
-  %1138 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i761, i64 %1137
-  %1139 = load i32, ptr %1138, align 4
-  %1140 = getelementptr inbounds i8, ptr %1138, i64 4
-  %1141 = load i32, ptr %1140, align 4
-  %1142 = sub nsw i32 %1139, %1141
+1121:                                             ; preds = %Cba_FonRange.exit.i.i758
+  %1122 = load ptr, ptr %0, align 8
+  %1123 = getelementptr inbounds i8, ptr %1122, i64 40
+  %1124 = load ptr, ptr %1123, align 8
+  %1125 = getelementptr inbounds i8, ptr %1124, i64 8
+  %1126 = load ptr, ptr %1125, align 8
+  %1127 = shl nsw i32 %1120, 1
+  %1128 = and i32 %1127, -4
+  %1129 = getelementptr i8, ptr %1126, i64 8
+  %.val.i.i.i.i.i.i761 = load ptr, ptr %1129, align 8
+  %1130 = sext i32 %1128 to i64
+  %1131 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i761, i64 %1130
+  %1132 = load i32, ptr %1131, align 4
+  %1133 = getelementptr inbounds i8, ptr %1131, i64 4
+  %1134 = load i32, ptr %1133, align 4
+  %1135 = sub nsw i32 %1132, %1134
   br label %Cba_NtkRangeSize.exit.i.i762
 
-Cba_NtkRangeSize.exit.i.i762:                     ; preds = %1128, %Cba_FonRange.exit.i.i758, %1122
-  %1143 = phi i32 [ %1142, %1128 ], [ 0, %Cba_FonRange.exit.i.i758 ], [ 0, %1122 ]
-  %1144 = call i32 @llvm.abs.i32(i32 %1143, i1 true)
+Cba_NtkRangeSize.exit.i.i762:                     ; preds = %1121, %Cba_FonRange.exit.i.i758, %1115
+  %1136 = phi i32 [ %1135, %1121 ], [ 0, %Cba_FonRange.exit.i.i758 ], [ 0, %1115 ]
+  %1137 = call i32 @llvm.abs.i32(i32 %1136, i1 true)
   br label %Cba_ObjRangeSize.exit763
 
-Cba_ObjRangeSize.exit763:                         ; preds = %1116, %Cba_NtkRangeSize.exit.i.i762
-  %1145 = phi i32 [ %1121, %1116 ], [ %1144, %Cba_NtkRangeSize.exit.i.i762 ]
+Cba_ObjRangeSize.exit763:                         ; preds = %1109, %Cba_NtkRangeSize.exit.i.i762
+  %1138 = phi i32 [ %1114, %1109 ], [ %1137, %Cba_NtkRangeSize.exit.i.i762 ]
   %.val474 = load ptr, ptr %5, align 8
-  %1146 = getelementptr inbounds i8, ptr %.val474, i64 132
-  %1147 = load i32, ptr %1146, align 4
-  %1148 = add nsw i32 %1147, %1145
-  store i32 %1148, ptr %1146, align 4
-  br label %2454
+  %1139 = getelementptr inbounds i8, ptr %.val474, i64 132
+  %1140 = load i32, ptr %1139, align 4
+  %1141 = add nsw i32 %1140, %1138
+  store i32 %1141, ptr %1139, align 4
+  br label %2447
 
-1149:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1142:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val393 = load ptr, ptr %25, align 8
   %.val394 = load ptr, ptr %26, align 8
-  %1150 = getelementptr inbounds i32, ptr %.val393, i64 %indvars.iv1192
-  %1151 = load i32, ptr %1150, align 4
-  %1152 = sext i32 %1151 to i64
-  %1153 = getelementptr inbounds i32, ptr %.val394, i64 %1152
-  %1154 = load i32, ptr %1153, align 4
+  %1143 = getelementptr inbounds i32, ptr %.val393, i64 %indvars.iv1192
+  %1144 = load i32, ptr %1143, align 4
+  %1145 = sext i32 %1144 to i64
+  %1146 = getelementptr inbounds i32, ptr %.val394, i64 %1145
+  %1147 = load i32, ptr %1146, align 4
   %.val.i764 = load ptr, ptr %21, align 8
-  %1155 = sext i32 %1154 to i64
-  %1156 = getelementptr inbounds i32, ptr %.val.i764, i64 %1155
-  %1157 = load i32, ptr %1156, align 4
-  %.not.i.i765 = icmp sgt i32 %1157, -1
-  br i1 %.not.i.i765, label %1164, label %1158
+  %1148 = sext i32 %1147 to i64
+  %1149 = getelementptr inbounds i32, ptr %.val.i764, i64 %1148
+  %1150 = load i32, ptr %1149, align 4
+  %.not.i.i765 = icmp sgt i32 %1150, -1
+  br i1 %.not.i.i765, label %1157, label %1151
 
-1158:                                             ; preds = %1149
+1151:                                             ; preds = %1142
   %.val.i.i766 = load ptr, ptr %0, align 8
-  %1159 = getelementptr i8, ptr %.val.i.i766, i64 24
-  %.val.val.i.i767 = load ptr, ptr %1159, align 8
-  %1160 = xor i32 %1157, -1
-  %1161 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i767, i32 noundef range(i32 -2147483648, 2147483647) %1160) #26
-  %1162 = call i32 @atoi(ptr nocapture noundef %1161) #27
-  %1163 = add i32 %1162, -1
+  %1152 = getelementptr i8, ptr %.val.i.i766, i64 24
+  %.val.val.i.i767 = load ptr, ptr %1152, align 8
+  %1153 = xor i32 %1150, -1
+  %1154 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i767, i32 noundef range(i32 -2147483648, 2147483647) %1153) #26
+  %1155 = call i32 @atoi(ptr nocapture noundef %1154) #27
+  %1156 = add i32 %1155, -1
   br label %Cba_ObjRangeSize.exit774
 
-1164:                                             ; preds = %1149
+1157:                                             ; preds = %1142
   %.val.i.i.i.i768 = load i32, ptr %22, align 4
-  %1165 = icmp slt i32 %.val.i.i.i.i768, 1
-  br i1 %1165, label %Cba_NtkRangeSize.exit.i.i773, label %Cba_FonRange.exit.i.i769
+  %1158 = icmp slt i32 %.val.i.i.i.i768, 1
+  br i1 %1158, label %Cba_NtkRangeSize.exit.i.i773, label %Cba_FonRange.exit.i.i769
 
-Cba_FonRange.exit.i.i769:                         ; preds = %1164
-  %1166 = add nuw nsw i32 %1157, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1166, i32 noundef 0)
+Cba_FonRange.exit.i.i769:                         ; preds = %1157
+  %1159 = add nuw nsw i32 %1150, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1159, i32 noundef 0)
   %.val.i.i.i.i.i770 = load ptr, ptr %24, align 8
-  %1167 = zext nneg i32 %1157 to i64
-  %1168 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i770, i64 %1167
-  %1169 = load i32, ptr %1168, align 4
-  %.not.i.i.i.i771 = icmp ult i32 %1169, 2
-  br i1 %.not.i.i.i.i771, label %Cba_NtkRangeSize.exit.i.i773, label %1170
+  %1160 = zext nneg i32 %1150 to i64
+  %1161 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i770, i64 %1160
+  %1162 = load i32, ptr %1161, align 4
+  %.not.i.i.i.i771 = icmp ult i32 %1162, 2
+  br i1 %.not.i.i.i.i771, label %Cba_NtkRangeSize.exit.i.i773, label %1163
 
-1170:                                             ; preds = %Cba_FonRange.exit.i.i769
-  %1171 = load ptr, ptr %0, align 8
-  %1172 = getelementptr inbounds i8, ptr %1171, i64 40
-  %1173 = load ptr, ptr %1172, align 8
-  %1174 = getelementptr inbounds i8, ptr %1173, i64 8
-  %1175 = load ptr, ptr %1174, align 8
-  %1176 = shl nsw i32 %1169, 1
-  %1177 = and i32 %1176, -4
-  %1178 = getelementptr i8, ptr %1175, i64 8
-  %.val.i.i.i.i.i.i772 = load ptr, ptr %1178, align 8
-  %1179 = sext i32 %1177 to i64
-  %1180 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i772, i64 %1179
-  %1181 = load i32, ptr %1180, align 4
-  %1182 = getelementptr inbounds i8, ptr %1180, i64 4
-  %1183 = load i32, ptr %1182, align 4
-  %1184 = sub nsw i32 %1181, %1183
+1163:                                             ; preds = %Cba_FonRange.exit.i.i769
+  %1164 = load ptr, ptr %0, align 8
+  %1165 = getelementptr inbounds i8, ptr %1164, i64 40
+  %1166 = load ptr, ptr %1165, align 8
+  %1167 = getelementptr inbounds i8, ptr %1166, i64 8
+  %1168 = load ptr, ptr %1167, align 8
+  %1169 = shl nsw i32 %1162, 1
+  %1170 = and i32 %1169, -4
+  %1171 = getelementptr i8, ptr %1168, i64 8
+  %.val.i.i.i.i.i.i772 = load ptr, ptr %1171, align 8
+  %1172 = sext i32 %1170 to i64
+  %1173 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i772, i64 %1172
+  %1174 = load i32, ptr %1173, align 4
+  %1175 = getelementptr inbounds i8, ptr %1173, i64 4
+  %1176 = load i32, ptr %1175, align 4
+  %1177 = sub nsw i32 %1174, %1176
   br label %Cba_NtkRangeSize.exit.i.i773
 
-Cba_NtkRangeSize.exit.i.i773:                     ; preds = %1170, %Cba_FonRange.exit.i.i769, %1164
-  %1185 = phi i32 [ %1184, %1170 ], [ 0, %Cba_FonRange.exit.i.i769 ], [ 0, %1164 ]
-  %1186 = call i32 @llvm.abs.i32(i32 %1185, i1 true)
+Cba_NtkRangeSize.exit.i.i773:                     ; preds = %1163, %Cba_FonRange.exit.i.i769, %1157
+  %1178 = phi i32 [ %1177, %1163 ], [ 0, %Cba_FonRange.exit.i.i769 ], [ 0, %1157 ]
+  %1179 = call i32 @llvm.abs.i32(i32 %1178, i1 true)
   br label %Cba_ObjRangeSize.exit774
 
-Cba_ObjRangeSize.exit774:                         ; preds = %1158, %Cba_NtkRangeSize.exit.i.i773
-  %1187 = phi i32 [ %1163, %1158 ], [ %1186, %Cba_NtkRangeSize.exit.i.i773 ]
+Cba_ObjRangeSize.exit774:                         ; preds = %1151, %Cba_NtkRangeSize.exit.i.i773
+  %1180 = phi i32 [ %1156, %1151 ], [ %1179, %Cba_NtkRangeSize.exit.i.i773 ]
   %.val395 = load ptr, ptr %25, align 8
   %.val396 = load ptr, ptr %26, align 8
-  %1188 = getelementptr inbounds i32, ptr %.val395, i64 %indvars.iv1192
-  %1189 = load i32, ptr %1188, align 4
-  %1190 = sext i32 %1189 to i64
-  %1191 = getelementptr i32, ptr %.val396, i64 %1190
-  %1192 = getelementptr i8, ptr %1191, i64 4
-  %1193 = load i32, ptr %1192, align 4
+  %1181 = getelementptr inbounds i32, ptr %.val395, i64 %indvars.iv1192
+  %1182 = load i32, ptr %1181, align 4
+  %1183 = sext i32 %1182 to i64
+  %1184 = getelementptr i32, ptr %.val396, i64 %1183
+  %1185 = getelementptr i8, ptr %1184, i64 4
+  %1186 = load i32, ptr %1185, align 4
   %.val.i775 = load ptr, ptr %21, align 8
-  %1194 = sext i32 %1193 to i64
-  %1195 = getelementptr inbounds i32, ptr %.val.i775, i64 %1194
-  %1196 = load i32, ptr %1195, align 4
-  %.not.i.i776 = icmp sgt i32 %1196, -1
-  br i1 %.not.i.i776, label %1202, label %1197
+  %1187 = sext i32 %1186 to i64
+  %1188 = getelementptr inbounds i32, ptr %.val.i775, i64 %1187
+  %1189 = load i32, ptr %1188, align 4
+  %.not.i.i776 = icmp sgt i32 %1189, -1
+  br i1 %.not.i.i776, label %1195, label %1190
 
-1197:                                             ; preds = %Cba_ObjRangeSize.exit774
+1190:                                             ; preds = %Cba_ObjRangeSize.exit774
   %.val.i.i777 = load ptr, ptr %0, align 8
-  %1198 = getelementptr i8, ptr %.val.i.i777, i64 24
-  %.val.val.i.i778 = load ptr, ptr %1198, align 8
-  %1199 = xor i32 %1196, -1
-  %1200 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i778, i32 noundef range(i32 -2147483648, 2147483647) %1199) #26
-  %1201 = call i32 @atoi(ptr nocapture noundef %1200) #27
+  %1191 = getelementptr i8, ptr %.val.i.i777, i64 24
+  %.val.val.i.i778 = load ptr, ptr %1191, align 8
+  %1192 = xor i32 %1189, -1
+  %1193 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i778, i32 noundef range(i32 -2147483648, 2147483647) %1192) #26
+  %1194 = call i32 @atoi(ptr nocapture noundef %1193) #27
   br label %Cba_ObjRangeSize.exit785
 
-1202:                                             ; preds = %Cba_ObjRangeSize.exit774
+1195:                                             ; preds = %Cba_ObjRangeSize.exit774
   %.val.i.i.i.i779 = load i32, ptr %22, align 4
-  %1203 = icmp slt i32 %.val.i.i.i.i779, 1
-  br i1 %1203, label %Cba_NtkRangeSize.exit.i.i784, label %Cba_FonRange.exit.i.i780
+  %1196 = icmp slt i32 %.val.i.i.i.i779, 1
+  br i1 %1196, label %Cba_NtkRangeSize.exit.i.i784, label %Cba_FonRange.exit.i.i780
 
-Cba_FonRange.exit.i.i780:                         ; preds = %1202
-  %1204 = add nuw nsw i32 %1196, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1204, i32 noundef 0)
+Cba_FonRange.exit.i.i780:                         ; preds = %1195
+  %1197 = add nuw nsw i32 %1189, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1197, i32 noundef 0)
   %.val.i.i.i.i.i781 = load ptr, ptr %24, align 8
-  %1205 = zext nneg i32 %1196 to i64
-  %1206 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i781, i64 %1205
-  %1207 = load i32, ptr %1206, align 4
-  %.not.i.i.i.i782 = icmp ult i32 %1207, 2
-  br i1 %.not.i.i.i.i782, label %Cba_NtkRangeSize.exit.i.i784, label %1208
+  %1198 = zext nneg i32 %1189 to i64
+  %1199 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i781, i64 %1198
+  %1200 = load i32, ptr %1199, align 4
+  %.not.i.i.i.i782 = icmp ult i32 %1200, 2
+  br i1 %.not.i.i.i.i782, label %Cba_NtkRangeSize.exit.i.i784, label %1201
 
-1208:                                             ; preds = %Cba_FonRange.exit.i.i780
-  %1209 = load ptr, ptr %0, align 8
-  %1210 = getelementptr inbounds i8, ptr %1209, i64 40
-  %1211 = load ptr, ptr %1210, align 8
-  %1212 = getelementptr inbounds i8, ptr %1211, i64 8
-  %1213 = load ptr, ptr %1212, align 8
-  %1214 = shl nsw i32 %1207, 1
-  %1215 = and i32 %1214, -4
-  %1216 = getelementptr i8, ptr %1213, i64 8
-  %.val.i.i.i.i.i.i783 = load ptr, ptr %1216, align 8
-  %1217 = sext i32 %1215 to i64
-  %1218 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i783, i64 %1217
-  %1219 = load i32, ptr %1218, align 4
-  %1220 = getelementptr inbounds i8, ptr %1218, i64 4
-  %1221 = load i32, ptr %1220, align 4
-  %1222 = sub nsw i32 %1219, %1221
+1201:                                             ; preds = %Cba_FonRange.exit.i.i780
+  %1202 = load ptr, ptr %0, align 8
+  %1203 = getelementptr inbounds i8, ptr %1202, i64 40
+  %1204 = load ptr, ptr %1203, align 8
+  %1205 = getelementptr inbounds i8, ptr %1204, i64 8
+  %1206 = load ptr, ptr %1205, align 8
+  %1207 = shl nsw i32 %1200, 1
+  %1208 = and i32 %1207, -4
+  %1209 = getelementptr i8, ptr %1206, i64 8
+  %.val.i.i.i.i.i.i783 = load ptr, ptr %1209, align 8
+  %1210 = sext i32 %1208 to i64
+  %1211 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i783, i64 %1210
+  %1212 = load i32, ptr %1211, align 4
+  %1213 = getelementptr inbounds i8, ptr %1211, i64 4
+  %1214 = load i32, ptr %1213, align 4
+  %1215 = sub nsw i32 %1212, %1214
   br label %Cba_NtkRangeSize.exit.i.i784
 
-Cba_NtkRangeSize.exit.i.i784:                     ; preds = %1208, %Cba_FonRange.exit.i.i780, %1202
-  %1223 = phi i32 [ %1222, %1208 ], [ 0, %Cba_FonRange.exit.i.i780 ], [ 0, %1202 ]
-  %1224 = call i32 @llvm.abs.i32(i32 %1223, i1 true)
-  %1225 = add nuw nsw i32 %1224, 1
+Cba_NtkRangeSize.exit.i.i784:                     ; preds = %1201, %Cba_FonRange.exit.i.i780, %1195
+  %1216 = phi i32 [ %1215, %1201 ], [ 0, %Cba_FonRange.exit.i.i780 ], [ 0, %1195 ]
+  %1217 = call i32 @llvm.abs.i32(i32 %1216, i1 true)
+  %1218 = add nuw nsw i32 %1217, 1
   br label %Cba_ObjRangeSize.exit785
 
-Cba_ObjRangeSize.exit785:                         ; preds = %1197, %Cba_NtkRangeSize.exit.i.i784
-  %1226 = phi i32 [ %1201, %1197 ], [ %1225, %Cba_NtkRangeSize.exit.i.i784 ]
+Cba_ObjRangeSize.exit785:                         ; preds = %1190, %Cba_NtkRangeSize.exit.i.i784
+  %1219 = phi i32 [ %1194, %1190 ], [ %1218, %Cba_NtkRangeSize.exit.i.i784 ]
   %.val475 = load ptr, ptr %5, align 8
-  %1227 = getelementptr inbounds i8, ptr %.val475, i64 136
-  %1228 = load i32, ptr %1227, align 4
-  %1229 = add i32 %1187, %1226
-  %1230 = add nsw i32 %1229, %1228
-  store i32 %1230, ptr %1227, align 4
-  br label %2454
+  %1220 = getelementptr inbounds i8, ptr %.val475, i64 136
+  %1221 = load i32, ptr %1220, align 4
+  %1222 = add i32 %1180, %1219
+  %1223 = add nsw i32 %1222, %1221
+  store i32 %1223, ptr %1220, align 4
+  br label %2447
 
-1231:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1224:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val397 = load ptr, ptr %25, align 8
   %.val398 = load ptr, ptr %26, align 8
-  %1232 = getelementptr inbounds i32, ptr %.val397, i64 %indvars.iv1192
-  %1233 = load i32, ptr %1232, align 4
-  %1234 = sext i32 %1233 to i64
-  %1235 = getelementptr inbounds i32, ptr %.val398, i64 %1234
-  %1236 = load i32, ptr %1235, align 4
+  %1225 = getelementptr inbounds i32, ptr %.val397, i64 %indvars.iv1192
+  %1226 = load i32, ptr %1225, align 4
+  %1227 = sext i32 %1226 to i64
+  %1228 = getelementptr inbounds i32, ptr %.val398, i64 %1227
+  %1229 = load i32, ptr %1228, align 4
   %.val.i786 = load ptr, ptr %21, align 8
-  %1237 = sext i32 %1236 to i64
-  %1238 = getelementptr inbounds i32, ptr %.val.i786, i64 %1237
-  %1239 = load i32, ptr %1238, align 4
-  %.not.i.i787 = icmp sgt i32 %1239, -1
-  br i1 %.not.i.i787, label %1246, label %1240
+  %1230 = sext i32 %1229 to i64
+  %1231 = getelementptr inbounds i32, ptr %.val.i786, i64 %1230
+  %1232 = load i32, ptr %1231, align 4
+  %.not.i.i787 = icmp sgt i32 %1232, -1
+  br i1 %.not.i.i787, label %1239, label %1233
 
-1240:                                             ; preds = %1231
+1233:                                             ; preds = %1224
   %.val.i.i788 = load ptr, ptr %0, align 8
-  %1241 = getelementptr i8, ptr %.val.i.i788, i64 24
-  %.val.val.i.i789 = load ptr, ptr %1241, align 8
-  %1242 = xor i32 %1239, -1
-  %1243 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i789, i32 noundef range(i32 -2147483648, 2147483647) %1242) #26
-  %1244 = call i32 @atoi(ptr nocapture noundef %1243) #27
-  %1245 = add i32 %1244, -1
+  %1234 = getelementptr i8, ptr %.val.i.i788, i64 24
+  %.val.val.i.i789 = load ptr, ptr %1234, align 8
+  %1235 = xor i32 %1232, -1
+  %1236 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i789, i32 noundef range(i32 -2147483648, 2147483647) %1235) #26
+  %1237 = call i32 @atoi(ptr nocapture noundef %1236) #27
+  %1238 = add i32 %1237, -1
   br label %Cba_ObjRangeSize.exit796
 
-1246:                                             ; preds = %1231
+1239:                                             ; preds = %1224
   %.val.i.i.i.i790 = load i32, ptr %22, align 4
-  %1247 = icmp slt i32 %.val.i.i.i.i790, 1
-  br i1 %1247, label %Cba_NtkRangeSize.exit.i.i795, label %Cba_FonRange.exit.i.i791
+  %1240 = icmp slt i32 %.val.i.i.i.i790, 1
+  br i1 %1240, label %Cba_NtkRangeSize.exit.i.i795, label %Cba_FonRange.exit.i.i791
 
-Cba_FonRange.exit.i.i791:                         ; preds = %1246
-  %1248 = add nuw nsw i32 %1239, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1248, i32 noundef 0)
+Cba_FonRange.exit.i.i791:                         ; preds = %1239
+  %1241 = add nuw nsw i32 %1232, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1241, i32 noundef 0)
   %.val.i.i.i.i.i792 = load ptr, ptr %24, align 8
-  %1249 = zext nneg i32 %1239 to i64
-  %1250 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i792, i64 %1249
-  %1251 = load i32, ptr %1250, align 4
-  %.not.i.i.i.i793 = icmp ult i32 %1251, 2
-  br i1 %.not.i.i.i.i793, label %Cba_NtkRangeSize.exit.i.i795, label %1252
+  %1242 = zext nneg i32 %1232 to i64
+  %1243 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i792, i64 %1242
+  %1244 = load i32, ptr %1243, align 4
+  %.not.i.i.i.i793 = icmp ult i32 %1244, 2
+  br i1 %.not.i.i.i.i793, label %Cba_NtkRangeSize.exit.i.i795, label %1245
 
-1252:                                             ; preds = %Cba_FonRange.exit.i.i791
-  %1253 = load ptr, ptr %0, align 8
-  %1254 = getelementptr inbounds i8, ptr %1253, i64 40
-  %1255 = load ptr, ptr %1254, align 8
-  %1256 = getelementptr inbounds i8, ptr %1255, i64 8
-  %1257 = load ptr, ptr %1256, align 8
-  %1258 = shl nsw i32 %1251, 1
-  %1259 = and i32 %1258, -4
-  %1260 = getelementptr i8, ptr %1257, i64 8
-  %.val.i.i.i.i.i.i794 = load ptr, ptr %1260, align 8
-  %1261 = sext i32 %1259 to i64
-  %1262 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i794, i64 %1261
-  %1263 = load i32, ptr %1262, align 4
-  %1264 = getelementptr inbounds i8, ptr %1262, i64 4
-  %1265 = load i32, ptr %1264, align 4
-  %1266 = sub nsw i32 %1263, %1265
+1245:                                             ; preds = %Cba_FonRange.exit.i.i791
+  %1246 = load ptr, ptr %0, align 8
+  %1247 = getelementptr inbounds i8, ptr %1246, i64 40
+  %1248 = load ptr, ptr %1247, align 8
+  %1249 = getelementptr inbounds i8, ptr %1248, i64 8
+  %1250 = load ptr, ptr %1249, align 8
+  %1251 = shl nsw i32 %1244, 1
+  %1252 = and i32 %1251, -4
+  %1253 = getelementptr i8, ptr %1250, i64 8
+  %.val.i.i.i.i.i.i794 = load ptr, ptr %1253, align 8
+  %1254 = sext i32 %1252 to i64
+  %1255 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i794, i64 %1254
+  %1256 = load i32, ptr %1255, align 4
+  %1257 = getelementptr inbounds i8, ptr %1255, i64 4
+  %1258 = load i32, ptr %1257, align 4
+  %1259 = sub nsw i32 %1256, %1258
   br label %Cba_NtkRangeSize.exit.i.i795
 
-Cba_NtkRangeSize.exit.i.i795:                     ; preds = %1252, %Cba_FonRange.exit.i.i791, %1246
-  %1267 = phi i32 [ %1266, %1252 ], [ 0, %Cba_FonRange.exit.i.i791 ], [ 0, %1246 ]
-  %1268 = call i32 @llvm.abs.i32(i32 %1267, i1 true)
+Cba_NtkRangeSize.exit.i.i795:                     ; preds = %1245, %Cba_FonRange.exit.i.i791, %1239
+  %1260 = phi i32 [ %1259, %1245 ], [ 0, %Cba_FonRange.exit.i.i791 ], [ 0, %1239 ]
+  %1261 = call i32 @llvm.abs.i32(i32 %1260, i1 true)
   br label %Cba_ObjRangeSize.exit796
 
-Cba_ObjRangeSize.exit796:                         ; preds = %1240, %Cba_NtkRangeSize.exit.i.i795
-  %1269 = phi i32 [ %1245, %1240 ], [ %1268, %Cba_NtkRangeSize.exit.i.i795 ]
+Cba_ObjRangeSize.exit796:                         ; preds = %1233, %Cba_NtkRangeSize.exit.i.i795
+  %1262 = phi i32 [ %1238, %1233 ], [ %1261, %Cba_NtkRangeSize.exit.i.i795 ]
   %.val399 = load ptr, ptr %25, align 8
   %.val400 = load ptr, ptr %26, align 8
-  %1270 = getelementptr inbounds i32, ptr %.val399, i64 %indvars.iv1192
-  %1271 = load i32, ptr %1270, align 4
-  %1272 = sext i32 %1271 to i64
-  %1273 = getelementptr i32, ptr %.val400, i64 %1272
-  %1274 = getelementptr i8, ptr %1273, i64 4
-  %1275 = load i32, ptr %1274, align 4
+  %1263 = getelementptr inbounds i32, ptr %.val399, i64 %indvars.iv1192
+  %1264 = load i32, ptr %1263, align 4
+  %1265 = sext i32 %1264 to i64
+  %1266 = getelementptr i32, ptr %.val400, i64 %1265
+  %1267 = getelementptr i8, ptr %1266, i64 4
+  %1268 = load i32, ptr %1267, align 4
   %.val.i797 = load ptr, ptr %21, align 8
-  %1276 = sext i32 %1275 to i64
-  %1277 = getelementptr inbounds i32, ptr %.val.i797, i64 %1276
-  %1278 = load i32, ptr %1277, align 4
-  %.not.i.i798 = icmp sgt i32 %1278, -1
-  br i1 %.not.i.i798, label %1284, label %1279
+  %1269 = sext i32 %1268 to i64
+  %1270 = getelementptr inbounds i32, ptr %.val.i797, i64 %1269
+  %1271 = load i32, ptr %1270, align 4
+  %.not.i.i798 = icmp sgt i32 %1271, -1
+  br i1 %.not.i.i798, label %1277, label %1272
 
-1279:                                             ; preds = %Cba_ObjRangeSize.exit796
+1272:                                             ; preds = %Cba_ObjRangeSize.exit796
   %.val.i.i799 = load ptr, ptr %0, align 8
-  %1280 = getelementptr i8, ptr %.val.i.i799, i64 24
-  %.val.val.i.i800 = load ptr, ptr %1280, align 8
-  %1281 = xor i32 %1278, -1
-  %1282 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i800, i32 noundef range(i32 -2147483648, 2147483647) %1281) #26
-  %1283 = call i32 @atoi(ptr nocapture noundef %1282) #27
+  %1273 = getelementptr i8, ptr %.val.i.i799, i64 24
+  %.val.val.i.i800 = load ptr, ptr %1273, align 8
+  %1274 = xor i32 %1271, -1
+  %1275 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i800, i32 noundef range(i32 -2147483648, 2147483647) %1274) #26
+  %1276 = call i32 @atoi(ptr nocapture noundef %1275) #27
   br label %Cba_ObjRangeSize.exit807
 
-1284:                                             ; preds = %Cba_ObjRangeSize.exit796
+1277:                                             ; preds = %Cba_ObjRangeSize.exit796
   %.val.i.i.i.i801 = load i32, ptr %22, align 4
-  %1285 = icmp slt i32 %.val.i.i.i.i801, 1
-  br i1 %1285, label %Cba_NtkRangeSize.exit.i.i806, label %Cba_FonRange.exit.i.i802
+  %1278 = icmp slt i32 %.val.i.i.i.i801, 1
+  br i1 %1278, label %Cba_NtkRangeSize.exit.i.i806, label %Cba_FonRange.exit.i.i802
 
-Cba_FonRange.exit.i.i802:                         ; preds = %1284
-  %1286 = add nuw nsw i32 %1278, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1286, i32 noundef 0)
+Cba_FonRange.exit.i.i802:                         ; preds = %1277
+  %1279 = add nuw nsw i32 %1271, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1279, i32 noundef 0)
   %.val.i.i.i.i.i803 = load ptr, ptr %24, align 8
-  %1287 = zext nneg i32 %1278 to i64
-  %1288 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i803, i64 %1287
-  %1289 = load i32, ptr %1288, align 4
-  %.not.i.i.i.i804 = icmp ult i32 %1289, 2
-  br i1 %.not.i.i.i.i804, label %Cba_NtkRangeSize.exit.i.i806, label %1290
+  %1280 = zext nneg i32 %1271 to i64
+  %1281 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i803, i64 %1280
+  %1282 = load i32, ptr %1281, align 4
+  %.not.i.i.i.i804 = icmp ult i32 %1282, 2
+  br i1 %.not.i.i.i.i804, label %Cba_NtkRangeSize.exit.i.i806, label %1283
 
-1290:                                             ; preds = %Cba_FonRange.exit.i.i802
-  %1291 = load ptr, ptr %0, align 8
-  %1292 = getelementptr inbounds i8, ptr %1291, i64 40
-  %1293 = load ptr, ptr %1292, align 8
-  %1294 = getelementptr inbounds i8, ptr %1293, i64 8
-  %1295 = load ptr, ptr %1294, align 8
-  %1296 = shl nsw i32 %1289, 1
-  %1297 = and i32 %1296, -4
-  %1298 = getelementptr i8, ptr %1295, i64 8
-  %.val.i.i.i.i.i.i805 = load ptr, ptr %1298, align 8
-  %1299 = sext i32 %1297 to i64
-  %1300 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i805, i64 %1299
-  %1301 = load i32, ptr %1300, align 4
-  %1302 = getelementptr inbounds i8, ptr %1300, i64 4
-  %1303 = load i32, ptr %1302, align 4
-  %1304 = sub nsw i32 %1301, %1303
+1283:                                             ; preds = %Cba_FonRange.exit.i.i802
+  %1284 = load ptr, ptr %0, align 8
+  %1285 = getelementptr inbounds i8, ptr %1284, i64 40
+  %1286 = load ptr, ptr %1285, align 8
+  %1287 = getelementptr inbounds i8, ptr %1286, i64 8
+  %1288 = load ptr, ptr %1287, align 8
+  %1289 = shl nsw i32 %1282, 1
+  %1290 = and i32 %1289, -4
+  %1291 = getelementptr i8, ptr %1288, i64 8
+  %.val.i.i.i.i.i.i805 = load ptr, ptr %1291, align 8
+  %1292 = sext i32 %1290 to i64
+  %1293 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i805, i64 %1292
+  %1294 = load i32, ptr %1293, align 4
+  %1295 = getelementptr inbounds i8, ptr %1293, i64 4
+  %1296 = load i32, ptr %1295, align 4
+  %1297 = sub nsw i32 %1294, %1296
   br label %Cba_NtkRangeSize.exit.i.i806
 
-Cba_NtkRangeSize.exit.i.i806:                     ; preds = %1290, %Cba_FonRange.exit.i.i802, %1284
-  %1305 = phi i32 [ %1304, %1290 ], [ 0, %Cba_FonRange.exit.i.i802 ], [ 0, %1284 ]
-  %1306 = call i32 @llvm.abs.i32(i32 %1305, i1 true)
-  %1307 = add nuw nsw i32 %1306, 1
+Cba_NtkRangeSize.exit.i.i806:                     ; preds = %1283, %Cba_FonRange.exit.i.i802, %1277
+  %1298 = phi i32 [ %1297, %1283 ], [ 0, %Cba_FonRange.exit.i.i802 ], [ 0, %1277 ]
+  %1299 = call i32 @llvm.abs.i32(i32 %1298, i1 true)
+  %1300 = add nuw nsw i32 %1299, 1
   br label %Cba_ObjRangeSize.exit807
 
-Cba_ObjRangeSize.exit807:                         ; preds = %1279, %Cba_NtkRangeSize.exit.i.i806
-  %1308 = phi i32 [ %1283, %1279 ], [ %1307, %Cba_NtkRangeSize.exit.i.i806 ]
+Cba_ObjRangeSize.exit807:                         ; preds = %1272, %Cba_NtkRangeSize.exit.i.i806
+  %1301 = phi i32 [ %1276, %1272 ], [ %1300, %Cba_NtkRangeSize.exit.i.i806 ]
   %.val476 = load ptr, ptr %5, align 8
-  %1309 = getelementptr inbounds i8, ptr %.val476, i64 144
-  %1310 = load i32, ptr %1309, align 4
-  %1311 = add i32 %1269, %1308
-  %1312 = add nsw i32 %1311, %1310
-  store i32 %1312, ptr %1309, align 4
-  br label %2454
+  %1302 = getelementptr inbounds i8, ptr %.val476, i64 144
+  %1303 = load i32, ptr %1302, align 4
+  %1304 = add i32 %1262, %1301
+  %1305 = add nsw i32 %1304, %1303
+  store i32 %1305, ptr %1302, align 4
+  br label %2447
 
-1313:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1306:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val401 = load ptr, ptr %25, align 8
   %.val402 = load ptr, ptr %26, align 8
-  %1314 = getelementptr inbounds i32, ptr %.val401, i64 %indvars.iv1192
-  %1315 = load i32, ptr %1314, align 4
-  %1316 = sext i32 %1315 to i64
-  %1317 = getelementptr inbounds i32, ptr %.val402, i64 %1316
-  %1318 = load i32, ptr %1317, align 4
+  %1307 = getelementptr inbounds i32, ptr %.val401, i64 %indvars.iv1192
+  %1308 = load i32, ptr %1307, align 4
+  %1309 = sext i32 %1308 to i64
+  %1310 = getelementptr inbounds i32, ptr %.val402, i64 %1309
+  %1311 = load i32, ptr %1310, align 4
   %.val.i808 = load ptr, ptr %21, align 8
-  %1319 = sext i32 %1318 to i64
-  %1320 = getelementptr inbounds i32, ptr %.val.i808, i64 %1319
-  %1321 = load i32, ptr %1320, align 4
-  %.not.i.i809 = icmp sgt i32 %1321, -1
-  br i1 %.not.i.i809, label %1327, label %1322
+  %1312 = sext i32 %1311 to i64
+  %1313 = getelementptr inbounds i32, ptr %.val.i808, i64 %1312
+  %1314 = load i32, ptr %1313, align 4
+  %.not.i.i809 = icmp sgt i32 %1314, -1
+  br i1 %.not.i.i809, label %1320, label %1315
 
-1322:                                             ; preds = %1313
+1315:                                             ; preds = %1306
   %.val.i.i810 = load ptr, ptr %0, align 8
-  %1323 = getelementptr i8, ptr %.val.i.i810, i64 24
-  %.val.val.i.i811 = load ptr, ptr %1323, align 8
-  %1324 = xor i32 %1321, -1
-  %1325 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i811, i32 noundef range(i32 -2147483648, 2147483647) %1324) #26
-  %1326 = call i32 @atoi(ptr nocapture noundef %1325) #27
+  %1316 = getelementptr i8, ptr %.val.i.i810, i64 24
+  %.val.val.i.i811 = load ptr, ptr %1316, align 8
+  %1317 = xor i32 %1314, -1
+  %1318 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i811, i32 noundef range(i32 -2147483648, 2147483647) %1317) #26
+  %1319 = call i32 @atoi(ptr nocapture noundef %1318) #27
   br label %Cba_ObjRangeSize.exit818
 
-1327:                                             ; preds = %1313
+1320:                                             ; preds = %1306
   %.val.i.i.i.i812 = load i32, ptr %22, align 4
-  %1328 = icmp slt i32 %.val.i.i.i.i812, 1
-  br i1 %1328, label %Cba_NtkRangeSize.exit.i.i817, label %Cba_FonRange.exit.i.i813
+  %1321 = icmp slt i32 %.val.i.i.i.i812, 1
+  br i1 %1321, label %Cba_NtkRangeSize.exit.i.i817, label %Cba_FonRange.exit.i.i813
 
-Cba_FonRange.exit.i.i813:                         ; preds = %1327
-  %1329 = add nuw nsw i32 %1321, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1329, i32 noundef 0)
+Cba_FonRange.exit.i.i813:                         ; preds = %1320
+  %1322 = add nuw nsw i32 %1314, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1322, i32 noundef 0)
   %.val.i.i.i.i.i814 = load ptr, ptr %24, align 8
-  %1330 = zext nneg i32 %1321 to i64
-  %1331 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i814, i64 %1330
-  %1332 = load i32, ptr %1331, align 4
-  %.not.i.i.i.i815 = icmp ult i32 %1332, 2
-  br i1 %.not.i.i.i.i815, label %Cba_NtkRangeSize.exit.i.i817, label %1333
+  %1323 = zext nneg i32 %1314 to i64
+  %1324 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i814, i64 %1323
+  %1325 = load i32, ptr %1324, align 4
+  %.not.i.i.i.i815 = icmp ult i32 %1325, 2
+  br i1 %.not.i.i.i.i815, label %Cba_NtkRangeSize.exit.i.i817, label %1326
 
-1333:                                             ; preds = %Cba_FonRange.exit.i.i813
-  %1334 = load ptr, ptr %0, align 8
-  %1335 = getelementptr inbounds i8, ptr %1334, i64 40
-  %1336 = load ptr, ptr %1335, align 8
-  %1337 = getelementptr inbounds i8, ptr %1336, i64 8
-  %1338 = load ptr, ptr %1337, align 8
-  %1339 = shl nsw i32 %1332, 1
-  %1340 = and i32 %1339, -4
-  %1341 = getelementptr i8, ptr %1338, i64 8
-  %.val.i.i.i.i.i.i816 = load ptr, ptr %1341, align 8
-  %1342 = sext i32 %1340 to i64
-  %1343 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i816, i64 %1342
-  %1344 = load i32, ptr %1343, align 4
-  %1345 = getelementptr inbounds i8, ptr %1343, i64 4
-  %1346 = load i32, ptr %1345, align 4
-  %1347 = sub nsw i32 %1344, %1346
+1326:                                             ; preds = %Cba_FonRange.exit.i.i813
+  %1327 = load ptr, ptr %0, align 8
+  %1328 = getelementptr inbounds i8, ptr %1327, i64 40
+  %1329 = load ptr, ptr %1328, align 8
+  %1330 = getelementptr inbounds i8, ptr %1329, i64 8
+  %1331 = load ptr, ptr %1330, align 8
+  %1332 = shl nsw i32 %1325, 1
+  %1333 = and i32 %1332, -4
+  %1334 = getelementptr i8, ptr %1331, i64 8
+  %.val.i.i.i.i.i.i816 = load ptr, ptr %1334, align 8
+  %1335 = sext i32 %1333 to i64
+  %1336 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i816, i64 %1335
+  %1337 = load i32, ptr %1336, align 4
+  %1338 = getelementptr inbounds i8, ptr %1336, i64 4
+  %1339 = load i32, ptr %1338, align 4
+  %1340 = sub nsw i32 %1337, %1339
   br label %Cba_NtkRangeSize.exit.i.i817
 
-Cba_NtkRangeSize.exit.i.i817:                     ; preds = %1333, %Cba_FonRange.exit.i.i813, %1327
-  %1348 = phi i32 [ %1347, %1333 ], [ 0, %Cba_FonRange.exit.i.i813 ], [ 0, %1327 ]
-  %1349 = call i32 @llvm.abs.i32(i32 %1348, i1 true)
-  %1350 = add nuw nsw i32 %1349, 1
+Cba_NtkRangeSize.exit.i.i817:                     ; preds = %1326, %Cba_FonRange.exit.i.i813, %1320
+  %1341 = phi i32 [ %1340, %1326 ], [ 0, %Cba_FonRange.exit.i.i813 ], [ 0, %1320 ]
+  %1342 = call i32 @llvm.abs.i32(i32 %1341, i1 true)
+  %1343 = add nuw nsw i32 %1342, 1
   br label %Cba_ObjRangeSize.exit818
 
-Cba_ObjRangeSize.exit818:                         ; preds = %1322, %Cba_NtkRangeSize.exit.i.i817
-  %1351 = phi i32 [ %1326, %1322 ], [ %1350, %Cba_NtkRangeSize.exit.i.i817 ]
+Cba_ObjRangeSize.exit818:                         ; preds = %1315, %Cba_NtkRangeSize.exit.i.i817
+  %1344 = phi i32 [ %1319, %1315 ], [ %1343, %Cba_NtkRangeSize.exit.i.i817 ]
   %.val403 = load ptr, ptr %25, align 8
   %.val404 = load ptr, ptr %26, align 8
-  %1352 = getelementptr inbounds i32, ptr %.val403, i64 %indvars.iv1192
-  %1353 = load i32, ptr %1352, align 4
-  %1354 = sext i32 %1353 to i64
-  %1355 = getelementptr i32, ptr %.val404, i64 %1354
-  %1356 = getelementptr i8, ptr %1355, i64 4
-  %1357 = load i32, ptr %1356, align 4
+  %1345 = getelementptr inbounds i32, ptr %.val403, i64 %indvars.iv1192
+  %1346 = load i32, ptr %1345, align 4
+  %1347 = sext i32 %1346 to i64
+  %1348 = getelementptr i32, ptr %.val404, i64 %1347
+  %1349 = getelementptr i8, ptr %1348, i64 4
+  %1350 = load i32, ptr %1349, align 4
   %.val.i819 = load ptr, ptr %21, align 8
-  %1358 = sext i32 %1357 to i64
-  %1359 = getelementptr inbounds i32, ptr %.val.i819, i64 %1358
-  %1360 = load i32, ptr %1359, align 4
-  %.not.i.i820 = icmp sgt i32 %1360, -1
-  br i1 %.not.i.i820, label %1366, label %1361
+  %1351 = sext i32 %1350 to i64
+  %1352 = getelementptr inbounds i32, ptr %.val.i819, i64 %1351
+  %1353 = load i32, ptr %1352, align 4
+  %.not.i.i820 = icmp sgt i32 %1353, -1
+  br i1 %.not.i.i820, label %1359, label %1354
 
-1361:                                             ; preds = %Cba_ObjRangeSize.exit818
+1354:                                             ; preds = %Cba_ObjRangeSize.exit818
   %.val.i.i821 = load ptr, ptr %0, align 8
-  %1362 = getelementptr i8, ptr %.val.i.i821, i64 24
-  %.val.val.i.i822 = load ptr, ptr %1362, align 8
-  %1363 = xor i32 %1360, -1
-  %1364 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i822, i32 noundef range(i32 -2147483648, 2147483647) %1363) #26
-  %1365 = call i32 @atoi(ptr nocapture noundef %1364) #27
+  %1355 = getelementptr i8, ptr %.val.i.i821, i64 24
+  %.val.val.i.i822 = load ptr, ptr %1355, align 8
+  %1356 = xor i32 %1353, -1
+  %1357 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i822, i32 noundef range(i32 -2147483648, 2147483647) %1356) #26
+  %1358 = call i32 @atoi(ptr nocapture noundef %1357) #27
   br label %Cba_ObjRangeSize.exit829
 
-1366:                                             ; preds = %Cba_ObjRangeSize.exit818
+1359:                                             ; preds = %Cba_ObjRangeSize.exit818
   %.val.i.i.i.i823 = load i32, ptr %22, align 4
-  %1367 = icmp slt i32 %.val.i.i.i.i823, 1
-  br i1 %1367, label %Cba_NtkRangeSize.exit.i.i828, label %Cba_FonRange.exit.i.i824
+  %1360 = icmp slt i32 %.val.i.i.i.i823, 1
+  br i1 %1360, label %Cba_NtkRangeSize.exit.i.i828, label %Cba_FonRange.exit.i.i824
 
-Cba_FonRange.exit.i.i824:                         ; preds = %1366
-  %1368 = add nuw nsw i32 %1360, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1368, i32 noundef 0)
+Cba_FonRange.exit.i.i824:                         ; preds = %1359
+  %1361 = add nuw nsw i32 %1353, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1361, i32 noundef 0)
   %.val.i.i.i.i.i825 = load ptr, ptr %24, align 8
-  %1369 = zext nneg i32 %1360 to i64
-  %1370 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i825, i64 %1369
-  %1371 = load i32, ptr %1370, align 4
-  %.not.i.i.i.i826 = icmp ult i32 %1371, 2
-  br i1 %.not.i.i.i.i826, label %Cba_NtkRangeSize.exit.i.i828, label %1372
+  %1362 = zext nneg i32 %1353 to i64
+  %1363 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i825, i64 %1362
+  %1364 = load i32, ptr %1363, align 4
+  %.not.i.i.i.i826 = icmp ult i32 %1364, 2
+  br i1 %.not.i.i.i.i826, label %Cba_NtkRangeSize.exit.i.i828, label %1365
 
-1372:                                             ; preds = %Cba_FonRange.exit.i.i824
-  %1373 = load ptr, ptr %0, align 8
-  %1374 = getelementptr inbounds i8, ptr %1373, i64 40
-  %1375 = load ptr, ptr %1374, align 8
-  %1376 = getelementptr inbounds i8, ptr %1375, i64 8
-  %1377 = load ptr, ptr %1376, align 8
-  %1378 = shl nsw i32 %1371, 1
-  %1379 = and i32 %1378, -4
-  %1380 = getelementptr i8, ptr %1377, i64 8
-  %.val.i.i.i.i.i.i827 = load ptr, ptr %1380, align 8
-  %1381 = sext i32 %1379 to i64
-  %1382 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i827, i64 %1381
-  %1383 = load i32, ptr %1382, align 4
-  %1384 = getelementptr inbounds i8, ptr %1382, i64 4
-  %1385 = load i32, ptr %1384, align 4
-  %1386 = sub nsw i32 %1383, %1385
+1365:                                             ; preds = %Cba_FonRange.exit.i.i824
+  %1366 = load ptr, ptr %0, align 8
+  %1367 = getelementptr inbounds i8, ptr %1366, i64 40
+  %1368 = load ptr, ptr %1367, align 8
+  %1369 = getelementptr inbounds i8, ptr %1368, i64 8
+  %1370 = load ptr, ptr %1369, align 8
+  %1371 = shl nsw i32 %1364, 1
+  %1372 = and i32 %1371, -4
+  %1373 = getelementptr i8, ptr %1370, i64 8
+  %.val.i.i.i.i.i.i827 = load ptr, ptr %1373, align 8
+  %1374 = sext i32 %1372 to i64
+  %1375 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i827, i64 %1374
+  %1376 = load i32, ptr %1375, align 4
+  %1377 = getelementptr inbounds i8, ptr %1375, i64 4
+  %1378 = load i32, ptr %1377, align 4
+  %1379 = sub nsw i32 %1376, %1378
   br label %Cba_NtkRangeSize.exit.i.i828
 
-Cba_NtkRangeSize.exit.i.i828:                     ; preds = %1372, %Cba_FonRange.exit.i.i824, %1366
-  %1387 = phi i32 [ %1386, %1372 ], [ 0, %Cba_FonRange.exit.i.i824 ], [ 0, %1366 ]
-  %1388 = call i32 @llvm.abs.i32(i32 %1387, i1 true)
-  %1389 = add nuw nsw i32 %1388, 1
+Cba_NtkRangeSize.exit.i.i828:                     ; preds = %1365, %Cba_FonRange.exit.i.i824, %1359
+  %1380 = phi i32 [ %1379, %1365 ], [ 0, %Cba_FonRange.exit.i.i824 ], [ 0, %1359 ]
+  %1381 = call i32 @llvm.abs.i32(i32 %1380, i1 true)
+  %1382 = add nuw nsw i32 %1381, 1
   br label %Cba_ObjRangeSize.exit829
 
-Cba_ObjRangeSize.exit829:                         ; preds = %1361, %Cba_NtkRangeSize.exit.i.i828
-  %1390 = phi i32 [ %1365, %1361 ], [ %1389, %Cba_NtkRangeSize.exit.i.i828 ]
+Cba_ObjRangeSize.exit829:                         ; preds = %1354, %Cba_NtkRangeSize.exit.i.i828
+  %1383 = phi i32 [ %1358, %1354 ], [ %1382, %Cba_NtkRangeSize.exit.i.i828 ]
   %.val477 = load ptr, ptr %5, align 8
-  %1391 = getelementptr inbounds i8, ptr %.val477, i64 152
-  %1392 = load i32, ptr %1391, align 4
-  %1393 = add i32 %1351, 1
-  %1394 = add i32 %1393, %1390
-  %1395 = add nsw i32 %1394, %1392
-  store i32 %1395, ptr %1391, align 4
-  br label %2454
+  %1384 = getelementptr inbounds i8, ptr %.val477, i64 152
+  %1385 = load i32, ptr %1384, align 4
+  %1386 = add i32 %1344, 1
+  %1387 = add i32 %1386, %1383
+  %1388 = add nsw i32 %1387, %1385
+  store i32 %1388, ptr %1384, align 4
+  br label %2447
 
-1396:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1389:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val405 = load ptr, ptr %25, align 8
   %.val406 = load ptr, ptr %26, align 8
-  %1397 = getelementptr inbounds i32, ptr %.val405, i64 %indvars.iv1192
-  %1398 = load i32, ptr %1397, align 4
-  %1399 = sext i32 %1398 to i64
-  %1400 = getelementptr inbounds i32, ptr %.val406, i64 %1399
-  %1401 = load i32, ptr %1400, align 4
+  %1390 = getelementptr inbounds i32, ptr %.val405, i64 %indvars.iv1192
+  %1391 = load i32, ptr %1390, align 4
+  %1392 = sext i32 %1391 to i64
+  %1393 = getelementptr inbounds i32, ptr %.val406, i64 %1392
+  %1394 = load i32, ptr %1393, align 4
   %.val.i830 = load ptr, ptr %21, align 8
-  %1402 = sext i32 %1401 to i64
-  %1403 = getelementptr inbounds i32, ptr %.val.i830, i64 %1402
-  %1404 = load i32, ptr %1403, align 4
-  %.not.i.i831 = icmp sgt i32 %1404, -1
-  br i1 %.not.i.i831, label %1410, label %1405
+  %1395 = sext i32 %1394 to i64
+  %1396 = getelementptr inbounds i32, ptr %.val.i830, i64 %1395
+  %1397 = load i32, ptr %1396, align 4
+  %.not.i.i831 = icmp sgt i32 %1397, -1
+  br i1 %.not.i.i831, label %1403, label %1398
 
-1405:                                             ; preds = %1396
+1398:                                             ; preds = %1389
   %.val.i.i832 = load ptr, ptr %0, align 8
-  %1406 = getelementptr i8, ptr %.val.i.i832, i64 24
-  %.val.val.i.i833 = load ptr, ptr %1406, align 8
-  %1407 = xor i32 %1404, -1
-  %1408 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i833, i32 noundef range(i32 -2147483648, 2147483647) %1407) #26
-  %1409 = call i32 @atoi(ptr nocapture noundef %1408) #27
+  %1399 = getelementptr i8, ptr %.val.i.i832, i64 24
+  %.val.val.i.i833 = load ptr, ptr %1399, align 8
+  %1400 = xor i32 %1397, -1
+  %1401 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i833, i32 noundef range(i32 -2147483648, 2147483647) %1400) #26
+  %1402 = call i32 @atoi(ptr nocapture noundef %1401) #27
   br label %Cba_ObjRangeSize.exit840
 
-1410:                                             ; preds = %1396
+1403:                                             ; preds = %1389
   %.val.i.i.i.i834 = load i32, ptr %22, align 4
-  %1411 = icmp slt i32 %.val.i.i.i.i834, 1
-  br i1 %1411, label %Cba_NtkRangeSize.exit.i.i839, label %Cba_FonRange.exit.i.i835
+  %1404 = icmp slt i32 %.val.i.i.i.i834, 1
+  br i1 %1404, label %Cba_NtkRangeSize.exit.i.i839, label %Cba_FonRange.exit.i.i835
 
-Cba_FonRange.exit.i.i835:                         ; preds = %1410
-  %1412 = add nuw nsw i32 %1404, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1412, i32 noundef 0)
+Cba_FonRange.exit.i.i835:                         ; preds = %1403
+  %1405 = add nuw nsw i32 %1397, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1405, i32 noundef 0)
   %.val.i.i.i.i.i836 = load ptr, ptr %24, align 8
-  %1413 = zext nneg i32 %1404 to i64
-  %1414 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i836, i64 %1413
-  %1415 = load i32, ptr %1414, align 4
-  %.not.i.i.i.i837 = icmp ult i32 %1415, 2
-  br i1 %.not.i.i.i.i837, label %Cba_NtkRangeSize.exit.i.i839, label %1416
+  %1406 = zext nneg i32 %1397 to i64
+  %1407 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i836, i64 %1406
+  %1408 = load i32, ptr %1407, align 4
+  %.not.i.i.i.i837 = icmp ult i32 %1408, 2
+  br i1 %.not.i.i.i.i837, label %Cba_NtkRangeSize.exit.i.i839, label %1409
 
-1416:                                             ; preds = %Cba_FonRange.exit.i.i835
-  %1417 = load ptr, ptr %0, align 8
-  %1418 = getelementptr inbounds i8, ptr %1417, i64 40
-  %1419 = load ptr, ptr %1418, align 8
-  %1420 = getelementptr inbounds i8, ptr %1419, i64 8
-  %1421 = load ptr, ptr %1420, align 8
-  %1422 = shl nsw i32 %1415, 1
-  %1423 = and i32 %1422, -4
-  %1424 = getelementptr i8, ptr %1421, i64 8
-  %.val.i.i.i.i.i.i838 = load ptr, ptr %1424, align 8
-  %1425 = sext i32 %1423 to i64
-  %1426 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i838, i64 %1425
-  %1427 = load i32, ptr %1426, align 4
-  %1428 = getelementptr inbounds i8, ptr %1426, i64 4
-  %1429 = load i32, ptr %1428, align 4
-  %1430 = sub nsw i32 %1427, %1429
+1409:                                             ; preds = %Cba_FonRange.exit.i.i835
+  %1410 = load ptr, ptr %0, align 8
+  %1411 = getelementptr inbounds i8, ptr %1410, i64 40
+  %1412 = load ptr, ptr %1411, align 8
+  %1413 = getelementptr inbounds i8, ptr %1412, i64 8
+  %1414 = load ptr, ptr %1413, align 8
+  %1415 = shl nsw i32 %1408, 1
+  %1416 = and i32 %1415, -4
+  %1417 = getelementptr i8, ptr %1414, i64 8
+  %.val.i.i.i.i.i.i838 = load ptr, ptr %1417, align 8
+  %1418 = sext i32 %1416 to i64
+  %1419 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i838, i64 %1418
+  %1420 = load i32, ptr %1419, align 4
+  %1421 = getelementptr inbounds i8, ptr %1419, i64 4
+  %1422 = load i32, ptr %1421, align 4
+  %1423 = sub nsw i32 %1420, %1422
   br label %Cba_NtkRangeSize.exit.i.i839
 
-Cba_NtkRangeSize.exit.i.i839:                     ; preds = %1416, %Cba_FonRange.exit.i.i835, %1410
-  %1431 = phi i32 [ %1430, %1416 ], [ 0, %Cba_FonRange.exit.i.i835 ], [ 0, %1410 ]
-  %1432 = call i32 @llvm.abs.i32(i32 %1431, i1 true)
-  %1433 = add nuw nsw i32 %1432, 1
+Cba_NtkRangeSize.exit.i.i839:                     ; preds = %1409, %Cba_FonRange.exit.i.i835, %1403
+  %1424 = phi i32 [ %1423, %1409 ], [ 0, %Cba_FonRange.exit.i.i835 ], [ 0, %1403 ]
+  %1425 = call i32 @llvm.abs.i32(i32 %1424, i1 true)
+  %1426 = add nuw nsw i32 %1425, 1
   br label %Cba_ObjRangeSize.exit840
 
-Cba_ObjRangeSize.exit840:                         ; preds = %1405, %Cba_NtkRangeSize.exit.i.i839
-  %1434 = phi i32 [ %1409, %1405 ], [ %1433, %Cba_NtkRangeSize.exit.i.i839 ]
-  %1435 = shl nsw i32 %1434, 2
-  %1436 = add nsw i32 %1435, -1
+Cba_ObjRangeSize.exit840:                         ; preds = %1398, %Cba_NtkRangeSize.exit.i.i839
+  %1427 = phi i32 [ %1402, %1398 ], [ %1426, %Cba_NtkRangeSize.exit.i.i839 ]
+  %1428 = shl nsw i32 %1427, 2
+  %1429 = add nsw i32 %1428, -1
   %.val478 = load ptr, ptr %5, align 8
-  %1437 = getelementptr inbounds i8, ptr %.val478, i64 252
-  %1438 = load i32, ptr %1437, align 4
-  %1439 = add nsw i32 %1436, %1438
-  store i32 %1439, ptr %1437, align 4
-  br label %2454
+  %1430 = getelementptr inbounds i8, ptr %.val478, i64 252
+  %1431 = load i32, ptr %1430, align 4
+  %1432 = add nsw i32 %1429, %1431
+  store i32 %1432, ptr %1430, align 4
+  br label %2447
 
-1440:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1433:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val407 = load ptr, ptr %25, align 8
   %.val408 = load ptr, ptr %26, align 8
-  %1441 = getelementptr inbounds i32, ptr %.val407, i64 %indvars.iv1192
-  %1442 = load i32, ptr %1441, align 4
-  %1443 = sext i32 %1442 to i64
-  %1444 = getelementptr inbounds i32, ptr %.val408, i64 %1443
-  %1445 = load i32, ptr %1444, align 4
+  %1434 = getelementptr inbounds i32, ptr %.val407, i64 %indvars.iv1192
+  %1435 = load i32, ptr %1434, align 4
+  %1436 = sext i32 %1435 to i64
+  %1437 = getelementptr inbounds i32, ptr %.val408, i64 %1436
+  %1438 = load i32, ptr %1437, align 4
   %.val.i841 = load ptr, ptr %21, align 8
-  %1446 = sext i32 %1445 to i64
-  %1447 = getelementptr inbounds i32, ptr %.val.i841, i64 %1446
-  %1448 = load i32, ptr %1447, align 4
-  %.not.i.i842 = icmp sgt i32 %1448, -1
-  br i1 %.not.i.i842, label %1454, label %1449
+  %1439 = sext i32 %1438 to i64
+  %1440 = getelementptr inbounds i32, ptr %.val.i841, i64 %1439
+  %1441 = load i32, ptr %1440, align 4
+  %.not.i.i842 = icmp sgt i32 %1441, -1
+  br i1 %.not.i.i842, label %1447, label %1442
 
-1449:                                             ; preds = %1440
+1442:                                             ; preds = %1433
   %.val.i.i843 = load ptr, ptr %0, align 8
-  %1450 = getelementptr i8, ptr %.val.i.i843, i64 24
-  %.val.val.i.i844 = load ptr, ptr %1450, align 8
-  %1451 = xor i32 %1448, -1
-  %1452 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i844, i32 noundef range(i32 -2147483648, 2147483647) %1451) #26
-  %1453 = call i32 @atoi(ptr nocapture noundef %1452) #27
+  %1443 = getelementptr i8, ptr %.val.i.i843, i64 24
+  %.val.val.i.i844 = load ptr, ptr %1443, align 8
+  %1444 = xor i32 %1441, -1
+  %1445 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i844, i32 noundef range(i32 -2147483648, 2147483647) %1444) #26
+  %1446 = call i32 @atoi(ptr nocapture noundef %1445) #27
   br label %Cba_ObjRangeSize.exit851
 
-1454:                                             ; preds = %1440
+1447:                                             ; preds = %1433
   %.val.i.i.i.i845 = load i32, ptr %22, align 4
-  %1455 = icmp slt i32 %.val.i.i.i.i845, 1
-  br i1 %1455, label %Cba_NtkRangeSize.exit.i.i850, label %Cba_FonRange.exit.i.i846
+  %1448 = icmp slt i32 %.val.i.i.i.i845, 1
+  br i1 %1448, label %Cba_NtkRangeSize.exit.i.i850, label %Cba_FonRange.exit.i.i846
 
-Cba_FonRange.exit.i.i846:                         ; preds = %1454
-  %1456 = add nuw nsw i32 %1448, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1456, i32 noundef 0)
+Cba_FonRange.exit.i.i846:                         ; preds = %1447
+  %1449 = add nuw nsw i32 %1441, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1449, i32 noundef 0)
   %.val.i.i.i.i.i847 = load ptr, ptr %24, align 8
-  %1457 = zext nneg i32 %1448 to i64
-  %1458 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i847, i64 %1457
-  %1459 = load i32, ptr %1458, align 4
-  %.not.i.i.i.i848 = icmp ult i32 %1459, 2
-  br i1 %.not.i.i.i.i848, label %Cba_NtkRangeSize.exit.i.i850, label %1460
+  %1450 = zext nneg i32 %1441 to i64
+  %1451 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i847, i64 %1450
+  %1452 = load i32, ptr %1451, align 4
+  %.not.i.i.i.i848 = icmp ult i32 %1452, 2
+  br i1 %.not.i.i.i.i848, label %Cba_NtkRangeSize.exit.i.i850, label %1453
 
-1460:                                             ; preds = %Cba_FonRange.exit.i.i846
-  %1461 = load ptr, ptr %0, align 8
-  %1462 = getelementptr inbounds i8, ptr %1461, i64 40
-  %1463 = load ptr, ptr %1462, align 8
-  %1464 = getelementptr inbounds i8, ptr %1463, i64 8
-  %1465 = load ptr, ptr %1464, align 8
-  %1466 = shl nsw i32 %1459, 1
-  %1467 = and i32 %1466, -4
-  %1468 = getelementptr i8, ptr %1465, i64 8
-  %.val.i.i.i.i.i.i849 = load ptr, ptr %1468, align 8
-  %1469 = sext i32 %1467 to i64
-  %1470 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i849, i64 %1469
-  %1471 = load i32, ptr %1470, align 4
-  %1472 = getelementptr inbounds i8, ptr %1470, i64 4
-  %1473 = load i32, ptr %1472, align 4
-  %1474 = sub nsw i32 %1471, %1473
+1453:                                             ; preds = %Cba_FonRange.exit.i.i846
+  %1454 = load ptr, ptr %0, align 8
+  %1455 = getelementptr inbounds i8, ptr %1454, i64 40
+  %1456 = load ptr, ptr %1455, align 8
+  %1457 = getelementptr inbounds i8, ptr %1456, i64 8
+  %1458 = load ptr, ptr %1457, align 8
+  %1459 = shl nsw i32 %1452, 1
+  %1460 = and i32 %1459, -4
+  %1461 = getelementptr i8, ptr %1458, i64 8
+  %.val.i.i.i.i.i.i849 = load ptr, ptr %1461, align 8
+  %1462 = sext i32 %1460 to i64
+  %1463 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i849, i64 %1462
+  %1464 = load i32, ptr %1463, align 4
+  %1465 = getelementptr inbounds i8, ptr %1463, i64 4
+  %1466 = load i32, ptr %1465, align 4
+  %1467 = sub nsw i32 %1464, %1466
   br label %Cba_NtkRangeSize.exit.i.i850
 
-Cba_NtkRangeSize.exit.i.i850:                     ; preds = %1460, %Cba_FonRange.exit.i.i846, %1454
-  %1475 = phi i32 [ %1474, %1460 ], [ 0, %Cba_FonRange.exit.i.i846 ], [ 0, %1454 ]
-  %1476 = call i32 @llvm.abs.i32(i32 %1475, i1 true)
-  %1477 = add nuw nsw i32 %1476, 1
+Cba_NtkRangeSize.exit.i.i850:                     ; preds = %1453, %Cba_FonRange.exit.i.i846, %1447
+  %1468 = phi i32 [ %1467, %1453 ], [ 0, %Cba_FonRange.exit.i.i846 ], [ 0, %1447 ]
+  %1469 = call i32 @llvm.abs.i32(i32 %1468, i1 true)
+  %1470 = add nuw nsw i32 %1469, 1
   br label %Cba_ObjRangeSize.exit851
 
-Cba_ObjRangeSize.exit851:                         ; preds = %1449, %Cba_NtkRangeSize.exit.i.i850
-  %1478 = phi i32 [ %1453, %1449 ], [ %1477, %Cba_NtkRangeSize.exit.i.i850 ]
-  %1479 = shl nsw i32 %1478, 2
-  %1480 = add nsw i32 %1479, -1
+Cba_ObjRangeSize.exit851:                         ; preds = %1442, %Cba_NtkRangeSize.exit.i.i850
+  %1471 = phi i32 [ %1446, %1442 ], [ %1470, %Cba_NtkRangeSize.exit.i.i850 ]
+  %1472 = shl nsw i32 %1471, 2
+  %1473 = add nsw i32 %1472, -1
   %.val479 = load ptr, ptr %5, align 8
-  %1481 = getelementptr inbounds i8, ptr %.val479, i64 256
-  %1482 = load i32, ptr %1481, align 4
-  %1483 = add nsw i32 %1480, %1482
-  store i32 %1483, ptr %1481, align 4
-  br label %2454
+  %1474 = getelementptr inbounds i8, ptr %.val479, i64 256
+  %1475 = load i32, ptr %1474, align 4
+  %1476 = add nsw i32 %1473, %1475
+  store i32 %1476, ptr %1474, align 4
+  br label %2447
 
-1484:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1477:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val409 = load ptr, ptr %25, align 8
   %.val410 = load ptr, ptr %26, align 8
-  %1485 = getelementptr inbounds i32, ptr %.val409, i64 %indvars.iv1192
-  %1486 = load i32, ptr %1485, align 4
-  %1487 = sext i32 %1486 to i64
-  %1488 = getelementptr inbounds i32, ptr %.val410, i64 %1487
-  %1489 = load i32, ptr %1488, align 4
+  %1478 = getelementptr inbounds i32, ptr %.val409, i64 %indvars.iv1192
+  %1479 = load i32, ptr %1478, align 4
+  %1480 = sext i32 %1479 to i64
+  %1481 = getelementptr inbounds i32, ptr %.val410, i64 %1480
+  %1482 = load i32, ptr %1481, align 4
   %.val.i852 = load ptr, ptr %21, align 8
-  %1490 = sext i32 %1489 to i64
-  %1491 = getelementptr inbounds i32, ptr %.val.i852, i64 %1490
-  %1492 = load i32, ptr %1491, align 4
-  %.not.i.i853 = icmp sgt i32 %1492, -1
-  br i1 %.not.i.i853, label %1498, label %1493
+  %1483 = sext i32 %1482 to i64
+  %1484 = getelementptr inbounds i32, ptr %.val.i852, i64 %1483
+  %1485 = load i32, ptr %1484, align 4
+  %.not.i.i853 = icmp sgt i32 %1485, -1
+  br i1 %.not.i.i853, label %1491, label %1486
 
-1493:                                             ; preds = %1484
+1486:                                             ; preds = %1477
   %.val.i.i854 = load ptr, ptr %0, align 8
-  %1494 = getelementptr i8, ptr %.val.i.i854, i64 24
-  %.val.val.i.i855 = load ptr, ptr %1494, align 8
-  %1495 = xor i32 %1492, -1
-  %1496 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i855, i32 noundef range(i32 -2147483648, 2147483647) %1495) #26
-  %1497 = call i32 @atoi(ptr nocapture noundef %1496) #27
+  %1487 = getelementptr i8, ptr %.val.i.i854, i64 24
+  %.val.val.i.i855 = load ptr, ptr %1487, align 8
+  %1488 = xor i32 %1485, -1
+  %1489 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i855, i32 noundef range(i32 -2147483648, 2147483647) %1488) #26
+  %1490 = call i32 @atoi(ptr nocapture noundef %1489) #27
   br label %Cba_ObjRangeSize.exit862
 
-1498:                                             ; preds = %1484
+1491:                                             ; preds = %1477
   %.val.i.i.i.i856 = load i32, ptr %22, align 4
-  %1499 = icmp slt i32 %.val.i.i.i.i856, 1
-  br i1 %1499, label %Cba_NtkRangeSize.exit.i.i861, label %Cba_FonRange.exit.i.i857
+  %1492 = icmp slt i32 %.val.i.i.i.i856, 1
+  br i1 %1492, label %Cba_NtkRangeSize.exit.i.i861, label %Cba_FonRange.exit.i.i857
 
-Cba_FonRange.exit.i.i857:                         ; preds = %1498
-  %1500 = add nuw nsw i32 %1492, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1500, i32 noundef 0)
+Cba_FonRange.exit.i.i857:                         ; preds = %1491
+  %1493 = add nuw nsw i32 %1485, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1493, i32 noundef 0)
   %.val.i.i.i.i.i858 = load ptr, ptr %24, align 8
-  %1501 = zext nneg i32 %1492 to i64
-  %1502 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i858, i64 %1501
-  %1503 = load i32, ptr %1502, align 4
-  %.not.i.i.i.i859 = icmp ult i32 %1503, 2
-  br i1 %.not.i.i.i.i859, label %Cba_NtkRangeSize.exit.i.i861, label %1504
+  %1494 = zext nneg i32 %1485 to i64
+  %1495 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i858, i64 %1494
+  %1496 = load i32, ptr %1495, align 4
+  %.not.i.i.i.i859 = icmp ult i32 %1496, 2
+  br i1 %.not.i.i.i.i859, label %Cba_NtkRangeSize.exit.i.i861, label %1497
 
-1504:                                             ; preds = %Cba_FonRange.exit.i.i857
-  %1505 = load ptr, ptr %0, align 8
-  %1506 = getelementptr inbounds i8, ptr %1505, i64 40
-  %1507 = load ptr, ptr %1506, align 8
-  %1508 = getelementptr inbounds i8, ptr %1507, i64 8
-  %1509 = load ptr, ptr %1508, align 8
-  %1510 = shl nsw i32 %1503, 1
-  %1511 = and i32 %1510, -4
-  %1512 = getelementptr i8, ptr %1509, i64 8
-  %.val.i.i.i.i.i.i860 = load ptr, ptr %1512, align 8
-  %1513 = sext i32 %1511 to i64
-  %1514 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i860, i64 %1513
-  %1515 = load i32, ptr %1514, align 4
-  %1516 = getelementptr inbounds i8, ptr %1514, i64 4
-  %1517 = load i32, ptr %1516, align 4
-  %1518 = sub nsw i32 %1515, %1517
+1497:                                             ; preds = %Cba_FonRange.exit.i.i857
+  %1498 = load ptr, ptr %0, align 8
+  %1499 = getelementptr inbounds i8, ptr %1498, i64 40
+  %1500 = load ptr, ptr %1499, align 8
+  %1501 = getelementptr inbounds i8, ptr %1500, i64 8
+  %1502 = load ptr, ptr %1501, align 8
+  %1503 = shl nsw i32 %1496, 1
+  %1504 = and i32 %1503, -4
+  %1505 = getelementptr i8, ptr %1502, i64 8
+  %.val.i.i.i.i.i.i860 = load ptr, ptr %1505, align 8
+  %1506 = sext i32 %1504 to i64
+  %1507 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i860, i64 %1506
+  %1508 = load i32, ptr %1507, align 4
+  %1509 = getelementptr inbounds i8, ptr %1507, i64 4
+  %1510 = load i32, ptr %1509, align 4
+  %1511 = sub nsw i32 %1508, %1510
   br label %Cba_NtkRangeSize.exit.i.i861
 
-Cba_NtkRangeSize.exit.i.i861:                     ; preds = %1504, %Cba_FonRange.exit.i.i857, %1498
-  %1519 = phi i32 [ %1518, %1504 ], [ 0, %Cba_FonRange.exit.i.i857 ], [ 0, %1498 ]
-  %1520 = call i32 @llvm.abs.i32(i32 %1519, i1 true)
-  %1521 = add nuw nsw i32 %1520, 1
+Cba_NtkRangeSize.exit.i.i861:                     ; preds = %1497, %Cba_FonRange.exit.i.i857, %1491
+  %1512 = phi i32 [ %1511, %1497 ], [ 0, %Cba_FonRange.exit.i.i857 ], [ 0, %1491 ]
+  %1513 = call i32 @llvm.abs.i32(i32 %1512, i1 true)
+  %1514 = add nuw nsw i32 %1513, 1
   br label %Cba_ObjRangeSize.exit862
 
-Cba_ObjRangeSize.exit862:                         ; preds = %1493, %Cba_NtkRangeSize.exit.i.i861
-  %1522 = phi i32 [ %1497, %1493 ], [ %1521, %Cba_NtkRangeSize.exit.i.i861 ]
-  %1523 = mul nsw i32 %1522, 6
-  %1524 = add nsw i32 %1523, -6
+Cba_ObjRangeSize.exit862:                         ; preds = %1486, %Cba_NtkRangeSize.exit.i.i861
+  %1515 = phi i32 [ %1490, %1486 ], [ %1514, %Cba_NtkRangeSize.exit.i.i861 ]
+  %1516 = mul nsw i32 %1515, 6
+  %1517 = add nsw i32 %1516, -6
   %.val480 = load ptr, ptr %5, align 8
-  %1525 = getelementptr inbounds i8, ptr %.val480, i64 236
-  %1526 = load i32, ptr %1525, align 4
-  %1527 = add nsw i32 %1524, %1526
-  store i32 %1527, ptr %1525, align 4
-  br label %2454
+  %1518 = getelementptr inbounds i8, ptr %.val480, i64 236
+  %1519 = load i32, ptr %1518, align 4
+  %1520 = add nsw i32 %1517, %1519
+  store i32 %1520, ptr %1518, align 4
+  br label %2447
 
-1528:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1521:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val411 = load ptr, ptr %25, align 8
   %.val412 = load ptr, ptr %26, align 8
-  %1529 = getelementptr inbounds i32, ptr %.val411, i64 %indvars.iv1192
-  %1530 = load i32, ptr %1529, align 4
-  %1531 = sext i32 %1530 to i64
-  %1532 = getelementptr inbounds i32, ptr %.val412, i64 %1531
-  %1533 = load i32, ptr %1532, align 4
+  %1522 = getelementptr inbounds i32, ptr %.val411, i64 %indvars.iv1192
+  %1523 = load i32, ptr %1522, align 4
+  %1524 = sext i32 %1523 to i64
+  %1525 = getelementptr inbounds i32, ptr %.val412, i64 %1524
+  %1526 = load i32, ptr %1525, align 4
   %.val.i863 = load ptr, ptr %21, align 8
-  %1534 = sext i32 %1533 to i64
-  %1535 = getelementptr inbounds i32, ptr %.val.i863, i64 %1534
-  %1536 = load i32, ptr %1535, align 4
-  %.not.i.i864 = icmp sgt i32 %1536, -1
-  br i1 %.not.i.i864, label %1542, label %1537
+  %1527 = sext i32 %1526 to i64
+  %1528 = getelementptr inbounds i32, ptr %.val.i863, i64 %1527
+  %1529 = load i32, ptr %1528, align 4
+  %.not.i.i864 = icmp sgt i32 %1529, -1
+  br i1 %.not.i.i864, label %1535, label %1530
 
-1537:                                             ; preds = %1528
+1530:                                             ; preds = %1521
   %.val.i.i865 = load ptr, ptr %0, align 8
-  %1538 = getelementptr i8, ptr %.val.i.i865, i64 24
-  %.val.val.i.i866 = load ptr, ptr %1538, align 8
-  %1539 = xor i32 %1536, -1
-  %1540 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i866, i32 noundef range(i32 -2147483648, 2147483647) %1539) #26
-  %1541 = call i32 @atoi(ptr nocapture noundef %1540) #27
+  %1531 = getelementptr i8, ptr %.val.i.i865, i64 24
+  %.val.val.i.i866 = load ptr, ptr %1531, align 8
+  %1532 = xor i32 %1529, -1
+  %1533 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i866, i32 noundef range(i32 -2147483648, 2147483647) %1532) #26
+  %1534 = call i32 @atoi(ptr nocapture noundef %1533) #27
   br label %Cba_ObjRangeSize.exit873
 
-1542:                                             ; preds = %1528
+1535:                                             ; preds = %1521
   %.val.i.i.i.i867 = load i32, ptr %22, align 4
-  %1543 = icmp slt i32 %.val.i.i.i.i867, 1
-  br i1 %1543, label %Cba_NtkRangeSize.exit.i.i872, label %Cba_FonRange.exit.i.i868
+  %1536 = icmp slt i32 %.val.i.i.i.i867, 1
+  br i1 %1536, label %Cba_NtkRangeSize.exit.i.i872, label %Cba_FonRange.exit.i.i868
 
-Cba_FonRange.exit.i.i868:                         ; preds = %1542
-  %1544 = add nuw nsw i32 %1536, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1544, i32 noundef 0)
+Cba_FonRange.exit.i.i868:                         ; preds = %1535
+  %1537 = add nuw nsw i32 %1529, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1537, i32 noundef 0)
   %.val.i.i.i.i.i869 = load ptr, ptr %24, align 8
-  %1545 = zext nneg i32 %1536 to i64
-  %1546 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i869, i64 %1545
-  %1547 = load i32, ptr %1546, align 4
-  %.not.i.i.i.i870 = icmp ult i32 %1547, 2
-  br i1 %.not.i.i.i.i870, label %Cba_NtkRangeSize.exit.i.i872, label %1548
+  %1538 = zext nneg i32 %1529 to i64
+  %1539 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i869, i64 %1538
+  %1540 = load i32, ptr %1539, align 4
+  %.not.i.i.i.i870 = icmp ult i32 %1540, 2
+  br i1 %.not.i.i.i.i870, label %Cba_NtkRangeSize.exit.i.i872, label %1541
 
-1548:                                             ; preds = %Cba_FonRange.exit.i.i868
-  %1549 = load ptr, ptr %0, align 8
-  %1550 = getelementptr inbounds i8, ptr %1549, i64 40
-  %1551 = load ptr, ptr %1550, align 8
-  %1552 = getelementptr inbounds i8, ptr %1551, i64 8
-  %1553 = load ptr, ptr %1552, align 8
-  %1554 = shl nsw i32 %1547, 1
-  %1555 = and i32 %1554, -4
-  %1556 = getelementptr i8, ptr %1553, i64 8
-  %.val.i.i.i.i.i.i871 = load ptr, ptr %1556, align 8
-  %1557 = sext i32 %1555 to i64
-  %1558 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i871, i64 %1557
-  %1559 = load i32, ptr %1558, align 4
-  %1560 = getelementptr inbounds i8, ptr %1558, i64 4
-  %1561 = load i32, ptr %1560, align 4
-  %1562 = sub nsw i32 %1559, %1561
+1541:                                             ; preds = %Cba_FonRange.exit.i.i868
+  %1542 = load ptr, ptr %0, align 8
+  %1543 = getelementptr inbounds i8, ptr %1542, i64 40
+  %1544 = load ptr, ptr %1543, align 8
+  %1545 = getelementptr inbounds i8, ptr %1544, i64 8
+  %1546 = load ptr, ptr %1545, align 8
+  %1547 = shl nsw i32 %1540, 1
+  %1548 = and i32 %1547, -4
+  %1549 = getelementptr i8, ptr %1546, i64 8
+  %.val.i.i.i.i.i.i871 = load ptr, ptr %1549, align 8
+  %1550 = sext i32 %1548 to i64
+  %1551 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i871, i64 %1550
+  %1552 = load i32, ptr %1551, align 4
+  %1553 = getelementptr inbounds i8, ptr %1551, i64 4
+  %1554 = load i32, ptr %1553, align 4
+  %1555 = sub nsw i32 %1552, %1554
   br label %Cba_NtkRangeSize.exit.i.i872
 
-Cba_NtkRangeSize.exit.i.i872:                     ; preds = %1548, %Cba_FonRange.exit.i.i868, %1542
-  %1563 = phi i32 [ %1562, %1548 ], [ 0, %Cba_FonRange.exit.i.i868 ], [ 0, %1542 ]
-  %1564 = call i32 @llvm.abs.i32(i32 %1563, i1 true)
-  %1565 = add nuw nsw i32 %1564, 1
+Cba_NtkRangeSize.exit.i.i872:                     ; preds = %1541, %Cba_FonRange.exit.i.i868, %1535
+  %1556 = phi i32 [ %1555, %1541 ], [ 0, %Cba_FonRange.exit.i.i868 ], [ 0, %1535 ]
+  %1557 = call i32 @llvm.abs.i32(i32 %1556, i1 true)
+  %1558 = add nuw nsw i32 %1557, 1
   br label %Cba_ObjRangeSize.exit873
 
-Cba_ObjRangeSize.exit873:                         ; preds = %1537, %Cba_NtkRangeSize.exit.i.i872
-  %1566 = phi i32 [ %1541, %1537 ], [ %1565, %Cba_NtkRangeSize.exit.i.i872 ]
-  %1567 = mul nsw i32 %1566, 6
-  %1568 = add nsw i32 %1567, -6
+Cba_ObjRangeSize.exit873:                         ; preds = %1530, %Cba_NtkRangeSize.exit.i.i872
+  %1559 = phi i32 [ %1534, %1530 ], [ %1558, %Cba_NtkRangeSize.exit.i.i872 ]
+  %1560 = mul nsw i32 %1559, 6
+  %1561 = add nsw i32 %1560, -6
   %.val481 = load ptr, ptr %5, align 8
-  %1569 = getelementptr inbounds i8, ptr %.val481, i64 248
-  %1570 = load i32, ptr %1569, align 4
-  %1571 = add nsw i32 %1568, %1570
-  store i32 %1571, ptr %1569, align 4
-  br label %2454
+  %1562 = getelementptr inbounds i8, ptr %.val481, i64 248
+  %1563 = load i32, ptr %1562, align 4
+  %1564 = add nsw i32 %1561, %1563
+  store i32 %1564, ptr %1562, align 4
+  br label %2447
 
-1572:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1565:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val413 = load ptr, ptr %25, align 8
   %.val414 = load ptr, ptr %26, align 8
-  %1573 = getelementptr inbounds i32, ptr %.val413, i64 %indvars.iv1192
-  %1574 = load i32, ptr %1573, align 4
-  %1575 = sext i32 %1574 to i64
-  %1576 = getelementptr inbounds i32, ptr %.val414, i64 %1575
-  %1577 = load i32, ptr %1576, align 4
+  %1566 = getelementptr inbounds i32, ptr %.val413, i64 %indvars.iv1192
+  %1567 = load i32, ptr %1566, align 4
+  %1568 = sext i32 %1567 to i64
+  %1569 = getelementptr inbounds i32, ptr %.val414, i64 %1568
+  %1570 = load i32, ptr %1569, align 4
   %.val.i874 = load ptr, ptr %21, align 8
-  %1578 = sext i32 %1577 to i64
-  %1579 = getelementptr inbounds i32, ptr %.val.i874, i64 %1578
-  %1580 = load i32, ptr %1579, align 4
-  %.not.i.i875 = icmp sgt i32 %1580, -1
-  br i1 %.not.i.i875, label %1586, label %1581
+  %1571 = sext i32 %1570 to i64
+  %1572 = getelementptr inbounds i32, ptr %.val.i874, i64 %1571
+  %1573 = load i32, ptr %1572, align 4
+  %.not.i.i875 = icmp sgt i32 %1573, -1
+  br i1 %.not.i.i875, label %1579, label %1574
 
-1581:                                             ; preds = %1572
+1574:                                             ; preds = %1565
   %.val.i.i876 = load ptr, ptr %0, align 8
-  %1582 = getelementptr i8, ptr %.val.i.i876, i64 24
-  %.val.val.i.i877 = load ptr, ptr %1582, align 8
-  %1583 = xor i32 %1580, -1
-  %1584 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i877, i32 noundef range(i32 -2147483648, 2147483647) %1583) #26
-  %1585 = call i32 @atoi(ptr nocapture noundef %1584) #27
+  %1575 = getelementptr i8, ptr %.val.i.i876, i64 24
+  %.val.val.i.i877 = load ptr, ptr %1575, align 8
+  %1576 = xor i32 %1573, -1
+  %1577 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i877, i32 noundef range(i32 -2147483648, 2147483647) %1576) #26
+  %1578 = call i32 @atoi(ptr nocapture noundef %1577) #27
   br label %Cba_ObjRangeSize.exit884
 
-1586:                                             ; preds = %1572
+1579:                                             ; preds = %1565
   %.val.i.i.i.i878 = load i32, ptr %22, align 4
-  %1587 = icmp slt i32 %.val.i.i.i.i878, 1
-  br i1 %1587, label %Cba_NtkRangeSize.exit.i.i883, label %Cba_FonRange.exit.i.i879
+  %1580 = icmp slt i32 %.val.i.i.i.i878, 1
+  br i1 %1580, label %Cba_NtkRangeSize.exit.i.i883, label %Cba_FonRange.exit.i.i879
 
-Cba_FonRange.exit.i.i879:                         ; preds = %1586
-  %1588 = add nuw nsw i32 %1580, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1588, i32 noundef 0)
+Cba_FonRange.exit.i.i879:                         ; preds = %1579
+  %1581 = add nuw nsw i32 %1573, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1581, i32 noundef 0)
   %.val.i.i.i.i.i880 = load ptr, ptr %24, align 8
-  %1589 = zext nneg i32 %1580 to i64
-  %1590 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i880, i64 %1589
-  %1591 = load i32, ptr %1590, align 4
-  %.not.i.i.i.i881 = icmp ult i32 %1591, 2
-  br i1 %.not.i.i.i.i881, label %Cba_NtkRangeSize.exit.i.i883, label %1592
+  %1582 = zext nneg i32 %1573 to i64
+  %1583 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i880, i64 %1582
+  %1584 = load i32, ptr %1583, align 4
+  %.not.i.i.i.i881 = icmp ult i32 %1584, 2
+  br i1 %.not.i.i.i.i881, label %Cba_NtkRangeSize.exit.i.i883, label %1585
 
-1592:                                             ; preds = %Cba_FonRange.exit.i.i879
-  %1593 = load ptr, ptr %0, align 8
-  %1594 = getelementptr inbounds i8, ptr %1593, i64 40
-  %1595 = load ptr, ptr %1594, align 8
-  %1596 = getelementptr inbounds i8, ptr %1595, i64 8
-  %1597 = load ptr, ptr %1596, align 8
-  %1598 = shl nsw i32 %1591, 1
-  %1599 = and i32 %1598, -4
-  %1600 = getelementptr i8, ptr %1597, i64 8
-  %.val.i.i.i.i.i.i882 = load ptr, ptr %1600, align 8
-  %1601 = sext i32 %1599 to i64
-  %1602 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i882, i64 %1601
-  %1603 = load i32, ptr %1602, align 4
-  %1604 = getelementptr inbounds i8, ptr %1602, i64 4
-  %1605 = load i32, ptr %1604, align 4
-  %1606 = sub nsw i32 %1603, %1605
+1585:                                             ; preds = %Cba_FonRange.exit.i.i879
+  %1586 = load ptr, ptr %0, align 8
+  %1587 = getelementptr inbounds i8, ptr %1586, i64 40
+  %1588 = load ptr, ptr %1587, align 8
+  %1589 = getelementptr inbounds i8, ptr %1588, i64 8
+  %1590 = load ptr, ptr %1589, align 8
+  %1591 = shl nsw i32 %1584, 1
+  %1592 = and i32 %1591, -4
+  %1593 = getelementptr i8, ptr %1590, i64 8
+  %.val.i.i.i.i.i.i882 = load ptr, ptr %1593, align 8
+  %1594 = sext i32 %1592 to i64
+  %1595 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i882, i64 %1594
+  %1596 = load i32, ptr %1595, align 4
+  %1597 = getelementptr inbounds i8, ptr %1595, i64 4
+  %1598 = load i32, ptr %1597, align 4
+  %1599 = sub nsw i32 %1596, %1598
   br label %Cba_NtkRangeSize.exit.i.i883
 
-Cba_NtkRangeSize.exit.i.i883:                     ; preds = %1592, %Cba_FonRange.exit.i.i879, %1586
-  %1607 = phi i32 [ %1606, %1592 ], [ 0, %Cba_FonRange.exit.i.i879 ], [ 0, %1586 ]
-  %1608 = call i32 @llvm.abs.i32(i32 %1607, i1 true)
-  %1609 = add nuw nsw i32 %1608, 1
+Cba_NtkRangeSize.exit.i.i883:                     ; preds = %1585, %Cba_FonRange.exit.i.i879, %1579
+  %1600 = phi i32 [ %1599, %1585 ], [ 0, %Cba_FonRange.exit.i.i879 ], [ 0, %1579 ]
+  %1601 = call i32 @llvm.abs.i32(i32 %1600, i1 true)
+  %1602 = add nuw nsw i32 %1601, 1
   br label %Cba_ObjRangeSize.exit884
 
-Cba_ObjRangeSize.exit884:                         ; preds = %1581, %Cba_NtkRangeSize.exit.i.i883
-  %1610 = phi i32 [ %1585, %1581 ], [ %1609, %Cba_NtkRangeSize.exit.i.i883 ]
-  %1611 = mul nsw i32 %1610, 6
-  %1612 = add nsw i32 %1611, -6
+Cba_ObjRangeSize.exit884:                         ; preds = %1574, %Cba_NtkRangeSize.exit.i.i883
+  %1603 = phi i32 [ %1578, %1574 ], [ %1602, %Cba_NtkRangeSize.exit.i.i883 ]
+  %1604 = mul nsw i32 %1603, 6
+  %1605 = add nsw i32 %1604, -6
   %.val482 = load ptr, ptr %5, align 8
-  %1613 = getelementptr inbounds i8, ptr %.val482, i64 240
-  %1614 = load i32, ptr %1613, align 4
-  %1615 = add nsw i32 %1612, %1614
-  store i32 %1615, ptr %1613, align 4
-  br label %2454
+  %1606 = getelementptr inbounds i8, ptr %.val482, i64 240
+  %1607 = load i32, ptr %1606, align 4
+  %1608 = add nsw i32 %1605, %1607
+  store i32 %1608, ptr %1606, align 4
+  br label %2447
 
-1616:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1609:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val415 = load ptr, ptr %25, align 8
   %.val416 = load ptr, ptr %26, align 8
-  %1617 = getelementptr inbounds i32, ptr %.val415, i64 %indvars.iv1192
-  %1618 = load i32, ptr %1617, align 4
-  %1619 = sext i32 %1618 to i64
-  %1620 = getelementptr inbounds i32, ptr %.val416, i64 %1619
-  %1621 = load i32, ptr %1620, align 4
+  %1610 = getelementptr inbounds i32, ptr %.val415, i64 %indvars.iv1192
+  %1611 = load i32, ptr %1610, align 4
+  %1612 = sext i32 %1611 to i64
+  %1613 = getelementptr inbounds i32, ptr %.val416, i64 %1612
+  %1614 = load i32, ptr %1613, align 4
   %.val.i885 = load ptr, ptr %21, align 8
-  %1622 = sext i32 %1621 to i64
-  %1623 = getelementptr inbounds i32, ptr %.val.i885, i64 %1622
-  %1624 = load i32, ptr %1623, align 4
-  %.not.i.i886 = icmp sgt i32 %1624, -1
-  br i1 %.not.i.i886, label %1630, label %1625
+  %1615 = sext i32 %1614 to i64
+  %1616 = getelementptr inbounds i32, ptr %.val.i885, i64 %1615
+  %1617 = load i32, ptr %1616, align 4
+  %.not.i.i886 = icmp sgt i32 %1617, -1
+  br i1 %.not.i.i886, label %1623, label %1618
 
-1625:                                             ; preds = %1616
+1618:                                             ; preds = %1609
   %.val.i.i887 = load ptr, ptr %0, align 8
-  %1626 = getelementptr i8, ptr %.val.i.i887, i64 24
-  %.val.val.i.i888 = load ptr, ptr %1626, align 8
-  %1627 = xor i32 %1624, -1
-  %1628 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i888, i32 noundef range(i32 -2147483648, 2147483647) %1627) #26
-  %1629 = call i32 @atoi(ptr nocapture noundef %1628) #27
+  %1619 = getelementptr i8, ptr %.val.i.i887, i64 24
+  %.val.val.i.i888 = load ptr, ptr %1619, align 8
+  %1620 = xor i32 %1617, -1
+  %1621 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i888, i32 noundef range(i32 -2147483648, 2147483647) %1620) #26
+  %1622 = call i32 @atoi(ptr nocapture noundef %1621) #27
   br label %Cba_ObjRangeSize.exit895
 
-1630:                                             ; preds = %1616
+1623:                                             ; preds = %1609
   %.val.i.i.i.i889 = load i32, ptr %22, align 4
-  %1631 = icmp slt i32 %.val.i.i.i.i889, 1
-  br i1 %1631, label %Cba_NtkRangeSize.exit.i.i894, label %Cba_FonRange.exit.i.i890
+  %1624 = icmp slt i32 %.val.i.i.i.i889, 1
+  br i1 %1624, label %Cba_NtkRangeSize.exit.i.i894, label %Cba_FonRange.exit.i.i890
 
-Cba_FonRange.exit.i.i890:                         ; preds = %1630
-  %1632 = add nuw nsw i32 %1624, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1632, i32 noundef 0)
+Cba_FonRange.exit.i.i890:                         ; preds = %1623
+  %1625 = add nuw nsw i32 %1617, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1625, i32 noundef 0)
   %.val.i.i.i.i.i891 = load ptr, ptr %24, align 8
-  %1633 = zext nneg i32 %1624 to i64
-  %1634 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i891, i64 %1633
-  %1635 = load i32, ptr %1634, align 4
-  %.not.i.i.i.i892 = icmp ult i32 %1635, 2
-  br i1 %.not.i.i.i.i892, label %Cba_NtkRangeSize.exit.i.i894, label %1636
+  %1626 = zext nneg i32 %1617 to i64
+  %1627 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i891, i64 %1626
+  %1628 = load i32, ptr %1627, align 4
+  %.not.i.i.i.i892 = icmp ult i32 %1628, 2
+  br i1 %.not.i.i.i.i892, label %Cba_NtkRangeSize.exit.i.i894, label %1629
 
-1636:                                             ; preds = %Cba_FonRange.exit.i.i890
-  %1637 = load ptr, ptr %0, align 8
-  %1638 = getelementptr inbounds i8, ptr %1637, i64 40
-  %1639 = load ptr, ptr %1638, align 8
-  %1640 = getelementptr inbounds i8, ptr %1639, i64 8
-  %1641 = load ptr, ptr %1640, align 8
-  %1642 = shl nsw i32 %1635, 1
-  %1643 = and i32 %1642, -4
-  %1644 = getelementptr i8, ptr %1641, i64 8
-  %.val.i.i.i.i.i.i893 = load ptr, ptr %1644, align 8
-  %1645 = sext i32 %1643 to i64
-  %1646 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i893, i64 %1645
-  %1647 = load i32, ptr %1646, align 4
-  %1648 = getelementptr inbounds i8, ptr %1646, i64 4
-  %1649 = load i32, ptr %1648, align 4
-  %1650 = sub nsw i32 %1647, %1649
+1629:                                             ; preds = %Cba_FonRange.exit.i.i890
+  %1630 = load ptr, ptr %0, align 8
+  %1631 = getelementptr inbounds i8, ptr %1630, i64 40
+  %1632 = load ptr, ptr %1631, align 8
+  %1633 = getelementptr inbounds i8, ptr %1632, i64 8
+  %1634 = load ptr, ptr %1633, align 8
+  %1635 = shl nsw i32 %1628, 1
+  %1636 = and i32 %1635, -4
+  %1637 = getelementptr i8, ptr %1634, i64 8
+  %.val.i.i.i.i.i.i893 = load ptr, ptr %1637, align 8
+  %1638 = sext i32 %1636 to i64
+  %1639 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i893, i64 %1638
+  %1640 = load i32, ptr %1639, align 4
+  %1641 = getelementptr inbounds i8, ptr %1639, i64 4
+  %1642 = load i32, ptr %1641, align 4
+  %1643 = sub nsw i32 %1640, %1642
   br label %Cba_NtkRangeSize.exit.i.i894
 
-Cba_NtkRangeSize.exit.i.i894:                     ; preds = %1636, %Cba_FonRange.exit.i.i890, %1630
-  %1651 = phi i32 [ %1650, %1636 ], [ 0, %Cba_FonRange.exit.i.i890 ], [ 0, %1630 ]
-  %1652 = call i32 @llvm.abs.i32(i32 %1651, i1 true)
-  %1653 = add nuw nsw i32 %1652, 1
+Cba_NtkRangeSize.exit.i.i894:                     ; preds = %1629, %Cba_FonRange.exit.i.i890, %1623
+  %1644 = phi i32 [ %1643, %1629 ], [ 0, %Cba_FonRange.exit.i.i890 ], [ 0, %1623 ]
+  %1645 = call i32 @llvm.abs.i32(i32 %1644, i1 true)
+  %1646 = add nuw nsw i32 %1645, 1
   br label %Cba_ObjRangeSize.exit895
 
-Cba_ObjRangeSize.exit895:                         ; preds = %1625, %Cba_NtkRangeSize.exit.i.i894
-  %1654 = phi i32 [ %1629, %1625 ], [ %1653, %Cba_NtkRangeSize.exit.i.i894 ]
-  %1655 = mul nsw i32 %1654, 6
-  %1656 = add nsw i32 %1655, -6
+Cba_ObjRangeSize.exit895:                         ; preds = %1618, %Cba_NtkRangeSize.exit.i.i894
+  %1647 = phi i32 [ %1622, %1618 ], [ %1646, %Cba_NtkRangeSize.exit.i.i894 ]
+  %1648 = mul nsw i32 %1647, 6
+  %1649 = add nsw i32 %1648, -6
   %.val483 = load ptr, ptr %5, align 8
-  %1657 = getelementptr inbounds i8, ptr %.val483, i64 244
-  %1658 = load i32, ptr %1657, align 4
-  %1659 = add nsw i32 %1656, %1658
-  store i32 %1659, ptr %1657, align 4
-  br label %2454
+  %1650 = getelementptr inbounds i8, ptr %.val483, i64 244
+  %1651 = load i32, ptr %1650, align 4
+  %1652 = add nsw i32 %1649, %1651
+  store i32 %1652, ptr %1650, align 4
+  br label %2447
 
-1660:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1653:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val417 = load ptr, ptr %25, align 8
   %.val418 = load ptr, ptr %26, align 8
-  %1661 = getelementptr inbounds i32, ptr %.val417, i64 %indvars.iv1192
-  %1662 = load i32, ptr %1661, align 4
-  %1663 = sext i32 %1662 to i64
-  %1664 = getelementptr inbounds i32, ptr %.val418, i64 %1663
-  %1665 = load i32, ptr %1664, align 4
+  %1654 = getelementptr inbounds i32, ptr %.val417, i64 %indvars.iv1192
+  %1655 = load i32, ptr %1654, align 4
+  %1656 = sext i32 %1655 to i64
+  %1657 = getelementptr inbounds i32, ptr %.val418, i64 %1656
+  %1658 = load i32, ptr %1657, align 4
   %.val.i896 = load ptr, ptr %21, align 8
-  %1666 = sext i32 %1665 to i64
-  %1667 = getelementptr inbounds i32, ptr %.val.i896, i64 %1666
-  %1668 = load i32, ptr %1667, align 4
-  %.not.i.i897 = icmp sgt i32 %1668, -1
-  br i1 %.not.i.i897, label %1675, label %1669
+  %1659 = sext i32 %1658 to i64
+  %1660 = getelementptr inbounds i32, ptr %.val.i896, i64 %1659
+  %1661 = load i32, ptr %1660, align 4
+  %.not.i.i897 = icmp sgt i32 %1661, -1
+  br i1 %.not.i.i897, label %1668, label %1662
 
-1669:                                             ; preds = %1660
+1662:                                             ; preds = %1653
   %.val.i.i898 = load ptr, ptr %0, align 8
-  %1670 = getelementptr i8, ptr %.val.i.i898, i64 24
-  %.val.val.i.i899 = load ptr, ptr %1670, align 8
-  %1671 = xor i32 %1668, -1
-  %1672 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i899, i32 noundef range(i32 -2147483648, 2147483647) %1671) #26
-  %1673 = call i32 @atoi(ptr nocapture noundef %1672) #27
-  %1674 = add nsw i32 %1673, -1
+  %1663 = getelementptr i8, ptr %.val.i.i898, i64 24
+  %.val.val.i.i899 = load ptr, ptr %1663, align 8
+  %1664 = xor i32 %1661, -1
+  %1665 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i899, i32 noundef range(i32 -2147483648, 2147483647) %1664) #26
+  %1666 = call i32 @atoi(ptr nocapture noundef %1665) #27
+  %1667 = add nsw i32 %1666, -1
   br label %Cba_ObjRangeSize.exit906
 
-1675:                                             ; preds = %1660
+1668:                                             ; preds = %1653
   %.val.i.i.i.i900 = load i32, ptr %22, align 4
-  %1676 = icmp slt i32 %.val.i.i.i.i900, 1
-  br i1 %1676, label %Cba_NtkRangeSize.exit.i.i905, label %Cba_FonRange.exit.i.i901
+  %1669 = icmp slt i32 %.val.i.i.i.i900, 1
+  br i1 %1669, label %Cba_NtkRangeSize.exit.i.i905, label %Cba_FonRange.exit.i.i901
 
-Cba_FonRange.exit.i.i901:                         ; preds = %1675
-  %1677 = add nuw nsw i32 %1668, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1677, i32 noundef 0)
+Cba_FonRange.exit.i.i901:                         ; preds = %1668
+  %1670 = add nuw nsw i32 %1661, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1670, i32 noundef 0)
   %.val.i.i.i.i.i902 = load ptr, ptr %24, align 8
-  %1678 = zext nneg i32 %1668 to i64
-  %1679 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i902, i64 %1678
-  %1680 = load i32, ptr %1679, align 4
-  %.not.i.i.i.i903 = icmp ult i32 %1680, 2
-  br i1 %.not.i.i.i.i903, label %Cba_NtkRangeSize.exit.i.i905, label %1681
+  %1671 = zext nneg i32 %1661 to i64
+  %1672 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i902, i64 %1671
+  %1673 = load i32, ptr %1672, align 4
+  %.not.i.i.i.i903 = icmp ult i32 %1673, 2
+  br i1 %.not.i.i.i.i903, label %Cba_NtkRangeSize.exit.i.i905, label %1674
 
-1681:                                             ; preds = %Cba_FonRange.exit.i.i901
-  %1682 = load ptr, ptr %0, align 8
-  %1683 = getelementptr inbounds i8, ptr %1682, i64 40
-  %1684 = load ptr, ptr %1683, align 8
-  %1685 = getelementptr inbounds i8, ptr %1684, i64 8
-  %1686 = load ptr, ptr %1685, align 8
-  %1687 = shl nsw i32 %1680, 1
-  %1688 = and i32 %1687, -4
-  %1689 = getelementptr i8, ptr %1686, i64 8
-  %.val.i.i.i.i.i.i904 = load ptr, ptr %1689, align 8
-  %1690 = sext i32 %1688 to i64
-  %1691 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i904, i64 %1690
-  %1692 = load i32, ptr %1691, align 4
-  %1693 = getelementptr inbounds i8, ptr %1691, i64 4
-  %1694 = load i32, ptr %1693, align 4
-  %1695 = sub nsw i32 %1692, %1694
+1674:                                             ; preds = %Cba_FonRange.exit.i.i901
+  %1675 = load ptr, ptr %0, align 8
+  %1676 = getelementptr inbounds i8, ptr %1675, i64 40
+  %1677 = load ptr, ptr %1676, align 8
+  %1678 = getelementptr inbounds i8, ptr %1677, i64 8
+  %1679 = load ptr, ptr %1678, align 8
+  %1680 = shl nsw i32 %1673, 1
+  %1681 = and i32 %1680, -4
+  %1682 = getelementptr i8, ptr %1679, i64 8
+  %.val.i.i.i.i.i.i904 = load ptr, ptr %1682, align 8
+  %1683 = sext i32 %1681 to i64
+  %1684 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i904, i64 %1683
+  %1685 = load i32, ptr %1684, align 4
+  %1686 = getelementptr inbounds i8, ptr %1684, i64 4
+  %1687 = load i32, ptr %1686, align 4
+  %1688 = sub nsw i32 %1685, %1687
   br label %Cba_NtkRangeSize.exit.i.i905
 
-Cba_NtkRangeSize.exit.i.i905:                     ; preds = %1681, %Cba_FonRange.exit.i.i901, %1675
-  %1696 = phi i32 [ %1695, %1681 ], [ 0, %Cba_FonRange.exit.i.i901 ], [ 0, %1675 ]
-  %1697 = call i32 @llvm.abs.i32(i32 %1696, i1 true)
+Cba_NtkRangeSize.exit.i.i905:                     ; preds = %1674, %Cba_FonRange.exit.i.i901, %1668
+  %1689 = phi i32 [ %1688, %1674 ], [ 0, %Cba_FonRange.exit.i.i901 ], [ 0, %1668 ]
+  %1690 = call i32 @llvm.abs.i32(i32 %1689, i1 true)
   br label %Cba_ObjRangeSize.exit906
 
-Cba_ObjRangeSize.exit906:                         ; preds = %1669, %Cba_NtkRangeSize.exit.i.i905
-  %1698 = phi i32 [ %1674, %1669 ], [ %1697, %Cba_NtkRangeSize.exit.i.i905 ]
+Cba_ObjRangeSize.exit906:                         ; preds = %1662, %Cba_NtkRangeSize.exit.i.i905
+  %1691 = phi i32 [ %1667, %1662 ], [ %1690, %Cba_NtkRangeSize.exit.i.i905 ]
   %.val484 = load ptr, ptr %5, align 8
-  %1699 = getelementptr inbounds i8, ptr %.val484, i64 108
-  %1700 = load i32, ptr %1699, align 4
-  %1701 = add nsw i32 %1700, %1698
-  store i32 %1701, ptr %1699, align 4
-  br label %2454
+  %1692 = getelementptr inbounds i8, ptr %.val484, i64 108
+  %1693 = load i32, ptr %1692, align 4
+  %1694 = add nsw i32 %1693, %1691
+  store i32 %1694, ptr %1692, align 4
+  br label %2447
 
-1702:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1695:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val419 = load ptr, ptr %25, align 8
   %.val420 = load ptr, ptr %26, align 8
-  %1703 = getelementptr inbounds i32, ptr %.val419, i64 %indvars.iv1192
-  %1704 = load i32, ptr %1703, align 4
-  %1705 = sext i32 %1704 to i64
-  %1706 = getelementptr inbounds i32, ptr %.val420, i64 %1705
-  %1707 = load i32, ptr %1706, align 4
+  %1696 = getelementptr inbounds i32, ptr %.val419, i64 %indvars.iv1192
+  %1697 = load i32, ptr %1696, align 4
+  %1698 = sext i32 %1697 to i64
+  %1699 = getelementptr inbounds i32, ptr %.val420, i64 %1698
+  %1700 = load i32, ptr %1699, align 4
   %.val.i907 = load ptr, ptr %21, align 8
-  %1708 = sext i32 %1707 to i64
-  %1709 = getelementptr inbounds i32, ptr %.val.i907, i64 %1708
-  %1710 = load i32, ptr %1709, align 4
-  %.not.i.i908 = icmp sgt i32 %1710, -1
-  br i1 %.not.i.i908, label %1717, label %1711
+  %1701 = sext i32 %1700 to i64
+  %1702 = getelementptr inbounds i32, ptr %.val.i907, i64 %1701
+  %1703 = load i32, ptr %1702, align 4
+  %.not.i.i908 = icmp sgt i32 %1703, -1
+  br i1 %.not.i.i908, label %1710, label %1704
 
-1711:                                             ; preds = %1702
+1704:                                             ; preds = %1695
   %.val.i.i909 = load ptr, ptr %0, align 8
-  %1712 = getelementptr i8, ptr %.val.i.i909, i64 24
-  %.val.val.i.i910 = load ptr, ptr %1712, align 8
-  %1713 = xor i32 %1710, -1
-  %1714 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i910, i32 noundef range(i32 -2147483648, 2147483647) %1713) #26
-  %1715 = call i32 @atoi(ptr nocapture noundef %1714) #27
-  %1716 = add nsw i32 %1715, -1
+  %1705 = getelementptr i8, ptr %.val.i.i909, i64 24
+  %.val.val.i.i910 = load ptr, ptr %1705, align 8
+  %1706 = xor i32 %1703, -1
+  %1707 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i910, i32 noundef range(i32 -2147483648, 2147483647) %1706) #26
+  %1708 = call i32 @atoi(ptr nocapture noundef %1707) #27
+  %1709 = add nsw i32 %1708, -1
   br label %Cba_ObjRangeSize.exit917
 
-1717:                                             ; preds = %1702
+1710:                                             ; preds = %1695
   %.val.i.i.i.i911 = load i32, ptr %22, align 4
-  %1718 = icmp slt i32 %.val.i.i.i.i911, 1
-  br i1 %1718, label %Cba_NtkRangeSize.exit.i.i916, label %Cba_FonRange.exit.i.i912
+  %1711 = icmp slt i32 %.val.i.i.i.i911, 1
+  br i1 %1711, label %Cba_NtkRangeSize.exit.i.i916, label %Cba_FonRange.exit.i.i912
 
-Cba_FonRange.exit.i.i912:                         ; preds = %1717
-  %1719 = add nuw nsw i32 %1710, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1719, i32 noundef 0)
+Cba_FonRange.exit.i.i912:                         ; preds = %1710
+  %1712 = add nuw nsw i32 %1703, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1712, i32 noundef 0)
   %.val.i.i.i.i.i913 = load ptr, ptr %24, align 8
-  %1720 = zext nneg i32 %1710 to i64
-  %1721 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i913, i64 %1720
-  %1722 = load i32, ptr %1721, align 4
-  %.not.i.i.i.i914 = icmp ult i32 %1722, 2
-  br i1 %.not.i.i.i.i914, label %Cba_NtkRangeSize.exit.i.i916, label %1723
+  %1713 = zext nneg i32 %1703 to i64
+  %1714 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i913, i64 %1713
+  %1715 = load i32, ptr %1714, align 4
+  %.not.i.i.i.i914 = icmp ult i32 %1715, 2
+  br i1 %.not.i.i.i.i914, label %Cba_NtkRangeSize.exit.i.i916, label %1716
 
-1723:                                             ; preds = %Cba_FonRange.exit.i.i912
-  %1724 = load ptr, ptr %0, align 8
-  %1725 = getelementptr inbounds i8, ptr %1724, i64 40
-  %1726 = load ptr, ptr %1725, align 8
-  %1727 = getelementptr inbounds i8, ptr %1726, i64 8
-  %1728 = load ptr, ptr %1727, align 8
-  %1729 = shl nsw i32 %1722, 1
-  %1730 = and i32 %1729, -4
-  %1731 = getelementptr i8, ptr %1728, i64 8
-  %.val.i.i.i.i.i.i915 = load ptr, ptr %1731, align 8
-  %1732 = sext i32 %1730 to i64
-  %1733 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i915, i64 %1732
-  %1734 = load i32, ptr %1733, align 4
-  %1735 = getelementptr inbounds i8, ptr %1733, i64 4
-  %1736 = load i32, ptr %1735, align 4
-  %1737 = sub nsw i32 %1734, %1736
+1716:                                             ; preds = %Cba_FonRange.exit.i.i912
+  %1717 = load ptr, ptr %0, align 8
+  %1718 = getelementptr inbounds i8, ptr %1717, i64 40
+  %1719 = load ptr, ptr %1718, align 8
+  %1720 = getelementptr inbounds i8, ptr %1719, i64 8
+  %1721 = load ptr, ptr %1720, align 8
+  %1722 = shl nsw i32 %1715, 1
+  %1723 = and i32 %1722, -4
+  %1724 = getelementptr i8, ptr %1721, i64 8
+  %.val.i.i.i.i.i.i915 = load ptr, ptr %1724, align 8
+  %1725 = sext i32 %1723 to i64
+  %1726 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i915, i64 %1725
+  %1727 = load i32, ptr %1726, align 4
+  %1728 = getelementptr inbounds i8, ptr %1726, i64 4
+  %1729 = load i32, ptr %1728, align 4
+  %1730 = sub nsw i32 %1727, %1729
   br label %Cba_NtkRangeSize.exit.i.i916
 
-Cba_NtkRangeSize.exit.i.i916:                     ; preds = %1723, %Cba_FonRange.exit.i.i912, %1717
-  %1738 = phi i32 [ %1737, %1723 ], [ 0, %Cba_FonRange.exit.i.i912 ], [ 0, %1717 ]
-  %1739 = call i32 @llvm.abs.i32(i32 %1738, i1 true)
+Cba_NtkRangeSize.exit.i.i916:                     ; preds = %1716, %Cba_FonRange.exit.i.i912, %1710
+  %1731 = phi i32 [ %1730, %1716 ], [ 0, %Cba_FonRange.exit.i.i912 ], [ 0, %1710 ]
+  %1732 = call i32 @llvm.abs.i32(i32 %1731, i1 true)
   br label %Cba_ObjRangeSize.exit917
 
-Cba_ObjRangeSize.exit917:                         ; preds = %1711, %Cba_NtkRangeSize.exit.i.i916
-  %1740 = phi i32 [ %1716, %1711 ], [ %1739, %Cba_NtkRangeSize.exit.i.i916 ]
+Cba_ObjRangeSize.exit917:                         ; preds = %1704, %Cba_NtkRangeSize.exit.i.i916
+  %1733 = phi i32 [ %1709, %1704 ], [ %1732, %Cba_NtkRangeSize.exit.i.i916 ]
   %.val485 = load ptr, ptr %5, align 8
-  %1741 = getelementptr inbounds i8, ptr %.val485, i64 116
-  %1742 = load i32, ptr %1741, align 4
-  %1743 = add nsw i32 %1742, %1740
-  store i32 %1743, ptr %1741, align 4
-  br label %2454
+  %1734 = getelementptr inbounds i8, ptr %.val485, i64 116
+  %1735 = load i32, ptr %1734, align 4
+  %1736 = add nsw i32 %1735, %1733
+  store i32 %1736, ptr %1734, align 4
+  br label %2447
 
-1744:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1737:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val421 = load ptr, ptr %25, align 8
   %.val422 = load ptr, ptr %26, align 8
-  %1745 = getelementptr inbounds i32, ptr %.val421, i64 %indvars.iv1192
-  %1746 = load i32, ptr %1745, align 4
-  %1747 = sext i32 %1746 to i64
-  %1748 = getelementptr inbounds i32, ptr %.val422, i64 %1747
-  %1749 = load i32, ptr %1748, align 4
+  %1738 = getelementptr inbounds i32, ptr %.val421, i64 %indvars.iv1192
+  %1739 = load i32, ptr %1738, align 4
+  %1740 = sext i32 %1739 to i64
+  %1741 = getelementptr inbounds i32, ptr %.val422, i64 %1740
+  %1742 = load i32, ptr %1741, align 4
   %.val.i918 = load ptr, ptr %21, align 8
-  %1750 = sext i32 %1749 to i64
-  %1751 = getelementptr inbounds i32, ptr %.val.i918, i64 %1750
-  %1752 = load i32, ptr %1751, align 4
-  %.not.i.i919 = icmp sgt i32 %1752, -1
-  br i1 %.not.i.i919, label %1758, label %1753
+  %1743 = sext i32 %1742 to i64
+  %1744 = getelementptr inbounds i32, ptr %.val.i918, i64 %1743
+  %1745 = load i32, ptr %1744, align 4
+  %.not.i.i919 = icmp sgt i32 %1745, -1
+  br i1 %.not.i.i919, label %1751, label %1746
 
-1753:                                             ; preds = %1744
+1746:                                             ; preds = %1737
   %.val.i.i920 = load ptr, ptr %0, align 8
-  %1754 = getelementptr i8, ptr %.val.i.i920, i64 24
-  %.val.val.i.i921 = load ptr, ptr %1754, align 8
-  %1755 = xor i32 %1752, -1
-  %1756 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i921, i32 noundef range(i32 -2147483648, 2147483647) %1755) #26
-  %1757 = call i32 @atoi(ptr nocapture noundef %1756) #27
+  %1747 = getelementptr i8, ptr %.val.i.i920, i64 24
+  %.val.val.i.i921 = load ptr, ptr %1747, align 8
+  %1748 = xor i32 %1745, -1
+  %1749 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i921, i32 noundef range(i32 -2147483648, 2147483647) %1748) #26
+  %1750 = call i32 @atoi(ptr nocapture noundef %1749) #27
   br label %Cba_ObjRangeSize.exit928
 
-1758:                                             ; preds = %1744
+1751:                                             ; preds = %1737
   %.val.i.i.i.i922 = load i32, ptr %22, align 4
-  %1759 = icmp slt i32 %.val.i.i.i.i922, 1
-  br i1 %1759, label %Cba_NtkRangeSize.exit.i.i927, label %Cba_FonRange.exit.i.i923
+  %1752 = icmp slt i32 %.val.i.i.i.i922, 1
+  br i1 %1752, label %Cba_NtkRangeSize.exit.i.i927, label %Cba_FonRange.exit.i.i923
 
-Cba_FonRange.exit.i.i923:                         ; preds = %1758
-  %1760 = add nuw nsw i32 %1752, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1760, i32 noundef 0)
+Cba_FonRange.exit.i.i923:                         ; preds = %1751
+  %1753 = add nuw nsw i32 %1745, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1753, i32 noundef 0)
   %.val.i.i.i.i.i924 = load ptr, ptr %24, align 8
-  %1761 = zext nneg i32 %1752 to i64
-  %1762 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i924, i64 %1761
-  %1763 = load i32, ptr %1762, align 4
-  %.not.i.i.i.i925 = icmp ult i32 %1763, 2
-  br i1 %.not.i.i.i.i925, label %Cba_NtkRangeSize.exit.i.i927, label %1764
+  %1754 = zext nneg i32 %1745 to i64
+  %1755 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i924, i64 %1754
+  %1756 = load i32, ptr %1755, align 4
+  %.not.i.i.i.i925 = icmp ult i32 %1756, 2
+  br i1 %.not.i.i.i.i925, label %Cba_NtkRangeSize.exit.i.i927, label %1757
 
-1764:                                             ; preds = %Cba_FonRange.exit.i.i923
-  %1765 = load ptr, ptr %0, align 8
-  %1766 = getelementptr inbounds i8, ptr %1765, i64 40
-  %1767 = load ptr, ptr %1766, align 8
-  %1768 = getelementptr inbounds i8, ptr %1767, i64 8
-  %1769 = load ptr, ptr %1768, align 8
-  %1770 = shl nsw i32 %1763, 1
-  %1771 = and i32 %1770, -4
-  %1772 = getelementptr i8, ptr %1769, i64 8
-  %.val.i.i.i.i.i.i926 = load ptr, ptr %1772, align 8
-  %1773 = sext i32 %1771 to i64
-  %1774 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i926, i64 %1773
-  %1775 = load i32, ptr %1774, align 4
-  %1776 = getelementptr inbounds i8, ptr %1774, i64 4
-  %1777 = load i32, ptr %1776, align 4
-  %1778 = sub nsw i32 %1775, %1777
+1757:                                             ; preds = %Cba_FonRange.exit.i.i923
+  %1758 = load ptr, ptr %0, align 8
+  %1759 = getelementptr inbounds i8, ptr %1758, i64 40
+  %1760 = load ptr, ptr %1759, align 8
+  %1761 = getelementptr inbounds i8, ptr %1760, i64 8
+  %1762 = load ptr, ptr %1761, align 8
+  %1763 = shl nsw i32 %1756, 1
+  %1764 = and i32 %1763, -4
+  %1765 = getelementptr i8, ptr %1762, i64 8
+  %.val.i.i.i.i.i.i926 = load ptr, ptr %1765, align 8
+  %1766 = sext i32 %1764 to i64
+  %1767 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i926, i64 %1766
+  %1768 = load i32, ptr %1767, align 4
+  %1769 = getelementptr inbounds i8, ptr %1767, i64 4
+  %1770 = load i32, ptr %1769, align 4
+  %1771 = sub nsw i32 %1768, %1770
   br label %Cba_NtkRangeSize.exit.i.i927
 
-Cba_NtkRangeSize.exit.i.i927:                     ; preds = %1764, %Cba_FonRange.exit.i.i923, %1758
-  %1779 = phi i32 [ %1778, %1764 ], [ 0, %Cba_FonRange.exit.i.i923 ], [ 0, %1758 ]
-  %1780 = call i32 @llvm.abs.i32(i32 %1779, i1 true)
-  %1781 = add nuw nsw i32 %1780, 1
+Cba_NtkRangeSize.exit.i.i927:                     ; preds = %1757, %Cba_FonRange.exit.i.i923, %1751
+  %1772 = phi i32 [ %1771, %1757 ], [ 0, %Cba_FonRange.exit.i.i923 ], [ 0, %1751 ]
+  %1773 = call i32 @llvm.abs.i32(i32 %1772, i1 true)
+  %1774 = add nuw nsw i32 %1773, 1
   br label %Cba_ObjRangeSize.exit928
 
-Cba_ObjRangeSize.exit928:                         ; preds = %1753, %Cba_NtkRangeSize.exit.i.i927
-  %1782 = phi i32 [ %1757, %1753 ], [ %1781, %Cba_NtkRangeSize.exit.i.i927 ]
-  %1783 = mul nsw i32 %1782, 3
-  %1784 = add nsw i32 %1783, -3
+Cba_ObjRangeSize.exit928:                         ; preds = %1746, %Cba_NtkRangeSize.exit.i.i927
+  %1775 = phi i32 [ %1750, %1746 ], [ %1774, %Cba_NtkRangeSize.exit.i.i927 ]
+  %1776 = mul nsw i32 %1775, 3
+  %1777 = add nsw i32 %1776, -3
   %.val486 = load ptr, ptr %5, align 8
-  %1785 = getelementptr inbounds i8, ptr %.val486, i64 124
-  %1786 = load i32, ptr %1785, align 4
-  %1787 = add nsw i32 %1784, %1786
-  store i32 %1787, ptr %1785, align 4
-  br label %2454
+  %1778 = getelementptr inbounds i8, ptr %.val486, i64 124
+  %1779 = load i32, ptr %1778, align 4
+  %1780 = add nsw i32 %1777, %1779
+  store i32 %1780, ptr %1778, align 4
+  br label %2447
 
-1788:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1781:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val423 = load ptr, ptr %25, align 8
   %.val424 = load ptr, ptr %26, align 8
-  %1789 = getelementptr inbounds i32, ptr %.val423, i64 %indvars.iv1192
-  %1790 = load i32, ptr %1789, align 4
-  %1791 = sext i32 %1790 to i64
-  %1792 = getelementptr inbounds i32, ptr %.val424, i64 %1791
-  %1793 = load i32, ptr %1792, align 4
+  %1782 = getelementptr inbounds i32, ptr %.val423, i64 %indvars.iv1192
+  %1783 = load i32, ptr %1782, align 4
+  %1784 = sext i32 %1783 to i64
+  %1785 = getelementptr inbounds i32, ptr %.val424, i64 %1784
+  %1786 = load i32, ptr %1785, align 4
   %.val.i929 = load ptr, ptr %21, align 8
-  %1794 = sext i32 %1793 to i64
-  %1795 = getelementptr inbounds i32, ptr %.val.i929, i64 %1794
-  %1796 = load i32, ptr %1795, align 4
-  %.not.i.i930 = icmp sgt i32 %1796, -1
-  br i1 %.not.i.i930, label %1802, label %1797
+  %1787 = sext i32 %1786 to i64
+  %1788 = getelementptr inbounds i32, ptr %.val.i929, i64 %1787
+  %1789 = load i32, ptr %1788, align 4
+  %.not.i.i930 = icmp sgt i32 %1789, -1
+  br i1 %.not.i.i930, label %1795, label %1790
 
-1797:                                             ; preds = %1788
+1790:                                             ; preds = %1781
   %.val.i.i931 = load ptr, ptr %0, align 8
-  %1798 = getelementptr i8, ptr %.val.i.i931, i64 24
-  %.val.val.i.i932 = load ptr, ptr %1798, align 8
-  %1799 = xor i32 %1796, -1
-  %1800 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i932, i32 noundef range(i32 -2147483648, 2147483647) %1799) #26
-  %1801 = call i32 @atoi(ptr nocapture noundef %1800) #27
+  %1791 = getelementptr i8, ptr %.val.i.i931, i64 24
+  %.val.val.i.i932 = load ptr, ptr %1791, align 8
+  %1792 = xor i32 %1789, -1
+  %1793 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i932, i32 noundef range(i32 -2147483648, 2147483647) %1792) #26
+  %1794 = call i32 @atoi(ptr nocapture noundef %1793) #27
   br label %Cba_ObjRangeSize.exit939
 
-1802:                                             ; preds = %1788
+1795:                                             ; preds = %1781
   %.val.i.i.i.i933 = load i32, ptr %22, align 4
-  %1803 = icmp slt i32 %.val.i.i.i.i933, 1
-  br i1 %1803, label %Cba_NtkRangeSize.exit.i.i938, label %Cba_FonRange.exit.i.i934
+  %1796 = icmp slt i32 %.val.i.i.i.i933, 1
+  br i1 %1796, label %Cba_NtkRangeSize.exit.i.i938, label %Cba_FonRange.exit.i.i934
 
-Cba_FonRange.exit.i.i934:                         ; preds = %1802
-  %1804 = add nuw nsw i32 %1796, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1804, i32 noundef 0)
+Cba_FonRange.exit.i.i934:                         ; preds = %1795
+  %1797 = add nuw nsw i32 %1789, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1797, i32 noundef 0)
   %.val.i.i.i.i.i935 = load ptr, ptr %24, align 8
-  %1805 = zext nneg i32 %1796 to i64
-  %1806 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i935, i64 %1805
-  %1807 = load i32, ptr %1806, align 4
-  %.not.i.i.i.i936 = icmp ult i32 %1807, 2
-  br i1 %.not.i.i.i.i936, label %Cba_NtkRangeSize.exit.i.i938, label %1808
+  %1798 = zext nneg i32 %1789 to i64
+  %1799 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i935, i64 %1798
+  %1800 = load i32, ptr %1799, align 4
+  %.not.i.i.i.i936 = icmp ult i32 %1800, 2
+  br i1 %.not.i.i.i.i936, label %Cba_NtkRangeSize.exit.i.i938, label %1801
 
-1808:                                             ; preds = %Cba_FonRange.exit.i.i934
-  %1809 = load ptr, ptr %0, align 8
-  %1810 = getelementptr inbounds i8, ptr %1809, i64 40
-  %1811 = load ptr, ptr %1810, align 8
-  %1812 = getelementptr inbounds i8, ptr %1811, i64 8
-  %1813 = load ptr, ptr %1812, align 8
-  %1814 = shl nsw i32 %1807, 1
-  %1815 = and i32 %1814, -4
-  %1816 = getelementptr i8, ptr %1813, i64 8
-  %.val.i.i.i.i.i.i937 = load ptr, ptr %1816, align 8
-  %1817 = sext i32 %1815 to i64
-  %1818 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i937, i64 %1817
-  %1819 = load i32, ptr %1818, align 4
-  %1820 = getelementptr inbounds i8, ptr %1818, i64 4
-  %1821 = load i32, ptr %1820, align 4
-  %1822 = sub nsw i32 %1819, %1821
+1801:                                             ; preds = %Cba_FonRange.exit.i.i934
+  %1802 = load ptr, ptr %0, align 8
+  %1803 = getelementptr inbounds i8, ptr %1802, i64 40
+  %1804 = load ptr, ptr %1803, align 8
+  %1805 = getelementptr inbounds i8, ptr %1804, i64 8
+  %1806 = load ptr, ptr %1805, align 8
+  %1807 = shl nsw i32 %1800, 1
+  %1808 = and i32 %1807, -4
+  %1809 = getelementptr i8, ptr %1806, i64 8
+  %.val.i.i.i.i.i.i937 = load ptr, ptr %1809, align 8
+  %1810 = sext i32 %1808 to i64
+  %1811 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i937, i64 %1810
+  %1812 = load i32, ptr %1811, align 4
+  %1813 = getelementptr inbounds i8, ptr %1811, i64 4
+  %1814 = load i32, ptr %1813, align 4
+  %1815 = sub nsw i32 %1812, %1814
   br label %Cba_NtkRangeSize.exit.i.i938
 
-Cba_NtkRangeSize.exit.i.i938:                     ; preds = %1808, %Cba_FonRange.exit.i.i934, %1802
-  %1823 = phi i32 [ %1822, %1808 ], [ 0, %Cba_FonRange.exit.i.i934 ], [ 0, %1802 ]
-  %1824 = call i32 @llvm.abs.i32(i32 %1823, i1 true)
-  %1825 = add nuw nsw i32 %1824, 1
+Cba_NtkRangeSize.exit.i.i938:                     ; preds = %1801, %Cba_FonRange.exit.i.i934, %1795
+  %1816 = phi i32 [ %1815, %1801 ], [ 0, %Cba_FonRange.exit.i.i934 ], [ 0, %1795 ]
+  %1817 = call i32 @llvm.abs.i32(i32 %1816, i1 true)
+  %1818 = add nuw nsw i32 %1817, 1
   br label %Cba_ObjRangeSize.exit939
 
-Cba_ObjRangeSize.exit939:                         ; preds = %1797, %Cba_NtkRangeSize.exit.i.i938
-  %1826 = phi i32 [ %1801, %1797 ], [ %1825, %Cba_NtkRangeSize.exit.i.i938 ]
-  %1827 = mul nsw i32 %1826, 9
+Cba_ObjRangeSize.exit939:                         ; preds = %1790, %Cba_NtkRangeSize.exit.i.i938
+  %1819 = phi i32 [ %1794, %1790 ], [ %1818, %Cba_NtkRangeSize.exit.i.i938 ]
+  %1820 = mul nsw i32 %1819, 9
   %.val487 = load ptr, ptr %5, align 8
-  %1828 = getelementptr inbounds i8, ptr %.val487, i64 188
-  %1829 = load i32, ptr %1828, align 4
-  %1830 = add nsw i32 %1829, %1827
-  store i32 %1830, ptr %1828, align 4
-  br label %2454
+  %1821 = getelementptr inbounds i8, ptr %.val487, i64 188
+  %1822 = load i32, ptr %1821, align 4
+  %1823 = add nsw i32 %1822, %1820
+  store i32 %1823, ptr %1821, align 4
+  br label %2447
 
-1831:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1824:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val425 = load ptr, ptr %25, align 8
   %.val426 = load ptr, ptr %26, align 8
-  %1832 = getelementptr inbounds i32, ptr %.val425, i64 %indvars.iv1192
-  %1833 = load i32, ptr %1832, align 4
-  %1834 = sext i32 %1833 to i64
-  %1835 = getelementptr inbounds i32, ptr %.val426, i64 %1834
-  %1836 = load i32, ptr %1835, align 4
+  %1825 = getelementptr inbounds i32, ptr %.val425, i64 %indvars.iv1192
+  %1826 = load i32, ptr %1825, align 4
+  %1827 = sext i32 %1826 to i64
+  %1828 = getelementptr inbounds i32, ptr %.val426, i64 %1827
+  %1829 = load i32, ptr %1828, align 4
   %.val.i940 = load ptr, ptr %21, align 8
-  %1837 = sext i32 %1836 to i64
-  %1838 = getelementptr inbounds i32, ptr %.val.i940, i64 %1837
-  %1839 = load i32, ptr %1838, align 4
-  %.not.i.i941 = icmp sgt i32 %1839, -1
-  br i1 %.not.i.i941, label %1845, label %1840
+  %1830 = sext i32 %1829 to i64
+  %1831 = getelementptr inbounds i32, ptr %.val.i940, i64 %1830
+  %1832 = load i32, ptr %1831, align 4
+  %.not.i.i941 = icmp sgt i32 %1832, -1
+  br i1 %.not.i.i941, label %1838, label %1833
 
-1840:                                             ; preds = %1831
+1833:                                             ; preds = %1824
   %.val.i.i942 = load ptr, ptr %0, align 8
-  %1841 = getelementptr i8, ptr %.val.i.i942, i64 24
-  %.val.val.i.i943 = load ptr, ptr %1841, align 8
-  %1842 = xor i32 %1839, -1
-  %1843 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i943, i32 noundef range(i32 -2147483648, 2147483647) %1842) #26
-  %1844 = call i32 @atoi(ptr nocapture noundef %1843) #27
+  %1834 = getelementptr i8, ptr %.val.i.i942, i64 24
+  %.val.val.i.i943 = load ptr, ptr %1834, align 8
+  %1835 = xor i32 %1832, -1
+  %1836 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i943, i32 noundef range(i32 -2147483648, 2147483647) %1835) #26
+  %1837 = call i32 @atoi(ptr nocapture noundef %1836) #27
   br label %Cba_ObjRangeSize.exit950
 
-1845:                                             ; preds = %1831
+1838:                                             ; preds = %1824
   %.val.i.i.i.i944 = load i32, ptr %22, align 4
-  %1846 = icmp slt i32 %.val.i.i.i.i944, 1
-  br i1 %1846, label %Cba_NtkRangeSize.exit.i.i949, label %Cba_FonRange.exit.i.i945
+  %1839 = icmp slt i32 %.val.i.i.i.i944, 1
+  br i1 %1839, label %Cba_NtkRangeSize.exit.i.i949, label %Cba_FonRange.exit.i.i945
 
-Cba_FonRange.exit.i.i945:                         ; preds = %1845
-  %1847 = add nuw nsw i32 %1839, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1847, i32 noundef 0)
+Cba_FonRange.exit.i.i945:                         ; preds = %1838
+  %1840 = add nuw nsw i32 %1832, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1840, i32 noundef 0)
   %.val.i.i.i.i.i946 = load ptr, ptr %24, align 8
-  %1848 = zext nneg i32 %1839 to i64
-  %1849 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i946, i64 %1848
-  %1850 = load i32, ptr %1849, align 4
-  %.not.i.i.i.i947 = icmp ult i32 %1850, 2
-  br i1 %.not.i.i.i.i947, label %Cba_NtkRangeSize.exit.i.i949, label %1851
+  %1841 = zext nneg i32 %1832 to i64
+  %1842 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i946, i64 %1841
+  %1843 = load i32, ptr %1842, align 4
+  %.not.i.i.i.i947 = icmp ult i32 %1843, 2
+  br i1 %.not.i.i.i.i947, label %Cba_NtkRangeSize.exit.i.i949, label %1844
 
-1851:                                             ; preds = %Cba_FonRange.exit.i.i945
-  %1852 = load ptr, ptr %0, align 8
-  %1853 = getelementptr inbounds i8, ptr %1852, i64 40
-  %1854 = load ptr, ptr %1853, align 8
-  %1855 = getelementptr inbounds i8, ptr %1854, i64 8
-  %1856 = load ptr, ptr %1855, align 8
-  %1857 = shl nsw i32 %1850, 1
-  %1858 = and i32 %1857, -4
-  %1859 = getelementptr i8, ptr %1856, i64 8
-  %.val.i.i.i.i.i.i948 = load ptr, ptr %1859, align 8
-  %1860 = sext i32 %1858 to i64
-  %1861 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i948, i64 %1860
-  %1862 = load i32, ptr %1861, align 4
-  %1863 = getelementptr inbounds i8, ptr %1861, i64 4
-  %1864 = load i32, ptr %1863, align 4
-  %1865 = sub nsw i32 %1862, %1864
+1844:                                             ; preds = %Cba_FonRange.exit.i.i945
+  %1845 = load ptr, ptr %0, align 8
+  %1846 = getelementptr inbounds i8, ptr %1845, i64 40
+  %1847 = load ptr, ptr %1846, align 8
+  %1848 = getelementptr inbounds i8, ptr %1847, i64 8
+  %1849 = load ptr, ptr %1848, align 8
+  %1850 = shl nsw i32 %1843, 1
+  %1851 = and i32 %1850, -4
+  %1852 = getelementptr i8, ptr %1849, i64 8
+  %.val.i.i.i.i.i.i948 = load ptr, ptr %1852, align 8
+  %1853 = sext i32 %1851 to i64
+  %1854 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i948, i64 %1853
+  %1855 = load i32, ptr %1854, align 4
+  %1856 = getelementptr inbounds i8, ptr %1854, i64 4
+  %1857 = load i32, ptr %1856, align 4
+  %1858 = sub nsw i32 %1855, %1857
   br label %Cba_NtkRangeSize.exit.i.i949
 
-Cba_NtkRangeSize.exit.i.i949:                     ; preds = %1851, %Cba_FonRange.exit.i.i945, %1845
-  %1866 = phi i32 [ %1865, %1851 ], [ 0, %Cba_FonRange.exit.i.i945 ], [ 0, %1845 ]
-  %1867 = call i32 @llvm.abs.i32(i32 %1866, i1 true)
-  %1868 = add nuw nsw i32 %1867, 1
+Cba_NtkRangeSize.exit.i.i949:                     ; preds = %1844, %Cba_FonRange.exit.i.i945, %1838
+  %1859 = phi i32 [ %1858, %1844 ], [ 0, %Cba_FonRange.exit.i.i945 ], [ 0, %1838 ]
+  %1860 = call i32 @llvm.abs.i32(i32 %1859, i1 true)
+  %1861 = add nuw nsw i32 %1860, 1
   br label %Cba_ObjRangeSize.exit950
 
-Cba_ObjRangeSize.exit950:                         ; preds = %1840, %Cba_NtkRangeSize.exit.i.i949
-  %1869 = phi i32 [ %1844, %1840 ], [ %1868, %Cba_NtkRangeSize.exit.i.i949 ]
-  %1870 = mul nsw i32 %1869, 9
+Cba_ObjRangeSize.exit950:                         ; preds = %1833, %Cba_NtkRangeSize.exit.i.i949
+  %1862 = phi i32 [ %1837, %1833 ], [ %1861, %Cba_NtkRangeSize.exit.i.i949 ]
+  %1863 = mul nsw i32 %1862, 9
   %.val488 = load ptr, ptr %5, align 8
-  %1871 = getelementptr inbounds i8, ptr %.val488, i64 192
-  %1872 = load i32, ptr %1871, align 4
-  %1873 = add nsw i32 %1872, %1870
-  store i32 %1873, ptr %1871, align 4
-  br label %2454
+  %1864 = getelementptr inbounds i8, ptr %.val488, i64 192
+  %1865 = load i32, ptr %1864, align 4
+  %1866 = add nsw i32 %1865, %1863
+  store i32 %1866, ptr %1864, align 4
+  br label %2447
 
-1874:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1867:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val427 = load ptr, ptr %25, align 8
   %.val428 = load ptr, ptr %26, align 8
-  %1875 = getelementptr inbounds i32, ptr %.val427, i64 %indvars.iv1192
-  %1876 = load i32, ptr %1875, align 4
-  %1877 = sext i32 %1876 to i64
-  %1878 = getelementptr inbounds i32, ptr %.val428, i64 %1877
-  %1879 = load i32, ptr %1878, align 4
+  %1868 = getelementptr inbounds i32, ptr %.val427, i64 %indvars.iv1192
+  %1869 = load i32, ptr %1868, align 4
+  %1870 = sext i32 %1869 to i64
+  %1871 = getelementptr inbounds i32, ptr %.val428, i64 %1870
+  %1872 = load i32, ptr %1871, align 4
   %.val.i951 = load ptr, ptr %21, align 8
-  %1880 = sext i32 %1879 to i64
-  %1881 = getelementptr inbounds i32, ptr %.val.i951, i64 %1880
-  %1882 = load i32, ptr %1881, align 4
-  %.not.i.i952 = icmp sgt i32 %1882, -1
-  br i1 %.not.i.i952, label %1888, label %1883
+  %1873 = sext i32 %1872 to i64
+  %1874 = getelementptr inbounds i32, ptr %.val.i951, i64 %1873
+  %1875 = load i32, ptr %1874, align 4
+  %.not.i.i952 = icmp sgt i32 %1875, -1
+  br i1 %.not.i.i952, label %1881, label %1876
 
-1883:                                             ; preds = %1874
+1876:                                             ; preds = %1867
   %.val.i.i953 = load ptr, ptr %0, align 8
-  %1884 = getelementptr i8, ptr %.val.i.i953, i64 24
-  %.val.val.i.i954 = load ptr, ptr %1884, align 8
-  %1885 = xor i32 %1882, -1
-  %1886 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i954, i32 noundef range(i32 -2147483648, 2147483647) %1885) #26
-  %1887 = call i32 @atoi(ptr nocapture noundef %1886) #27
+  %1877 = getelementptr i8, ptr %.val.i.i953, i64 24
+  %.val.val.i.i954 = load ptr, ptr %1877, align 8
+  %1878 = xor i32 %1875, -1
+  %1879 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i954, i32 noundef range(i32 -2147483648, 2147483647) %1878) #26
+  %1880 = call i32 @atoi(ptr nocapture noundef %1879) #27
   br label %Cba_ObjRangeSize.exit961
 
-1888:                                             ; preds = %1874
+1881:                                             ; preds = %1867
   %.val.i.i.i.i955 = load i32, ptr %22, align 4
-  %1889 = icmp slt i32 %.val.i.i.i.i955, 1
-  br i1 %1889, label %Cba_NtkRangeSize.exit.i.i960, label %Cba_FonRange.exit.i.i956
+  %1882 = icmp slt i32 %.val.i.i.i.i955, 1
+  br i1 %1882, label %Cba_NtkRangeSize.exit.i.i960, label %Cba_FonRange.exit.i.i956
 
-Cba_FonRange.exit.i.i956:                         ; preds = %1888
-  %1890 = add nuw nsw i32 %1882, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1890, i32 noundef 0)
+Cba_FonRange.exit.i.i956:                         ; preds = %1881
+  %1883 = add nuw nsw i32 %1875, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1883, i32 noundef 0)
   %.val.i.i.i.i.i957 = load ptr, ptr %24, align 8
-  %1891 = zext nneg i32 %1882 to i64
-  %1892 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i957, i64 %1891
-  %1893 = load i32, ptr %1892, align 4
-  %.not.i.i.i.i958 = icmp ult i32 %1893, 2
-  br i1 %.not.i.i.i.i958, label %Cba_NtkRangeSize.exit.i.i960, label %1894
+  %1884 = zext nneg i32 %1875 to i64
+  %1885 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i957, i64 %1884
+  %1886 = load i32, ptr %1885, align 4
+  %.not.i.i.i.i958 = icmp ult i32 %1886, 2
+  br i1 %.not.i.i.i.i958, label %Cba_NtkRangeSize.exit.i.i960, label %1887
 
-1894:                                             ; preds = %Cba_FonRange.exit.i.i956
-  %1895 = load ptr, ptr %0, align 8
-  %1896 = getelementptr inbounds i8, ptr %1895, i64 40
-  %1897 = load ptr, ptr %1896, align 8
-  %1898 = getelementptr inbounds i8, ptr %1897, i64 8
-  %1899 = load ptr, ptr %1898, align 8
-  %1900 = shl nsw i32 %1893, 1
-  %1901 = and i32 %1900, -4
-  %1902 = getelementptr i8, ptr %1899, i64 8
-  %.val.i.i.i.i.i.i959 = load ptr, ptr %1902, align 8
-  %1903 = sext i32 %1901 to i64
-  %1904 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i959, i64 %1903
-  %1905 = load i32, ptr %1904, align 4
-  %1906 = getelementptr inbounds i8, ptr %1904, i64 4
-  %1907 = load i32, ptr %1906, align 4
-  %1908 = sub nsw i32 %1905, %1907
+1887:                                             ; preds = %Cba_FonRange.exit.i.i956
+  %1888 = load ptr, ptr %0, align 8
+  %1889 = getelementptr inbounds i8, ptr %1888, i64 40
+  %1890 = load ptr, ptr %1889, align 8
+  %1891 = getelementptr inbounds i8, ptr %1890, i64 8
+  %1892 = load ptr, ptr %1891, align 8
+  %1893 = shl nsw i32 %1886, 1
+  %1894 = and i32 %1893, -4
+  %1895 = getelementptr i8, ptr %1892, i64 8
+  %.val.i.i.i.i.i.i959 = load ptr, ptr %1895, align 8
+  %1896 = sext i32 %1894 to i64
+  %1897 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i959, i64 %1896
+  %1898 = load i32, ptr %1897, align 4
+  %1899 = getelementptr inbounds i8, ptr %1897, i64 4
+  %1900 = load i32, ptr %1899, align 4
+  %1901 = sub nsw i32 %1898, %1900
   br label %Cba_NtkRangeSize.exit.i.i960
 
-Cba_NtkRangeSize.exit.i.i960:                     ; preds = %1894, %Cba_FonRange.exit.i.i956, %1888
-  %1909 = phi i32 [ %1908, %1894 ], [ 0, %Cba_FonRange.exit.i.i956 ], [ 0, %1888 ]
-  %1910 = call i32 @llvm.abs.i32(i32 %1909, i1 true)
-  %1911 = add nuw nsw i32 %1910, 1
+Cba_NtkRangeSize.exit.i.i960:                     ; preds = %1887, %Cba_FonRange.exit.i.i956, %1881
+  %1902 = phi i32 [ %1901, %1887 ], [ 0, %Cba_FonRange.exit.i.i956 ], [ 0, %1881 ]
+  %1903 = call i32 @llvm.abs.i32(i32 %1902, i1 true)
+  %1904 = add nuw nsw i32 %1903, 1
   br label %Cba_ObjRangeSize.exit961
 
-Cba_ObjRangeSize.exit961:                         ; preds = %1883, %Cba_NtkRangeSize.exit.i.i960
-  %1912 = phi i32 [ %1887, %1883 ], [ %1911, %Cba_NtkRangeSize.exit.i.i960 ]
-  %1913 = mul nsw i32 %1912, 9
+Cba_ObjRangeSize.exit961:                         ; preds = %1876, %Cba_NtkRangeSize.exit.i.i960
+  %1905 = phi i32 [ %1880, %1876 ], [ %1904, %Cba_NtkRangeSize.exit.i.i960 ]
+  %1906 = mul nsw i32 %1905, 9
   %.val429 = load ptr, ptr %25, align 8
   %.val430 = load ptr, ptr %26, align 8
-  %1914 = getelementptr inbounds i32, ptr %.val429, i64 %indvars.iv1192
-  %1915 = load i32, ptr %1914, align 4
-  %1916 = sext i32 %1915 to i64
-  %1917 = getelementptr i32, ptr %.val430, i64 %1916
-  %1918 = getelementptr i8, ptr %1917, i64 4
-  %1919 = load i32, ptr %1918, align 4
+  %1907 = getelementptr inbounds i32, ptr %.val429, i64 %indvars.iv1192
+  %1908 = load i32, ptr %1907, align 4
+  %1909 = sext i32 %1908 to i64
+  %1910 = getelementptr i32, ptr %.val430, i64 %1909
+  %1911 = getelementptr i8, ptr %1910, i64 4
+  %1912 = load i32, ptr %1911, align 4
   %.val.i962 = load ptr, ptr %21, align 8
-  %1920 = sext i32 %1919 to i64
-  %1921 = getelementptr inbounds i32, ptr %.val.i962, i64 %1920
-  %1922 = load i32, ptr %1921, align 4
-  %.not.i.i963 = icmp sgt i32 %1922, -1
-  br i1 %.not.i.i963, label %1928, label %1923
+  %1913 = sext i32 %1912 to i64
+  %1914 = getelementptr inbounds i32, ptr %.val.i962, i64 %1913
+  %1915 = load i32, ptr %1914, align 4
+  %.not.i.i963 = icmp sgt i32 %1915, -1
+  br i1 %.not.i.i963, label %1921, label %1916
 
-1923:                                             ; preds = %Cba_ObjRangeSize.exit961
+1916:                                             ; preds = %Cba_ObjRangeSize.exit961
   %.val.i.i964 = load ptr, ptr %0, align 8
-  %1924 = getelementptr i8, ptr %.val.i.i964, i64 24
-  %.val.val.i.i965 = load ptr, ptr %1924, align 8
-  %1925 = xor i32 %1922, -1
-  %1926 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i965, i32 noundef range(i32 -2147483648, 2147483647) %1925) #26
-  %1927 = call i32 @atoi(ptr nocapture noundef %1926) #27
+  %1917 = getelementptr i8, ptr %.val.i.i964, i64 24
+  %.val.val.i.i965 = load ptr, ptr %1917, align 8
+  %1918 = xor i32 %1915, -1
+  %1919 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i965, i32 noundef range(i32 -2147483648, 2147483647) %1918) #26
+  %1920 = call i32 @atoi(ptr nocapture noundef %1919) #27
   br label %Cba_ObjRangeSize.exit972
 
-1928:                                             ; preds = %Cba_ObjRangeSize.exit961
+1921:                                             ; preds = %Cba_ObjRangeSize.exit961
   %.val.i.i.i.i966 = load i32, ptr %22, align 4
-  %1929 = icmp slt i32 %.val.i.i.i.i966, 1
-  br i1 %1929, label %Cba_NtkRangeSize.exit.i.i971, label %Cba_FonRange.exit.i.i967
+  %1922 = icmp slt i32 %.val.i.i.i.i966, 1
+  br i1 %1922, label %Cba_NtkRangeSize.exit.i.i971, label %Cba_FonRange.exit.i.i967
 
-Cba_FonRange.exit.i.i967:                         ; preds = %1928
-  %1930 = add nuw nsw i32 %1922, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1930, i32 noundef 0)
+Cba_FonRange.exit.i.i967:                         ; preds = %1921
+  %1923 = add nuw nsw i32 %1915, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1923, i32 noundef 0)
   %.val.i.i.i.i.i968 = load ptr, ptr %24, align 8
-  %1931 = zext nneg i32 %1922 to i64
-  %1932 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i968, i64 %1931
-  %1933 = load i32, ptr %1932, align 4
-  %.not.i.i.i.i969 = icmp ult i32 %1933, 2
-  br i1 %.not.i.i.i.i969, label %Cba_NtkRangeSize.exit.i.i971, label %1934
+  %1924 = zext nneg i32 %1915 to i64
+  %1925 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i968, i64 %1924
+  %1926 = load i32, ptr %1925, align 4
+  %.not.i.i.i.i969 = icmp ult i32 %1926, 2
+  br i1 %.not.i.i.i.i969, label %Cba_NtkRangeSize.exit.i.i971, label %1927
 
-1934:                                             ; preds = %Cba_FonRange.exit.i.i967
-  %1935 = load ptr, ptr %0, align 8
-  %1936 = getelementptr inbounds i8, ptr %1935, i64 40
-  %1937 = load ptr, ptr %1936, align 8
-  %1938 = getelementptr inbounds i8, ptr %1937, i64 8
-  %1939 = load ptr, ptr %1938, align 8
-  %1940 = shl nsw i32 %1933, 1
-  %1941 = and i32 %1940, -4
-  %1942 = getelementptr i8, ptr %1939, i64 8
-  %.val.i.i.i.i.i.i970 = load ptr, ptr %1942, align 8
-  %1943 = sext i32 %1941 to i64
-  %1944 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i970, i64 %1943
-  %1945 = load i32, ptr %1944, align 4
-  %1946 = getelementptr inbounds i8, ptr %1944, i64 4
-  %1947 = load i32, ptr %1946, align 4
-  %1948 = sub nsw i32 %1945, %1947
+1927:                                             ; preds = %Cba_FonRange.exit.i.i967
+  %1928 = load ptr, ptr %0, align 8
+  %1929 = getelementptr inbounds i8, ptr %1928, i64 40
+  %1930 = load ptr, ptr %1929, align 8
+  %1931 = getelementptr inbounds i8, ptr %1930, i64 8
+  %1932 = load ptr, ptr %1931, align 8
+  %1933 = shl nsw i32 %1926, 1
+  %1934 = and i32 %1933, -4
+  %1935 = getelementptr i8, ptr %1932, i64 8
+  %.val.i.i.i.i.i.i970 = load ptr, ptr %1935, align 8
+  %1936 = sext i32 %1934 to i64
+  %1937 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i970, i64 %1936
+  %1938 = load i32, ptr %1937, align 4
+  %1939 = getelementptr inbounds i8, ptr %1937, i64 4
+  %1940 = load i32, ptr %1939, align 4
+  %1941 = sub nsw i32 %1938, %1940
   br label %Cba_NtkRangeSize.exit.i.i971
 
-Cba_NtkRangeSize.exit.i.i971:                     ; preds = %1934, %Cba_FonRange.exit.i.i967, %1928
-  %1949 = phi i32 [ %1948, %1934 ], [ 0, %Cba_FonRange.exit.i.i967 ], [ 0, %1928 ]
-  %1950 = call i32 @llvm.abs.i32(i32 %1949, i1 true)
-  %1951 = add nuw nsw i32 %1950, 1
+Cba_NtkRangeSize.exit.i.i971:                     ; preds = %1927, %Cba_FonRange.exit.i.i967, %1921
+  %1942 = phi i32 [ %1941, %1927 ], [ 0, %Cba_FonRange.exit.i.i967 ], [ 0, %1921 ]
+  %1943 = call i32 @llvm.abs.i32(i32 %1942, i1 true)
+  %1944 = add nuw nsw i32 %1943, 1
   br label %Cba_ObjRangeSize.exit972
 
-Cba_ObjRangeSize.exit972:                         ; preds = %1923, %Cba_NtkRangeSize.exit.i.i971
-  %1952 = phi i32 [ %1927, %1923 ], [ %1951, %Cba_NtkRangeSize.exit.i.i971 ]
-  %1953 = mul nsw i32 %1913, %1952
+Cba_ObjRangeSize.exit972:                         ; preds = %1916, %Cba_NtkRangeSize.exit.i.i971
+  %1945 = phi i32 [ %1920, %1916 ], [ %1944, %Cba_NtkRangeSize.exit.i.i971 ]
+  %1946 = mul nsw i32 %1906, %1945
   %.val489 = load ptr, ptr %5, align 8
-  %1954 = getelementptr inbounds i8, ptr %.val489, i64 196
-  %1955 = load i32, ptr %1954, align 4
-  %1956 = add nsw i32 %1955, %1953
-  store i32 %1956, ptr %1954, align 4
-  br label %2454
+  %1947 = getelementptr inbounds i8, ptr %.val489, i64 196
+  %1948 = load i32, ptr %1947, align 4
+  %1949 = add nsw i32 %1948, %1946
+  store i32 %1949, ptr %1947, align 4
+  br label %2447
 
-1957:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+1950:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val431 = load ptr, ptr %25, align 8
   %.val432 = load ptr, ptr %26, align 8
-  %1958 = getelementptr inbounds i32, ptr %.val431, i64 %indvars.iv1192
-  %1959 = load i32, ptr %1958, align 4
-  %1960 = sext i32 %1959 to i64
-  %1961 = getelementptr inbounds i32, ptr %.val432, i64 %1960
-  %1962 = load i32, ptr %1961, align 4
+  %1951 = getelementptr inbounds i32, ptr %.val431, i64 %indvars.iv1192
+  %1952 = load i32, ptr %1951, align 4
+  %1953 = sext i32 %1952 to i64
+  %1954 = getelementptr inbounds i32, ptr %.val432, i64 %1953
+  %1955 = load i32, ptr %1954, align 4
   %.val.i973 = load ptr, ptr %21, align 8
-  %1963 = sext i32 %1962 to i64
-  %1964 = getelementptr inbounds i32, ptr %.val.i973, i64 %1963
-  %1965 = load i32, ptr %1964, align 4
-  %.not.i.i974 = icmp sgt i32 %1965, -1
-  br i1 %.not.i.i974, label %1971, label %1966
+  %1956 = sext i32 %1955 to i64
+  %1957 = getelementptr inbounds i32, ptr %.val.i973, i64 %1956
+  %1958 = load i32, ptr %1957, align 4
+  %.not.i.i974 = icmp sgt i32 %1958, -1
+  br i1 %.not.i.i974, label %1964, label %1959
 
-1966:                                             ; preds = %1957
+1959:                                             ; preds = %1950
   %.val.i.i975 = load ptr, ptr %0, align 8
-  %1967 = getelementptr i8, ptr %.val.i.i975, i64 24
-  %.val.val.i.i976 = load ptr, ptr %1967, align 8
-  %1968 = xor i32 %1965, -1
-  %1969 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i976, i32 noundef range(i32 -2147483648, 2147483647) %1968) #26
-  %1970 = call i32 @atoi(ptr nocapture noundef %1969) #27
+  %1960 = getelementptr i8, ptr %.val.i.i975, i64 24
+  %.val.val.i.i976 = load ptr, ptr %1960, align 8
+  %1961 = xor i32 %1958, -1
+  %1962 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i976, i32 noundef range(i32 -2147483648, 2147483647) %1961) #26
+  %1963 = call i32 @atoi(ptr nocapture noundef %1962) #27
   br label %Cba_ObjRangeSize.exit983
 
-1971:                                             ; preds = %1957
+1964:                                             ; preds = %1950
   %.val.i.i.i.i977 = load i32, ptr %22, align 4
-  %1972 = icmp slt i32 %.val.i.i.i.i977, 1
-  br i1 %1972, label %Cba_NtkRangeSize.exit.i.i982, label %Cba_FonRange.exit.i.i978
+  %1965 = icmp slt i32 %.val.i.i.i.i977, 1
+  br i1 %1965, label %Cba_NtkRangeSize.exit.i.i982, label %Cba_FonRange.exit.i.i978
 
-Cba_FonRange.exit.i.i978:                         ; preds = %1971
-  %1973 = add nuw nsw i32 %1965, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1973, i32 noundef 0)
+Cba_FonRange.exit.i.i978:                         ; preds = %1964
+  %1966 = add nuw nsw i32 %1958, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %1966, i32 noundef 0)
   %.val.i.i.i.i.i979 = load ptr, ptr %24, align 8
-  %1974 = zext nneg i32 %1965 to i64
-  %1975 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i979, i64 %1974
-  %1976 = load i32, ptr %1975, align 4
-  %.not.i.i.i.i980 = icmp ult i32 %1976, 2
-  br i1 %.not.i.i.i.i980, label %Cba_NtkRangeSize.exit.i.i982, label %1977
+  %1967 = zext nneg i32 %1958 to i64
+  %1968 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i979, i64 %1967
+  %1969 = load i32, ptr %1968, align 4
+  %.not.i.i.i.i980 = icmp ult i32 %1969, 2
+  br i1 %.not.i.i.i.i980, label %Cba_NtkRangeSize.exit.i.i982, label %1970
 
-1977:                                             ; preds = %Cba_FonRange.exit.i.i978
-  %1978 = load ptr, ptr %0, align 8
-  %1979 = getelementptr inbounds i8, ptr %1978, i64 40
-  %1980 = load ptr, ptr %1979, align 8
-  %1981 = getelementptr inbounds i8, ptr %1980, i64 8
-  %1982 = load ptr, ptr %1981, align 8
-  %1983 = shl nsw i32 %1976, 1
-  %1984 = and i32 %1983, -4
-  %1985 = getelementptr i8, ptr %1982, i64 8
-  %.val.i.i.i.i.i.i981 = load ptr, ptr %1985, align 8
-  %1986 = sext i32 %1984 to i64
-  %1987 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i981, i64 %1986
-  %1988 = load i32, ptr %1987, align 4
-  %1989 = getelementptr inbounds i8, ptr %1987, i64 4
-  %1990 = load i32, ptr %1989, align 4
-  %1991 = sub nsw i32 %1988, %1990
+1970:                                             ; preds = %Cba_FonRange.exit.i.i978
+  %1971 = load ptr, ptr %0, align 8
+  %1972 = getelementptr inbounds i8, ptr %1971, i64 40
+  %1973 = load ptr, ptr %1972, align 8
+  %1974 = getelementptr inbounds i8, ptr %1973, i64 8
+  %1975 = load ptr, ptr %1974, align 8
+  %1976 = shl nsw i32 %1969, 1
+  %1977 = and i32 %1976, -4
+  %1978 = getelementptr i8, ptr %1975, i64 8
+  %.val.i.i.i.i.i.i981 = load ptr, ptr %1978, align 8
+  %1979 = sext i32 %1977 to i64
+  %1980 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i981, i64 %1979
+  %1981 = load i32, ptr %1980, align 4
+  %1982 = getelementptr inbounds i8, ptr %1980, i64 4
+  %1983 = load i32, ptr %1982, align 4
+  %1984 = sub nsw i32 %1981, %1983
   br label %Cba_NtkRangeSize.exit.i.i982
 
-Cba_NtkRangeSize.exit.i.i982:                     ; preds = %1977, %Cba_FonRange.exit.i.i978, %1971
-  %1992 = phi i32 [ %1991, %1977 ], [ 0, %Cba_FonRange.exit.i.i978 ], [ 0, %1971 ]
-  %1993 = call i32 @llvm.abs.i32(i32 %1992, i1 true)
-  %1994 = add nuw nsw i32 %1993, 1
+Cba_NtkRangeSize.exit.i.i982:                     ; preds = %1970, %Cba_FonRange.exit.i.i978, %1964
+  %1985 = phi i32 [ %1984, %1970 ], [ 0, %Cba_FonRange.exit.i.i978 ], [ 0, %1964 ]
+  %1986 = call i32 @llvm.abs.i32(i32 %1985, i1 true)
+  %1987 = add nuw nsw i32 %1986, 1
   br label %Cba_ObjRangeSize.exit983
 
-Cba_ObjRangeSize.exit983:                         ; preds = %1966, %Cba_NtkRangeSize.exit.i.i982
-  %1995 = phi i32 [ %1970, %1966 ], [ %1994, %Cba_NtkRangeSize.exit.i.i982 ]
-  %1996 = mul nsw i32 %1995, 13
+Cba_ObjRangeSize.exit983:                         ; preds = %1959, %Cba_NtkRangeSize.exit.i.i982
+  %1988 = phi i32 [ %1963, %1959 ], [ %1987, %Cba_NtkRangeSize.exit.i.i982 ]
+  %1989 = mul nsw i32 %1988, 13
   %.val433 = load ptr, ptr %25, align 8
   %.val434 = load ptr, ptr %26, align 8
-  %1997 = getelementptr inbounds i32, ptr %.val433, i64 %indvars.iv1192
-  %1998 = load i32, ptr %1997, align 4
-  %1999 = sext i32 %1998 to i64
-  %2000 = getelementptr inbounds i32, ptr %.val434, i64 %1999
-  %2001 = load i32, ptr %2000, align 4
+  %1990 = getelementptr inbounds i32, ptr %.val433, i64 %indvars.iv1192
+  %1991 = load i32, ptr %1990, align 4
+  %1992 = sext i32 %1991 to i64
+  %1993 = getelementptr inbounds i32, ptr %.val434, i64 %1992
+  %1994 = load i32, ptr %1993, align 4
   %.val.i984 = load ptr, ptr %21, align 8
-  %2002 = sext i32 %2001 to i64
-  %2003 = getelementptr inbounds i32, ptr %.val.i984, i64 %2002
-  %2004 = load i32, ptr %2003, align 4
-  %.not.i.i985 = icmp sgt i32 %2004, -1
-  br i1 %.not.i.i985, label %2010, label %2005
+  %1995 = sext i32 %1994 to i64
+  %1996 = getelementptr inbounds i32, ptr %.val.i984, i64 %1995
+  %1997 = load i32, ptr %1996, align 4
+  %.not.i.i985 = icmp sgt i32 %1997, -1
+  br i1 %.not.i.i985, label %2003, label %1998
 
-2005:                                             ; preds = %Cba_ObjRangeSize.exit983
+1998:                                             ; preds = %Cba_ObjRangeSize.exit983
   %.val.i.i986 = load ptr, ptr %0, align 8
-  %2006 = getelementptr i8, ptr %.val.i.i986, i64 24
-  %.val.val.i.i987 = load ptr, ptr %2006, align 8
-  %2007 = xor i32 %2004, -1
-  %2008 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i987, i32 noundef range(i32 -2147483648, 2147483647) %2007) #26
-  %2009 = call i32 @atoi(ptr nocapture noundef %2008) #27
+  %1999 = getelementptr i8, ptr %.val.i.i986, i64 24
+  %.val.val.i.i987 = load ptr, ptr %1999, align 8
+  %2000 = xor i32 %1997, -1
+  %2001 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i987, i32 noundef range(i32 -2147483648, 2147483647) %2000) #26
+  %2002 = call i32 @atoi(ptr nocapture noundef %2001) #27
   br label %Cba_ObjRangeSize.exit994
 
-2010:                                             ; preds = %Cba_ObjRangeSize.exit983
+2003:                                             ; preds = %Cba_ObjRangeSize.exit983
   %.val.i.i.i.i988 = load i32, ptr %22, align 4
-  %2011 = icmp slt i32 %.val.i.i.i.i988, 1
-  br i1 %2011, label %Cba_NtkRangeSize.exit.i.i993, label %Cba_FonRange.exit.i.i989
+  %2004 = icmp slt i32 %.val.i.i.i.i988, 1
+  br i1 %2004, label %Cba_NtkRangeSize.exit.i.i993, label %Cba_FonRange.exit.i.i989
 
-Cba_FonRange.exit.i.i989:                         ; preds = %2010
-  %2012 = add nuw nsw i32 %2004, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2012, i32 noundef 0)
+Cba_FonRange.exit.i.i989:                         ; preds = %2003
+  %2005 = add nuw nsw i32 %1997, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2005, i32 noundef 0)
   %.val.i.i.i.i.i990 = load ptr, ptr %24, align 8
-  %2013 = zext nneg i32 %2004 to i64
-  %2014 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i990, i64 %2013
-  %2015 = load i32, ptr %2014, align 4
-  %.not.i.i.i.i991 = icmp ult i32 %2015, 2
-  br i1 %.not.i.i.i.i991, label %Cba_NtkRangeSize.exit.i.i993, label %2016
+  %2006 = zext nneg i32 %1997 to i64
+  %2007 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i990, i64 %2006
+  %2008 = load i32, ptr %2007, align 4
+  %.not.i.i.i.i991 = icmp ult i32 %2008, 2
+  br i1 %.not.i.i.i.i991, label %Cba_NtkRangeSize.exit.i.i993, label %2009
 
-2016:                                             ; preds = %Cba_FonRange.exit.i.i989
-  %2017 = load ptr, ptr %0, align 8
-  %2018 = getelementptr inbounds i8, ptr %2017, i64 40
-  %2019 = load ptr, ptr %2018, align 8
-  %2020 = getelementptr inbounds i8, ptr %2019, i64 8
-  %2021 = load ptr, ptr %2020, align 8
-  %2022 = shl nsw i32 %2015, 1
-  %2023 = and i32 %2022, -4
-  %2024 = getelementptr i8, ptr %2021, i64 8
-  %.val.i.i.i.i.i.i992 = load ptr, ptr %2024, align 8
-  %2025 = sext i32 %2023 to i64
-  %2026 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i992, i64 %2025
-  %2027 = load i32, ptr %2026, align 4
-  %2028 = getelementptr inbounds i8, ptr %2026, i64 4
-  %2029 = load i32, ptr %2028, align 4
-  %2030 = sub nsw i32 %2027, %2029
+2009:                                             ; preds = %Cba_FonRange.exit.i.i989
+  %2010 = load ptr, ptr %0, align 8
+  %2011 = getelementptr inbounds i8, ptr %2010, i64 40
+  %2012 = load ptr, ptr %2011, align 8
+  %2013 = getelementptr inbounds i8, ptr %2012, i64 8
+  %2014 = load ptr, ptr %2013, align 8
+  %2015 = shl nsw i32 %2008, 1
+  %2016 = and i32 %2015, -4
+  %2017 = getelementptr i8, ptr %2014, i64 8
+  %.val.i.i.i.i.i.i992 = load ptr, ptr %2017, align 8
+  %2018 = sext i32 %2016 to i64
+  %2019 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i992, i64 %2018
+  %2020 = load i32, ptr %2019, align 4
+  %2021 = getelementptr inbounds i8, ptr %2019, i64 4
+  %2022 = load i32, ptr %2021, align 4
+  %2023 = sub nsw i32 %2020, %2022
   br label %Cba_NtkRangeSize.exit.i.i993
 
-Cba_NtkRangeSize.exit.i.i993:                     ; preds = %2016, %Cba_FonRange.exit.i.i989, %2010
-  %2031 = phi i32 [ %2030, %2016 ], [ 0, %Cba_FonRange.exit.i.i989 ], [ 0, %2010 ]
-  %2032 = call i32 @llvm.abs.i32(i32 %2031, i1 true)
-  %2033 = add nuw nsw i32 %2032, 1
+Cba_NtkRangeSize.exit.i.i993:                     ; preds = %2009, %Cba_FonRange.exit.i.i989, %2003
+  %2024 = phi i32 [ %2023, %2009 ], [ 0, %Cba_FonRange.exit.i.i989 ], [ 0, %2003 ]
+  %2025 = call i32 @llvm.abs.i32(i32 %2024, i1 true)
+  %2026 = add nuw nsw i32 %2025, 1
   br label %Cba_ObjRangeSize.exit994
 
-Cba_ObjRangeSize.exit994:                         ; preds = %2005, %Cba_NtkRangeSize.exit.i.i993
-  %2034 = phi i32 [ %2009, %2005 ], [ %2033, %Cba_NtkRangeSize.exit.i.i993 ]
-  %2035 = mul nsw i32 %1996, %2034
+Cba_ObjRangeSize.exit994:                         ; preds = %1998, %Cba_NtkRangeSize.exit.i.i993
+  %2027 = phi i32 [ %2002, %1998 ], [ %2026, %Cba_NtkRangeSize.exit.i.i993 ]
+  %2028 = mul nsw i32 %1989, %2027
   %.val435 = load ptr, ptr %25, align 8
   %.val436 = load ptr, ptr %26, align 8
-  %2036 = getelementptr inbounds i32, ptr %.val435, i64 %indvars.iv1192
-  %2037 = load i32, ptr %2036, align 4
-  %2038 = sext i32 %2037 to i64
-  %2039 = getelementptr inbounds i32, ptr %.val436, i64 %2038
-  %2040 = load i32, ptr %2039, align 4
+  %2029 = getelementptr inbounds i32, ptr %.val435, i64 %indvars.iv1192
+  %2030 = load i32, ptr %2029, align 4
+  %2031 = sext i32 %2030 to i64
+  %2032 = getelementptr inbounds i32, ptr %.val436, i64 %2031
+  %2033 = load i32, ptr %2032, align 4
   %.val.i995 = load ptr, ptr %21, align 8
-  %2041 = sext i32 %2040 to i64
-  %2042 = getelementptr inbounds i32, ptr %.val.i995, i64 %2041
-  %2043 = load i32, ptr %2042, align 4
-  %.not.i.i996 = icmp sgt i32 %2043, -1
-  br i1 %.not.i.i996, label %2049, label %2044
+  %2034 = sext i32 %2033 to i64
+  %2035 = getelementptr inbounds i32, ptr %.val.i995, i64 %2034
+  %2036 = load i32, ptr %2035, align 4
+  %.not.i.i996 = icmp sgt i32 %2036, -1
+  br i1 %.not.i.i996, label %2042, label %2037
 
-2044:                                             ; preds = %Cba_ObjRangeSize.exit994
+2037:                                             ; preds = %Cba_ObjRangeSize.exit994
   %.val.i.i997 = load ptr, ptr %0, align 8
-  %2045 = getelementptr i8, ptr %.val.i.i997, i64 24
-  %.val.val.i.i998 = load ptr, ptr %2045, align 8
-  %2046 = xor i32 %2043, -1
-  %2047 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i998, i32 noundef range(i32 -2147483648, 2147483647) %2046) #26
-  %2048 = call i32 @atoi(ptr nocapture noundef %2047) #27
+  %2038 = getelementptr i8, ptr %.val.i.i997, i64 24
+  %.val.val.i.i998 = load ptr, ptr %2038, align 8
+  %2039 = xor i32 %2036, -1
+  %2040 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i998, i32 noundef range(i32 -2147483648, 2147483647) %2039) #26
+  %2041 = call i32 @atoi(ptr nocapture noundef %2040) #27
   br label %Cba_ObjRangeSize.exit1005
 
-2049:                                             ; preds = %Cba_ObjRangeSize.exit994
+2042:                                             ; preds = %Cba_ObjRangeSize.exit994
   %.val.i.i.i.i999 = load i32, ptr %22, align 4
-  %2050 = icmp slt i32 %.val.i.i.i.i999, 1
-  br i1 %2050, label %Cba_NtkRangeSize.exit.i.i1004, label %Cba_FonRange.exit.i.i1000
+  %2043 = icmp slt i32 %.val.i.i.i.i999, 1
+  br i1 %2043, label %Cba_NtkRangeSize.exit.i.i1004, label %Cba_FonRange.exit.i.i1000
 
-Cba_FonRange.exit.i.i1000:                        ; preds = %2049
-  %2051 = add nuw nsw i32 %2043, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2051, i32 noundef 0)
+Cba_FonRange.exit.i.i1000:                        ; preds = %2042
+  %2044 = add nuw nsw i32 %2036, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2044, i32 noundef 0)
   %.val.i.i.i.i.i1001 = load ptr, ptr %24, align 8
-  %2052 = zext nneg i32 %2043 to i64
-  %2053 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1001, i64 %2052
-  %2054 = load i32, ptr %2053, align 4
-  %.not.i.i.i.i1002 = icmp ult i32 %2054, 2
-  br i1 %.not.i.i.i.i1002, label %Cba_NtkRangeSize.exit.i.i1004, label %2055
+  %2045 = zext nneg i32 %2036 to i64
+  %2046 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1001, i64 %2045
+  %2047 = load i32, ptr %2046, align 4
+  %.not.i.i.i.i1002 = icmp ult i32 %2047, 2
+  br i1 %.not.i.i.i.i1002, label %Cba_NtkRangeSize.exit.i.i1004, label %2048
 
-2055:                                             ; preds = %Cba_FonRange.exit.i.i1000
-  %2056 = load ptr, ptr %0, align 8
-  %2057 = getelementptr inbounds i8, ptr %2056, i64 40
-  %2058 = load ptr, ptr %2057, align 8
-  %2059 = getelementptr inbounds i8, ptr %2058, i64 8
-  %2060 = load ptr, ptr %2059, align 8
-  %2061 = shl nsw i32 %2054, 1
-  %2062 = and i32 %2061, -4
-  %2063 = getelementptr i8, ptr %2060, i64 8
-  %.val.i.i.i.i.i.i1003 = load ptr, ptr %2063, align 8
-  %2064 = sext i32 %2062 to i64
-  %2065 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1003, i64 %2064
-  %2066 = load i32, ptr %2065, align 4
-  %2067 = getelementptr inbounds i8, ptr %2065, i64 4
-  %2068 = load i32, ptr %2067, align 4
-  %2069 = sub nsw i32 %2066, %2068
+2048:                                             ; preds = %Cba_FonRange.exit.i.i1000
+  %2049 = load ptr, ptr %0, align 8
+  %2050 = getelementptr inbounds i8, ptr %2049, i64 40
+  %2051 = load ptr, ptr %2050, align 8
+  %2052 = getelementptr inbounds i8, ptr %2051, i64 8
+  %2053 = load ptr, ptr %2052, align 8
+  %2054 = shl nsw i32 %2047, 1
+  %2055 = and i32 %2054, -4
+  %2056 = getelementptr i8, ptr %2053, i64 8
+  %.val.i.i.i.i.i.i1003 = load ptr, ptr %2056, align 8
+  %2057 = sext i32 %2055 to i64
+  %2058 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1003, i64 %2057
+  %2059 = load i32, ptr %2058, align 4
+  %2060 = getelementptr inbounds i8, ptr %2058, i64 4
+  %2061 = load i32, ptr %2060, align 4
+  %2062 = sub nsw i32 %2059, %2061
   br label %Cba_NtkRangeSize.exit.i.i1004
 
-Cba_NtkRangeSize.exit.i.i1004:                    ; preds = %2055, %Cba_FonRange.exit.i.i1000, %2049
-  %2070 = phi i32 [ %2069, %2055 ], [ 0, %Cba_FonRange.exit.i.i1000 ], [ 0, %2049 ]
-  %2071 = call i32 @llvm.abs.i32(i32 %2070, i1 true)
-  %2072 = add nuw nsw i32 %2071, 1
+Cba_NtkRangeSize.exit.i.i1004:                    ; preds = %2048, %Cba_FonRange.exit.i.i1000, %2042
+  %2063 = phi i32 [ %2062, %2048 ], [ 0, %Cba_FonRange.exit.i.i1000 ], [ 0, %2042 ]
+  %2064 = call i32 @llvm.abs.i32(i32 %2063, i1 true)
+  %2065 = add nuw nsw i32 %2064, 1
   br label %Cba_ObjRangeSize.exit1005
 
-Cba_ObjRangeSize.exit1005:                        ; preds = %2044, %Cba_NtkRangeSize.exit.i.i1004
-  %2073 = phi i32 [ %2048, %2044 ], [ %2072, %Cba_NtkRangeSize.exit.i.i1004 ]
-  %.neg352 = mul i32 %2073, -19
+Cba_ObjRangeSize.exit1005:                        ; preds = %2037, %Cba_NtkRangeSize.exit.i.i1004
+  %2066 = phi i32 [ %2041, %2037 ], [ %2065, %Cba_NtkRangeSize.exit.i.i1004 ]
+  %.neg352 = mul i32 %2066, -19
   %.val490 = load ptr, ptr %5, align 8
-  %2074 = getelementptr inbounds i8, ptr %.val490, i64 204
-  %2075 = load i32, ptr %2074, align 4
-  %2076 = add i32 %2035, 10
-  %2077 = add i32 %2076, %.neg352
-  %2078 = add nsw i32 %2077, %2075
-  store i32 %2078, ptr %2074, align 4
-  br label %2454
+  %2067 = getelementptr inbounds i8, ptr %.val490, i64 204
+  %2068 = load i32, ptr %2067, align 4
+  %2069 = add i32 %2028, 10
+  %2070 = add i32 %2069, %.neg352
+  %2071 = add nsw i32 %2070, %2068
+  store i32 %2071, ptr %2067, align 4
+  br label %2447
 
-2079:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+2072:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val437 = load ptr, ptr %25, align 8
   %.val438 = load ptr, ptr %26, align 8
-  %2080 = getelementptr inbounds i32, ptr %.val437, i64 %indvars.iv1192
-  %2081 = load i32, ptr %2080, align 4
-  %2082 = sext i32 %2081 to i64
-  %2083 = getelementptr inbounds i32, ptr %.val438, i64 %2082
-  %2084 = load i32, ptr %2083, align 4
+  %2073 = getelementptr inbounds i32, ptr %.val437, i64 %indvars.iv1192
+  %2074 = load i32, ptr %2073, align 4
+  %2075 = sext i32 %2074 to i64
+  %2076 = getelementptr inbounds i32, ptr %.val438, i64 %2075
+  %2077 = load i32, ptr %2076, align 4
   %.val.i1006 = load ptr, ptr %21, align 8
-  %2085 = sext i32 %2084 to i64
-  %2086 = getelementptr inbounds i32, ptr %.val.i1006, i64 %2085
-  %2087 = load i32, ptr %2086, align 4
-  %.not.i.i1007 = icmp sgt i32 %2087, -1
-  br i1 %.not.i.i1007, label %2093, label %2088
+  %2078 = sext i32 %2077 to i64
+  %2079 = getelementptr inbounds i32, ptr %.val.i1006, i64 %2078
+  %2080 = load i32, ptr %2079, align 4
+  %.not.i.i1007 = icmp sgt i32 %2080, -1
+  br i1 %.not.i.i1007, label %2086, label %2081
 
-2088:                                             ; preds = %2079
+2081:                                             ; preds = %2072
   %.val.i.i1008 = load ptr, ptr %0, align 8
-  %2089 = getelementptr i8, ptr %.val.i.i1008, i64 24
-  %.val.val.i.i1009 = load ptr, ptr %2089, align 8
-  %2090 = xor i32 %2087, -1
-  %2091 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1009, i32 noundef range(i32 -2147483648, 2147483647) %2090) #26
-  %2092 = call i32 @atoi(ptr nocapture noundef %2091) #27
+  %2082 = getelementptr i8, ptr %.val.i.i1008, i64 24
+  %.val.val.i.i1009 = load ptr, ptr %2082, align 8
+  %2083 = xor i32 %2080, -1
+  %2084 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1009, i32 noundef range(i32 -2147483648, 2147483647) %2083) #26
+  %2085 = call i32 @atoi(ptr nocapture noundef %2084) #27
   br label %Cba_ObjRangeSize.exit1016
 
-2093:                                             ; preds = %2079
+2086:                                             ; preds = %2072
   %.val.i.i.i.i1010 = load i32, ptr %22, align 4
-  %2094 = icmp slt i32 %.val.i.i.i.i1010, 1
-  br i1 %2094, label %Cba_NtkRangeSize.exit.i.i1015, label %Cba_FonRange.exit.i.i1011
+  %2087 = icmp slt i32 %.val.i.i.i.i1010, 1
+  br i1 %2087, label %Cba_NtkRangeSize.exit.i.i1015, label %Cba_FonRange.exit.i.i1011
 
-Cba_FonRange.exit.i.i1011:                        ; preds = %2093
-  %2095 = add nuw nsw i32 %2087, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2095, i32 noundef 0)
+Cba_FonRange.exit.i.i1011:                        ; preds = %2086
+  %2088 = add nuw nsw i32 %2080, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2088, i32 noundef 0)
   %.val.i.i.i.i.i1012 = load ptr, ptr %24, align 8
-  %2096 = zext nneg i32 %2087 to i64
-  %2097 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1012, i64 %2096
-  %2098 = load i32, ptr %2097, align 4
-  %.not.i.i.i.i1013 = icmp ult i32 %2098, 2
-  br i1 %.not.i.i.i.i1013, label %Cba_NtkRangeSize.exit.i.i1015, label %2099
+  %2089 = zext nneg i32 %2080 to i64
+  %2090 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1012, i64 %2089
+  %2091 = load i32, ptr %2090, align 4
+  %.not.i.i.i.i1013 = icmp ult i32 %2091, 2
+  br i1 %.not.i.i.i.i1013, label %Cba_NtkRangeSize.exit.i.i1015, label %2092
 
-2099:                                             ; preds = %Cba_FonRange.exit.i.i1011
-  %2100 = load ptr, ptr %0, align 8
-  %2101 = getelementptr inbounds i8, ptr %2100, i64 40
-  %2102 = load ptr, ptr %2101, align 8
-  %2103 = getelementptr inbounds i8, ptr %2102, i64 8
-  %2104 = load ptr, ptr %2103, align 8
-  %2105 = shl nsw i32 %2098, 1
-  %2106 = and i32 %2105, -4
-  %2107 = getelementptr i8, ptr %2104, i64 8
-  %.val.i.i.i.i.i.i1014 = load ptr, ptr %2107, align 8
-  %2108 = sext i32 %2106 to i64
-  %2109 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1014, i64 %2108
-  %2110 = load i32, ptr %2109, align 4
-  %2111 = getelementptr inbounds i8, ptr %2109, i64 4
-  %2112 = load i32, ptr %2111, align 4
-  %2113 = sub nsw i32 %2110, %2112
+2092:                                             ; preds = %Cba_FonRange.exit.i.i1011
+  %2093 = load ptr, ptr %0, align 8
+  %2094 = getelementptr inbounds i8, ptr %2093, i64 40
+  %2095 = load ptr, ptr %2094, align 8
+  %2096 = getelementptr inbounds i8, ptr %2095, i64 8
+  %2097 = load ptr, ptr %2096, align 8
+  %2098 = shl nsw i32 %2091, 1
+  %2099 = and i32 %2098, -4
+  %2100 = getelementptr i8, ptr %2097, i64 8
+  %.val.i.i.i.i.i.i1014 = load ptr, ptr %2100, align 8
+  %2101 = sext i32 %2099 to i64
+  %2102 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1014, i64 %2101
+  %2103 = load i32, ptr %2102, align 4
+  %2104 = getelementptr inbounds i8, ptr %2102, i64 4
+  %2105 = load i32, ptr %2104, align 4
+  %2106 = sub nsw i32 %2103, %2105
   br label %Cba_NtkRangeSize.exit.i.i1015
 
-Cba_NtkRangeSize.exit.i.i1015:                    ; preds = %2099, %Cba_FonRange.exit.i.i1011, %2093
-  %2114 = phi i32 [ %2113, %2099 ], [ 0, %Cba_FonRange.exit.i.i1011 ], [ 0, %2093 ]
-  %2115 = call i32 @llvm.abs.i32(i32 %2114, i1 true)
-  %2116 = add nuw nsw i32 %2115, 1
+Cba_NtkRangeSize.exit.i.i1015:                    ; preds = %2092, %Cba_FonRange.exit.i.i1011, %2086
+  %2107 = phi i32 [ %2106, %2092 ], [ 0, %Cba_FonRange.exit.i.i1011 ], [ 0, %2086 ]
+  %2108 = call i32 @llvm.abs.i32(i32 %2107, i1 true)
+  %2109 = add nuw nsw i32 %2108, 1
   br label %Cba_ObjRangeSize.exit1016
 
-Cba_ObjRangeSize.exit1016:                        ; preds = %2088, %Cba_NtkRangeSize.exit.i.i1015
-  %2117 = phi i32 [ %2092, %2088 ], [ %2116, %Cba_NtkRangeSize.exit.i.i1015 ]
-  %2118 = mul nsw i32 %2117, 13
+Cba_ObjRangeSize.exit1016:                        ; preds = %2081, %Cba_NtkRangeSize.exit.i.i1015
+  %2110 = phi i32 [ %2085, %2081 ], [ %2109, %Cba_NtkRangeSize.exit.i.i1015 ]
+  %2111 = mul nsw i32 %2110, 13
   %.val439 = load ptr, ptr %25, align 8
   %.val440 = load ptr, ptr %26, align 8
-  %2119 = getelementptr inbounds i32, ptr %.val439, i64 %indvars.iv1192
-  %2120 = load i32, ptr %2119, align 4
-  %2121 = sext i32 %2120 to i64
-  %2122 = getelementptr inbounds i32, ptr %.val440, i64 %2121
-  %2123 = load i32, ptr %2122, align 4
+  %2112 = getelementptr inbounds i32, ptr %.val439, i64 %indvars.iv1192
+  %2113 = load i32, ptr %2112, align 4
+  %2114 = sext i32 %2113 to i64
+  %2115 = getelementptr inbounds i32, ptr %.val440, i64 %2114
+  %2116 = load i32, ptr %2115, align 4
   %.val.i1017 = load ptr, ptr %21, align 8
-  %2124 = sext i32 %2123 to i64
-  %2125 = getelementptr inbounds i32, ptr %.val.i1017, i64 %2124
-  %2126 = load i32, ptr %2125, align 4
-  %.not.i.i1018 = icmp sgt i32 %2126, -1
-  br i1 %.not.i.i1018, label %2132, label %2127
+  %2117 = sext i32 %2116 to i64
+  %2118 = getelementptr inbounds i32, ptr %.val.i1017, i64 %2117
+  %2119 = load i32, ptr %2118, align 4
+  %.not.i.i1018 = icmp sgt i32 %2119, -1
+  br i1 %.not.i.i1018, label %2125, label %2120
 
-2127:                                             ; preds = %Cba_ObjRangeSize.exit1016
+2120:                                             ; preds = %Cba_ObjRangeSize.exit1016
   %.val.i.i1019 = load ptr, ptr %0, align 8
-  %2128 = getelementptr i8, ptr %.val.i.i1019, i64 24
-  %.val.val.i.i1020 = load ptr, ptr %2128, align 8
-  %2129 = xor i32 %2126, -1
-  %2130 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1020, i32 noundef range(i32 -2147483648, 2147483647) %2129) #26
-  %2131 = call i32 @atoi(ptr nocapture noundef %2130) #27
+  %2121 = getelementptr i8, ptr %.val.i.i1019, i64 24
+  %.val.val.i.i1020 = load ptr, ptr %2121, align 8
+  %2122 = xor i32 %2119, -1
+  %2123 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1020, i32 noundef range(i32 -2147483648, 2147483647) %2122) #26
+  %2124 = call i32 @atoi(ptr nocapture noundef %2123) #27
   br label %Cba_ObjRangeSize.exit1027
 
-2132:                                             ; preds = %Cba_ObjRangeSize.exit1016
+2125:                                             ; preds = %Cba_ObjRangeSize.exit1016
   %.val.i.i.i.i1021 = load i32, ptr %22, align 4
-  %2133 = icmp slt i32 %.val.i.i.i.i1021, 1
-  br i1 %2133, label %Cba_NtkRangeSize.exit.i.i1026, label %Cba_FonRange.exit.i.i1022
+  %2126 = icmp slt i32 %.val.i.i.i.i1021, 1
+  br i1 %2126, label %Cba_NtkRangeSize.exit.i.i1026, label %Cba_FonRange.exit.i.i1022
 
-Cba_FonRange.exit.i.i1022:                        ; preds = %2132
-  %2134 = add nuw nsw i32 %2126, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2134, i32 noundef 0)
+Cba_FonRange.exit.i.i1022:                        ; preds = %2125
+  %2127 = add nuw nsw i32 %2119, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2127, i32 noundef 0)
   %.val.i.i.i.i.i1023 = load ptr, ptr %24, align 8
-  %2135 = zext nneg i32 %2126 to i64
-  %2136 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1023, i64 %2135
-  %2137 = load i32, ptr %2136, align 4
-  %.not.i.i.i.i1024 = icmp ult i32 %2137, 2
-  br i1 %.not.i.i.i.i1024, label %Cba_NtkRangeSize.exit.i.i1026, label %2138
+  %2128 = zext nneg i32 %2119 to i64
+  %2129 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1023, i64 %2128
+  %2130 = load i32, ptr %2129, align 4
+  %.not.i.i.i.i1024 = icmp ult i32 %2130, 2
+  br i1 %.not.i.i.i.i1024, label %Cba_NtkRangeSize.exit.i.i1026, label %2131
 
-2138:                                             ; preds = %Cba_FonRange.exit.i.i1022
-  %2139 = load ptr, ptr %0, align 8
-  %2140 = getelementptr inbounds i8, ptr %2139, i64 40
-  %2141 = load ptr, ptr %2140, align 8
-  %2142 = getelementptr inbounds i8, ptr %2141, i64 8
-  %2143 = load ptr, ptr %2142, align 8
-  %2144 = shl nsw i32 %2137, 1
-  %2145 = and i32 %2144, -4
-  %2146 = getelementptr i8, ptr %2143, i64 8
-  %.val.i.i.i.i.i.i1025 = load ptr, ptr %2146, align 8
-  %2147 = sext i32 %2145 to i64
-  %2148 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1025, i64 %2147
-  %2149 = load i32, ptr %2148, align 4
-  %2150 = getelementptr inbounds i8, ptr %2148, i64 4
-  %2151 = load i32, ptr %2150, align 4
-  %2152 = sub nsw i32 %2149, %2151
+2131:                                             ; preds = %Cba_FonRange.exit.i.i1022
+  %2132 = load ptr, ptr %0, align 8
+  %2133 = getelementptr inbounds i8, ptr %2132, i64 40
+  %2134 = load ptr, ptr %2133, align 8
+  %2135 = getelementptr inbounds i8, ptr %2134, i64 8
+  %2136 = load ptr, ptr %2135, align 8
+  %2137 = shl nsw i32 %2130, 1
+  %2138 = and i32 %2137, -4
+  %2139 = getelementptr i8, ptr %2136, i64 8
+  %.val.i.i.i.i.i.i1025 = load ptr, ptr %2139, align 8
+  %2140 = sext i32 %2138 to i64
+  %2141 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1025, i64 %2140
+  %2142 = load i32, ptr %2141, align 4
+  %2143 = getelementptr inbounds i8, ptr %2141, i64 4
+  %2144 = load i32, ptr %2143, align 4
+  %2145 = sub nsw i32 %2142, %2144
   br label %Cba_NtkRangeSize.exit.i.i1026
 
-Cba_NtkRangeSize.exit.i.i1026:                    ; preds = %2138, %Cba_FonRange.exit.i.i1022, %2132
-  %2153 = phi i32 [ %2152, %2138 ], [ 0, %Cba_FonRange.exit.i.i1022 ], [ 0, %2132 ]
-  %2154 = call i32 @llvm.abs.i32(i32 %2153, i1 true)
-  %2155 = add nuw nsw i32 %2154, 1
+Cba_NtkRangeSize.exit.i.i1026:                    ; preds = %2131, %Cba_FonRange.exit.i.i1022, %2125
+  %2146 = phi i32 [ %2145, %2131 ], [ 0, %Cba_FonRange.exit.i.i1022 ], [ 0, %2125 ]
+  %2147 = call i32 @llvm.abs.i32(i32 %2146, i1 true)
+  %2148 = add nuw nsw i32 %2147, 1
   br label %Cba_ObjRangeSize.exit1027
 
-Cba_ObjRangeSize.exit1027:                        ; preds = %2127, %Cba_NtkRangeSize.exit.i.i1026
-  %2156 = phi i32 [ %2131, %2127 ], [ %2155, %Cba_NtkRangeSize.exit.i.i1026 ]
-  %2157 = mul nsw i32 %2118, %2156
+Cba_ObjRangeSize.exit1027:                        ; preds = %2120, %Cba_NtkRangeSize.exit.i.i1026
+  %2149 = phi i32 [ %2124, %2120 ], [ %2148, %Cba_NtkRangeSize.exit.i.i1026 ]
+  %2150 = mul nsw i32 %2111, %2149
   %.val441 = load ptr, ptr %25, align 8
   %.val442 = load ptr, ptr %26, align 8
-  %2158 = getelementptr inbounds i32, ptr %.val441, i64 %indvars.iv1192
-  %2159 = load i32, ptr %2158, align 4
-  %2160 = sext i32 %2159 to i64
-  %2161 = getelementptr inbounds i32, ptr %.val442, i64 %2160
-  %2162 = load i32, ptr %2161, align 4
+  %2151 = getelementptr inbounds i32, ptr %.val441, i64 %indvars.iv1192
+  %2152 = load i32, ptr %2151, align 4
+  %2153 = sext i32 %2152 to i64
+  %2154 = getelementptr inbounds i32, ptr %.val442, i64 %2153
+  %2155 = load i32, ptr %2154, align 4
   %.val.i1028 = load ptr, ptr %21, align 8
-  %2163 = sext i32 %2162 to i64
-  %2164 = getelementptr inbounds i32, ptr %.val.i1028, i64 %2163
-  %2165 = load i32, ptr %2164, align 4
-  %.not.i.i1029 = icmp sgt i32 %2165, -1
-  br i1 %.not.i.i1029, label %2171, label %2166
+  %2156 = sext i32 %2155 to i64
+  %2157 = getelementptr inbounds i32, ptr %.val.i1028, i64 %2156
+  %2158 = load i32, ptr %2157, align 4
+  %.not.i.i1029 = icmp sgt i32 %2158, -1
+  br i1 %.not.i.i1029, label %2164, label %2159
 
-2166:                                             ; preds = %Cba_ObjRangeSize.exit1027
+2159:                                             ; preds = %Cba_ObjRangeSize.exit1027
   %.val.i.i1030 = load ptr, ptr %0, align 8
-  %2167 = getelementptr i8, ptr %.val.i.i1030, i64 24
-  %.val.val.i.i1031 = load ptr, ptr %2167, align 8
-  %2168 = xor i32 %2165, -1
-  %2169 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1031, i32 noundef range(i32 -2147483648, 2147483647) %2168) #26
-  %2170 = call i32 @atoi(ptr nocapture noundef %2169) #27
+  %2160 = getelementptr i8, ptr %.val.i.i1030, i64 24
+  %.val.val.i.i1031 = load ptr, ptr %2160, align 8
+  %2161 = xor i32 %2158, -1
+  %2162 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1031, i32 noundef range(i32 -2147483648, 2147483647) %2161) #26
+  %2163 = call i32 @atoi(ptr nocapture noundef %2162) #27
   br label %Cba_ObjRangeSize.exit1038
 
-2171:                                             ; preds = %Cba_ObjRangeSize.exit1027
+2164:                                             ; preds = %Cba_ObjRangeSize.exit1027
   %.val.i.i.i.i1032 = load i32, ptr %22, align 4
-  %2172 = icmp slt i32 %.val.i.i.i.i1032, 1
-  br i1 %2172, label %Cba_NtkRangeSize.exit.i.i1037, label %Cba_FonRange.exit.i.i1033
+  %2165 = icmp slt i32 %.val.i.i.i.i1032, 1
+  br i1 %2165, label %Cba_NtkRangeSize.exit.i.i1037, label %Cba_FonRange.exit.i.i1033
 
-Cba_FonRange.exit.i.i1033:                        ; preds = %2171
-  %2173 = add nuw nsw i32 %2165, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2173, i32 noundef 0)
+Cba_FonRange.exit.i.i1033:                        ; preds = %2164
+  %2166 = add nuw nsw i32 %2158, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2166, i32 noundef 0)
   %.val.i.i.i.i.i1034 = load ptr, ptr %24, align 8
-  %2174 = zext nneg i32 %2165 to i64
-  %2175 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1034, i64 %2174
-  %2176 = load i32, ptr %2175, align 4
-  %.not.i.i.i.i1035 = icmp ult i32 %2176, 2
-  br i1 %.not.i.i.i.i1035, label %Cba_NtkRangeSize.exit.i.i1037, label %2177
+  %2167 = zext nneg i32 %2158 to i64
+  %2168 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1034, i64 %2167
+  %2169 = load i32, ptr %2168, align 4
+  %.not.i.i.i.i1035 = icmp ult i32 %2169, 2
+  br i1 %.not.i.i.i.i1035, label %Cba_NtkRangeSize.exit.i.i1037, label %2170
 
-2177:                                             ; preds = %Cba_FonRange.exit.i.i1033
-  %2178 = load ptr, ptr %0, align 8
-  %2179 = getelementptr inbounds i8, ptr %2178, i64 40
-  %2180 = load ptr, ptr %2179, align 8
-  %2181 = getelementptr inbounds i8, ptr %2180, i64 8
-  %2182 = load ptr, ptr %2181, align 8
-  %2183 = shl nsw i32 %2176, 1
-  %2184 = and i32 %2183, -4
-  %2185 = getelementptr i8, ptr %2182, i64 8
-  %.val.i.i.i.i.i.i1036 = load ptr, ptr %2185, align 8
-  %2186 = sext i32 %2184 to i64
-  %2187 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1036, i64 %2186
-  %2188 = load i32, ptr %2187, align 4
-  %2189 = getelementptr inbounds i8, ptr %2187, i64 4
-  %2190 = load i32, ptr %2189, align 4
-  %2191 = sub nsw i32 %2188, %2190
+2170:                                             ; preds = %Cba_FonRange.exit.i.i1033
+  %2171 = load ptr, ptr %0, align 8
+  %2172 = getelementptr inbounds i8, ptr %2171, i64 40
+  %2173 = load ptr, ptr %2172, align 8
+  %2174 = getelementptr inbounds i8, ptr %2173, i64 8
+  %2175 = load ptr, ptr %2174, align 8
+  %2176 = shl nsw i32 %2169, 1
+  %2177 = and i32 %2176, -4
+  %2178 = getelementptr i8, ptr %2175, i64 8
+  %.val.i.i.i.i.i.i1036 = load ptr, ptr %2178, align 8
+  %2179 = sext i32 %2177 to i64
+  %2180 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1036, i64 %2179
+  %2181 = load i32, ptr %2180, align 4
+  %2182 = getelementptr inbounds i8, ptr %2180, i64 4
+  %2183 = load i32, ptr %2182, align 4
+  %2184 = sub nsw i32 %2181, %2183
   br label %Cba_NtkRangeSize.exit.i.i1037
 
-Cba_NtkRangeSize.exit.i.i1037:                    ; preds = %2177, %Cba_FonRange.exit.i.i1033, %2171
-  %2192 = phi i32 [ %2191, %2177 ], [ 0, %Cba_FonRange.exit.i.i1033 ], [ 0, %2171 ]
-  %2193 = call i32 @llvm.abs.i32(i32 %2192, i1 true)
-  %2194 = add nuw nsw i32 %2193, 1
+Cba_NtkRangeSize.exit.i.i1037:                    ; preds = %2170, %Cba_FonRange.exit.i.i1033, %2164
+  %2185 = phi i32 [ %2184, %2170 ], [ 0, %Cba_FonRange.exit.i.i1033 ], [ 0, %2164 ]
+  %2186 = call i32 @llvm.abs.i32(i32 %2185, i1 true)
+  %2187 = add nuw nsw i32 %2186, 1
   br label %Cba_ObjRangeSize.exit1038
 
-Cba_ObjRangeSize.exit1038:                        ; preds = %2166, %Cba_NtkRangeSize.exit.i.i1037
-  %2195 = phi i32 [ %2170, %2166 ], [ %2194, %Cba_NtkRangeSize.exit.i.i1037 ]
-  %.neg = mul i32 %2195, -7
+Cba_ObjRangeSize.exit1038:                        ; preds = %2159, %Cba_NtkRangeSize.exit.i.i1037
+  %2188 = phi i32 [ %2163, %2159 ], [ %2187, %Cba_NtkRangeSize.exit.i.i1037 ]
+  %.neg = mul i32 %2188, -7
   %.val491 = load ptr, ptr %5, align 8
-  %2196 = getelementptr inbounds i8, ptr %.val491, i64 208
-  %2197 = load i32, ptr %2196, align 4
-  %2198 = add i32 %2157, -2
-  %2199 = add i32 %2198, %.neg
-  %2200 = add nsw i32 %2199, %2197
-  store i32 %2200, ptr %2196, align 4
-  br label %2454
+  %2189 = getelementptr inbounds i8, ptr %.val491, i64 208
+  %2190 = load i32, ptr %2189, align 4
+  %2191 = add i32 %2150, -2
+  %2192 = add i32 %2191, %.neg
+  %2193 = add nsw i32 %2192, %2190
+  store i32 %2193, ptr %2189, align 4
+  br label %2447
 
-2201:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+2194:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val443 = load ptr, ptr %25, align 8
   %.val444 = load ptr, ptr %26, align 8
-  %2202 = getelementptr inbounds i32, ptr %.val443, i64 %indvars.iv1192
-  %2203 = load i32, ptr %2202, align 4
-  %2204 = sext i32 %2203 to i64
-  %2205 = getelementptr inbounds i32, ptr %.val444, i64 %2204
-  %2206 = load i32, ptr %2205, align 4
+  %2195 = getelementptr inbounds i32, ptr %.val443, i64 %indvars.iv1192
+  %2196 = load i32, ptr %2195, align 4
+  %2197 = sext i32 %2196 to i64
+  %2198 = getelementptr inbounds i32, ptr %.val444, i64 %2197
+  %2199 = load i32, ptr %2198, align 4
   %.val.i1039 = load ptr, ptr %21, align 8
-  %2207 = sext i32 %2206 to i64
-  %2208 = getelementptr inbounds i32, ptr %.val.i1039, i64 %2207
-  %2209 = load i32, ptr %2208, align 4
-  %.not.i.i1040 = icmp sgt i32 %2209, -1
-  br i1 %.not.i.i1040, label %2215, label %2210
+  %2200 = sext i32 %2199 to i64
+  %2201 = getelementptr inbounds i32, ptr %.val.i1039, i64 %2200
+  %2202 = load i32, ptr %2201, align 4
+  %.not.i.i1040 = icmp sgt i32 %2202, -1
+  br i1 %.not.i.i1040, label %2208, label %2203
 
-2210:                                             ; preds = %2201
+2203:                                             ; preds = %2194
   %.val.i.i1041 = load ptr, ptr %0, align 8
-  %2211 = getelementptr i8, ptr %.val.i.i1041, i64 24
-  %.val.val.i.i1042 = load ptr, ptr %2211, align 8
-  %2212 = xor i32 %2209, -1
-  %2213 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1042, i32 noundef range(i32 -2147483648, 2147483647) %2212) #26
-  %2214 = call i32 @atoi(ptr nocapture noundef %2213) #27
+  %2204 = getelementptr i8, ptr %.val.i.i1041, i64 24
+  %.val.val.i.i1042 = load ptr, ptr %2204, align 8
+  %2205 = xor i32 %2202, -1
+  %2206 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1042, i32 noundef range(i32 -2147483648, 2147483647) %2205) #26
+  %2207 = call i32 @atoi(ptr nocapture noundef %2206) #27
   br label %Cba_ObjRangeSize.exit1049
 
-2215:                                             ; preds = %2201
+2208:                                             ; preds = %2194
   %.val.i.i.i.i1043 = load i32, ptr %22, align 4
-  %2216 = icmp slt i32 %.val.i.i.i.i1043, 1
-  br i1 %2216, label %Cba_NtkRangeSize.exit.i.i1048, label %Cba_FonRange.exit.i.i1044
+  %2209 = icmp slt i32 %.val.i.i.i.i1043, 1
+  br i1 %2209, label %Cba_NtkRangeSize.exit.i.i1048, label %Cba_FonRange.exit.i.i1044
 
-Cba_FonRange.exit.i.i1044:                        ; preds = %2215
-  %2217 = add nuw nsw i32 %2209, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2217, i32 noundef 0)
+Cba_FonRange.exit.i.i1044:                        ; preds = %2208
+  %2210 = add nuw nsw i32 %2202, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2210, i32 noundef 0)
   %.val.i.i.i.i.i1045 = load ptr, ptr %24, align 8
-  %2218 = zext nneg i32 %2209 to i64
-  %2219 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1045, i64 %2218
-  %2220 = load i32, ptr %2219, align 4
-  %.not.i.i.i.i1046 = icmp ult i32 %2220, 2
-  br i1 %.not.i.i.i.i1046, label %Cba_NtkRangeSize.exit.i.i1048, label %2221
+  %2211 = zext nneg i32 %2202 to i64
+  %2212 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1045, i64 %2211
+  %2213 = load i32, ptr %2212, align 4
+  %.not.i.i.i.i1046 = icmp ult i32 %2213, 2
+  br i1 %.not.i.i.i.i1046, label %Cba_NtkRangeSize.exit.i.i1048, label %2214
 
-2221:                                             ; preds = %Cba_FonRange.exit.i.i1044
-  %2222 = load ptr, ptr %0, align 8
-  %2223 = getelementptr inbounds i8, ptr %2222, i64 40
-  %2224 = load ptr, ptr %2223, align 8
-  %2225 = getelementptr inbounds i8, ptr %2224, i64 8
-  %2226 = load ptr, ptr %2225, align 8
-  %2227 = shl nsw i32 %2220, 1
-  %2228 = and i32 %2227, -4
-  %2229 = getelementptr i8, ptr %2226, i64 8
-  %.val.i.i.i.i.i.i1047 = load ptr, ptr %2229, align 8
-  %2230 = sext i32 %2228 to i64
-  %2231 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1047, i64 %2230
-  %2232 = load i32, ptr %2231, align 4
-  %2233 = getelementptr inbounds i8, ptr %2231, i64 4
-  %2234 = load i32, ptr %2233, align 4
-  %2235 = sub nsw i32 %2232, %2234
+2214:                                             ; preds = %Cba_FonRange.exit.i.i1044
+  %2215 = load ptr, ptr %0, align 8
+  %2216 = getelementptr inbounds i8, ptr %2215, i64 40
+  %2217 = load ptr, ptr %2216, align 8
+  %2218 = getelementptr inbounds i8, ptr %2217, i64 8
+  %2219 = load ptr, ptr %2218, align 8
+  %2220 = shl nsw i32 %2213, 1
+  %2221 = and i32 %2220, -4
+  %2222 = getelementptr i8, ptr %2219, i64 8
+  %.val.i.i.i.i.i.i1047 = load ptr, ptr %2222, align 8
+  %2223 = sext i32 %2221 to i64
+  %2224 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1047, i64 %2223
+  %2225 = load i32, ptr %2224, align 4
+  %2226 = getelementptr inbounds i8, ptr %2224, i64 4
+  %2227 = load i32, ptr %2226, align 4
+  %2228 = sub nsw i32 %2225, %2227
   br label %Cba_NtkRangeSize.exit.i.i1048
 
-Cba_NtkRangeSize.exit.i.i1048:                    ; preds = %2221, %Cba_FonRange.exit.i.i1044, %2215
-  %2236 = phi i32 [ %2235, %2221 ], [ 0, %Cba_FonRange.exit.i.i1044 ], [ 0, %2215 ]
-  %2237 = call i32 @llvm.abs.i32(i32 %2236, i1 true)
-  %2238 = add nuw nsw i32 %2237, 1
+Cba_NtkRangeSize.exit.i.i1048:                    ; preds = %2214, %Cba_FonRange.exit.i.i1044, %2208
+  %2229 = phi i32 [ %2228, %2214 ], [ 0, %Cba_FonRange.exit.i.i1044 ], [ 0, %2208 ]
+  %2230 = call i32 @llvm.abs.i32(i32 %2229, i1 true)
+  %2231 = add nuw nsw i32 %2230, 1
   br label %Cba_ObjRangeSize.exit1049
 
-Cba_ObjRangeSize.exit1049:                        ; preds = %2210, %Cba_NtkRangeSize.exit.i.i1048
-  %2239 = phi i32 [ %2214, %2210 ], [ %2238, %Cba_NtkRangeSize.exit.i.i1048 ]
-  %2240 = sitofp i32 %2239 to double
+Cba_ObjRangeSize.exit1049:                        ; preds = %2203, %Cba_NtkRangeSize.exit.i.i1048
+  %2232 = phi i32 [ %2207, %2203 ], [ %2231, %Cba_NtkRangeSize.exit.i.i1048 ]
+  %2233 = sitofp i32 %2232 to double
   %.val445 = load ptr, ptr %25, align 8
   %.val446 = load ptr, ptr %26, align 8
-  %2241 = getelementptr inbounds i32, ptr %.val445, i64 %indvars.iv1192
-  %2242 = load i32, ptr %2241, align 4
-  %2243 = sext i32 %2242 to i64
-  %2244 = getelementptr inbounds i32, ptr %.val446, i64 %2243
-  %2245 = load i32, ptr %2244, align 4
+  %2234 = getelementptr inbounds i32, ptr %.val445, i64 %indvars.iv1192
+  %2235 = load i32, ptr %2234, align 4
+  %2236 = sext i32 %2235 to i64
+  %2237 = getelementptr inbounds i32, ptr %.val446, i64 %2236
+  %2238 = load i32, ptr %2237, align 4
   %.val.i1050 = load ptr, ptr %21, align 8
-  %2246 = sext i32 %2245 to i64
-  %2247 = getelementptr inbounds i32, ptr %.val.i1050, i64 %2246
-  %2248 = load i32, ptr %2247, align 4
-  %.not.i.i1051 = icmp sgt i32 %2248, -1
-  br i1 %.not.i.i1051, label %2254, label %2249
+  %2239 = sext i32 %2238 to i64
+  %2240 = getelementptr inbounds i32, ptr %.val.i1050, i64 %2239
+  %2241 = load i32, ptr %2240, align 4
+  %.not.i.i1051 = icmp sgt i32 %2241, -1
+  br i1 %.not.i.i1051, label %2247, label %2242
 
-2249:                                             ; preds = %Cba_ObjRangeSize.exit1049
+2242:                                             ; preds = %Cba_ObjRangeSize.exit1049
   %.val.i.i1052 = load ptr, ptr %0, align 8
-  %2250 = getelementptr i8, ptr %.val.i.i1052, i64 24
-  %.val.val.i.i1053 = load ptr, ptr %2250, align 8
-  %2251 = xor i32 %2248, -1
-  %2252 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1053, i32 noundef range(i32 -2147483648, 2147483647) %2251) #26
-  %2253 = call i32 @atoi(ptr nocapture noundef %2252) #27
+  %2243 = getelementptr i8, ptr %.val.i.i1052, i64 24
+  %.val.val.i.i1053 = load ptr, ptr %2243, align 8
+  %2244 = xor i32 %2241, -1
+  %2245 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1053, i32 noundef range(i32 -2147483648, 2147483647) %2244) #26
+  %2246 = call i32 @atoi(ptr nocapture noundef %2245) #27
   br label %Cba_ObjRangeSize.exit1060
 
-2254:                                             ; preds = %Cba_ObjRangeSize.exit1049
+2247:                                             ; preds = %Cba_ObjRangeSize.exit1049
   %.val.i.i.i.i1054 = load i32, ptr %22, align 4
-  %2255 = icmp slt i32 %.val.i.i.i.i1054, 1
-  br i1 %2255, label %Cba_NtkRangeSize.exit.i.i1059, label %Cba_FonRange.exit.i.i1055
+  %2248 = icmp slt i32 %.val.i.i.i.i1054, 1
+  br i1 %2248, label %Cba_NtkRangeSize.exit.i.i1059, label %Cba_FonRange.exit.i.i1055
 
-Cba_FonRange.exit.i.i1055:                        ; preds = %2254
-  %2256 = add nuw nsw i32 %2248, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2256, i32 noundef 0)
+Cba_FonRange.exit.i.i1055:                        ; preds = %2247
+  %2249 = add nuw nsw i32 %2241, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2249, i32 noundef 0)
   %.val.i.i.i.i.i1056 = load ptr, ptr %24, align 8
-  %2257 = zext nneg i32 %2248 to i64
-  %2258 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1056, i64 %2257
-  %2259 = load i32, ptr %2258, align 4
-  %.not.i.i.i.i1057 = icmp ult i32 %2259, 2
-  br i1 %.not.i.i.i.i1057, label %Cba_NtkRangeSize.exit.i.i1059, label %2260
+  %2250 = zext nneg i32 %2241 to i64
+  %2251 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1056, i64 %2250
+  %2252 = load i32, ptr %2251, align 4
+  %.not.i.i.i.i1057 = icmp ult i32 %2252, 2
+  br i1 %.not.i.i.i.i1057, label %Cba_NtkRangeSize.exit.i.i1059, label %2253
 
-2260:                                             ; preds = %Cba_FonRange.exit.i.i1055
-  %2261 = load ptr, ptr %0, align 8
-  %2262 = getelementptr inbounds i8, ptr %2261, i64 40
-  %2263 = load ptr, ptr %2262, align 8
-  %2264 = getelementptr inbounds i8, ptr %2263, i64 8
-  %2265 = load ptr, ptr %2264, align 8
-  %2266 = shl nsw i32 %2259, 1
-  %2267 = and i32 %2266, -4
-  %2268 = getelementptr i8, ptr %2265, i64 8
-  %.val.i.i.i.i.i.i1058 = load ptr, ptr %2268, align 8
-  %2269 = sext i32 %2267 to i64
-  %2270 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1058, i64 %2269
-  %2271 = load i32, ptr %2270, align 4
-  %2272 = getelementptr inbounds i8, ptr %2270, i64 4
-  %2273 = load i32, ptr %2272, align 4
-  %2274 = sub nsw i32 %2271, %2273
+2253:                                             ; preds = %Cba_FonRange.exit.i.i1055
+  %2254 = load ptr, ptr %0, align 8
+  %2255 = getelementptr inbounds i8, ptr %2254, i64 40
+  %2256 = load ptr, ptr %2255, align 8
+  %2257 = getelementptr inbounds i8, ptr %2256, i64 8
+  %2258 = load ptr, ptr %2257, align 8
+  %2259 = shl nsw i32 %2252, 1
+  %2260 = and i32 %2259, -4
+  %2261 = getelementptr i8, ptr %2258, i64 8
+  %.val.i.i.i.i.i.i1058 = load ptr, ptr %2261, align 8
+  %2262 = sext i32 %2260 to i64
+  %2263 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1058, i64 %2262
+  %2264 = load i32, ptr %2263, align 4
+  %2265 = getelementptr inbounds i8, ptr %2263, i64 4
+  %2266 = load i32, ptr %2265, align 4
+  %2267 = sub nsw i32 %2264, %2266
   br label %Cba_NtkRangeSize.exit.i.i1059
 
-Cba_NtkRangeSize.exit.i.i1059:                    ; preds = %2260, %Cba_FonRange.exit.i.i1055, %2254
-  %2275 = phi i32 [ %2274, %2260 ], [ 0, %Cba_FonRange.exit.i.i1055 ], [ 0, %2254 ]
-  %2276 = call i32 @llvm.abs.i32(i32 %2275, i1 true)
-  %2277 = add nuw nsw i32 %2276, 1
+Cba_NtkRangeSize.exit.i.i1059:                    ; preds = %2253, %Cba_FonRange.exit.i.i1055, %2247
+  %2268 = phi i32 [ %2267, %2253 ], [ 0, %Cba_FonRange.exit.i.i1055 ], [ 0, %2247 ]
+  %2269 = call i32 @llvm.abs.i32(i32 %2268, i1 true)
+  %2270 = add nuw nsw i32 %2269, 1
   br label %Cba_ObjRangeSize.exit1060
 
-Cba_ObjRangeSize.exit1060:                        ; preds = %2249, %Cba_NtkRangeSize.exit.i.i1059
-  %2278 = phi i32 [ %2253, %2249 ], [ %2277, %Cba_NtkRangeSize.exit.i.i1059 ]
-  %2279 = sitofp i32 %2278 to double
-  %2280 = call double @pow(double noundef %2240, double noundef %2279) #26
-  %2281 = fptosi double %2280 to i32
-  %2282 = mul nsw i32 %2281, 10
+Cba_ObjRangeSize.exit1060:                        ; preds = %2242, %Cba_NtkRangeSize.exit.i.i1059
+  %2271 = phi i32 [ %2246, %2242 ], [ %2270, %Cba_NtkRangeSize.exit.i.i1059 ]
+  %2272 = sitofp i32 %2271 to double
+  %2273 = call double @pow(double noundef %2233, double noundef %2272) #26
+  %2274 = fptosi double %2273 to i32
+  %2275 = mul nsw i32 %2274, 10
   %.val492 = load ptr, ptr %5, align 8
-  %2283 = getelementptr inbounds i8, ptr %.val492, i64 216
-  %2284 = load i32, ptr %2283, align 4
-  %2285 = add nsw i32 %2284, %2282
-  store i32 %2285, ptr %2283, align 4
-  br label %2454
+  %2276 = getelementptr inbounds i8, ptr %.val492, i64 216
+  %2277 = load i32, ptr %2276, align 4
+  %2278 = add nsw i32 %2277, %2275
+  store i32 %2278, ptr %2276, align 4
+  br label %2447
 
-2286:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+2279:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val447 = load ptr, ptr %25, align 8
   %.val448 = load ptr, ptr %26, align 8
-  %2287 = getelementptr inbounds i32, ptr %.val447, i64 %indvars.iv1192
-  %2288 = load i32, ptr %2287, align 4
-  %2289 = sext i32 %2288 to i64
-  %2290 = getelementptr inbounds i32, ptr %.val448, i64 %2289
-  %2291 = load i32, ptr %2290, align 4
+  %2280 = getelementptr inbounds i32, ptr %.val447, i64 %indvars.iv1192
+  %2281 = load i32, ptr %2280, align 4
+  %2282 = sext i32 %2281 to i64
+  %2283 = getelementptr inbounds i32, ptr %.val448, i64 %2282
+  %2284 = load i32, ptr %2283, align 4
   %.val.i1061 = load ptr, ptr %21, align 8
-  %2292 = sext i32 %2291 to i64
-  %2293 = getelementptr inbounds i32, ptr %.val.i1061, i64 %2292
-  %2294 = load i32, ptr %2293, align 4
-  %.not.i.i1062 = icmp sgt i32 %2294, -1
-  br i1 %.not.i.i1062, label %2300, label %2295
+  %2285 = sext i32 %2284 to i64
+  %2286 = getelementptr inbounds i32, ptr %.val.i1061, i64 %2285
+  %2287 = load i32, ptr %2286, align 4
+  %.not.i.i1062 = icmp sgt i32 %2287, -1
+  br i1 %.not.i.i1062, label %2293, label %2288
 
-2295:                                             ; preds = %2286
+2288:                                             ; preds = %2279
   %.val.i.i1063 = load ptr, ptr %0, align 8
-  %2296 = getelementptr i8, ptr %.val.i.i1063, i64 24
-  %.val.val.i.i1064 = load ptr, ptr %2296, align 8
-  %2297 = xor i32 %2294, -1
-  %2298 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1064, i32 noundef range(i32 -2147483648, 2147483647) %2297) #26
-  %2299 = call i32 @atoi(ptr nocapture noundef %2298) #27
+  %2289 = getelementptr i8, ptr %.val.i.i1063, i64 24
+  %.val.val.i.i1064 = load ptr, ptr %2289, align 8
+  %2290 = xor i32 %2287, -1
+  %2291 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1064, i32 noundef range(i32 -2147483648, 2147483647) %2290) #26
+  %2292 = call i32 @atoi(ptr nocapture noundef %2291) #27
   br label %Cba_ObjRangeSize.exit1071
 
-2300:                                             ; preds = %2286
+2293:                                             ; preds = %2279
   %.val.i.i.i.i1065 = load i32, ptr %22, align 4
-  %2301 = icmp slt i32 %.val.i.i.i.i1065, 1
-  br i1 %2301, label %Cba_NtkRangeSize.exit.i.i1070, label %Cba_FonRange.exit.i.i1066
+  %2294 = icmp slt i32 %.val.i.i.i.i1065, 1
+  br i1 %2294, label %Cba_NtkRangeSize.exit.i.i1070, label %Cba_FonRange.exit.i.i1066
 
-Cba_FonRange.exit.i.i1066:                        ; preds = %2300
-  %2302 = add nuw nsw i32 %2294, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2302, i32 noundef 0)
+Cba_FonRange.exit.i.i1066:                        ; preds = %2293
+  %2295 = add nuw nsw i32 %2287, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2295, i32 noundef 0)
   %.val.i.i.i.i.i1067 = load ptr, ptr %24, align 8
-  %2303 = zext nneg i32 %2294 to i64
-  %2304 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1067, i64 %2303
-  %2305 = load i32, ptr %2304, align 4
-  %.not.i.i.i.i1068 = icmp ult i32 %2305, 2
-  br i1 %.not.i.i.i.i1068, label %Cba_NtkRangeSize.exit.i.i1070, label %2306
+  %2296 = zext nneg i32 %2287 to i64
+  %2297 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1067, i64 %2296
+  %2298 = load i32, ptr %2297, align 4
+  %.not.i.i.i.i1068 = icmp ult i32 %2298, 2
+  br i1 %.not.i.i.i.i1068, label %Cba_NtkRangeSize.exit.i.i1070, label %2299
 
-2306:                                             ; preds = %Cba_FonRange.exit.i.i1066
-  %2307 = load ptr, ptr %0, align 8
-  %2308 = getelementptr inbounds i8, ptr %2307, i64 40
-  %2309 = load ptr, ptr %2308, align 8
-  %2310 = getelementptr inbounds i8, ptr %2309, i64 8
-  %2311 = load ptr, ptr %2310, align 8
-  %2312 = shl nsw i32 %2305, 1
-  %2313 = and i32 %2312, -4
-  %2314 = getelementptr i8, ptr %2311, i64 8
-  %.val.i.i.i.i.i.i1069 = load ptr, ptr %2314, align 8
-  %2315 = sext i32 %2313 to i64
-  %2316 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1069, i64 %2315
-  %2317 = load i32, ptr %2316, align 4
-  %2318 = getelementptr inbounds i8, ptr %2316, i64 4
-  %2319 = load i32, ptr %2318, align 4
-  %2320 = sub nsw i32 %2317, %2319
+2299:                                             ; preds = %Cba_FonRange.exit.i.i1066
+  %2300 = load ptr, ptr %0, align 8
+  %2301 = getelementptr inbounds i8, ptr %2300, i64 40
+  %2302 = load ptr, ptr %2301, align 8
+  %2303 = getelementptr inbounds i8, ptr %2302, i64 8
+  %2304 = load ptr, ptr %2303, align 8
+  %2305 = shl nsw i32 %2298, 1
+  %2306 = and i32 %2305, -4
+  %2307 = getelementptr i8, ptr %2304, i64 8
+  %.val.i.i.i.i.i.i1069 = load ptr, ptr %2307, align 8
+  %2308 = sext i32 %2306 to i64
+  %2309 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1069, i64 %2308
+  %2310 = load i32, ptr %2309, align 4
+  %2311 = getelementptr inbounds i8, ptr %2309, i64 4
+  %2312 = load i32, ptr %2311, align 4
+  %2313 = sub nsw i32 %2310, %2312
   br label %Cba_NtkRangeSize.exit.i.i1070
 
-Cba_NtkRangeSize.exit.i.i1070:                    ; preds = %2306, %Cba_FonRange.exit.i.i1066, %2300
-  %2321 = phi i32 [ %2320, %2306 ], [ 0, %Cba_FonRange.exit.i.i1066 ], [ 0, %2300 ]
-  %2322 = call i32 @llvm.abs.i32(i32 %2321, i1 true)
-  %2323 = add nuw nsw i32 %2322, 1
+Cba_NtkRangeSize.exit.i.i1070:                    ; preds = %2299, %Cba_FonRange.exit.i.i1066, %2293
+  %2314 = phi i32 [ %2313, %2299 ], [ 0, %Cba_FonRange.exit.i.i1066 ], [ 0, %2293 ]
+  %2315 = call i32 @llvm.abs.i32(i32 %2314, i1 true)
+  %2316 = add nuw nsw i32 %2315, 1
   br label %Cba_ObjRangeSize.exit1071
 
-Cba_ObjRangeSize.exit1071:                        ; preds = %2295, %Cba_NtkRangeSize.exit.i.i1070
-  %2324 = phi i32 [ %2299, %2295 ], [ %2323, %Cba_NtkRangeSize.exit.i.i1070 ]
-  %2325 = shl nsw i32 %2324, 2
+Cba_ObjRangeSize.exit1071:                        ; preds = %2288, %Cba_NtkRangeSize.exit.i.i1070
+  %2317 = phi i32 [ %2292, %2288 ], [ %2316, %Cba_NtkRangeSize.exit.i.i1070 ]
+  %2318 = shl nsw i32 %2317, 2
   %.val493 = load ptr, ptr %5, align 8
-  %2326 = getelementptr inbounds i8, ptr %.val493, i64 220
-  %2327 = load i32, ptr %2326, align 4
-  %2328 = add nsw i32 %2327, %2325
-  store i32 %2328, ptr %2326, align 4
-  br label %2454
+  %2319 = getelementptr inbounds i8, ptr %.val493, i64 220
+  %2320 = load i32, ptr %2319, align 4
+  %2321 = add nsw i32 %2320, %2318
+  store i32 %2321, ptr %2319, align 4
+  br label %2447
 
-2329:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
+2322:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val449 = load ptr, ptr %25, align 8
   %.val450 = load ptr, ptr %26, align 8
-  %2330 = getelementptr inbounds i32, ptr %.val449, i64 %indvars.iv1192
-  %2331 = load i32, ptr %2330, align 4
-  %2332 = sext i32 %2331 to i64
-  %2333 = getelementptr inbounds i32, ptr %.val450, i64 %2332
-  %2334 = load i32, ptr %2333, align 4
+  %2323 = getelementptr inbounds i32, ptr %.val449, i64 %indvars.iv1192
+  %2324 = load i32, ptr %2323, align 4
+  %2325 = sext i32 %2324 to i64
+  %2326 = getelementptr inbounds i32, ptr %.val450, i64 %2325
+  %2327 = load i32, ptr %2326, align 4
   %.val.i1072 = load ptr, ptr %21, align 8
-  %2335 = sext i32 %2334 to i64
-  %2336 = getelementptr inbounds i32, ptr %.val.i1072, i64 %2335
-  %2337 = load i32, ptr %2336, align 4
-  %.not.i.i1073 = icmp sgt i32 %2337, -1
-  br i1 %.not.i.i1073, label %2343, label %2338
+  %2328 = sext i32 %2327 to i64
+  %2329 = getelementptr inbounds i32, ptr %.val.i1072, i64 %2328
+  %2330 = load i32, ptr %2329, align 4
+  %.not.i.i1073 = icmp sgt i32 %2330, -1
+  br i1 %.not.i.i1073, label %2336, label %2331
 
-2338:                                             ; preds = %2329
+2331:                                             ; preds = %2322
   %.val.i.i1074 = load ptr, ptr %0, align 8
-  %2339 = getelementptr i8, ptr %.val.i.i1074, i64 24
-  %.val.val.i.i1075 = load ptr, ptr %2339, align 8
-  %2340 = xor i32 %2337, -1
-  %2341 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1075, i32 noundef range(i32 -2147483648, 2147483647) %2340) #26
-  %2342 = call i32 @atoi(ptr nocapture noundef %2341) #27
+  %2332 = getelementptr i8, ptr %.val.i.i1074, i64 24
+  %.val.val.i.i1075 = load ptr, ptr %2332, align 8
+  %2333 = xor i32 %2330, -1
+  %2334 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1075, i32 noundef range(i32 -2147483648, 2147483647) %2333) #26
+  %2335 = call i32 @atoi(ptr nocapture noundef %2334) #27
   br label %Cba_ObjRangeSize.exit1082
 
-2343:                                             ; preds = %2329
+2336:                                             ; preds = %2322
   %.val.i.i.i.i1076 = load i32, ptr %22, align 4
-  %2344 = icmp slt i32 %.val.i.i.i.i1076, 1
-  br i1 %2344, label %Cba_NtkRangeSize.exit.i.i1081, label %Cba_FonRange.exit.i.i1077
+  %2337 = icmp slt i32 %.val.i.i.i.i1076, 1
+  br i1 %2337, label %Cba_NtkRangeSize.exit.i.i1081, label %Cba_FonRange.exit.i.i1077
 
-Cba_FonRange.exit.i.i1077:                        ; preds = %2343
-  %2345 = add nuw nsw i32 %2337, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2345, i32 noundef 0)
+Cba_FonRange.exit.i.i1077:                        ; preds = %2336
+  %2338 = add nuw nsw i32 %2330, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2338, i32 noundef 0)
   %.val.i.i.i.i.i1078 = load ptr, ptr %24, align 8
-  %2346 = zext nneg i32 %2337 to i64
-  %2347 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1078, i64 %2346
-  %2348 = load i32, ptr %2347, align 4
-  %.not.i.i.i.i1079 = icmp ult i32 %2348, 2
-  br i1 %.not.i.i.i.i1079, label %Cba_NtkRangeSize.exit.i.i1081, label %2349
+  %2339 = zext nneg i32 %2330 to i64
+  %2340 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1078, i64 %2339
+  %2341 = load i32, ptr %2340, align 4
+  %.not.i.i.i.i1079 = icmp ult i32 %2341, 2
+  br i1 %.not.i.i.i.i1079, label %Cba_NtkRangeSize.exit.i.i1081, label %2342
 
-2349:                                             ; preds = %Cba_FonRange.exit.i.i1077
-  %2350 = load ptr, ptr %0, align 8
-  %2351 = getelementptr inbounds i8, ptr %2350, i64 40
-  %2352 = load ptr, ptr %2351, align 8
-  %2353 = getelementptr inbounds i8, ptr %2352, i64 8
-  %2354 = load ptr, ptr %2353, align 8
-  %2355 = shl nsw i32 %2348, 1
-  %2356 = and i32 %2355, -4
-  %2357 = getelementptr i8, ptr %2354, i64 8
-  %.val.i.i.i.i.i.i1080 = load ptr, ptr %2357, align 8
-  %2358 = sext i32 %2356 to i64
-  %2359 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1080, i64 %2358
-  %2360 = load i32, ptr %2359, align 4
-  %2361 = getelementptr inbounds i8, ptr %2359, i64 4
-  %2362 = load i32, ptr %2361, align 4
-  %2363 = sub nsw i32 %2360, %2362
+2342:                                             ; preds = %Cba_FonRange.exit.i.i1077
+  %2343 = load ptr, ptr %0, align 8
+  %2344 = getelementptr inbounds i8, ptr %2343, i64 40
+  %2345 = load ptr, ptr %2344, align 8
+  %2346 = getelementptr inbounds i8, ptr %2345, i64 8
+  %2347 = load ptr, ptr %2346, align 8
+  %2348 = shl nsw i32 %2341, 1
+  %2349 = and i32 %2348, -4
+  %2350 = getelementptr i8, ptr %2347, i64 8
+  %.val.i.i.i.i.i.i1080 = load ptr, ptr %2350, align 8
+  %2351 = sext i32 %2349 to i64
+  %2352 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1080, i64 %2351
+  %2353 = load i32, ptr %2352, align 4
+  %2354 = getelementptr inbounds i8, ptr %2352, i64 4
+  %2355 = load i32, ptr %2354, align 4
+  %2356 = sub nsw i32 %2353, %2355
   br label %Cba_NtkRangeSize.exit.i.i1081
 
-Cba_NtkRangeSize.exit.i.i1081:                    ; preds = %2349, %Cba_FonRange.exit.i.i1077, %2343
-  %2364 = phi i32 [ %2363, %2349 ], [ 0, %Cba_FonRange.exit.i.i1077 ], [ 0, %2343 ]
-  %2365 = call i32 @llvm.abs.i32(i32 %2364, i1 true)
-  %2366 = add nuw nsw i32 %2365, 1
+Cba_NtkRangeSize.exit.i.i1081:                    ; preds = %2342, %Cba_FonRange.exit.i.i1077, %2336
+  %2357 = phi i32 [ %2356, %2342 ], [ 0, %Cba_FonRange.exit.i.i1077 ], [ 0, %2336 ]
+  %2358 = call i32 @llvm.abs.i32(i32 %2357, i1 true)
+  %2359 = add nuw nsw i32 %2358, 1
   br label %Cba_ObjRangeSize.exit1082
 
-Cba_ObjRangeSize.exit1082:                        ; preds = %2338, %Cba_NtkRangeSize.exit.i.i1081
-  %2367 = phi i32 [ %2342, %2338 ], [ %2366, %Cba_NtkRangeSize.exit.i.i1081 ]
-  %2368 = mul nsw i32 %2367, 11
+Cba_ObjRangeSize.exit1082:                        ; preds = %2331, %Cba_NtkRangeSize.exit.i.i1081
+  %2360 = phi i32 [ %2335, %2331 ], [ %2359, %Cba_NtkRangeSize.exit.i.i1081 ]
+  %2361 = mul nsw i32 %2360, 11
   %.val451 = load ptr, ptr %25, align 8
   %.val452 = load ptr, ptr %26, align 8
-  %2369 = getelementptr inbounds i32, ptr %.val451, i64 %indvars.iv1192
-  %2370 = load i32, ptr %2369, align 4
-  %2371 = sext i32 %2370 to i64
-  %2372 = getelementptr inbounds i32, ptr %.val452, i64 %2371
-  %2373 = load i32, ptr %2372, align 4
+  %2362 = getelementptr inbounds i32, ptr %.val451, i64 %indvars.iv1192
+  %2363 = load i32, ptr %2362, align 4
+  %2364 = sext i32 %2363 to i64
+  %2365 = getelementptr inbounds i32, ptr %.val452, i64 %2364
+  %2366 = load i32, ptr %2365, align 4
   %.val.i1083 = load ptr, ptr %21, align 8
-  %2374 = sext i32 %2373 to i64
-  %2375 = getelementptr inbounds i32, ptr %.val.i1083, i64 %2374
-  %2376 = load i32, ptr %2375, align 4
-  %.not.i.i1084 = icmp sgt i32 %2376, -1
-  br i1 %.not.i.i1084, label %2382, label %2377
+  %2367 = sext i32 %2366 to i64
+  %2368 = getelementptr inbounds i32, ptr %.val.i1083, i64 %2367
+  %2369 = load i32, ptr %2368, align 4
+  %.not.i.i1084 = icmp sgt i32 %2369, -1
+  br i1 %.not.i.i1084, label %2375, label %2370
 
-2377:                                             ; preds = %Cba_ObjRangeSize.exit1082
+2370:                                             ; preds = %Cba_ObjRangeSize.exit1082
   %.val.i.i1085 = load ptr, ptr %0, align 8
-  %2378 = getelementptr i8, ptr %.val.i.i1085, i64 24
-  %.val.val.i.i1086 = load ptr, ptr %2378, align 8
-  %2379 = xor i32 %2376, -1
-  %2380 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1086, i32 noundef range(i32 -2147483648, 2147483647) %2379) #26
-  %2381 = call i32 @atoi(ptr nocapture noundef %2380) #27
+  %2371 = getelementptr i8, ptr %.val.i.i1085, i64 24
+  %.val.val.i.i1086 = load ptr, ptr %2371, align 8
+  %2372 = xor i32 %2369, -1
+  %2373 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1086, i32 noundef range(i32 -2147483648, 2147483647) %2372) #26
+  %2374 = call i32 @atoi(ptr nocapture noundef %2373) #27
   br label %Cba_ObjRangeSize.exit1093
 
-2382:                                             ; preds = %Cba_ObjRangeSize.exit1082
+2375:                                             ; preds = %Cba_ObjRangeSize.exit1082
   %.val.i.i.i.i1087 = load i32, ptr %22, align 4
-  %2383 = icmp slt i32 %.val.i.i.i.i1087, 1
-  br i1 %2383, label %Cba_NtkRangeSize.exit.i.i1092, label %Cba_FonRange.exit.i.i1088
+  %2376 = icmp slt i32 %.val.i.i.i.i1087, 1
+  br i1 %2376, label %Cba_NtkRangeSize.exit.i.i1092, label %Cba_FonRange.exit.i.i1088
 
-Cba_FonRange.exit.i.i1088:                        ; preds = %2382
-  %2384 = add nuw nsw i32 %2376, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2384, i32 noundef 0)
+Cba_FonRange.exit.i.i1088:                        ; preds = %2375
+  %2377 = add nuw nsw i32 %2369, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2377, i32 noundef 0)
   %.val.i.i.i.i.i1089 = load ptr, ptr %24, align 8
-  %2385 = zext nneg i32 %2376 to i64
-  %2386 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1089, i64 %2385
-  %2387 = load i32, ptr %2386, align 4
-  %.not.i.i.i.i1090 = icmp ult i32 %2387, 2
-  br i1 %.not.i.i.i.i1090, label %Cba_NtkRangeSize.exit.i.i1092, label %2388
+  %2378 = zext nneg i32 %2369 to i64
+  %2379 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1089, i64 %2378
+  %2380 = load i32, ptr %2379, align 4
+  %.not.i.i.i.i1090 = icmp ult i32 %2380, 2
+  br i1 %.not.i.i.i.i1090, label %Cba_NtkRangeSize.exit.i.i1092, label %2381
 
-2388:                                             ; preds = %Cba_FonRange.exit.i.i1088
-  %2389 = load ptr, ptr %0, align 8
-  %2390 = getelementptr inbounds i8, ptr %2389, i64 40
-  %2391 = load ptr, ptr %2390, align 8
-  %2392 = getelementptr inbounds i8, ptr %2391, i64 8
-  %2393 = load ptr, ptr %2392, align 8
-  %2394 = shl nsw i32 %2387, 1
-  %2395 = and i32 %2394, -4
-  %2396 = getelementptr i8, ptr %2393, i64 8
-  %.val.i.i.i.i.i.i1091 = load ptr, ptr %2396, align 8
-  %2397 = sext i32 %2395 to i64
-  %2398 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1091, i64 %2397
-  %2399 = load i32, ptr %2398, align 4
-  %2400 = getelementptr inbounds i8, ptr %2398, i64 4
-  %2401 = load i32, ptr %2400, align 4
-  %2402 = sub nsw i32 %2399, %2401
+2381:                                             ; preds = %Cba_FonRange.exit.i.i1088
+  %2382 = load ptr, ptr %0, align 8
+  %2383 = getelementptr inbounds i8, ptr %2382, i64 40
+  %2384 = load ptr, ptr %2383, align 8
+  %2385 = getelementptr inbounds i8, ptr %2384, i64 8
+  %2386 = load ptr, ptr %2385, align 8
+  %2387 = shl nsw i32 %2380, 1
+  %2388 = and i32 %2387, -4
+  %2389 = getelementptr i8, ptr %2386, i64 8
+  %.val.i.i.i.i.i.i1091 = load ptr, ptr %2389, align 8
+  %2390 = sext i32 %2388 to i64
+  %2391 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1091, i64 %2390
+  %2392 = load i32, ptr %2391, align 4
+  %2393 = getelementptr inbounds i8, ptr %2391, i64 4
+  %2394 = load i32, ptr %2393, align 4
+  %2395 = sub nsw i32 %2392, %2394
   br label %Cba_NtkRangeSize.exit.i.i1092
 
-Cba_NtkRangeSize.exit.i.i1092:                    ; preds = %2388, %Cba_FonRange.exit.i.i1088, %2382
-  %2403 = phi i32 [ %2402, %2388 ], [ 0, %Cba_FonRange.exit.i.i1088 ], [ 0, %2382 ]
-  %2404 = call i32 @llvm.abs.i32(i32 %2403, i1 true)
-  %2405 = add nuw nsw i32 %2404, 1
+Cba_NtkRangeSize.exit.i.i1092:                    ; preds = %2381, %Cba_FonRange.exit.i.i1088, %2375
+  %2396 = phi i32 [ %2395, %2381 ], [ 0, %Cba_FonRange.exit.i.i1088 ], [ 0, %2375 ]
+  %2397 = call i32 @llvm.abs.i32(i32 %2396, i1 true)
+  %2398 = add nuw nsw i32 %2397, 1
   br label %Cba_ObjRangeSize.exit1093
 
-Cba_ObjRangeSize.exit1093:                        ; preds = %2377, %Cba_NtkRangeSize.exit.i.i1092
-  %2406 = phi i32 [ %2381, %2377 ], [ %2405, %Cba_NtkRangeSize.exit.i.i1092 ]
-  %2407 = mul nsw i32 %2368, %2406
-  %2408 = sdiv i32 %2407, 8
+Cba_ObjRangeSize.exit1093:                        ; preds = %2370, %Cba_NtkRangeSize.exit.i.i1092
+  %2399 = phi i32 [ %2374, %2370 ], [ %2398, %Cba_NtkRangeSize.exit.i.i1092 ]
+  %2400 = mul nsw i32 %2361, %2399
+  %2401 = sdiv i32 %2400, 8
   %.val453 = load ptr, ptr %25, align 8
   %.val454 = load ptr, ptr %26, align 8
-  %2409 = getelementptr inbounds i32, ptr %.val453, i64 %indvars.iv1192
-  %2410 = load i32, ptr %2409, align 4
-  %2411 = sext i32 %2410 to i64
-  %2412 = getelementptr inbounds i32, ptr %.val454, i64 %2411
-  %2413 = load i32, ptr %2412, align 4
+  %2402 = getelementptr inbounds i32, ptr %.val453, i64 %indvars.iv1192
+  %2403 = load i32, ptr %2402, align 4
+  %2404 = sext i32 %2403 to i64
+  %2405 = getelementptr inbounds i32, ptr %.val454, i64 %2404
+  %2406 = load i32, ptr %2405, align 4
   %.val.i1094 = load ptr, ptr %21, align 8
-  %2414 = sext i32 %2413 to i64
-  %2415 = getelementptr inbounds i32, ptr %.val.i1094, i64 %2414
-  %2416 = load i32, ptr %2415, align 4
-  %.not.i.i1095 = icmp sgt i32 %2416, -1
-  br i1 %.not.i.i1095, label %2422, label %2417
+  %2407 = sext i32 %2406 to i64
+  %2408 = getelementptr inbounds i32, ptr %.val.i1094, i64 %2407
+  %2409 = load i32, ptr %2408, align 4
+  %.not.i.i1095 = icmp sgt i32 %2409, -1
+  br i1 %.not.i.i1095, label %2415, label %2410
 
-2417:                                             ; preds = %Cba_ObjRangeSize.exit1093
+2410:                                             ; preds = %Cba_ObjRangeSize.exit1093
   %.val.i.i1096 = load ptr, ptr %0, align 8
-  %2418 = getelementptr i8, ptr %.val.i.i1096, i64 24
-  %.val.val.i.i1097 = load ptr, ptr %2418, align 8
-  %2419 = xor i32 %2416, -1
-  %2420 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1097, i32 noundef range(i32 -2147483648, 2147483647) %2419) #26
-  %2421 = call i32 @atoi(ptr nocapture noundef %2420) #27
+  %2411 = getelementptr i8, ptr %.val.i.i1096, i64 24
+  %.val.val.i.i1097 = load ptr, ptr %2411, align 8
+  %2412 = xor i32 %2409, -1
+  %2413 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1097, i32 noundef range(i32 -2147483648, 2147483647) %2412) #26
+  %2414 = call i32 @atoi(ptr nocapture noundef %2413) #27
   br label %Cba_ObjRangeSize.exit1104
 
-2422:                                             ; preds = %Cba_ObjRangeSize.exit1093
+2415:                                             ; preds = %Cba_ObjRangeSize.exit1093
   %.val.i.i.i.i1098 = load i32, ptr %22, align 4
-  %2423 = icmp slt i32 %.val.i.i.i.i1098, 1
-  br i1 %2423, label %Cba_NtkRangeSize.exit.i.i1103, label %Cba_FonRange.exit.i.i1099
+  %2416 = icmp slt i32 %.val.i.i.i.i1098, 1
+  br i1 %2416, label %Cba_NtkRangeSize.exit.i.i1103, label %Cba_FonRange.exit.i.i1099
 
-Cba_FonRange.exit.i.i1099:                        ; preds = %2422
-  %2424 = add nuw nsw i32 %2416, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2424, i32 noundef 0)
+Cba_FonRange.exit.i.i1099:                        ; preds = %2415
+  %2417 = add nuw nsw i32 %2409, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %2417, i32 noundef 0)
   %.val.i.i.i.i.i1100 = load ptr, ptr %24, align 8
-  %2425 = zext nneg i32 %2416 to i64
-  %2426 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1100, i64 %2425
-  %2427 = load i32, ptr %2426, align 4
-  %.not.i.i.i.i1101 = icmp ult i32 %2427, 2
-  br i1 %.not.i.i.i.i1101, label %Cba_NtkRangeSize.exit.i.i1103, label %2428
+  %2418 = zext nneg i32 %2409 to i64
+  %2419 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1100, i64 %2418
+  %2420 = load i32, ptr %2419, align 4
+  %.not.i.i.i.i1101 = icmp ult i32 %2420, 2
+  br i1 %.not.i.i.i.i1101, label %Cba_NtkRangeSize.exit.i.i1103, label %2421
 
-2428:                                             ; preds = %Cba_FonRange.exit.i.i1099
-  %2429 = load ptr, ptr %0, align 8
-  %2430 = getelementptr inbounds i8, ptr %2429, i64 40
-  %2431 = load ptr, ptr %2430, align 8
-  %2432 = getelementptr inbounds i8, ptr %2431, i64 8
-  %2433 = load ptr, ptr %2432, align 8
-  %2434 = shl nsw i32 %2427, 1
-  %2435 = and i32 %2434, -4
-  %2436 = getelementptr i8, ptr %2433, i64 8
-  %.val.i.i.i.i.i.i1102 = load ptr, ptr %2436, align 8
-  %2437 = sext i32 %2435 to i64
-  %2438 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1102, i64 %2437
-  %2439 = load i32, ptr %2438, align 4
-  %2440 = getelementptr inbounds i8, ptr %2438, i64 4
-  %2441 = load i32, ptr %2440, align 4
-  %2442 = sub nsw i32 %2439, %2441
+2421:                                             ; preds = %Cba_FonRange.exit.i.i1099
+  %2422 = load ptr, ptr %0, align 8
+  %2423 = getelementptr inbounds i8, ptr %2422, i64 40
+  %2424 = load ptr, ptr %2423, align 8
+  %2425 = getelementptr inbounds i8, ptr %2424, i64 8
+  %2426 = load ptr, ptr %2425, align 8
+  %2427 = shl nsw i32 %2420, 1
+  %2428 = and i32 %2427, -4
+  %2429 = getelementptr i8, ptr %2426, i64 8
+  %.val.i.i.i.i.i.i1102 = load ptr, ptr %2429, align 8
+  %2430 = sext i32 %2428 to i64
+  %2431 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1102, i64 %2430
+  %2432 = load i32, ptr %2431, align 4
+  %2433 = getelementptr inbounds i8, ptr %2431, i64 4
+  %2434 = load i32, ptr %2433, align 4
+  %2435 = sub nsw i32 %2432, %2434
   br label %Cba_NtkRangeSize.exit.i.i1103
 
-Cba_NtkRangeSize.exit.i.i1103:                    ; preds = %2428, %Cba_FonRange.exit.i.i1099, %2422
-  %2443 = phi i32 [ %2442, %2428 ], [ 0, %Cba_FonRange.exit.i.i1099 ], [ 0, %2422 ]
-  %2444 = call i32 @llvm.abs.i32(i32 %2443, i1 true)
-  %2445 = add nuw nsw i32 %2444, 1
+Cba_NtkRangeSize.exit.i.i1103:                    ; preds = %2421, %Cba_FonRange.exit.i.i1099, %2415
+  %2436 = phi i32 [ %2435, %2421 ], [ 0, %Cba_FonRange.exit.i.i1099 ], [ 0, %2415 ]
+  %2437 = call i32 @llvm.abs.i32(i32 %2436, i1 true)
+  %2438 = add nuw nsw i32 %2437, 1
   br label %Cba_ObjRangeSize.exit1104
 
-Cba_ObjRangeSize.exit1104:                        ; preds = %2417, %Cba_NtkRangeSize.exit.i.i1103
-  %2446 = phi i32 [ %2421, %2417 ], [ %2445, %Cba_NtkRangeSize.exit.i.i1103 ]
-  %2447 = mul nsw i32 %2446, 5
-  %2448 = sdiv i32 %2447, 2
+Cba_ObjRangeSize.exit1104:                        ; preds = %2410, %Cba_NtkRangeSize.exit.i.i1103
+  %2439 = phi i32 [ %2414, %2410 ], [ %2438, %Cba_NtkRangeSize.exit.i.i1103 ]
+  %2440 = mul nsw i32 %2439, 5
+  %2441 = sdiv i32 %2440, 2
   %.val494 = load ptr, ptr %5, align 8
-  %2449 = getelementptr inbounds i8, ptr %.val494, i64 224
-  %2450 = load i32, ptr %2449, align 4
-  %2451 = add nsw i32 %2408, -5
-  %2452 = add nsw i32 %2451, %2448
-  %2453 = add nsw i32 %2452, %2450
-  store i32 %2453, ptr %2449, align 4
-  br label %2454
+  %2442 = getelementptr inbounds i8, ptr %.val494, i64 224
+  %2443 = load i32, ptr %2442, align 4
+  %2444 = add nsw i32 %2401, -5
+  %2445 = add nsw i32 %2444, %2441
+  %2446 = add nsw i32 %2445, %2443
+  store i32 %2446, ptr %2442, align 4
+  br label %2447
 
-2454:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit, %32, %Cba_ObjRangeSize.exit549, %Cba_ObjRangeSize.exit616, %Cba_ObjRangeSize.exit684, %Cba_ObjRangeSize.exit741, %Cba_ObjRangeSize.exit763, %Cba_ObjRangeSize.exit807, %Cba_ObjRangeSize.exit840, %Cba_ObjRangeSize.exit862, %Cba_ObjRangeSize.exit884, %Cba_ObjRangeSize.exit906, %Cba_ObjRangeSize.exit928, %Cba_ObjRangeSize.exit950, %Cba_ObjRangeSize.exit1005, %Cba_ObjRangeSize.exit1060, %Cba_ObjRangeSize.exit1104, %Cba_ObjRangeSize.exit1071, %Cba_ObjRangeSize.exit1038, %Cba_ObjRangeSize.exit972, %Cba_ObjRangeSize.exit939, %Cba_ObjRangeSize.exit917, %Cba_ObjRangeSize.exit895, %Cba_ObjRangeSize.exit873, %Cba_ObjRangeSize.exit851, %Cba_ObjRangeSize.exit829, %Cba_ObjRangeSize.exit785, %Cba_ObjRangeSize.exit752, %Cba_ObjRangeSize.exit730, %Cba_ObjRangeSize.exit718, %Cba_ObjRangeSize.exit650, %Cba_ObjRangeSize.exit582, %Cba_ObjRangeSize.exit527
+2447:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit, %32, %Cba_ObjRangeSize.exit549, %Cba_ObjRangeSize.exit616, %Cba_ObjRangeSize.exit684, %Cba_ObjRangeSize.exit741, %Cba_ObjRangeSize.exit763, %Cba_ObjRangeSize.exit807, %Cba_ObjRangeSize.exit840, %Cba_ObjRangeSize.exit862, %Cba_ObjRangeSize.exit884, %Cba_ObjRangeSize.exit906, %Cba_ObjRangeSize.exit928, %Cba_ObjRangeSize.exit950, %Cba_ObjRangeSize.exit1005, %Cba_ObjRangeSize.exit1060, %Cba_ObjRangeSize.exit1104, %Cba_ObjRangeSize.exit1071, %Cba_ObjRangeSize.exit1038, %Cba_ObjRangeSize.exit972, %Cba_ObjRangeSize.exit939, %Cba_ObjRangeSize.exit917, %Cba_ObjRangeSize.exit895, %Cba_ObjRangeSize.exit873, %Cba_ObjRangeSize.exit851, %Cba_ObjRangeSize.exit829, %Cba_ObjRangeSize.exit785, %Cba_ObjRangeSize.exit752, %Cba_ObjRangeSize.exit730, %Cba_ObjRangeSize.exit718, %Cba_ObjRangeSize.exit650, %Cba_ObjRangeSize.exit582, %Cba_ObjRangeSize.exit527
   %.2329 = phi i32 [ %.1328, %Cba_ObjRangeSize.exit527 ], [ %.1328, %Cba_ObjRangeSize.exit549 ], [ %.1328, %Cba_ObjRangeSize.exit582 ], [ %.1328, %Cba_ObjRangeSize.exit616 ], [ %.1328, %Cba_ObjRangeSize.exit650 ], [ %.1328, %Cba_ObjRangeSize.exit684 ], [ %.1328, %Cba_ObjRangeSize.exit718 ], [ %.1328, %Cba_ObjRangeSize.exit730 ], [ %.1328, %Cba_ObjRangeSize.exit741 ], [ %.1328, %Cba_ObjRangeSize.exit752 ], [ %.1328, %Cba_ObjRangeSize.exit763 ], [ %.1328, %Cba_ObjRangeSize.exit785 ], [ %.1328, %Cba_ObjRangeSize.exit807 ], [ %.1328, %Cba_ObjRangeSize.exit829 ], [ %.1328, %Cba_ObjRangeSize.exit840 ], [ %.1328, %Cba_ObjRangeSize.exit851 ], [ %.1328, %Cba_ObjRangeSize.exit862 ], [ %.1328, %Cba_ObjRangeSize.exit873 ], [ %.1328, %Cba_ObjRangeSize.exit884 ], [ %.1328, %Cba_ObjRangeSize.exit895 ], [ %.1328, %Cba_ObjRangeSize.exit906 ], [ %.1328, %Cba_ObjRangeSize.exit917 ], [ %.1328, %Cba_ObjRangeSize.exit928 ], [ %.1328, %Cba_ObjRangeSize.exit939 ], [ %.1328, %Cba_ObjRangeSize.exit950 ], [ %.1328, %Cba_ObjRangeSize.exit972 ], [ %.1328, %Cba_ObjRangeSize.exit1005 ], [ %.1328, %Cba_ObjRangeSize.exit1038 ], [ %.1328, %Cba_ObjRangeSize.exit1060 ], [ %.1328, %Cba_ObjRangeSize.exit1071 ], [ %.1328, %Cba_ObjRangeSize.exit1104 ], [ %.03271178, %32 ], [ %.1328, %Cba_NtkPrintDistribAddOne.exit ]
   %.2 = phi i32 [ %.1, %Cba_ObjRangeSize.exit527 ], [ %.1, %Cba_ObjRangeSize.exit549 ], [ %.1, %Cba_ObjRangeSize.exit582 ], [ %.1, %Cba_ObjRangeSize.exit616 ], [ %.1, %Cba_ObjRangeSize.exit650 ], [ %.1, %Cba_ObjRangeSize.exit684 ], [ %.1, %Cba_ObjRangeSize.exit718 ], [ %.1, %Cba_ObjRangeSize.exit730 ], [ %.1, %Cba_ObjRangeSize.exit741 ], [ %.1, %Cba_ObjRangeSize.exit752 ], [ %.1, %Cba_ObjRangeSize.exit763 ], [ %.1, %Cba_ObjRangeSize.exit785 ], [ %.1, %Cba_ObjRangeSize.exit807 ], [ %.1, %Cba_ObjRangeSize.exit829 ], [ %.1, %Cba_ObjRangeSize.exit840 ], [ %.1, %Cba_ObjRangeSize.exit851 ], [ %.1, %Cba_ObjRangeSize.exit862 ], [ %.1, %Cba_ObjRangeSize.exit873 ], [ %.1, %Cba_ObjRangeSize.exit884 ], [ %.1, %Cba_ObjRangeSize.exit895 ], [ %.1, %Cba_ObjRangeSize.exit906 ], [ %.1, %Cba_ObjRangeSize.exit917 ], [ %.1, %Cba_ObjRangeSize.exit928 ], [ %.1, %Cba_ObjRangeSize.exit939 ], [ %.1, %Cba_ObjRangeSize.exit950 ], [ %.1, %Cba_ObjRangeSize.exit972 ], [ %.1, %Cba_ObjRangeSize.exit1005 ], [ %.1, %Cba_ObjRangeSize.exit1038 ], [ %.1, %Cba_ObjRangeSize.exit1060 ], [ %.1, %Cba_ObjRangeSize.exit1071 ], [ %.1, %Cba_ObjRangeSize.exit1104 ], [ %.01179, %32 ], [ %.1, %Cba_NtkPrintDistribAddOne.exit ]
   %indvars.iv.next1193 = add nuw nsw i64 %indvars.iv1192, 1
   %.val357 = load i32, ptr %18, align 4
-  %2455 = sext i32 %.val357 to i64
-  %2456 = icmp slt i64 %indvars.iv.next1193, %2455
-  br i1 %2456, label %32, label %._crit_edge, !llvm.loop !11
+  %2448 = sext i32 %.val357 to i64
+  %2449 = icmp slt i64 %indvars.iv.next1193, %2448
+  br i1 %2449, label %32, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %2454
+._crit_edge:                                      ; preds = %2447
   %.not = icmp eq i32 %.2329, 0
-  br i1 %.not, label %._crit_edge.thread, label %2457
+  br i1 %.not, label %._crit_edge.thread, label %2450
 
-2457:                                             ; preds = %._crit_edge
-  %2458 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.2329)
-  %2459 = getelementptr i8, ptr %0, i64 128
-  %.val361 = load ptr, ptr %2459, align 8
-  %2460 = sext i32 %.2 to i64
-  %2461 = getelementptr inbounds i32, ptr %.val361, i64 %2460
-  %2462 = load i32, ptr %2461, align 4
-  %2463 = getelementptr inbounds i8, ptr %0, i64 264
-  %2464 = add nsw i32 %2462, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2463, i32 noundef %2464, i32 noundef 0)
-  %2465 = getelementptr i8, ptr %0, i64 272
-  %.val.i.i.i = load ptr, ptr %2465, align 8
-  %2466 = sext i32 %2462 to i64
-  %2467 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %2466
-  %2468 = load i32, ptr %2467, align 4
+2450:                                             ; preds = %._crit_edge
+  %2451 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.2329)
+  %2452 = getelementptr i8, ptr %0, i64 128
+  %.val361 = load ptr, ptr %2452, align 8
+  %2453 = sext i32 %.2 to i64
+  %2454 = getelementptr inbounds i32, ptr %.val361, i64 %2453
+  %2455 = load i32, ptr %2454, align 4
+  %2456 = getelementptr inbounds i8, ptr %0, i64 264
+  %2457 = add nsw i32 %2455, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2456, i32 noundef %2457, i32 noundef 0)
+  %2458 = getelementptr i8, ptr %0, i64 272
+  %.val.i.i.i = load ptr, ptr %2458, align 8
+  %2459 = sext i32 %2455 to i64
+  %2460 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %2459
+  %2461 = load i32, ptr %2460, align 4
   %.val.i1105 = load ptr, ptr %0, align 8
-  %2469 = getelementptr i8, ptr %.val.i1105, i64 16
-  %.val.val.i = load ptr, ptr %2469, align 8
-  %2470 = call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %2468) #26
-  %.val.i1106 = load ptr, ptr %2459, align 8
-  %2471 = getelementptr inbounds i32, ptr %.val.i1106, i64 %2460
-  %2472 = load i32, ptr %2471, align 4
-  %.not.i.i1107 = icmp sgt i32 %2472, -1
-  br i1 %.not.i.i1107, label %2478, label %2473
+  %2462 = getelementptr i8, ptr %.val.i1105, i64 16
+  %.val.val.i = load ptr, ptr %2462, align 8
+  %2463 = call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %2461) #26
+  %.val.i1106 = load ptr, ptr %2452, align 8
+  %2464 = getelementptr inbounds i32, ptr %.val.i1106, i64 %2453
+  %2465 = load i32, ptr %2464, align 4
+  %.not.i.i1107 = icmp sgt i32 %2465, -1
+  br i1 %.not.i.i1107, label %2471, label %2466
 
-2473:                                             ; preds = %2457
+2466:                                             ; preds = %2450
   %.val.i.i1108 = load ptr, ptr %0, align 8
-  %2474 = getelementptr i8, ptr %.val.i.i1108, i64 24
-  %.val.val.i.i1109 = load ptr, ptr %2474, align 8
-  %2475 = xor i32 %2472, -1
-  %2476 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1109, i32 noundef range(i32 -2147483648, 2147483647) %2475) #26
-  %2477 = call i32 @atoi(ptr nocapture noundef %2476) #27
+  %2467 = getelementptr i8, ptr %.val.i.i1108, i64 24
+  %.val.val.i.i1109 = load ptr, ptr %2467, align 8
+  %2468 = xor i32 %2465, -1
+  %2469 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i1109, i32 noundef range(i32 -2147483648, 2147483647) %2468) #26
+  %2470 = call i32 @atoi(ptr nocapture noundef %2469) #27
   br label %Cba_ObjRangeSize.exit1116
 
-2478:                                             ; preds = %2457
-  %2479 = getelementptr i8, ptr %0, i64 284
-  %.val.i.i.i.i1110 = load i32, ptr %2479, align 4
-  %2480 = icmp slt i32 %.val.i.i.i.i1110, 1
-  br i1 %2480, label %Cba_NtkRangeSize.exit.i.i1115, label %Cba_FonRange.exit.i.i1111
+2471:                                             ; preds = %2450
+  %2472 = getelementptr i8, ptr %0, i64 284
+  %.val.i.i.i.i1110 = load i32, ptr %2472, align 4
+  %2473 = icmp slt i32 %.val.i.i.i.i1110, 1
+  br i1 %2473, label %Cba_NtkRangeSize.exit.i.i1115, label %Cba_FonRange.exit.i.i1111
 
-Cba_FonRange.exit.i.i1111:                        ; preds = %2478
-  %2481 = getelementptr inbounds i8, ptr %0, i64 280
-  %2482 = add nuw nsw i32 %2472, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2481, i32 noundef %2482, i32 noundef 0)
-  %2483 = getelementptr i8, ptr %0, i64 288
-  %.val.i.i.i.i.i1112 = load ptr, ptr %2483, align 8
-  %2484 = zext nneg i32 %2472 to i64
-  %2485 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1112, i64 %2484
-  %2486 = load i32, ptr %2485, align 4
-  %.not.i.i.i.i1113 = icmp ult i32 %2486, 2
-  br i1 %.not.i.i.i.i1113, label %Cba_NtkRangeSize.exit.i.i1115, label %2487
+Cba_FonRange.exit.i.i1111:                        ; preds = %2471
+  %2474 = getelementptr inbounds i8, ptr %0, i64 280
+  %2475 = add nuw nsw i32 %2465, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2474, i32 noundef %2475, i32 noundef 0)
+  %2476 = getelementptr i8, ptr %0, i64 288
+  %.val.i.i.i.i.i1112 = load ptr, ptr %2476, align 8
+  %2477 = zext nneg i32 %2465 to i64
+  %2478 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1112, i64 %2477
+  %2479 = load i32, ptr %2478, align 4
+  %.not.i.i.i.i1113 = icmp ult i32 %2479, 2
+  br i1 %.not.i.i.i.i1113, label %Cba_NtkRangeSize.exit.i.i1115, label %2480
 
-2487:                                             ; preds = %Cba_FonRange.exit.i.i1111
-  %2488 = load ptr, ptr %0, align 8
-  %2489 = getelementptr inbounds i8, ptr %2488, i64 40
-  %2490 = load ptr, ptr %2489, align 8
-  %2491 = getelementptr inbounds i8, ptr %2490, i64 8
-  %2492 = load ptr, ptr %2491, align 8
-  %2493 = shl nsw i32 %2486, 1
-  %2494 = and i32 %2493, -4
-  %2495 = getelementptr i8, ptr %2492, i64 8
-  %.val.i.i.i.i.i.i1114 = load ptr, ptr %2495, align 8
-  %2496 = sext i32 %2494 to i64
-  %2497 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1114, i64 %2496
-  %2498 = load i32, ptr %2497, align 4
-  %2499 = getelementptr inbounds i8, ptr %2497, i64 4
-  %2500 = load i32, ptr %2499, align 4
-  %2501 = sub nsw i32 %2498, %2500
+2480:                                             ; preds = %Cba_FonRange.exit.i.i1111
+  %2481 = load ptr, ptr %0, align 8
+  %2482 = getelementptr inbounds i8, ptr %2481, i64 40
+  %2483 = load ptr, ptr %2482, align 8
+  %2484 = getelementptr inbounds i8, ptr %2483, i64 8
+  %2485 = load ptr, ptr %2484, align 8
+  %2486 = shl nsw i32 %2479, 1
+  %2487 = and i32 %2486, -4
+  %2488 = getelementptr i8, ptr %2485, i64 8
+  %.val.i.i.i.i.i.i1114 = load ptr, ptr %2488, align 8
+  %2489 = sext i32 %2487 to i64
+  %2490 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i.i1114, i64 %2489
+  %2491 = load i32, ptr %2490, align 4
+  %2492 = getelementptr inbounds i8, ptr %2490, i64 4
+  %2493 = load i32, ptr %2492, align 4
+  %2494 = sub nsw i32 %2491, %2493
   br label %Cba_NtkRangeSize.exit.i.i1115
 
-Cba_NtkRangeSize.exit.i.i1115:                    ; preds = %2487, %Cba_FonRange.exit.i.i1111, %2478
-  %2502 = phi i32 [ %2501, %2487 ], [ 0, %Cba_FonRange.exit.i.i1111 ], [ 0, %2478 ]
-  %2503 = call i32 @llvm.abs.i32(i32 %2502, i1 true)
-  %2504 = add nuw nsw i32 %2503, 1
+Cba_NtkRangeSize.exit.i.i1115:                    ; preds = %2480, %Cba_FonRange.exit.i.i1111, %2471
+  %2495 = phi i32 [ %2494, %2480 ], [ 0, %Cba_FonRange.exit.i.i1111 ], [ 0, %2471 ]
+  %2496 = call i32 @llvm.abs.i32(i32 %2495, i1 true)
+  %2497 = add nuw nsw i32 %2496, 1
   br label %Cba_ObjRangeSize.exit1116
 
-Cba_ObjRangeSize.exit1116:                        ; preds = %2473, %Cba_NtkRangeSize.exit.i.i1115
-  %2505 = phi i32 [ %2477, %2473 ], [ %2504, %Cba_NtkRangeSize.exit.i.i1115 ]
-  %2506 = getelementptr i8, ptr %0, i64 284
-  %.val.i.i.i.i1117 = load i32, ptr %2506, align 4
-  %2507 = icmp slt i32 %.val.i.i.i.i1117, 1
-  br i1 %2507, label %Cba_ObjRight.exit1130, label %Cba_FonRange.exit.i.i1118
+Cba_ObjRangeSize.exit1116:                        ; preds = %2466, %Cba_NtkRangeSize.exit.i.i1115
+  %2498 = phi i32 [ %2470, %2466 ], [ %2497, %Cba_NtkRangeSize.exit.i.i1115 ]
+  %2499 = getelementptr i8, ptr %0, i64 284
+  %.val.i.i.i.i1117 = load i32, ptr %2499, align 4
+  %2500 = icmp slt i32 %.val.i.i.i.i1117, 1
+  br i1 %2500, label %Cba_ObjRight.exit1130, label %Cba_FonRange.exit.i.i1118
 
 Cba_FonRange.exit.i.i1118:                        ; preds = %Cba_ObjRangeSize.exit1116
-  %.val.i1119 = load ptr, ptr %2459, align 8
-  %2508 = getelementptr inbounds i32, ptr %.val.i1119, i64 %2460
-  %2509 = load i32, ptr %2508, align 4
-  %2510 = getelementptr inbounds i8, ptr %0, i64 280
-  %2511 = add nsw i32 %2509, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2510, i32 noundef %2511, i32 noundef 0)
-  %2512 = getelementptr i8, ptr %0, i64 288
-  %.val.i.i.i.i.i1120 = load ptr, ptr %2512, align 8
-  %2513 = sext i32 %2509 to i64
-  %2514 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1120, i64 %2513
-  %2515 = load i32, ptr %2514, align 4
-  %.not.i.i.i1121 = icmp ult i32 %2515, 2
-  br i1 %.not.i.i.i1121, label %Cba_ObjLeft.exit1123, label %2516
+  %.val.i1119 = load ptr, ptr %2452, align 8
+  %2501 = getelementptr inbounds i32, ptr %.val.i1119, i64 %2453
+  %2502 = load i32, ptr %2501, align 4
+  %2503 = getelementptr inbounds i8, ptr %0, i64 280
+  %2504 = add nsw i32 %2502, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2503, i32 noundef %2504, i32 noundef 0)
+  %2505 = getelementptr i8, ptr %0, i64 288
+  %.val.i.i.i.i.i1120 = load ptr, ptr %2505, align 8
+  %2506 = sext i32 %2502 to i64
+  %2507 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1120, i64 %2506
+  %2508 = load i32, ptr %2507, align 4
+  %.not.i.i.i1121 = icmp ult i32 %2508, 2
+  br i1 %.not.i.i.i1121, label %Cba_ObjLeft.exit1123, label %2509
 
-2516:                                             ; preds = %Cba_FonRange.exit.i.i1118
-  %2517 = load ptr, ptr %0, align 8
-  %2518 = getelementptr inbounds i8, ptr %2517, i64 40
-  %2519 = load ptr, ptr %2518, align 8
-  %2520 = getelementptr inbounds i8, ptr %2519, i64 8
-  %2521 = load ptr, ptr %2520, align 8
-  %2522 = shl nsw i32 %2515, 1
-  %2523 = and i32 %2522, -4
-  %2524 = getelementptr i8, ptr %2521, i64 8
-  %.val.i.i.i2.i.i1122 = load ptr, ptr %2524, align 8
-  %2525 = sext i32 %2523 to i64
-  %2526 = getelementptr inbounds i32, ptr %.val.i.i.i2.i.i1122, i64 %2525
-  %2527 = load i32, ptr %2526, align 4
+2509:                                             ; preds = %Cba_FonRange.exit.i.i1118
+  %2510 = load ptr, ptr %0, align 8
+  %2511 = getelementptr inbounds i8, ptr %2510, i64 40
+  %2512 = load ptr, ptr %2511, align 8
+  %2513 = getelementptr inbounds i8, ptr %2512, i64 8
+  %2514 = load ptr, ptr %2513, align 8
+  %2515 = shl nsw i32 %2508, 1
+  %2516 = and i32 %2515, -4
+  %2517 = getelementptr i8, ptr %2514, i64 8
+  %.val.i.i.i2.i.i1122 = load ptr, ptr %2517, align 8
+  %2518 = sext i32 %2516 to i64
+  %2519 = getelementptr inbounds i32, ptr %.val.i.i.i2.i.i1122, i64 %2518
+  %2520 = load i32, ptr %2519, align 4
   br label %Cba_ObjLeft.exit1123
 
-Cba_ObjLeft.exit1123:                             ; preds = %Cba_FonRange.exit.i.i1118, %2516
-  %.ph = phi i32 [ 0, %Cba_FonRange.exit.i.i1118 ], [ %2527, %2516 ]
-  %.val.i.i.i.i1124.pr = load i32, ptr %2506, align 4
-  %2528 = icmp slt i32 %.val.i.i.i.i1124.pr, 1
-  br i1 %2528, label %Cba_ObjRight.exit1130, label %Cba_FonRange.exit.i.i1125
+Cba_ObjLeft.exit1123:                             ; preds = %Cba_FonRange.exit.i.i1118, %2509
+  %.ph = phi i32 [ 0, %Cba_FonRange.exit.i.i1118 ], [ %2520, %2509 ]
+  %.val.i.i.i.i1124.pr = load i32, ptr %2499, align 4
+  %2521 = icmp slt i32 %.val.i.i.i.i1124.pr, 1
+  br i1 %2521, label %Cba_ObjRight.exit1130, label %Cba_FonRange.exit.i.i1125
 
 Cba_FonRange.exit.i.i1125:                        ; preds = %Cba_ObjLeft.exit1123
-  %.val.i1126 = load ptr, ptr %2459, align 8
-  %2529 = getelementptr inbounds i32, ptr %.val.i1126, i64 %2460
-  %2530 = load i32, ptr %2529, align 4
-  %2531 = add nsw i32 %2530, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2510, i32 noundef %2531, i32 noundef 0)
-  %.val.i.i.i.i.i1127 = load ptr, ptr %2512, align 8
-  %2532 = sext i32 %2530 to i64
-  %2533 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1127, i64 %2532
-  %2534 = load i32, ptr %2533, align 4
-  %.not.i.i.i1128 = icmp ult i32 %2534, 2
-  br i1 %.not.i.i.i1128, label %Cba_ObjRight.exit1130, label %2535
+  %.val.i1126 = load ptr, ptr %2452, align 8
+  %2522 = getelementptr inbounds i32, ptr %.val.i1126, i64 %2453
+  %2523 = load i32, ptr %2522, align 4
+  %2524 = add nsw i32 %2523, 1
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %2503, i32 noundef %2524, i32 noundef 0)
+  %.val.i.i.i.i.i1127 = load ptr, ptr %2505, align 8
+  %2525 = sext i32 %2523 to i64
+  %2526 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i1127, i64 %2525
+  %2527 = load i32, ptr %2526, align 4
+  %.not.i.i.i1128 = icmp ult i32 %2527, 2
+  br i1 %.not.i.i.i1128, label %Cba_ObjRight.exit1130, label %2528
 
-2535:                                             ; preds = %Cba_FonRange.exit.i.i1125
-  %2536 = load ptr, ptr %0, align 8
-  %2537 = getelementptr inbounds i8, ptr %2536, i64 40
-  %2538 = load ptr, ptr %2537, align 8
-  %2539 = getelementptr inbounds i8, ptr %2538, i64 8
-  %2540 = load ptr, ptr %2539, align 8
-  %2541 = shl nsw i32 %2534, 1
-  %2542 = and i32 %2541, -4
-  %2543 = getelementptr i8, ptr %2540, i64 8
-  %.val.i.i.i2.i.i1129 = load ptr, ptr %2543, align 8
-  %2544 = sext i32 %2542 to i64
-  %2545 = getelementptr inbounds i32, ptr %.val.i.i.i2.i.i1129, i64 %2544
-  %2546 = getelementptr inbounds i8, ptr %2545, i64 4
-  %2547 = load i32, ptr %2546, align 4
+2528:                                             ; preds = %Cba_FonRange.exit.i.i1125
+  %2529 = load ptr, ptr %0, align 8
+  %2530 = getelementptr inbounds i8, ptr %2529, i64 40
+  %2531 = load ptr, ptr %2530, align 8
+  %2532 = getelementptr inbounds i8, ptr %2531, i64 8
+  %2533 = load ptr, ptr %2532, align 8
+  %2534 = shl nsw i32 %2527, 1
+  %2535 = and i32 %2534, -4
+  %2536 = getelementptr i8, ptr %2533, i64 8
+  %.val.i.i.i2.i.i1129 = load ptr, ptr %2536, align 8
+  %2537 = sext i32 %2535 to i64
+  %2538 = getelementptr inbounds i32, ptr %.val.i.i.i2.i.i1129, i64 %2537
+  %2539 = getelementptr inbounds i8, ptr %2538, i64 4
+  %2540 = load i32, ptr %2539, align 4
   br label %Cba_ObjRight.exit1130
 
-Cba_ObjRight.exit1130:                            ; preds = %Cba_ObjRangeSize.exit1116, %Cba_ObjLeft.exit1123, %Cba_FonRange.exit.i.i1125, %2535
-  %2548 = phi i32 [ %.ph, %2535 ], [ %.ph, %Cba_FonRange.exit.i.i1125 ], [ %.ph, %Cba_ObjLeft.exit1123 ], [ 0, %Cba_ObjRangeSize.exit1116 ]
-  %2549 = phi i32 [ %2547, %2535 ], [ 0, %Cba_FonRange.exit.i.i1125 ], [ 0, %Cba_ObjLeft.exit1123 ], [ 0, %Cba_ObjRangeSize.exit1116 ]
-  %2550 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.2, ptr noundef %2470, i32 noundef %2505, i32 noundef %2548, i32 noundef %2549)
+Cba_ObjRight.exit1130:                            ; preds = %Cba_ObjRangeSize.exit1116, %Cba_ObjLeft.exit1123, %Cba_FonRange.exit.i.i1125, %2528
+  %2541 = phi i32 [ %.ph, %2528 ], [ %.ph, %Cba_FonRange.exit.i.i1125 ], [ %.ph, %Cba_ObjLeft.exit1123 ], [ 0, %Cba_ObjRangeSize.exit1116 ]
+  %2542 = phi i32 [ %2540, %2528 ], [ 0, %Cba_FonRange.exit.i.i1125 ], [ 0, %Cba_ObjLeft.exit1123 ], [ 0, %Cba_ObjRangeSize.exit1116 ]
+  %2543 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.2, ptr noundef %2463, i32 noundef %2498, i32 noundef %2541, i32 noundef %2542)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %Cba_ObjRight.exit1130, %._crit_edge
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %.val353 = load ptr, ptr %8, align 8
   %.val = load ptr, ptr %11, align 8
-  br label %2551
+  br label %2544
 
-2551:                                             ; preds = %._crit_edge.thread, %2614
-  %indvars.iv1198 = phi i64 [ 0, %._crit_edge.thread ], [ %indvars.iv.next1199, %2614 ]
-  %2552 = getelementptr inbounds ptr, ptr %.val353, i64 %indvars.iv1198
-  %2553 = load ptr, ptr %2552, align 8
-  %2554 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv1198
-  %2555 = load ptr, ptr %2554, align 8
-  %2556 = load ptr, ptr %0, align 8
-  %2557 = getelementptr inbounds i8, ptr %2556, i64 832
-  %2558 = getelementptr inbounds [90 x i32], ptr %2557, i64 0, i64 %indvars.iv1198
-  %2559 = load i32, ptr %2558, align 4
-  %2560 = icmp eq i32 %2559, 0
-  br i1 %2560, label %2614, label %2561
+2544:                                             ; preds = %._crit_edge.thread, %2607
+  %indvars.iv1198 = phi i64 [ 0, %._crit_edge.thread ], [ %indvars.iv.next1199, %2607 ]
+  %2545 = getelementptr inbounds ptr, ptr %.val353, i64 %indvars.iv1198
+  %2546 = load ptr, ptr %2545, align 8
+  %2547 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv1198
+  %2548 = load ptr, ptr %2547, align 8
+  %2549 = load ptr, ptr %0, align 8
+  %2550 = getelementptr inbounds i8, ptr %2549, i64 832
+  %2551 = getelementptr inbounds [90 x i32], ptr %2550, i64 0, i64 %indvars.iv1198
+  %2552 = load i32, ptr %2551, align 4
+  %2553 = icmp eq i32 %2552, 0
+  br i1 %2553, label %2607, label %2554
 
-2561:                                             ; preds = %2551
-  %2562 = getelementptr inbounds [90 x ptr], ptr %2, i64 0, i64 %indvars.iv1198
-  %2563 = load ptr, ptr %2562, align 8
+2554:                                             ; preds = %2544
+  %2555 = getelementptr inbounds [90 x ptr], ptr %2, i64 0, i64 %indvars.iv1198
+  %2556 = load ptr, ptr %2555, align 8
   %.val360 = load ptr, ptr %5, align 8
-  %2564 = getelementptr inbounds i32, ptr %.val360, i64 %indvars.iv1198
-  %2565 = load i32, ptr %2564, align 4
-  %2566 = trunc nuw nsw i64 %indvars.iv1198 to i32
-  %2567 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %2566, ptr noundef %2563, i32 noundef %2559, i32 noundef %2565)
-  call void @Cba_NtkPrintDistribSortOne(ptr noundef nonnull %6, ptr noundef nonnull %9, i32 noundef %2566)
-  %2568 = getelementptr i8, ptr %2553, i64 4
-  %.val3541181 = load i32, ptr %2568, align 4
-  %2569 = icmp sgt i32 %.val3541181, 0
-  br i1 %2569, label %.lr.ph1184, label %.critedge
+  %2557 = getelementptr inbounds i32, ptr %.val360, i64 %indvars.iv1198
+  %2558 = load i32, ptr %2557, align 4
+  %2559 = trunc nuw nsw i64 %indvars.iv1198 to i32
+  %2560 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %2559, ptr noundef %2556, i32 noundef %2552, i32 noundef %2558)
+  call void @Cba_NtkPrintDistribSortOne(ptr noundef nonnull %6, ptr noundef nonnull %9, i32 noundef %2559)
+  %2561 = getelementptr i8, ptr %2546, i64 4
+  %.val3541181 = load i32, ptr %2561, align 4
+  %2562 = icmp sgt i32 %.val3541181, 0
+  br i1 %2562, label %.lr.ph1184, label %.critedge
 
-.lr.ph1184:                                       ; preds = %2561
-  %2570 = getelementptr i8, ptr %2553, i64 8
-  %2571 = getelementptr i8, ptr %2555, i64 8
-  br label %2572
+.lr.ph1184:                                       ; preds = %2554
+  %2563 = getelementptr i8, ptr %2546, i64 8
+  %2564 = getelementptr i8, ptr %2548, i64 8
+  br label %2565
 
-2572:                                             ; preds = %.lr.ph1184, %2611
-  %indvars.iv1195 = phi i64 [ 0, %.lr.ph1184 ], [ %indvars.iv.next1196, %2611 ]
-  %.val457 = load ptr, ptr %2570, align 8
-  %2573 = getelementptr inbounds i64, ptr %.val457, i64 %indvars.iv1195
-  %2574 = load i64, ptr %2573, align 8
-  %2575 = lshr i64 %2574, 42
-  %2576 = trunc nuw nsw i64 %2575 to i32
-  %2577 = lshr i64 %2574, 21
-  %2578 = trunc i64 %2577 to i32
-  %2579 = and i32 %2578, 2097151
-  %2580 = trunc i64 %2574 to i32
-  %2581 = trunc nuw nsw i64 %indvars.iv1195 to i32
-  %2582 = urem i32 %2581, 6
-  %2583 = icmp eq i32 %2582, 5
-  %2584 = icmp ugt i64 %2574, 4398046511103
-  %or.cond4 = select i1 %2583, i1 %2584, i1 false
-  br i1 %or.cond4, label %2588, label %2585
+2565:                                             ; preds = %.lr.ph1184, %2604
+  %indvars.iv1195 = phi i64 [ 0, %.lr.ph1184 ], [ %indvars.iv.next1196, %2604 ]
+  %.val457 = load ptr, ptr %2563, align 8
+  %2566 = getelementptr inbounds i64, ptr %.val457, i64 %indvars.iv1195
+  %2567 = load i64, ptr %2566, align 8
+  %2568 = lshr i64 %2567, 42
+  %2569 = trunc nuw nsw i64 %2568 to i32
+  %2570 = lshr i64 %2567, 21
+  %2571 = trunc i64 %2570 to i32
+  %2572 = and i32 %2571, 2097151
+  %2573 = trunc i64 %2567 to i32
+  %2574 = trunc nuw nsw i64 %indvars.iv1195 to i32
+  %2575 = urem i32 %2574, 6
+  %2576 = icmp eq i32 %2575, 5
+  %2577 = icmp ugt i64 %2567, 4398046511103
+  %or.cond4 = select i1 %2576, i1 %2577, i1 false
+  br i1 %or.cond4, label %2581, label %2578
 
-2585:                                             ; preds = %2572
-  %2586 = and i32 %2581, 7
-  %2587 = icmp ne i32 %2586, 7
-  %or.cond7 = select i1 %2587, i1 true, i1 %2584
-  br i1 %or.cond7, label %2590, label %2588
+2578:                                             ; preds = %2565
+  %2579 = and i32 %2574, 7
+  %2580 = icmp ne i32 %2579, 7
+  %or.cond7 = select i1 %2580, i1 true, i1 %2577
+  br i1 %or.cond7, label %2583, label %2581
 
-2588:                                             ; preds = %2585, %2572
-  %2589 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5)
-  br label %2590
+2581:                                             ; preds = %2578, %2565
+  %2582 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5)
+  br label %2583
 
-2590:                                             ; preds = %2588, %2585
-  %.val458 = load ptr, ptr %2571, align 8
-  %2591 = getelementptr inbounds i64, ptr %.val458, i64 %indvars.iv1195
-  %2592 = load i64, ptr %2591, align 8
-  %2593 = trunc i64 %2592 to i32
-  %2594 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %2593)
-  %2595 = and i32 %2580, 1
-  %.not340 = icmp eq i32 %2595, 0
-  %2596 = select i1 %.not340, ptr @.str.9, ptr @.str.8
-  %2597 = lshr i32 %2580, 1
-  %2598 = and i32 %2597, 1048575
-  %2599 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %2596, i32 noundef %2598)
-  %.not341 = icmp eq i32 %2579, 0
-  br i1 %.not341, label %2605, label %2600
+2583:                                             ; preds = %2581, %2578
+  %.val458 = load ptr, ptr %2564, align 8
+  %2584 = getelementptr inbounds i64, ptr %.val458, i64 %indvars.iv1195
+  %2585 = load i64, ptr %2584, align 8
+  %2586 = trunc i64 %2585 to i32
+  %2587 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %2586)
+  %2588 = and i32 %2573, 1
+  %.not340 = icmp eq i32 %2588, 0
+  %2589 = select i1 %.not340, ptr @.str.9, ptr @.str.8
+  %2590 = lshr i32 %2573, 1
+  %2591 = and i32 %2590, 1048575
+  %2592 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %2589, i32 noundef %2591)
+  %.not341 = icmp eq i32 %2572, 0
+  br i1 %.not341, label %2598, label %2593
 
-2600:                                             ; preds = %2590
-  %2601 = and i32 %2578, 1
-  %.not342 = icmp eq i32 %2601, 0
-  %2602 = select i1 %.not342, ptr @.str.9, ptr @.str.8
-  %2603 = lshr i32 %2579, 1
-  %2604 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %2602, i32 noundef %2603)
-  br label %2605
+2593:                                             ; preds = %2583
+  %2594 = and i32 %2571, 1
+  %.not342 = icmp eq i32 %2594, 0
+  %2595 = select i1 %.not342, ptr @.str.9, ptr @.str.8
+  %2596 = lshr i32 %2572, 1
+  %2597 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %2595, i32 noundef %2596)
+  br label %2598
 
-2605:                                             ; preds = %2600, %2590
-  %.not343 = icmp ult i64 %2574, 4398046511104
-  br i1 %.not343, label %2611, label %2606
+2598:                                             ; preds = %2593, %2583
+  %.not343 = icmp ult i64 %2567, 4398046511104
+  br i1 %.not343, label %2604, label %2599
 
-2606:                                             ; preds = %2605
-  %2607 = and i32 %2576, 1
-  %.not344 = icmp eq i32 %2607, 0
-  %2608 = select i1 %.not344, ptr @.str.9, ptr @.str.8
-  %2609 = lshr i32 %2576, 1
-  %2610 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef nonnull %2608, i32 noundef %2609)
-  br label %2611
+2599:                                             ; preds = %2598
+  %2600 = and i32 %2569, 1
+  %.not344 = icmp eq i32 %2600, 0
+  %2601 = select i1 %.not344, ptr @.str.9, ptr @.str.8
+  %2602 = lshr i32 %2569, 1
+  %2603 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef nonnull %2601, i32 noundef %2602)
+  br label %2604
 
-2611:                                             ; preds = %2606, %2605
+2604:                                             ; preds = %2599, %2598
   %putchar345 = call i32 @putchar(i32 32)
   %indvars.iv.next1196 = add nuw nsw i64 %indvars.iv1195, 1
-  %.val354 = load i32, ptr %2568, align 4
-  %2612 = sext i32 %.val354 to i64
-  %2613 = icmp slt i64 %indvars.iv.next1196, %2612
-  br i1 %2613, label %2572, label %.critedge, !llvm.loop !12
+  %.val354 = load i32, ptr %2561, align 4
+  %2605 = sext i32 %.val354 to i64
+  %2606 = icmp slt i64 %indvars.iv.next1196, %2605
+  br i1 %2606, label %2565, label %.critedge, !llvm.loop !12
 
-.critedge:                                        ; preds = %2611, %2561
+.critedge:                                        ; preds = %2604, %2554
   %putchar = call i32 @putchar(i32 10)
-  br label %2614
+  br label %2607
 
-2614:                                             ; preds = %2551, %.critedge
+2607:                                             ; preds = %2544, %.critedge
   %indvars.iv.next1199 = add nuw nsw i64 %indvars.iv1198, 1
   %exitcond1201.not = icmp eq i64 %indvars.iv.next1199, 90
-  br i1 %exitcond1201.not, label %2615, label %2551, !llvm.loop !13
+  br i1 %exitcond1201.not, label %2608, label %2544, !llvm.loop !13
 
-2615:                                             ; preds = %2614
+2608:                                             ; preds = %2607
   %.val11.i = load i32, ptr %7, align 4
-  %2616 = icmp sgt i32 %.val11.i, 0
-  br i1 %2616, label %.lr.ph.i1132.preheader, label %.critedge.i1131
+  %2609 = icmp sgt i32 %.val11.i, 0
+  br i1 %2609, label %.lr.ph.i1132.preheader, label %.critedge.i1131
 
-.lr.ph.i1132.preheader:                           ; preds = %2615
-  %2617 = zext nneg i32 %.val11.i to i64
+.lr.ph.i1132.preheader:                           ; preds = %2608
+  %2610 = zext nneg i32 %.val11.i to i64
   br label %.lr.ph.i1132
 
-.lr.ph.i1132:                                     ; preds = %.lr.ph.i1132.preheader, %2624
-  %indvars.iv.i1133 = phi i64 [ %indvars.iv.next.i1137, %2624 ], [ 0, %.lr.ph.i1132.preheader ]
-  %2618 = getelementptr inbounds ptr, ptr %.val353, i64 %indvars.iv.i1133
-  %2619 = load ptr, ptr %2618, align 8
-  %.not.i1134 = icmp eq ptr %2619, null
-  br i1 %.not.i1134, label %2624, label %2620
+.lr.ph.i1132:                                     ; preds = %.lr.ph.i1132.preheader, %2617
+  %indvars.iv.i1133 = phi i64 [ %indvars.iv.next.i1137, %2617 ], [ 0, %.lr.ph.i1132.preheader ]
+  %2611 = getelementptr inbounds ptr, ptr %.val353, i64 %indvars.iv.i1133
+  %2612 = load ptr, ptr %2611, align 8
+  %.not.i1134 = icmp eq ptr %2612, null
+  br i1 %.not.i1134, label %2617, label %2613
 
-2620:                                             ; preds = %.lr.ph.i1132
-  %2621 = getelementptr inbounds i8, ptr %2619, i64 8
-  %2622 = load ptr, ptr %2621, align 8
-  %.not.i.i1135 = icmp eq ptr %2622, null
-  br i1 %.not.i.i1135, label %Vec_PtrFree.exit.i, label %2623
+2613:                                             ; preds = %.lr.ph.i1132
+  %2614 = getelementptr inbounds i8, ptr %2612, i64 8
+  %2615 = load ptr, ptr %2614, align 8
+  %.not.i.i1135 = icmp eq ptr %2615, null
+  br i1 %.not.i.i1135, label %Vec_PtrFree.exit.i, label %2616
 
-2623:                                             ; preds = %2620
-  call void @free(ptr noundef nonnull %2622) #26
+2616:                                             ; preds = %2613
+  call void @free(ptr noundef nonnull %2615) #26
   br label %Vec_PtrFree.exit.i
 
-Vec_PtrFree.exit.i:                               ; preds = %2623, %2620
-  call void @free(ptr noundef nonnull %2619) #26
-  br label %2624
+Vec_PtrFree.exit.i:                               ; preds = %2616, %2613
+  call void @free(ptr noundef nonnull %2612) #26
+  br label %2617
 
-2624:                                             ; preds = %Vec_PtrFree.exit.i, %.lr.ph.i1132
+2617:                                             ; preds = %Vec_PtrFree.exit.i, %.lr.ph.i1132
   %indvars.iv.next.i1137 = add nuw nsw i64 %indvars.iv.i1133, 1
-  %exitcond1202.not = icmp eq i64 %indvars.iv.next.i1137, %2617
+  %exitcond1202.not = icmp eq i64 %indvars.iv.next.i1137, %2610
   br i1 %exitcond1202.not, label %.critedge.i1131.thread, label %.lr.ph.i1132, !llvm.loop !14
 
-.critedge.i1131:                                  ; preds = %2615
+.critedge.i1131:                                  ; preds = %2608
   %.not.i9.i = icmp eq ptr %.val353, null
   br i1 %.not.i9.i, label %Vec_VecFree.exit, label %.critedge.i1131.thread
 
-.critedge.i1131.thread:                           ; preds = %2624, %.critedge.i1131
+.critedge.i1131.thread:                           ; preds = %2617, %.critedge.i1131
   call void @free(ptr noundef nonnull %.val353) #26
   br label %Vec_VecFree.exit
 
 Vec_VecFree.exit:                                 ; preds = %.critedge.i1131, %.critedge.i1131.thread
   call void @free(ptr noundef nonnull %6) #26
   %.val11.i1138 = load i32, ptr %10, align 4
-  %2625 = icmp sgt i32 %.val11.i1138, 0
-  br i1 %2625, label %.lr.ph.i1141.preheader, label %.critedge.i1139
+  %2618 = icmp sgt i32 %.val11.i1138, 0
+  br i1 %2618, label %.lr.ph.i1141.preheader, label %.critedge.i1139
 
 .lr.ph.i1141.preheader:                           ; preds = %Vec_VecFree.exit
-  %2626 = zext nneg i32 %.val11.i1138 to i64
+  %2619 = zext nneg i32 %.val11.i1138 to i64
   br label %.lr.ph.i1141
 
-.lr.ph.i1141:                                     ; preds = %.lr.ph.i1141.preheader, %2633
-  %indvars.iv.i1143 = phi i64 [ %indvars.iv.next.i1150, %2633 ], [ 0, %.lr.ph.i1141.preheader ]
-  %2627 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv.i1143
-  %2628 = load ptr, ptr %2627, align 8
-  %.not.i1145 = icmp eq ptr %2628, null
-  br i1 %.not.i1145, label %2633, label %2629
+.lr.ph.i1141:                                     ; preds = %.lr.ph.i1141.preheader, %2626
+  %indvars.iv.i1143 = phi i64 [ %indvars.iv.next.i1150, %2626 ], [ 0, %.lr.ph.i1141.preheader ]
+  %2620 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv.i1143
+  %2621 = load ptr, ptr %2620, align 8
+  %.not.i1145 = icmp eq ptr %2621, null
+  br i1 %.not.i1145, label %2626, label %2622
 
-2629:                                             ; preds = %.lr.ph.i1141
-  %2630 = getelementptr inbounds i8, ptr %2628, i64 8
-  %2631 = load ptr, ptr %2630, align 8
-  %.not.i.i1146 = icmp eq ptr %2631, null
-  br i1 %.not.i.i1146, label %Vec_PtrFree.exit.i1147, label %2632
+2622:                                             ; preds = %.lr.ph.i1141
+  %2623 = getelementptr inbounds i8, ptr %2621, i64 8
+  %2624 = load ptr, ptr %2623, align 8
+  %.not.i.i1146 = icmp eq ptr %2624, null
+  br i1 %.not.i.i1146, label %Vec_PtrFree.exit.i1147, label %2625
 
-2632:                                             ; preds = %2629
-  call void @free(ptr noundef nonnull %2631) #26
+2625:                                             ; preds = %2622
+  call void @free(ptr noundef nonnull %2624) #26
   br label %Vec_PtrFree.exit.i1147
 
-Vec_PtrFree.exit.i1147:                           ; preds = %2632, %2629
-  call void @free(ptr noundef nonnull %2628) #26
-  br label %2633
+Vec_PtrFree.exit.i1147:                           ; preds = %2625, %2622
+  call void @free(ptr noundef nonnull %2621) #26
+  br label %2626
 
-2633:                                             ; preds = %Vec_PtrFree.exit.i1147, %.lr.ph.i1141
+2626:                                             ; preds = %Vec_PtrFree.exit.i1147, %.lr.ph.i1141
   %indvars.iv.next.i1150 = add nuw nsw i64 %indvars.iv.i1143, 1
-  %exitcond1203.not = icmp eq i64 %indvars.iv.next.i1150, %2626
+  %exitcond1203.not = icmp eq i64 %indvars.iv.next.i1150, %2619
   br i1 %exitcond1203.not, label %.critedge.i1139.thread, label %.lr.ph.i1141, !llvm.loop !14
 
 .critedge.i1139:                                  ; preds = %Vec_VecFree.exit
   %.not.i9.i1140 = icmp eq ptr %.val, null
   br i1 %.not.i9.i1140, label %Vec_VecFree.exit1151, label %.critedge.i1139.thread
 
-.critedge.i1139.thread:                           ; preds = %2633, %.critedge.i1139
+.critedge.i1139.thread:                           ; preds = %2626, %.critedge.i1139
   call void @free(ptr noundef nonnull %.val) #26
   br label %Vec_VecFree.exit1151
 
 Vec_VecFree.exit1151:                             ; preds = %.critedge.i1139, %.critedge.i1139.thread
   call void @free(ptr noundef nonnull %9) #26
-  %2634 = load ptr, ptr %5, align 8
-  %.not.i1152 = icmp eq ptr %2634, null
-  br i1 %.not.i1152, label %Vec_IntFree.exit, label %2635
+  %2627 = load ptr, ptr %5, align 8
+  %.not.i1152 = icmp eq ptr %2627, null
+  br i1 %.not.i1152, label %Vec_IntFree.exit, label %2628
 
-2635:                                             ; preds = %Vec_VecFree.exit1151
-  call void @free(ptr noundef nonnull %2634) #26
+2628:                                             ; preds = %Vec_VecFree.exit1151
+  call void @free(ptr noundef nonnull %2627) #26
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Vec_VecFree.exit1151, %2635
+Vec_IntFree.exit:                                 ; preds = %Vec_VecFree.exit1151, %2628
   call void @free(ptr noundef nonnull %3) #26
   ret void
 }
@@ -5664,59 +5661,58 @@ define void @Cba_NtkCollectDistrib(ptr nocapture noundef %0, ptr nocapture nound
   %9 = getelementptr i8, ptr %0, i64 192
   br label %10
 
-10:                                               ; preds = %.lr.ph, %34
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %34 ]
+10:                                               ; preds = %.lr.ph, %33
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %.val14 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds i8, ptr %.val14, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = add nsw i32 %13, -90
-  %15 = icmp ult i32 %14, -87
-  br i1 %15, label %34, label %16
+  %13 = add i8 %12, -90
+  %14 = icmp ult i8 %13, -87
+  br i1 %14, label %33, label %15
 
-16:                                               ; preds = %10
+15:                                               ; preds = %10
   %.not = icmp eq i8 %12, 3
-  br i1 %.not, label %17, label %29
+  br i1 %.not, label %16, label %28
 
-17:                                               ; preds = %16
+16:                                               ; preds = %15
   %.val5.i = load i32, ptr %7, align 4
-  %18 = icmp slt i32 %.val5.i, 1
-  br i1 %18, label %Cba_ObjNtkId.exit, label %19
+  %17 = icmp slt i32 %.val5.i, 1
+  br i1 %17, label %Cba_ObjNtkId.exit, label %18
 
-19:                                               ; preds = %17
-  %20 = trunc i64 %indvars.iv to i32
-  %21 = add i32 %20, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %8, i32 noundef %21, i32 noundef 0)
+18:                                               ; preds = %16
+  %19 = trunc i64 %indvars.iv to i32
+  %20 = add i32 %19, 1
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %8, i32 noundef %20, i32 noundef 0)
   %.val.i.i.i = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 4
-  %24 = sext i32 %23 to i64
+  %21 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %indvars.iv
+  %22 = load i32, ptr %21, align 4
+  %23 = sext i32 %22 to i64
   br label %Cba_ObjNtkId.exit
 
-Cba_ObjNtkId.exit:                                ; preds = %17, %19
-  %25 = phi i64 [ %24, %19 ], [ 0, %17 ]
-  %26 = getelementptr inbounds i32, ptr %2, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = add nsw i32 %27, 1
-  store i32 %28, ptr %26, align 4
-  br label %34
+Cba_ObjNtkId.exit:                                ; preds = %16, %18
+  %24 = phi i64 [ %23, %18 ], [ 0, %16 ]
+  %25 = getelementptr inbounds i32, ptr %2, i64 %24
+  %26 = load i32, ptr %25, align 4
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %25, align 4
+  br label %33
 
-29:                                               ; preds = %16
-  %30 = zext i8 %12 to i64
-  %31 = getelementptr inbounds i32, ptr %1, i64 %30
-  %32 = load i32, ptr %31, align 4
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %31, align 4
-  br label %34
+28:                                               ; preds = %15
+  %29 = zext nneg i8 %12 to i64
+  %30 = getelementptr inbounds i32, ptr %1, i64 %29
+  %31 = load i32, ptr %30, align 4
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %30, align 4
+  br label %33
 
-34:                                               ; preds = %10, %29, %Cba_ObjNtkId.exit
+33:                                               ; preds = %10, %28, %Cba_ObjNtkId.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %4, align 4
-  %35 = sext i32 %.val to i64
-  %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %10, label %._crit_edge, !llvm.loop !17
+  %34 = sext i32 %.val to i64
+  %35 = icmp slt i64 %indvars.iv.next, %34
+  br i1 %35, label %10, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %34, %3
+._crit_edge:                                      ; preds = %33, %3
   ret void
 }
 
@@ -5862,73 +5858,72 @@ define void @Cba_NtkPrintDistribOld(ptr nocapture noundef %0) local_unnamed_addr
   %13 = getelementptr i8, ptr %0, i64 192
   br label %14
 
-14:                                               ; preds = %38, %.lr.ph.i
-  %.val.i.pre10 = phi i32 [ %.val16.i, %.lr.ph.i ], [ %.val.i.pre11, %38 ]
-  %.val.i8 = phi i32 [ %.val16.i, %.lr.ph.i ], [ %.val.i, %38 ]
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
+14:                                               ; preds = %37, %.lr.ph.i
+  %.val.i.pre10 = phi i32 [ %.val16.i, %.lr.ph.i ], [ %.val.i.pre11, %37 ]
+  %.val.i8 = phi i32 [ %.val16.i, %.lr.ph.i ], [ %.val.i, %37 ]
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
   %.val14.i = load ptr, ptr %10, align 8
   %15 = getelementptr inbounds i8, ptr %.val14.i, i64 %indvars.iv.i
   %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  %18 = add nsw i32 %17, -90
-  %19 = icmp ult i32 %18, -87
-  br i1 %19, label %38, label %20
+  %17 = add i8 %16, -90
+  %18 = icmp ult i8 %17, -87
+  br i1 %18, label %37, label %19
 
-20:                                               ; preds = %14
+19:                                               ; preds = %14
   %.not.i = icmp eq i8 %16, 3
-  br i1 %.not.i, label %21, label %33
+  br i1 %.not.i, label %20, label %32
 
-21:                                               ; preds = %20
+20:                                               ; preds = %19
   %.val5.i.i = load i32, ptr %11, align 4
-  %22 = icmp slt i32 %.val5.i.i, 1
-  br i1 %22, label %Cba_ObjNtkId.exit.i, label %23
+  %21 = icmp slt i32 %.val5.i.i, 1
+  br i1 %21, label %Cba_ObjNtkId.exit.i, label %22
 
-23:                                               ; preds = %21
-  %24 = trunc i64 %indvars.iv.i to i32
-  %25 = add i32 %24, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %12, i32 noundef %25, i32 noundef 0)
+22:                                               ; preds = %20
+  %23 = trunc i64 %indvars.iv.i to i32
+  %24 = add i32 %23, 1
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %12, i32 noundef %24, i32 noundef 0)
   %.val.i.i.i.i = load ptr, ptr %13, align 8
-  %26 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %indvars.iv.i
-  %27 = load i32, ptr %26, align 4
-  %28 = sext i32 %27 to i64
+  %25 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %indvars.iv.i
+  %26 = load i32, ptr %25, align 4
+  %27 = sext i32 %26 to i64
   %.val.i.pre.pre = load i32, ptr %8, align 4
   br label %Cba_ObjNtkId.exit.i
 
-Cba_ObjNtkId.exit.i:                              ; preds = %23, %21
-  %.val.i.pre = phi i32 [ %.val.i.pre.pre, %23 ], [ %.val.i.pre10, %21 ]
-  %29 = phi i64 [ %28, %23 ], [ 0, %21 ]
-  %30 = getelementptr inbounds i32, ptr %6, i64 %29
-  %31 = load i32, ptr %30, align 4
-  %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %30, align 4
-  br label %38
+Cba_ObjNtkId.exit.i:                              ; preds = %22, %20
+  %.val.i.pre = phi i32 [ %.val.i.pre.pre, %22 ], [ %.val.i.pre10, %20 ]
+  %28 = phi i64 [ %27, %22 ], [ 0, %20 ]
+  %29 = getelementptr inbounds i32, ptr %6, i64 %28
+  %30 = load i32, ptr %29, align 4
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %29, align 4
+  br label %37
 
-33:                                               ; preds = %20
-  %34 = zext i8 %16 to i64
-  %35 = getelementptr inbounds i32, ptr %2, i64 %34
-  %36 = load i32, ptr %35, align 4
-  %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %35, align 4
-  br label %38
+32:                                               ; preds = %19
+  %33 = zext nneg i8 %16 to i64
+  %34 = getelementptr inbounds i32, ptr %2, i64 %33
+  %35 = load i32, ptr %34, align 4
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %34, align 4
+  br label %37
 
-38:                                               ; preds = %33, %Cba_ObjNtkId.exit.i, %14
-  %.val.i.pre11 = phi i32 [ %.val.i.pre10, %33 ], [ %.val.i.pre, %Cba_ObjNtkId.exit.i ], [ %.val.i.pre10, %14 ]
-  %.val.i = phi i32 [ %.val.i8, %33 ], [ %.val.i.pre, %Cba_ObjNtkId.exit.i ], [ %.val.i8, %14 ]
+37:                                               ; preds = %32, %Cba_ObjNtkId.exit.i, %14
+  %.val.i.pre11 = phi i32 [ %.val.i.pre10, %32 ], [ %.val.i.pre, %Cba_ObjNtkId.exit.i ], [ %.val.i.pre10, %14 ]
+  %.val.i = phi i32 [ %.val.i8, %32 ], [ %.val.i.pre, %Cba_ObjNtkId.exit.i ], [ %.val.i8, %14 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %39 = sext i32 %.val.i to i64
-  %40 = icmp slt i64 %indvars.iv.next.i, %39
-  br i1 %40, label %14, label %Cba_NtkCollectDistrib.exit, !llvm.loop !17
+  %38 = sext i32 %.val.i to i64
+  %39 = icmp slt i64 %indvars.iv.next.i, %38
+  br i1 %39, label %14, label %Cba_NtkCollectDistrib.exit, !llvm.loop !17
 
-Cba_NtkCollectDistrib.exit:                       ; preds = %38, %1
+Cba_NtkCollectDistrib.exit:                       ; preds = %37, %1
   call void @Cba_NtkPrintDistribStat(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %6)
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %42, label %41
+  br i1 %.not, label %41, label %40
 
-41:                                               ; preds = %Cba_NtkCollectDistrib.exit
+40:                                               ; preds = %Cba_NtkCollectDistrib.exit
   tail call void @free(ptr noundef nonnull %6) #26
-  br label %42
+  br label %41
 
-42:                                               ; preds = %Cba_NtkCollectDistrib.exit, %41
+41:                                               ; preds = %Cba_NtkCollectDistrib.exit, %40
   ret void
 }
 
@@ -6068,165 +6063,164 @@ Cba_ManNtk.exit:                                  ; preds = %Cba_ManNtk.exit.lr.
   %15 = getelementptr i8, ptr %9, i64 192
   br label %16
 
-16:                                               ; preds = %68, %.lr.ph.i
-  %.val.i16.pre.pre32 = phi i32 [ %.val16.i, %.lr.ph.i ], [ %.val.i16.pre.pre33, %68 ]
-  %.val.i16.pre29 = phi i32 [ %.val16.i, %.lr.ph.i ], [ %.val.i16.pre30, %68 ]
-  %.val.i1625 = phi i32 [ %.val16.i, %.lr.ph.i ], [ %.val.i16, %68 ]
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %68 ]
+16:                                               ; preds = %67, %.lr.ph.i
+  %.val.i16.pre.pre32 = phi i32 [ %.val16.i, %.lr.ph.i ], [ %.val.i16.pre.pre33, %67 ]
+  %.val.i16.pre29 = phi i32 [ %.val16.i, %.lr.ph.i ], [ %.val.i16.pre30, %67 ]
+  %.val.i1625 = phi i32 [ %.val16.i, %.lr.ph.i ], [ %.val.i16, %67 ]
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %67 ]
   %.val14.i = load ptr, ptr %12, align 8
   %17 = getelementptr inbounds i8, ptr %.val14.i, i64 %indvars.iv.i
   %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i32
-  %20 = add nsw i32 %19, -90
-  %21 = icmp ult i32 %20, -87
-  br i1 %21, label %68, label %22
+  %19 = add i8 %18, -90
+  %20 = icmp ult i8 %19, -87
+  br i1 %20, label %67, label %21
 
-22:                                               ; preds = %16
+21:                                               ; preds = %16
   %.not.i15 = icmp eq i8 %18, 3
-  br i1 %.not.i15, label %23, label %63
+  br i1 %.not.i15, label %22, label %62
 
-23:                                               ; preds = %22
+22:                                               ; preds = %21
   %.val5.i.i = load i32, ptr %13, align 4
-  %24 = icmp slt i32 %.val5.i.i, 1
-  br i1 %24, label %Cba_ObjNtkId.exit.i, label %25
+  %23 = icmp slt i32 %.val5.i.i, 1
+  br i1 %23, label %Cba_ObjNtkId.exit.i, label %24
 
-25:                                               ; preds = %23
-  %26 = trunc i64 %indvars.iv.i to i32
-  %27 = add i32 %26, 1
-  %.not.i17 = icmp sgt i32 %27, %.val5.i.i
-  br i1 %.not.i17, label %28, label %Vec_IntFillExtra.exit
+24:                                               ; preds = %22
+  %25 = trunc i64 %indvars.iv.i to i32
+  %26 = add i32 %25, 1
+  %.not.i17 = icmp sgt i32 %26, %.val5.i.i
+  br i1 %.not.i17, label %27, label %Vec_IntFillExtra.exit
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %14, align 8
-  %30 = shl nsw i32 %29, 1
-  %31 = icmp sgt i32 %27, %30
-  %.not.i.i = icmp slt i32 %29, %27
-  br i1 %31, label %32, label %41
+27:                                               ; preds = %24
+  %28 = load i32, ptr %14, align 8
+  %29 = shl nsw i32 %28, 1
+  %30 = icmp sgt i32 %26, %29
+  %.not.i.i = icmp slt i32 %28, %26
+  br i1 %30, label %31, label %40
 
-32:                                               ; preds = %28
-  br i1 %.not.i.i, label %33, label %Vec_IntGrow.exit.i
+31:                                               ; preds = %27
+  br i1 %.not.i.i, label %32, label %Vec_IntGrow.exit.i
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %15, align 8
-  %.not9.i.i = icmp eq ptr %34, null
-  %35 = zext nneg i32 %27 to i64
-  %36 = shl nuw nsw i64 %35, 2
-  br i1 %.not9.i.i, label %39, label %37
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %15, align 8
+  %.not9.i.i = icmp eq ptr %33, null
+  %34 = zext nneg i32 %26 to i64
+  %35 = shl nuw nsw i64 %34, 2
+  br i1 %.not9.i.i, label %38, label %36
 
-37:                                               ; preds = %33
-  %38 = tail call ptr @realloc(ptr noundef nonnull %34, i64 noundef %36) #28
+36:                                               ; preds = %32
+  %37 = tail call ptr @realloc(ptr noundef nonnull %33, i64 noundef %35) #28
   br label %Vec_IntGrow.exit.sink.split.i
 
-39:                                               ; preds = %33
-  %40 = tail call noalias ptr @malloc(i64 noundef %36) #25
+38:                                               ; preds = %32
+  %39 = tail call noalias ptr @malloc(i64 noundef %35) #25
   br label %Vec_IntGrow.exit.sink.split.i
 
-41:                                               ; preds = %28
-  br i1 %.not.i.i, label %42, label %Vec_IntGrow.exit.i
+40:                                               ; preds = %27
+  br i1 %.not.i.i, label %41, label %Vec_IntGrow.exit.i
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %15, align 8
-  %.not9.i21.i = icmp eq ptr %43, null
-  %44 = zext nneg i32 %30 to i64
-  %45 = shl nuw nsw i64 %44, 2
-  br i1 %.not9.i21.i, label %48, label %46
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %15, align 8
+  %.not9.i21.i = icmp eq ptr %42, null
+  %43 = zext nneg i32 %29 to i64
+  %44 = shl nuw nsw i64 %43, 2
+  br i1 %.not9.i21.i, label %47, label %45
 
-46:                                               ; preds = %42
-  %47 = tail call ptr @realloc(ptr noundef nonnull %43, i64 noundef %45) #28
+45:                                               ; preds = %41
+  %46 = tail call ptr @realloc(ptr noundef nonnull %42, i64 noundef %44) #28
   br label %Vec_IntGrow.exit.sink.split.i
 
-48:                                               ; preds = %42
-  %49 = tail call noalias ptr @malloc(i64 noundef %45) #25
+47:                                               ; preds = %41
+  %48 = tail call noalias ptr @malloc(i64 noundef %44) #25
   br label %Vec_IntGrow.exit.sink.split.i
 
-Vec_IntGrow.exit.sink.split.i:                    ; preds = %46, %48, %37, %39
-  %storemerge = phi ptr [ %38, %37 ], [ %40, %39 ], [ %47, %46 ], [ %49, %48 ]
-  %.sink.i = phi i32 [ %27, %37 ], [ %27, %39 ], [ %30, %46 ], [ %30, %48 ]
+Vec_IntGrow.exit.sink.split.i:                    ; preds = %45, %47, %36, %38
+  %storemerge = phi ptr [ %37, %36 ], [ %39, %38 ], [ %46, %45 ], [ %48, %47 ]
+  %.sink.i = phi i32 [ %26, %36 ], [ %26, %38 ], [ %29, %45 ], [ %29, %47 ]
   store ptr %storemerge, ptr %15, align 8
   store i32 %.sink.i, ptr %14, align 8
   %.pre = load i32, ptr %13, align 4
   br label %Vec_IntGrow.exit.i
 
-Vec_IntGrow.exit.i:                               ; preds = %Vec_IntGrow.exit.sink.split.i, %41, %32
-  %50 = phi i32 [ %.pre, %Vec_IntGrow.exit.sink.split.i ], [ %.val5.i.i, %41 ], [ %.val5.i.i, %32 ]
-  %51 = icmp slt i32 %50, %27
-  br i1 %51, label %.lr.ph.i18, label %._crit_edge.i
+Vec_IntGrow.exit.i:                               ; preds = %Vec_IntGrow.exit.sink.split.i, %40, %31
+  %49 = phi i32 [ %.pre, %Vec_IntGrow.exit.sink.split.i ], [ %.val5.i.i, %40 ], [ %.val5.i.i, %31 ]
+  %50 = icmp slt i32 %49, %26
+  br i1 %50, label %.lr.ph.i18, label %._crit_edge.i
 
 .lr.ph.i18:                                       ; preds = %Vec_IntGrow.exit.i
-  %52 = sext i32 %50 to i64
-  %wide.trip.count.i = zext nneg i32 %27 to i64
-  br label %53
+  %51 = sext i32 %49 to i64
+  %wide.trip.count.i = zext nneg i32 %26 to i64
+  br label %52
 
-53:                                               ; preds = %53, %.lr.ph.i18
-  %indvars.iv.i19 = phi i64 [ %52, %.lr.ph.i18 ], [ %indvars.iv.next.i20, %53 ]
-  %54 = load ptr, ptr %15, align 8
-  %55 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv.i19
-  store i32 0, ptr %55, align 4
+52:                                               ; preds = %52, %.lr.ph.i18
+  %indvars.iv.i19 = phi i64 [ %51, %.lr.ph.i18 ], [ %indvars.iv.next.i20, %52 ]
+  %53 = load ptr, ptr %15, align 8
+  %54 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv.i19
+  store i32 0, ptr %54, align 4
   %indvars.iv.next.i20 = add nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %53, !llvm.loop !24
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %52, !llvm.loop !24
 
-._crit_edge.i:                                    ; preds = %53, %Vec_IntGrow.exit.i
-  store i32 %27, ptr %13, align 4
+._crit_edge.i:                                    ; preds = %52, %Vec_IntGrow.exit.i
+  store i32 %26, ptr %13, align 4
   %.val.i16.pre.pre.pre = load i32, ptr %10, align 4
   br label %Vec_IntFillExtra.exit
 
-Vec_IntFillExtra.exit:                            ; preds = %25, %._crit_edge.i
-  %.val.i16.pre.pre = phi i32 [ %.val.i16.pre.pre32, %25 ], [ %.val.i16.pre.pre.pre, %._crit_edge.i ]
+Vec_IntFillExtra.exit:                            ; preds = %24, %._crit_edge.i
+  %.val.i16.pre.pre = phi i32 [ %.val.i16.pre.pre32, %24 ], [ %.val.i16.pre.pre.pre, %._crit_edge.i ]
   %.val.i.i.i.i = load ptr, ptr %15, align 8
-  %56 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %indvars.iv.i
-  %57 = load i32, ptr %56, align 4
-  %58 = sext i32 %57 to i64
+  %55 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %indvars.iv.i
+  %56 = load i32, ptr %55, align 4
+  %57 = sext i32 %56 to i64
   br label %Cba_ObjNtkId.exit.i
 
-Cba_ObjNtkId.exit.i:                              ; preds = %Vec_IntFillExtra.exit, %23
-  %.val.i16.pre.pre34 = phi i32 [ %.val.i16.pre.pre, %Vec_IntFillExtra.exit ], [ %.val.i16.pre.pre32, %23 ]
-  %.val.i16.pre = phi i32 [ %.val.i16.pre.pre, %Vec_IntFillExtra.exit ], [ %.val.i16.pre29, %23 ]
-  %59 = phi i64 [ %58, %Vec_IntFillExtra.exit ], [ 0, %23 ]
-  %60 = getelementptr inbounds i32, ptr %5, i64 %59
-  %61 = load i32, ptr %60, align 4
-  %62 = add nsw i32 %61, 1
-  store i32 %62, ptr %60, align 4
-  br label %68
+Cba_ObjNtkId.exit.i:                              ; preds = %Vec_IntFillExtra.exit, %22
+  %.val.i16.pre.pre34 = phi i32 [ %.val.i16.pre.pre, %Vec_IntFillExtra.exit ], [ %.val.i16.pre.pre32, %22 ]
+  %.val.i16.pre = phi i32 [ %.val.i16.pre.pre, %Vec_IntFillExtra.exit ], [ %.val.i16.pre29, %22 ]
+  %58 = phi i64 [ %57, %Vec_IntFillExtra.exit ], [ 0, %22 ]
+  %59 = getelementptr inbounds i32, ptr %5, i64 %58
+  %60 = load i32, ptr %59, align 4
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %59, align 4
+  br label %67
 
-63:                                               ; preds = %22
-  %64 = zext i8 %18 to i64
-  %65 = getelementptr inbounds i32, ptr %2, i64 %64
-  %66 = load i32, ptr %65, align 4
-  %67 = add nsw i32 %66, 1
-  store i32 %67, ptr %65, align 4
-  br label %68
+62:                                               ; preds = %21
+  %63 = zext nneg i8 %18 to i64
+  %64 = getelementptr inbounds i32, ptr %2, i64 %63
+  %65 = load i32, ptr %64, align 4
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %64, align 4
+  br label %67
 
-68:                                               ; preds = %63, %Cba_ObjNtkId.exit.i, %16
-  %.val.i16.pre.pre33 = phi i32 [ %.val.i16.pre.pre32, %63 ], [ %.val.i16.pre.pre34, %Cba_ObjNtkId.exit.i ], [ %.val.i16.pre.pre32, %16 ]
-  %.val.i16.pre30 = phi i32 [ %.val.i16.pre29, %63 ], [ %.val.i16.pre, %Cba_ObjNtkId.exit.i ], [ %.val.i16.pre29, %16 ]
-  %.val.i16 = phi i32 [ %.val.i1625, %63 ], [ %.val.i16.pre, %Cba_ObjNtkId.exit.i ], [ %.val.i1625, %16 ]
+67:                                               ; preds = %62, %Cba_ObjNtkId.exit.i, %16
+  %.val.i16.pre.pre33 = phi i32 [ %.val.i16.pre.pre32, %62 ], [ %.val.i16.pre.pre34, %Cba_ObjNtkId.exit.i ], [ %.val.i16.pre.pre32, %16 ]
+  %.val.i16.pre30 = phi i32 [ %.val.i16.pre29, %62 ], [ %.val.i16.pre, %Cba_ObjNtkId.exit.i ], [ %.val.i16.pre29, %16 ]
+  %.val.i16 = phi i32 [ %.val.i1625, %62 ], [ %.val.i16.pre, %Cba_ObjNtkId.exit.i ], [ %.val.i1625, %16 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %69 = sext i32 %.val.i16 to i64
-  %70 = icmp slt i64 %indvars.iv.next.i, %69
-  br i1 %70, label %16, label %Cba_NtkCollectDistrib.exit.loopexit, !llvm.loop !17
+  %68 = sext i32 %.val.i16 to i64
+  %69 = icmp slt i64 %indvars.iv.next.i, %68
+  br i1 %69, label %16, label %Cba_NtkCollectDistrib.exit.loopexit, !llvm.loop !17
 
-Cba_NtkCollectDistrib.exit.loopexit:              ; preds = %68
+Cba_NtkCollectDistrib.exit.loopexit:              ; preds = %67
   %.val.pre = load i32, ptr %3, align 4
   br label %Cba_NtkCollectDistrib.exit
 
 Cba_NtkCollectDistrib.exit:                       ; preds = %Cba_NtkCollectDistrib.exit.loopexit, %Cba_ManNtk.exit
   %.val = phi i32 [ %.val.pre, %Cba_NtkCollectDistrib.exit.loopexit ], [ %.val27, %Cba_ManNtk.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %71 = sext i32 %.val to i64
-  %.not.not = icmp slt i64 %indvars.iv.next, %71
+  %70 = sext i32 %.val to i64
+  %.not.not = icmp slt i64 %indvars.iv.next, %70
   br i1 %.not.not, label %Cba_ManNtk.exit, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %Cba_NtkCollectDistrib.exit, %1
   call void @Cba_ManPrintDistribStat(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %5)
   %.not13 = icmp eq ptr %5, null
-  br i1 %.not13, label %73, label %72
+  br i1 %.not13, label %72, label %71
 
-72:                                               ; preds = %.critedge
+71:                                               ; preds = %.critedge
   tail call void @free(ptr noundef nonnull %5) #26
-  br label %73
+  br label %72
 
-73:                                               ; preds = %.critedge, %72
+72:                                               ; preds = %.critedge, %71
   ret void
 }
 
@@ -6996,282 +6990,281 @@ Vec_BitStart.exit:                                ; preds = %1, %8
   %54 = getelementptr i8, ptr %0, i64 144
   %55 = getelementptr i8, ptr %0, i64 160
   %wide.trip.count199 = zext nneg i32 %.val131 to i64
-  br label %123
+  br label %122
 
 56:                                               ; preds = %.lr.ph162, %.critedge2
   %indvars.iv188 = phi i64 [ 1, %.lr.ph162 ], [ %indvars.iv.next189, %.critedge2 ]
   %.val135 = load ptr, ptr %33, align 8
   %57 = getelementptr inbounds i8, ptr %.val135, i64 %indvars.iv188
   %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = add nsw i32 %59, -90
-  %61 = icmp ult i32 %60, -87
-  br i1 %61, label %.critedge2, label %62
+  %59 = add i8 %58, -90
+  %60 = icmp ult i8 %59, -87
+  br i1 %60, label %.critedge2, label %61
 
-62:                                               ; preds = %56
-  %63 = icmp eq i8 %58, 3
-  br i1 %63, label %Cba_ObjNtkId.exit.i.i, label %80
+61:                                               ; preds = %56
+  %62 = icmp eq i8 %58, 3
+  br i1 %62, label %Cba_ObjNtkId.exit.i.i, label %79
 
-Cba_ObjNtkId.exit.i.i:                            ; preds = %62
+Cba_ObjNtkId.exit.i.i:                            ; preds = %61
   %.val5.i.i.i = load i32, ptr %34, align 4
-  %64 = icmp sgt i32 %.val5.i.i.i, 0
-  tail call void @llvm.assume(i1 %64)
-  %65 = trunc i64 %indvars.iv188 to i32
-  %66 = add i32 %65, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %35, i32 noundef %66, i32 noundef 0)
+  %63 = icmp sgt i32 %.val5.i.i.i, 0
+  tail call void @llvm.assume(i1 %63)
+  %64 = trunc i64 %indvars.iv188 to i32
+  %65 = add i32 %64, 1
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %35, i32 noundef %65, i32 noundef 0)
   %.val.i.i.i.i.i = load ptr, ptr %36, align 8
-  %67 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i, i64 %indvars.iv188
-  %68 = load i32, ptr %67, align 4
+  %66 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i, i64 %indvars.iv188
+  %67 = load i32, ptr %66, align 4
   %.val.i.i = load ptr, ptr %0, align 8
-  %69 = icmp sgt i32 %68, 0
-  tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr i8, ptr %.val.i.i, i64 1564
-  %.val.i.i.i2.i.i = load i32, ptr %70, align 4
-  %.not.i.i.i.i = icmp slt i32 %68, %.val.i.i.i2.i.i
+  %68 = icmp sgt i32 %67, 0
+  tail call void @llvm.assume(i1 %68)
+  %69 = getelementptr i8, ptr %.val.i.i, i64 1564
+  %.val.i.i.i2.i.i = load i32, ptr %69, align 4
+  %.not.i.i.i.i = icmp slt i32 %67, %.val.i.i.i2.i.i
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %71 = getelementptr i8, ptr %.val.i.i, i64 1568
-  %.val.i.i.i.i = load ptr, ptr %71, align 8
-  %72 = zext nneg i32 %68 to i64
-  %73 = getelementptr inbounds ptr, ptr %.val.i.i.i.i, i64 %72
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 20
-  %76 = load i8, ptr %75, align 4
-  %77 = lshr i8 %76, 2
-  %78 = and i8 %77, 1
-  %79 = zext nneg i8 %78 to i32
+  %70 = getelementptr i8, ptr %.val.i.i, i64 1568
+  %.val.i.i.i.i = load ptr, ptr %70, align 8
+  %71 = zext nneg i32 %67 to i64
+  %72 = getelementptr inbounds ptr, ptr %.val.i.i.i.i, i64 %71
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 20
+  %75 = load i8, ptr %74, align 4
+  %76 = lshr i8 %75, 2
+  %77 = and i8 %76, 1
+  %78 = zext nneg i8 %77 to i32
   br label %Cba_ObjIsSeq.exit
 
-80:                                               ; preds = %62
-  %81 = add nsw i32 %59, -76
-  %82 = icmp ult i32 %81, 12
-  %83 = zext i1 %82 to i32
+79:                                               ; preds = %61
+  %80 = add nsw i8 %58, -76
+  %81 = icmp ult i8 %80, 12
+  %82 = zext i1 %81 to i32
   br label %Cba_ObjIsSeq.exit
 
-Cba_ObjIsSeq.exit:                                ; preds = %Cba_ObjNtkId.exit.i.i, %80
-  %84 = phi i32 [ %79, %Cba_ObjNtkId.exit.i.i ], [ %83, %80 ]
-  %.not105 = icmp eq i32 %84, 0
-  br i1 %.not105, label %85, label %.critedge2
+Cba_ObjIsSeq.exit:                                ; preds = %Cba_ObjNtkId.exit.i.i, %79
+  %83 = phi i32 [ %78, %Cba_ObjNtkId.exit.i.i ], [ %82, %79 ]
+  %.not105 = icmp eq i32 %83, 0
+  br i1 %.not105, label %84, label %.critedge2
 
-85:                                               ; preds = %Cba_ObjIsSeq.exit
+84:                                               ; preds = %Cba_ObjIsSeq.exit
   %.val121 = load ptr, ptr %37, align 8
-  %86 = getelementptr inbounds i32, ptr %.val121, i64 %indvars.iv188
-  %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %86, i64 4
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp slt i32 %87, %89
-  br i1 %90, label %.lr.ph159, label %.critedge4.thread
+  %85 = getelementptr inbounds i32, ptr %.val121, i64 %indvars.iv188
+  %86 = load i32, ptr %85, align 4
+  %87 = getelementptr inbounds i8, ptr %85, i64 4
+  %88 = load i32, ptr %87, align 4
+  %89 = icmp slt i32 %86, %88
+  br i1 %89, label %.lr.ph159, label %.critedge4.thread
 
-.lr.ph159:                                        ; preds = %85
+.lr.ph159:                                        ; preds = %84
   %.val127 = load ptr, ptr %38, align 8
-  %91 = sext i32 %87 to i64
-  %wide.trip.count = sext i32 %89 to i64
-  br label %92
+  %90 = sext i32 %86 to i64
+  %wide.trip.count = sext i32 %88 to i64
+  br label %91
 
-92:                                               ; preds = %.lr.ph159, %Cba_FonObj.exit.thread
-  %indvars.iv185 = phi i64 [ %91, %.lr.ph159 ], [ %indvars.iv.next186, %Cba_FonObj.exit.thread ]
+91:                                               ; preds = %.lr.ph159, %Cba_FonObj.exit.thread
+  %indvars.iv185 = phi i64 [ %90, %.lr.ph159 ], [ %indvars.iv.next186, %Cba_FonObj.exit.thread ]
   %.293158 = phi i32 [ 1, %.lr.ph159 ], [ %.394, %Cba_FonObj.exit.thread ]
-  %93 = getelementptr inbounds i32, ptr %.val127, i64 %indvars.iv185
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp slt i32 %94, 1
-  br i1 %95, label %Cba_FonObj.exit.thread, label %Cba_FonObj.exit
+  %92 = getelementptr inbounds i32, ptr %.val127, i64 %indvars.iv185
+  %93 = load i32, ptr %92, align 4
+  %94 = icmp slt i32 %93, 1
+  br i1 %94, label %Cba_FonObj.exit.thread, label %Cba_FonObj.exit
 
-Cba_FonObj.exit:                                  ; preds = %92
+Cba_FonObj.exit:                                  ; preds = %91
   %.val.i = load ptr, ptr %39, align 8
-  %96 = zext nneg i32 %94 to i64
-  %97 = getelementptr inbounds i32, ptr %.val.i, i64 %96
-  %98 = load i32, ptr %97, align 4
-  %.not115 = icmp eq i32 %98, 0
-  br i1 %.not115, label %Cba_FonObj.exit.thread, label %99
+  %95 = zext nneg i32 %93 to i64
+  %96 = getelementptr inbounds i32, ptr %.val.i, i64 %95
+  %97 = load i32, ptr %96, align 4
+  %.not115 = icmp eq i32 %97, 0
+  br i1 %.not115, label %Cba_FonObj.exit.thread, label %98
 
-99:                                               ; preds = %Cba_FonObj.exit
-  %100 = ashr i32 %98, 5
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i32, ptr %12, i64 %101
-  %103 = load i32, ptr %102, align 4
-  %104 = and i32 %98, 31
-  %105 = shl nuw i32 1, %104
-  %106 = and i32 %103, %105
-  %.not116 = icmp eq i32 %106, 0
+98:                                               ; preds = %Cba_FonObj.exit
+  %99 = ashr i32 %97, 5
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds i32, ptr %12, i64 %100
+  %102 = load i32, ptr %101, align 4
+  %103 = and i32 %97, 31
+  %104 = shl nuw i32 1, %103
+  %105 = and i32 %102, %104
+  %.not116 = icmp eq i32 %105, 0
   %spec.select = select i1 %.not116, i32 0, i32 %.293158
   br label %Cba_FonObj.exit.thread
 
-Cba_FonObj.exit.thread:                           ; preds = %92, %99, %Cba_FonObj.exit
-  %.394 = phi i32 [ %.293158, %Cba_FonObj.exit ], [ %spec.select, %99 ], [ %.293158, %92 ]
+Cba_FonObj.exit.thread:                           ; preds = %91, %98, %Cba_FonObj.exit
+  %.394 = phi i32 [ %.293158, %Cba_FonObj.exit ], [ %spec.select, %98 ], [ %.293158, %91 ]
   %indvars.iv.next186 = add nsw i64 %indvars.iv185, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4, label %92, !llvm.loop !35
+  br i1 %exitcond.not, label %.critedge4, label %91, !llvm.loop !35
 
 .critedge4:                                       ; preds = %Cba_FonObj.exit.thread
-  %107 = icmp eq i32 %.394, 0
-  br i1 %107, label %.critedge10, label %.critedge4.thread
+  %106 = icmp eq i32 %.394, 0
+  br i1 %106, label %.critedge10, label %.critedge4.thread
 
-.critedge4.thread:                                ; preds = %85, %.critedge4
-  %108 = trunc nuw nsw i64 %indvars.iv188 to i32
-  %109 = and i32 %108, 31
-  %110 = shl nuw i32 1, %109
-  %111 = lshr i64 %indvars.iv188, 5
-  %112 = and i64 %111, 134217727
-  %113 = getelementptr inbounds i32, ptr %12, i64 %112
-  %114 = load i32, ptr %113, align 4
-  %115 = or i32 %114, %110
-  store i32 %115, ptr %113, align 4
+.critedge4.thread:                                ; preds = %84, %.critedge4
+  %107 = trunc nuw nsw i64 %indvars.iv188 to i32
+  %108 = and i32 %107, 31
+  %109 = shl nuw i32 1, %108
+  %110 = lshr i64 %indvars.iv188, 5
+  %111 = and i64 %110, 134217727
+  %112 = getelementptr inbounds i32, ptr %12, i64 %111
+  %113 = load i32, ptr %112, align 4
+  %114 = or i32 %113, %109
+  store i32 %114, ptr %112, align 4
   br label %.critedge2
 
 .critedge2:                                       ; preds = %56, %.critedge4.thread, %Cba_ObjIsSeq.exit
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %.val = load i32, ptr %2, align 4
-  %116 = sext i32 %.val to i64
-  %117 = icmp slt i64 %indvars.iv.next189, %116
-  br i1 %117, label %56, label %.critedge118.preheader, !llvm.loop !36
+  %115 = sext i32 %.val to i64
+  %116 = icmp slt i64 %indvars.iv.next189, %115
+  br i1 %116, label %56, label %.critedge118.preheader, !llvm.loop !36
 
-.critedge118:                                     ; preds = %123, %.critedge8
+.critedge118:                                     ; preds = %122, %.critedge8
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
-  br i1 %exitcond200.not, label %.critedge6.preheader, label %123, !llvm.loop !37
+  br i1 %exitcond200.not, label %.critedge6.preheader, label %122, !llvm.loop !37
 
 .critedge6.preheader:                             ; preds = %.critedge118, %.critedge118.preheader
   %.val132 = load i32, ptr %17, align 4
-  %118 = icmp sgt i32 %.val132, 0
-  br i1 %118, label %.lr.ph174, label %.critedge10
+  %117 = icmp sgt i32 %.val132, 0
+  br i1 %117, label %.lr.ph174, label %.critedge10
 
 .lr.ph174:                                        ; preds = %.critedge6.preheader
-  %119 = getelementptr i8, ptr %0, i64 80
-  %.val136 = load ptr, ptr %119, align 8
-  %120 = getelementptr i8, ptr %0, i64 112
-  %.val125 = load ptr, ptr %120, align 8
+  %118 = getelementptr i8, ptr %0, i64 80
+  %.val136 = load ptr, ptr %118, align 8
+  %119 = getelementptr i8, ptr %0, i64 112
+  %.val125 = load ptr, ptr %119, align 8
   %invariant.gep177 = getelementptr i8, ptr %.val125, i64 4
-  %121 = getelementptr i8, ptr %0, i64 144
-  %122 = getelementptr i8, ptr %0, i64 160
+  %120 = getelementptr i8, ptr %0, i64 144
+  %121 = getelementptr i8, ptr %0, i64 160
   %wide.trip.count209 = zext nneg i32 %.val132 to i64
-  br label %148
+  br label %147
 
-123:                                              ; preds = %.lr.ph168, %.critedge118
+122:                                              ; preds = %.lr.ph168, %.critedge118
   %indvars.iv196 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next197, %.critedge118 ]
-  %124 = getelementptr inbounds i32, ptr %.val142, i64 %indvars.iv196
-  %125 = load i32, ptr %124, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i32, ptr %.val123, i64 %126
-  %128 = load i32, ptr %127, align 4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %126
-  %129 = load i32, ptr %gep, align 4
-  %130 = icmp slt i32 %128, %129
-  br i1 %130, label %.lr.ph165, label %.critedge118
+  %123 = getelementptr inbounds i32, ptr %.val142, i64 %indvars.iv196
+  %124 = load i32, ptr %123, align 4
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds i32, ptr %.val123, i64 %125
+  %127 = load i32, ptr %126, align 4
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %125
+  %128 = load i32, ptr %gep, align 4
+  %129 = icmp slt i32 %127, %128
+  br i1 %129, label %.lr.ph165, label %.critedge118
 
-.lr.ph165:                                        ; preds = %123
+.lr.ph165:                                        ; preds = %122
   %.val128 = load ptr, ptr %54, align 8
-  %131 = sext i32 %128 to i64
-  %wide.trip.count194 = sext i32 %129 to i64
-  br label %132
+  %130 = sext i32 %127 to i64
+  %wide.trip.count194 = sext i32 %128 to i64
+  br label %131
 
-132:                                              ; preds = %.lr.ph165, %Cba_FonObj.exit144.thread
-  %indvars.iv191 = phi i64 [ %131, %.lr.ph165 ], [ %indvars.iv.next192, %Cba_FonObj.exit144.thread ]
+131:                                              ; preds = %.lr.ph165, %Cba_FonObj.exit144.thread
+  %indvars.iv191 = phi i64 [ %130, %.lr.ph165 ], [ %indvars.iv.next192, %Cba_FonObj.exit144.thread ]
   %.7164 = phi i32 [ 1, %.lr.ph165 ], [ %.8, %Cba_FonObj.exit144.thread ]
-  %133 = getelementptr inbounds i32, ptr %.val128, i64 %indvars.iv191
-  %134 = load i32, ptr %133, align 4
-  %135 = icmp slt i32 %134, 1
-  br i1 %135, label %Cba_FonObj.exit144.thread, label %Cba_FonObj.exit144
+  %132 = getelementptr inbounds i32, ptr %.val128, i64 %indvars.iv191
+  %133 = load i32, ptr %132, align 4
+  %134 = icmp slt i32 %133, 1
+  br i1 %134, label %Cba_FonObj.exit144.thread, label %Cba_FonObj.exit144
 
-Cba_FonObj.exit144:                               ; preds = %132
+Cba_FonObj.exit144:                               ; preds = %131
   %.val.i143 = load ptr, ptr %55, align 8
-  %136 = zext nneg i32 %134 to i64
-  %137 = getelementptr inbounds i32, ptr %.val.i143, i64 %136
-  %138 = load i32, ptr %137, align 4
-  %.not113 = icmp eq i32 %138, 0
-  br i1 %.not113, label %Cba_FonObj.exit144.thread, label %139
+  %135 = zext nneg i32 %133 to i64
+  %136 = getelementptr inbounds i32, ptr %.val.i143, i64 %135
+  %137 = load i32, ptr %136, align 4
+  %.not113 = icmp eq i32 %137, 0
+  br i1 %.not113, label %Cba_FonObj.exit144.thread, label %138
 
-139:                                              ; preds = %Cba_FonObj.exit144
-  %140 = ashr i32 %138, 5
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i32, ptr %12, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = and i32 %138, 31
-  %145 = shl nuw i32 1, %144
-  %146 = and i32 %143, %145
-  %.not114 = icmp eq i32 %146, 0
+138:                                              ; preds = %Cba_FonObj.exit144
+  %139 = ashr i32 %137, 5
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr inbounds i32, ptr %12, i64 %140
+  %142 = load i32, ptr %141, align 4
+  %143 = and i32 %137, 31
+  %144 = shl nuw i32 1, %143
+  %145 = and i32 %142, %144
+  %.not114 = icmp eq i32 %145, 0
   %spec.select119 = select i1 %.not114, i32 0, i32 %.7164
   br label %Cba_FonObj.exit144.thread
 
-Cba_FonObj.exit144.thread:                        ; preds = %132, %139, %Cba_FonObj.exit144
-  %.8 = phi i32 [ %.7164, %Cba_FonObj.exit144 ], [ %spec.select119, %139 ], [ %.7164, %132 ]
+Cba_FonObj.exit144.thread:                        ; preds = %131, %138, %Cba_FonObj.exit144
+  %.8 = phi i32 [ %.7164, %Cba_FonObj.exit144 ], [ %spec.select119, %138 ], [ %.7164, %131 ]
   %indvars.iv.next192 = add nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
-  br i1 %exitcond195.not, label %.critedge8, label %132, !llvm.loop !38
+  br i1 %exitcond195.not, label %.critedge8, label %131, !llvm.loop !38
 
 .critedge8:                                       ; preds = %Cba_FonObj.exit144.thread
-  %147 = icmp eq i32 %.8, 0
-  br i1 %147, label %.critedge10, label %.critedge118
+  %146 = icmp eq i32 %.8, 0
+  br i1 %146, label %.critedge10, label %.critedge118
 
-.critedge6:                                       ; preds = %148, %.critedge12
+.critedge6:                                       ; preds = %147, %.critedge12
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
-  br i1 %exitcond210.not, label %.critedge10, label %148, !llvm.loop !39
+  br i1 %exitcond210.not, label %.critedge10, label %147, !llvm.loop !39
 
-148:                                              ; preds = %.lr.ph174, %.critedge6
+147:                                              ; preds = %.lr.ph174, %.critedge6
   %indvars.iv206 = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next207, %.critedge6 ]
-  %149 = getelementptr inbounds i32, ptr %.val136, i64 %indvars.iv206
-  %150 = load i32, ptr %149, align 4
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i32, ptr %.val125, i64 %151
-  %153 = load i32, ptr %152, align 4
-  %gep178 = getelementptr i32, ptr %invariant.gep177, i64 %151
-  %154 = load i32, ptr %gep178, align 4
-  %155 = icmp slt i32 %153, %154
-  br i1 %155, label %.lr.ph171, label %.critedge6
+  %148 = getelementptr inbounds i32, ptr %.val136, i64 %indvars.iv206
+  %149 = load i32, ptr %148, align 4
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds i32, ptr %.val125, i64 %150
+  %152 = load i32, ptr %151, align 4
+  %gep178 = getelementptr i32, ptr %invariant.gep177, i64 %150
+  %153 = load i32, ptr %gep178, align 4
+  %154 = icmp slt i32 %152, %153
+  br i1 %154, label %.lr.ph171, label %.critedge6
 
-.lr.ph171:                                        ; preds = %148
-  %.val129 = load ptr, ptr %121, align 8
-  %156 = sext i32 %153 to i64
-  %wide.trip.count204 = sext i32 %154 to i64
-  br label %157
+.lr.ph171:                                        ; preds = %147
+  %.val129 = load ptr, ptr %120, align 8
+  %155 = sext i32 %152 to i64
+  %wide.trip.count204 = sext i32 %153 to i64
+  br label %156
 
-157:                                              ; preds = %.lr.ph171, %Cba_FonObj.exit146.thread
-  %indvars.iv201 = phi i64 [ %156, %.lr.ph171 ], [ %indvars.iv.next202, %Cba_FonObj.exit146.thread ]
+156:                                              ; preds = %.lr.ph171, %Cba_FonObj.exit146.thread
+  %indvars.iv201 = phi i64 [ %155, %.lr.ph171 ], [ %indvars.iv.next202, %Cba_FonObj.exit146.thread ]
   %.11170 = phi i32 [ 1, %.lr.ph171 ], [ %.12, %Cba_FonObj.exit146.thread ]
-  %158 = getelementptr inbounds i32, ptr %.val129, i64 %indvars.iv201
-  %159 = load i32, ptr %158, align 4
-  %160 = icmp slt i32 %159, 1
-  br i1 %160, label %Cba_FonObj.exit146.thread, label %Cba_FonObj.exit146
+  %157 = getelementptr inbounds i32, ptr %.val129, i64 %indvars.iv201
+  %158 = load i32, ptr %157, align 4
+  %159 = icmp slt i32 %158, 1
+  br i1 %159, label %Cba_FonObj.exit146.thread, label %Cba_FonObj.exit146
 
-Cba_FonObj.exit146:                               ; preds = %157
-  %.val.i145 = load ptr, ptr %122, align 8
-  %161 = zext nneg i32 %159 to i64
-  %162 = getelementptr inbounds i32, ptr %.val.i145, i64 %161
-  %163 = load i32, ptr %162, align 4
-  %.not111 = icmp eq i32 %163, 0
-  br i1 %.not111, label %Cba_FonObj.exit146.thread, label %164
+Cba_FonObj.exit146:                               ; preds = %156
+  %.val.i145 = load ptr, ptr %121, align 8
+  %160 = zext nneg i32 %158 to i64
+  %161 = getelementptr inbounds i32, ptr %.val.i145, i64 %160
+  %162 = load i32, ptr %161, align 4
+  %.not111 = icmp eq i32 %162, 0
+  br i1 %.not111, label %Cba_FonObj.exit146.thread, label %163
 
-164:                                              ; preds = %Cba_FonObj.exit146
-  %165 = ashr i32 %163, 5
-  %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds i32, ptr %12, i64 %166
-  %168 = load i32, ptr %167, align 4
-  %169 = and i32 %163, 31
-  %170 = shl nuw i32 1, %169
-  %171 = and i32 %168, %170
-  %.not112 = icmp eq i32 %171, 0
+163:                                              ; preds = %Cba_FonObj.exit146
+  %164 = ashr i32 %162, 5
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr inbounds i32, ptr %12, i64 %165
+  %167 = load i32, ptr %166, align 4
+  %168 = and i32 %162, 31
+  %169 = shl nuw i32 1, %168
+  %170 = and i32 %167, %169
+  %.not112 = icmp eq i32 %170, 0
   %spec.select120 = select i1 %.not112, i32 0, i32 %.11170
   br label %Cba_FonObj.exit146.thread
 
-Cba_FonObj.exit146.thread:                        ; preds = %157, %164, %Cba_FonObj.exit146
-  %.12 = phi i32 [ %.11170, %Cba_FonObj.exit146 ], [ %spec.select120, %164 ], [ %.11170, %157 ]
+Cba_FonObj.exit146.thread:                        ; preds = %156, %163, %Cba_FonObj.exit146
+  %.12 = phi i32 [ %.11170, %Cba_FonObj.exit146 ], [ %spec.select120, %163 ], [ %.11170, %156 ]
   %indvars.iv.next202 = add nsw i64 %indvars.iv201, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
-  br i1 %exitcond205.not, label %.critedge12, label %157, !llvm.loop !40
+  br i1 %exitcond205.not, label %.critedge12, label %156, !llvm.loop !40
 
 .critedge12:                                      ; preds = %Cba_FonObj.exit146.thread
-  %172 = icmp eq i32 %.12, 0
-  br i1 %172, label %.critedge10, label %.critedge6
+  %171 = icmp eq i32 %.12, 0
+  br i1 %171, label %.critedge10, label %.critedge6
 
 .critedge10:                                      ; preds = %.critedge4, %.critedge8, %.critedge6, %.critedge12, %.critedge6.preheader
   %.9 = phi i32 [ 1, %.critedge6.preheader ], [ 1, %.critedge6 ], [ 0, %.critedge12 ], [ 0, %.critedge8 ], [ 0, %.critedge4 ]
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %Vec_BitFree.exit, label %173
+  br i1 %.not.i, label %Vec_BitFree.exit, label %172
 
-173:                                              ; preds = %.critedge10
+172:                                              ; preds = %.critedge10
   tail call void @free(ptr noundef nonnull %12) #26
   br label %Vec_BitFree.exit
 
-Vec_BitFree.exit:                                 ; preds = %.critedge10, %173
+Vec_BitFree.exit:                                 ; preds = %.critedge10, %172
   ret i32 %.9
 }
 
@@ -7410,40 +7403,39 @@ Cba_ObjNtkId.exit.i.i:                            ; preds = %40
   br label %Cba_ObjIsSeq.exit
 
 60:                                               ; preds = %40
-  %61 = zext i8 %43 to i32
-  %62 = add nsw i32 %61, -76
-  %63 = icmp ult i32 %62, 12
-  %64 = zext i1 %63 to i32
+  %61 = add i8 %43, -76
+  %62 = icmp ult i8 %61, 12
+  %63 = zext i1 %62 to i32
   br label %Cba_ObjIsSeq.exit
 
 Cba_ObjIsSeq.exit:                                ; preds = %Cba_ObjNtkId.exit.i.i, %60
-  %65 = phi i32 [ %59, %Cba_ObjNtkId.exit.i.i ], [ %64, %60 ]
-  %.not29 = icmp eq i32 %65, 0
-  br i1 %.not29, label %66, label %Cba_FonObj.exit.thread
+  %64 = phi i32 [ %59, %Cba_ObjNtkId.exit.i.i ], [ %63, %60 ]
+  %.not29 = icmp eq i32 %64, 0
+  br i1 %.not29, label %65, label %Cba_FonObj.exit.thread
 
-66:                                               ; preds = %Cba_ObjIsSeq.exit
-  %67 = tail call i32 @Cba_NtkCheckComboLoop_rec(ptr noundef nonnull %0, i32 noundef %39)
-  %.not30 = icmp eq i32 %67, 0
+65:                                               ; preds = %Cba_ObjIsSeq.exit
+  %66 = tail call i32 @Cba_NtkCheckComboLoop_rec(ptr noundef nonnull %0, i32 noundef %39)
+  %.not30 = icmp eq i32 %66, 0
   br i1 %.not30, label %.loopexit, label %Cba_FonObj.exit.thread
 
-Cba_FonObj.exit.thread:                           ; preds = %33, %Cba_FonObj.exit, %66, %Cba_ObjIsSeq.exit
+Cba_FonObj.exit.thread:                           ; preds = %33, %Cba_FonObj.exit, %65, %Cba_ObjIsSeq.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.val31 = load ptr, ptr %20, align 8
-  %68 = getelementptr inbounds i32, ptr %.val31, i64 %23
-  %69 = load i32, ptr %68, align 4
-  %70 = sext i32 %69 to i64
-  %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %33, label %.critedge, !llvm.loop !42
+  %67 = getelementptr inbounds i32, ptr %.val31, i64 %23
+  %68 = load i32, ptr %67, align 4
+  %69 = sext i32 %68 to i64
+  %70 = icmp slt i64 %indvars.iv.next, %69
+  br i1 %70, label %33, label %.critedge, !llvm.loop !42
 
 .critedge:                                        ; preds = %Cba_FonObj.exit.thread, %18
   tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %8, i32 noundef %9, i32 noundef 0)
   %.val.i37 = load ptr, ptr %10, align 8
-  %72 = getelementptr inbounds i32, ptr %.val.i37, i64 %4
-  store i32 1, ptr %72, align 4
+  %71 = getelementptr inbounds i32, ptr %.val.i37, i64 %4
+  store i32 1, ptr %71, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %66, %14, %7, %2, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ 1, %2 ], [ 1, %7 ], [ 0, %14 ], [ 0, %66 ]
+.loopexit:                                        ; preds = %65, %14, %7, %2, %.critedge
+  %.0 = phi i32 [ 1, %.critedge ], [ 1, %2 ], [ 1, %7 ], [ 0, %14 ], [ 0, %65 ]
   ret i32 %.0
 }
 
@@ -7511,79 +7503,78 @@ Cba_NtkCleanObjCopies.exit:                       ; preds = %18, %Vec_IntGrow.ex
   %27 = getelementptr i8, ptr %0, i64 192
   br label %28
 
-28:                                               ; preds = %.lr.ph, %61
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %61 ]
+28:                                               ; preds = %.lr.ph, %60
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %.val13 = load ptr, ptr %24, align 8
   %29 = getelementptr inbounds i8, ptr %.val13, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  %32 = add nsw i32 %31, -90
-  %33 = icmp ult i32 %32, -87
-  br i1 %33, label %61, label %34
+  %31 = add i8 %30, -90
+  %32 = icmp ult i8 %31, -87
+  br i1 %32, label %60, label %33
 
-34:                                               ; preds = %28
-  %35 = icmp eq i8 %30, 3
-  br i1 %35, label %Cba_ObjNtkId.exit.i.i, label %52
+33:                                               ; preds = %28
+  %34 = icmp eq i8 %30, 3
+  br i1 %34, label %Cba_ObjNtkId.exit.i.i, label %51
 
-Cba_ObjNtkId.exit.i.i:                            ; preds = %34
+Cba_ObjNtkId.exit.i.i:                            ; preds = %33
   %.val5.i.i.i = load i32, ptr %25, align 4
-  %36 = icmp sgt i32 %.val5.i.i.i, 0
-  tail call void @llvm.assume(i1 %36)
-  %37 = trunc i64 %indvars.iv to i32
-  %38 = add i32 %37, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %26, i32 noundef %38, i32 noundef 0)
+  %35 = icmp sgt i32 %.val5.i.i.i, 0
+  tail call void @llvm.assume(i1 %35)
+  %36 = trunc i64 %indvars.iv to i32
+  %37 = add i32 %36, 1
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %26, i32 noundef %37, i32 noundef 0)
   %.val.i.i.i.i.i = load ptr, ptr %27, align 8
-  %39 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i, i64 %indvars.iv
-  %40 = load i32, ptr %39, align 4
+  %38 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i, i64 %indvars.iv
+  %39 = load i32, ptr %38, align 4
   %.val.i.i = load ptr, ptr %0, align 8
-  %41 = icmp sgt i32 %40, 0
-  tail call void @llvm.assume(i1 %41)
-  %42 = getelementptr i8, ptr %.val.i.i, i64 1564
-  %.val.i.i.i2.i.i = load i32, ptr %42, align 4
-  %.not.i.i.i.i = icmp slt i32 %40, %.val.i.i.i2.i.i
+  %40 = icmp sgt i32 %39, 0
+  tail call void @llvm.assume(i1 %40)
+  %41 = getelementptr i8, ptr %.val.i.i, i64 1564
+  %.val.i.i.i2.i.i = load i32, ptr %41, align 4
+  %.not.i.i.i.i = icmp slt i32 %39, %.val.i.i.i2.i.i
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %43 = getelementptr i8, ptr %.val.i.i, i64 1568
-  %.val.i.i.i.i = load ptr, ptr %43, align 8
-  %44 = zext nneg i32 %40 to i64
-  %45 = getelementptr inbounds ptr, ptr %.val.i.i.i.i, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 20
-  %48 = load i8, ptr %47, align 4
-  %49 = lshr i8 %48, 2
-  %50 = and i8 %49, 1
-  %51 = zext nneg i8 %50 to i32
+  %42 = getelementptr i8, ptr %.val.i.i, i64 1568
+  %.val.i.i.i.i = load ptr, ptr %42, align 8
+  %43 = zext nneg i32 %39 to i64
+  %44 = getelementptr inbounds ptr, ptr %.val.i.i.i.i, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 20
+  %47 = load i8, ptr %46, align 4
+  %48 = lshr i8 %47, 2
+  %49 = and i8 %48, 1
+  %50 = zext nneg i8 %49 to i32
   br label %Cba_ObjIsSeq.exit
 
-52:                                               ; preds = %34
-  %53 = add nsw i32 %31, -76
-  %54 = icmp ult i32 %53, 12
-  %55 = zext i1 %54 to i32
+51:                                               ; preds = %33
+  %52 = add nsw i8 %30, -76
+  %53 = icmp ult i8 %52, 12
+  %54 = zext i1 %53 to i32
   br label %Cba_ObjIsSeq.exit
 
-Cba_ObjIsSeq.exit:                                ; preds = %Cba_ObjNtkId.exit.i.i, %52
-  %56 = phi i32 [ %51, %Cba_ObjNtkId.exit.i.i ], [ %55, %52 ]
-  %.not11 = icmp eq i32 %56, 0
-  br i1 %.not11, label %57, label %61
+Cba_ObjIsSeq.exit:                                ; preds = %Cba_ObjNtkId.exit.i.i, %51
+  %55 = phi i32 [ %50, %Cba_ObjNtkId.exit.i.i ], [ %54, %51 ]
+  %.not11 = icmp eq i32 %55, 0
+  br i1 %.not11, label %56, label %60
 
-57:                                               ; preds = %Cba_ObjIsSeq.exit
-  %58 = trunc nuw nsw i64 %indvars.iv to i32
-  %59 = tail call i32 @Cba_NtkCheckComboLoop_rec(ptr noundef nonnull %0, i32 noundef %58)
-  %.not12 = icmp eq i32 %59, 0
-  br i1 %.not12, label %60, label %61
+56:                                               ; preds = %Cba_ObjIsSeq.exit
+  %57 = trunc nuw nsw i64 %indvars.iv to i32
+  %58 = tail call i32 @Cba_NtkCheckComboLoop_rec(ptr noundef nonnull %0, i32 noundef %57)
+  %.not12 = icmp eq i32 %58, 0
+  br i1 %.not12, label %59, label %60
 
-60:                                               ; preds = %57
+59:                                               ; preds = %56
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   br label %.loopexit
 
-61:                                               ; preds = %28, %57, %Cba_ObjIsSeq.exit
+60:                                               ; preds = %28, %56, %Cba_ObjIsSeq.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %22, align 4
-  %62 = sext i32 %.val to i64
-  %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %28, label %.loopexit, !llvm.loop !44
+  %61 = sext i32 %.val to i64
+  %62 = icmp slt i64 %indvars.iv.next, %61
+  br i1 %62, label %28, label %.loopexit, !llvm.loop !44
 
-.loopexit:                                        ; preds = %61, %Cba_NtkCleanObjCopies.exit, %60
-  %.010 = phi i32 [ 0, %60 ], [ 1, %Cba_NtkCleanObjCopies.exit ], [ 1, %61 ]
+.loopexit:                                        ; preds = %60, %Cba_NtkCleanObjCopies.exit, %59
+  %.010 = phi i32 [ 0, %59 ], [ 1, %Cba_NtkCleanObjCopies.exit ], [ 1, %60 ]
   ret i32 %.010
 }
 
@@ -14978,16 +14969,16 @@ Cba_NtkCleanObjCopies.exit:                       ; preds = %61, %Vec_IntGrow.ex
   %.val135 = load ptr, ptr %67, align 8
   %82 = getelementptr inbounds i8, ptr %.val135, i64 %indvars.iv214
   %83 = load i8, ptr %82, align 1
-  %84 = zext i8 %83 to i32
-  %85 = add nsw i32 %84, -90
-  %86 = icmp ult i32 %85, -87
-  br i1 %86, label %..loopexit_crit_edge, label %87
+  %84 = add i8 %83, -90
+  %85 = icmp ult i8 %84, -87
+  br i1 %85, label %..loopexit_crit_edge, label %86
 
 ..loopexit_crit_edge:                             ; preds = %81
   %.pre234 = add nuw nsw i64 %indvars.iv214, 1
   br label %.loopexit
 
-87:                                               ; preds = %81
+86:                                               ; preds = %81
+  %87 = zext nneg i8 %83 to i32
   %.val10.i = load ptr, ptr %68, align 8
   %88 = getelementptr i32, ptr %.val10.i, i64 %indvars.iv214
   %89 = getelementptr i8, ptr %88, i64 4
@@ -15000,7 +14991,7 @@ Cba_NtkCleanObjCopies.exit:                       ; preds = %61, %Vec_IntGrow.ex
   %95 = load i32, ptr %94, align 4
   %96 = load i32, ptr %93, align 4
   %97 = sub nsw i32 %95, %96
-  %98 = tail call fastcc i32 @Cba_ObjAlloc(ptr noundef %0, i32 noundef %84, i32 noundef %92, i32 noundef %97)
+  %98 = tail call fastcc i32 @Cba_ObjAlloc(ptr noundef %0, i32 noundef %87, i32 noundef %92, i32 noundef %97)
   %99 = add nuw nsw i64 %indvars.iv214, 1
   %100 = trunc nuw nsw i64 %99 to i32
   tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %45, i32 noundef %100, i32 noundef 0)
@@ -15015,7 +15006,7 @@ Cba_NtkCleanObjCopies.exit:                       ; preds = %61, %Vec_IntGrow.ex
   %106 = icmp slt i32 %103, %105
   br i1 %106, label %.lr.ph192, label %.loopexit
 
-.lr.ph192:                                        ; preds = %87
+.lr.ph192:                                        ; preds = %86
   %107 = sext i32 %98 to i64
   %108 = sext i32 %103 to i64
   br label %109
@@ -15039,8 +15030,8 @@ Cba_NtkCleanObjCopies.exit:                       ; preds = %61, %Vec_IntGrow.ex
   %118 = icmp slt i64 %indvars.iv.next212, %117
   br i1 %118, label %109, label %.loopexit, !llvm.loop !99
 
-.loopexit:                                        ; preds = %109, %..loopexit_crit_edge, %87
-  %indvars.iv.next215.pre-phi = phi i64 [ %.pre234, %..loopexit_crit_edge ], [ %99, %87 ], [ %99, %109 ]
+.loopexit:                                        ; preds = %109, %..loopexit_crit_edge, %86
+  %indvars.iv.next215.pre-phi = phi i64 [ %.pre234, %..loopexit_crit_edge ], [ %99, %86 ], [ %99, %109 ]
   %.val117 = load i32, ptr %65, align 4
   %119 = sext i32 %.val117 to i64
   %120 = icmp slt i64 %indvars.iv.next215.pre-phi, %119
@@ -15051,283 +15042,282 @@ Cba_NtkCleanObjCopies.exit:                       ; preds = %61, %Vec_IntGrow.ex
   %.val134 = load ptr, ptr %74, align 8
   %122 = getelementptr inbounds i8, ptr %.val134, i64 %indvars.iv220
   %123 = load i8, ptr %122, align 1
-  %124 = zext i8 %123 to i32
-  %125 = add nsw i32 %124, -90
-  %126 = icmp ult i32 %125, -87
+  %124 = add i8 %123, -90
+  %125 = icmp ult i8 %124, -87
   %.pre235 = add nuw nsw i64 %indvars.iv220, 1
-  br i1 %126, label %.critedge2, label %127
+  br i1 %125, label %.critedge2, label %126
 
-127:                                              ; preds = %121
-  %128 = trunc nuw nsw i64 %.pre235 to i32
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %45, i32 noundef %128, i32 noundef -1)
+126:                                              ; preds = %121
+  %127 = trunc nuw nsw i64 %.pre235 to i32
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %45, i32 noundef %127, i32 noundef -1)
   %.val128 = load ptr, ptr %76, align 8
-  %129 = getelementptr inbounds i32, ptr %.val128, i64 %indvars.iv220
-  %130 = load i32, ptr %129, align 4
-  %131 = getelementptr inbounds i32, ptr %.val128, i64 %.pre235
-  %132 = load i32, ptr %131, align 4
-  %133 = icmp slt i32 %130, %132
-  br i1 %133, label %.lr.ph199, label %.critedge2
+  %128 = getelementptr inbounds i32, ptr %.val128, i64 %indvars.iv220
+  %129 = load i32, ptr %128, align 4
+  %130 = getelementptr inbounds i32, ptr %.val128, i64 %.pre235
+  %131 = load i32, ptr %130, align 4
+  %132 = icmp slt i32 %129, %131
+  br i1 %132, label %.lr.ph199, label %.critedge2
 
-.lr.ph199:                                        ; preds = %127
+.lr.ph199:                                        ; preds = %126
   %.val.i.i = load ptr, ptr %75, align 8
-  %134 = getelementptr inbounds i32, ptr %.val.i.i, i64 %indvars.iv220
-  %135 = load i32, ptr %134, align 4
-  %136 = sext i32 %135 to i64
-  %137 = sext i32 %130 to i64
-  br label %138
+  %133 = getelementptr inbounds i32, ptr %.val.i.i, i64 %indvars.iv220
+  %134 = load i32, ptr %133, align 4
+  %135 = sext i32 %134 to i64
+  %136 = sext i32 %129 to i64
+  br label %137
 
-138:                                              ; preds = %.lr.ph199, %Cba_FonCopy.exit
-  %indvars.iv217 = phi i64 [ %137, %.lr.ph199 ], [ %indvars.iv.next218, %Cba_FonCopy.exit ]
-  %.2197 = phi i32 [ 0, %.lr.ph199 ], [ %152, %Cba_FonCopy.exit ]
+137:                                              ; preds = %.lr.ph199, %Cba_FonCopy.exit
+  %indvars.iv217 = phi i64 [ %136, %.lr.ph199 ], [ %indvars.iv.next218, %Cba_FonCopy.exit ]
+  %.2197 = phi i32 [ 0, %.lr.ph199 ], [ %151, %Cba_FonCopy.exit ]
   %.val129 = load ptr, ptr %77, align 8
-  %139 = getelementptr inbounds i32, ptr %.val129, i64 %indvars.iv217
-  %140 = load i32, ptr %139, align 4
-  %141 = icmp slt i32 %140, 1
-  br i1 %141, label %Cba_FonCopy.exit, label %142
+  %138 = getelementptr inbounds i32, ptr %.val129, i64 %indvars.iv217
+  %139 = load i32, ptr %138, align 4
+  %140 = icmp slt i32 %139, 1
+  br i1 %140, label %Cba_FonCopy.exit, label %141
 
-142:                                              ; preds = %138
+141:                                              ; preds = %137
   %.val.i158 = load ptr, ptr %78, align 8
-  %143 = zext nneg i32 %140 to i64
-  %144 = getelementptr inbounds i32, ptr %.val.i158, i64 %143
-  %145 = load i32, ptr %144, align 4
+  %142 = zext nneg i32 %139 to i64
+  %143 = getelementptr inbounds i32, ptr %.val.i158, i64 %142
+  %144 = load i32, ptr %143, align 4
   br label %Cba_FonCopy.exit
 
-Cba_FonCopy.exit:                                 ; preds = %138, %142
-  %146 = phi i32 [ %145, %142 ], [ %140, %138 ]
+Cba_FonCopy.exit:                                 ; preds = %137, %141
+  %145 = phi i32 [ %144, %141 ], [ %139, %137 ]
   %.val142 = load ptr, ptr %79, align 8
   %.val143 = load ptr, ptr %80, align 8
-  %147 = getelementptr inbounds i32, ptr %.val142, i64 %136
-  %148 = load i32, ptr %147, align 4
-  %149 = add nsw i32 %148, %.2197
-  %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds i32, ptr %.val143, i64 %150
-  store i32 %146, ptr %151, align 4
+  %146 = getelementptr inbounds i32, ptr %.val142, i64 %135
+  %147 = load i32, ptr %146, align 4
+  %148 = add nsw i32 %147, %.2197
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr inbounds i32, ptr %.val143, i64 %149
+  store i32 %145, ptr %150, align 4
   %indvars.iv.next218 = add nsw i64 %indvars.iv217, 1
-  %152 = add nuw nsw i32 %.2197, 1
+  %151 = add nuw nsw i32 %.2197, 1
   %.val127 = load ptr, ptr %76, align 8
-  %153 = getelementptr inbounds i32, ptr %.val127, i64 %.pre235
-  %154 = load i32, ptr %153, align 4
-  %155 = sext i32 %154 to i64
-  %156 = icmp slt i64 %indvars.iv.next218, %155
-  br i1 %156, label %138, label %.critedge2, !llvm.loop !101
+  %152 = getelementptr inbounds i32, ptr %.val127, i64 %.pre235
+  %153 = load i32, ptr %152, align 4
+  %154 = sext i32 %153 to i64
+  %155 = icmp slt i64 %indvars.iv.next218, %154
+  br i1 %155, label %137, label %.critedge2, !llvm.loop !101
 
-.critedge2:                                       ; preds = %Cba_FonCopy.exit, %121, %127
+.critedge2:                                       ; preds = %Cba_FonCopy.exit, %121, %126
   %.val = load i32, ptr %65, align 4
-  %157 = sext i32 %.val to i64
-  %158 = icmp slt i64 %.pre235, %157
-  br i1 %158, label %121, label %._crit_edge, !llvm.loop !102
+  %156 = sext i32 %.val to i64
+  %157 = icmp slt i64 %.pre235, %156
+  br i1 %157, label %121, label %._crit_edge, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.critedge2, %Cba_NtkCleanObjCopies.exit, %.preheader
-  %159 = getelementptr inbounds i8, ptr %0, i64 248
-  %160 = getelementptr inbounds i8, ptr %0, i64 152
-  %.val.i159 = load i32, ptr %160, align 8
-  %161 = load i32, ptr %159, align 8
-  %.not.i.i.i160 = icmp slt i32 %161, %.val.i159
-  br i1 %.not.i.i.i160, label %162, label %Vec_IntGrow.exit.i.i161
+  %158 = getelementptr inbounds i8, ptr %0, i64 248
+  %159 = getelementptr inbounds i8, ptr %0, i64 152
+  %.val.i159 = load i32, ptr %159, align 8
+  %160 = load i32, ptr %158, align 8
+  %.not.i.i.i160 = icmp slt i32 %160, %.val.i159
+  br i1 %.not.i.i.i160, label %161, label %Vec_IntGrow.exit.i.i161
 
-162:                                              ; preds = %._crit_edge
-  %163 = getelementptr inbounds i8, ptr %0, i64 256
-  %164 = load ptr, ptr %163, align 8
-  %.not9.i.i.i167 = icmp eq ptr %164, null
-  %165 = sext i32 %.val.i159 to i64
-  %166 = shl nsw i64 %165, 2
-  br i1 %.not9.i.i.i167, label %169, label %167
+161:                                              ; preds = %._crit_edge
+  %162 = getelementptr inbounds i8, ptr %0, i64 256
+  %163 = load ptr, ptr %162, align 8
+  %.not9.i.i.i167 = icmp eq ptr %163, null
+  %164 = sext i32 %.val.i159 to i64
+  %165 = shl nsw i64 %164, 2
+  br i1 %.not9.i.i.i167, label %168, label %166
 
-167:                                              ; preds = %162
-  %168 = tail call ptr @realloc(ptr noundef nonnull %164, i64 noundef %166) #28
-  br label %171
+166:                                              ; preds = %161
+  %167 = tail call ptr @realloc(ptr noundef nonnull %163, i64 noundef %165) #28
+  br label %170
 
-169:                                              ; preds = %162
-  %170 = tail call noalias ptr @malloc(i64 noundef %166) #25
-  br label %171
+168:                                              ; preds = %161
+  %169 = tail call noalias ptr @malloc(i64 noundef %165) #25
+  br label %170
 
-171:                                              ; preds = %169, %167
-  %172 = phi ptr [ %168, %167 ], [ %170, %169 ]
-  store ptr %172, ptr %163, align 8
-  store i32 %.val.i159, ptr %159, align 8
+170:                                              ; preds = %168, %166
+  %171 = phi ptr [ %167, %166 ], [ %169, %168 ]
+  store ptr %171, ptr %162, align 8
+  store i32 %.val.i159, ptr %158, align 8
   br label %Vec_IntGrow.exit.i.i161
 
-Vec_IntGrow.exit.i.i161:                          ; preds = %171, %._crit_edge
-  %173 = icmp sgt i32 %.val.i159, 0
-  br i1 %173, label %.lr.ph.i.i162, label %Cba_NtkCleanFonCopies.exit168
+Vec_IntGrow.exit.i.i161:                          ; preds = %170, %._crit_edge
+  %172 = icmp sgt i32 %.val.i159, 0
+  br i1 %172, label %.lr.ph.i.i162, label %Cba_NtkCleanFonCopies.exit168
 
 .lr.ph.i.i162:                                    ; preds = %Vec_IntGrow.exit.i.i161
-  %174 = getelementptr inbounds i8, ptr %0, i64 256
+  %173 = getelementptr inbounds i8, ptr %0, i64 256
   %wide.trip.count.i.i163 = zext nneg i32 %.val.i159 to i64
-  br label %175
+  br label %174
 
-175:                                              ; preds = %175, %.lr.ph.i.i162
-  %indvars.iv.i.i164 = phi i64 [ 0, %.lr.ph.i.i162 ], [ %indvars.iv.next.i.i165, %175 ]
-  %176 = load ptr, ptr %174, align 8
-  %177 = getelementptr inbounds i32, ptr %176, i64 %indvars.iv.i.i164
-  store i32 0, ptr %177, align 4
+174:                                              ; preds = %174, %.lr.ph.i.i162
+  %indvars.iv.i.i164 = phi i64 [ 0, %.lr.ph.i.i162 ], [ %indvars.iv.next.i.i165, %174 ]
+  %175 = load ptr, ptr %173, align 8
+  %176 = getelementptr inbounds i32, ptr %175, i64 %indvars.iv.i.i164
+  store i32 0, ptr %176, align 4
   %indvars.iv.next.i.i165 = add nuw nsw i64 %indvars.iv.i.i164, 1
   %exitcond.not.i.i166 = icmp eq i64 %indvars.iv.next.i.i165, %wide.trip.count.i.i163
-  br i1 %exitcond.not.i.i166, label %Cba_NtkCleanFonCopies.exit168, label %175, !llvm.loop !43
+  br i1 %exitcond.not.i.i166, label %Cba_NtkCleanFonCopies.exit168, label %174, !llvm.loop !43
 
-Cba_NtkCleanFonCopies.exit168:                    ; preds = %175, %Vec_IntGrow.exit.i.i161
-  %178 = getelementptr inbounds i8, ptr %0, i64 252
-  store i32 %.val.i159, ptr %178, align 4
-  %179 = getelementptr i8, ptr %0, i64 268
-  %.val145 = load i32, ptr %179, align 4
-  %180 = icmp slt i32 %.val145, 1
-  br i1 %180, label %184, label %181
+Cba_NtkCleanFonCopies.exit168:                    ; preds = %174, %Vec_IntGrow.exit.i.i161
+  %177 = getelementptr inbounds i8, ptr %0, i64 252
+  store i32 %.val.i159, ptr %177, align 4
+  %178 = getelementptr i8, ptr %0, i64 268
+  %.val145 = load i32, ptr %178, align 4
+  %179 = icmp slt i32 %.val145, 1
+  br i1 %179, label %183, label %180
 
-181:                                              ; preds = %Cba_NtkCleanFonCopies.exit168
-  %182 = getelementptr inbounds i8, ptr %0, i64 264
-  %183 = getelementptr i8, ptr %0, i64 156
-  %.val146 = load i32, ptr %183, align 4
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %182, i32 noundef %.val146, i32 noundef 0)
-  br label %184
+180:                                              ; preds = %Cba_NtkCleanFonCopies.exit168
+  %181 = getelementptr inbounds i8, ptr %0, i64 264
+  %182 = getelementptr i8, ptr %0, i64 156
+  %.val146 = load i32, ptr %182, align 4
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %181, i32 noundef %.val146, i32 noundef 0)
+  br label %183
 
-184:                                              ; preds = %181, %Cba_NtkCleanFonCopies.exit168
-  %185 = getelementptr i8, ptr %2, i64 44
-  %.val133203 = load i32, ptr %185, align 4
-  %186 = icmp sgt i32 %.val133203, 0
-  br i1 %186, label %.lr.ph206, label %.critedge4
+183:                                              ; preds = %180, %Cba_NtkCleanFonCopies.exit168
+  %184 = getelementptr i8, ptr %2, i64 44
+  %.val133203 = load i32, ptr %184, align 4
+  %185 = icmp sgt i32 %.val133203, 0
+  br i1 %185, label %.lr.ph206, label %.critedge4
 
-.lr.ph206:                                        ; preds = %184
-  %187 = getelementptr i8, ptr %2, i64 48
-  %188 = getelementptr i8, ptr %2, i64 112
-  %189 = getelementptr i8, ptr %2, i64 144
-  %190 = getelementptr i8, ptr %5, i64 8
-  %.val122 = load ptr, ptr %190, align 8
-  %191 = getelementptr i8, ptr %2, i64 256
-  %192 = getelementptr i8, ptr %0, i64 256
-  %193 = getelementptr inbounds i8, ptr %0, i64 264
-  %194 = getelementptr i8, ptr %0, i64 272
-  br label %195
+.lr.ph206:                                        ; preds = %183
+  %186 = getelementptr i8, ptr %2, i64 48
+  %187 = getelementptr i8, ptr %2, i64 112
+  %188 = getelementptr i8, ptr %2, i64 144
+  %189 = getelementptr i8, ptr %5, i64 8
+  %.val122 = load ptr, ptr %189, align 8
+  %190 = getelementptr i8, ptr %2, i64 256
+  %191 = getelementptr i8, ptr %0, i64 256
+  %192 = getelementptr inbounds i8, ptr %0, i64 264
+  %193 = getelementptr i8, ptr %0, i64 272
+  br label %194
 
-195:                                              ; preds = %.lr.ph206, %232
-  %indvars.iv223 = phi i64 [ 0, %.lr.ph206 ], [ %indvars.iv.next224, %232 ]
-  %.val137 = load ptr, ptr %187, align 8
-  %196 = getelementptr inbounds i32, ptr %.val137, i64 %indvars.iv223
-  %197 = load i32, ptr %196, align 4
-  %.val130 = load ptr, ptr %188, align 8
-  %.val131 = load ptr, ptr %189, align 8
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds i32, ptr %.val130, i64 %198
-  %200 = load i32, ptr %199, align 4
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds i32, ptr %.val131, i64 %201
-  %203 = load i32, ptr %202, align 4
-  %204 = getelementptr inbounds i32, ptr %.val122, i64 %indvars.iv223
-  %205 = load i32, ptr %204, align 4
-  %206 = icmp slt i32 %203, 1
-  br i1 %206, label %Cba_FonCopy.exit170, label %Cba_FonCopy.exit170.thread
+194:                                              ; preds = %.lr.ph206, %231
+  %indvars.iv223 = phi i64 [ 0, %.lr.ph206 ], [ %indvars.iv.next224, %231 ]
+  %.val137 = load ptr, ptr %186, align 8
+  %195 = getelementptr inbounds i32, ptr %.val137, i64 %indvars.iv223
+  %196 = load i32, ptr %195, align 4
+  %.val130 = load ptr, ptr %187, align 8
+  %.val131 = load ptr, ptr %188, align 8
+  %197 = sext i32 %196 to i64
+  %198 = getelementptr inbounds i32, ptr %.val130, i64 %197
+  %199 = load i32, ptr %198, align 4
+  %200 = sext i32 %199 to i64
+  %201 = getelementptr inbounds i32, ptr %.val131, i64 %200
+  %202 = load i32, ptr %201, align 4
+  %203 = getelementptr inbounds i32, ptr %.val122, i64 %indvars.iv223
+  %204 = load i32, ptr %203, align 4
+  %205 = icmp slt i32 %202, 1
+  br i1 %205, label %Cba_FonCopy.exit170, label %Cba_FonCopy.exit170.thread
 
-Cba_FonCopy.exit170:                              ; preds = %195
-  %.val138 = load ptr, ptr %192, align 8
-  %207 = sext i32 %205 to i64
-  %208 = getelementptr inbounds i32, ptr %.val138, i64 %207
-  store i32 %203, ptr %208, align 4
-  %.val144 = load i32, ptr %179, align 4
-  %209 = icmp slt i32 %.val144, 1
-  br i1 %209, label %232, label %Cba_FonCopy.exit172
+Cba_FonCopy.exit170:                              ; preds = %194
+  %.val138 = load ptr, ptr %191, align 8
+  %206 = sext i32 %204 to i64
+  %207 = getelementptr inbounds i32, ptr %.val138, i64 %206
+  store i32 %202, ptr %207, align 4
+  %.val144 = load i32, ptr %178, align 4
+  %208 = icmp slt i32 %.val144, 1
+  br i1 %208, label %231, label %Cba_FonCopy.exit172
 
-Cba_FonCopy.exit170.thread:                       ; preds = %195
-  %.val.i169 = load ptr, ptr %191, align 8
-  %210 = zext nneg i32 %203 to i64
-  %211 = getelementptr inbounds i32, ptr %.val.i169, i64 %210
-  %212 = load i32, ptr %211, align 4
-  %.val138182 = load ptr, ptr %192, align 8
-  %213 = sext i32 %205 to i64
-  %214 = getelementptr inbounds i32, ptr %.val138182, i64 %213
-  store i32 %212, ptr %214, align 4
-  %.val144183 = load i32, ptr %179, align 4
-  %215 = icmp slt i32 %.val144183, 1
-  br i1 %215, label %232, label %216
+Cba_FonCopy.exit170.thread:                       ; preds = %194
+  %.val.i169 = load ptr, ptr %190, align 8
+  %209 = zext nneg i32 %202 to i64
+  %210 = getelementptr inbounds i32, ptr %.val.i169, i64 %209
+  %211 = load i32, ptr %210, align 4
+  %.val138182 = load ptr, ptr %191, align 8
+  %212 = sext i32 %204 to i64
+  %213 = getelementptr inbounds i32, ptr %.val138182, i64 %212
+  store i32 %211, ptr %213, align 4
+  %.val144183 = load i32, ptr %178, align 4
+  %214 = icmp slt i32 %.val144183, 1
+  br i1 %214, label %231, label %215
 
-216:                                              ; preds = %Cba_FonCopy.exit170.thread
-  %.val.i171 = load ptr, ptr %191, align 8
-  %217 = getelementptr inbounds i32, ptr %.val.i171, i64 %210
-  %218 = load i32, ptr %217, align 4
+215:                                              ; preds = %Cba_FonCopy.exit170.thread
+  %.val.i171 = load ptr, ptr %190, align 8
+  %216 = getelementptr inbounds i32, ptr %.val.i171, i64 %209
+  %217 = load i32, ptr %216, align 4
   br label %Cba_FonCopy.exit172
 
-Cba_FonCopy.exit172:                              ; preds = %Cba_FonCopy.exit170, %216
-  %219 = phi i32 [ %218, %216 ], [ %203, %Cba_FonCopy.exit170 ]
-  %220 = load i32, ptr %204, align 4
-  %221 = add nsw i32 %220, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %193, i32 noundef %221, i32 noundef 0)
-  %.val.i.i173 = load ptr, ptr %194, align 8
-  %222 = sext i32 %220 to i64
-  %223 = getelementptr inbounds i32, ptr %.val.i.i173, i64 %222
-  %224 = load i32, ptr %223, align 4
-  %225 = add nsw i32 %219, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %193, i32 noundef %225, i32 noundef 0)
-  %.val.i.i174 = load ptr, ptr %194, align 8
-  %226 = sext i32 %219 to i64
-  %227 = getelementptr inbounds i32, ptr %.val.i.i174, i64 %226
-  store i32 %224, ptr %227, align 4
-  %228 = load i32, ptr %204, align 4
-  %229 = add nsw i32 %228, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %193, i32 noundef %229, i32 noundef 0)
-  %.val.i.i175 = load ptr, ptr %194, align 8
-  %230 = sext i32 %228 to i64
-  %231 = getelementptr inbounds i32, ptr %.val.i.i175, i64 %230
-  store i32 0, ptr %231, align 4
-  br label %232
+Cba_FonCopy.exit172:                              ; preds = %Cba_FonCopy.exit170, %215
+  %218 = phi i32 [ %217, %215 ], [ %202, %Cba_FonCopy.exit170 ]
+  %219 = load i32, ptr %203, align 4
+  %220 = add nsw i32 %219, 1
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %192, i32 noundef %220, i32 noundef 0)
+  %.val.i.i173 = load ptr, ptr %193, align 8
+  %221 = sext i32 %219 to i64
+  %222 = getelementptr inbounds i32, ptr %.val.i.i173, i64 %221
+  %223 = load i32, ptr %222, align 4
+  %224 = add nsw i32 %218, 1
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %192, i32 noundef %224, i32 noundef 0)
+  %.val.i.i174 = load ptr, ptr %193, align 8
+  %225 = sext i32 %218 to i64
+  %226 = getelementptr inbounds i32, ptr %.val.i.i174, i64 %225
+  store i32 %223, ptr %226, align 4
+  %227 = load i32, ptr %203, align 4
+  %228 = add nsw i32 %227, 1
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %192, i32 noundef %228, i32 noundef 0)
+  %.val.i.i175 = load ptr, ptr %193, align 8
+  %229 = sext i32 %227 to i64
+  %230 = getelementptr inbounds i32, ptr %.val.i.i175, i64 %229
+  store i32 0, ptr %230, align 4
+  br label %231
 
-232:                                              ; preds = %Cba_FonCopy.exit170.thread, %Cba_FonCopy.exit170, %Cba_FonCopy.exit172
+231:                                              ; preds = %Cba_FonCopy.exit170.thread, %Cba_FonCopy.exit170, %Cba_FonCopy.exit172
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
-  %.val133 = load i32, ptr %185, align 4
-  %233 = sext i32 %.val133 to i64
-  %234 = icmp slt i64 %indvars.iv.next224, %233
-  br i1 %234, label %195, label %.critedge4.thread, !llvm.loop !103
+  %.val133 = load i32, ptr %184, align 4
+  %232 = sext i32 %.val133 to i64
+  %233 = icmp slt i64 %indvars.iv.next224, %232
+  br i1 %233, label %194, label %.critedge4.thread, !llvm.loop !103
 
-.critedge4:                                       ; preds = %184
+.critedge4:                                       ; preds = %183
   %.phi.trans.insert230 = getelementptr inbounds i8, ptr %5, i64 8
   %.pre231 = load ptr, ptr %.phi.trans.insert230, align 8
   %.not.i176 = icmp eq ptr %.pre231, null
   br i1 %.not.i176, label %Vec_IntFree.exit177, label %.critedge4.thread
 
-.critedge4.thread:                                ; preds = %232, %.critedge4
-  %235 = phi ptr [ %.pre231, %.critedge4 ], [ %.val122, %232 ]
-  tail call void @free(ptr noundef nonnull %235) #26
+.critedge4.thread:                                ; preds = %231, %.critedge4
+  %234 = phi ptr [ %.pre231, %.critedge4 ], [ %.val122, %231 ]
+  tail call void @free(ptr noundef nonnull %234) #26
   br label %Vec_IntFree.exit177
 
 Vec_IntFree.exit177:                              ; preds = %.critedge4, %.critedge4.thread
   tail call void @free(ptr noundef nonnull %5) #26
-  %236 = getelementptr i8, ptr %0, i64 140
-  %.val118207 = load i32, ptr %236, align 4
-  %237 = icmp sgt i32 %.val118207, 1
-  br i1 %237, label %.lr.ph209, label %.critedge6
+  %235 = getelementptr i8, ptr %0, i64 140
+  %.val118207 = load i32, ptr %235, align 4
+  %236 = icmp sgt i32 %.val118207, 1
+  br i1 %236, label %.lr.ph209, label %.critedge6
 
 .lr.ph209:                                        ; preds = %Vec_IntFree.exit177
-  %238 = getelementptr i8, ptr %0, i64 144
-  %239 = getelementptr i8, ptr %0, i64 256
-  br label %240
+  %237 = getelementptr i8, ptr %0, i64 144
+  %238 = getelementptr i8, ptr %0, i64 256
+  br label %239
 
-240:                                              ; preds = %.lr.ph209, %247
-  %.val118232 = phi i32 [ %.val118207, %.lr.ph209 ], [ %.val118, %247 ]
-  %indvars.iv226 = phi i64 [ 1, %.lr.ph209 ], [ %indvars.iv.next227, %247 ]
-  %.val119 = load ptr, ptr %238, align 8
-  %241 = getelementptr inbounds i32, ptr %.val119, i64 %indvars.iv226
-  %242 = load i32, ptr %241, align 4
-  %243 = icmp slt i32 %242, 1
-  br i1 %243, label %247, label %Cba_FonCopy.exit179
+239:                                              ; preds = %.lr.ph209, %246
+  %.val118232 = phi i32 [ %.val118207, %.lr.ph209 ], [ %.val118, %246 ]
+  %indvars.iv226 = phi i64 [ 1, %.lr.ph209 ], [ %indvars.iv.next227, %246 ]
+  %.val119 = load ptr, ptr %237, align 8
+  %240 = getelementptr inbounds i32, ptr %.val119, i64 %indvars.iv226
+  %241 = load i32, ptr %240, align 4
+  %242 = icmp slt i32 %241, 1
+  br i1 %242, label %246, label %Cba_FonCopy.exit179
 
-Cba_FonCopy.exit179:                              ; preds = %240
-  %.val.i178 = load ptr, ptr %239, align 8
-  %244 = zext nneg i32 %242 to i64
-  %245 = getelementptr inbounds i32, ptr %.val.i178, i64 %244
-  %246 = load i32, ptr %245, align 4
-  %.not113 = icmp eq i32 %246, 0
-  br i1 %.not113, label %247, label %Cba_FonCopy.exit181
+Cba_FonCopy.exit179:                              ; preds = %239
+  %.val.i178 = load ptr, ptr %238, align 8
+  %243 = zext nneg i32 %241 to i64
+  %244 = getelementptr inbounds i32, ptr %.val.i178, i64 %243
+  %245 = load i32, ptr %244, align 4
+  %.not113 = icmp eq i32 %245, 0
+  br i1 %.not113, label %246, label %Cba_FonCopy.exit181
 
 Cba_FonCopy.exit181:                              ; preds = %Cba_FonCopy.exit179
-  store i32 %246, ptr %241, align 4
-  %.val118.pre = load i32, ptr %236, align 4
-  br label %247
+  store i32 %245, ptr %240, align 4
+  %.val118.pre = load i32, ptr %235, align 4
+  br label %246
 
-247:                                              ; preds = %240, %Cba_FonCopy.exit181, %Cba_FonCopy.exit179
-  %.val118 = phi i32 [ %.val118232, %240 ], [ %.val118.pre, %Cba_FonCopy.exit181 ], [ %.val118232, %Cba_FonCopy.exit179 ]
+246:                                              ; preds = %239, %Cba_FonCopy.exit181, %Cba_FonCopy.exit179
+  %.val118 = phi i32 [ %.val118232, %239 ], [ %.val118.pre, %Cba_FonCopy.exit181 ], [ %.val118232, %Cba_FonCopy.exit179 ]
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
-  %248 = sext i32 %.val118 to i64
-  %249 = icmp slt i64 %indvars.iv.next227, %248
-  br i1 %249, label %240, label %.critedge6, !llvm.loop !104
+  %247 = sext i32 %.val118 to i64
+  %248 = icmp slt i64 %indvars.iv.next227, %247
+  br i1 %248, label %239, label %.critedge6, !llvm.loop !104
 
-.critedge6:                                       ; preds = %247, %Vec_IntFree.exit177
+.critedge6:                                       ; preds = %246, %Vec_IntFree.exit177
   tail call fastcc void @Cba_NtkMissingFonNames(ptr noundef nonnull %0, ptr noundef nonnull @.str.50)
   ret void
 }

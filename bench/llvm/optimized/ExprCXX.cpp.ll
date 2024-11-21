@@ -2073,153 +2073,152 @@ define dso_local i64 @_ZNK5clang19CXXOperatorCallExpr18getSourceRangeImplEv(ptr 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 63
-  %5 = zext nneg i8 %4 to i32
-  %6 = add nsw i32 %5, -37
-  %or.cond = icmp ult i32 %6, 2
-  br i1 %or.cond, label %7, label %37
+  %5 = add nsw i8 %4, -37
+  %or.cond = icmp ult i8 %5, 2
+  br i1 %or.cond, label %6, label %36
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8
-  %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %24
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp eq i32 %8, 1
+  br i1 %9, label %10, label %23
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.sroa.0.0.copyload.i.i = load i32, ptr %12, align 4
-  %13 = load i32, ptr %0, align 8
-  %14 = lshr i32 %13, 24
-  %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = lshr i32 %13, 18
-  %19 = and i32 %18, 1
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %17, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #15
-  br label %110
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.sroa.0.0.copyload.i.i = load i32, ptr %11, align 4
+  %12 = load i32, ptr %0, align 8
+  %13 = lshr i32 %12, 24
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr inbounds i8, ptr %0, i64 %14
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = lshr i32 %12, 18
+  %18 = and i32 %17, 1
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr inbounds ptr, ptr %16, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #15
+  br label %109
 
-24:                                               ; preds = %7
-  %25 = load i32, ptr %0, align 8
-  %26 = lshr i32 %25, 24
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = lshr i32 %25, 18
-  %31 = and i32 %30, 1
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %29, i64 %32
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %34) #15
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.sroa.0.0.copyload.i.i20 = load i32, ptr %36, align 4
-  br label %110
+23:                                               ; preds = %6
+  %24 = load i32, ptr %0, align 8
+  %25 = lshr i32 %24, 24
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds i8, ptr %0, i64 %26
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = lshr i32 %24, 18
+  %30 = and i32 %29, 1
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %33) #15
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.sroa.0.0.copyload.i.i20 = load i32, ptr %35, align 4
+  br label %109
 
-37:                                               ; preds = %1
-  switch i8 %4, label %77 [
-    i8 41, label %38
-    i8 42, label %51
-    i8 43, label %64
+36:                                               ; preds = %1
+  switch i8 %4, label %76 [
+    i8 41, label %37
+    i8 42, label %50
+    i8 43, label %63
   ]
 
-38:                                               ; preds = %37
-  %39 = load i32, ptr %0, align 8
-  %40 = lshr i32 %39, 24
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 %41
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = lshr i32 %39, 18
-  %45 = and i32 %44, 1
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %43, i64 %46
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %48) #15
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.sroa.0.0.copyload.i.i21 = load i32, ptr %50, align 4
-  br label %110
+37:                                               ; preds = %36
+  %38 = load i32, ptr %0, align 8
+  %39 = lshr i32 %38, 24
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds i8, ptr %0, i64 %40
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = lshr i32 %38, 18
+  %44 = and i32 %43, 1
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %47) #15
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.sroa.0.0.copyload.i.i21 = load i32, ptr %49, align 4
+  br label %109
 
-51:                                               ; preds = %37
-  %52 = load i32, ptr %0, align 8
-  %53 = lshr i32 %52, 24
-  %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %0, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
-  %57 = lshr i32 %52, 18
-  %58 = and i32 %57, 1
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %56, i64 %59
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %61) #15
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.sroa.0.0.copyload.i = load i32, ptr %63, align 4
-  br label %110
+50:                                               ; preds = %36
+  %51 = load i32, ptr %0, align 8
+  %52 = lshr i32 %51, 24
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %0, i64 %53
+  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = lshr i32 %51, 18
+  %57 = and i32 %56, 1
+  %58 = zext nneg i32 %57 to i64
+  %59 = getelementptr inbounds ptr, ptr %55, i64 %58
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %60) #15
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.sroa.0.0.copyload.i = load i32, ptr %62, align 4
+  br label %109
 
-64:                                               ; preds = %37
-  %65 = load i32, ptr %0, align 8
-  %66 = lshr i32 %65, 24
-  %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %0, i64 %67
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
-  %70 = lshr i32 %65, 18
-  %71 = and i32 %70, 1
-  %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds ptr, ptr %69, i64 %72
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %74) #15
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.sroa.0.0.copyload.i22 = load i32, ptr %76, align 4
-  br label %110
+63:                                               ; preds = %36
+  %64 = load i32, ptr %0, align 8
+  %65 = lshr i32 %64, 24
+  %66 = zext nneg i32 %65 to i64
+  %67 = getelementptr inbounds i8, ptr %0, i64 %66
+  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = lshr i32 %64, 18
+  %70 = and i32 %69, 1
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr inbounds ptr, ptr %68, i64 %71
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %73) #15
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.sroa.0.0.copyload.i22 = load i32, ptr %75, align 4
+  br label %109
 
-77:                                               ; preds = %37
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %79 = load i32, ptr %78, align 8
-  switch i32 %79, label %108 [
-    i32 1, label %80
-    i32 2, label %93
+76:                                               ; preds = %36
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %78 = load i32, ptr %77, align 8
+  switch i32 %78, label %107 [
+    i32 1, label %79
+    i32 2, label %92
   ]
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.sroa.0.0.copyload.i.i23 = load i32, ptr %81, align 4
-  %82 = load i32, ptr %0, align 8
-  %83 = lshr i32 %82, 24
-  %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds i8, ptr %0, i64 %84
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
-  %87 = lshr i32 %82, 18
-  %88 = and i32 %87, 1
-  %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds ptr, ptr %86, i64 %89
-  %91 = load ptr, ptr %90, align 8
-  %92 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %91) #15
-  br label %110
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.sroa.0.0.copyload.i.i23 = load i32, ptr %80, align 4
+  %81 = load i32, ptr %0, align 8
+  %82 = lshr i32 %81, 24
+  %83 = zext nneg i32 %82 to i64
+  %84 = getelementptr inbounds i8, ptr %0, i64 %83
+  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %86 = lshr i32 %81, 18
+  %87 = and i32 %86, 1
+  %88 = zext nneg i32 %87 to i64
+  %89 = getelementptr inbounds ptr, ptr %85, i64 %88
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %90) #15
+  br label %109
 
-93:                                               ; preds = %77
-  %94 = load i32, ptr %0, align 8
-  %95 = lshr i32 %94, 24
-  %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds i8, ptr %0, i64 %96
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
-  %99 = lshr i32 %94, 18
-  %100 = and i32 %99, 1
-  %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds ptr, ptr %98, i64 %101
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %103) #15
-  %105 = getelementptr inbounds i8, ptr %102, i64 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %106) #15
-  br label %110
+92:                                               ; preds = %76
+  %93 = load i32, ptr %0, align 8
+  %94 = lshr i32 %93, 24
+  %95 = zext nneg i32 %94 to i64
+  %96 = getelementptr inbounds i8, ptr %0, i64 %95
+  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %98 = lshr i32 %93, 18
+  %99 = and i32 %98, 1
+  %100 = zext nneg i32 %99 to i64
+  %101 = getelementptr inbounds ptr, ptr %97, i64 %100
+  %102 = load ptr, ptr %101, align 8
+  %103 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %102) #15
+  %104 = getelementptr inbounds i8, ptr %101, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %105) #15
+  br label %109
 
-108:                                              ; preds = %77
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.sroa.0.0.copyload.i.i24 = load i32, ptr %109, align 4
-  br label %110
+107:                                              ; preds = %76
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.sroa.0.0.copyload.i.i24 = load i32, ptr %108, align 4
+  br label %109
 
-110:                                              ; preds = %108, %93, %80, %64, %51, %38, %24, %11
-  %.sroa.9.0 = phi i32 [ %23, %11 ], [ %.sroa.0.0.copyload.i.i20, %24 ], [ %92, %80 ], [ %107, %93 ], [ %.sroa.0.0.copyload.i.i24, %108 ], [ %.sroa.0.0.copyload.i22, %64 ], [ %.sroa.0.0.copyload.i, %51 ], [ %.sroa.0.0.copyload.i.i21, %38 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i.i, %11 ], [ %35, %24 ], [ %.sroa.0.0.copyload.i.i23, %80 ], [ %104, %93 ], [ %.sroa.0.0.copyload.i.i24, %108 ], [ %75, %64 ], [ %62, %51 ], [ %49, %38 ]
+109:                                              ; preds = %107, %92, %79, %63, %50, %37, %23, %10
+  %.sroa.9.0 = phi i32 [ %22, %10 ], [ %.sroa.0.0.copyload.i.i20, %23 ], [ %91, %79 ], [ %106, %92 ], [ %.sroa.0.0.copyload.i.i24, %107 ], [ %.sroa.0.0.copyload.i22, %63 ], [ %.sroa.0.0.copyload.i, %50 ], [ %.sroa.0.0.copyload.i.i21, %37 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i.i, %10 ], [ %34, %23 ], [ %.sroa.0.0.copyload.i.i23, %79 ], [ %103, %92 ], [ %.sroa.0.0.copyload.i.i24, %107 ], [ %74, %63 ], [ %61, %50 ], [ %48, %37 ]
   %.sroa.9.0.insert.ext = zext i32 %.sroa.9.0 to i64
   %.sroa.9.0.insert.shift = shl nuw i64 %.sroa.9.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64

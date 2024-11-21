@@ -1647,8 +1647,8 @@ if.end104:                                        ; preds = %sw.bb98
   br i1 %or.cond.i, label %fromhex.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end104
-  %56 = add nsw i32 %conv99, -65
-  %or.cond1.i = icmp ult i32 %56, 6
+  %56 = add i8 %ch, -65
+  %or.cond1.i = icmp ult i8 %56, 6
   br i1 %or.cond1.i, label %if.then5.i, label %if.else7.i
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -1656,8 +1656,8 @@ if.then5.i:                                       ; preds = %if.else.i
   br label %fromhex.exit
 
 if.else7.i:                                       ; preds = %if.else.i
-  %57 = add nsw i32 %conv99, -97
-  %or.cond2.i = icmp ult i32 %57, 6
+  %57 = add i8 %ch, -97
+  %or.cond2.i = icmp ult i8 %57, 6
   %add13.i = add nsw i32 %conv99, -87
   %spec.select.i = select i1 %or.cond2.i, i32 %add13.i, i32 0
   br label %fromhex.exit
@@ -1726,8 +1726,8 @@ if.end118:                                        ; preds = %sw.bb109
   br i1 %or.cond.i123, label %fromhex.exit133, label %if.else.i124
 
 if.else.i124:                                     ; preds = %if.end118
-  %68 = add nsw i32 %conv111, -65
-  %or.cond1.i125 = icmp ult i32 %68, 6
+  %68 = add i8 %ch, -65
+  %or.cond1.i125 = icmp ult i8 %68, 6
   br i1 %or.cond1.i125, label %if.then5.i131, label %if.else7.i126
 
 if.then5.i131:                                    ; preds = %if.else.i124
@@ -1735,8 +1735,8 @@ if.then5.i131:                                    ; preds = %if.else.i124
   br label %fromhex.exit133
 
 if.else7.i126:                                    ; preds = %if.else.i124
-  %69 = add nsw i32 %conv111, -97
-  %or.cond2.i127 = icmp ult i32 %69, 6
+  %69 = add i8 %ch, -97
+  %or.cond2.i127 = icmp ult i8 %69, 6
   %add13.i128 = add nsw i32 %conv111, -87
   %spec.select.i129 = select i1 %or.cond2.i127, i32 %add13.i128, i32 0
   br label %fromhex.exit133

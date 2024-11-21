@@ -414,130 +414,129 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %_ZN4llvm10BasicBloc
   call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds i8, ptr %16, i64 -24
   %19 = load i8, ptr %18, align 8
-  %20 = zext i8 %19 to i32
-  %21 = add nsw i32 %20, -30
-  %22 = icmp ult i32 %21, 11
-  %spec.select.i.i = select i1 %22, ptr %18, ptr null
-  %23 = load i8, ptr %spec.select.i.i, align 8
-  %.not = icmp eq i8 %23, 34
-  br i1 %.not, label %24, label %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread
+  %20 = add i8 %19, -30
+  %21 = icmp ult i8 %20, 11
+  %spec.select.i.i = select i1 %21, ptr %18, ptr null
+  %22 = load i8, ptr %spec.select.i.i, align 8
+  %.not = icmp eq i8 %22, 34
+  br i1 %.not, label %23, label %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread
 
-24:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
-  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 80
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+23:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
+  %24 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 80
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load i32, ptr %30, align 8
-  %32 = and i32 %31, 255
-  %33 = icmp eq i32 %32, 7
-  br i1 %33, label %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread, label %34
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load i32, ptr %29, align 8
+  %31 = and i32 %30, 255
+  %32 = icmp eq i32 %31, 7
+  br i1 %32, label %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread, label %33
 
-34:                                               ; preds = %24
-  %35 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
-  %36 = load i32, ptr %35, align 4, !noalias !10
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i
+33:                                               ; preds = %23
+  %34 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
+  %35 = load i32, ptr %34, align 4, !noalias !10
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i
 
-_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i: ; preds = %34
-  %38 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %spec.select.i.i) #13, !noalias !10
-  %39 = extractvalue { ptr, i64 } %38, 0
-  %.pr.i.i.i = load i32, ptr %35, align 4, !noalias !10
-  %40 = icmp slt i32 %.pr.i.i.i, 0
-  br i1 %40, label %41, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i
+_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i: ; preds = %33
+  %37 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %spec.select.i.i) #13, !noalias !10
+  %38 = extractvalue { ptr, i64 } %37, 0
+  %.pr.i.i.i = load i32, ptr %34, align 4, !noalias !10
+  %39 = icmp slt i32 %.pr.i.i.i, 0
+  br i1 %39, label %40, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i
 
-41:                                               ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i
-  %42 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %spec.select.i.i) #13, !noalias !10
-  %43 = extractvalue { ptr, i64 } %42, 0
-  %44 = extractvalue { ptr, i64 } %42, 1
-  %45 = getelementptr inbounds i8, ptr %43, i64 %44
-  %46 = ptrtoint ptr %45 to i64
+40:                                               ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i
+  %41 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %spec.select.i.i) #13, !noalias !10
+  %42 = extractvalue { ptr, i64 } %41, 0
+  %43 = extractvalue { ptr, i64 } %41, 1
+  %44 = getelementptr inbounds i8, ptr %42, i64 %43
+  %45 = ptrtoint ptr %44 to i64
   br label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i
 
-_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i: ; preds = %41, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, %34
-  %.0.i.i3.i.i.i = phi ptr [ %39, %41 ], [ %39, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i ], [ null, %34 ]
-  %.0.i.i1.i.i.i = phi i64 [ %46, %41 ], [ 0, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i ], [ 0, %34 ]
-  %47 = ptrtoint ptr %.0.i.i3.i.i.i to i64
-  %48 = sub i64 %.0.i.i1.i.i.i, %47
-  %49 = and i64 %48, 68719476720
-  %.not7.i.i = icmp eq i64 %49, 0
+_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i: ; preds = %40, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, %33
+  %.0.i.i3.i.i.i = phi ptr [ %38, %40 ], [ %38, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i ], [ null, %33 ]
+  %.0.i.i1.i.i.i = phi i64 [ %45, %40 ], [ 0, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i ], [ 0, %33 ]
+  %46 = ptrtoint ptr %.0.i.i3.i.i.i to i64
+  %47 = sub i64 %.0.i.i1.i.i.i, %46
+  %48 = and i64 %47, 68719476720
+  %.not7.i.i = icmp eq i64 %48, 0
   br i1 %.not7.i.i, label %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i
-  %50 = lshr exact i64 %48, 4
-  %51 = and i64 %50, 4294967295
+  %49 = lshr exact i64 %47, 4
+  %50 = and i64 %49, 4294967295
   br label %.lr.ph.i.i
 
-52:                                               ; preds = %.lr.ph.i.i
+51:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i.i = icmp eq i64 %indvars.iv.next.i, %51
+  %.not.i.i = icmp eq i64 %indvars.iv.next.i, %50
   br i1 %.not.i.i, label %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread, label %.lr.ph.i.i, !llvm.loop !13
 
-.lr.ph.i.i:                                       ; preds = %52, %.lr.ph.i.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i.preheader.i ], [ %indvars.iv.next.i, %52 ]
-  %53 = load i32, ptr %35, align 4, !noalias !14
-  %54 = icmp slt i32 %53, 0
-  call void @llvm.assume(i1 %54)
-  %55 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %spec.select.i.i) #13, !noalias !14
-  %56 = extractvalue { ptr, i64 } %55, 0
-  %57 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %56, i64 %indvars.iv.i
-  %58 = load ptr, ptr %57, align 8, !noalias !17
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load i32, ptr %59, align 4, !noalias !10
-  %61 = icmp eq i32 %60, 6
-  br i1 %61, label %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit, label %52
+.lr.ph.i.i:                                       ; preds = %51, %.lr.ph.i.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i.preheader.i ], [ %indvars.iv.next.i, %51 ]
+  %52 = load i32, ptr %34, align 4, !noalias !14
+  %53 = icmp slt i32 %52, 0
+  call void @llvm.assume(i1 %53)
+  %54 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %spec.select.i.i) #13, !noalias !14
+  %55 = extractvalue { ptr, i64 } %54, 0
+  %56 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %55, i64 %indvars.iv.i
+  %57 = load ptr, ptr %56, align 8, !noalias !17
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load i32, ptr %58, align 4, !noalias !10
+  %60 = icmp eq i32 %59, 6
+  br i1 %60, label %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit, label %51
 
 _ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit: ; preds = %.lr.ph.i.i
-  %62 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -96
-  %63 = load ptr, ptr %62, align 8
-  %64 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %63) #13
-  %.not17 = icmp eq ptr %64, null
-  br i1 %.not17, label %65, label %67
+  %61 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -96
+  %62 = load ptr, ptr %61, align 8
+  %63 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %62) #13
+  %.not17 = icmp eq ptr %63, null
+  br i1 %.not17, label %64, label %66
 
-65:                                               ; preds = %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit
+64:                                               ; preds = %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit
   store ptr %2, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false)
   store i8 1, ptr %10, align 4
   store i16 257, ptr %11, align 8
-  %66 = call noundef ptr @_ZN4llvm17SplitCriticalEdgeEPNS_11InstructionEjRKNS_28CriticalEdgeSplittingOptionsERKNS_5TwineE(ptr noundef nonnull %spec.select.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(37) %5, ptr noundef nonnull align 8 dereferenceable(34) %6) #13
-  br label %67
+  %65 = call noundef ptr @_ZN4llvm17SplitCriticalEdgeEPNS_11InstructionEjRKNS_28CriticalEdgeSplittingOptionsERKNS_5TwineE(ptr noundef nonnull %spec.select.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(37) %5, ptr noundef nonnull align 8 dereferenceable(34) %6) #13
+  br label %66
 
-67:                                               ; preds = %65, %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit
-  %.2 = phi i8 [ 1, %65 ], [ %.02531, %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit ]
-  %.0 = phi ptr [ %66, %65 ], [ %63, %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit ]
-  %68 = call { ptr, i64 } @_ZNK4llvm10BasicBlock19getFirstInsertionPtEv(ptr noundef nonnull align 8 dereferenceable(80) %.0) #13
-  %.fca.0.extract1.i = extractvalue { ptr, i64 } %68, 0
+66:                                               ; preds = %64, %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit
+  %.2 = phi i8 [ 1, %64 ], [ %.02531, %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit ]
+  %.0 = phi ptr [ %65, %64 ], [ %62, %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit ]
+  %67 = call { ptr, i64 } @_ZNK4llvm10BasicBlock19getFirstInsertionPtEv(ptr noundef nonnull align 8 dereferenceable(80) %.0) #13
+  %.fca.0.extract1.i = extractvalue { ptr, i64 } %67, 0
   %.not.i.i19 = icmp eq ptr %.fca.0.extract1.i, null
-  %.fca.1.extract2.i = extractvalue { ptr, i64 } %68, 1
+  %.fca.1.extract2.i = extractvalue { ptr, i64 } %67, 1
   %.sroa.4.9.insert.insert.i.i = and i64 %.fca.1.extract2.i, 257
   %.sroa.4.0.i.i = select i1 %.not.i.i19, i64 0, i64 %.sroa.4.9.insert.insert.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %69 = call noundef ptr @_ZN4llvm7objcarc21BundledRetainClaimRVs22insertRVCallWithColorsENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPNS_8CallBaseERKNS_8DenseMapIPS6_NS_13TinyPtrVectorISC_EENS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_SE_EEEE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr %.fca.0.extract1.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(20) %4)
+  %68 = call noundef ptr @_ZN4llvm7objcarc21BundledRetainClaimRVs22insertRVCallWithColorsENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPNS_8CallBaseERKNS_8DenseMapIPS6_NS_13TinyPtrVectorISC_EENS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_SE_EEEE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr %.fca.0.extract1.i, i64 %.sroa.4.0.i.i, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(20) %4)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread
 
-_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread: ; preds = %52, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i, %24, %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %67
-  %.126 = phi i8 [ %.02531, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ %.2, %67 ], [ %.02531, %24 ], [ %.02531, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i ], [ %.02531, %52 ]
-  %.1 = phi i8 [ %.02432, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ 1, %67 ], [ %.02432, %24 ], [ %.02432, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i ], [ %.02432, %52 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.020.033, i64 8
-  %.sroa.020.0 = load ptr, ptr %70, align 8
+_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread: ; preds = %51, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i, %23, %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %66
+  %.126 = phi i8 [ %.02531, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ %.2, %66 ], [ %.02531, %23 ], [ %.02531, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i ], [ %.02531, %51 ]
+  %.1 = phi i8 [ %.02432, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ 1, %66 ], [ %.02432, %23 ], [ %.02432, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i ], [ %.02432, %51 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.020.033, i64 8
+  %.sroa.020.0 = load ptr, ptr %69, align 8
   %.not27 = icmp eq ptr %.sroa.020.0, %8
   br i1 %.not27, label %._crit_edge.loopexit, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread
-  %71 = and i8 %.1, 1
-  %72 = and i8 %.126, 1
-  %73 = zext nneg i8 %72 to i16
-  %74 = shl nuw nsw i16 %73, 8
-  %75 = zext nneg i8 %71 to i16
-  %76 = or disjoint i16 %74, %75
+  %70 = and i8 %.1, 1
+  %71 = and i8 %.126, 1
+  %72 = zext nneg i8 %71 to i16
+  %73 = shl nuw nsw i16 %72, 8
+  %74 = zext nneg i8 %70 to i16
+  %75 = or disjoint i16 %73, %74
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.sroa.0.0.insert.insert.i = phi i16 [ 0, %3 ], [ %76, %._crit_edge.loopexit ]
+  %.sroa.0.0.insert.insert.i = phi i16 [ 0, %3 ], [ %75, %._crit_edge.loopexit ]
   ret i16 %.sroa.0.0.insert.insert.i
 }
 

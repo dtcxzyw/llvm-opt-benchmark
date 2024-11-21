@@ -4827,7 +4827,6 @@ if.then113:                                       ; preds = %lor.rhs102, %if.end
   %bf.set110 = or disjoint i32 %bf.clear109, %bf.shl108
   store i32 %bf.set110, ptr %keepalive_, align 8
   %call114 = call noundef zeroext i16 @_ZNK8proxygen11HTTPMessage13getStatusCodeEv(ptr noundef nonnull align 8 dereferenceable(616) %msg)
-  %conv115 = zext i16 %call114 to i32
   %fields_15.i.i.i = getelementptr inbounds i8, ptr %msg, i64 168
   %12 = load i8, ptr %fields_15.i.i.i, align 8
   switch i8 %12, label %_ZNK8proxygen11HTTPMessage16getStatusMessageB5cxx11Ev.exit [
@@ -4884,9 +4883,9 @@ if.end122:                                        ; preds = %_ZNK8proxygen11HTTP
   %bf.load124 = load i32, ptr %keepalive_, align 8
   %15 = and i32 %bf.load124, 8192
   %bf.cast127 = icmp ne i32 %15, 0
-  %16 = add nsw i32 %conv115, -200
-  %17 = icmp ult i32 %16, 100
-  %or.cond1 = select i1 %bf.cast127, i1 %17, i1 false
+  %16 = add i16 %call114, -200
+  %17 = icmp ult i16 %16, 100
+  %or.cond1 = and i1 %17, %bf.cast127
   br i1 %or.cond1, label %if.then132, label %if.else136
 
 if.then132:                                       ; preds = %if.end122
@@ -4960,7 +4959,7 @@ if.end184.sink.split:                             ; preds = %if.then138, %if.the
   %bf.set182.sink = phi i32 [ %bf.set182, %if.then178 ], [ %bf.set135, %if.then132 ], [ %bf.clear165, %if.then158 ], [ %bf.set145, %if.then138 ]
   %statusMessage.sroa.4.1.ph = phi ptr [ null, %if.then178 ], [ %add.ptr.i, %if.then132 ], [ %add.ptr.i, %if.then158 ], [ %statusMessage.sroa.4.0344357, %if.then138 ]
   %statusMessage.sroa.0.1.ph = phi ptr [ null, %if.then178 ], [ %call.i96, %if.then132 ], [ %call.i96, %if.then158 ], [ %statusMessage.sroa.0.0345356, %if.then138 ]
-  %statusCode.1.ph = phi i32 [ 0, %if.then178 ], [ %conv115, %if.then132 ], [ %conv115, %if.then158 ], [ 101, %if.then138 ]
+  %statusCode.1.shrunk.ph = phi i16 [ 0, %if.then178 ], [ %call114, %if.then132 ], [ %call114, %if.then158 ], [ 101, %if.then138 ]
   store i32 %bf.set182.sink, ptr %keepalive_, align 8
   br label %if.end184
 
@@ -4968,7 +4967,7 @@ if.end184:                                        ; preds = %if.end184.sink.spli
   %bf.load187 = phi i32 [ %bf.load124, %if.else146 ], [ %bf.set54, %if.else170 ], [ %bf.set182.sink, %if.end184.sink.split ]
   %statusMessage.sroa.4.1 = phi ptr [ %add.ptr.i, %if.else146 ], [ null, %if.else170 ], [ %statusMessage.sroa.4.1.ph, %if.end184.sink.split ]
   %statusMessage.sroa.0.1 = phi ptr [ %call.i96, %if.else146 ], [ null, %if.else170 ], [ %statusMessage.sroa.0.1.ph, %if.end184.sink.split ]
-  %statusCode.1 = phi i32 [ %conv115, %if.else146 ], [ 0, %if.else170 ], [ %statusCode.1.ph, %if.end184.sink.split ]
+  %statusCode.1.shrunk = phi i16 [ %call114, %if.else146 ], [ 0, %if.else170 ], [ %statusCode.1.shrunk.ph, %if.end184.sink.split ]
   %chunked_.i = getelementptr inbounds i8, ptr %msg, i64 610
   %bf.load.i = load i8, ptr %chunked_.i, align 2
   %28 = and i8 %bf.load.i, 4
@@ -5123,7 +5122,7 @@ _ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit129: ; preds = %while
   %add235 = add i64 %add.i122, 1
   store i64 %add235, ptr %len, align 8
   call void @_ZN5folly10IOBufQueue6appendEPKvm(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef nonnull @.str.17, i64 noundef 1)
-  %conv236 = zext nneg i32 %statusCode.1 to i64
+  %conv236 = zext i16 %statusCode.1.shrunk to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i130)
   br label %do.body.i.i131
 

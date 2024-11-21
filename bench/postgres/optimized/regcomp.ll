@@ -23461,76 +23461,73 @@ define internal i32 @pg_wc_isprint(i32 noundef %0) #0 {
   %2 = load i32, ptr @pg_regex_strategy, align 4
   switch i32 %2, label %default.unreachable [
     i32 0, label %3
-    i32 1, label %9
-    i32 2, label %11
-    i32 3, label %21
-    i32 4, label %26
-    i32 5, label %39
+    i32 1, label %6
+    i32 2, label %8
+    i32 3, label %18
+    i32 4, label %23
+    i32 5, label %36
   ]
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %0, 128
-  %5 = zext nneg i32 %0 to i64
-  %6 = add nsw i64 %5, -32
-  %7 = icmp ult i64 %6, 95
-  %narrow = select i1 %4, i1 %7, i1 false
-  %8 = zext i1 %narrow to i32
-  br label %42
+  %4 = add i32 %0, -32
+  %narrow = icmp ult i32 %4, 95
+  %5 = zext i1 %narrow to i32
+  br label %39
 
-9:                                                ; preds = %1
-  %10 = tail call i32 @iswprint(i32 noundef %0) #22
-  br label %42
+6:                                                ; preds = %1
+  %7 = tail call i32 @iswprint(i32 noundef %0) #22
+  br label %39
 
-11:                                               ; preds = %1
-  %12 = icmp ult i32 %0, 256
-  br i1 %12, label %13, label %42
+8:                                                ; preds = %1
+  %9 = icmp ult i32 %0, 256
+  br i1 %9, label %10, label %39
 
-13:                                               ; preds = %11
-  %14 = tail call ptr @__ctype_b_loc() #27
-  %15 = load ptr, ptr %14, align 8
-  %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr i16, ptr %15, i64 %16
-  %18 = load i16, ptr %17, align 2
-  %19 = lshr i16 %18, 14
-  %.lobit11 = and i16 %19, 1
-  %20 = zext nneg i16 %.lobit11 to i32
-  br label %42
+10:                                               ; preds = %8
+  %11 = tail call ptr @__ctype_b_loc() #27
+  %12 = load ptr, ptr %11, align 8
+  %13 = zext nneg i32 %0 to i64
+  %14 = getelementptr i16, ptr %12, i64 %13
+  %15 = load i16, ptr %14, align 2
+  %16 = lshr i16 %15, 14
+  %.lobit11 = and i16 %16, 1
+  %17 = zext nneg i16 %.lobit11 to i32
+  br label %39
 
-21:                                               ; preds = %1
-  %22 = load ptr, ptr @pg_regex_locale, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @iswprint_l(i32 noundef %0, ptr noundef %24) #22
-  br label %42
+18:                                               ; preds = %1
+  %19 = load ptr, ptr @pg_regex_locale, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 @iswprint_l(i32 noundef %0, ptr noundef %21) #22
+  br label %39
 
-26:                                               ; preds = %1
-  %27 = icmp ult i32 %0, 256
-  br i1 %27, label %28, label %42
+23:                                               ; preds = %1
+  %24 = icmp ult i32 %0, 256
+  br i1 %24, label %25, label %39
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr @pg_regex_locale, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 104
-  %33 = load ptr, ptr %32, align 8
-  %34 = zext nneg i32 %0 to i64
-  %35 = getelementptr i16, ptr %33, i64 %34
-  %36 = load i16, ptr %35, align 2
-  %37 = lshr i16 %36, 14
-  %.lobit = and i16 %37, 1
-  %38 = zext nneg i16 %.lobit to i32
-  br label %42
+25:                                               ; preds = %23
+  %26 = load ptr, ptr @pg_regex_locale, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 104
+  %30 = load ptr, ptr %29, align 8
+  %31 = zext nneg i32 %0 to i64
+  %32 = getelementptr i16, ptr %30, i64 %31
+  %33 = load i16, ptr %32, align 2
+  %34 = lshr i16 %33, 14
+  %.lobit = and i16 %34, 1
+  %35 = zext nneg i16 %.lobit to i32
+  br label %39
 
-39:                                               ; preds = %1
-  %40 = tail call signext i8 @u_isprint_70(i32 noundef %0) #22
-  %41 = sext i8 %40 to i32
-  br label %42
+36:                                               ; preds = %1
+  %37 = tail call signext i8 @u_isprint_70(i32 noundef %0) #22
+  %38 = sext i8 %37 to i32
+  br label %39
 
 default.unreachable:                              ; preds = %1
   unreachable
 
-42:                                               ; preds = %26, %28, %11, %13, %39, %21, %9, %3
-  %.0 = phi i32 [ %41, %39 ], [ %25, %21 ], [ %10, %9 ], [ %8, %3 ], [ 0, %11 ], [ %20, %13 ], [ 0, %26 ], [ %38, %28 ]
+39:                                               ; preds = %23, %25, %8, %10, %36, %18, %6, %3
+  %.0 = phi i32 [ %38, %36 ], [ %22, %18 ], [ %7, %6 ], [ %5, %3 ], [ 0, %8 ], [ %17, %10 ], [ 0, %23 ], [ %35, %25 ]
   ret i32 %.0
 }
 
@@ -23717,76 +23714,73 @@ define internal i32 @pg_wc_isdigit(i32 noundef %0) #0 {
   %2 = load i32, ptr @pg_regex_strategy, align 4
   switch i32 %2, label %default.unreachable [
     i32 0, label %3
-    i32 1, label %9
-    i32 2, label %11
-    i32 3, label %21
-    i32 4, label %26
-    i32 5, label %39
+    i32 1, label %6
+    i32 2, label %8
+    i32 3, label %18
+    i32 4, label %23
+    i32 5, label %36
   ]
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %0, 128
-  %5 = zext nneg i32 %0 to i64
-  %6 = add nsw i64 %5, -48
-  %7 = icmp ult i64 %6, 10
-  %narrow = select i1 %4, i1 %7, i1 false
-  %8 = zext i1 %narrow to i32
-  br label %42
+  %4 = add i32 %0, -48
+  %narrow = icmp ult i32 %4, 10
+  %5 = zext i1 %narrow to i32
+  br label %39
 
-9:                                                ; preds = %1
-  %10 = tail call i32 @iswdigit(i32 noundef %0) #22
-  br label %42
+6:                                                ; preds = %1
+  %7 = tail call i32 @iswdigit(i32 noundef %0) #22
+  br label %39
 
-11:                                               ; preds = %1
-  %12 = icmp ult i32 %0, 256
-  br i1 %12, label %13, label %42
+8:                                                ; preds = %1
+  %9 = icmp ult i32 %0, 256
+  br i1 %9, label %10, label %39
 
-13:                                               ; preds = %11
-  %14 = tail call ptr @__ctype_b_loc() #27
-  %15 = load ptr, ptr %14, align 8
-  %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr i16, ptr %15, i64 %16
-  %18 = load i16, ptr %17, align 2
-  %19 = lshr i16 %18, 11
-  %.lobit11 = and i16 %19, 1
-  %20 = zext nneg i16 %.lobit11 to i32
-  br label %42
+10:                                               ; preds = %8
+  %11 = tail call ptr @__ctype_b_loc() #27
+  %12 = load ptr, ptr %11, align 8
+  %13 = zext nneg i32 %0 to i64
+  %14 = getelementptr i16, ptr %12, i64 %13
+  %15 = load i16, ptr %14, align 2
+  %16 = lshr i16 %15, 11
+  %.lobit11 = and i16 %16, 1
+  %17 = zext nneg i16 %.lobit11 to i32
+  br label %39
 
-21:                                               ; preds = %1
-  %22 = load ptr, ptr @pg_regex_locale, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @iswdigit_l(i32 noundef %0, ptr noundef %24) #22
-  br label %42
+18:                                               ; preds = %1
+  %19 = load ptr, ptr @pg_regex_locale, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 @iswdigit_l(i32 noundef %0, ptr noundef %21) #22
+  br label %39
 
-26:                                               ; preds = %1
-  %27 = icmp ult i32 %0, 256
-  br i1 %27, label %28, label %42
+23:                                               ; preds = %1
+  %24 = icmp ult i32 %0, 256
+  br i1 %24, label %25, label %39
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr @pg_regex_locale, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 104
-  %33 = load ptr, ptr %32, align 8
-  %34 = zext nneg i32 %0 to i64
-  %35 = getelementptr i16, ptr %33, i64 %34
-  %36 = load i16, ptr %35, align 2
-  %37 = lshr i16 %36, 11
-  %.lobit = and i16 %37, 1
-  %38 = zext nneg i16 %.lobit to i32
-  br label %42
+25:                                               ; preds = %23
+  %26 = load ptr, ptr @pg_regex_locale, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 104
+  %30 = load ptr, ptr %29, align 8
+  %31 = zext nneg i32 %0 to i64
+  %32 = getelementptr i16, ptr %30, i64 %31
+  %33 = load i16, ptr %32, align 2
+  %34 = lshr i16 %33, 11
+  %.lobit = and i16 %34, 1
+  %35 = zext nneg i16 %.lobit to i32
+  br label %39
 
-39:                                               ; preds = %1
-  %40 = tail call signext i8 @u_isdigit_70(i32 noundef %0) #22
-  %41 = sext i8 %40 to i32
-  br label %42
+36:                                               ; preds = %1
+  %37 = tail call signext i8 @u_isdigit_70(i32 noundef %0) #22
+  %38 = sext i8 %37 to i32
+  br label %39
 
 default.unreachable:                              ; preds = %1
   unreachable
 
-42:                                               ; preds = %26, %28, %11, %13, %39, %21, %9, %3
-  %.0 = phi i32 [ %41, %39 ], [ %25, %21 ], [ %10, %9 ], [ %8, %3 ], [ 0, %11 ], [ %20, %13 ], [ 0, %26 ], [ %38, %28 ]
+39:                                               ; preds = %23, %25, %8, %10, %36, %18, %6, %3
+  %.0 = phi i32 [ %38, %36 ], [ %22, %18 ], [ %7, %6 ], [ %5, %3 ], [ 0, %8 ], [ %17, %10 ], [ 0, %23 ], [ %35, %25 ]
   ret i32 %.0
 }
 
@@ -23958,76 +23952,73 @@ define internal i32 @pg_wc_islower(i32 noundef %0) #0 {
   %2 = load i32, ptr @pg_regex_strategy, align 4
   switch i32 %2, label %default.unreachable [
     i32 0, label %3
-    i32 1, label %9
-    i32 2, label %11
-    i32 3, label %21
-    i32 4, label %26
-    i32 5, label %39
+    i32 1, label %6
+    i32 2, label %8
+    i32 3, label %18
+    i32 4, label %23
+    i32 5, label %36
   ]
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %0, 128
-  %5 = zext nneg i32 %0 to i64
-  %6 = add nsw i64 %5, -97
-  %7 = icmp ult i64 %6, 26
-  %narrow = select i1 %4, i1 %7, i1 false
-  %8 = zext i1 %narrow to i32
-  br label %42
+  %4 = add i32 %0, -97
+  %narrow = icmp ult i32 %4, 26
+  %5 = zext i1 %narrow to i32
+  br label %39
 
-9:                                                ; preds = %1
-  %10 = tail call i32 @iswlower(i32 noundef %0) #22
-  br label %42
+6:                                                ; preds = %1
+  %7 = tail call i32 @iswlower(i32 noundef %0) #22
+  br label %39
 
-11:                                               ; preds = %1
-  %12 = icmp ult i32 %0, 256
-  br i1 %12, label %13, label %42
+8:                                                ; preds = %1
+  %9 = icmp ult i32 %0, 256
+  br i1 %9, label %10, label %39
 
-13:                                               ; preds = %11
-  %14 = tail call ptr @__ctype_b_loc() #27
-  %15 = load ptr, ptr %14, align 8
-  %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr i16, ptr %15, i64 %16
-  %18 = load i16, ptr %17, align 2
-  %19 = lshr i16 %18, 9
-  %.lobit11 = and i16 %19, 1
-  %20 = zext nneg i16 %.lobit11 to i32
-  br label %42
+10:                                               ; preds = %8
+  %11 = tail call ptr @__ctype_b_loc() #27
+  %12 = load ptr, ptr %11, align 8
+  %13 = zext nneg i32 %0 to i64
+  %14 = getelementptr i16, ptr %12, i64 %13
+  %15 = load i16, ptr %14, align 2
+  %16 = lshr i16 %15, 9
+  %.lobit11 = and i16 %16, 1
+  %17 = zext nneg i16 %.lobit11 to i32
+  br label %39
 
-21:                                               ; preds = %1
-  %22 = load ptr, ptr @pg_regex_locale, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @iswlower_l(i32 noundef %0, ptr noundef %24) #22
-  br label %42
+18:                                               ; preds = %1
+  %19 = load ptr, ptr @pg_regex_locale, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 @iswlower_l(i32 noundef %0, ptr noundef %21) #22
+  br label %39
 
-26:                                               ; preds = %1
-  %27 = icmp ult i32 %0, 256
-  br i1 %27, label %28, label %42
+23:                                               ; preds = %1
+  %24 = icmp ult i32 %0, 256
+  br i1 %24, label %25, label %39
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr @pg_regex_locale, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 104
-  %33 = load ptr, ptr %32, align 8
-  %34 = zext nneg i32 %0 to i64
-  %35 = getelementptr i16, ptr %33, i64 %34
-  %36 = load i16, ptr %35, align 2
-  %37 = lshr i16 %36, 9
-  %.lobit = and i16 %37, 1
-  %38 = zext nneg i16 %.lobit to i32
-  br label %42
+25:                                               ; preds = %23
+  %26 = load ptr, ptr @pg_regex_locale, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 104
+  %30 = load ptr, ptr %29, align 8
+  %31 = zext nneg i32 %0 to i64
+  %32 = getelementptr i16, ptr %30, i64 %31
+  %33 = load i16, ptr %32, align 2
+  %34 = lshr i16 %33, 9
+  %.lobit = and i16 %34, 1
+  %35 = zext nneg i16 %.lobit to i32
+  br label %39
 
-39:                                               ; preds = %1
-  %40 = tail call signext i8 @u_islower_70(i32 noundef %0) #22
-  %41 = sext i8 %40 to i32
-  br label %42
+36:                                               ; preds = %1
+  %37 = tail call signext i8 @u_islower_70(i32 noundef %0) #22
+  %38 = sext i8 %37 to i32
+  br label %39
 
 default.unreachable:                              ; preds = %1
   unreachable
 
-42:                                               ; preds = %26, %28, %11, %13, %39, %21, %9, %3
-  %.0 = phi i32 [ %41, %39 ], [ %25, %21 ], [ %10, %9 ], [ %8, %3 ], [ 0, %11 ], [ %20, %13 ], [ 0, %26 ], [ %38, %28 ]
+39:                                               ; preds = %23, %25, %8, %10, %36, %18, %6, %3
+  %.0 = phi i32 [ %38, %36 ], [ %22, %18 ], [ %7, %6 ], [ %5, %3 ], [ 0, %8 ], [ %17, %10 ], [ 0, %23 ], [ %35, %25 ]
   ret i32 %.0
 }
 
@@ -24036,76 +24027,73 @@ define internal i32 @pg_wc_isupper(i32 noundef %0) #0 {
   %2 = load i32, ptr @pg_regex_strategy, align 4
   switch i32 %2, label %default.unreachable [
     i32 0, label %3
-    i32 1, label %9
-    i32 2, label %11
-    i32 3, label %21
-    i32 4, label %26
-    i32 5, label %39
+    i32 1, label %6
+    i32 2, label %8
+    i32 3, label %18
+    i32 4, label %23
+    i32 5, label %36
   ]
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %0, 128
-  %5 = zext nneg i32 %0 to i64
-  %6 = add nsw i64 %5, -65
-  %7 = icmp ult i64 %6, 26
-  %narrow = select i1 %4, i1 %7, i1 false
-  %8 = zext i1 %narrow to i32
-  br label %42
+  %4 = add i32 %0, -65
+  %narrow = icmp ult i32 %4, 26
+  %5 = zext i1 %narrow to i32
+  br label %39
 
-9:                                                ; preds = %1
-  %10 = tail call i32 @iswupper(i32 noundef %0) #22
-  br label %42
+6:                                                ; preds = %1
+  %7 = tail call i32 @iswupper(i32 noundef %0) #22
+  br label %39
 
-11:                                               ; preds = %1
-  %12 = icmp ult i32 %0, 256
-  br i1 %12, label %13, label %42
+8:                                                ; preds = %1
+  %9 = icmp ult i32 %0, 256
+  br i1 %9, label %10, label %39
 
-13:                                               ; preds = %11
-  %14 = tail call ptr @__ctype_b_loc() #27
-  %15 = load ptr, ptr %14, align 8
-  %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr i16, ptr %15, i64 %16
-  %18 = load i16, ptr %17, align 2
-  %19 = lshr i16 %18, 8
-  %.lobit11 = and i16 %19, 1
-  %20 = zext nneg i16 %.lobit11 to i32
-  br label %42
+10:                                               ; preds = %8
+  %11 = tail call ptr @__ctype_b_loc() #27
+  %12 = load ptr, ptr %11, align 8
+  %13 = zext nneg i32 %0 to i64
+  %14 = getelementptr i16, ptr %12, i64 %13
+  %15 = load i16, ptr %14, align 2
+  %16 = lshr i16 %15, 8
+  %.lobit11 = and i16 %16, 1
+  %17 = zext nneg i16 %.lobit11 to i32
+  br label %39
 
-21:                                               ; preds = %1
-  %22 = load ptr, ptr @pg_regex_locale, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @iswupper_l(i32 noundef %0, ptr noundef %24) #22
-  br label %42
+18:                                               ; preds = %1
+  %19 = load ptr, ptr @pg_regex_locale, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 @iswupper_l(i32 noundef %0, ptr noundef %21) #22
+  br label %39
 
-26:                                               ; preds = %1
-  %27 = icmp ult i32 %0, 256
-  br i1 %27, label %28, label %42
+23:                                               ; preds = %1
+  %24 = icmp ult i32 %0, 256
+  br i1 %24, label %25, label %39
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr @pg_regex_locale, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 104
-  %33 = load ptr, ptr %32, align 8
-  %34 = zext nneg i32 %0 to i64
-  %35 = getelementptr i16, ptr %33, i64 %34
-  %36 = load i16, ptr %35, align 2
-  %37 = lshr i16 %36, 8
-  %.lobit = and i16 %37, 1
-  %38 = zext nneg i16 %.lobit to i32
-  br label %42
+25:                                               ; preds = %23
+  %26 = load ptr, ptr @pg_regex_locale, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 104
+  %30 = load ptr, ptr %29, align 8
+  %31 = zext nneg i32 %0 to i64
+  %32 = getelementptr i16, ptr %30, i64 %31
+  %33 = load i16, ptr %32, align 2
+  %34 = lshr i16 %33, 8
+  %.lobit = and i16 %34, 1
+  %35 = zext nneg i16 %.lobit to i32
+  br label %39
 
-39:                                               ; preds = %1
-  %40 = tail call signext i8 @u_isupper_70(i32 noundef %0) #22
-  %41 = sext i8 %40 to i32
-  br label %42
+36:                                               ; preds = %1
+  %37 = tail call signext i8 @u_isupper_70(i32 noundef %0) #22
+  %38 = sext i8 %37 to i32
+  br label %39
 
 default.unreachable:                              ; preds = %1
   unreachable
 
-42:                                               ; preds = %26, %28, %11, %13, %39, %21, %9, %3
-  %.0 = phi i32 [ %41, %39 ], [ %25, %21 ], [ %10, %9 ], [ %8, %3 ], [ 0, %11 ], [ %20, %13 ], [ 0, %26 ], [ %38, %28 ]
+39:                                               ; preds = %23, %25, %8, %10, %36, %18, %6, %3
+  %.0 = phi i32 [ %38, %36 ], [ %22, %18 ], [ %7, %6 ], [ %5, %3 ], [ 0, %8 ], [ %17, %10 ], [ 0, %23 ], [ %35, %25 ]
   ret i32 %.0
 }
 
@@ -24114,74 +24102,71 @@ define internal i32 @pg_wc_isgraph(i32 noundef %0) #0 {
   %2 = load i32, ptr @pg_regex_strategy, align 4
   switch i32 %2, label %default.unreachable [
     i32 0, label %3
-    i32 1, label %9
-    i32 2, label %11
-    i32 3, label %20
-    i32 4, label %25
-    i32 5, label %37
+    i32 1, label %6
+    i32 2, label %8
+    i32 3, label %17
+    i32 4, label %22
+    i32 5, label %34
   ]
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %0, 128
-  %5 = zext nneg i32 %0 to i64
-  %6 = add nsw i64 %5, -33
-  %7 = icmp ult i64 %6, 94
-  %narrow = select i1 %4, i1 %7, i1 false
-  %8 = zext i1 %narrow to i32
-  br label %40
+  %4 = add i32 %0, -33
+  %narrow = icmp ult i32 %4, 94
+  %5 = zext i1 %narrow to i32
+  br label %37
 
-9:                                                ; preds = %1
-  %10 = tail call i32 @iswgraph(i32 noundef %0) #22
-  br label %40
+6:                                                ; preds = %1
+  %7 = tail call i32 @iswgraph(i32 noundef %0) #22
+  br label %37
 
-11:                                               ; preds = %1
-  %12 = icmp ult i32 %0, 256
-  br i1 %12, label %13, label %40
+8:                                                ; preds = %1
+  %9 = icmp ult i32 %0, 256
+  br i1 %9, label %10, label %37
 
-13:                                               ; preds = %11
-  %14 = tail call ptr @__ctype_b_loc() #27
-  %15 = load ptr, ptr %14, align 8
-  %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr i16, ptr %15, i64 %16
-  %18 = load i16, ptr %17, align 2
-  %.lobit11 = lshr i16 %18, 15
-  %19 = zext nneg i16 %.lobit11 to i32
-  br label %40
+10:                                               ; preds = %8
+  %11 = tail call ptr @__ctype_b_loc() #27
+  %12 = load ptr, ptr %11, align 8
+  %13 = zext nneg i32 %0 to i64
+  %14 = getelementptr i16, ptr %12, i64 %13
+  %15 = load i16, ptr %14, align 2
+  %.lobit11 = lshr i16 %15, 15
+  %16 = zext nneg i16 %.lobit11 to i32
+  br label %37
 
-20:                                               ; preds = %1
-  %21 = load ptr, ptr @pg_regex_locale, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @iswgraph_l(i32 noundef %0, ptr noundef %23) #22
-  br label %40
+17:                                               ; preds = %1
+  %18 = load ptr, ptr @pg_regex_locale, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 @iswgraph_l(i32 noundef %0, ptr noundef %20) #22
+  br label %37
 
-25:                                               ; preds = %1
-  %26 = icmp ult i32 %0, 256
-  br i1 %26, label %27, label %40
+22:                                               ; preds = %1
+  %23 = icmp ult i32 %0, 256
+  br i1 %23, label %24, label %37
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr @pg_regex_locale, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 104
-  %32 = load ptr, ptr %31, align 8
-  %33 = zext nneg i32 %0 to i64
-  %34 = getelementptr i16, ptr %32, i64 %33
-  %35 = load i16, ptr %34, align 2
-  %.lobit = lshr i16 %35, 15
-  %36 = zext nneg i16 %.lobit to i32
-  br label %40
+24:                                               ; preds = %22
+  %25 = load ptr, ptr @pg_regex_locale, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 104
+  %29 = load ptr, ptr %28, align 8
+  %30 = zext nneg i32 %0 to i64
+  %31 = getelementptr i16, ptr %29, i64 %30
+  %32 = load i16, ptr %31, align 2
+  %.lobit = lshr i16 %32, 15
+  %33 = zext nneg i16 %.lobit to i32
+  br label %37
 
-37:                                               ; preds = %1
-  %38 = tail call signext i8 @u_isgraph_70(i32 noundef %0) #22
-  %39 = sext i8 %38 to i32
-  br label %40
+34:                                               ; preds = %1
+  %35 = tail call signext i8 @u_isgraph_70(i32 noundef %0) #22
+  %36 = sext i8 %35 to i32
+  br label %37
 
 default.unreachable:                              ; preds = %1
   unreachable
 
-40:                                               ; preds = %25, %27, %11, %13, %37, %20, %9, %3
-  %.0 = phi i32 [ %39, %37 ], [ %24, %20 ], [ %10, %9 ], [ %8, %3 ], [ 0, %11 ], [ %19, %13 ], [ 0, %25 ], [ %36, %27 ]
+37:                                               ; preds = %22, %24, %8, %10, %34, %17, %6, %3
+  %.0 = phi i32 [ %36, %34 ], [ %21, %17 ], [ %7, %6 ], [ %5, %3 ], [ 0, %8 ], [ %16, %10 ], [ 0, %22 ], [ %33, %24 ]
   ret i32 %.0
 }
 

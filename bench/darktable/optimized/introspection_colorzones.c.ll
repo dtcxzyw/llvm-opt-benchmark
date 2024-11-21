@@ -8082,9 +8082,9 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   %241 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %240)
   %242 = zext nneg i32 %235 to i64
   %243 = add nsw i64 %242, -1
-  %244 = add nsw i64 %242, -2
-  %245 = and i64 %243, 3
-  %246 = icmp samesign ult i64 %244, 3
+  %244 = and i64 %243, 3
+  %245 = add nsw i32 %235, -2
+  %246 = icmp samesign ult i32 %245, 3
   br i1 %246, label %.loopexit31, label %247
 
 247:                                              ; preds = %237
@@ -8320,7 +8320,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
 .loopexit31:                                      ; preds = %290, %237
   %420 = phi i64 [ 1, %237 ], [ %292, %290 ]
   %421 = phi float [ %241, %237 ], [ %291, %290 ]
-  %422 = icmp eq i64 %245, 0
+  %422 = icmp eq i64 %244, 0
   br i1 %422, label %.loopexit30, label %.preheader29
 
 .preheader29:                                     ; preds = %.loopexit31, %433
@@ -8343,7 +8343,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   %434 = phi float [ %429, %431 ], [ %424, %.preheader29 ]
   %435 = add nuw nsw i64 %423, 1
   %436 = add nuw nsw i64 %425, 1
-  %437 = icmp eq i64 %436, %245
+  %437 = icmp eq i64 %436, %244
   br i1 %437, label %.loopexit30, label %.preheader29, !llvm.loop !275
 
 .loopexit30:                                      ; preds = %433, %.loopexit31, %419, %416, %296, %295, %232, %224, %220

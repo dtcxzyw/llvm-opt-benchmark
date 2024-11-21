@@ -5149,41 +5149,39 @@ define internal fastcc void @_ZN12_GLOBAL__N_121ObjCPropertyOpBuilder30DiagnoseU
   %10 = select i1 %.not.i, ptr %9, ptr %7
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i16, ptr %11, align 8
-  %.fr11 = freeze i16 %12
-  %13 = and i16 %.fr11, 127
-  %14 = zext nneg i16 %13 to i32
-  %15 = add nsw i32 %14, -21
-  %switch.i = icmp ult i32 %15, -5
-  %16 = and i32 %14, 126
-  %switch = icmp eq i32 %16, 18
-  %or.cond = or i1 %switch.i, %switch
-  br i1 %or.cond, label %29, label %17
+  %13 = and i16 %12, 127
+  %14 = add nsw i16 %13, -21
+  %switch.i = icmp ult i16 %14, -5
+  %15 = and i16 %12, 22
+  %switch = icmp eq i16 %15, 18
+  %or.cond = or i1 %switch, %switch.i
+  br i1 %or.cond, label %28, label %16
 
-17:                                               ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.0.copyload.i.i.i.i = load i64, ptr %20, align 8
-  %21 = and i64 %.0.copyload.i.i.i.i, -8
-  %.not5 = icmp eq i64 %21, 0
-  br i1 %.not5, label %29, label %22
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.0.copyload.i.i.i.i = load i64, ptr %19, align 8
+  %20 = and i64 %.0.copyload.i.i.i.i, -8
+  %.not5 = icmp eq i64 %20, 0
+  br i1 %.not5, label %28, label %21
 
-22:                                               ; preds = %17
-  %23 = inttoptr i64 %21 to ptr
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %.sroa.0.0.copyload.i = load i32, ptr %25, align 8
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %24, i32 %.sroa.0.0.copyload.i, i32 noundef 4502, i1 noundef zeroext false) #18
+21:                                               ; preds = %16
+  %22 = inttoptr i64 %20 to ptr
+  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %.sroa.0.0.copyload.i = load i32, ptr %24, align 8
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 %.sroa.0.0.copyload.i, i32 noundef 4502, i1 noundef zeroext false) #18
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #18
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %.sroa.0.0.copyload.i8 = load i32, ptr %28, align 8
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %27, i32 %.sroa.0.0.copyload.i8, i32 noundef 5895, i1 noundef zeroext false) #18
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %.sroa.0.0.copyload.i8 = load i32, ptr %27, align 8
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %26, i32 %.sroa.0.0.copyload.i8, i32 noundef 5895, i1 noundef zeroext false) #18
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #18
-  br label %29
+  br label %28
 
-29:                                               ; preds = %1, %17, %22
+28:                                               ; preds = %16, %21, %1
   ret void
 }
 

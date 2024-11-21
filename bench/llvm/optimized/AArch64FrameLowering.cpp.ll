@@ -10135,9 +10135,8 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i:     ; preds = %89
 94:                                               ; preds = %92, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i, %89
   %95 = getelementptr i8, ptr %61, i64 68
   %.val187 = load i16, ptr %95, align 4
-  %96 = zext i16 %.val187 to i32
-  %.off.i = add nsw i32 %96, -441
-  %switch.i = icmp ult i32 %.off.i, 2
+  %96 = add i16 %.val187, -441
+  %switch.i = icmp ult i16 %96, 2
   br i1 %switch.i, label %97, label %.thread
 
 97:                                               ; preds = %94

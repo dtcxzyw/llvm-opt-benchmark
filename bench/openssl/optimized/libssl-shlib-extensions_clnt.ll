@@ -2554,12 +2554,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %pkt, align 8
   %2 = load i8, ptr %1, align 1
-  %conv.i.i = zext i8 %2 to i32
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 1
   store ptr %add.ptr.i.i, ptr %pkt, align 8
   store i64 0, ptr %0, align 8
-  %3 = add nsw i32 %conv.i.i, -1
-  %or.cond = icmp ult i32 %3, 4
+  %3 = add i8 %2, -1
+  %or.cond = icmp ult i8 %3, 4
   br i1 %or.cond, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end

@@ -1221,21 +1221,21 @@ define dso_local i32 @bpf_prog_create(ptr nocapture noundef writeonly %0, ptr no
   %5 = shl nuw nsw i64 %4, 3
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = zext i16 %3 to i32
-  %9 = icmp ne ptr %7, null
-  %10 = add nsw i32 %8, -1
-  %11 = icmp ult i32 %10, 4096
-  %12 = and i1 %9, %11
-  br i1 %12, label %13, label %31
+  %8 = icmp ne ptr %7, null
+  %9 = add i16 %3, -1
+  %10 = icmp ult i16 %9, 4096
+  %11 = and i1 %8, %10
+  br i1 %11, label %12, label %31
 
-13:                                               ; preds = %2
-  %14 = shl nuw nsw i32 %8, 3
+12:                                               ; preds = %2
+  %13 = shl nuw i16 %3, 3
+  %14 = zext i16 %13 to i32
   %15 = add nuw nsw i32 %14, 72
   %16 = tail call ptr @bpf_prog_alloc(i32 noundef %15, i32 noundef 0) #34
   %17 = icmp eq ptr %16, null
   br i1 %17, label %31, label %18
 
-18:                                               ; preds = %13
+18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %16, i64 72
   %20 = load ptr, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 4 %20, i64 %5, i1 false)
@@ -1258,8 +1258,8 @@ define dso_local i32 @bpf_prog_create(ptr nocapture noundef writeonly %0, ptr no
   store ptr %25, ptr %0, align 8
   br label %31
 
-31:                                               ; preds = %30, %27, %13, %2
-  %32 = phi i32 [ %29, %27 ], [ 0, %30 ], [ -22, %2 ], [ -12, %13 ]
+31:                                               ; preds = %30, %27, %12, %2
+  %32 = phi i32 [ %29, %27 ], [ 0, %30 ], [ -22, %2 ], [ -12, %12 ]
   ret i32 %32
 }
 
@@ -1684,21 +1684,21 @@ define dso_local i32 @bpf_prog_create_from_user(ptr nocapture noundef writeonly 
   %7 = shl nuw nsw i64 %6, 3
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = zext i16 %5 to i32
-  %11 = icmp ne ptr %9, null
-  %12 = add nsw i32 %10, -1
-  %13 = icmp ult i32 %12, 4096
-  %14 = and i1 %11, %13
-  br i1 %14, label %15, label %53
+  %10 = icmp ne ptr %9, null
+  %11 = add i16 %5, -1
+  %12 = icmp ult i16 %11, 4096
+  %13 = and i1 %10, %12
+  br i1 %13, label %14, label %53
 
-15:                                               ; preds = %4
-  %16 = shl nuw nsw i32 %10, 3
+14:                                               ; preds = %4
+  %15 = shl nuw i16 %5, 3
+  %16 = zext i16 %15 to i32
   %17 = add nuw nsw i32 %16, 72
   %18 = tail call ptr @bpf_prog_alloc(i32 noundef %17, i32 noundef 0) #34
   %19 = icmp eq ptr %18, null
   br i1 %19, label %53, label %20
 
-20:                                               ; preds = %15
+20:                                               ; preds = %14
   %21 = getelementptr inbounds i8, ptr %18, i64 72
   %22 = load ptr, ptr %8, align 8
   %23 = tail call i64 @_copy_from_user(ptr noundef %21, ptr noundef %22, i64 noundef %7) #34
@@ -1760,8 +1760,8 @@ define dso_local i32 @bpf_prog_create_from_user(ptr nocapture noundef writeonly 
   store ptr %47, ptr %0, align 8
   br label %53
 
-53:                                               ; preds = %52, %49, %45, %25, %15, %4
-  %54 = phi i32 [ -14, %25 ], [ -12, %45 ], [ %51, %49 ], [ 0, %52 ], [ -22, %4 ], [ -12, %15 ]
+53:                                               ; preds = %52, %49, %45, %25, %14, %4
+  %54 = phi i32 [ -14, %25 ], [ -12, %45 ], [ %51, %49 ], [ 0, %52 ], [ -22, %4 ], [ -12, %14 ]
   ret i32 %54
 }
 
@@ -1916,21 +1916,21 @@ define internal fastcc ptr @__get_filter(ptr nocapture noundef readonly %0, ptr 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = zext i16 %3 to i32
-  %14 = icmp ne ptr %12, null
-  %15 = add nsw i32 %13, -1
-  %16 = icmp ult i32 %15, 4096
-  %17 = and i1 %16, %14
-  br i1 %17, label %18, label %50
+  %13 = icmp ne ptr %12, null
+  %14 = add i16 %3, -1
+  %15 = icmp ult i16 %14, 4096
+  %16 = and i1 %15, %13
+  br i1 %16, label %17, label %50
 
-18:                                               ; preds = %10
-  %19 = shl nuw nsw i32 %13, 3
+17:                                               ; preds = %10
+  %18 = shl nuw i16 %3, 3
+  %19 = zext i16 %18 to i32
   %20 = add nuw nsw i32 %19, 72
   %21 = tail call ptr @bpf_prog_alloc(i32 noundef %20, i32 noundef 0) #34
   %22 = icmp eq ptr %21, null
   br i1 %22, label %50, label %23
 
-23:                                               ; preds = %18
+23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %21, i64 72
   %25 = load ptr, ptr %11, align 8
   %26 = tail call i64 @_copy_from_user(ptr noundef %24, ptr noundef %25, i64 noundef %5) #34
@@ -1978,8 +1978,8 @@ define internal fastcc ptr @__get_filter(ptr nocapture noundef readonly %0, ptr 
   %49 = tail call fastcc ptr @bpf_prepare_filter(ptr noundef nonnull %21, ptr noundef null)
   br label %50
 
-50:                                               ; preds = %48, %47, %28, %18, %10, %2
-  %51 = phi ptr [ inttoptr (i64 -14 to ptr), %28 ], [ inttoptr (i64 -12 to ptr), %47 ], [ %49, %48 ], [ inttoptr (i64 -1 to ptr), %2 ], [ inttoptr (i64 -22 to ptr), %10 ], [ inttoptr (i64 -12 to ptr), %18 ]
+50:                                               ; preds = %48, %47, %28, %17, %10, %2
+  %51 = phi ptr [ inttoptr (i64 -14 to ptr), %28 ], [ inttoptr (i64 -12 to ptr), %47 ], [ %49, %48 ], [ inttoptr (i64 -1 to ptr), %2 ], [ inttoptr (i64 -22 to ptr), %10 ], [ inttoptr (i64 -12 to ptr), %17 ]
   ret ptr %51
 }
 

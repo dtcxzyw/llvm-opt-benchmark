@@ -4070,13 +4070,13 @@ _ZN7QString3endEv.exit:                           ; preds = %_ZNK17QArrayDataPoi
   %.0817 = phi ptr [ %36, %_ZNK5QChar16isLetterOrNumberEv.exit.thread ], [ %23, %_ZN7QString3endEv.exit ]
   %27 = load i16, ptr %.0817, align 2
   %28 = zext i16 %27 to i32
-  %29 = add nsw i32 %28, -65
-  %or.cond.i.i = icmp ult i32 %29, 58
+  %29 = add i16 %27, -65
+  %or.cond.i.i = icmp ult i16 %29, 58
   %30 = add nsw i32 %28, -97
   %or.cond3.i.i = icmp ult i32 %30, -6
   %or.cond13.i.i = select i1 %or.cond.i.i, i1 %or.cond3.i.i, i1 false
-  %31 = add nsw i32 %28, -48
-  %or.cond5.i.i = icmp ult i32 %31, 10
+  %31 = add i16 %27, -48
+  %or.cond5.i.i = icmp ult i16 %31, 10
   %or.cond14.i.i = or i1 %or.cond5.i.i, %or.cond13.i.i
   br i1 %or.cond14.i.i, label %_ZNK5QChar16isLetterOrNumberEv.exit.thread, label %32
 

@@ -4017,8 +4017,8 @@ define noundef ptr @decNumberCopy(ptr noundef returned writeonly %0, ptr noundef
   %23 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
-  %26 = add nsw i64 %22, -4
-  %27 = icmp ult i64 %26, 46
+  %26 = add nsw i32 %14, -4
+  %27 = icmp ult i32 %26, 46
   br i1 %27, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.thread, %21

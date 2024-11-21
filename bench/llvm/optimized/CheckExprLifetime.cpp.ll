@@ -1196,9 +1196,8 @@ define internal fastcc void @_ZN5clang4semaL32visitLocalsRetainedByInitializerER
   %90 = load ptr, ptr %89, align 16
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load i8, ptr %91, align 16
-  %93 = zext i8 %92 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %93, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %93 = add i8 %92, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %93, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %94, label %109
 
 94:                                               ; preds = %82

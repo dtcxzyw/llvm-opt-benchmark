@@ -2190,9 +2190,8 @@ _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit:     ; preds = %_ZN16LIR_OpVisitSta
 
 _ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit343: ; preds = %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, %.sink.split.i.i337, %356, %340, %337
   %366 = load i16, ptr %233, align 8
-  %367 = zext i16 %366 to i32
-  %.off = add nsw i32 %367, -63
-  %switch = icmp ult i32 %.off, 2
+  %367 = add i16 %366, -63
+  %switch = icmp ult i16 %367, 2
   br i1 %switch, label %368, label %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit
 
 368:                                              ; preds = %_ZN16LIR_OpVisitState9do_outputER7LIR_Opr.exit343

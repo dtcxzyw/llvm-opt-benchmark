@@ -1232,8 +1232,8 @@ land.rhs.i.i:                                     ; preds = %.noexc
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %call1.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %shr.i.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i.i.i, 2
-  %cmp49.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i, 0
-  br i1 %cmp49.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i, label %for.end.i.i.i.i.i
+  %cmp43.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i, 0
+  br i1 %cmp43.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i, label %for.end.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i
   %10 = and i64 %sub.ptr.sub.i.i.i.i.i.i, -4
@@ -1241,42 +1241,38 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %land.rhs.i.i
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.end22.i.i.i.i.i, %for.body.preheader.i.i.i.i.i
-  %__trip_count.051.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %if.end22.i.i.i.i.i ], [ %shr.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
-  %__first.sroa.0.050.i.i.i.i.i = phi ptr [ %incdec.ptr.i17.i.i.i.i.i, %if.end22.i.i.i.i.i ], [ %call1.i.i, %for.body.preheader.i.i.i.i.i ]
-  %11 = load i8, ptr %__first.sroa.0.050.i.i.i.i.i, align 1
-  %conv.i.i.i.i.i.i.i = zext i8 %11 to i32
-  %12 = add nsw i32 %conv.i.i.i.i.i.i.i, -58
-  %isdigit.i.i.i.i.i.i.i = icmp ult i32 %12, -10
+  %__trip_count.045.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %if.end22.i.i.i.i.i ], [ %shr.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
+  %__first.sroa.0.044.i.i.i.i.i = phi ptr [ %incdec.ptr.i14.i.i.i.i.i, %if.end22.i.i.i.i.i ], [ %call1.i.i, %for.body.preheader.i.i.i.i.i ]
+  %11 = load i8, ptr %__first.sroa.0.044.i.i.i.i.i, align 1
+  %12 = add i8 %11, -58
+  %isdigit.i.i.i.i.i.i.i = icmp ult i8 %12, -10
   br i1 %isdigit.i.i.i.i.i.i.i, label %invoke.cont.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.044.i.i.i.i.i, i64 1
   %13 = load i8, ptr %incdec.ptr.i.i.i.i.i.i, align 1
-  %conv.i.i9.i.i.i.i.i = zext i8 %13 to i32
-  %14 = add nsw i32 %conv.i.i9.i.i.i.i.i, -58
-  %isdigit.i.i10.i.i.i.i.i = icmp ult i32 %14, -10
-  br i1 %isdigit.i.i10.i.i.i.i.i, label %invoke.cont.i.loopexit.split.loop.exit240, label %if.end10.i.i.i.i.i
+  %14 = add i8 %13, -58
+  %isdigit.i.i9.i.i.i.i.i = icmp ult i8 %14, -10
+  br i1 %isdigit.i.i9.i.i.i.i.i, label %invoke.cont.i.loopexit.split.loop.exit240, label %if.end10.i.i.i.i.i
 
 if.end10.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %incdec.ptr.i11.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i.i, i64 2
-  %15 = load i8, ptr %incdec.ptr.i11.i.i.i.i.i, align 1
-  %conv.i.i12.i.i.i.i.i = zext i8 %15 to i32
-  %16 = add nsw i32 %conv.i.i12.i.i.i.i.i, -58
-  %isdigit.i.i13.i.i.i.i.i = icmp ult i32 %16, -10
-  br i1 %isdigit.i.i13.i.i.i.i.i, label %invoke.cont.i.loopexit.split.loop.exit238, label %if.end16.i.i.i.i.i
+  %incdec.ptr.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.044.i.i.i.i.i, i64 2
+  %15 = load i8, ptr %incdec.ptr.i10.i.i.i.i.i, align 1
+  %16 = add i8 %15, -58
+  %isdigit.i.i11.i.i.i.i.i = icmp ult i8 %16, -10
+  br i1 %isdigit.i.i11.i.i.i.i.i, label %invoke.cont.i.loopexit.split.loop.exit238, label %if.end16.i.i.i.i.i
 
 if.end16.i.i.i.i.i:                               ; preds = %if.end10.i.i.i.i.i
-  %incdec.ptr.i14.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i.i, i64 3
-  %17 = load i8, ptr %incdec.ptr.i14.i.i.i.i.i, align 1
-  %conv.i.i15.i.i.i.i.i = zext i8 %17 to i32
-  %18 = add nsw i32 %conv.i.i15.i.i.i.i.i, -58
-  %isdigit.i.i16.i.i.i.i.i = icmp ult i32 %18, -10
-  br i1 %isdigit.i.i16.i.i.i.i.i, label %invoke.cont.i.loopexit.split.loop.exit, label %if.end22.i.i.i.i.i
+  %incdec.ptr.i12.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.044.i.i.i.i.i, i64 3
+  %17 = load i8, ptr %incdec.ptr.i12.i.i.i.i.i, align 1
+  %18 = add i8 %17, -58
+  %isdigit.i.i13.i.i.i.i.i = icmp ult i8 %18, -10
+  br i1 %isdigit.i.i13.i.i.i.i.i, label %invoke.cont.i.loopexit.split.loop.exit, label %if.end22.i.i.i.i.i
 
 if.end22.i.i.i.i.i:                               ; preds = %if.end16.i.i.i.i.i
-  %incdec.ptr.i17.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i.i, i64 4
-  %dec.i.i.i.i.i = add nsw i64 %__trip_count.051.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp sgt i64 %__trip_count.051.i.i.i.i.i, 1
+  %incdec.ptr.i14.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.044.i.i.i.i.i, i64 4
+  %dec.i.i.i.i.i = add nsw i64 %__trip_count.045.i.i.i.i.i, -1
+  %cmp.i.i.i.i.i = icmp sgt i64 %__trip_count.045.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i, !llvm.loop !15
 
 for.end.loopexit.i.i.i.i.i:                       ; preds = %if.end22.i.i.i.i.i
@@ -1284,10 +1280,10 @@ for.end.loopexit.i.i.i.i.i:                       ; preds = %if.end22.i.i.i.i.i
   br label %for.end.i.i.i.i.i
 
 for.end.i.i.i.i.i:                                ; preds = %for.end.loopexit.i.i.i.i.i, %land.rhs.i.i
-  %sub.ptr.rhs.cast.i19.pre-phi.i.i.i.i.i = phi i64 [ %.pre.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %land.rhs.i.i ]
+  %sub.ptr.rhs.cast.i16.pre-phi.i.i.i.i.i = phi i64 [ %.pre.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %land.rhs.i.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i ], [ %call1.i.i, %land.rhs.i.i ]
-  %sub.ptr.sub.i20.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i19.pre-phi.i.i.i.i.i
-  switch i64 %sub.ptr.sub.i20.i.i.i.i.i, label %invoke.cont.i [
+  %sub.ptr.sub.i17.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i16.pre-phi.i.i.i.i.i
+  switch i64 %sub.ptr.sub.i17.i.i.i.i.i, label %invoke.cont.i [
     i64 3, label %sw.bb.i.i.i.i.i
     i64 2, label %sw.bb31.i.i.i.i.i
     i64 1, label %sw.bb38.i.i.i.i.i
@@ -1295,50 +1291,47 @@ for.end.i.i.i.i.i:                                ; preds = %for.end.loopexit.i.
 
 sw.bb.i.i.i.i.i:                                  ; preds = %for.end.i.i.i.i.i
   %19 = load i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i, align 1
-  %conv.i.i21.i.i.i.i.i = zext i8 %19 to i32
-  %20 = add nsw i32 %conv.i.i21.i.i.i.i.i, -58
-  %isdigit.i.i22.i.i.i.i.i = icmp ult i32 %20, -10
-  br i1 %isdigit.i.i22.i.i.i.i.i, label %invoke.cont.i, label %if.end29.i.i.i.i.i
+  %20 = add i8 %19, -58
+  %isdigit.i.i18.i.i.i.i.i = icmp ult i8 %20, -10
+  br i1 %isdigit.i.i18.i.i.i.i.i, label %invoke.cont.i, label %if.end29.i.i.i.i.i
 
 if.end29.i.i.i.i.i:                               ; preds = %sw.bb.i.i.i.i.i
-  %incdec.ptr.i23.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i19.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i, i64 1
   br label %sw.bb31.i.i.i.i.i
 
 sw.bb31.i.i.i.i.i:                                ; preds = %if.end29.i.i.i.i.i, %for.end.i.i.i.i.i
-  %__first.sroa.0.1.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr.i23.i.i.i.i.i, %if.end29.i.i.i.i.i ]
+  %__first.sroa.0.1.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr.i19.i.i.i.i.i, %if.end29.i.i.i.i.i ]
   %21 = load i8, ptr %__first.sroa.0.1.i.i.i.i.i, align 1
-  %conv.i.i24.i.i.i.i.i = zext i8 %21 to i32
-  %22 = add nsw i32 %conv.i.i24.i.i.i.i.i, -58
-  %isdigit.i.i25.i.i.i.i.i = icmp ult i32 %22, -10
-  br i1 %isdigit.i.i25.i.i.i.i.i, label %invoke.cont.i, label %if.end36.i.i.i.i.i
+  %22 = add i8 %21, -58
+  %isdigit.i.i20.i.i.i.i.i = icmp ult i8 %22, -10
+  br i1 %isdigit.i.i20.i.i.i.i.i, label %invoke.cont.i, label %if.end36.i.i.i.i.i
 
 if.end36.i.i.i.i.i:                               ; preds = %sw.bb31.i.i.i.i.i
-  %incdec.ptr.i26.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i, i64 1
+  %incdec.ptr.i21.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i.i.i, i64 1
   br label %sw.bb38.i.i.i.i.i
 
 sw.bb38.i.i.i.i.i:                                ; preds = %if.end36.i.i.i.i.i, %for.end.i.i.i.i.i
-  %__first.sroa.0.2.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr.i26.i.i.i.i.i, %if.end36.i.i.i.i.i ]
+  %__first.sroa.0.2.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %for.end.i.i.i.i.i ], [ %incdec.ptr.i21.i.i.i.i.i, %if.end36.i.i.i.i.i ]
   %23 = load i8, ptr %__first.sroa.0.2.i.i.i.i.i, align 1
-  %conv.i.i27.i.i.i.i.i = zext i8 %23 to i32
-  %24 = add nsw i32 %conv.i.i27.i.i.i.i.i, -58
-  %isdigit.i.i28.i.i.i.i.i = icmp ult i32 %24, -10
-  %spec.select.i.i.i.i.i = select i1 %isdigit.i.i28.i.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i, ptr %call3.i.i
+  %24 = add i8 %23, -58
+  %isdigit.i.i22.i.i.i.i.i = icmp ult i8 %24, -10
+  %spec.select.i.i.i.i.i = select i1 %isdigit.i.i22.i.i.i.i.i, ptr %__first.sroa.0.2.i.i.i.i.i, ptr %call3.i.i
   br label %invoke.cont.i
 
 invoke.cont.i.loopexit.split.loop.exit:           ; preds = %if.end16.i.i.i.i.i
-  %incdec.ptr.i14.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i.i, i64 3
+  %incdec.ptr.i12.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.044.i.i.i.i.i, i64 3
   br label %invoke.cont.i
 
 invoke.cont.i.loopexit.split.loop.exit238:        ; preds = %if.end10.i.i.i.i.i
-  %incdec.ptr.i11.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i.i, i64 2
+  %incdec.ptr.i10.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.044.i.i.i.i.i, i64 2
   br label %invoke.cont.i
 
 invoke.cont.i.loopexit.split.loop.exit240:        ; preds = %if.end.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.050.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.044.i.i.i.i.i, i64 1
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.loopexit.split.loop.exit, %invoke.cont.i.loopexit.split.loop.exit238, %invoke.cont.i.loopexit.split.loop.exit240, %sw.bb38.i.i.i.i.i, %sw.bb31.i.i.i.i.i, %sw.bb.i.i.i.i.i, %for.end.i.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i, %sw.bb31.i.i.i.i.i ], [ %call3.i.i, %for.end.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %sw.bb38.i.i.i.i.i ], [ %incdec.ptr.i14.i.i.i.i.i.le, %invoke.cont.i.loopexit.split.loop.exit ], [ %incdec.ptr.i11.i.i.i.i.i.le, %invoke.cont.i.loopexit.split.loop.exit238 ], [ %incdec.ptr.i.i.i.i.i.i.le, %invoke.cont.i.loopexit.split.loop.exit240 ], [ %__first.sroa.0.050.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i, %sw.bb31.i.i.i.i.i ], [ %call3.i.i, %for.end.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %sw.bb38.i.i.i.i.i ], [ %incdec.ptr.i12.i.i.i.i.i.le, %invoke.cont.i.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.i.i.le, %invoke.cont.i.loopexit.split.loop.exit238 ], [ %incdec.ptr.i.i.i.i.i.i.le, %invoke.cont.i.loopexit.split.loop.exit240 ], [ %__first.sroa.0.044.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %call11.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %variable.i) #24
   %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i, %call11.i.i
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i

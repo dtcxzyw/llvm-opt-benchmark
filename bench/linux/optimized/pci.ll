@@ -5118,69 +5118,68 @@ define dso_local noundef zeroext i1 @pci_bridge_d3_possible(ptr noundef %0) loca
   %2 = getelementptr inbounds i8, ptr %0, i64 100
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %41, label %5
+  br i1 %4, label %40, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 106
   %7 = load i16, ptr %6, align 2
   %8 = lshr i16 %7, 4
   %9 = and i16 %8, 15
-  %10 = zext nneg i16 %9 to i32
-  %11 = add nsw i32 %10, -4
-  %12 = icmp ult i32 %11, 3
-  br i1 %12, label %13, label %40
+  %10 = add nsw i16 %9, -4
+  %11 = icmp ult i16 %10, 3
+  br i1 %11, label %12, label %39
 
-13:                                               ; preds = %5
-  %14 = load i1, ptr @pci_bridge_d3_disable, align 1
-  br i1 %14, label %41, label %15
+12:                                               ; preds = %5
+  %13 = load i1, ptr @pci_bridge_d3_disable, align 1
+  br i1 %13, label %40, label %14
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 1689
-  %17 = load i40, ptr %16, align 1
-  %18 = and i40 %17, 16777216
-  %19 = icmp eq i40 %18, 0
-  br i1 %19, label %22, label %20
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds i8, ptr %0, i64 1689
+  %16 = load i40, ptr %15, align 1
+  %17 = and i40 %16, 16777216
+  %18 = icmp eq i40 %17, 0
+  br i1 %18, label %21, label %19
 
-20:                                               ; preds = %15
-  %21 = tail call zeroext i1 @pciehp_is_native(ptr noundef %0) #27
-  br i1 %21, label %22, label %41
+19:                                               ; preds = %14
+  %20 = tail call zeroext i1 @pciehp_is_native(ptr noundef %0) #27
+  br i1 %20, label %21, label %40
 
-22:                                               ; preds = %20, %15
-  %23 = load i1, ptr @pci_bridge_d3_force, align 1
-  br i1 %23, label %41, label %24
+21:                                               ; preds = %19, %14
+  %22 = load i1, ptr @pci_bridge_d3_force, align 1
+  br i1 %22, label %40, label %23
 
-24:                                               ; preds = %22
-  %25 = load i40, ptr %16, align 1
-  %26 = and i40 %25, 67108864
-  %27 = icmp eq i40 %26, 0
-  br i1 %27, label %28, label %41
+23:                                               ; preds = %21
+  %24 = load i40, ptr %15, align 1
+  %25 = and i40 %24, 67108864
+  %26 = icmp eq i40 %25, 0
+  br i1 %26, label %27, label %40
 
-28:                                               ; preds = %24
-  %29 = tail call zeroext i1 @acpi_pci_bridge_d3(ptr noundef %0) #27
-  br i1 %29, label %41, label %30
+27:                                               ; preds = %23
+  %28 = tail call zeroext i1 @acpi_pci_bridge_d3(ptr noundef %0) #27
+  br i1 %28, label %40, label %29
 
-30:                                               ; preds = %28
-  %31 = load i40, ptr %16, align 1
-  %32 = and i40 %31, 16777216
-  %33 = icmp eq i40 %32, 0
-  br i1 %33, label %34, label %41
+29:                                               ; preds = %27
+  %30 = load i40, ptr %15, align 1
+  %31 = and i40 %30, 16777216
+  %32 = icmp eq i40 %31, 0
+  br i1 %32, label %33, label %40
 
-34:                                               ; preds = %30
-  %35 = tail call i32 @dmi_check_system(ptr noundef nonnull @bridge_d3_blacklist) #27
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %41
+33:                                               ; preds = %29
+  %34 = tail call i32 @dmi_check_system(ptr noundef nonnull @bridge_d3_blacklist) #27
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %40
 
-37:                                               ; preds = %34
-  %38 = tail call i32 @dmi_get_bios_year() #27
-  %39 = icmp sgt i32 %38, 2014
-  br i1 %39, label %41, label %40
+36:                                               ; preds = %33
+  %37 = tail call i32 @dmi_get_bios_year() #27
+  %38 = icmp sgt i32 %37, 2014
+  br i1 %38, label %40, label %39
 
-40:                                               ; preds = %37, %5
-  br label %41
+39:                                               ; preds = %36, %5
+  br label %40
 
-41:                                               ; preds = %40, %37, %34, %30, %28, %24, %22, %20, %13, %1
-  %42 = phi i1 [ false, %40 ], [ false, %1 ], [ false, %13 ], [ false, %20 ], [ true, %22 ], [ true, %24 ], [ true, %28 ], [ false, %30 ], [ false, %34 ], [ true, %37 ]
-  ret i1 %42
+40:                                               ; preds = %39, %36, %33, %29, %27, %23, %21, %19, %12, %1
+  %41 = phi i1 [ false, %39 ], [ false, %1 ], [ false, %12 ], [ false, %19 ], [ true, %21 ], [ true, %23 ], [ true, %27 ], [ false, %29 ], [ false, %33 ], [ true, %36 ]
+  ret i1 %41
 }
 
 ; Function Attrs: null_pointer_is_valid

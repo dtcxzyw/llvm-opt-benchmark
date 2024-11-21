@@ -67600,8 +67600,8 @@ if.end:                                           ; preds = %entry
   %idxprom.i = zext i8 %1 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZZN9rapidjson4UTF8IcE8GetRangeEhE4type, i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
-  %3 = add nsw i64 %idxprom.i, -144
-  %cmp = icmp ult i64 %3, 48
+  %3 = add nsw i8 %1, 112
+  %cmp = icmp ult i8 %3, 48
   %conv3 = zext nneg i8 %2 to i32
   %shr = lshr i32 255, %conv3
   %conv6 = zext i8 %1 to i32
@@ -67798,9 +67798,8 @@ sw.bb213:                                         ; preds = %if.end
   %and217 = zext nneg i8 %60 to i32
   %or218 = or disjoint i32 %shl215, %and217
   store i32 %or218, ptr %codepoint, align 4
-  %idxprom.i159 = zext i8 %58 to i64
-  %61 = add nsw i64 %idxprom.i159, -144
-  %cmp222 = icmp ult i64 %61, 48
+  %61 = add i8 %58, 112
+  %cmp222 = icmp ult i8 %61, 48
   %62 = load ptr, ptr %is, align 8
   %incdec.ptr.i161 = getelementptr inbounds i8, ptr %62, i64 1
   store ptr %incdec.ptr.i161, ptr %is, align 8
@@ -71226,9 +71225,8 @@ sw.bb155:                                         ; preds = %if.end
   store ptr %incdec.ptr.i120, ptr %is, align 8
   %31 = load i8, ptr %30, align 1
   tail call void @_ZN9rapidjson14GenericPointerINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES5_E19PercentEncodeStreamINS_19GenericStringBufferIS3_S5_EEE3PutEc(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext %31)
-  %idxprom.i121 = zext i8 %31 to i64
-  %32 = add nsw i64 %idxprom.i121, -144
-  %cmp160 = icmp ult i64 %32, 48
+  %32 = add i8 %31, 112
+  %cmp160 = icmp ult i8 %32, 48
   %33 = load ptr, ptr %is, align 8
   %incdec.ptr.i123 = getelementptr inbounds i8, ptr %33, i64 1
   store ptr %incdec.ptr.i123, ptr %is, align 8
@@ -72786,9 +72784,8 @@ _ZN9rapidjson14GenericPointerINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAlloc
   %incdec.ptr.i499 = getelementptr inbounds i8, ptr %122, i64 1
   store ptr %incdec.ptr.i499, ptr %dst_.i, align 8
   store i8 %retval.0.i491, ptr %122, align 1
-  %idxprom.i500 = zext i8 %retval.0.i491 to i64
-  %123 = add nsw i64 %idxprom.i500, -144
-  %cmp160 = icmp ult i64 %123, 48
+  %123 = add i8 %retval.0.i491, 112
+  %cmp160 = icmp ult i8 %123, 48
   %124 = load ptr, ptr %is, align 8
   %125 = load i8, ptr %124, align 1
   %cmp.not.i502 = icmp ne i8 %125, 37

@@ -4206,9 +4206,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_sdcard_set_voltage.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %conv = zext i16 %millivolts to i32
-  %6 = add nsw i32 %conv, -2001
-  %or.cond = icmp ult i32 %6, 1600
+  %6 = add i16 %millivolts, -2001
+  %or.cond = icmp ult i16 %6, 1600
   br i1 %or.cond, label %sw.epilog, label %do.body
 
 do.body:                                          ; preds = %trace_sdcard_set_voltage.exit

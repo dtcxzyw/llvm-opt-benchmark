@@ -1470,7 +1470,7 @@ define hidden void @_ZN19ZReferenceProcessor30process_worker_discovered_listE8za
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZN20SuspendibleThreadSet5yieldEv.exit
-  %.041 = phi i64 [ %1, %.lr.ph ], [ %30, %_ZN20SuspendibleThreadSet5yieldEv.exit ]
+  %.041 = phi i64 [ %1, %.lr.ph ], [ %29, %_ZN20SuspendibleThreadSet5yieldEv.exit ]
   %.02440 = phi i64 [ 0, %.lr.ph ], [ %.1, %_ZN20SuspendibleThreadSet5yieldEv.exit ]
   %.02539 = phi i64 [ 0, %.lr.ph ], [ %.126, %_ZN20SuspendibleThreadSet5yieldEv.exit ]
   %7 = inttoptr i64 %.041 to ptr
@@ -1499,62 +1499,62 @@ _ZL14reference_type8zaddress.exit:                ; preds = %11, %21
   %.0.i.i = phi ptr [ %20, %11 ], [ %22, %21 ]
   %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 306
   %24 = load i8, ptr %23, align 2
-  %25 = zext i8 %24 to i32
-  %26 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %27 = sext i32 %26 to i64
-  %28 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %27) #11
-  %30 = ptrtoint ptr %29 to i64
-  %31 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %32 = sext i32 %31 to i64
-  %33 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %32, ptr noundef null) #11
-  %34 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
-  %35 = sext i32 %34 to i64
-  %36 = add nsw i64 %.041, %35
-  %37 = inttoptr i64 %36 to ptr
-  %38 = load volatile i64, ptr %37, align 8
-  %39 = and i64 %38, -65521
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread, label %41
+  %25 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %26 = sext i32 %25 to i64
+  %27 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %26) #11
+  %29 = ptrtoint ptr %28 to i64
+  %30 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %31 = sext i32 %30 to i64
+  %32 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %31, ptr noundef null) #11
+  %33 = load i32, ptr @_ZN23java_lang_ref_Reference16_referent_offsetE, align 4
+  %34 = sext i32 %33 to i64
+  %35 = add nsw i64 %.041, %34
+  %36 = inttoptr i64 %35 to ptr
+  %37 = load volatile i64, ptr %36, align 8
+  %38 = and i64 %37, -65521
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread, label %40
 
-41:                                               ; preds = %_ZL14reference_type8zaddress.exit
-  %42 = add nsw i32 %25, -1
-  %or.cond.i = icmp ult i32 %42, 2
-  br i1 %or.cond.i, label %43, label %45
+40:                                               ; preds = %_ZL14reference_type8zaddress.exit
+  %41 = add i8 %24, -1
+  %or.cond.i = icmp ult i8 %41, 2
+  br i1 %or.cond.i, label %42, label %44
 
-43:                                               ; preds = %41
-  %44 = tail call noundef zeroext i1 @_ZN8ZBarrier31clean_barrier_on_weak_oop_fieldEPV8zpointer(ptr noundef nonnull %37)
-  br i1 %44, label %54, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
+42:                                               ; preds = %40
+  %43 = tail call noundef zeroext i1 @_ZN8ZBarrier31clean_barrier_on_weak_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
+  br i1 %43, label %54, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
 
-45:                                               ; preds = %41
-  switch i8 %24, label %51 [
+44:                                               ; preds = %40
+  switch i8 %24, label %50 [
     i8 4, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
-    i8 3, label %46
+    i8 3, label %45
   ]
 
-46:                                               ; preds = %45
-  %47 = tail call noundef zeroext i1 @_ZN8ZBarrier32clean_barrier_on_final_oop_fieldEPV8zpointer(ptr noundef nonnull %37)
-  br i1 %47, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread28, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
+45:                                               ; preds = %44
+  %46 = tail call noundef zeroext i1 @_ZN8ZBarrier32clean_barrier_on_final_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
+  br i1 %46, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread28, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
 
-_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread28: ; preds = %46
-  %48 = load i32, ptr @_ZN23java_lang_ref_Reference12_next_offsetE, align 4
-  %49 = sext i32 %48 to i64
-  %50 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %49, ptr noundef nonnull %7) #11
+_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread28: ; preds = %45
+  %47 = load i32, ptr @_ZN23java_lang_ref_Reference12_next_offsetE, align 4
+  %48 = sext i32 %47 to i64
+  %49 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %48, ptr noundef nonnull %7) #11
   br label %54
 
-51:                                               ; preds = %45
+50:                                               ; preds = %44
+  %51 = zext i8 %24 to i32
   %52 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %52, align 1
-  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.7, i32 noundef 230, ptr noundef nonnull @.str.8, i32 noundef %25) #12
+  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.7, i32 noundef 230, ptr noundef nonnull @.str.8, i32 noundef %51) #12
   unreachable
 
-_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit: ; preds = %45
-  %53 = tail call noundef zeroext i1 @_ZN8ZBarrier34clean_barrier_on_phantom_oop_fieldEPV8zpointer(ptr noundef nonnull %37)
+_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit: ; preds = %44
+  %53 = tail call noundef zeroext i1 @_ZN8ZBarrier34clean_barrier_on_phantom_oop_fieldEPV8zpointer(ptr noundef nonnull %36)
   br i1 %53, label %54, label %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
 
-54:                                               ; preds = %43, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread28, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
+54:                                               ; preds = %42, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread28, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
   %55 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %57, label %switch.lookup
@@ -1574,7 +1574,7 @@ switch.lookup:                                    ; preds = %54
   %61 = shl nuw nsw i64 %60, 12
   %62 = add i64 %61, %59
   %63 = inttoptr i64 %62 to ptr
-  %64 = zext i8 %24 to i64
+  %64 = zext nneg i8 %24 to i64
   %65 = getelementptr inbounds [5 x i64], ptr %63, i64 0, i64 %64
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, 1
@@ -1590,7 +1590,7 @@ switch.lookup:                                    ; preds = %54
   tail call void %73(ptr noundef nonnull align 8 dereferenceable(16) %70, i64 noundef %72, ptr noundef nonnull %7) #11
   br label %_ZL11list_appendR8zaddressS0_S_.exit
 
-_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread: ; preds = %46, %_ZL14reference_type8zaddress.exit, %43, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
+_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread: ; preds = %45, %_ZL14reference_type8zaddress.exit, %42, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit
   %74 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not30 = icmp eq ptr %74, null
   br i1 %.not30, label %_ZL11list_appendR8zaddressS0_S_.exit, label %75
@@ -1625,7 +1625,7 @@ _ZL11list_appendR8zaddressS0_S_.exit:             ; preds = %69, %57, %switch.lo
   br label %_ZN20SuspendibleThreadSet5yieldEv.exit
 
 _ZN20SuspendibleThreadSet5yieldEv.exit:           ; preds = %_ZL11list_appendR8zaddressS0_S_.exit, %82
-  %83 = icmp eq ptr %29, null
+  %83 = icmp eq ptr %28, null
   br i1 %83, label %._crit_edge, label %6, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN20SuspendibleThreadSet5yieldEv.exit

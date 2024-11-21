@@ -2902,37 +2902,36 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit: ; preds = %44, %40, %_ZNK4ll
 
 54:                                               ; preds = %47
   %55 = load i8, ptr %1, align 8
-  %56 = zext i8 %55 to i32
-  %57 = add nsw i32 %56, -30
-  %58 = icmp ult i32 %57, 11
-  br i1 %58, label %_ZN4llvm10successorsEPNS_11InstructionE.exit, label %.loopexit
+  %56 = add i8 %55, -30
+  %57 = icmp ult i8 %56, 11
+  br i1 %57, label %_ZN4llvm10successorsEPNS_11InstructionE.exit, label %.loopexit
 
 _ZN4llvm10successorsEPNS_11InstructionE.exit:     ; preds = %54
-  %59 = call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #13, !noalias !13
-  %.not4649 = icmp eq i32 %59, 0
+  %58 = call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #13, !noalias !13
+  %.not4649 = icmp eq i32 %58, 0
   br i1 %.not4649, label %.loopexit, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %_ZN4llvm10successorsEPNS_11InstructionE.exit
-  %60 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %61 = load ptr, ptr %60, align 8
-  br label %64
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %60 = load ptr, ptr %59, align 8
+  br label %63
 
-62:                                               ; preds = %64
-  %63 = add nuw nsw i32 %.sroa.2.050, 1
-  %.not46 = icmp eq i32 %63, %59
-  br i1 %.not46, label %.loopexit, label %64
+61:                                               ; preds = %63
+  %62 = add nuw nsw i32 %.sroa.2.050, 1
+  %.not46 = icmp eq i32 %62, %58
+  br i1 %.not46, label %.loopexit, label %63
 
-64:                                               ; preds = %.lr.ph51, %62
-  %.sroa.2.050 = phi i32 [ 0, %.lr.ph51 ], [ %63, %62 ]
-  %65 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %.sroa.2.050) #13
-  %66 = icmp eq ptr %65, %61
-  br i1 %66, label %67, label %62
+63:                                               ; preds = %.lr.ph51, %61
+  %.sroa.2.050 = phi i32 [ 0, %.lr.ph51 ], [ %62, %61 ]
+  %64 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %.sroa.2.050) #13
+  %65 = icmp eq ptr %64, %60
+  br i1 %65, label %66, label %61
 
-67:                                               ; preds = %64
+66:                                               ; preds = %63
   call void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 18, ptr noundef nonnull %53) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %62, %_ZN4llvm10successorsEPNS_11InstructionE.exit, %67, %47, %_ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit, %54
+.loopexit:                                        ; preds = %61, %_ZN4llvm10successorsEPNS_11InstructionE.exit, %66, %47, %_ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit, %54
   ret void
 }
 

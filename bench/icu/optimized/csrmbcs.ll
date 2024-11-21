@@ -386,9 +386,9 @@ _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %entry
   %conv.i = zext i8 %3 to i32
   store i32 %conv.i, ptr %it, align 4
   %cmp2 = icmp sgt i8 %3, -1
-  %4 = add nsw i32 %conv.i, -161
-  %or.cond = icmp ult i32 %4, 63
-  %or.cond20 = select i1 %cmp2, i1 true, i1 %or.cond
+  %4 = add i8 %3, 95
+  %or.cond = icmp ult i8 %4, 63
+  %or.cond20 = or i1 %cmp2, %or.cond
   br i1 %or.cond20, label %return, label %if.end6
 
 if.end6:                                          ; preds = %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit
@@ -519,15 +519,15 @@ if.end10:                                         ; preds = %if.end4
   %shl = shl nuw nsw i32 %conv.i, 8
   %or = or disjoint i32 %shl, %conv.i36
   store i32 %or, ptr %it, align 4
-  %7 = add nsw i32 %conv.i, -161
-  %or.cond = icmp ult i32 %7, 94
+  %7 = add nsw i8 %3, 95
+  %or.cond = icmp ult i8 %7, 94
   br i1 %or.cond, label %if.then13, label %if.end18
 
 if.end10.thread:                                  ; preds = %if.end4
   %done.i29 = getelementptr inbounds i8, ptr %it, i64 13
   store i8 1, ptr %done.i29, align 1
-  %8 = add nsw i32 %conv.i, -161
-  %or.cond58 = icmp ult i32 %8, 94
+  %8 = add nsw i8 %3, 95
+  %or.cond58 = icmp ult i8 %8, 94
   br i1 %or.cond58, label %if.then15, label %if.end18
 
 if.then13:                                        ; preds = %if.end10
@@ -868,8 +868,8 @@ _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit60: ; preds = %if.then25
   %arrayidx.i58 = getelementptr inbounds i8, ptr %12, i64 %idxprom.i57
   %13 = load i8, ptr %arrayidx.i58, align 1
   %conv.i59 = zext i8 %13 to i32
-  %14 = add nsw i32 %conv.i59, -129
-  %or.cond4 = icmp ult i32 %14, 126
+  %14 = add i8 %13, 127
+  %or.cond4 = icmp ult i8 %14, 126
   br i1 %or.cond4, label %if.then30, label %if.end44
 
 if.then30:                                        ; preds = %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit60
@@ -884,16 +884,16 @@ _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit73: ; preds = %if.then30
   %idxprom.i70 = sext i32 %inc.i56 to i64
   %arrayidx.i71 = getelementptr inbounds i8, ptr %16, i64 %idxprom.i70
   %17 = load i8, ptr %arrayidx.i71, align 1
-  %conv.i72 = zext i8 %17 to i32
-  %18 = add nsw i32 %conv.i72, -48
-  %or.cond5 = icmp ult i32 %18, 10
+  %18 = add i8 %17, -48
+  %or.cond5 = icmp ult i8 %18, 10
   br i1 %or.cond5, label %if.then35, label %if.end44
 
 if.then35:                                        ; preds = %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit73
+  %conv.i72 = zext nneg i8 %17 to i32
   %shl37 = shl nuw i32 %7, 16
   %shl38 = shl nuw nsw i32 %conv.i59, 8
-  %19 = or disjoint i32 %shl38, %shl37
-  %or40 = or disjoint i32 %19, %conv.i72
+  %or39 = or disjoint i32 %shl38, %conv.i72
+  %or40 = or disjoint i32 %or39, %shl37
   store i32 %or40, ptr %it, align 4
   br label %return
 

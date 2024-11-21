@@ -1538,9 +1538,8 @@ _ZL22rewriteToNumberLiteralPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6Comm
   %529 = load ptr, ptr %528, align 16
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 16
   %531 = load i8, ptr %530, align 16
-  %532 = zext i8 %531 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i = add nsw i32 %532, -2
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i, 5
+  %532 = add i8 %531, -2
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %532, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %533, label %535
 
 533:                                              ; preds = %520
@@ -1990,14 +1989,7 @@ define internal fastcc void @_ZL24maybePutParensOnReceiverPKN5clang4ExprERNS_4ed
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = tail call noundef ptr @_ZN5clang4Expr14IgnoreImpCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %0) #15
   %5 = load i8, ptr %4, align 8
-  %.fr29.i = freeze i8 %5
-  %6 = zext i8 %.fr29.i to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %6, -81
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread, label %switch.early.test.i
-
-switch.early.test.i:                              ; preds = %2
-  switch i8 %.fr29.i, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit [
+  switch i8 %5, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit [
     i8 123, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
     i8 114, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
     i8 113, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
@@ -2009,6 +2001,11 @@ switch.early.test.i:                              ; preds = %2
     i8 91, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
     i8 90, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
     i8 89, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
+    i8 85, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
+    i8 84, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
+    i8 83, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
+    i8 82, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
+    i8 81, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
     i8 71, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
     i8 46, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
     i8 34, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
@@ -2017,29 +2014,29 @@ switch.early.test.i:                              ; preds = %2
     i8 31, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
   ]
 
-_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit: ; preds = %switch.early.test.i
-  %7 = load i8, ptr %0, align 8
-  %.fr = freeze i8 %7
+_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit: ; preds = %2
+  %6 = load i8, ptr %0, align 8
+  %.fr = freeze i8 %6
   %.not = icmp eq i8 %.fr, 21
   br i1 %.not, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit
-  switch i8 %.fr29.i, label %8 [
+  switch i8 %5, label %7 [
     i8 20, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
     i8 13, label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
   ]
 
-8:                                                ; preds = %switch.early.test
-  %9 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+7:                                                ; preds = %switch.early.test
+  %8 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr @.str.7, ptr %3, align 8
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1, ptr %.sroa.29.0..sroa_idx.i, align 8
-  %10 = tail call noundef zeroext i1 @_ZN5clang4edit6Commit10insertWrapEN4llvm9StringRefENS_15CharSourceRangeES3_(ptr noundef nonnull align 8 dereferenceable(600) %1, ptr nonnull @.str.6, i64 1, i64 %9, i8 1, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %3) #14
+  %9 = tail call noundef zeroext i1 @_ZN5clang4edit6Commit10insertWrapEN4llvm9StringRefENS_15CharSourceRangeES3_(ptr noundef nonnull align 8 dereferenceable(600) %1, ptr nonnull @.str.6, i64 1, i64 %8, i8 1, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread
 
-_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread: ; preds = %switch.early.test, %switch.early.test, %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit, %2, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %8
+_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit.thread: ; preds = %switch.early.test, %switch.early.test, %_ZL28subscriptOperatorNeedsParensPKN5clang4ExprE.exit, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %7
   ret void
 }
 

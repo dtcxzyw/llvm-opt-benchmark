@@ -57433,9 +57433,8 @@ while.body.i19:                                   ; preds = %do.body.i, %if.end3
   br i1 %cmp23.i, label %while.end.i, label %if.else25.i
 
 if.else25.i:                                      ; preds = %while.body.i19
-  %conv26.i = zext i8 %5 to i32
-  %6 = add nsw i32 %conv26.i, -127
-  %cmp27.i = icmp ult i32 %6, -95
+  %6 = add i8 %5, -127
+  %cmp27.i = icmp ult i8 %6, -95
   br i1 %cmp27.i, label %if.then31.i, label %if.end39.i
 
 if.then31.i:                                      ; preds = %if.else25.i
@@ -57466,9 +57465,8 @@ while.body55.i:                                   ; preds = %while.end.i, %if.en
   br i1 %cmp57.i, label %while.end81.i, label %if.else59.i
 
 if.else59.i:                                      ; preds = %while.body55.i
-  %conv60.i = zext i8 %7 to i32
-  %8 = add nsw i32 %conv60.i, -127
-  %cmp62.i = icmp ult i32 %8, -95
+  %8 = add i8 %7, -127
+  %cmp62.i = icmp ult i8 %8, -95
   br i1 %cmp62.i, label %if.then67.i, label %if.end76.i
 
 if.then67.i:                                      ; preds = %if.else59.i
@@ -58145,65 +58143,57 @@ for.cond.preheader.i:                             ; preds = %while.cond.backedge
 do.body.i:                                        ; preds = %if.end60, %while.cond.backedge.i
   %buf.addr.056.i = phi ptr [ %buf.addr.0.be.i, %while.cond.backedge.i ], [ %buf.addr.4, %if.end60 ]
   %6 = load i8, ptr %buf.addr.056.i, align 1
-  %conv.i = zext i8 %6 to i32
-  %7 = add nsw i32 %conv.i, -127
-  %cmp2.i = icmp ult i32 %7, -95
+  %7 = add i8 %6, -127
+  %cmp2.i = icmp ult i8 %7, -95
   br i1 %cmp2.i, label %NonPrintable.i, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %buf.addr.056.i, i64 1
   %8 = load i8, ptr %incdec.ptr.i, align 1
-  %conv8.i = zext i8 %8 to i32
-  %9 = add nsw i32 %conv8.i, -127
-  %cmp10.i = icmp ult i32 %9, -95
+  %9 = add i8 %8, -127
+  %cmp10.i = icmp ult i8 %9, -95
   br i1 %cmp10.i, label %NonPrintable.i, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end.i
   %incdec.ptr17.i = getelementptr inbounds i8, ptr %buf.addr.056.i, i64 2
   %10 = load i8, ptr %incdec.ptr17.i, align 1
-  %conv20.i = zext i8 %10 to i32
-  %11 = add nsw i32 %conv20.i, -127
-  %cmp22.i = icmp ult i32 %11, -95
+  %11 = add i8 %10, -127
+  %cmp22.i = icmp ult i8 %11, -95
   br i1 %cmp22.i, label %NonPrintable.i, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end16.i
   %incdec.ptr29.i = getelementptr inbounds i8, ptr %buf.addr.056.i, i64 3
   %12 = load i8, ptr %incdec.ptr29.i, align 1
-  %conv32.i = zext i8 %12 to i32
-  %13 = add nsw i32 %conv32.i, -127
-  %cmp34.i = icmp ult i32 %13, -95
+  %13 = add i8 %12, -127
+  %cmp34.i = icmp ult i8 %13, -95
   br i1 %cmp34.i, label %NonPrintable.i, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end28.i
   %incdec.ptr41.i = getelementptr inbounds i8, ptr %buf.addr.056.i, i64 4
   %14 = load i8, ptr %incdec.ptr41.i, align 1
-  %conv44.i = zext i8 %14 to i32
-  %15 = add nsw i32 %conv44.i, -127
-  %cmp46.i = icmp ult i32 %15, -95
+  %15 = add i8 %14, -127
+  %cmp46.i = icmp ult i8 %15, -95
   br i1 %cmp46.i, label %NonPrintable.i, label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.end40.i
   %incdec.ptr53.i = getelementptr inbounds i8, ptr %buf.addr.056.i, i64 5
   %16 = load i8, ptr %incdec.ptr53.i, align 1
-  %conv56.i = zext i8 %16 to i32
-  %17 = add nsw i32 %conv56.i, -127
-  %cmp58.i = icmp ult i32 %17, -95
+  %17 = add i8 %16, -127
+  %cmp58.i = icmp ult i8 %17, -95
   br i1 %cmp58.i, label %NonPrintable.i, label %if.end64.i
 
 if.end64.i:                                       ; preds = %if.end52.i
   %incdec.ptr65.i = getelementptr inbounds i8, ptr %buf.addr.056.i, i64 6
   %18 = load i8, ptr %incdec.ptr65.i, align 1
-  %conv68.i = zext i8 %18 to i32
-  %19 = add nsw i32 %conv68.i, -127
-  %cmp70.i = icmp ult i32 %19, -95
+  %19 = add i8 %18, -127
+  %cmp70.i = icmp ult i8 %19, -95
   br i1 %cmp70.i, label %NonPrintable.i, label %if.end76.i
 
 if.end76.i:                                       ; preds = %if.end64.i
   %incdec.ptr77.i = getelementptr inbounds i8, ptr %buf.addr.056.i, i64 7
   %20 = load i8, ptr %incdec.ptr77.i, align 1
-  %conv80.i = zext i8 %20 to i32
-  %21 = add nsw i32 %conv80.i, -127
-  %cmp82.i = icmp ult i32 %21, -95
+  %21 = add i8 %20, -127
+  %cmp82.i = icmp ult i8 %21, -95
   br i1 %cmp82.i, label %NonPrintable.i, label %if.end88.i
 
 if.end88.i:                                       ; preds = %if.end76.i
@@ -58238,9 +58228,8 @@ if.then110.i:                                     ; preds = %for.cond.preheader.
 if.end111.i:                                      ; preds = %for.cond.preheader.i, %for.inc.i
   %buf.addr.358.i = phi ptr [ %incdec.ptr140.i, %for.inc.i ], [ %buf.addr.0.lcssa.i, %for.cond.preheader.i ]
   %23 = load i8, ptr %buf.addr.358.i, align 1
-  %conv112.i = zext i8 %23 to i32
-  %24 = add nsw i32 %conv112.i, -127
-  %cmp114.i = icmp ult i32 %24, -95
+  %24 = add i8 %23, -127
+  %cmp114.i = icmp ult i8 %24, -95
   br i1 %cmp114.i, label %if.then119.i, label %for.inc.i
 
 if.then119.i:                                     ; preds = %if.end111.i

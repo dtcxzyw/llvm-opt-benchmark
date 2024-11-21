@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @.str = private unnamed_addr constant [49 x i8] c"start >= 0 && length > 0 && length <= 64 - start\00", align 1
 @.str.1 = private unnamed_addr constant [100 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/qemu/bitops.h\00", align 1
-@__PRETTY_FUNCTION__.extract64 = private unnamed_addr constant [39 x i8] c"uint64_t extract64(uint64_t, int, int)\00", align 1
 @guest_base = external local_unnamed_addr global i64, align 8
 @__PRETTY_FUNCTION__.deposit64 = private unnamed_addr constant [49 x i8] c"uint64_t deposit64(uint64_t, int, int, uint64_t)\00", align 1
 @__const.frsqrt7.lookup_table = private unnamed_addr constant [128 x i8] c"4320/.,+*)('&$#\22! \1F\1E\1E\1D\1C\1B\1A\19\18\17\17\16\15\14\13\13\12\11\10\10\0F\0E\0E\0D\0C\0C\0B\0A\0A\09\09\08\07\07\06\06\05\04\04\03\03\02\02\01\01\00\7F}{ywvtrqomljigfdca`_]\\[ZXWVUTSRPONMLKJIHGFFEDCBA@??>=<;;:988765", align 16
@@ -59405,8 +59404,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssrl_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssrl_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs1, i64 %idx.ext
@@ -59440,27 +59439,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %2, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %4 = trunc nuw nsw i64 %and.i21.i.i to i8
+  %3 = trunc nuw nsw i64 %and.i21.i.i to i8
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i8
-  %5 = trunc nuw nsw i64 %shr.i.i.i to i8
-  %or.i.i = or i8 %conv27.i.i, %5
-  %and.i.i = and i8 %or.i.i, %4
+  %4 = trunc nuw nsw i64 %shr.i.i.i to i8
+  %or.i.i = or i8 %conv27.i.i, %4
+  %and.i.i = and i8 %or.i.i, %3
   br label %vssrl8.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -59495,8 +59485,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssrl_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssrl_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs1, i64 %idx.ext
@@ -59531,27 +59521,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv1.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %4 = trunc nuw nsw i64 %and.i21.i.i to i16
+  %3 = trunc nuw nsw i64 %and.i21.i.i to i16
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i16
-  %5 = trunc nuw nsw i64 %shr.i.i.i to i16
-  %or.i.i = or i16 %conv27.i.i, %5
-  %and.i.i = and i16 %or.i.i, %4
+  %4 = trunc nuw nsw i64 %shr.i.i.i to i16
+  %or.i.i = or i16 %conv27.i.i, %4
+  %and.i.i = and i16 %or.i.i, %3
   br label %vssrl16.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -59587,8 +59568,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssrl_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssrl_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs1, i64 %idx.ext
@@ -59623,27 +59604,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv1.i
-  %4 = trunc nuw nsw i64 %and.i21.i.i to i32
+  %3 = trunc nuw nsw i64 %and.i21.i.i to i32
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i32
-  %5 = trunc nuw nsw i64 %shr.i.i.i to i32
-  %or.i.i = or i32 %conv27.i.i, %5
-  %and.i.i = and i32 %or.i.i, %4
+  %4 = trunc nuw nsw i64 %shr.i.i.i to i32
+  %or.i.i = or i32 %conv27.i.i, %4
+  %and.i.i = and i32 %or.i.i, %3
   br label %vssrl32.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -59678,8 +59650,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssrl_vv_d(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssrl_vv_d(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs1, i64 %idx.ext
@@ -59712,18 +59684,9 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %1
@@ -59763,8 +59726,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssrl_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssrl_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
@@ -59797,27 +59760,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %1, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %3 = trunc nuw nsw i64 %and.i21.i.i to i8
+  %2 = trunc nuw nsw i64 %and.i21.i.i to i8
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i8
-  %4 = trunc nuw nsw i64 %shr.i.i.i to i8
-  %or.i.i = or i8 %conv27.i.i, %4
-  %and.i.i = and i8 %or.i.i, %3
+  %3 = trunc nuw nsw i64 %shr.i.i.i to i8
+  %or.i.i = or i8 %conv27.i.i, %3
+  %and.i.i = and i8 %or.i.i, %2
   br label %vssrl8.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -59852,8 +59806,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssrl_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssrl_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
@@ -59886,27 +59840,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv1.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %3 = trunc nuw nsw i64 %and.i21.i.i to i16
+  %2 = trunc nuw nsw i64 %and.i21.i.i to i16
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i16
-  %4 = trunc nuw nsw i64 %shr.i.i.i to i16
-  %or.i.i = or i16 %conv27.i.i, %4
-  %and.i.i = and i16 %or.i.i, %3
+  %3 = trunc nuw nsw i64 %shr.i.i.i to i16
+  %or.i.i = or i16 %conv27.i.i, %3
+  %and.i.i = and i16 %or.i.i, %2
   br label %vssrl16.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -59943,8 +59888,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssrl_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssrl_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
@@ -59978,27 +59923,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv1.i
-  %3 = trunc nuw nsw i64 %and.i21.i.i to i32
+  %2 = trunc nuw nsw i64 %and.i21.i.i to i32
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i32
-  %4 = trunc nuw nsw i64 %shr.i.i.i to i32
-  %or.i.i = or i32 %conv27.i.i, %4
-  %and.i.i = and i32 %or.i.i, %3
+  %3 = trunc nuw nsw i64 %shr.i.i.i to i32
+  %or.i.i = or i32 %conv27.i.i, %3
+  %and.i.i = and i32 %or.i.i, %2
   br label %vssrl32.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -60033,8 +59969,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssrl_vx_d(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssrl_vx_d(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
@@ -60065,18 +60001,9 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %0, %shr6.i32.i.i
@@ -60116,8 +60043,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssra_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssra_vv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs1, i64 %idx.ext
@@ -60151,27 +60078,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %2, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %4 = trunc nuw nsw i64 %and.i21.i.i to i8
+  %3 = trunc nuw nsw i64 %and.i21.i.i to i8
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i8
-  %5 = trunc i64 %shr.i.i.i to i8
-  %or.i.i = or i8 %conv27.i.i, %5
-  %and.i.i = and i8 %or.i.i, %4
+  %4 = trunc i64 %shr.i.i.i to i8
+  %or.i.i = or i8 %conv27.i.i, %4
+  %and.i.i = and i8 %or.i.i, %3
   br label %vssra8.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -60206,8 +60124,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssra_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssra_vv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs1, i64 %idx.ext
@@ -60242,27 +60160,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv1.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %4 = trunc nuw nsw i64 %and.i21.i.i to i16
+  %3 = trunc nuw nsw i64 %and.i21.i.i to i16
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i16
-  %5 = trunc i64 %shr.i.i.i to i16
-  %or.i.i = or i16 %conv27.i.i, %5
-  %and.i.i = and i16 %or.i.i, %4
+  %4 = trunc i64 %shr.i.i.i to i16
+  %or.i.i = or i16 %conv27.i.i, %4
+  %and.i.i = and i16 %or.i.i, %3
   br label %vssra16.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -60298,8 +60207,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssra_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssra_vv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs1, i64 %idx.ext
@@ -60334,27 +60243,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv1.i
-  %4 = trunc nuw nsw i64 %and.i21.i.i to i32
+  %3 = trunc nuw nsw i64 %and.i21.i.i to i32
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i32
-  %5 = trunc i64 %shr.i.i.i to i32
-  %or.i.i = or i32 %conv27.i.i, %5
-  %and.i.i = and i32 %or.i.i, %4
+  %4 = trunc i64 %shr.i.i.i to i32
+  %or.i.i = or i32 %conv27.i.i, %4
+  %and.i.i = and i32 %or.i.i, %3
   br label %vssra32.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -60389,8 +60289,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssra_vv_d(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssra_vv_d(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs1, i64 %idx.ext
@@ -60423,18 +60323,9 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %1
@@ -60475,8 +60366,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssra_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssra_vx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
@@ -60509,27 +60400,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %1, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %3 = trunc nuw nsw i64 %and.i21.i.i to i8
+  %2 = trunc nuw nsw i64 %and.i21.i.i to i8
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i8
-  %4 = trunc i64 %shr.i.i.i to i8
-  %or.i.i = or i8 %conv27.i.i, %4
-  %and.i.i = and i8 %or.i.i, %3
+  %3 = trunc i64 %shr.i.i.i to i8
+  %or.i.i = or i8 %conv27.i.i, %3
+  %and.i.i = and i8 %or.i.i, %2
   br label %vssra8.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -60564,8 +60446,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssra_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssra_vx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
@@ -60598,27 +60480,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv1.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %3 = trunc nuw nsw i64 %and.i21.i.i to i16
+  %2 = trunc nuw nsw i64 %and.i21.i.i to i16
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i16
-  %4 = trunc i64 %shr.i.i.i to i16
-  %or.i.i = or i16 %conv27.i.i, %4
-  %and.i.i = and i16 %or.i.i, %3
+  %3 = trunc i64 %shr.i.i.i to i16
+  %or.i.i = or i16 %conv27.i.i, %3
+  %and.i.i = and i16 %or.i.i, %2
   br label %vssra16.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -60655,8 +60528,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssra_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssra_vx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
@@ -60690,27 +60563,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv1.i
-  %3 = trunc nuw nsw i64 %and.i21.i.i to i32
+  %2 = trunc nuw nsw i64 %and.i21.i.i to i32
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i32
-  %4 = trunc i64 %shr.i.i.i to i32
-  %or.i.i = or i32 %conv27.i.i, %4
-  %and.i.i = and i32 %or.i.i, %3
+  %3 = trunc i64 %shr.i.i.i to i32
+  %or.i.i = or i32 %conv27.i.i, %3
+  %and.i.i = and i32 %or.i.i, %2
   br label %vssra32.exit
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -60745,8 +60609,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vssra_vx_d(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vssra_vx_d(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture readnone %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
@@ -60777,18 +60641,9 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %0, %shr6.i32.i.i
@@ -60829,8 +60684,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vnclip_wv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vnclip_wv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs1, i64 %idx.ext
@@ -60864,27 +60719,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %2, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %4 = trunc nuw nsw i64 %and.i21.i.i to i16
+  %3 = trunc nuw nsw i64 %and.i21.i.i to i16
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i16
-  %5 = trunc i64 %shr.i.i.i to i16
-  %or.i.i = or i16 %conv27.i.i, %5
-  %and.i.i = and i16 %or.i.i, %4
+  %4 = trunc i64 %shr.i.i.i to i16
+  %or.i.i = or i16 %conv27.i.i, %4
+  %and.i.i = and i16 %or.i.i, %3
   br label %get_round.exit.i
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -60943,8 +60789,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vnclip_wv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vnclip_wv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs1, i64 %idx.ext
@@ -60979,27 +60825,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv1.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %4 = trunc nuw nsw i64 %and.i21.i.i to i32
+  %3 = trunc nuw nsw i64 %and.i21.i.i to i32
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i32
-  %5 = trunc i64 %shr.i.i.i to i32
-  %or.i.i = or i32 %conv27.i.i, %5
-  %and.i.i = and i32 %or.i.i, %4
+  %4 = trunc i64 %shr.i.i.i to i32
+  %or.i.i = or i32 %conv27.i.i, %4
+  %and.i.i = and i32 %or.i.i, %3
   br label %get_round.exit.i
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -61057,8 +60894,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vnclip_wv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vnclip_wv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs1, i64 %idx.ext
@@ -61091,18 +60928,9 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %1
@@ -61167,8 +60995,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vnclip_wx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vnclip_wx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
@@ -61201,27 +61029,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %1, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %3 = trunc nuw nsw i64 %and.i21.i.i to i16
+  %2 = trunc nuw nsw i64 %and.i21.i.i to i16
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i16
-  %4 = trunc i64 %shr.i.i.i to i16
-  %or.i.i = or i16 %conv27.i.i, %4
-  %and.i.i = and i16 %or.i.i, %3
+  %3 = trunc i64 %shr.i.i.i to i16
+  %or.i.i = or i16 %conv27.i.i, %3
+  %and.i.i = and i16 %or.i.i, %2
   br label %get_round.exit.i
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -61280,8 +61099,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vnclip_wx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vnclip_wx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
@@ -61314,27 +61133,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv1.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %3 = trunc nuw nsw i64 %and.i21.i.i to i32
+  %2 = trunc nuw nsw i64 %and.i21.i.i to i32
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i32
-  %4 = trunc i64 %shr.i.i.i to i32
-  %or.i.i = or i32 %conv27.i.i, %4
-  %and.i.i = and i32 %or.i.i, %3
+  %3 = trunc i64 %shr.i.i.i to i32
+  %or.i.i = or i32 %conv27.i.i, %3
+  %and.i.i = and i32 %or.i.i, %2
   br label %get_round.exit.i
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -61392,8 +61202,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vnclip_wx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vnclip_wx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
@@ -61425,18 +61235,9 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %0, %shr6.i32.i.i
@@ -61500,8 +61301,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vnclipu_wv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vnclipu_wv_b(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i8, ptr %vs1, i64 %idx.ext
@@ -61535,27 +61336,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %2, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %4 = trunc nuw nsw i64 %and.i21.i.i to i16
+  %3 = trunc nuw nsw i64 %and.i21.i.i to i16
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i16
-  %5 = trunc nuw nsw i64 %shr.i.i.i to i16
-  %or.i.i = or i16 %conv27.i.i, %5
-  %and.i.i = and i16 %or.i.i, %4
+  %4 = trunc nuw nsw i64 %shr.i.i.i to i16
+  %or.i.i = or i16 %conv27.i.i, %4
+  %and.i.i = and i16 %or.i.i, %3
   br label %get_round.exit.i
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -61605,8 +61397,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vnclipu_wv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vnclipu_wv_h(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs1, i64 %idx.ext
@@ -61641,27 +61433,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv1.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %4 = trunc nuw nsw i64 %and.i21.i.i to i32
+  %3 = trunc nuw nsw i64 %and.i21.i.i to i32
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i32
-  %5 = trunc nuw nsw i64 %shr.i.i.i to i32
-  %or.i.i = or i32 %conv27.i.i, %5
-  %and.i.i = and i32 %or.i.i, %4
+  %4 = trunc nuw nsw i64 %shr.i.i.i to i32
+  %or.i.i = or i32 %conv27.i.i, %4
+  %and.i.i = and i32 %or.i.i, %3
   br label %get_round.exit.i
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -61710,8 +61493,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vnclipu_wv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vnclipu_wv_w(ptr nocapture noundef writeonly %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs1, i64 %idx.ext
@@ -61744,18 +61527,9 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %3 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %3, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %1
@@ -61811,8 +61585,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vnclipu_wx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vnclipu_wx_b(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
@@ -61845,27 +61619,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %1, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %3 = trunc nuw nsw i64 %and.i21.i.i to i16
+  %2 = trunc nuw nsw i64 %and.i21.i.i to i16
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i16
-  %4 = trunc nuw nsw i64 %shr.i.i.i to i16
-  %or.i.i = or i16 %conv27.i.i, %4
-  %and.i.i = and i16 %or.i.i, %3
+  %3 = trunc nuw nsw i64 %shr.i.i.i to i16
+  %or.i.i = or i16 %conv27.i.i, %3
+  %and.i.i = and i16 %or.i.i, %2
   br label %get_round.exit.i
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -61915,8 +61680,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vnclipu_wx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vnclipu_wx_h(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i32, ptr %vs2, i64 %idx.ext
@@ -61949,27 +61714,18 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv1.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %shr6.i32.i.i, %conv2.i
-  %3 = trunc nuw nsw i64 %and.i21.i.i to i32
+  %2 = trunc nuw nsw i64 %and.i21.i.i to i32
   %cmp26.i.i = icmp ne i64 %and.i33.i.i, 0
   %conv27.i.i = zext i1 %cmp26.i.i to i32
-  %4 = trunc nuw nsw i64 %shr.i.i.i to i32
-  %or.i.i = or i32 %conv27.i.i, %4
-  %and.i.i = and i32 %or.i.i, %3
+  %3 = trunc nuw nsw i64 %shr.i.i.i to i32
+  %or.i.i = or i32 %conv27.i.i, %3
+  %and.i.i = and i32 %or.i.i, %2
   br label %get_round.exit.i
 
 if.else30.i.i:                                    ; preds = %if.then17.i.i
@@ -62018,8 +61774,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @do_vnclipu_wx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal void @do_vnclipu_wx_w(ptr nocapture noundef writeonly %vd, i64 noundef %s1, ptr nocapture noundef readonly %vs2, i32 noundef %i, ptr nocapture noundef writeonly %env, i32 noundef %vxrm) #0 {
 entry:
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr i64, ptr %vs2, i64 %idx.ext
@@ -62051,18 +61807,9 @@ if.then14.i.i:                                    ; preds = %if.end.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i
   %cmp19.not.i.i = icmp eq i8 %conv.i, 1
-  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %if.then21.i.i
+  br i1 %cmp19.not.i.i, label %if.else30.i.i, label %extract64.exit34.i.i
 
-if.then21.i.i:                                    ; preds = %if.then17.i.i
-  %2 = add nsw i32 %conv.i.i, -2
-  %or.cond.not.i27.i.i = icmp ult i32 %2, 64
-  br i1 %or.cond.not.i27.i.i, label %extract64.exit34.i.i, label %if.else.i28.i.i
-
-if.else.i28.i.i:                                  ; preds = %if.then21.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #11
-  unreachable
-
-extract64.exit34.i.i:                             ; preds = %if.then21.i.i
+extract64.exit34.i.i:                             ; preds = %if.then17.i.i
   %sh_prom5.i31.i.i = zext nneg i32 %sub.i18.i.i to i64
   %shr6.i32.i.i = lshr i64 -1, %sh_prom5.i31.i.i
   %and.i33.i.i = and i64 %0, %shr6.i32.i.i

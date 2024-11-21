@@ -3717,9 +3717,8 @@ _ZN4llvm6detail12DenseSetImplIPNS_18GlobalValueSummaryENS_8DenseMapIS3_NS0_13Den
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 12
   %248 = load i16, ptr %247, align 4
   %249 = and i16 %248, 15
-  %250 = zext nneg i16 %249 to i32
-  %.off.i = add nsw i32 %250, -6
-  %switch.i = icmp ult i32 %.off.i, 3
+  %250 = add nsw i16 %249, -6
+  %switch.i = icmp ult i16 %250, 3
   br i1 %switch.i, label %357, label %251
 
 251:                                              ; preds = %.lr.ph.i
@@ -3731,8 +3730,8 @@ _ZN4llvm6detail12DenseSetImplIPNS_18GlobalValueSummaryENS_8DenseMapIS3_NS0_13Den
   br i1 %255, label %256, label %307
 
 256:                                              ; preds = %251
-  %257 = and i32 %250, 14
-  %spec.select.i47.i = icmp eq i32 %257, 2
+  %257 = and i16 %248, 14
+  %spec.select.i47.i = icmp eq i16 %257, 2
   br i1 %spec.select.i47.i, label %258, label %299
 
 258:                                              ; preds = %256
@@ -3940,9 +3939,8 @@ _ZN4llvm6detail12DenseSetImplIPNS_18GlobalValueSummaryENS_8DenseMapIS3_NS0_13Den
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 12
   %374 = load i16, ptr %373, align 4
   %375 = and i16 %374, 15
-  %376 = zext nneg i16 %375 to i32
-  %.off12.i = add nsw i32 %376, -6
-  %switch13.i = icmp ult i32 %.off12.i, 3
+  %376 = add nsw i16 %375, -6
+  %switch13.i = icmp ult i16 %376, 3
   br i1 %switch13.i, label %380, label %377
 
 377:                                              ; preds = %371
@@ -3982,7 +3980,7 @@ define dso_local void @_ZN4llvm35thinLTOInternalizeAndPromoteInIndexERNS_18Modul
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL32thinLTOInternalizeAndPromoteGUIDN4llvm9ValueInfoENS_12function_refIFbNS_9StringRefES0_EEENS1_IFbmPKNS_18GlobalValueSummaryEEEE.exit
-  %.sroa.012.017 = phi ptr [ %7, %.lr.ph ], [ %90, %_ZL32thinLTOInternalizeAndPromoteGUIDN4llvm9ValueInfoENS_12function_refIFbNS_9StringRefES0_EEENS1_IFbmPKNS_18GlobalValueSummaryEEEE.exit ]
+  %.sroa.012.017 = phi ptr [ %7, %.lr.ph ], [ %87, %_ZL32thinLTOInternalizeAndPromoteGUIDN4llvm9ValueInfoENS_12function_refIFbNS_9StringRefES0_EEENS1_IFbmPKNS_18GlobalValueSummaryEEEE.exit ]
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 32
   %12 = load i8, ptr %9, align 1
   %13 = ptrtoint ptr %11 to i64
@@ -4000,157 +3998,154 @@ define dso_local void @_ZN4llvm35thinLTOInternalizeAndPromoteInIndexERNS_18Modul
 
 .lr.ph.i.i.i.i:                                   ; preds = %10, %.lr.ph.i.i.i.i
   %.08.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %10 ]
-  %.057.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i ], [ %20, %10 ]
+  %.057.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %20, %10 ]
   %.05.val.i.i.i.i = load ptr, ptr %.057.i.i.i.i, align 8
   %23 = getelementptr i8, ptr %.05.val.i.i.i.i, i64 12
   %.05.val.val.i.i.i.i = load i16, ptr %23, align 4
   %.05.val.val.i.i.i.fr.i = freeze i16 %.05.val.val.i.i.i.i
   %24 = and i16 %.05.val.val.i.i.i.fr.i, 15
-  %25 = zext nneg i16 %24 to i32
-  %26 = add nsw i32 %25, -9
-  %spec.select.i.i.i.i.i.i.i = icmp ult i32 %26, -2
-  %27 = zext i1 %spec.select.i.i.i.i.i.i.i to i64
-  %spec.select.i.i.i.i = add i64 %.08.i.i.i.i, %27
-  %28 = getelementptr inbounds i8, ptr %.057.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %28, %22
+  %25 = add nsw i16 %24, -9
+  %spec.select.i.i.i.i.i.i.i = icmp ult i16 %25, -2
+  %26 = zext i1 %spec.select.i.i.i.i.i.i.i to i64
+  %spec.select.i.i.i.i = add i64 %.08.i.i.i.i, %26
+  %27 = getelementptr inbounds i8, ptr %.057.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %27, %22
   br i1 %.not.i.i.i.i, label %"_ZN4llvm8count_ifINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZL32thinLTOInternalizeAndPromoteGUIDNS_9ValueInfoENS_12function_refIFbNS_9StringRefES8_EEENS9_IFbmPKS3_EEEE3$_0EEDaOT_T0_.exit.i", label %.lr.ph.i.i.i.i, !llvm.loop !113
 
 "_ZN4llvm8count_ifINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZL32thinLTOInternalizeAndPromoteGUIDNS_9ValueInfoENS_12function_refIFbNS_9StringRefES8_EEENS9_IFbmPKS3_EEEE3$_0EEDaOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i
-  %29 = icmp eq i64 %spec.select.i.i.i.i, 1
-  br i1 %29, label %.lr.ph.split.i, label %.lr.ph.split.us.i
+  %28 = icmp eq i64 %spec.select.i.i.i.i, 1
+  br i1 %28, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %"_ZN4llvm8count_ifINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZL32thinLTOInternalizeAndPromoteGUIDNS_9ValueInfoENS_12function_refIFbNS_9StringRefES8_EEENS9_IFbmPKS3_EEEE3$_0EEDaOT_T0_.exit.i", %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i
-  %.035.us.i = phi ptr [ %56, %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i ], [ %20, %"_ZN4llvm8count_ifINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZL32thinLTOInternalizeAndPromoteGUIDNS_9ValueInfoENS_12function_refIFbNS_9StringRefES8_EEENS9_IFbmPKS3_EEEE3$_0EEDaOT_T0_.exit.i" ]
-  %30 = load ptr, ptr %.035.us.i, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %.sroa.0.0.copyload.i.us.i = load ptr, ptr %31, align 8
-  %.sroa.2.0..sroa_idx.i.us.i = getelementptr inbounds i8, ptr %30, i64 32
+  %.035.us.i = phi ptr [ %54, %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i ], [ %20, %"_ZN4llvm8count_ifINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZL32thinLTOInternalizeAndPromoteGUIDNS_9ValueInfoENS_12function_refIFbNS_9StringRefES8_EEENS9_IFbmPKS3_EEEE3$_0EEDaOT_T0_.exit.i" ]
+  %29 = load ptr, ptr %.035.us.i, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %.sroa.0.0.copyload.i.us.i = load ptr, ptr %30, align 8
+  %.sroa.2.0..sroa_idx.i.us.i = getelementptr inbounds i8, ptr %29, i64 32
   %.sroa.2.0.copyload.i.us.i = load i64, ptr %.sroa.2.0..sroa_idx.i.us.i, align 8
-  %32 = tail call noundef zeroext i1 %1(i64 noundef %2, ptr %.sroa.0.0.copyload.i.us.i, i64 %.sroa.2.0.copyload.i.us.i, i64 %16) #28
-  br i1 %32, label %47, label %33
+  %31 = tail call noundef zeroext i1 %1(i64 noundef %2, ptr %.sroa.0.0.copyload.i.us.i, i64 %.sroa.2.0.copyload.i.us.i, i64 %16) #28
+  br i1 %31, label %46, label %32
 
-33:                                               ; preds = %.lr.ph.split.us.i
-  %34 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableLTOInternalizationE, i64 128), align 8
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i
+32:                                               ; preds = %.lr.ph.split.us.i
+  %33 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableLTOInternalizationE, i64 128), align 8
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %.035.us.i, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  %39 = load i16, ptr %38, align 4
-  %40 = and i16 %39, 15
-  switch i16 %40, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i [
-    i16 0, label %44
-    i16 10, label %41
-    i16 2, label %41
-    i16 3, label %41
-    i16 4, label %41
-    i16 5, label %41
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %.035.us.i, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %38 = load i16, ptr %37, align 4
+  %39 = and i16 %38, 15
+  switch i16 %39, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i [
+    i16 0, label %43
+    i16 10, label %40
+    i16 2, label %40
+    i16 3, label %40
+    i16 4, label %40
+    i16 5, label %40
   ]
 
-41:                                               ; preds = %36, %36, %36, %36, %36
-  %42 = load i64, ptr %18, align 8
-  %43 = tail call noundef zeroext i1 %3(i64 noundef %4, i64 noundef %42, ptr noundef nonnull %37) #28
+40:                                               ; preds = %35, %35, %35, %35, %35
+  %41 = load i64, ptr %18, align 8
+  %42 = tail call noundef zeroext i1 %3(i64 noundef %4, i64 noundef %41, ptr noundef nonnull %36) #28
   br label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i
 
-44:                                               ; preds = %36
-  %45 = and i16 %39, -16
-  %46 = or disjoint i16 %45, 7
-  store i16 %46, ptr %38, align 4
+43:                                               ; preds = %35
+  %44 = and i16 %38, -16
+  %45 = or disjoint i16 %44, 7
+  store i16 %45, ptr %37, align 4
   br label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i
 
-47:                                               ; preds = %.lr.ph.split.us.i
-  %48 = load ptr, ptr %.035.us.i, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  %50 = load i16, ptr %49, align 4
-  %51 = and i16 %50, 15
-  %52 = zext nneg i16 %51 to i32
-  %53 = add nsw i32 %52, -7
-  %spec.select.i.us.i = icmp ult i32 %53, 2
-  br i1 %spec.select.i.us.i, label %54, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i
+46:                                               ; preds = %.lr.ph.split.us.i
+  %47 = load ptr, ptr %.035.us.i, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  %49 = load i16, ptr %48, align 4
+  %50 = and i16 %49, 15
+  %51 = add nsw i16 %50, -7
+  %spec.select.i.us.i = icmp ult i16 %51, 2
+  br i1 %spec.select.i.us.i, label %52, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i
 
-54:                                               ; preds = %47
-  %55 = and i16 %50, -16
-  store i16 %55, ptr %49, align 4
+52:                                               ; preds = %46
+  %53 = and i16 %49, -16
+  store i16 %53, ptr %48, align 4
   br label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i
 
-_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i: ; preds = %54, %47, %44, %41, %36, %33
-  %56 = getelementptr inbounds i8, ptr %.035.us.i, i64 8
-  %.not.us.i = icmp eq ptr %56, %22
+_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i: ; preds = %52, %46, %43, %40, %35, %32
+  %54 = getelementptr inbounds i8, ptr %.035.us.i, i64 8
+  %.not.us.i = icmp eq ptr %54, %22
   br i1 %.not.us.i, label %_ZL32thinLTOInternalizeAndPromoteGUIDN4llvm9ValueInfoENS_12function_refIFbNS_9StringRefES0_EEENS1_IFbmPKNS_18GlobalValueSummaryEEEE.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.i:                                   ; preds = %"_ZN4llvm8count_ifINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZL32thinLTOInternalizeAndPromoteGUIDNS_9ValueInfoENS_12function_refIFbNS_9StringRefES8_EEENS9_IFbmPKS3_EEEE3$_0EEDaOT_T0_.exit.i", %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i
-  %.035.i = phi ptr [ %89, %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i ], [ %20, %"_ZN4llvm8count_ifINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZL32thinLTOInternalizeAndPromoteGUIDNS_9ValueInfoENS_12function_refIFbNS_9StringRefES8_EEENS9_IFbmPKS3_EEEE3$_0EEDaOT_T0_.exit.i" ]
-  %57 = load ptr, ptr %.035.i, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %58, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %57, i64 32
+  %.035.i = phi ptr [ %86, %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i ], [ %20, %"_ZN4llvm8count_ifINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZL32thinLTOInternalizeAndPromoteGUIDNS_9ValueInfoENS_12function_refIFbNS_9StringRefES8_EEENS9_IFbmPKS3_EEEE3$_0EEDaOT_T0_.exit.i" ]
+  %55 = load ptr, ptr %.035.i, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %56, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %55, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %59 = tail call noundef zeroext i1 %1(i64 noundef %2, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, i64 %16) #28
-  br i1 %59, label %60, label %69
+  %57 = tail call noundef zeroext i1 %1(i64 noundef %2, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, i64 %16) #28
+  br i1 %57, label %58, label %66
 
-60:                                               ; preds = %.lr.ph.split.i
-  %61 = load ptr, ptr %.035.i, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 12
-  %63 = load i16, ptr %62, align 4
-  %64 = and i16 %63, 15
-  %65 = zext nneg i16 %64 to i32
-  %66 = add nsw i32 %65, -7
-  %spec.select.i.i = icmp ult i32 %66, 2
-  br i1 %spec.select.i.i, label %67, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i
+58:                                               ; preds = %.lr.ph.split.i
+  %59 = load ptr, ptr %.035.i, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
+  %61 = load i16, ptr %60, align 4
+  %62 = and i16 %61, 15
+  %63 = add nsw i16 %62, -7
+  %spec.select.i.i = icmp ult i16 %63, 2
+  br i1 %spec.select.i.i, label %64, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i
 
-67:                                               ; preds = %60
-  %68 = and i16 %63, -16
-  store i16 %68, ptr %62, align 4
+64:                                               ; preds = %58
+  %65 = and i16 %61, -16
+  store i16 %65, ptr %60, align 4
   br label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i
 
-69:                                               ; preds = %.lr.ph.split.i
-  %70 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableLTOInternalizationE, i64 128), align 8
-  %71 = trunc i8 %70 to i1
-  br i1 %71, label %72, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i
+66:                                               ; preds = %.lr.ph.split.i
+  %67 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm24EnableLTOInternalizationE, i64 128), align 8
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %.035.i, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
-  %75 = load i16, ptr %74, align 4
-  %76 = and i16 %75, 15
-  switch i16 %76, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i [
-    i16 0, label %77
-    i16 10, label %80
-    i16 2, label %80
-    i16 3, label %80
-    i16 4, label %80
-    i16 5, label %80
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %.035.i, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 12
+  %72 = load i16, ptr %71, align 4
+  %73 = and i16 %72, 15
+  switch i16 %73, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i [
+    i16 0, label %74
+    i16 10, label %77
+    i16 2, label %77
+    i16 3, label %77
+    i16 4, label %77
+    i16 5, label %77
   ]
 
-77:                                               ; preds = %72
-  %78 = and i16 %75, -16
-  %79 = or disjoint i16 %78, 7
-  store i16 %79, ptr %74, align 4
+74:                                               ; preds = %69
+  %75 = and i16 %72, -16
+  %76 = or disjoint i16 %75, 7
+  store i16 %76, ptr %71, align 4
   br label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i
 
-80:                                               ; preds = %72, %72, %72, %72, %72
-  %81 = load i64, ptr %18, align 8
-  %82 = tail call noundef zeroext i1 %3(i64 noundef %4, i64 noundef %81, ptr noundef nonnull %73) #28
-  br i1 %82, label %83, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i
+77:                                               ; preds = %69, %69, %69, %69, %69
+  %78 = load i64, ptr %18, align 8
+  %79 = tail call noundef zeroext i1 %3(i64 noundef %4, i64 noundef %78, ptr noundef nonnull %70) #28
+  br i1 %79, label %80, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr %.035.i, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 12
-  %86 = load i16, ptr %85, align 4
-  %87 = and i16 %86, -16
-  %88 = or disjoint i16 %87, 7
-  store i16 %88, ptr %85, align 4
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %.035.i, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 12
+  %83 = load i16, ptr %82, align 4
+  %84 = and i16 %83, -16
+  %85 = or disjoint i16 %84, 7
+  store i16 %85, ptr %82, align 4
   br label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i
 
-_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i: ; preds = %83, %80, %77, %72, %69, %67, %60
-  %89 = getelementptr inbounds i8, ptr %.035.i, i64 8
-  %.not.i = icmp eq ptr %89, %22
+_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i: ; preds = %80, %77, %74, %69, %66, %64, %58
+  %86 = getelementptr inbounds i8, ptr %.035.i, i64 8
+  %.not.i = icmp eq ptr %86, %22
   br i1 %.not.i, label %_ZL32thinLTOInternalizeAndPromoteGUIDN4llvm9ValueInfoENS_12function_refIFbNS_9StringRefES0_EEENS1_IFbmPKNS_18GlobalValueSummaryEEEE.exit, label %.lr.ph.split.i
 
 _ZL32thinLTOInternalizeAndPromoteGUIDN4llvm9ValueInfoENS_12function_refIFbNS_9StringRefES0_EEENS1_IFbmPKNS_18GlobalValueSummaryEEEE.exit: ; preds = %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.us.i, %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit.i, %10
-  %90 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.012.017) #32
-  %.not = icmp eq ptr %90, %8
+  %87 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.012.017) #32
+  %.not = icmp eq ptr %87, %8
   br i1 %.not, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %_ZL32thinLTOInternalizeAndPromoteGUIDN4llvm9ValueInfoENS_12function_refIFbNS_9StringRefES0_EEENS1_IFbmPKNS_18GlobalValueSummaryEEEE.exit, %5

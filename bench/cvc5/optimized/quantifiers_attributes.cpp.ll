@@ -4665,12 +4665,11 @@ invoke.cont8:                                     ; preds = %if.else.i.i.i30, %i
   %d_kind.i = getelementptr inbounds i8, ptr %4, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  %bf.cast.i.off = add nsw i32 %bf.cast.i, -357
-  %switch71 = icmp ult i32 %bf.cast.i.off, 2
+  %6 = add nsw i16 %bf.clear.i, -357
+  %switch71 = icmp ult i16 %6, 2
   %bf.load.i.i44 = load i64, ptr %4, align 8
-  %6 = and i64 %bf.load.i.i44, 1152920405095219200
-  %cmp.not.i.i45 = icmp eq i64 %6, 1152920405095219200
+  %7 = and i64 %bf.load.i.i44, 1152920405095219200
+  %cmp.not.i.i45 = icmp eq i64 %7, 1152920405095219200
   br i1 %switch71, label %cleanup, label %if.end17
 
 if.end17:                                         ; preds = %invoke.cont8
@@ -4690,10 +4689,10 @@ if.then13.i.i:                                    ; preds = %if.then.i.i
           to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then13.i.i
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #23
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %if.end17, %if.then.i.i, %if.then13.i.i
@@ -4718,17 +4717,17 @@ if.then13.i.i52:                                  ; preds = %if.then.i.i46
           to label %cleanup20 unwind label %terminate.lpad.i53
 
 terminate.lpad.i53:                               ; preds = %if.then13.i.i52
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #23
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #23
   unreachable
 
 cleanup20:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %invoke.cont2, %if.then13.i.i52, %if.then.i.i46, %cleanup
   %cmp.i.not77 = phi i1 [ true, %if.then13.i.i52 ], [ true, %if.then.i.i46 ], [ true, %cleanup ], [ false, %invoke.cont2 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   %bf.load.i.i55 = load i64, ptr %2, align 8
-  %11 = and i64 %bf.load.i.i55, 1152920405095219200
-  %cmp.not.i.i56 = icmp eq i64 %11, 1152920405095219200
+  %12 = and i64 %bf.load.i.i55, 1152920405095219200
+  %cmp.not.i.i56 = icmp eq i64 %12, 1152920405095219200
   br i1 %cmp.not.i.i56, label %return, label %if.then.i.i57
 
 if.then.i.i57:                                    ; preds = %cleanup20
@@ -4745,10 +4744,10 @@ if.then13.i.i63:                                  ; preds = %if.then.i.i57
           to label %return unwind label %terminate.lpad.i64
 
 terminate.lpad.i64:                               ; preds = %if.then13.i.i63
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #23
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #23
   unreachable
 
 return:                                           ; preds = %if.then13.i.i63, %if.then.i.i57, %cleanup20, %entry
@@ -5553,7 +5552,6 @@ invoke.cont17:                                    ; preds = %if.then13.i.i.i225.
   %d_kind.i = getelementptr inbounds i8, ptr %20, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   %22 = and i64 %bf.load.i.i235, 1152920405095219200
   %cmp.not.i.i236 = icmp eq i64 %22, 1152920405095219200
   br i1 %cmp.not.i.i236, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245, label %if.then.i.i237
@@ -5605,8 +5603,8 @@ terminate.lpad.i255:                              ; preds = %if.then13.i.i254
   unreachable
 
 cond.true23:                                      ; preds = %if.then13.i.i254, %if.then.i.i248, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245
-  %28 = add nsw i32 %bf.cast.i, -357
-  %or.cond = icmp ult i32 %28, 2
+  %28 = add nsw i16 %bf.clear.i, -357
+  %or.cond = icmp ult i16 %28, 2
   br i1 %or.cond, label %if.then57, label %if.else
 
 if.then57:                                        ; preds = %cond.true23

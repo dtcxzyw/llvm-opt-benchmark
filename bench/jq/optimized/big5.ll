@@ -30,30 +30,29 @@ define internal i32 @big5_mbc_to_code(ptr noundef %0, ptr noundef %1) #2 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal range(i32 -400, 3) i32 @big5_code_to_mbclen(i32 noundef %0) #3 {
   %.not = icmp ult i32 %0, 65536
-  br i1 %.not, label %2, label %13
+  br i1 %.not, label %2, label %12
 
 2:                                                ; preds = %1
   %.not5 = icmp samesign ult i32 %0, 256
-  br i1 %.not5, label %8, label %3
+  br i1 %.not5, label %7, label %3
 
 3:                                                ; preds = %2
   %4 = lshr i32 %0, 8
-  %5 = zext nneg i32 %4 to i64
-  %6 = add nsw i64 %5, -161
-  %7 = icmp ult i64 %6, 94
-  br i1 %7, label %13, label %12
+  %5 = add nsw i32 %4, -161
+  %6 = icmp ult i32 %5, 94
+  br i1 %6, label %12, label %11
 
-8:                                                ; preds = %2
-  %9 = zext nneg i32 %0 to i64
-  %10 = add nsw i64 %9, -255
-  %11 = icmp ult i64 %10, -94
-  br i1 %11, label %13, label %12
+7:                                                ; preds = %2
+  %8 = zext nneg i32 %0 to i64
+  %9 = add nsw i64 %8, -255
+  %10 = icmp ult i64 %9, -94
+  br i1 %10, label %12, label %11
 
-12:                                               ; preds = %8, %3
-  br label %13
+11:                                               ; preds = %7, %3
+  br label %12
 
-13:                                               ; preds = %8, %3, %1, %12
-  %.0 = phi i32 [ -400, %12 ], [ -400, %1 ], [ 2, %3 ], [ 1, %8 ]
+12:                                               ; preds = %7, %3, %1, %11
+  %.0 = phi i32 [ -400, %11 ], [ -400, %1 ], [ 2, %3 ], [ 1, %7 ]
   ret i32 %.0
 }
 
@@ -86,7 +85,7 @@ declare i32 @onigenc_not_support_get_ctype_code_range(i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr noundef %1) #2 {
   %.not = icmp ugt ptr %1, %0
-  br i1 %.not, label %3, label %26
+  br i1 %.not, label %3, label %25
 
 3:                                                ; preds = %2
   %4 = load i8, ptr %1, align 1
@@ -104,30 +103,29 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
 9:                                                ; preds = %.preheader
   %10 = getelementptr inbounds i8, ptr %.1, i64 -1
   %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i64
-  %13 = add nsw i64 %12, -161
-  %14 = icmp ult i64 %13, 94
-  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !4
+  %12 = add i8 %11, 95
+  %13 = icmp ult i8 %12, 94
+  br i1 %13, label %.preheader, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %9, %.preheader, %3
   %.019 = phi ptr [ %1, %3 ], [ %.1, %.preheader ], [ %.1, %9 ]
-  %15 = load ptr, ptr @OnigEncodingBIG5, align 8
-  %16 = tail call i32 %15(ptr noundef nonnull %.019) #5
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %.019, i64 %17
-  %19 = icmp ugt ptr %18, %1
-  br i1 %19, label %26, label %20
+  %14 = load ptr, ptr @OnigEncodingBIG5, align 8
+  %15 = tail call i32 %14(ptr noundef nonnull %.019) #5
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds i8, ptr %.019, i64 %16
+  %18 = icmp ugt ptr %17, %1
+  br i1 %18, label %25, label %19
 
-20:                                               ; preds = %.loopexit
-  %21 = ptrtoint ptr %1 to i64
-  %22 = ptrtoint ptr %18 to i64
-  %23 = sub i64 %21, %22
-  %24 = and i64 %23, -2
-  %25 = getelementptr inbounds i8, ptr %18, i64 %24
-  br label %26
+19:                                               ; preds = %.loopexit
+  %20 = ptrtoint ptr %1 to i64
+  %21 = ptrtoint ptr %17 to i64
+  %22 = sub i64 %20, %21
+  %23 = and i64 %22, -2
+  %24 = getelementptr inbounds i8, ptr %17, i64 %23
+  br label %25
 
-26:                                               ; preds = %.loopexit, %2, %20
-  %.0 = phi ptr [ %25, %20 ], [ %1, %2 ], [ %.019, %.loopexit ]
+25:                                               ; preds = %.loopexit, %2, %19
+  %.0 = phi ptr [ %24, %19 ], [ %1, %2 ], [ %.019, %.loopexit ]
   ret ptr %.0
 }
 

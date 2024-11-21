@@ -4632,8 +4632,8 @@ lpad12:                                           ; preds = %if.then.i.i.i165.in
 if.else:                                          ; preds = %invoke.cont13
   %cmp23 = icmp eq i16 %bf.clear.i, 20
   %cmp24 = icmp eq i16 %bf.clear.i, 19
-  %19 = add nsw i32 %bf.cast.i, -19
-  %or.cond1 = icmp ult i32 %19, 3
+  %19 = add nsw i16 %bf.clear.i, -19
+  %or.cond1 = icmp ult i16 %19, 3
   %cmp28.not = icmp eq i32 %12, 0
   br i1 %or.cond1, label %if.then27, label %if.else65
 

@@ -2607,9 +2607,9 @@ _ZN12_GLOBAL__N_124X86FlagsCopyLoweringPass12rewriteSetCCERN4llvm17MachineBasicB
 
 1016:                                             ; preds = %1014
   %1017 = call noundef zeroext i1 @_ZN4llvm3X865isRCREj(i32 noundef range(i32 20, 19) %914) #15
-  %1018 = add nsw i32 %914, -371
-  %1019 = icmp ult i32 %1018, 2
-  %or.cond472 = select i1 %1017, i1 true, i1 %1019
+  %1018 = add i16 %913, -371
+  %1019 = icmp ult i16 %1018, 2
+  %or.cond472 = or i1 %1019, %1017
   br i1 %or.cond472, label %_ZL14isArithmeticOpj.exit.thread, label %1068
 
 _ZL14isArithmeticOpj.exit.thread:                 ; preds = %1010, %1012, %1014, %1016

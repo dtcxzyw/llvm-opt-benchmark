@@ -2940,7 +2940,7 @@ declare noundef ptr @_ZN4llvm15MetadataAsValue3getERNS_11LLVMContextEPNS_8Metada
 define dso_local void @LLVMSetMetadata(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %14, label %5
+  br i1 %.not, label %13, label %5
 
 5:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -2948,24 +2948,23 @@ define dso_local void @LLVMSetMetadata(ptr noundef %0, i32 noundef %1, ptr nound
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
   %8 = load i8, ptr %7, align 4
-  %9 = zext i8 %8 to i32
-  %10 = add nsw i32 %9, -36
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %10, -31
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %11, label %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
+  %9 = add i8 %8, -36
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %9, -31
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %10, label %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
 
-11:                                               ; preds = %5
-  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #35
-  %13 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr nonnull %4, i64 1, i32 noundef 0, i1 noundef zeroext true) #35
+10:                                               ; preds = %5
+  %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #35
+  %12 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr nonnull %4, i64 1, i32 noundef 0, i1 noundef zeroext true) #35
   br label %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
 
-_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit: ; preds = %5, %11
-  %.0.i = phi ptr [ %13, %11 ], [ %7, %5 ]
+_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit: ; preds = %5, %10
+  %.0.i = phi ptr [ %12, %10 ], [ %7, %5 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %14
+  br label %13
 
-14:                                               ; preds = %3, %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
-  %15 = phi ptr [ %.0.i, %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit ], [ null, %3 ]
-  call void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, ptr noundef %15) #35
+13:                                               ; preds = %3, %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
+  %14 = phi ptr [ %.0.i, %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit ], [ null, %3 ]
+  call void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, ptr noundef %14) #35
   ret void
 }
 
@@ -3530,12 +3529,9 @@ define dso_local ptr @LLVMIsABinaryOperator(ptr noundef readonly %0) local_unnam
 
 2:                                                ; preds = %1
   %3 = load i8, ptr %0, align 8
-  %4 = icmp ugt i8 %3, 28
-  %5 = zext i8 %3 to i32
-  %6 = add nsw i32 %5, -42
-  %7 = icmp ult i32 %6, 18
-  %8 = select i1 %4, i1 %7, i1 false
-  %spec.select.i.i.i = select i1 %8, ptr %0, ptr null
+  %4 = add i8 %3, -42
+  %5 = icmp ult i8 %4, 18
+  %spec.select.i.i.i = select i1 %5, ptr %0, ptr null
   br label %_ZN4llvm16dyn_cast_or_nullINS_14BinaryOperatorENS_5ValueEEEDaPT0_.exit
 
 _ZN4llvm16dyn_cast_or_nullINS_14BinaryOperatorENS_5ValueEEEDaPT0_.exit: ; preds = %1, %2
@@ -4443,9 +4439,8 @@ define dso_local noundef ptr @LLVMIsAUnaryInstruction(ptr noundef readonly %0) l
   ]
 
 _ZN4llvm14CastIsPossibleINS_16UnaryInstructionEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i.i: ; preds = %5
-  %6 = zext i8 %3 to i32
-  %7 = add nsw i32 %6, -67
-  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %7, 13
+  %6 = add i8 %3, -67
+  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %6, 13
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm14CastIsPossibleINS_16UnaryInstructionEPNS_5ValueEvE10isPossibleERKS3_.exit.thread.i.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_16UnaryInstructionENS_5ValueEEEDaPT0_.exit
 
 _ZN4llvm14CastIsPossibleINS_16UnaryInstructionEPNS_5ValueEvE10isPossibleERKS3_.exit.thread.i.i.i: ; preds = %_ZN4llvm14CastIsPossibleINS_16UnaryInstructionEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i.i, %5, %5, %5, %5, %5
@@ -4479,12 +4474,9 @@ define dso_local ptr @LLVMIsACastInst(ptr noundef readonly %0) local_unnamed_add
 
 2:                                                ; preds = %1
   %3 = load i8, ptr %0, align 8
-  %4 = icmp ugt i8 %3, 28
-  %5 = zext i8 %3 to i32
-  %6 = add nsw i32 %5, -67
-  %7 = icmp ult i32 %6, 13
-  %8 = select i1 %4, i1 %7, i1 false
-  %spec.select.i.i.i = select i1 %8, ptr %0, ptr null
+  %4 = add i8 %3, -67
+  %5 = icmp ult i8 %4, 13
+  %spec.select.i.i.i = select i1 %5, ptr %0, ptr null
   br label %_ZN4llvm16dyn_cast_or_nullINS_8CastInstENS_5ValueEEEDaPT0_.exit
 
 _ZN4llvm16dyn_cast_or_nullINS_8CastInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %2
@@ -4826,12 +4818,11 @@ _ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit: ; preds
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %6, align 4
-  %8 = zext i8 %7 to i32
-  %.off.i.i.i.i.i.i.i.i = add nsw i32 %8, -5
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 31
+  %8 = add i8 %7, -5
+  %switch.i.i.i.i.i.i.i.i = icmp ult i8 %8, 31
   %9 = add i8 %7, -1
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %9, 2
-  %or.cond = or i1 %spec.select.i.i.i.i.i.i.i.i, %switch.i.i.i.i.i.i.i.i
+  %or.cond = or i1 %switch.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i
   br i1 %or.cond, label %.critedge, label %_ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_15MetadataAsValueENS_5ValueEEEDaPT0_.exit, %1, %2
@@ -5766,7 +5757,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %3, %5
   %9 = icmp ne ptr %8, null
   %10 = icmp ne ptr %2, null
   %or.cond = and i1 %10, %9
-  br i1 %or.cond, label %11, label %20
+  br i1 %or.cond, label %11, label %19
 
 11:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -5774,23 +5765,22 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %3, %5
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %4, align 8
   %14 = load i8, ptr %13, align 4
-  %15 = zext i8 %14 to i32
-  %16 = add nsw i32 %15, -36
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %16, -31
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %17, label %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
+  %15 = add i8 %14, -36
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %15, -31
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %16, label %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
 
-17:                                               ; preds = %11
-  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #35
-  %19 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr nonnull %4, i64 1, i32 noundef 0, i1 noundef zeroext true) #35
+16:                                               ; preds = %11
+  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #35
+  %18 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr nonnull %4, i64 1, i32 noundef 0, i1 noundef zeroext true) #35
   br label %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
 
-_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit: ; preds = %11, %17
-  %.0.i = phi ptr [ %19, %17 ], [ %13, %11 ]
+_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit: ; preds = %11, %16
+  %.0.i = phi ptr [ %18, %16 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZN4llvm11NamedMDNode10addOperandEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %.0.i) #35
-  br label %20
+  br label %19
 
-20:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
+19:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %_ZL13extractMDNodePN4llvm15MetadataAsValueE.exit
   ret void
 }
 
@@ -9510,10 +9500,9 @@ define dso_local ptr @LLVMGetBasicBlockTerminator(ptr noundef readonly %0) local
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 -24
   %7 = load i8, ptr %6, align 8
-  %8 = zext i8 %7 to i32
-  %9 = add nsw i32 %8, -30
-  %10 = icmp ult i32 %9, 11
-  %spec.select.i.i = select i1 %10, ptr %6, ptr null
+  %8 = add i8 %7, -30
+  %9 = icmp ult i8 %8, 11
+  %spec.select.i.i = select i1 %9, ptr %6, ptr null
   br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %1, %5
@@ -10059,12 +10048,11 @@ declare noundef ptr @_ZNK4llvm11Instruction5cloneEv(ptr noundef nonnull align 8 
 define dso_local ptr @LLVMIsATerminatorInst(ptr noundef readonly %0) local_unnamed_addr #11 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp ult i8 %2, 29
-  %4 = zext i8 %2 to i32
-  %5 = add nsw i32 %4, -30
-  %6 = icmp ult i32 %5, 11
-  %spec.select = select i1 %6, ptr %0, ptr null
-  %7 = select i1 %3, ptr null, ptr %spec.select
-  ret ptr %7
+  %4 = add i8 %2, -30
+  %5 = icmp ult i8 %4, 11
+  %spec.select = select i1 %5, ptr %0, ptr null
+  %6 = select i1 %3, ptr null, ptr %spec.select
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10364,11 +10352,10 @@ define dso_local range(i32 0, 2) i32 @LLVMIsTailCall(ptr nocapture noundef reado
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, 3
-  %5 = zext nneg i16 %4 to i32
-  %6 = add nsw i32 %5, -1
-  %7 = icmp ult i32 %6, 2
-  %8 = zext i1 %7 to i32
-  ret i32 %8
+  %5 = add nsw i16 %4, -1
+  %6 = icmp ult i16 %5, 2
+  %7 = zext i1 %6 to i32
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -15407,18 +15394,15 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %3, %8
   store i8 %storemerge.i, ptr %5, align 8
   %9 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNegEPNS_5ValueERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext false)
   %10 = load i8, ptr %9, align 8
-  %11 = icmp ult i8 %10, 29
-  %12 = zext i8 %10 to i32
-  %13 = add nsw i32 %12, -60
-  %14 = icmp ult i32 %13, -18
-  %.not10 = select i1 %11, i1 true, i1 %14
-  br i1 %.not10, label %16, label %15
+  %11 = add i8 %10, -60
+  %12 = icmp ult i8 %11, -18
+  br i1 %12, label %14, label %13
 
-15:                                               ; preds = %_ZN4llvm5TwineC2EPKc.exit
+13:                                               ; preds = %_ZN4llvm5TwineC2EPKc.exit
   call void @_ZN4llvm11Instruction20setHasNoUnsignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %9, i1 noundef zeroext true) #35
-  br label %16
+  br label %14
 
-16:                                               ; preds = %15, %_ZN4llvm5TwineC2EPKc.exit
+14:                                               ; preds = %13, %_ZN4llvm5TwineC2EPKc.exit
   ret ptr %9
 }
 

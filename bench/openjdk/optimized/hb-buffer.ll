@@ -6253,8 +6253,8 @@ define linkonce_odr hidden noundef ptr @_ZN9hb_utf8_t4nextEPKhS1_Pjj(ptr noundef
   br i1 %8, label %9, label %89
 
 9:                                                ; preds = %4
-  %10 = add nsw i32 %7, -194
-  %11 = icmp ult i32 %10, 30
+  %10 = add nsw i8 %6, 62
+  %11 = icmp ult i8 %10, 30
   br i1 %11, label %12, label %24
 
 12:                                               ; preds = %9
@@ -6320,8 +6320,8 @@ define linkonce_odr hidden noundef ptr @_ZN9hb_utf8_t4nextEPKhS1_Pjj(ptr noundef
   br label %89
 
 54:                                               ; preds = %24
-  %55 = add nsw i32 %7, -240
-  %56 = icmp ult i32 %55, 5
+  %55 = add nsw i8 %6, 16
+  %56 = icmp ult i8 %55, 5
   %57 = ptrtoint ptr %1 to i64
   %58 = ptrtoint ptr %5 to i64
   %59 = sub i64 %57, %58

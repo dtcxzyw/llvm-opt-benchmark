@@ -100,8 +100,8 @@ define ptr @fmtquote(ptr noundef readonly %0, ptr noundef readonly %1, ptr nound
   br i1 %spec.select.i.us, label %51, label %38
 
 38:                                               ; preds = %.lr.ph115.split.us
-  %39 = add nsw i32 %35, -32
-  %40 = icmp samesign ult i32 %39, 95
+  %39 = add i8 %34, -32
+  %40 = icmp ult i8 %39, 95
   %41 = icmp ne i8 %34, 92
   %or.cond.not.us = and i1 %41, %40
   br i1 %or.cond.not.us, label %42, label %51
@@ -207,8 +207,8 @@ gv_isspace.exit104.us:                            ; preds = %50, %61, %60, %59, 
   br i1 %spec.select.i, label %82, label %78
 
 78:                                               ; preds = %.lr.ph115.split
-  %79 = add nsw i32 %75, -32
-  %80 = icmp samesign ult i32 %79, 95
+  %79 = add i8 %74, -32
+  %80 = icmp ult i8 %79, 95
   %81 = icmp ne i8 %74, 92
   %or.cond.not = and i1 %81, %80
   br i1 %or.cond.not, label %102, label %82

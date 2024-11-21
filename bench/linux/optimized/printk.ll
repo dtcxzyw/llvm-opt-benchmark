@@ -3291,7 +3291,7 @@ define internal noundef i32 @console_setup(ptr noundef %0) #4 section ".init.tex
 
 8:                                                ; preds = %5, %1
   tail call fastcc void @__add_preferred_console(ptr noundef nonnull @.str.93, i16 noundef signext 0, ptr noundef null)
-  br label %41
+  br label %40
 
 9:                                                ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !11
@@ -3327,31 +3327,30 @@ define internal noundef i32 @console_setup(ptr noundef %0) #4 section ".init.tex
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %23, %34
-  %27 = phi i8 [ %36, %34 ], [ %25, %23 ]
-  %28 = phi ptr [ %35, %34 ], [ %2, %23 ]
-  %29 = zext i8 %27 to i32
-  %30 = add nsw i32 %29, -48
-  %31 = icmp ult i32 %30, 10
-  %32 = icmp eq i8 %27, 44
-  %33 = or i1 %32, %31
-  br i1 %33, label %.loopexit, label %34
+.preheader:                                       ; preds = %23, %33
+  %27 = phi i8 [ %35, %33 ], [ %25, %23 ]
+  %28 = phi ptr [ %34, %33 ], [ %2, %23 ]
+  %29 = add i8 %27, -48
+  %30 = icmp ult i8 %29, 10
+  %31 = icmp eq i8 %27, 44
+  %32 = or i1 %31, %30
+  br i1 %32, label %.loopexit, label %33
 
-34:                                               ; preds = %.preheader
-  %35 = getelementptr i8, ptr %28, i64 1
-  %36 = load i8, ptr %35, align 1
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !67
+33:                                               ; preds = %.preheader
+  %34 = getelementptr i8, ptr %28, i64 1
+  %35 = load i8, ptr %34, align 1
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !67
 
-.loopexit:                                        ; preds = %34, %.preheader, %23
-  %38 = phi ptr [ %2, %23 ], [ %28, %.preheader ], [ %35, %34 ]
-  %39 = call i64 @simple_strtoul(ptr noundef %38, ptr noundef null, i32 noundef 10) #27
-  store i8 0, ptr %38, align 1
-  %40 = trunc i64 %39 to i16
-  call fastcc void @__add_preferred_console(ptr noundef nonnull %2, i16 noundef signext %40, ptr noundef %24)
-  br label %41
+.loopexit:                                        ; preds = %33, %.preheader, %23
+  %37 = phi ptr [ %2, %23 ], [ %28, %.preheader ], [ %34, %33 ]
+  %38 = call i64 @simple_strtoul(ptr noundef %37, ptr noundef null, i32 noundef 10) #27
+  store i8 0, ptr %37, align 1
+  %39 = trunc i64 %38 to i16
+  call fastcc void @__add_preferred_console(ptr noundef nonnull %2, i16 noundef signext %39, ptr noundef %24)
+  br label %40
 
-41:                                               ; preds = %.loopexit, %8
+40:                                               ; preds = %.loopexit, %8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #27
   ret i32 1
 }

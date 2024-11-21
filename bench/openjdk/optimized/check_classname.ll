@@ -115,8 +115,8 @@ define internal fastcc ptr @skip_over_fieldname(ptr noundef readonly %0, i32 nou
   %9 = getelementptr inbounds i8, ptr %.03288, i64 1
   %10 = add nsw i16 %8, -92
   %or.cond.i = icmp ult i16 %10, -46
-  %11 = add nsw i16 %8, -60
-  %or.cond5.i = icmp ult i16 %11, 31
+  %11 = add nsw i8 %5, -60
+  %or.cond5.i = icmp ult i8 %11, 31
   %or.cond20.i = select i1 %or.cond.i, i1 true, i1 %or.cond5.i
   br i1 %or.cond20.i, label %isJvmIdentifier.exit.thread51, label %12
 

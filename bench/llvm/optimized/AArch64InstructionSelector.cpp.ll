@@ -25517,23 +25517,23 @@ define internal fastcc void @_ZN12_GLOBAL__N_126AArch64InstructionSelector16sele
 36:                                               ; preds = %16
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 68
   %38 = load i16, ptr %37, align 4
-  %39 = zext i16 %38 to i32
-  %40 = add nsw i32 %39, -155
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %40, -8
+  %39 = add i16 %38, -155
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i16 %39, -8
   %.not59.i = icmp eq ptr %27, null
   %.not.i = or i1 %.not59.i, %switch.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i, label %.critedge.i, label %41
+  br i1 %.not.i, label %.critedge.i, label %40
 
-41:                                               ; preds = %36
-  %42 = add nsw i32 %39, -147
+40:                                               ; preds = %36
+  %41 = zext nneg i16 %38 to i32
+  %42 = add nsw i32 %41, -147
   %switch.and.i.i.i = and i32 %42, -6
   %43 = icmp eq i32 %switch.and.i.i.i, 0
   %.not58.i = xor i1 %26, %43
-  %switch.i.i.i = icmp samesign ult i32 %40, -4
+  %switch.i.i.i = icmp samesign ult i16 %39, -4
   %or.cond.i = and i1 %switch.i.i.i, %.not58.i
   br i1 %or.cond.i, label %44, label %.critedge.i
 
-44:                                               ; preds = %41
+44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 36
@@ -25605,7 +25605,7 @@ _ZN12_GLOBAL__N_126AArch64InstructionSelector21selectAndRestoreStateERN4llvm12Ma
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
   br i1 %62, label %_ZN12_GLOBAL__N_126AArch64InstructionSelector11emitCarryInERN4llvm12MachineInstrENS1_8RegisterE.exit, label %.critedge.i
 
-.critedge.i:                                      ; preds = %_ZN12_GLOBAL__N_126AArch64InstructionSelector21selectAndRestoreStateERN4llvm12MachineInstrE.exit.i, %44, %41, %36, %16
+.critedge.i:                                      ; preds = %_ZN12_GLOBAL__N_126AArch64InstructionSelector21selectAndRestoreStateERN4llvm12MachineInstrE.exit.i, %44, %40, %36, %16
   %71 = call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetRegisterClassENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(512) %23, ptr noundef nonnull @_ZN4llvm7AArch6413GPR32RegClassE, ptr nonnull @.str, i64 0) #24
   switch i16 %13, label %97 [
     i16 154, label %_ZNK12_GLOBAL__N_126AArch64InstructionSelector9emitInstrEjSt16initializer_listIN4llvm5DstOpEES1_INS2_5SrcOpEERNS2_16MachineIRBuilderERKSt8optionalINS2_11SmallVectorISt8functionIFvRNS2_19MachineInstrBuilderEEELj4EEEE.exit.i
@@ -48029,99 +48029,98 @@ define internal fastcc noundef zeroext i1 @_ZL18canEmitConjunctionN4llvm8Registe
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %4, i32 %0) #24
-  br i1 %11, label %12, label %60
+  br i1 %11, label %12, label %59
 
 12:                                               ; preds = %6
   %13 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %4, i32 %0) #24
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %15 = load i16, ptr %14, align 4
-  %16 = zext i16 %15 to i32
-  %17 = and i16 %15, -2
-  %spec.select.i.i.i.i.i.i.i.i = icmp eq i16 %17, 142
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %18, label %19
+  %16 = and i16 %15, -2
+  %spec.select.i.i.i.i.i.i.i.i = icmp eq i16 %16, 142
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %17, label %18
 
-18:                                               ; preds = %12
+17:                                               ; preds = %12
   store i8 1, ptr %1, align 1
   br label %.sink.split
 
-19:                                               ; preds = %12
-  %20 = icmp eq i32 %5, 7
-  br i1 %20, label %60, label %21
+18:                                               ; preds = %12
+  %19 = icmp eq i32 %5, 7
+  br i1 %19, label %59, label %20
 
-21:                                               ; preds = %19
-  %22 = icmp eq i16 %15, 62
-  %23 = add nsw i32 %16, -61
-  %or.cond = icmp ult i32 %23, 2
-  br i1 %or.cond, label %24, label %60
+20:                                               ; preds = %18
+  %21 = icmp eq i16 %15, 62
+  %22 = add i16 %15, -61
+  %or.cond = icmp ult i16 %22, 2
+  br i1 %or.cond, label %23, label %59
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 36
-  %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %26, i64 68
-  %30 = load i32, ptr %29, align 4
-  %31 = add nuw nsw i32 %5, 1
-  %32 = call fastcc noundef zeroext i1 @_ZL18canEmitConjunctionN4llvm8RegisterERbS1_bRNS_19MachineRegisterInfoEj(i32 %28, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8, i1 noundef zeroext %22, ptr noundef nonnull align 8 dereferenceable(512) %4, i32 noundef %31)
-  br i1 %32, label %33, label %60
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 36
+  %27 = load i32, ptr %26, align 4
+  %28 = getelementptr inbounds i8, ptr %25, i64 68
+  %29 = load i32, ptr %28, align 4
+  %30 = add nuw nsw i32 %5, 1
+  %31 = call fastcc noundef zeroext i1 @_ZL18canEmitConjunctionN4llvm8RegisterERbS1_bRNS_19MachineRegisterInfoEj(i32 %27, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8, i1 noundef zeroext %21, ptr noundef nonnull align 8 dereferenceable(512) %4, i32 noundef %30)
+  br i1 %31, label %32, label %59
 
-33:                                               ; preds = %24
-  %34 = call fastcc noundef zeroext i1 @_ZL18canEmitConjunctionN4llvm8RegisterERbS1_bRNS_19MachineRegisterInfoEj(i32 %30, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, i1 noundef zeroext %22, ptr noundef nonnull align 8 dereferenceable(512) %4, i32 noundef %31)
-  br i1 %34, label %35, label %60
+32:                                               ; preds = %23
+  %33 = call fastcc noundef zeroext i1 @_ZL18canEmitConjunctionN4llvm8RegisterERbS1_bRNS_19MachineRegisterInfoEj(i32 %29, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, i1 noundef zeroext %21, ptr noundef nonnull align 8 dereferenceable(512) %4, i32 noundef %30)
+  br i1 %33, label %34, label %59
 
-35:                                               ; preds = %33
-  %36 = load i8, ptr %8, align 1
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %38, label %41
+34:                                               ; preds = %32
+  %35 = load i8, ptr %8, align 1
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %40
 
-38:                                               ; preds = %35
-  %39 = load i8, ptr %10, align 1
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %60, label %41
+37:                                               ; preds = %34
+  %38 = load i8, ptr %10, align 1
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %59, label %40
 
-41:                                               ; preds = %38, %35
-  br i1 %22, label %42, label %56
+40:                                               ; preds = %37, %34
+  br i1 %21, label %41, label %55
 
-42:                                               ; preds = %41
-  %43 = load i8, ptr %7, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %48, label %45
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %47, label %44
 
-45:                                               ; preds = %42
-  %46 = load i8, ptr %9, align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %.thread32, label %60
+44:                                               ; preds = %41
+  %45 = load i8, ptr %9, align 1
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %.thread32, label %59
 
-48:                                               ; preds = %42
-  br i1 %3, label %49, label %.thread32
+47:                                               ; preds = %41
+  br i1 %3, label %48, label %.thread32
 
-49:                                               ; preds = %48
-  %50 = load i8, ptr %9, align 1
-  %51 = trunc i8 %50 to i1
+48:                                               ; preds = %47
+  %49 = load i8, ptr %9, align 1
+  %50 = trunc i8 %49 to i1
   br label %.thread32
 
-.thread32:                                        ; preds = %45, %49, %48
-  %52 = phi i1 [ false, %48 ], [ %51, %49 ], [ false, %45 ]
-  %53 = zext i1 %52 to i8
-  store i8 %53, ptr %1, align 1
-  %54 = xor i1 %52, true
-  %55 = zext i1 %54 to i8
+.thread32:                                        ; preds = %44, %48, %47
+  %51 = phi i1 [ false, %47 ], [ %50, %48 ], [ false, %44 ]
+  %52 = zext i1 %51 to i8
+  store i8 %52, ptr %1, align 1
+  %53 = xor i1 %51, true
+  %54 = zext i1 %53 to i8
   br label %.sink.split
 
-56:                                               ; preds = %41
+55:                                               ; preds = %40
   store i8 0, ptr %1, align 1
-  %57 = load i8, ptr %10, align 1
-  %58 = and i8 %57, 1
-  %59 = select i1 %37, i8 1, i8 %58
+  %56 = load i8, ptr %10, align 1
+  %57 = and i8 %56, 1
+  %58 = select i1 %36, i8 1, i8 %57
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.thread32, %56, %18
-  %storemerge.sink = phi i8 [ 0, %18 ], [ %59, %56 ], [ %55, %.thread32 ]
+.sink.split:                                      ; preds = %.thread32, %55, %17
+  %storemerge.sink = phi i8 [ 0, %17 ], [ %58, %55 ], [ %54, %.thread32 ]
   store i8 %storemerge.sink, ptr %2, align 1
-  br label %60
+  br label %59
 
-60:                                               ; preds = %.sink.split, %21, %45, %38, %33, %24, %19, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %19 ], [ false, %24 ], [ false, %33 ], [ false, %38 ], [ false, %45 ], [ false, %21 ], [ true, %.sink.split ]
+59:                                               ; preds = %.sink.split, %20, %44, %37, %32, %23, %18, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %18 ], [ false, %23 ], [ false, %32 ], [ false, %37 ], [ false, %44 ], [ false, %20 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

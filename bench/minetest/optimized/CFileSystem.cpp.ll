@@ -4532,9 +4532,9 @@ for.body.i.us.preheader:                          ; preds = %if.then15.us
   %sub.us = sub i32 %10, %tokenStartIdx.0165.us
   %conv.i83.us = zext i32 %sub.us to i64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef %conv.i83.us, i8 noundef signext 0) #23
-  %11 = add nsw i64 %conv.i83.us, -1
   %xtraiter = and i64 %conv.i83.us, 3
-  %12 = icmp ult i64 %11, 3
+  %11 = add i32 %sub.us, -1
+  %12 = icmp ult i32 %11, 3
   br i1 %12, label %_ZN3irr4core6stringIcEC2IcEEPKT_j.exit.us.loopexit.unr-lcssa, label %for.body.i.us.preheader.new
 
 for.body.i.us.preheader.new:                      ; preds = %for.body.i.us.preheader
@@ -4756,9 +4756,9 @@ if.end.i126:                                      ; preds = %if.then40
   %sub46 = sub i32 %conv.i.lcssa182, %tokenStartIdx.0.lcssa181
   %conv.i127 = zext i32 %sub46 to i64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41, i64 noundef %conv.i127, i8 noundef signext 0) #23
-  %44 = add nsw i64 %conv.i127, -1
   %xtraiter183 = and i64 %conv.i127, 3
-  %45 = icmp ult i64 %44, 3
+  %44 = add i32 %sub46, -1
+  %45 = icmp ult i32 %44, 3
   br i1 %45, label %_ZN3irr4core6stringIcEC2IcEEPKT_j.exit135.loopexit.unr-lcssa, label %if.end.i126.new
 
 if.end.i126.new:                                  ; preds = %if.end.i126

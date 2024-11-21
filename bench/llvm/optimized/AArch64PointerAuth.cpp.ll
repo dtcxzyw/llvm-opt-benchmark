@@ -1264,9 +1264,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118AArch64PointerAuth20runOn
   %.sroa.064.079 = phi ptr [ %.sroa.064.0, %91 ], [ %.sroa.064.077, %.lr.ph84 ]
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.064.079, i64 68
   %69 = load i16, ptr %68, align 4
-  %70 = zext i16 %69 to i32
-  %.off = add nsw i32 %70, -1002
-  %switch = icmp ult i32 %.off, 3
+  %70 = add i16 %69, -1002
+  %switch = icmp ult i16 %70, 3
   br i1 %switch, label %80, label %71
 
 71:                                               ; preds = %.lr.ph

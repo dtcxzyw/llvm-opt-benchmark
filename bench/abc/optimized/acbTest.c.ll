@@ -958,206 +958,205 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   %.val101 = load ptr, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %.val101, i64 %10
   %88 = load i8, ptr %87, align 1
-  %89 = zext i8 %88 to i32
-  switch i8 %88, label %159 [
-    i8 7, label %90
-    i8 8, label %92
-    i8 9, label %94
-    i8 11, label %96
-    i8 12, label %102
-    i8 78, label %109
-    i8 21, label %121
+  switch i8 %88, label %158 [
+    i8 7, label %89
+    i8 8, label %91
+    i8 9, label %93
+    i8 11, label %95
+    i8 12, label %101
+    i8 78, label %108
+    i8 21, label %120
   ]
 
-90:                                               ; preds = %.critedge
+89:                                               ; preds = %.critedge
   store i32 0, ptr %5, align 4
-  %91 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 0, ptr %91, align 4
-  br label %193
+  %90 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 0, ptr %90, align 4
+  br label %192
 
-92:                                               ; preds = %.critedge
+91:                                               ; preds = %.critedge
   store i32 1, ptr %5, align 4
-  %93 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 0, ptr %93, align 4
-  br label %193
+  %92 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 0, ptr %92, align 4
+  br label %192
 
-94:                                               ; preds = %.critedge
+93:                                               ; preds = %.critedge
   store i32 0, ptr %5, align 4
-  %95 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 1, ptr %95, align 4
-  br label %193
+  %94 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 1, ptr %94, align 4
+  br label %192
 
-96:                                               ; preds = %.critedge
-  %97 = getelementptr i8, ptr %3, i64 8
-  %.val96 = load ptr, ptr %97, align 8
-  %98 = load i32, ptr %.val96, align 4
-  store i32 %98, ptr %5, align 4
-  %.val97 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %.val97, i64 4
-  %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %100, ptr %101, align 4
-  br label %193
+95:                                               ; preds = %.critedge
+  %96 = getelementptr i8, ptr %3, i64 8
+  %.val96 = load ptr, ptr %96, align 8
+  %97 = load i32, ptr %.val96, align 4
+  store i32 %97, ptr %5, align 4
+  %.val97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %.val97, i64 4
+  %99 = load i32, ptr %98, align 4
+  %100 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %99, ptr %100, align 4
+  br label %192
 
-102:                                              ; preds = %.critedge
-  %103 = getelementptr i8, ptr %3, i64 8
-  %.val102 = load ptr, ptr %103, align 8
-  %104 = load i32, ptr %.val102, align 4
-  %105 = xor i32 %104, 1
-  store i32 %105, ptr %5, align 4
-  %106 = getelementptr inbounds i8, ptr %.val102, i64 4
-  %107 = load i32, ptr %106, align 4
-  %108 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %107, ptr %108, align 4
-  br label %193
+101:                                              ; preds = %.critedge
+  %102 = getelementptr i8, ptr %3, i64 8
+  %.val102 = load ptr, ptr %102, align 8
+  %103 = load i32, ptr %.val102, align 4
+  %104 = xor i32 %103, 1
+  store i32 %104, ptr %5, align 4
+  %105 = getelementptr inbounds i8, ptr %.val102, i64 4
+  %106 = load i32, ptr %105, align 4
+  %107 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %106, ptr %107, align 4
+  br label %192
 
-109:                                              ; preds = %.critedge
-  %110 = getelementptr i8, ptr %3, i64 8
-  %.val103 = load ptr, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %.val103, i64 8
-  %112 = load i32, ptr %.val103, align 4
-  store i32 %112, ptr %5, align 4
-  %113 = load i32, ptr %111, align 4
-  %114 = getelementptr inbounds i8, ptr %.val103, i64 12
-  %115 = load i32, ptr %114, align 4
-  %116 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %113, i32 noundef %115) #18
-  %117 = getelementptr inbounds i8, ptr %.val103, i64 4
-  %118 = load i32, ptr %117, align 4
-  %119 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %116, i32 noundef %118) #18
-  %120 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %119, ptr %120, align 4
-  br label %193
+108:                                              ; preds = %.critedge
+  %109 = getelementptr i8, ptr %3, i64 8
+  %.val103 = load ptr, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %.val103, i64 8
+  %111 = load i32, ptr %.val103, align 4
+  store i32 %111, ptr %5, align 4
+  %112 = load i32, ptr %110, align 4
+  %113 = getelementptr inbounds i8, ptr %.val103, i64 12
+  %114 = load i32, ptr %113, align 4
+  %115 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %112, i32 noundef %114) #18
+  %116 = getelementptr inbounds i8, ptr %.val103, i64 4
+  %117 = load i32, ptr %116, align 4
+  %118 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %115, i32 noundef %117) #18
+  %119 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %118, ptr %119, align 4
+  br label %192
 
-121:                                              ; preds = %.critedge
-  %122 = getelementptr i8, ptr %3, i64 8
-  %.val105 = load ptr, ptr %122, align 8
-  %123 = load i32, ptr %.val105, align 4
-  %124 = getelementptr inbounds i8, ptr %.val105, i64 16
-  %125 = load i32, ptr %124, align 4
-  store i32 %125, ptr %.val105, align 4
-  %.val108 = load ptr, ptr %122, align 8
-  %126 = getelementptr inbounds i8, ptr %.val108, i64 16
-  store i32 %123, ptr %126, align 4
-  %.val109 = load ptr, ptr %122, align 8
-  %127 = getelementptr inbounds i8, ptr %.val109, i64 4
-  %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds i8, ptr %.val109, i64 20
-  %130 = load i32, ptr %129, align 4
-  store i32 %130, ptr %127, align 4
-  %.val112 = load ptr, ptr %122, align 8
-  %131 = getelementptr inbounds i8, ptr %.val112, i64 20
-  store i32 %128, ptr %131, align 4
-  %.val113 = load ptr, ptr %122, align 8
-  %132 = getelementptr inbounds i8, ptr %.val113, i64 8
-  %133 = getelementptr inbounds i8, ptr %.val113, i64 16
-  %134 = load i32, ptr %132, align 4
-  %135 = xor i32 %134, 1
-  %136 = load i32, ptr %133, align 4
-  %137 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %135, i32 noundef %136) #18
-  %138 = getelementptr inbounds i8, ptr %.val113, i64 12
-  %139 = load i32, ptr %138, align 4
-  %140 = xor i32 %139, 1
-  %141 = getelementptr inbounds i8, ptr %.val113, i64 20
-  %142 = load i32, ptr %141, align 4
-  %143 = xor i32 %142, 1
-  %144 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %140, i32 noundef %143) #18
-  %145 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %144, i32 noundef %137) #18
-  %146 = xor i32 %145, 1
-  %147 = load i32, ptr %.val113, align 4
-  %148 = load i32, ptr %138, align 4
-  %149 = load i32, ptr %141, align 4
-  %150 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %147, i32 noundef %148, i32 noundef %149) #18
-  %151 = load i32, ptr %.val113, align 4
+120:                                              ; preds = %.critedge
+  %121 = getelementptr i8, ptr %3, i64 8
+  %.val105 = load ptr, ptr %121, align 8
+  %122 = load i32, ptr %.val105, align 4
+  %123 = getelementptr inbounds i8, ptr %.val105, i64 16
+  %124 = load i32, ptr %123, align 4
+  store i32 %124, ptr %.val105, align 4
+  %.val108 = load ptr, ptr %121, align 8
+  %125 = getelementptr inbounds i8, ptr %.val108, i64 16
+  store i32 %122, ptr %125, align 4
+  %.val109 = load ptr, ptr %121, align 8
+  %126 = getelementptr inbounds i8, ptr %.val109, i64 4
+  %127 = load i32, ptr %126, align 4
+  %128 = getelementptr inbounds i8, ptr %.val109, i64 20
+  %129 = load i32, ptr %128, align 4
+  store i32 %129, ptr %126, align 4
+  %.val112 = load ptr, ptr %121, align 8
+  %130 = getelementptr inbounds i8, ptr %.val112, i64 20
+  store i32 %127, ptr %130, align 4
+  %.val113 = load ptr, ptr %121, align 8
+  %131 = getelementptr inbounds i8, ptr %.val113, i64 8
+  %132 = getelementptr inbounds i8, ptr %.val113, i64 16
+  %133 = load i32, ptr %131, align 4
+  %134 = xor i32 %133, 1
+  %135 = load i32, ptr %132, align 4
+  %136 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %134, i32 noundef %135) #18
+  %137 = getelementptr inbounds i8, ptr %.val113, i64 12
+  %138 = load i32, ptr %137, align 4
+  %139 = xor i32 %138, 1
+  %140 = getelementptr inbounds i8, ptr %.val113, i64 20
+  %141 = load i32, ptr %140, align 4
+  %142 = xor i32 %141, 1
+  %143 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %139, i32 noundef %142) #18
+  %144 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %143, i32 noundef %136) #18
+  %145 = xor i32 %144, 1
+  %146 = load i32, ptr %.val113, align 4
+  %147 = load i32, ptr %137, align 4
+  %148 = load i32, ptr %140, align 4
+  %149 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %146, i32 noundef %147, i32 noundef %148) #18
+  %150 = load i32, ptr %.val113, align 4
+  %151 = load i32, ptr %131, align 4
   %152 = load i32, ptr %132, align 4
-  %153 = load i32, ptr %133, align 4
-  %154 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %151, i32 noundef %152, i32 noundef %153) #18
-  store i32 %154, ptr %5, align 4
-  %155 = getelementptr inbounds i8, ptr %.val113, i64 4
-  %156 = load i32, ptr %155, align 4
-  %157 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %156, i32 noundef %146, i32 noundef %150) #18
-  %158 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %157, ptr %158, align 4
-  br label %193
+  %153 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %150, i32 noundef %151, i32 noundef %152) #18
+  store i32 %153, ptr %5, align 4
+  %154 = getelementptr inbounds i8, ptr %.val113, i64 4
+  %155 = load i32, ptr %154, align 4
+  %156 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %155, i32 noundef %145, i32 noundef %149) #18
+  %157 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %156, ptr %157, align 4
+  br label %192
 
-159:                                              ; preds = %.critedge
-  %160 = add nsw i32 %89, -13
-  %or.cond = icmp ult i32 %160, 2
-  br i1 %or.cond, label %161, label %168
+158:                                              ; preds = %.critedge
+  %159 = add i8 %88, -13
+  %or.cond = icmp ult i8 %159, 2
+  br i1 %or.cond, label %160, label %167
 
-161:                                              ; preds = %159
-  %162 = icmp eq i8 %88, 14
-  %163 = getelementptr i8, ptr %3, i64 8
-  %.val116 = load ptr, ptr %163, align 8
+160:                                              ; preds = %158
+  %161 = icmp eq i8 %88, 14
+  %162 = getelementptr i8, ptr %3, i64 8
+  %.val116 = load ptr, ptr %162, align 8
   %.val = load i32, ptr %7, align 4
-  %164 = sdiv i32 %.val, 2
-  tail call void @Gia_ManDualAndN(ptr noundef %0, ptr noundef %.val116, i32 noundef %164, ptr noundef %5)
-  br i1 %162, label %165, label %193
+  %163 = sdiv i32 %.val, 2
+  tail call void @Gia_ManDualAndN(ptr noundef %0, ptr noundef %.val116, i32 noundef %163, ptr noundef %5)
+  br i1 %161, label %164, label %192
 
-165:                                              ; preds = %161
-  %166 = load i32, ptr %5, align 4
-  %167 = xor i32 %166, 1
-  store i32 %167, ptr %5, align 4
-  br label %193
+164:                                              ; preds = %160
+  %165 = load i32, ptr %5, align 4
+  %166 = xor i32 %165, 1
+  store i32 %166, ptr %5, align 4
+  br label %192
 
-168:                                              ; preds = %159
-  %169 = icmp eq i8 %88, 15
-  %170 = add nsw i32 %89, -15
-  %or.cond3 = icmp ult i32 %170, 2
-  br i1 %or.cond3, label %171, label %184
+167:                                              ; preds = %158
+  %168 = icmp eq i8 %88, 15
+  %169 = add i8 %88, -15
+  %or.cond3 = icmp ult i8 %169, 2
+  br i1 %or.cond3, label %170, label %183
 
-171:                                              ; preds = %168
-  %172 = getelementptr i8, ptr %3, i64 8
-  %.val117 = load ptr, ptr %172, align 8
+170:                                              ; preds = %167
+  %171 = getelementptr i8, ptr %3, i64 8
+  %.val117 = load ptr, ptr %171, align 8
   %.val94121 = load i32, ptr %7, align 4
-  %173 = sdiv i32 %.val94121, 2
-  %174 = icmp sgt i32 %.val94121, 1
-  br i1 %174, label %.lr.ph123, label %._crit_edge
+  %172 = sdiv i32 %.val94121, 2
+  %173 = icmp sgt i32 %.val94121, 1
+  br i1 %173, label %.lr.ph123, label %._crit_edge
 
-.lr.ph123:                                        ; preds = %171, %.lr.ph123
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph123 ], [ 0, %171 ]
+.lr.ph123:                                        ; preds = %170, %.lr.ph123
+  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph123 ], [ 0, %170 ]
   %.idx = shl nsw i64 %indvars.iv126, 3
-  %175 = getelementptr inbounds i8, ptr %.val117, i64 %.idx
-  %176 = load i32, ptr %175, align 4
-  %177 = xor i32 %176, 1
-  store i32 %177, ptr %175, align 4
+  %174 = getelementptr inbounds i8, ptr %.val117, i64 %.idx
+  %175 = load i32, ptr %174, align 4
+  %176 = xor i32 %175, 1
+  store i32 %176, ptr %174, align 4
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %.val94 = load i32, ptr %7, align 4
-  %178 = sdiv i32 %.val94, 2
-  %179 = sext i32 %178 to i64
-  %180 = icmp slt i64 %indvars.iv.next127, %179
-  br i1 %180, label %.lr.ph123, label %._crit_edge, !llvm.loop !15
+  %177 = sdiv i32 %.val94, 2
+  %178 = sext i32 %177 to i64
+  %179 = icmp slt i64 %indvars.iv.next127, %178
+  br i1 %179, label %.lr.ph123, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph123, %171
-  %.lcssa = phi i32 [ %173, %171 ], [ %178, %.lr.ph123 ]
+._crit_edge:                                      ; preds = %.lr.ph123, %170
+  %.lcssa = phi i32 [ %172, %170 ], [ %177, %.lr.ph123 ]
   tail call void @Gia_ManDualAndN(ptr noundef %0, ptr noundef %.val117, i32 noundef %.lcssa, ptr noundef %5)
-  br i1 %169, label %181, label %193
+  br i1 %168, label %180, label %192
 
-181:                                              ; preds = %._crit_edge
-  %182 = load i32, ptr %5, align 4
-  %183 = xor i32 %182, 1
-  store i32 %183, ptr %5, align 4
-  br label %193
+180:                                              ; preds = %._crit_edge
+  %181 = load i32, ptr %5, align 4
+  %182 = xor i32 %181, 1
+  store i32 %182, ptr %5, align 4
+  br label %192
 
-184:                                              ; preds = %168
-  %185 = add nsw i32 %89, -17
-  %or.cond5 = icmp ult i32 %185, 2
-  br i1 %or.cond5, label %186, label %193
+183:                                              ; preds = %167
+  %184 = add i8 %88, -17
+  %or.cond5 = icmp ult i8 %184, 2
+  br i1 %or.cond5, label %185, label %192
 
-186:                                              ; preds = %184
-  %187 = icmp eq i8 %88, 18
-  %188 = getelementptr i8, ptr %3, i64 8
-  %.val118 = load ptr, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %.val118, i64 8
-  tail call void @Gia_ManDualXor2(ptr noundef %0, ptr noundef %.val118, ptr noundef nonnull %189, ptr noundef %5)
-  br i1 %187, label %190, label %193
+185:                                              ; preds = %183
+  %186 = icmp eq i8 %88, 18
+  %187 = getelementptr i8, ptr %3, i64 8
+  %.val118 = load ptr, ptr %187, align 8
+  %188 = getelementptr inbounds i8, ptr %.val118, i64 8
+  tail call void @Gia_ManDualXor2(ptr noundef %0, ptr noundef %.val118, ptr noundef nonnull %188, ptr noundef %5)
+  br i1 %186, label %189, label %192
 
-190:                                              ; preds = %186
-  %191 = load i32, ptr %5, align 4
-  %192 = xor i32 %191, 1
-  store i32 %192, ptr %5, align 4
-  br label %193
+189:                                              ; preds = %185
+  %190 = load i32, ptr %5, align 4
+  %191 = xor i32 %190, 1
+  store i32 %191, ptr %5, align 4
+  br label %192
 
-193:                                              ; preds = %186, %190, %184, %._crit_edge, %181, %161, %165, %121, %109, %102, %96, %94, %92, %90
+192:                                              ; preds = %185, %189, %183, %._crit_edge, %180, %160, %164, %120, %108, %101, %95, %93, %91, %89
   ret void
 }
 

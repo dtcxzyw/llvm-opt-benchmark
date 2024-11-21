@@ -539,12 +539,12 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN8tinyxml27StrPair9ParseNameEPc(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %30, label %3
+  br i1 %.not, label %31, label %3
 
 3:                                                ; preds = %2
   %4 = load i8, ptr %1, align 1
   %.not17 = icmp eq i8 %4, 0
-  br i1 %.not17, label %30, label %5
+  br i1 %.not17, label %31, label %5
 
 5:                                                ; preds = %3
   %6 = icmp slt i8 %4, 0
@@ -557,7 +557,7 @@ define noundef ptr @_ZN8tinyxml27StrPair9ParseNameEPc(ptr nocapture noundef nonn
   br i1 %.not.i, label %10, label %.preheader
 
 10:                                               ; preds = %7
-  switch i8 %4, label %30 [
+  switch i8 %4, label %31 [
     i8 95, label %.preheader
     i8 58, label %.preheader
   ]
@@ -569,7 +569,7 @@ define noundef ptr @_ZN8tinyxml27StrPair9ParseNameEPc(ptr nocapture noundef nonn
   br i1 %.not1821, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
-  %12 = phi i8 [ %20, %.backedge ], [ %11, %.preheader ]
+  %12 = phi i8 [ %21, %.backedge ], [ %11, %.preheader ]
   %.01322 = phi ptr [ %.013, %.backedge ], [ %.01320, %.preheader ]
   %13 = icmp slt i8 %12, 0
   br i1 %13, label %.backedge, label %14
@@ -587,45 +587,45 @@ _ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit.i:   ; preds = %14
   ]
 
 17:                                               ; preds = %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit.i
-  %isdigittmp.i = add nsw i32 %15, -48
-  %isdigit.i = icmp ult i32 %isdigittmp.i, 10
-  %18 = add nsw i8 %12, -45
-  %19 = icmp ult i8 %18, 2
-  %spec.select.i = or i1 %19, %isdigit.i
+  %18 = add nsw i8 %12, -48
+  %isdigit.i = icmp ult i8 %18, 10
+  %19 = add nsw i8 %12, -45
+  %20 = icmp ult i8 %19, 2
+  %spec.select.i = or i1 %isdigit.i, %20
   br i1 %spec.select.i, label %.backedge, label %.critedge
 
 .backedge:                                        ; preds = %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit.i, %_ZN8tinyxml27XMLUtil15IsNameStartCharEh.exit.i, %14, %.lr.ph, %17
   %.013 = getelementptr inbounds i8, ptr %.01322, i64 1
-  %20 = load i8, ptr %.013, align 1
-  %.not18 = icmp eq i8 %20, 0
+  %21 = load i8, ptr %.013, align 1
+  %.not18 = icmp eq i8 %21, 0
   br i1 %.not18, label %.critedge, label %.lr.ph, !llvm.loop !6
 
 .critedge:                                        ; preds = %.backedge, %17, %.preheader
   %.013.lcssa = phi ptr [ %.01320, %.preheader ], [ %.01322, %17 ], [ %.013, %.backedge ]
-  %21 = load i32, ptr %0, align 8
-  %22 = and i32 %21, 512
-  %.not.i.i19 = icmp eq i32 %22, 0
-  br i1 %.not.i.i19, label %_ZN8tinyxml27StrPair3SetEPcS1_i.exit, label %23
+  %22 = load i32, ptr %0, align 8
+  %23 = and i32 %22, 512
+  %.not.i.i19 = icmp eq i32 %23, 0
+  br i1 %.not.i.i19, label %_ZN8tinyxml27StrPair3SetEPcS1_i.exit, label %24
 
-23:                                               ; preds = %.critedge
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %_ZN8tinyxml27StrPair3SetEPcS1_i.exit, label %27
+24:                                               ; preds = %.critedge
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %_ZN8tinyxml27StrPair3SetEPcS1_i.exit, label %28
 
-27:                                               ; preds = %23
-  tail call void @_ZdaPv(ptr noundef nonnull %25) #28
+28:                                               ; preds = %24
+  tail call void @_ZdaPv(ptr noundef nonnull %26) #28
   br label %_ZN8tinyxml27StrPair3SetEPcS1_i.exit
 
-_ZN8tinyxml27StrPair3SetEPcS1_i.exit:             ; preds = %.critedge, %23, %27
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.013.lcssa, ptr %29, align 8
+_ZN8tinyxml27StrPair3SetEPcS1_i.exit:             ; preds = %.critedge, %24, %28
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.013.lcssa, ptr %30, align 8
   store i32 256, ptr %0, align 8
-  br label %30
+  br label %31
 
-30:                                               ; preds = %10, %2, %3, %_ZN8tinyxml27StrPair3SetEPcS1_i.exit
+31:                                               ; preds = %10, %2, %3, %_ZN8tinyxml27StrPair3SetEPcS1_i.exit
   %.0 = phi ptr [ %.013.lcssa, %_ZN8tinyxml27StrPair3SetEPcS1_i.exit ], [ null, %3 ], [ null, %2 ], [ null, %10 ]
   ret ptr %.0
 }

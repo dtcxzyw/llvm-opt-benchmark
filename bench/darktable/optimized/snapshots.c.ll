@@ -1509,8 +1509,8 @@ define internal void @_signal_image_removed(ptr nocapture readnone %0, i32 nound
 
 .loopexit2:                                       ; preds = %.preheader1, %18
   %29 = phi i64 [ %9, %18 ], [ %25, %.preheader1 ]
-  %30 = add nsw i64 %9, -6
-  %31 = icmp ult i64 %30, 3
+  %30 = add nsw i32 %8, -6
+  %31 = icmp ult i32 %30, 3
   br i1 %31, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit2, %13

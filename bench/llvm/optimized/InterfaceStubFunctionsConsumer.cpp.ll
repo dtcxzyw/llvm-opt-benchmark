@@ -42798,7 +42798,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14
   %9 = alloca %"class.std::vector.482", align 8
   %10 = and i32 %3, 1
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %93, label %11
+  br i1 %.not, label %92, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %2, i64 16
@@ -42828,17 +42828,17 @@ _ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13M
   %18 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = icmp ult ptr %1, %19
-  br i1 %20, label %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, label %93
+  br i1 %20, label %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, label %92
 
 _ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread: ; preds = %11, %_ZNSt8_Rb_treeIPKN5clang9NamedDeclESt4pairIKS3_N12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 127
   switch i32 %23, label %24 [
-    i32 48, label %93
-    i32 47, label %93
-    i32 46, label %93
-    i32 40, label %93
+    i32 48, label %92
+    i32 47, label %92
+    i32 46, label %92
+    i32 40, label %92
   ]
 
 24:                                               ; preds = %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread
@@ -42855,111 +42855,110 @@ _ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13M
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i16, ptr %30, align 8
   %32 = and i16 %31, 127
-  %33 = zext nneg i16 %32 to i32
-  %34 = add nsw i32 %33, -31
-  %35 = icmp ult i32 %34, 6
-  br i1 %35, label %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit, label %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit.thread
+  %33 = add nsw i16 %32, -31
+  %34 = icmp ult i16 %33, 6
+  br i1 %34, label %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit, label %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit.thread
 
 _ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit: ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %28, i64 -72
-  %37 = tail call fastcc noundef zeroext i1 @_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E0_clES4_(ptr nonnull %0, ptr noundef nonnull %36)
-  br i1 %37, label %93, label %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit.thread
+  %35 = getelementptr inbounds i8, ptr %28, i64 -72
+  %36 = tail call fastcc noundef zeroext i1 @_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E0_clES4_(ptr nonnull %0, ptr noundef nonnull %35)
+  br i1 %36, label %92, label %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit.thread
 
 _ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit.thread: ; preds = %27, %29, %24, %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit
-  %.0.i38 = phi ptr [ %36, %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit ], [ null, %24 ], [ null, %29 ], [ null, %27 ]
-  %38 = tail call fastcc noundef zeroext i1 @_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E0_clES4_(ptr nonnull %0, ptr noundef %1)
-  br i1 %38, label %93, label %39
+  %.0.i38 = phi ptr [ %35, %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit ], [ null, %24 ], [ null, %29 ], [ null, %27 ]
+  %37 = tail call fastcc noundef zeroext i1 @_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E0_clES4_(ptr nonnull %0, ptr noundef %1)
+  br i1 %37, label %92, label %38
 
-39:                                               ; preds = %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit.thread
+38:                                               ; preds = %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit.thread
   %.not14 = icmp samesign ult i32 %3, 2
-  br i1 %.not14, label %60, label %40
+  br i1 %.not14, label %59, label %39
 
-40:                                               ; preds = %39
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %44 = load ptr, ptr %43, align 8
-  call void @_ZN5clang17DiagnosticsEngine6ReportEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %5, ptr noundef nonnull align 8 dereferenceable(1304) %44, i32 noundef 5)
-  %45 = load ptr, ptr %5, align 8
-  %.not.i.i.i22 = icmp eq ptr %45, null
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %43 = load ptr, ptr %42, align 8
+  call void @_ZN5clang17DiagnosticsEngine6ReportEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %5, ptr noundef nonnull align 8 dereferenceable(1304) %43, i32 noundef 5)
+  %44 = load ptr, ptr %5, align 8
+  %.not.i.i.i22 = icmp eq ptr %44, null
   br i1 %.not.i.i.i22, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIA75_cEERKS0_RKT_.exit
 
-_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = call noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv(ptr noundef nonnull align 8 dereferenceable(14980) %47)
-  store ptr %48, ptr %5, align 8
+_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = call noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv(ptr noundef nonnull align 8 dereferenceable(14980) %46)
+  store ptr %47, ptr %5, align 8
   br label %_ZNK5clang17DiagnosticBuilderlsIA75_cEERKS0_RKT_.exit
 
-_ZNK5clang17DiagnosticBuilderlsIA75_cEERKS0_RKT_.exit: ; preds = %40, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i
-  %49 = phi ptr [ %48, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %45, %40 ]
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %51 = load i8, ptr %49, align 8
-  %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds [10 x i8], ptr %50, i64 0, i64 %52
-  store i8 1, ptr %53, align 1
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %56 = load i8, ptr %54, align 8
-  %57 = add i8 %56, 1
-  store i8 %57, ptr %54, align 8
-  %58 = zext i8 %56 to i64
-  %59 = getelementptr inbounds [10 x i64], ptr %55, i64 0, i64 %58
-  store i64 ptrtoint (ptr @.str.3 to i64), ptr %59, align 8
+_ZNK5clang17DiagnosticBuilderlsIA75_cEERKS0_RKT_.exit: ; preds = %39, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i
+  %48 = phi ptr [ %47, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %44, %39 ]
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
+  %50 = load i8, ptr %48, align 8
+  %51 = zext i8 %50 to i64
+  %52 = getelementptr inbounds [10 x i8], ptr %49, i64 0, i64 %51
+  store i8 1, ptr %52, align 1
+  %53 = load ptr, ptr %5, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %55 = load i8, ptr %53, align 8
+  %56 = add i8 %55, 1
+  store i8 %56, ptr %53, align 8
+  %57 = zext i8 %55 to i64
+  %58 = getelementptr inbounds [10 x i64], ptr %54, i64 0, i64 %57
+  store i64 ptrtoint (ptr @.str.3 to i64), ptr %58, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %5) #17
-  br label %93
+  br label %92
 
-60:                                               ; preds = %39
-  %61 = load i32, ptr %21, align 4
-  %62 = and i32 %61, 127
-  %63 = add nsw i32 %62, -37
-  %64 = icmp ult i32 %63, -6
-  br i1 %64, label %68, label %65
+59:                                               ; preds = %38
+  %60 = load i32, ptr %21, align 4
+  %61 = and i32 %60, 127
+  %62 = add nsw i32 %61, -37
+  %63 = icmp ult i32 %62, -6
+  br i1 %63, label %67, label %64
 
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %1, i64 72
-  %67 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #17
-  br i1 %67, label %93, label %68
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds i8, ptr %1, i64 72
+  %66 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %65) #17
+  br i1 %66, label %92, label %67
 
-68:                                               ; preds = %65, %60
-  %69 = tail call noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv(ptr noundef nonnull align 8 dereferenceable(33) %1)
-  br i1 %69, label %75, label %70
+67:                                               ; preds = %64, %59
+  %68 = tail call noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv(ptr noundef nonnull align 8 dereferenceable(33) %1)
+  br i1 %68, label %74, label %69
 
-70:                                               ; preds = %68
-  %71 = tail call noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_11WeakRefAttrEEEbv(ptr noundef nonnull align 8 dereferenceable(33) %1)
-  br i1 %71, label %75, label %72
+69:                                               ; preds = %67
+  %70 = tail call noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_11WeakRefAttrEEEbv(ptr noundef nonnull align 8 dereferenceable(33) %1)
+  br i1 %70, label %74, label %71
 
-72:                                               ; preds = %70
-  %73 = tail call noundef zeroext i1 @_ZNK5clang4Decl14isWeakImportedEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #17
-  %74 = select i1 %73, i8 2, i8 1
-  br label %75
+71:                                               ; preds = %69
+  %72 = tail call noundef zeroext i1 @_ZNK5clang4Decl14isWeakImportedEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #17
+  %73 = select i1 %72, i8 2, i8 1
+  br label %74
 
-75:                                               ; preds = %72, %70, %68
-  %76 = phi i8 [ 2, %70 ], [ 2, %68 ], [ %74, %72 ]
+74:                                               ; preds = %71, %69, %67
+  %75 = phi i8 [ 2, %69 ], [ 2, %67 ], [ %73, %71 ]
   call fastcc void @_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E2_clB5cxx11ES4_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %.0.i38)
-  %77 = load ptr, ptr %8, align 8
-  %78 = load i32, ptr %21, align 4
-  %79 = and i32 %78, 127
-  %80 = add nsw i32 %79, -37
-  %81 = icmp ult i32 %80, 7
-  %82 = select i1 %81, i8 1, i8 2
+  %76 = load ptr, ptr %8, align 8
+  %77 = load i32, ptr %21, align 4
+  %78 = and i32 %77, 127
+  %79 = add nsw i32 %78, -37
+  %80 = icmp ult i32 %79, 7
+  %81 = select i1 %80, i8 1, i8 2
   call fastcc void @_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E2_clB5cxx11ES4_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %1)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(32) %77) #17
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 %82, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 %76, ptr %84, align 1
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %86 = load ptr, ptr %9, align 8
-  store ptr %86, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %89 = load ptr, ptr %88, align 8
-  store ptr %89, ptr %87, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %91 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %92 = load ptr, ptr %91, align 8
-  store ptr %92, ptr %90, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(32) %76) #17
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 %81, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 %75, ptr %83, align 1
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %85 = load ptr, ptr %9, align 8
+  store ptr %85, ptr %84, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %88 = load ptr, ptr %87, align 8
+  store ptr %88, ptr %86, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %91 = load ptr, ptr %90, align 8
+  store ptr %91, ptr %89, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call fastcc void @_ZSt9make_pairIRPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_(ptr dead_on_unwind noalias writable align 8 %6, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(64) %7)
   call fastcc void @_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE6insertIS9_IS3_S6_EEENSt9enable_ifIXsr16is_constructibleISB_T_EE5valueES9_ISt17_Rb_tree_iteratorISB_EbEE4typeEOSH_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(72) %6)
@@ -42967,9 +42966,9 @@ _ZNK5clang17DiagnosticBuilderlsIA75_cEERKS0_RKT_.exit: ; preds = %40, %_ZNK5clan
   call fastcc void @_ZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #17
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  br label %93
+  br label %92
 
-93:                                               ; preds = %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, %_ZNK5clang17DiagnosticBuilderlsIA75_cEERKS0_RKT_.exit, %75, %65, %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit, %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit.thread, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit, %4
+92:                                               ; preds = %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, %_ZNK5clang17DiagnosticBuilderlsIA75_cEERKS0_RKT_.exit, %74, %64, %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit, %_ZZN12_GLOBAL__N_130InterfaceStubFunctionsConsumer14WriteNamedDeclEPKN5clang9NamedDeclERSt3mapIS4_NS0_13MangledSymbolESt4lessIS4_ESaISt4pairIKS4_S6_EEEiENKUlS4_E1_clES4_.exit.thread, %_ZNSt3mapIPKN5clang9NamedDeclEN12_GLOBAL__N_130InterfaceStubFunctionsConsumer13MangledSymbolESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit, %4
   ret void
 }
 

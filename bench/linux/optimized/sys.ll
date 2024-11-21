@@ -2966,7 +2966,7 @@ define internal fastcc noundef range(i64 -14, 1) i64 @__se_sys_newuname(i64 noun
   tail call void @up_read(ptr noundef nonnull @uts_sem) #13
   %11 = call i64 @_copy_to_user(ptr noundef %4, ptr noundef nonnull %3, i64 noundef 390) #13
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %52
+  br i1 %12, label %13, label %51
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds i8, ptr %4, i64 130
@@ -2982,75 +2982,74 @@ define internal fastcc noundef range(i64 -14, 1) i64 @__se_sys_newuname(i64 noun
   br label %20
 
 20:                                               ; preds = %.thread.i, %19
-  %21 = phi i32 [ 0, %19 ], [ %31, %.thread.i ]
-  %22 = phi ptr [ @.str.3, %19 ], [ %32, %.thread.i ]
+  %21 = phi i32 [ 0, %19 ], [ %30, %.thread.i ]
+  %22 = phi ptr [ @.str.3, %19 ], [ %31, %.thread.i ]
   %23 = load i8, ptr %22, align 1
   switch i8 %23, label %27 [
-    i8 0, label %33
+    i8 0, label %32
     i8 46, label %24
   ]
 
 24:                                               ; preds = %20
   %25 = add i32 %21, 1
   %26 = icmp sgt i32 %25, 2
-  br i1 %26, label %33, label %.thread.i
+  br i1 %26, label %32, label %.thread.i
 
 27:                                               ; preds = %20
-  %28 = zext i8 %23 to i32
-  %29 = add nsw i32 %28, -48
-  %30 = icmp ult i32 %29, 10
-  br i1 %30, label %.thread.i, label %33
+  %28 = add i8 %23, -48
+  %29 = icmp ult i8 %28, 10
+  br i1 %29, label %.thread.i, label %32
 
 .thread.i:                                        ; preds = %27, %24
-  %31 = phi i32 [ %21, %27 ], [ %25, %24 ]
-  %32 = getelementptr i8, ptr %22, i64 1
+  %30 = phi i32 [ %21, %27 ], [ %25, %24 ]
+  %31 = getelementptr i8, ptr %22, i64 1
   br label %20, !llvm.loop !27
 
-33:                                               ; preds = %27, %24, %20
-  %34 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %2, i64 noundef 65, ptr noundef nonnull @.str.4, i32 noundef 68, ptr noundef %22) #13
-  %35 = sext i32 %34 to i64
-  %36 = add nsw i64 %35, 1
-  %37 = icmp ugt i64 %36, 65
-  br i1 %37, label %38, label %39, !prof !28
+32:                                               ; preds = %27, %24, %20
+  %33 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %2, i64 noundef 65, ptr noundef nonnull @.str.4, i32 noundef 68, ptr noundef %22) #13
+  %34 = sext i32 %33 to i64
+  %35 = add nsw i64 %34, 1
+  %36 = icmp ugt i64 %35, 65
+  br i1 %36, label %37, label %38, !prof !28
 
-38:                                               ; preds = %33
-  call void @__copy_overflow(i32 noundef 65, i64 noundef %36) #13
+37:                                               ; preds = %32
+  call void @__copy_overflow(i32 noundef 65, i64 noundef %35) #13
   br label %override_release.exit
 
-39:                                               ; preds = %33
-  %40 = call i64 @_copy_to_user(ptr noundef %14, ptr noundef nonnull %2, i64 noundef %36) #13
+38:                                               ; preds = %32
+  %39 = call i64 @_copy_to_user(ptr noundef %14, ptr noundef nonnull %2, i64 noundef %35) #13
   br label %override_release.exit
 
-override_release.exit:                            ; preds = %38, %39
-  %41 = phi i64 [ %40, %39 ], [ %36, %38 ]
+override_release.exit:                            ; preds = %37, %38
+  %40 = phi i64 [ %39, %38 ], [ %35, %37 ]
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %2) #13
-  %42 = and i64 %41, 4294967295
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %override_release.exit.override_release.exit.thread_crit_edge, label %52
+  %41 = and i64 %40, 4294967295
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %override_release.exit.override_release.exit.thread_crit_edge, label %51
 
 override_release.exit.override_release.exit.thread_crit_edge: ; preds = %override_release.exit
   %.pre = load i32, ptr %15, align 8
   br label %override_release.exit.thread
 
 override_release.exit.thread:                     ; preds = %override_release.exit.override_release.exit.thread_crit_edge, %13
-  %44 = phi i32 [ %.pre, %override_release.exit.override_release.exit.thread_crit_edge ], [ %16, %13 ]
-  %45 = and i32 %44, 255
-  %46 = icmp eq i32 %45, 8
-  br i1 %46, label %47, label %51
+  %43 = phi i32 [ %.pre, %override_release.exit.override_release.exit.thread_crit_edge ], [ %16, %13 ]
+  %44 = and i32 %43, 255
+  %45 = icmp eq i32 %44, 8
+  br i1 %45, label %46, label %50
 
-47:                                               ; preds = %override_release.exit.thread
-  %48 = getelementptr inbounds i8, ptr %4, i64 260
-  %49 = call i64 @_copy_to_user(ptr noundef %48, ptr noundef nonnull @.str.2, i64 noundef 7) #13
-  %50 = icmp eq i64 %49, 0
-  br i1 %50, label %51, label %52
+46:                                               ; preds = %override_release.exit.thread
+  %47 = getelementptr inbounds i8, ptr %4, i64 260
+  %48 = call i64 @_copy_to_user(ptr noundef %47, ptr noundef nonnull @.str.2, i64 noundef 7) #13
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %50, label %51
 
-51:                                               ; preds = %47, %override_release.exit.thread
-  br label %52
+50:                                               ; preds = %46, %override_release.exit.thread
+  br label %51
 
-52:                                               ; preds = %51, %47, %override_release.exit, %1
-  %53 = phi i64 [ 0, %51 ], [ -14, %1 ], [ -14, %override_release.exit ], [ -14, %47 ]
+51:                                               ; preds = %50, %46, %override_release.exit, %1
+  %52 = phi i64 [ 0, %50 ], [ -14, %1 ], [ -14, %override_release.exit ], [ -14, %46 ]
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %3) #13
-  ret i64 %53
+  ret i64 %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3077,7 +3076,7 @@ define internal fastcc noundef range(i64 -14, 1) i64 @__se_sys_uname(i64 noundef
   %4 = inttoptr i64 %0 to ptr
   call void @llvm.lifetime.start.p0(i64 325, ptr nonnull %3) #13
   %5 = icmp eq i64 %0, 0
-  br i1 %5, label %54, label %6
+  br i1 %5, label %53, label %6
 
 6:                                                ; preds = %1
   tail call void @down_read(ptr noundef nonnull @uts_sem) #13
@@ -3091,7 +3090,7 @@ define internal fastcc noundef range(i64 -14, 1) i64 @__se_sys_uname(i64 noundef
   tail call void @up_read(ptr noundef nonnull @uts_sem) #13
   %13 = call i64 @_copy_to_user(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef 325) #13
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %54
+  br i1 %14, label %15, label %53
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %4, i64 130
@@ -3107,75 +3106,74 @@ define internal fastcc noundef range(i64 -14, 1) i64 @__se_sys_uname(i64 noundef
   br label %22
 
 22:                                               ; preds = %.thread.i, %21
-  %23 = phi i32 [ 0, %21 ], [ %33, %.thread.i ]
-  %24 = phi ptr [ @.str.3, %21 ], [ %34, %.thread.i ]
+  %23 = phi i32 [ 0, %21 ], [ %32, %.thread.i ]
+  %24 = phi ptr [ @.str.3, %21 ], [ %33, %.thread.i ]
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %29 [
-    i8 0, label %35
+    i8 0, label %34
     i8 46, label %26
   ]
 
 26:                                               ; preds = %22
   %27 = add i32 %23, 1
   %28 = icmp sgt i32 %27, 2
-  br i1 %28, label %35, label %.thread.i
+  br i1 %28, label %34, label %.thread.i
 
 29:                                               ; preds = %22
-  %30 = zext i8 %25 to i32
-  %31 = add nsw i32 %30, -48
-  %32 = icmp ult i32 %31, 10
-  br i1 %32, label %.thread.i, label %35
+  %30 = add i8 %25, -48
+  %31 = icmp ult i8 %30, 10
+  br i1 %31, label %.thread.i, label %34
 
 .thread.i:                                        ; preds = %29, %26
-  %33 = phi i32 [ %23, %29 ], [ %27, %26 ]
-  %34 = getelementptr i8, ptr %24, i64 1
+  %32 = phi i32 [ %23, %29 ], [ %27, %26 ]
+  %33 = getelementptr i8, ptr %24, i64 1
   br label %22, !llvm.loop !27
 
-35:                                               ; preds = %29, %26, %22
-  %36 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %2, i64 noundef 65, ptr noundef nonnull @.str.4, i32 noundef 68, ptr noundef %24) #13
-  %37 = sext i32 %36 to i64
-  %38 = add nsw i64 %37, 1
-  %39 = icmp ugt i64 %38, 65
-  br i1 %39, label %40, label %41, !prof !28
+34:                                               ; preds = %29, %26, %22
+  %35 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %2, i64 noundef 65, ptr noundef nonnull @.str.4, i32 noundef 68, ptr noundef %24) #13
+  %36 = sext i32 %35 to i64
+  %37 = add nsw i64 %36, 1
+  %38 = icmp ugt i64 %37, 65
+  br i1 %38, label %39, label %40, !prof !28
 
-40:                                               ; preds = %35
-  call void @__copy_overflow(i32 noundef 65, i64 noundef %38) #13
+39:                                               ; preds = %34
+  call void @__copy_overflow(i32 noundef 65, i64 noundef %37) #13
   br label %override_release.exit
 
-41:                                               ; preds = %35
-  %42 = call i64 @_copy_to_user(ptr noundef %16, ptr noundef nonnull %2, i64 noundef %38) #13
+40:                                               ; preds = %34
+  %41 = call i64 @_copy_to_user(ptr noundef %16, ptr noundef nonnull %2, i64 noundef %37) #13
   br label %override_release.exit
 
-override_release.exit:                            ; preds = %40, %41
-  %43 = phi i64 [ %42, %41 ], [ %38, %40 ]
+override_release.exit:                            ; preds = %39, %40
+  %42 = phi i64 [ %41, %40 ], [ %37, %39 ]
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %2) #13
-  %44 = and i64 %43, 4294967295
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %override_release.exit.override_release.exit.thread_crit_edge, label %54
+  %43 = and i64 %42, 4294967295
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %override_release.exit.override_release.exit.thread_crit_edge, label %53
 
 override_release.exit.override_release.exit.thread_crit_edge: ; preds = %override_release.exit
   %.pre = load i32, ptr %17, align 8
   br label %override_release.exit.thread
 
 override_release.exit.thread:                     ; preds = %override_release.exit.override_release.exit.thread_crit_edge, %15
-  %46 = phi i32 [ %.pre, %override_release.exit.override_release.exit.thread_crit_edge ], [ %18, %15 ]
-  %47 = and i32 %46, 255
-  %48 = icmp eq i32 %47, 8
-  br i1 %48, label %49, label %53
+  %45 = phi i32 [ %.pre, %override_release.exit.override_release.exit.thread_crit_edge ], [ %18, %15 ]
+  %46 = and i32 %45, 255
+  %47 = icmp eq i32 %46, 8
+  br i1 %47, label %48, label %52
 
-49:                                               ; preds = %override_release.exit.thread
-  %50 = getelementptr inbounds i8, ptr %4, i64 260
-  %51 = call i64 @_copy_to_user(ptr noundef %50, ptr noundef nonnull @.str.2, i64 noundef 7) #13
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %53, label %54
+48:                                               ; preds = %override_release.exit.thread
+  %49 = getelementptr inbounds i8, ptr %4, i64 260
+  %50 = call i64 @_copy_to_user(ptr noundef %49, ptr noundef nonnull @.str.2, i64 noundef 7) #13
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %52, label %53
 
-53:                                               ; preds = %49, %override_release.exit.thread
-  br label %54
+52:                                               ; preds = %48, %override_release.exit.thread
+  br label %53
 
-54:                                               ; preds = %53, %49, %override_release.exit, %6, %1
-  %55 = phi i64 [ 0, %53 ], [ -14, %1 ], [ -14, %6 ], [ -14, %override_release.exit ], [ -14, %49 ]
+53:                                               ; preds = %52, %48, %override_release.exit, %6, %1
+  %54 = phi i64 [ 0, %52 ], [ -14, %1 ], [ -14, %6 ], [ -14, %override_release.exit ], [ -14, %48 ]
   call void @llvm.lifetime.end.p0(i64 325, ptr nonnull %3) #13
-  ret i64 %55
+  ret i64 %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3202,7 +3200,7 @@ define internal fastcc range(i64 -14, 1) i64 @__se_sys_olduname(i64 noundef %0) 
   %4 = inttoptr i64 %0 to ptr
   call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %3) #13
   %5 = icmp eq i64 %0, 0
-  br i1 %5, label %68, label %6
+  br i1 %5, label %67, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -3235,7 +3233,7 @@ define internal fastcc range(i64 -14, 1) i64 @__se_sys_olduname(i64 noundef %0) 
   tail call void @up_read(ptr noundef nonnull @uts_sem) #13
   %27 = call i64 @_copy_to_user(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef 45) #13
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %68
+  br i1 %28, label %29, label %67
 
 29:                                               ; preds = %6
   %30 = getelementptr inbounds i8, ptr %9, i64 1240
@@ -3248,7 +3246,7 @@ define internal fastcc range(i64 -14, 1) i64 @__se_sys_olduname(i64 noundef %0) 
   %35 = getelementptr inbounds i8, ptr %4, i64 36
   %36 = call i64 @_copy_to_user(ptr noundef %35, ptr noundef nonnull @.str.2, i64 noundef 7) #13
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %._crit_edge, label %68
+  br i1 %37, label %._crit_edge, label %67
 
 ._crit_edge:                                      ; preds = %34
   %.pre = load i32, ptr %30, align 8
@@ -3267,60 +3265,59 @@ define internal fastcc range(i64 -14, 1) i64 @__se_sys_olduname(i64 noundef %0) 
   br label %44
 
 44:                                               ; preds = %.thread.i, %43
-  %45 = phi i32 [ 0, %43 ], [ %55, %.thread.i ]
-  %46 = phi ptr [ @.str.3, %43 ], [ %56, %.thread.i ]
+  %45 = phi i32 [ 0, %43 ], [ %54, %.thread.i ]
+  %46 = phi ptr [ @.str.3, %43 ], [ %55, %.thread.i ]
   %47 = load i8, ptr %46, align 1
   switch i8 %47, label %51 [
-    i8 0, label %57
+    i8 0, label %56
     i8 46, label %48
   ]
 
 48:                                               ; preds = %44
   %49 = add i32 %45, 1
   %50 = icmp sgt i32 %49, 2
-  br i1 %50, label %57, label %.thread.i
+  br i1 %50, label %56, label %.thread.i
 
 51:                                               ; preds = %44
-  %52 = zext i8 %47 to i32
-  %53 = add nsw i32 %52, -48
-  %54 = icmp ult i32 %53, 10
-  br i1 %54, label %.thread.i, label %57
+  %52 = add i8 %47, -48
+  %53 = icmp ult i8 %52, 10
+  br i1 %53, label %.thread.i, label %56
 
 .thread.i:                                        ; preds = %51, %48
-  %55 = phi i32 [ %45, %51 ], [ %49, %48 ]
-  %56 = getelementptr i8, ptr %46, i64 1
+  %54 = phi i32 [ %45, %51 ], [ %49, %48 ]
+  %55 = getelementptr i8, ptr %46, i64 1
   br label %44, !llvm.loop !27
 
-57:                                               ; preds = %51, %48, %44
-  %58 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %2, i64 noundef 9, ptr noundef nonnull @.str.4, i32 noundef 68, ptr noundef %46) #13
-  %59 = sext i32 %58 to i64
-  %60 = add nsw i64 %59, 1
-  %61 = icmp ugt i64 %60, 65
-  br i1 %61, label %62, label %63, !prof !28
+56:                                               ; preds = %51, %48, %44
+  %57 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %2, i64 noundef 9, ptr noundef nonnull @.str.4, i32 noundef 68, ptr noundef %46) #13
+  %58 = sext i32 %57 to i64
+  %59 = add nsw i64 %58, 1
+  %60 = icmp ugt i64 %59, 65
+  br i1 %60, label %61, label %62, !prof !28
 
-62:                                               ; preds = %57
-  call void @__copy_overflow(i32 noundef 65, i64 noundef %60) #13
+61:                                               ; preds = %56
+  call void @__copy_overflow(i32 noundef 65, i64 noundef %59) #13
   br label %override_release.exit
 
-63:                                               ; preds = %57
-  %64 = call i64 @_copy_to_user(ptr noundef %40, ptr noundef nonnull %2, i64 noundef %60) #13
+62:                                               ; preds = %56
+  %63 = call i64 @_copy_to_user(ptr noundef %40, ptr noundef nonnull %2, i64 noundef %59) #13
   br label %override_release.exit
 
-override_release.exit:                            ; preds = %62, %63
-  %65 = phi i64 [ %64, %63 ], [ %60, %62 ]
+override_release.exit:                            ; preds = %61, %62
+  %64 = phi i64 [ %63, %62 ], [ %59, %61 ]
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %2) #13
-  %.fr2 = freeze i64 %65
-  %66 = and i64 %.fr2, 4294967295
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %override_release.exit.thread, label %68
+  %.fr2 = freeze i64 %64
+  %65 = and i64 %.fr2, 4294967295
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %override_release.exit.thread, label %67
 
 override_release.exit.thread:                     ; preds = %38, %override_release.exit
-  br label %68
+  br label %67
 
-68:                                               ; preds = %override_release.exit.thread, %override_release.exit, %34, %6, %1
-  %69 = phi i64 [ -14, %1 ], [ -14, %6 ], [ -14, %34 ], [ 0, %override_release.exit.thread ], [ -14, %override_release.exit ]
+67:                                               ; preds = %override_release.exit.thread, %override_release.exit, %34, %6, %1
+  %68 = phi i64 [ -14, %1 ], [ -14, %6 ], [ -14, %34 ], [ 0, %override_release.exit.thread ], [ -14, %override_release.exit ]
   call void @llvm.lifetime.end.p0(i64 45, ptr nonnull %3) #13
-  ret i64 %69
+  ret i64 %68
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -2281,11 +2281,11 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   tail call void @llvm.assume(i1 %80)
   %85 = load ptr, ptr %84, align 8, !tbaa !202
   %86 = zext i32 %77 to i64
-  %87 = add nsw i64 %86, -1
-  %88 = and i64 %86, 3
-  %89 = icmp samesign ult i64 %87, 3
+  %87 = and i64 %86, 3
+  %88 = add i32 %77, -1
+  %89 = icmp ult i32 %88, 3
   %90 = and i64 %86, 4294967292
-  %91 = icmp eq i64 %88, 0
+  %91 = icmp eq i64 %87, 0
   br i1 %89, label %.split11.us, label %.split
 
 .split11.us:                                      ; preds = %83
@@ -2340,7 +2340,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %125 = load i16, ptr %124, align 2, !tbaa !194
   store i16 %125, ptr %121, align 2, !tbaa !194
   %126 = add nuw nsw i64 %113, 1
-  %127 = icmp eq i64 %126, %88
+  %127 = icmp eq i64 %126, %87
   br i1 %127, label %.loopexit.us.us, label %112, !llvm.loop !216
 
 .loopexit.us.us:                                  ; preds = %112
@@ -2480,7 +2480,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   store i16 %220, ptr %216, align 2, !tbaa !194
   %221 = add nuw nsw i64 %207, 1
   %222 = add nuw nsw i64 %208, 1
-  %223 = icmp eq i64 %222, %88
+  %223 = icmp eq i64 %222, %87
   br i1 %223, label %.loopexit, label %.preheader, !llvm.loop !216
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit7

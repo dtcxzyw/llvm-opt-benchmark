@@ -368,9 +368,8 @@ land.rhs:                                         ; preds = %invoke.cont
   %d_kind.i = getelementptr inbounds i8, ptr %1, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1022
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  %2 = add nsw i32 %bf.cast.i, -150
-  %switch.selectcmp = icmp ult i32 %2, -4
+  %2 = add nsw i16 %bf.clear.i, -150
+  %switch.selectcmp = icmp ult i16 %2, -4
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %invoke.cont

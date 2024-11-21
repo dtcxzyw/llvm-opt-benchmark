@@ -4336,9 +4336,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm19isTuneLUIADDIFusionERKNS_15Target
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %9 = load i16, ptr %8, align 4
-  %10 = zext i16 %9 to i32
-  %.off = add nsw i32 %10, -11885
-  %switch = icmp ult i32 %.off, 2
+  %10 = add i16 %9, -11885
+  %switch = icmp ult i16 %10, 2
   br i1 %switch, label %11, label %49
 
 11:                                               ; preds = %4

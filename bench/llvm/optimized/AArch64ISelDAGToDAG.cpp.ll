@@ -9156,136 +9156,136 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel18Che
     i32 23, label %333
     i32 24, label %338
     i32 25, label %342
-    i32 26, label %350
-    i32 27, label %358
-    i32 28, label %360
-    i32 29, label %378
-    i32 30, label %383
-    i32 31, label %385
-    i32 32, label %387
-    i32 33, label %389
-    i32 34, label %391
-    i32 35, label %410
-    i32 36, label %414
-    i32 37, label %432
-    i32 38, label %437
-    i32 39, label %455
-    i32 40, label %461
-    i32 41, label %465
-    i32 42, label %467
-    i32 43, label %486
-    i32 44, label %505
-    i32 45, label %523
-    i32 46, label %531
-    i32 47, label %550
-    i32 48, label %569
-    i32 49, label %575
-    i32 50, label %589
-    i32 51, label %594
-    i32 52, label %613
-    i32 53, label %621
-    i32 54, label %626
-    i32 55, label %634
-    i32 56, label %640
-    i32 57, label %659
-    i32 58, label %678
-    i32 59, label %697
-    i32 60, label %710
+    i32 26, label %349
+    i32 27, label %357
+    i32 28, label %359
+    i32 29, label %377
+    i32 30, label %382
+    i32 31, label %384
+    i32 32, label %386
+    i32 33, label %388
+    i32 34, label %390
+    i32 35, label %409
+    i32 36, label %413
+    i32 37, label %431
+    i32 38, label %436
+    i32 39, label %454
+    i32 40, label %460
+    i32 41, label %464
+    i32 42, label %466
+    i32 43, label %485
+    i32 44, label %504
+    i32 45, label %522
+    i32 46, label %529
+    i32 47, label %548
+    i32 48, label %567
+    i32 49, label %573
+    i32 50, label %587
+    i32 51, label %592
+    i32 52, label %611
+    i32 53, label %619
+    i32 54, label %624
+    i32 55, label %632
+    i32 56, label %638
+    i32 57, label %657
+    i32 58, label %676
+    i32 59, label %695
+    i32 60, label %708
     i32 61, label %.critedge489
-    i32 62, label %729
-    i32 63, label %756
-    i32 64, label %775
-    i32 65, label %794
-    i32 66, label %803
-    i32 67, label %813
-    i32 68, label %823
-    i32 69, label %833
-    i32 70, label %838
-    i32 71, label %844
-    i32 72, label %851
-    i32 73, label %856
-    i32 74, label %863
-    i32 75, label %881
-    i32 76, label %902
-    i32 77, label %923
-    i32 78, label %942
-    i32 79, label %944
-    i32 80, label %950
-    i32 81, label %968
-    i32 82, label %973
-    i32 83, label %991
-    i32 84, label %1010
-    i32 85, label %1029
-    i32 86, label %1048
-    i32 87, label %1050
-    i32 88, label %1052
-    i32 89, label %1054
-    i32 90, label %1080
-    i32 91, label %1086
-    i32 92, label %1091
-    i32 93, label %1110
-    i32 94, label %1115
-    i32 95, label %1120
-    i32 96, label %1125
-    i32 97, label %1132
-    i32 98, label %1137
-    i32 99, label %1146
-    i32 100, label %1156
-    i32 101, label %1166
-    i32 102, label %1176
-    i32 103, label %1182
-    i32 104, label %1196
-    i32 105, label %1217
-    i32 106, label %1236
-    i32 107, label %1245
-    i32 108, label %1255
-    i32 109, label %1265
-    i32 110, label %1275
-    i32 111, label %1293
-    i32 112, label %1298
-    i32 113, label %1317
-    i32 114, label %1336
-    i32 115, label %1355
-    i32 116, label %1360
-    i32 117, label %1364
-    i32 118, label %1369
-    i32 119, label %1374
-    i32 120, label %1394
-    i32 121, label %1413
-    i32 122, label %1431
-    i32 123, label %1449
-    i32 124, label %1463
-    i32 125, label %1472
-    i32 126, label %1481
-    i32 127, label %1483
-    i32 128, label %1502
-    i32 129, label %1520
-    i32 130, label %1526
-    i32 131, label %1531
-    i32 132, label %1536
-    i32 133, label %1542
-    i32 134, label %1560
-    i32 135, label %1578
-    i32 136, label %1596
-    i32 137, label %1615
-    i32 138, label %1637
-    i32 139, label %1657
-    i32 140, label %1676
-    i32 141, label %1682
-    i32 142, label %1688
-    i32 143, label %1692
-    i32 144, label %1711
-    i32 145, label %1731
-    i32 146, label %1751
-    i32 147, label %1769
-    i32 148, label %1780
-    i32 149, label %1794
-    i32 150, label %1812
-    i32 151, label %1831
-    i32 152, label %1835
-    i32 153, label %1854
-    i32 154, label %1865
-    i32 155, label %1886
+    i32 62, label %727
+    i32 63, label %754
+    i32 64, label %773
+    i32 65, label %792
+    i32 66, label %801
+    i32 67, label %811
+    i32 68, label %821
+    i32 69, label %831
+    i32 70, label %836
+    i32 71, label %842
+    i32 72, label %849
+    i32 73, label %854
+    i32 74, label %861
+    i32 75, label %879
+    i32 76, label %900
+    i32 77, label %921
+    i32 78, label %940
+    i32 79, label %942
+    i32 80, label %948
+    i32 81, label %966
+    i32 82, label %971
+    i32 83, label %989
+    i32 84, label %1008
+    i32 85, label %1027
+    i32 86, label %1046
+    i32 87, label %1048
+    i32 88, label %1050
+    i32 89, label %1052
+    i32 90, label %1078
+    i32 91, label %1084
+    i32 92, label %1089
+    i32 93, label %1108
+    i32 94, label %1113
+    i32 95, label %1118
+    i32 96, label %1123
+    i32 97, label %1130
+    i32 98, label %1135
+    i32 99, label %1144
+    i32 100, label %1154
+    i32 101, label %1164
+    i32 102, label %1174
+    i32 103, label %1180
+    i32 104, label %1194
+    i32 105, label %1215
+    i32 106, label %1234
+    i32 107, label %1243
+    i32 108, label %1253
+    i32 109, label %1263
+    i32 110, label %1273
+    i32 111, label %1291
+    i32 112, label %1296
+    i32 113, label %1315
+    i32 114, label %1334
+    i32 115, label %1353
+    i32 116, label %1358
+    i32 117, label %1362
+    i32 118, label %1367
+    i32 119, label %1372
+    i32 120, label %1392
+    i32 121, label %1411
+    i32 122, label %1429
+    i32 123, label %1447
+    i32 124, label %1461
+    i32 125, label %1470
+    i32 126, label %1479
+    i32 127, label %1481
+    i32 128, label %1500
+    i32 129, label %1518
+    i32 130, label %1524
+    i32 131, label %1529
+    i32 132, label %1534
+    i32 133, label %1540
+    i32 134, label %1558
+    i32 135, label %1576
+    i32 136, label %1594
+    i32 137, label %1613
+    i32 138, label %1635
+    i32 139, label %1655
+    i32 140, label %1674
+    i32 141, label %1680
+    i32 142, label %1686
+    i32 143, label %1690
+    i32 144, label %1709
+    i32 145, label %1729
+    i32 146, label %1749
+    i32 147, label %1767
+    i32 148, label %1778
+    i32 149, label %1792
+    i32 150, label %1810
+    i32 151, label %1829
+    i32 152, label %1833
+    i32 153, label %1852
+    i32 154, label %1863
+    i32 155, label %1884
   ]
 
 40:                                               ; preds = %3
@@ -9795,2209 +9795,2207 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit556: ; preds = %320, %327
   %344 = load i16, ptr %343, align 2
   %345 = lshr i16 %344, 7
   %346 = and i16 %345, 7
-  %347 = zext nneg i16 %346 to i32
-  %348 = add nsw i32 %347, -3
-  %349 = icmp ult i32 %348, 2
+  %347 = add nsw i16 %346, -3
+  %348 = icmp ult i16 %347, 2
   br label %.critedge489
 
-350:                                              ; preds = %3
-  %351 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %352 = load i32, ptr %351, align 8
-  %353 = icmp eq i32 %352, 56
-  br i1 %353, label %.critedge489, label %354
+349:                                              ; preds = %3
+  %350 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %351 = load i32, ptr %350, align 8
+  %352 = icmp eq i32 %351, 56
+  br i1 %352, label %.critedge489, label %353
 
-354:                                              ; preds = %350
-  %355 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %356 = load ptr, ptr %355, align 8
-  %357 = tail call noundef zeroext i1 @_ZNK4llvm12SelectionDAG9isADDLikeENS_7SDValueEb(ptr noundef nonnull align 8 dereferenceable(904) %356, ptr nonnull %1, i32 0, i1 noundef zeroext false) #22
+353:                                              ; preds = %349
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %355 = load ptr, ptr %354, align 8
+  %356 = tail call noundef zeroext i1 @_ZNK4llvm12SelectionDAG9isADDLikeENS_7SDValueEb(ptr noundef nonnull align 8 dereferenceable(904) %355, ptr nonnull %1, i32 0, i1 noundef zeroext false) #22
   br label %.critedge489
 
-358:                                              ; preds = %3
-  %359 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
-  %.not461 = icmp eq i32 %359, 7
+357:                                              ; preds = %3
+  %358 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
+  %.not461 = icmp eq i32 %358, 7
   br label %.critedge489
 
-360:                                              ; preds = %3
-  %361 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %362 = load ptr, ptr %361, align 8
-  %363 = getelementptr inbounds nuw i8, ptr %362, i64 24
-  %364 = getelementptr inbounds nuw i8, ptr %362, i64 32
-  %365 = load i32, ptr %364, align 8
-  %366 = icmp ult i32 %365, 65
-  br i1 %366, label %367, label %374
+359:                                              ; preds = %3
+  %360 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %361 = load ptr, ptr %360, align 8
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 24
+  %363 = getelementptr inbounds nuw i8, ptr %361, i64 32
+  %364 = load i32, ptr %363, align 8
+  %365 = icmp ult i32 %364, 65
+  br i1 %365, label %366, label %373
 
-367:                                              ; preds = %360
-  %368 = load i64, ptr %363, align 8
-  %369 = icmp eq i32 %365, 0
-  %370 = sub nuw nsw i32 64, %365
-  %371 = zext nneg i32 %370 to i64
-  %372 = shl i64 %368, %371
-  %373 = ashr exact i64 %372, %371
-  %.0.i.i.i.i558 = select i1 %369, i64 0, i64 %373
+366:                                              ; preds = %359
+  %367 = load i64, ptr %362, align 8
+  %368 = icmp eq i32 %364, 0
+  %369 = sub nuw nsw i32 64, %364
+  %370 = zext nneg i32 %369 to i64
+  %371 = shl i64 %367, %370
+  %372 = ashr exact i64 %371, %370
+  %.0.i.i.i.i558 = select i1 %368, i64 0, i64 %372
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit559
 
-374:                                              ; preds = %360
-  %375 = load ptr, ptr %363, align 8
-  %376 = load i64, ptr %375, align 8
+373:                                              ; preds = %359
+  %374 = load ptr, ptr %362, align 8
+  %375 = load i64, ptr %374, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit559
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit559: ; preds = %367, %374
-  %.0.i.i.i557 = phi i64 [ %.0.i.i.i.i558, %367 ], [ %376, %374 ]
-  %377 = icmp ult i64 %.0.i.i.i557, 16
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit559: ; preds = %366, %373
+  %.0.i.i.i557 = phi i64 [ %.0.i.i.i.i558, %366 ], [ %375, %373 ]
+  %376 = icmp ult i64 %.0.i.i.i557, 16
   br label %.critedge489
 
-378:                                              ; preds = %3
-  %379 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %380 = load ptr, ptr %379, align 8
-  %381 = getelementptr inbounds nuw i8, ptr %380, i64 24
-  %382 = tail call noundef zeroext i1 @_ZNK4llvm7APFloat14isExactlyValueEd(ptr noundef nonnull align 8 dereferenceable(32) %381, double noundef 5.000000e-01)
+377:                                              ; preds = %3
+  %378 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %379 = load ptr, ptr %378, align 8
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 24
+  %381 = tail call noundef zeroext i1 @_ZNK4llvm7APFloat14isExactlyValueEd(ptr noundef nonnull align 8 dereferenceable(32) %380, double noundef 5.000000e-01)
   br label %.critedge489
 
-383:                                              ; preds = %3
-  %384 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
-  %.not460 = icmp eq i32 %384, 2
+382:                                              ; preds = %3
+  %383 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
+  %.not460 = icmp eq i32 %383, 2
   br label %.critedge489
 
-385:                                              ; preds = %3
-  %386 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
-  %.not459 = icmp eq i32 %386, 5
+384:                                              ; preds = %3
+  %385 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
+  %.not459 = icmp eq i32 %385, 5
   br label %.critedge489
 
-387:                                              ; preds = %3
-  %388 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
-  %.not458 = icmp eq i32 %388, 6
+386:                                              ; preds = %3
+  %387 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
+  %.not458 = icmp eq i32 %387, 6
   br label %.critedge489
 
-389:                                              ; preds = %3
-  %390 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i560 = load i16, ptr %390, align 8
+388:                                              ; preds = %3
+  %389 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i560 = load i16, ptr %389, align 8
   %.not.i565 = icmp eq i16 %.sroa.0.0.copyload.i560, 7
   br label %.critedge489
 
-391:                                              ; preds = %3
-  %392 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds nuw i8, ptr %393, i64 24
-  %395 = getelementptr inbounds nuw i8, ptr %393, i64 32
-  %396 = load i32, ptr %395, align 8
-  %397 = icmp ult i32 %396, 65
-  br i1 %397, label %398, label %405
+390:                                              ; preds = %3
+  %391 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %392 = load ptr, ptr %391, align 8
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 24
+  %394 = getelementptr inbounds nuw i8, ptr %392, i64 32
+  %395 = load i32, ptr %394, align 8
+  %396 = icmp ult i32 %395, 65
+  br i1 %396, label %397, label %404
 
-398:                                              ; preds = %391
-  %399 = load i64, ptr %394, align 8
-  %400 = icmp eq i32 %396, 0
-  %401 = sub nuw nsw i32 64, %396
-  %402 = zext nneg i32 %401 to i64
-  %403 = shl i64 %399, %402
-  %404 = ashr exact i64 %403, %402
-  %.0.i.i.i.i569 = select i1 %400, i64 0, i64 %404
+397:                                              ; preds = %390
+  %398 = load i64, ptr %393, align 8
+  %399 = icmp eq i32 %395, 0
+  %400 = sub nuw nsw i32 64, %395
+  %401 = zext nneg i32 %400 to i64
+  %402 = shl i64 %398, %401
+  %403 = ashr exact i64 %402, %401
+  %.0.i.i.i.i569 = select i1 %399, i64 0, i64 %403
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit570
 
-405:                                              ; preds = %391
-  %406 = load ptr, ptr %394, align 8
-  %407 = load i64, ptr %406, align 8
+404:                                              ; preds = %390
+  %405 = load ptr, ptr %393, align 8
+  %406 = load i64, ptr %405, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit570
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit570: ; preds = %398, %405
-  %.0.i.i.i568 = phi i64 [ %.0.i.i.i.i569, %398 ], [ %407, %405 ]
-  %408 = and i64 %.0.i.i.i568, 4294967280
-  %409 = icmp eq i64 %408, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit570: ; preds = %397, %404
+  %.0.i.i.i568 = phi i64 [ %.0.i.i.i.i569, %397 ], [ %406, %404 ]
+  %407 = and i64 %.0.i.i.i568, 4294967280
+  %408 = icmp eq i64 %407, 0
   br label %.critedge489
 
-410:                                              ; preds = %3
-  %411 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %412 = load i16, ptr %411, align 2
-  %413 = and i16 %412, 1024
-  %.not1353 = icmp eq i16 %413, 0
+409:                                              ; preds = %3
+  %410 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %411 = load i16, ptr %410, align 2
+  %412 = and i16 %411, 1024
+  %.not1353 = icmp eq i16 %412, 0
   br label %.critedge489
 
-414:                                              ; preds = %3
-  %415 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds nuw i8, ptr %416, i64 24
-  %418 = getelementptr inbounds nuw i8, ptr %416, i64 32
-  %419 = load i32, ptr %418, align 8
-  %420 = icmp ult i32 %419, 65
-  br i1 %420, label %421, label %428
+413:                                              ; preds = %3
+  %414 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %415 = load ptr, ptr %414, align 8
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 24
+  %417 = getelementptr inbounds nuw i8, ptr %415, i64 32
+  %418 = load i32, ptr %417, align 8
+  %419 = icmp ult i32 %418, 65
+  br i1 %419, label %420, label %427
 
-421:                                              ; preds = %414
-  %422 = load i64, ptr %417, align 8
-  %423 = icmp eq i32 %419, 0
-  %424 = sub nuw nsw i32 64, %419
-  %425 = zext nneg i32 %424 to i64
-  %426 = shl i64 %422, %425
-  %427 = ashr exact i64 %426, %425
-  %.0.i.i.i.i572 = select i1 %423, i64 0, i64 %427
+420:                                              ; preds = %413
+  %421 = load i64, ptr %416, align 8
+  %422 = icmp eq i32 %418, 0
+  %423 = sub nuw nsw i32 64, %418
+  %424 = zext nneg i32 %423 to i64
+  %425 = shl i64 %421, %424
+  %426 = ashr exact i64 %425, %424
+  %.0.i.i.i.i572 = select i1 %422, i64 0, i64 %426
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit573
 
-428:                                              ; preds = %414
-  %429 = load ptr, ptr %417, align 8
-  %430 = load i64, ptr %429, align 8
+427:                                              ; preds = %413
+  %428 = load ptr, ptr %416, align 8
+  %429 = load i64, ptr %428, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit573
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit573: ; preds = %421, %428
-  %.0.i.i.i571 = phi i64 [ %.0.i.i.i.i572, %421 ], [ %430, %428 ]
-  %431 = icmp ult i64 %.0.i.i.i571, 271
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit573: ; preds = %420, %427
+  %.0.i.i.i571 = phi i64 [ %.0.i.i.i.i572, %420 ], [ %429, %427 ]
+  %430 = icmp ult i64 %.0.i.i.i571, 271
   br label %.critedge489
 
-432:                                              ; preds = %3
-  %433 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %434 = load i16, ptr %433, align 2
-  %435 = and i16 %434, 1024
-  %436 = icmp ne i16 %435, 0
+431:                                              ; preds = %3
+  %432 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %433 = load i16, ptr %432, align 2
+  %434 = and i16 %433, 1024
+  %435 = icmp ne i16 %434, 0
   br label %.critedge489
 
-437:                                              ; preds = %3
-  %438 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %439 = load ptr, ptr %438, align 8
-  %440 = getelementptr inbounds nuw i8, ptr %439, i64 24
-  %441 = getelementptr inbounds nuw i8, ptr %439, i64 32
-  %442 = load i32, ptr %441, align 8
-  %443 = icmp ult i32 %442, 65
-  br i1 %443, label %444, label %451
+436:                                              ; preds = %3
+  %437 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %438 = load ptr, ptr %437, align 8
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 24
+  %440 = getelementptr inbounds nuw i8, ptr %438, i64 32
+  %441 = load i32, ptr %440, align 8
+  %442 = icmp ult i32 %441, 65
+  br i1 %442, label %443, label %450
 
-444:                                              ; preds = %437
-  %445 = load i64, ptr %440, align 8
-  %446 = icmp eq i32 %442, 0
-  %447 = sub nuw nsw i32 64, %442
-  %448 = zext nneg i32 %447 to i64
-  %449 = shl i64 %445, %448
-  %450 = ashr exact i64 %449, %448
-  %.0.i.i.i.i575 = select i1 %446, i64 0, i64 %450
+443:                                              ; preds = %436
+  %444 = load i64, ptr %439, align 8
+  %445 = icmp eq i32 %441, 0
+  %446 = sub nuw nsw i32 64, %441
+  %447 = zext nneg i32 %446 to i64
+  %448 = shl i64 %444, %447
+  %449 = ashr exact i64 %448, %447
+  %.0.i.i.i.i575 = select i1 %445, i64 0, i64 %449
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit576
 
-451:                                              ; preds = %437
-  %452 = load ptr, ptr %440, align 8
-  %453 = load i64, ptr %452, align 8
+450:                                              ; preds = %436
+  %451 = load ptr, ptr %439, align 8
+  %452 = load i64, ptr %451, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit576
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit576: ; preds = %444, %451
-  %.0.i.i.i574 = phi i64 [ %.0.i.i.i.i575, %444 ], [ %453, %451 ]
-  %454 = icmp ult i64 %.0.i.i.i574, 32
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit576: ; preds = %443, %450
+  %.0.i.i.i574 = phi i64 [ %.0.i.i.i.i575, %443 ], [ %452, %450 ]
+  %453 = icmp ult i64 %.0.i.i.i574, 32
   br label %.critedge489
 
-455:                                              ; preds = %3
-  %456 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %457 = load i16, ptr %456, align 2
-  %458 = and i16 %457, 1920
-  %or.cond1307 = icmp eq i16 %458, 0
-  br i1 %or.cond1307, label %459, label %.critedge489
+454:                                              ; preds = %3
+  %455 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %456 = load i16, ptr %455, align 2
+  %457 = and i16 %456, 1920
+  %or.cond1307 = icmp eq i16 %457, 0
+  br i1 %or.cond1307, label %458, label %.critedge489
 
-459:                                              ; preds = %455
-  %460 = and i16 %457, 16
-  %.not1352 = icmp eq i16 %460, 0
+458:                                              ; preds = %454
+  %459 = and i16 %456, 16
+  %.not1352 = icmp eq i16 %459, 0
   br label %.critedge489
 
-461:                                              ; preds = %3
-  %462 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %463 = load i16, ptr %462, align 2
-  %464 = and i16 %463, 3072
-  %.not457 = icmp eq i16 %464, 1024
+460:                                              ; preds = %3
+  %461 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %462 = load i16, ptr %461, align 2
+  %463 = and i16 %462, 3072
+  %.not457 = icmp eq i16 %463, 1024
   br label %.critedge489
 
-465:                                              ; preds = %3
-  %466 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i577 = load i16, ptr %466, align 8
+464:                                              ; preds = %3
+  %465 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i577 = load i16, ptr %465, align 8
   %.not.i582 = icmp eq i16 %.sroa.0.0.copyload.i577, 8
   br label %.critedge489
 
-467:                                              ; preds = %3
-  %468 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %469 = load ptr, ptr %468, align 8
-  %470 = getelementptr inbounds nuw i8, ptr %469, i64 24
-  %471 = getelementptr inbounds nuw i8, ptr %469, i64 32
-  %472 = load i32, ptr %471, align 8
-  %473 = icmp ult i32 %472, 65
-  br i1 %473, label %474, label %481
+466:                                              ; preds = %3
+  %467 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %468 = load ptr, ptr %467, align 8
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 24
+  %470 = getelementptr inbounds nuw i8, ptr %468, i64 32
+  %471 = load i32, ptr %470, align 8
+  %472 = icmp ult i32 %471, 65
+  br i1 %472, label %473, label %480
 
-474:                                              ; preds = %467
-  %475 = load i64, ptr %470, align 8
-  %476 = icmp eq i32 %472, 0
-  %477 = sub nuw nsw i32 64, %472
-  %478 = zext nneg i32 %477 to i64
-  %479 = shl i64 %475, %478
-  %480 = ashr exact i64 %479, %478
-  %.0.i.i.i.i586 = select i1 %476, i64 0, i64 %480
+473:                                              ; preds = %466
+  %474 = load i64, ptr %469, align 8
+  %475 = icmp eq i32 %471, 0
+  %476 = sub nuw nsw i32 64, %471
+  %477 = zext nneg i32 %476 to i64
+  %478 = shl i64 %474, %477
+  %479 = ashr exact i64 %478, %477
+  %.0.i.i.i.i586 = select i1 %475, i64 0, i64 %479
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit587
 
-481:                                              ; preds = %467
-  %482 = load ptr, ptr %470, align 8
-  %483 = load i64, ptr %482, align 8
+480:                                              ; preds = %466
+  %481 = load ptr, ptr %469, align 8
+  %482 = load i64, ptr %481, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit587
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit587: ; preds = %474, %481
-  %.0.i.i.i585 = phi i64 [ %.0.i.i.i.i586, %474 ], [ %483, %481 ]
-  %484 = and i64 %.0.i.i.i585, 4294967292
-  %485 = icmp eq i64 %484, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit587: ; preds = %473, %480
+  %.0.i.i.i585 = phi i64 [ %.0.i.i.i.i586, %473 ], [ %482, %480 ]
+  %483 = and i64 %.0.i.i.i585, 4294967292
+  %484 = icmp eq i64 %483, 0
   br label %.critedge489
 
-486:                                              ; preds = %3
-  %487 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %488 = load ptr, ptr %487, align 8
-  %489 = getelementptr inbounds nuw i8, ptr %488, i64 24
-  %490 = getelementptr inbounds nuw i8, ptr %488, i64 32
-  %491 = load i32, ptr %490, align 8
-  %492 = icmp ult i32 %491, 65
-  br i1 %492, label %493, label %500
+485:                                              ; preds = %3
+  %486 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %487 = load ptr, ptr %486, align 8
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 24
+  %489 = getelementptr inbounds nuw i8, ptr %487, i64 32
+  %490 = load i32, ptr %489, align 8
+  %491 = icmp ult i32 %490, 65
+  br i1 %491, label %492, label %499
 
-493:                                              ; preds = %486
-  %494 = load i64, ptr %489, align 8
-  %495 = icmp eq i32 %491, 0
-  %496 = sub nuw nsw i32 64, %491
-  %497 = zext nneg i32 %496 to i64
-  %498 = shl i64 %494, %497
-  %499 = ashr exact i64 %498, %497
-  %.0.i.i.i.i589 = select i1 %495, i64 0, i64 %499
+492:                                              ; preds = %485
+  %493 = load i64, ptr %488, align 8
+  %494 = icmp eq i32 %490, 0
+  %495 = sub nuw nsw i32 64, %490
+  %496 = zext nneg i32 %495 to i64
+  %497 = shl i64 %493, %496
+  %498 = ashr exact i64 %497, %496
+  %.0.i.i.i.i589 = select i1 %494, i64 0, i64 %498
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit590
 
-500:                                              ; preds = %486
-  %501 = load ptr, ptr %489, align 8
-  %502 = load i64, ptr %501, align 8
+499:                                              ; preds = %485
+  %500 = load ptr, ptr %488, align 8
+  %501 = load i64, ptr %500, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit590
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit590: ; preds = %493, %500
-  %.0.i.i.i588 = phi i64 [ %.0.i.i.i.i589, %493 ], [ %502, %500 ]
-  %503 = add i64 %.0.i.i.i588, 256
-  %504 = icmp ult i64 %503, 512
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit590: ; preds = %492, %499
+  %.0.i.i.i588 = phi i64 [ %.0.i.i.i.i589, %492 ], [ %501, %499 ]
+  %502 = add i64 %.0.i.i.i588, 256
+  %503 = icmp ult i64 %502, 512
   br label %.critedge489
 
-505:                                              ; preds = %3
-  %506 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %507 = load ptr, ptr %506, align 8
-  %508 = getelementptr inbounds nuw i8, ptr %507, i64 24
-  %509 = getelementptr inbounds nuw i8, ptr %507, i64 32
-  %510 = load i32, ptr %509, align 8
-  %511 = icmp ult i32 %510, 65
-  br i1 %511, label %512, label %519
+504:                                              ; preds = %3
+  %505 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %506 = load ptr, ptr %505, align 8
+  %507 = getelementptr inbounds nuw i8, ptr %506, i64 24
+  %508 = getelementptr inbounds nuw i8, ptr %506, i64 32
+  %509 = load i32, ptr %508, align 8
+  %510 = icmp ult i32 %509, 65
+  br i1 %510, label %511, label %518
 
-512:                                              ; preds = %505
-  %513 = load i64, ptr %508, align 8
-  %514 = icmp eq i32 %510, 0
-  %515 = sub nuw nsw i32 64, %510
-  %516 = zext nneg i32 %515 to i64
-  %517 = shl i64 %513, %516
-  %518 = ashr exact i64 %517, %516
-  %.0.i.i.i.i592 = select i1 %514, i64 0, i64 %518
+511:                                              ; preds = %504
+  %512 = load i64, ptr %507, align 8
+  %513 = icmp eq i32 %509, 0
+  %514 = sub nuw nsw i32 64, %509
+  %515 = zext nneg i32 %514 to i64
+  %516 = shl i64 %512, %515
+  %517 = ashr exact i64 %516, %515
+  %.0.i.i.i.i592 = select i1 %513, i64 0, i64 %517
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit593
 
-519:                                              ; preds = %505
-  %520 = load ptr, ptr %508, align 8
-  %521 = load i64, ptr %520, align 8
+518:                                              ; preds = %504
+  %519 = load ptr, ptr %507, align 8
+  %520 = load i64, ptr %519, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit593
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit593: ; preds = %512, %519
-  %.0.i.i.i591 = phi i64 [ %.0.i.i.i.i592, %512 ], [ %521, %519 ]
-  %522 = icmp ult i64 %.0.i.i.i591, 128
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit593: ; preds = %511, %518
+  %.0.i.i.i591 = phi i64 [ %.0.i.i.i.i592, %511 ], [ %520, %518 ]
+  %521 = icmp ult i64 %.0.i.i.i591, 128
   br label %.critedge489
 
-523:                                              ; preds = %3
-  %524 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %525 = load i16, ptr %524, align 2
-  %526 = lshr i16 %525, 7
-  %527 = and i16 %526, 7
-  %528 = zext nneg i16 %527 to i32
-  %529 = add nsw i32 %528, -1
-  %530 = icmp ult i32 %529, 2
+522:                                              ; preds = %3
+  %523 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %524 = load i16, ptr %523, align 2
+  %525 = lshr i16 %524, 7
+  %526 = and i16 %525, 7
+  %527 = add nsw i16 %526, -1
+  %528 = icmp ult i16 %527, 2
   br label %.critedge489
 
-531:                                              ; preds = %3
-  %532 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %533 = load ptr, ptr %532, align 8
-  %534 = getelementptr inbounds nuw i8, ptr %533, i64 24
-  %535 = getelementptr inbounds nuw i8, ptr %533, i64 32
-  %536 = load i32, ptr %535, align 8
-  %537 = icmp ult i32 %536, 65
-  br i1 %537, label %538, label %545
+529:                                              ; preds = %3
+  %530 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %531 = load ptr, ptr %530, align 8
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 24
+  %533 = getelementptr inbounds nuw i8, ptr %531, i64 32
+  %534 = load i32, ptr %533, align 8
+  %535 = icmp ult i32 %534, 65
+  br i1 %535, label %536, label %543
 
-538:                                              ; preds = %531
-  %539 = load i64, ptr %534, align 8
-  %540 = icmp eq i32 %536, 0
-  %541 = sub nuw nsw i32 64, %536
-  %542 = zext nneg i32 %541 to i64
-  %543 = shl i64 %539, %542
-  %544 = ashr exact i64 %543, %542
-  %.0.i.i.i.i595 = select i1 %540, i64 0, i64 %544
+536:                                              ; preds = %529
+  %537 = load i64, ptr %532, align 8
+  %538 = icmp eq i32 %534, 0
+  %539 = sub nuw nsw i32 64, %534
+  %540 = zext nneg i32 %539 to i64
+  %541 = shl i64 %537, %540
+  %542 = ashr exact i64 %541, %540
+  %.0.i.i.i.i595 = select i1 %538, i64 0, i64 %542
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit596
 
-545:                                              ; preds = %531
-  %546 = load ptr, ptr %534, align 8
-  %547 = load i64, ptr %546, align 8
+543:                                              ; preds = %529
+  %544 = load ptr, ptr %532, align 8
+  %545 = load i64, ptr %544, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit596
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit596: ; preds = %538, %545
-  %.0.i.i.i594 = phi i64 [ %.0.i.i.i.i595, %538 ], [ %547, %545 ]
-  %548 = and i64 %.0.i.i.i594, 4294967264
-  %549 = icmp eq i64 %548, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit596: ; preds = %536, %543
+  %.0.i.i.i594 = phi i64 [ %.0.i.i.i.i595, %536 ], [ %545, %543 ]
+  %546 = and i64 %.0.i.i.i594, 4294967264
+  %547 = icmp eq i64 %546, 0
   br label %.critedge489
 
-550:                                              ; preds = %3
-  %551 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %552 = load ptr, ptr %551, align 8
-  %553 = getelementptr inbounds nuw i8, ptr %552, i64 24
-  %554 = getelementptr inbounds nuw i8, ptr %552, i64 32
-  %555 = load i32, ptr %554, align 8
-  %556 = icmp ult i32 %555, 65
-  br i1 %556, label %557, label %564
+548:                                              ; preds = %3
+  %549 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %550 = load ptr, ptr %549, align 8
+  %551 = getelementptr inbounds nuw i8, ptr %550, i64 24
+  %552 = getelementptr inbounds nuw i8, ptr %550, i64 32
+  %553 = load i32, ptr %552, align 8
+  %554 = icmp ult i32 %553, 65
+  br i1 %554, label %555, label %562
 
-557:                                              ; preds = %550
-  %558 = load i64, ptr %553, align 8
-  %559 = icmp eq i32 %555, 0
-  %560 = sub nuw nsw i32 64, %555
-  %561 = zext nneg i32 %560 to i64
-  %562 = shl i64 %558, %561
-  %563 = ashr exact i64 %562, %561
-  %.0.i.i.i.i598 = select i1 %559, i64 0, i64 %563
+555:                                              ; preds = %548
+  %556 = load i64, ptr %551, align 8
+  %557 = icmp eq i32 %553, 0
+  %558 = sub nuw nsw i32 64, %553
+  %559 = zext nneg i32 %558 to i64
+  %560 = shl i64 %556, %559
+  %561 = ashr exact i64 %560, %559
+  %.0.i.i.i.i598 = select i1 %557, i64 0, i64 %561
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit599
 
-564:                                              ; preds = %550
-  %565 = load ptr, ptr %553, align 8
-  %566 = load i64, ptr %565, align 8
+562:                                              ; preds = %548
+  %563 = load ptr, ptr %551, align 8
+  %564 = load i64, ptr %563, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit599
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit599: ; preds = %557, %564
-  %.0.i.i.i597 = phi i64 [ %.0.i.i.i.i598, %557 ], [ %566, %564 ]
-  %567 = and i64 %.0.i.i.i597, 4294967288
-  %568 = icmp eq i64 %567, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit599: ; preds = %555, %562
+  %.0.i.i.i597 = phi i64 [ %.0.i.i.i.i598, %555 ], [ %564, %562 ]
+  %565 = and i64 %.0.i.i.i597, 4294967288
+  %566 = icmp eq i64 %565, 0
   br label %.critedge489
 
-569:                                              ; preds = %3
-  %570 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
-  %571 = zext i32 %570 to i64
-  %572 = getelementptr inbounds [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %571, i64 4
-  %573 = load i8, ptr %572, align 4
-  %574 = trunc i8 %573 to i1
-  %not.1351 = xor i1 %574, true
+567:                                              ; preds = %3
+  %568 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
+  %569 = zext i32 %568 to i64
+  %570 = getelementptr inbounds [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %569, i64 4
+  %571 = load i8, ptr %570, align 4
+  %572 = trunc i8 %571 to i1
+  %not.1351 = xor i1 %572, true
   br label %.critedge489
 
-575:                                              ; preds = %3
-  %576 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %577 = load ptr, ptr %576, align 8
-  %.sroa.0.0.copyload.i600 = load i16, ptr %577, align 8
+573:                                              ; preds = %3
+  %574 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %575 = load ptr, ptr %574, align 8
+  %.sroa.0.0.copyload.i600 = load i16, ptr %575, align 8
   %.not.i.i605 = icmp eq i16 %.sroa.0.0.copyload.i600, 8
-  br i1 %.not.i.i605, label %578, label %.critedge489
+  br i1 %.not.i.i605, label %576, label %.critedge489
 
-578:                                              ; preds = %575
-  %579 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %580 = load ptr, ptr %579, align 8
-  %581 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 64, ptr %581, align 8, !alias.scope !20
+576:                                              ; preds = %573
+  %577 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %578 = load ptr, ptr %577, align 8
+  %579 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 64, ptr %579, align 8, !alias.scope !20
   store i64 -4294967296, ptr %8, align 8, !alias.scope !20
-  %582 = call noundef zeroext i1 @_ZNK4llvm12SelectionDAG17MaskedValueIsZeroENS_7SDValueERKNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(904) %580, ptr nonnull %1, i32 0, ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef 0) #22
-  %583 = load i32, ptr %581, align 8
-  %584 = icmp ugt i32 %583, 64
-  br i1 %584, label %585, label %.critedge489
+  %580 = call noundef zeroext i1 @_ZNK4llvm12SelectionDAG17MaskedValueIsZeroENS_7SDValueERKNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(904) %578, ptr nonnull %1, i32 0, ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef 0) #22
+  %581 = load i32, ptr %579, align 8
+  %582 = icmp ugt i32 %581, 64
+  br i1 %582, label %583, label %.critedge489
 
-585:                                              ; preds = %578
-  %586 = load ptr, ptr %8, align 8
-  %587 = icmp eq ptr %586, null
-  br i1 %587, label %.critedge489, label %588
+583:                                              ; preds = %576
+  %584 = load ptr, ptr %8, align 8
+  %585 = icmp eq ptr %584, null
+  br i1 %585, label %.critedge489, label %586
 
-588:                                              ; preds = %585
-  call void @_ZdaPv(ptr noundef nonnull %586) #25
+586:                                              ; preds = %583
+  call void @_ZdaPv(ptr noundef nonnull %584) #25
   br label %.critedge489
 
-589:                                              ; preds = %3
-  %590 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %591 = load i16, ptr %590, align 2
-  %592 = and i16 %591, 3072
-  %593 = icmp eq i16 %592, 0
+587:                                              ; preds = %3
+  %588 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %589 = load i16, ptr %588, align 2
+  %590 = and i16 %589, 3072
+  %591 = icmp eq i16 %590, 0
   br label %.critedge489
 
-594:                                              ; preds = %3
-  %595 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %596 = load ptr, ptr %595, align 8
-  %597 = getelementptr inbounds nuw i8, ptr %596, i64 24
-  %598 = getelementptr inbounds nuw i8, ptr %596, i64 32
-  %599 = load i32, ptr %598, align 8
-  %600 = icmp ult i32 %599, 65
-  br i1 %600, label %601, label %608
+592:                                              ; preds = %3
+  %593 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %594 = load ptr, ptr %593, align 8
+  %595 = getelementptr inbounds nuw i8, ptr %594, i64 24
+  %596 = getelementptr inbounds nuw i8, ptr %594, i64 32
+  %597 = load i32, ptr %596, align 8
+  %598 = icmp ult i32 %597, 65
+  br i1 %598, label %599, label %606
 
-601:                                              ; preds = %594
-  %602 = load i64, ptr %597, align 8
-  %603 = icmp eq i32 %599, 0
-  %604 = sub nuw nsw i32 64, %599
-  %605 = zext nneg i32 %604 to i64
-  %606 = shl i64 %602, %605
-  %607 = ashr exact i64 %606, %605
-  %.0.i.i.i.i609 = select i1 %603, i64 0, i64 %607
+599:                                              ; preds = %592
+  %600 = load i64, ptr %595, align 8
+  %601 = icmp eq i32 %597, 0
+  %602 = sub nuw nsw i32 64, %597
+  %603 = zext nneg i32 %602 to i64
+  %604 = shl i64 %600, %603
+  %605 = ashr exact i64 %604, %603
+  %.0.i.i.i.i609 = select i1 %601, i64 0, i64 %605
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit610
 
-608:                                              ; preds = %594
-  %609 = load ptr, ptr %597, align 8
-  %610 = load i64, ptr %609, align 8
+606:                                              ; preds = %592
+  %607 = load ptr, ptr %595, align 8
+  %608 = load i64, ptr %607, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit610
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit610: ; preds = %601, %608
-  %.0.i.i.i608 = phi i64 [ %.0.i.i.i.i609, %601 ], [ %610, %608 ]
-  %611 = and i64 %.0.i.i.i608, -63
-  %612 = icmp eq i64 %611, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit610: ; preds = %599, %606
+  %.0.i.i.i608 = phi i64 [ %.0.i.i.i.i609, %599 ], [ %608, %606 ]
+  %609 = and i64 %.0.i.i.i608, -63
+  %610 = icmp eq i64 %609, 0
   br label %.critedge489
 
-613:                                              ; preds = %3
-  %614 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %615 = load i16, ptr %614, align 2
-  %616 = lshr i16 %615, 10
-  %617 = and i16 %616, 3
-  switch i16 %617, label %.critedge489 [
-    i16 1, label %618
-    i16 3, label %618
+611:                                              ; preds = %3
+  %612 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %613 = load i16, ptr %612, align 2
+  %614 = lshr i16 %613, 10
+  %615 = and i16 %614, 3
+  switch i16 %615, label %.critedge489 [
+    i16 1, label %616
+    i16 3, label %616
   ]
 
-618:                                              ; preds = %613, %613
-  %619 = and i16 %615, 896
-  %620 = icmp eq i16 %619, 0
+616:                                              ; preds = %611, %611
+  %617 = and i16 %613, 896
+  %618 = icmp eq i16 %617, 0
   br label %.critedge489
 
-621:                                              ; preds = %3
-  %622 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i611 = load i16, ptr %622, align 8
+619:                                              ; preds = %3
+  %620 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i611 = load i16, ptr %620, align 8
   %.sroa.21.0..sroa_idx.i612 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i613 = load ptr, ptr %.sroa.21.0..sroa_idx.i612, align 8
   store i16 %.sroa.0.0.copyload.i611, ptr %9, align 8
-  %623 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %.sroa.21.0.copyload.i613, ptr %623, align 8
-  %624 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  %625 = extractvalue { i16, ptr } %624, 0
-  %.not.i.i616 = icmp eq i16 %625, 5
+  %621 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %.sroa.21.0.copyload.i613, ptr %621, align 8
+  %622 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %623 = extractvalue { i16, ptr } %622, 0
+  %.not.i.i616 = icmp eq i16 %623, 5
   br label %.critedge489
 
-626:                                              ; preds = %3
-  %627 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %628 = load i16, ptr %627, align 2
-  %629 = and i16 %628, 3072
-  %630 = icmp eq i16 %629, 2048
-  br i1 %630, label %631, label %.critedge489
+624:                                              ; preds = %3
+  %625 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %626 = load i16, ptr %625, align 2
+  %627 = and i16 %626, 3072
+  %628 = icmp eq i16 %627, 2048
+  br i1 %628, label %629, label %.critedge489
 
-631:                                              ; preds = %626
-  %632 = and i16 %628, 896
-  %633 = icmp eq i16 %632, 0
+629:                                              ; preds = %624
+  %630 = and i16 %626, 896
+  %631 = icmp eq i16 %630, 0
   br label %.critedge489
 
-634:                                              ; preds = %3
-  %635 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %636 = load i16, ptr %635, align 2
-  %637 = and i16 %636, 3968
-  %or.cond1311 = icmp eq i16 %637, 0
-  br i1 %or.cond1311, label %638, label %.critedge489
+632:                                              ; preds = %3
+  %633 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %634 = load i16, ptr %633, align 2
+  %635 = and i16 %634, 3968
+  %or.cond1311 = icmp eq i16 %635, 0
+  br i1 %or.cond1311, label %636, label %.critedge489
 
-638:                                              ; preds = %634
-  %639 = and i16 %636, 16
-  %.not1350 = icmp eq i16 %639, 0
+636:                                              ; preds = %632
+  %637 = and i16 %634, 16
+  %.not1350 = icmp eq i16 %637, 0
   br label %.critedge489
 
-640:                                              ; preds = %3
-  %641 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %642 = load ptr, ptr %641, align 8
-  %643 = getelementptr inbounds nuw i8, ptr %642, i64 24
-  %644 = getelementptr inbounds nuw i8, ptr %642, i64 32
-  %645 = load i32, ptr %644, align 8
-  %646 = icmp ult i32 %645, 65
-  br i1 %646, label %647, label %654
+638:                                              ; preds = %3
+  %639 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %640 = load ptr, ptr %639, align 8
+  %641 = getelementptr inbounds nuw i8, ptr %640, i64 24
+  %642 = getelementptr inbounds nuw i8, ptr %640, i64 32
+  %643 = load i32, ptr %642, align 8
+  %644 = icmp ult i32 %643, 65
+  br i1 %644, label %645, label %652
 
-647:                                              ; preds = %640
-  %648 = load i64, ptr %643, align 8
-  %649 = icmp eq i32 %645, 0
-  %650 = sub nuw nsw i32 64, %645
-  %651 = zext nneg i32 %650 to i64
-  %652 = shl i64 %648, %651
-  %653 = ashr exact i64 %652, %651
-  %.0.i.i.i.i620 = select i1 %649, i64 0, i64 %653
+645:                                              ; preds = %638
+  %646 = load i64, ptr %641, align 8
+  %647 = icmp eq i32 %643, 0
+  %648 = sub nuw nsw i32 64, %643
+  %649 = zext nneg i32 %648 to i64
+  %650 = shl i64 %646, %649
+  %651 = ashr exact i64 %650, %649
+  %.0.i.i.i.i620 = select i1 %647, i64 0, i64 %651
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit621
 
-654:                                              ; preds = %640
-  %655 = load ptr, ptr %643, align 8
-  %656 = load i64, ptr %655, align 8
+652:                                              ; preds = %638
+  %653 = load ptr, ptr %641, align 8
+  %654 = load i64, ptr %653, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit621
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit621: ; preds = %647, %654
-  %.0.i.i.i619 = phi i64 [ %.0.i.i.i.i620, %647 ], [ %656, %654 ]
-  %657 = and i64 %.0.i.i.i619, 4294967280
-  %658 = icmp eq i64 %657, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit621: ; preds = %645, %652
+  %.0.i.i.i619 = phi i64 [ %.0.i.i.i.i620, %645 ], [ %654, %652 ]
+  %655 = and i64 %.0.i.i.i619, 4294967280
+  %656 = icmp eq i64 %655, 0
   br label %.critedge489
 
-659:                                              ; preds = %3
-  %660 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %661 = load ptr, ptr %660, align 8
-  %662 = getelementptr inbounds nuw i8, ptr %661, i64 24
-  %663 = getelementptr inbounds nuw i8, ptr %661, i64 32
-  %664 = load i32, ptr %663, align 8
-  %665 = icmp ult i32 %664, 65
-  br i1 %665, label %666, label %673
+657:                                              ; preds = %3
+  %658 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %659 = load ptr, ptr %658, align 8
+  %660 = getelementptr inbounds nuw i8, ptr %659, i64 24
+  %661 = getelementptr inbounds nuw i8, ptr %659, i64 32
+  %662 = load i32, ptr %661, align 8
+  %663 = icmp ult i32 %662, 65
+  br i1 %663, label %664, label %671
 
-666:                                              ; preds = %659
-  %667 = load i64, ptr %662, align 8
-  %668 = icmp eq i32 %664, 0
-  %669 = sub nuw nsw i32 64, %664
-  %670 = zext nneg i32 %669 to i64
-  %671 = shl i64 %667, %670
-  %672 = ashr exact i64 %671, %670
-  %.0.i.i.i.i623 = select i1 %668, i64 0, i64 %672
+664:                                              ; preds = %657
+  %665 = load i64, ptr %660, align 8
+  %666 = icmp eq i32 %662, 0
+  %667 = sub nuw nsw i32 64, %662
+  %668 = zext nneg i32 %667 to i64
+  %669 = shl i64 %665, %668
+  %670 = ashr exact i64 %669, %668
+  %.0.i.i.i.i623 = select i1 %666, i64 0, i64 %670
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit624
 
-673:                                              ; preds = %659
-  %674 = load ptr, ptr %662, align 8
-  %675 = load i64, ptr %674, align 8
+671:                                              ; preds = %657
+  %672 = load ptr, ptr %660, align 8
+  %673 = load i64, ptr %672, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit624
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit624: ; preds = %666, %673
-  %.0.i.i.i622 = phi i64 [ %.0.i.i.i.i623, %666 ], [ %675, %673 ]
-  %676 = and i64 %.0.i.i.i622, 4294967288
-  %677 = icmp eq i64 %676, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit624: ; preds = %664, %671
+  %.0.i.i.i622 = phi i64 [ %.0.i.i.i.i623, %664 ], [ %673, %671 ]
+  %674 = and i64 %.0.i.i.i622, 4294967288
+  %675 = icmp eq i64 %674, 0
   br label %.critedge489
 
-678:                                              ; preds = %3
-  %679 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %680 = load ptr, ptr %679, align 8
-  %681 = getelementptr inbounds nuw i8, ptr %680, i64 24
-  %682 = getelementptr inbounds nuw i8, ptr %680, i64 32
-  %683 = load i32, ptr %682, align 8
-  %684 = icmp ult i32 %683, 65
-  br i1 %684, label %685, label %692
+676:                                              ; preds = %3
+  %677 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %678 = load ptr, ptr %677, align 8
+  %679 = getelementptr inbounds nuw i8, ptr %678, i64 24
+  %680 = getelementptr inbounds nuw i8, ptr %678, i64 32
+  %681 = load i32, ptr %680, align 8
+  %682 = icmp ult i32 %681, 65
+  br i1 %682, label %683, label %690
 
-685:                                              ; preds = %678
-  %686 = load i64, ptr %681, align 8
-  %687 = icmp eq i32 %683, 0
-  %688 = sub nuw nsw i32 64, %683
-  %689 = zext nneg i32 %688 to i64
-  %690 = shl i64 %686, %689
-  %691 = ashr exact i64 %690, %689
-  %.0.i.i.i.i626 = select i1 %687, i64 0, i64 %691
+683:                                              ; preds = %676
+  %684 = load i64, ptr %679, align 8
+  %685 = icmp eq i32 %681, 0
+  %686 = sub nuw nsw i32 64, %681
+  %687 = zext nneg i32 %686 to i64
+  %688 = shl i64 %684, %687
+  %689 = ashr exact i64 %688, %687
+  %.0.i.i.i.i626 = select i1 %685, i64 0, i64 %689
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit627
 
-692:                                              ; preds = %678
-  %693 = load ptr, ptr %681, align 8
-  %694 = load i64, ptr %693, align 8
+690:                                              ; preds = %676
+  %691 = load ptr, ptr %679, align 8
+  %692 = load i64, ptr %691, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit627
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit627: ; preds = %685, %692
-  %.0.i.i.i625 = phi i64 [ %.0.i.i.i.i626, %685 ], [ %694, %692 ]
-  %695 = and i64 %.0.i.i.i625, 4294967280
-  %696 = icmp eq i64 %695, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit627: ; preds = %683, %690
+  %.0.i.i.i625 = phi i64 [ %.0.i.i.i.i626, %683 ], [ %692, %690 ]
+  %693 = and i64 %.0.i.i.i625, 4294967280
+  %694 = icmp eq i64 %693, 0
   br label %.critedge489
 
-697:                                              ; preds = %3
-  %698 = getelementptr inbounds nuw i8, ptr %0, i64 64
+695:                                              ; preds = %3
+  %696 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %697 = load ptr, ptr %696, align 8
+  %698 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %699 = load ptr, ptr %698, align 8
-  %700 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %701 = load ptr, ptr %700, align 8
-  %.sroa.0185.0.copyload = load ptr, ptr %701, align 8
-  %.sroa.2186.0..sroa_idx = getelementptr inbounds i8, ptr %701, i64 8
+  %.sroa.0185.0.copyload = load ptr, ptr %699, align 8
+  %.sroa.2186.0..sroa_idx = getelementptr inbounds i8, ptr %699, i64 8
   %.sroa.2186.0.copyload = load i32, ptr %.sroa.2186.0..sroa_idx, align 8
-  %702 = tail call noundef i32 @_ZNK4llvm12SelectionDAG18ComputeNumSignBitsENS_7SDValueEj(ptr noundef nonnull align 8 dereferenceable(904) %699, ptr %.sroa.0185.0.copyload, i32 %.sroa.2186.0.copyload, i32 noundef 0) #22
-  %703 = icmp ugt i32 %702, 32
-  br i1 %703, label %704, label %.critedge489
+  %700 = tail call noundef i32 @_ZNK4llvm12SelectionDAG18ComputeNumSignBitsENS_7SDValueEj(ptr noundef nonnull align 8 dereferenceable(904) %697, ptr %.sroa.0185.0.copyload, i32 %.sroa.2186.0.copyload, i32 noundef 0) #22
+  %701 = icmp ugt i32 %700, 32
+  br i1 %701, label %702, label %.critedge489
 
-704:                                              ; preds = %697
-  %705 = load ptr, ptr %698, align 8
-  %706 = load ptr, ptr %700, align 8
-  %707 = getelementptr inbounds i8, ptr %706, i64 40
-  %.sroa.0184.0.copyload = load ptr, ptr %707, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %706, i64 48
+702:                                              ; preds = %695
+  %703 = load ptr, ptr %696, align 8
+  %704 = load ptr, ptr %698, align 8
+  %705 = getelementptr inbounds i8, ptr %704, i64 40
+  %.sroa.0184.0.copyload = load ptr, ptr %705, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %704, i64 48
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %708 = tail call noundef i32 @_ZNK4llvm12SelectionDAG18ComputeNumSignBitsENS_7SDValueEj(ptr noundef nonnull align 8 dereferenceable(904) %705, ptr %.sroa.0184.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef 0) #22
-  %709 = icmp ugt i32 %708, 32
+  %706 = tail call noundef i32 @_ZNK4llvm12SelectionDAG18ComputeNumSignBitsENS_7SDValueEj(ptr noundef nonnull align 8 dereferenceable(904) %703, ptr %.sroa.0184.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef 0) #22
+  %707 = icmp ugt i32 %706, 32
   br label %.critedge489
 
-710:                                              ; preds = %3
-  %711 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %712 = load ptr, ptr %711, align 8
-  %713 = getelementptr inbounds nuw i8, ptr %712, i64 24
-  %714 = getelementptr inbounds nuw i8, ptr %712, i64 32
-  %715 = load i32, ptr %714, align 8
-  %716 = icmp ult i32 %715, 65
-  br i1 %716, label %717, label %724
+708:                                              ; preds = %3
+  %709 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %710 = load ptr, ptr %709, align 8
+  %711 = getelementptr inbounds nuw i8, ptr %710, i64 24
+  %712 = getelementptr inbounds nuw i8, ptr %710, i64 32
+  %713 = load i32, ptr %712, align 8
+  %714 = icmp ult i32 %713, 65
+  br i1 %714, label %715, label %722
 
-717:                                              ; preds = %710
-  %718 = load i64, ptr %713, align 8
-  %719 = icmp eq i32 %715, 0
-  %720 = sub nuw nsw i32 64, %715
-  %721 = zext nneg i32 %720 to i64
-  %722 = shl i64 %718, %721
-  %723 = ashr exact i64 %722, %721
-  %.0.i.i.i.i629 = select i1 %719, i64 0, i64 %723
+715:                                              ; preds = %708
+  %716 = load i64, ptr %711, align 8
+  %717 = icmp eq i32 %713, 0
+  %718 = sub nuw nsw i32 64, %713
+  %719 = zext nneg i32 %718 to i64
+  %720 = shl i64 %716, %719
+  %721 = ashr exact i64 %720, %719
+  %.0.i.i.i.i629 = select i1 %717, i64 0, i64 %721
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit630
 
-724:                                              ; preds = %710
-  %725 = load ptr, ptr %713, align 8
-  %726 = load i64, ptr %725, align 8
+722:                                              ; preds = %708
+  %723 = load ptr, ptr %711, align 8
+  %724 = load i64, ptr %723, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit630
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit630: ; preds = %717, %724
-  %.0.i.i.i628 = phi i64 [ %.0.i.i.i.i629, %717 ], [ %726, %724 ]
-  %727 = and i64 %.0.i.i.i628, -125
-  %728 = icmp eq i64 %727, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit630: ; preds = %715, %722
+  %.0.i.i.i628 = phi i64 [ %.0.i.i.i.i629, %715 ], [ %724, %722 ]
+  %725 = and i64 %.0.i.i.i628, -125
+  %726 = icmp eq i64 %725, 0
   br label %.critedge489
 
-729:                                              ; preds = %3
-  %730 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %731 = load i16, ptr %730, align 2
-  %732 = and i16 %731, 896
-  %733 = icmp eq i16 %732, 0
-  br i1 %733, label %.critedge489, label %734
+727:                                              ; preds = %3
+  %728 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %729 = load i16, ptr %728, align 2
+  %730 = and i16 %729, 896
+  %731 = icmp eq i16 %730, 0
+  br i1 %731, label %.critedge489, label %732
 
-734:                                              ; preds = %729
-  %735 = getelementptr inbounds nuw i8, ptr %1, i64 40
+732:                                              ; preds = %727
+  %733 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %734 = load ptr, ptr %733, align 8
+  %735 = getelementptr inbounds i8, ptr %734, i64 160
   %736 = load ptr, ptr %735, align 8
-  %737 = getelementptr inbounds i8, ptr %736, i64 160
-  %738 = load ptr, ptr %737, align 8
-  %739 = getelementptr inbounds i8, ptr %736, i64 168
-  %740 = load i32, ptr %739, align 8
-  %741 = getelementptr inbounds nuw i8, ptr %738, i64 48
-  %742 = load ptr, ptr %741, align 8
-  %743 = zext i32 %740 to i64
-  %744 = getelementptr inbounds %"struct.llvm::EVT", ptr %742, i64 %743
-  %.sroa.0.0.copyload.i.i631 = load i16, ptr %744, align 8
-  %.sroa.21.0..sroa_idx.i.i632 = getelementptr inbounds i8, ptr %744, i64 8
+  %737 = getelementptr inbounds i8, ptr %734, i64 168
+  %738 = load i32, ptr %737, align 8
+  %739 = getelementptr inbounds nuw i8, ptr %736, i64 48
+  %740 = load ptr, ptr %739, align 8
+  %741 = zext i32 %738 to i64
+  %742 = getelementptr inbounds %"struct.llvm::EVT", ptr %740, i64 %741
+  %.sroa.0.0.copyload.i.i631 = load i16, ptr %742, align 8
+  %.sroa.21.0..sroa_idx.i.i632 = getelementptr inbounds i8, ptr %742, i64 8
   %.sroa.21.0.copyload.i.i633 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i632, align 8
   store i16 %.sroa.0.0.copyload.i.i631, ptr %10, align 8
-  %745 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %.sroa.21.0.copyload.i.i633, ptr %745, align 8
+  %743 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %.sroa.21.0.copyload.i.i633, ptr %743, align 8
   %.not.i636 = icmp eq i16 %.sroa.0.0.copyload.i.i631, 0
-  br i1 %.not.i636, label %751, label %746
+  br i1 %.not.i636, label %749, label %744
 
-746:                                              ; preds = %734
-  %747 = zext i16 %.sroa.0.0.copyload.i.i631 to i64
-  %748 = add nsw i64 %747, -1
-  %749 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %748
-  %750 = load i16, ptr %749, align 2
+744:                                              ; preds = %732
+  %745 = zext i16 %.sroa.0.0.copyload.i.i631 to i64
+  %746 = add nsw i64 %745, -1
+  %747 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %746
+  %748 = load i16, ptr %747, align 2
   br label %_ZNK4llvm3EVT20getVectorElementTypeEv.exit641
 
-751:                                              ; preds = %734
-  %752 = call { i16, ptr } @_ZNK4llvm3EVT28getExtendedVectorElementTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #22
-  %753 = extractvalue { i16, ptr } %752, 0
+749:                                              ; preds = %732
+  %750 = call { i16, ptr } @_ZNK4llvm3EVT28getExtendedVectorElementTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #22
+  %751 = extractvalue { i16, ptr } %750, 0
   br label %_ZNK4llvm3EVT20getVectorElementTypeEv.exit641
 
-_ZNK4llvm3EVT20getVectorElementTypeEv.exit641:    ; preds = %746, %751
-  %.sroa.0.0.i638 = phi i16 [ %750, %746 ], [ %753, %751 ]
+_ZNK4llvm3EVT20getVectorElementTypeEv.exit641:    ; preds = %744, %749
+  %.sroa.0.0.i638 = phi i16 [ %748, %744 ], [ %751, %749 ]
   %.not.i.i642 = icmp eq i16 %.sroa.0.0.i638, 8
   br i1 %.not.i.i642, label %.critedge489, label %_ZNK4llvm3EVTeqES0_.exit644
 
 _ZNK4llvm3EVTeqES0_.exit644:                      ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit641
-  %754 = call noundef zeroext i1 @_ZNK4llvm25MaskedGatherScatterSDNode13isIndexScaledEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
-  %755 = xor i1 %754, true
+  %752 = call noundef zeroext i1 @_ZNK4llvm25MaskedGatherScatterSDNode13isIndexScaledEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
+  %753 = xor i1 %752, true
   br label %.critedge489
 
-756:                                              ; preds = %3
-  %757 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %758 = load ptr, ptr %757, align 8
-  %759 = getelementptr inbounds nuw i8, ptr %758, i64 24
-  %760 = getelementptr inbounds nuw i8, ptr %758, i64 32
-  %761 = load i32, ptr %760, align 8
-  %762 = icmp ult i32 %761, 65
-  br i1 %762, label %763, label %770
+754:                                              ; preds = %3
+  %755 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %756 = load ptr, ptr %755, align 8
+  %757 = getelementptr inbounds nuw i8, ptr %756, i64 24
+  %758 = getelementptr inbounds nuw i8, ptr %756, i64 32
+  %759 = load i32, ptr %758, align 8
+  %760 = icmp ult i32 %759, 65
+  br i1 %760, label %761, label %768
 
-763:                                              ; preds = %756
-  %764 = load i64, ptr %759, align 8
-  %765 = icmp eq i32 %761, 0
-  %766 = sub nuw nsw i32 64, %761
-  %767 = zext nneg i32 %766 to i64
-  %768 = shl i64 %764, %767
-  %769 = ashr exact i64 %768, %767
-  %.0.i.i.i.i646 = select i1 %765, i64 0, i64 %769
+761:                                              ; preds = %754
+  %762 = load i64, ptr %757, align 8
+  %763 = icmp eq i32 %759, 0
+  %764 = sub nuw nsw i32 64, %759
+  %765 = zext nneg i32 %764 to i64
+  %766 = shl i64 %762, %765
+  %767 = ashr exact i64 %766, %765
+  %.0.i.i.i.i646 = select i1 %763, i64 0, i64 %767
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit647
 
-770:                                              ; preds = %756
-  %771 = load ptr, ptr %759, align 8
-  %772 = load i64, ptr %771, align 8
+768:                                              ; preds = %754
+  %769 = load ptr, ptr %757, align 8
+  %770 = load i64, ptr %769, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit647
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit647: ; preds = %763, %770
-  %.0.i.i.i645 = phi i64 [ %.0.i.i.i.i646, %763 ], [ %772, %770 ]
-  %773 = and i64 %.0.i.i.i645, 4294967232
-  %774 = icmp eq i64 %773, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit647: ; preds = %761, %768
+  %.0.i.i.i645 = phi i64 [ %.0.i.i.i.i646, %761 ], [ %770, %768 ]
+  %771 = and i64 %.0.i.i.i645, 4294967232
+  %772 = icmp eq i64 %771, 0
   br label %.critedge489
 
-775:                                              ; preds = %3
-  %776 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %777 = load ptr, ptr %776, align 8
-  %778 = getelementptr inbounds nuw i8, ptr %777, i64 24
-  %779 = getelementptr inbounds nuw i8, ptr %777, i64 32
-  %780 = load i32, ptr %779, align 8
-  %781 = icmp ult i32 %780, 65
-  br i1 %781, label %782, label %789
+773:                                              ; preds = %3
+  %774 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %775 = load ptr, ptr %774, align 8
+  %776 = getelementptr inbounds nuw i8, ptr %775, i64 24
+  %777 = getelementptr inbounds nuw i8, ptr %775, i64 32
+  %778 = load i32, ptr %777, align 8
+  %779 = icmp ult i32 %778, 65
+  br i1 %779, label %780, label %787
 
-782:                                              ; preds = %775
-  %783 = load i64, ptr %778, align 8
-  %784 = icmp eq i32 %780, 0
-  %785 = sub nuw nsw i32 64, %780
-  %786 = zext nneg i32 %785 to i64
-  %787 = shl i64 %783, %786
-  %788 = ashr exact i64 %787, %786
-  %.0.i.i.i.i649 = select i1 %784, i64 0, i64 %788
+780:                                              ; preds = %773
+  %781 = load i64, ptr %776, align 8
+  %782 = icmp eq i32 %778, 0
+  %783 = sub nuw nsw i32 64, %778
+  %784 = zext nneg i32 %783 to i64
+  %785 = shl i64 %781, %784
+  %786 = ashr exact i64 %785, %784
+  %.0.i.i.i.i649 = select i1 %782, i64 0, i64 %786
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit650
 
-789:                                              ; preds = %775
-  %790 = load ptr, ptr %778, align 8
-  %791 = load i64, ptr %790, align 8
+787:                                              ; preds = %773
+  %788 = load ptr, ptr %776, align 8
+  %789 = load i64, ptr %788, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit650
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit650: ; preds = %782, %789
-  %.0.i.i.i648 = phi i64 [ %.0.i.i.i.i649, %782 ], [ %791, %789 ]
-  %792 = and i64 %.0.i.i.i648, 4294967295
-  %793 = icmp eq i64 %792, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit650: ; preds = %780, %787
+  %.0.i.i.i648 = phi i64 [ %.0.i.i.i.i649, %780 ], [ %789, %787 ]
+  %790 = and i64 %.0.i.i.i648, 4294967295
+  %791 = icmp eq i64 %790, 0
   br label %.critedge489
 
-794:                                              ; preds = %3
-  %795 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %796 = load i16, ptr %795, align 2
-  %797 = and i16 %796, 1024
-  %.not1349 = icmp eq i16 %797, 0
-  br i1 %.not1349, label %.critedge489, label %798
+792:                                              ; preds = %3
+  %793 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %794 = load i16, ptr %793, align 2
+  %795 = and i16 %794, 1024
+  %.not1349 = icmp eq i16 %795, 0
+  br i1 %.not1349, label %.critedge489, label %796
 
-798:                                              ; preds = %794
-  %799 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i651 = load i16, ptr %799, align 8
+796:                                              ; preds = %792
+  %797 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i651 = load i16, ptr %797, align 8
   %.sroa.21.0..sroa_idx.i652 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i653 = load ptr, ptr %.sroa.21.0..sroa_idx.i652, align 8
   store i16 %.sroa.0.0.copyload.i651, ptr %11, align 8
-  %800 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %.sroa.21.0.copyload.i653, ptr %800, align 8
-  %801 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
-  %802 = extractvalue { i16, ptr } %801, 0
-  %.not.i.i656 = icmp eq i16 %802, 6
+  %798 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %.sroa.21.0.copyload.i653, ptr %798, align 8
+  %799 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %800 = extractvalue { i16, ptr } %799, 0
+  %.not.i.i656 = icmp eq i16 %800, 6
   br label %.critedge489
 
-803:                                              ; preds = %3
-  %804 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %805 = load i16, ptr %804, align 2
-  %806 = and i16 %805, 3072
-  %807 = icmp eq i16 %806, 1024
-  br i1 %807, label %808, label %.critedge489
+801:                                              ; preds = %3
+  %802 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %803 = load i16, ptr %802, align 2
+  %804 = and i16 %803, 3072
+  %805 = icmp eq i16 %804, 1024
+  br i1 %805, label %806, label %.critedge489
 
-808:                                              ; preds = %803
-  %809 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i659 = load i16, ptr %809, align 8
+806:                                              ; preds = %801
+  %807 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i659 = load i16, ptr %807, align 8
   %.sroa.21.0..sroa_idx.i660 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i661 = load ptr, ptr %.sroa.21.0..sroa_idx.i660, align 8
   store i16 %.sroa.0.0.copyload.i659, ptr %12, align 8
-  %810 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %.sroa.21.0.copyload.i661, ptr %810, align 8
-  %811 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
-  %812 = extractvalue { i16, ptr } %811, 0
-  %.not.i.i664 = icmp eq i16 %812, 6
+  %808 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %.sroa.21.0.copyload.i661, ptr %808, align 8
+  %809 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %810 = extractvalue { i16, ptr } %809, 0
+  %.not.i.i664 = icmp eq i16 %810, 6
   br label %.critedge489
 
-813:                                              ; preds = %3
-  %814 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %815 = load i16, ptr %814, align 2
-  %816 = and i16 %815, 3072
-  %817 = icmp eq i16 %816, 3072
-  br i1 %817, label %818, label %.critedge489
+811:                                              ; preds = %3
+  %812 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %813 = load i16, ptr %812, align 2
+  %814 = and i16 %813, 3072
+  %815 = icmp eq i16 %814, 3072
+  br i1 %815, label %816, label %.critedge489
 
-818:                                              ; preds = %813
-  %819 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i667 = load i16, ptr %819, align 8
+816:                                              ; preds = %811
+  %817 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i667 = load i16, ptr %817, align 8
   %.sroa.21.0..sroa_idx.i668 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i669 = load ptr, ptr %.sroa.21.0..sroa_idx.i668, align 8
   store i16 %.sroa.0.0.copyload.i667, ptr %13, align 8
-  %820 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %.sroa.21.0.copyload.i669, ptr %820, align 8
-  %821 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
-  %822 = extractvalue { i16, ptr } %821, 0
-  %.not.i.i672 = icmp eq i16 %822, 6
+  %818 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %.sroa.21.0.copyload.i669, ptr %818, align 8
+  %819 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+  %820 = extractvalue { i16, ptr } %819, 0
+  %.not.i.i672 = icmp eq i16 %820, 6
   br label %.critedge489
 
-823:                                              ; preds = %3
-  %824 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %825 = load i16, ptr %824, align 2
-  %826 = and i16 %825, 3072
-  %827 = icmp eq i16 %826, 2048
-  br i1 %827, label %828, label %.critedge489
+821:                                              ; preds = %3
+  %822 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %823 = load i16, ptr %822, align 2
+  %824 = and i16 %823, 3072
+  %825 = icmp eq i16 %824, 2048
+  br i1 %825, label %826, label %.critedge489
 
-828:                                              ; preds = %823
-  %829 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i675 = load i16, ptr %829, align 8
+826:                                              ; preds = %821
+  %827 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i675 = load i16, ptr %827, align 8
   %.sroa.21.0..sroa_idx.i676 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i677 = load ptr, ptr %.sroa.21.0..sroa_idx.i676, align 8
   store i16 %.sroa.0.0.copyload.i675, ptr %14, align 8
-  %830 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %.sroa.21.0.copyload.i677, ptr %830, align 8
-  %831 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
-  %832 = extractvalue { i16, ptr } %831, 0
-  %.not.i.i680 = icmp eq i16 %832, 6
+  %828 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %.sroa.21.0.copyload.i677, ptr %828, align 8
+  %829 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
+  %830 = extractvalue { i16, ptr } %829, 0
+  %.not.i.i680 = icmp eq i16 %830, 6
   br label %.critedge489
 
-833:                                              ; preds = %3
-  %834 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %835 = load ptr, ptr %834, align 8
-  %836 = getelementptr inbounds nuw i8, ptr %835, i64 24
-  %837 = tail call noundef zeroext i1 @_ZNK4llvm7APFloat14isExactlyValueEd(ptr noundef nonnull align 8 dereferenceable(32) %836, double noundef 2.000000e+00)
+831:                                              ; preds = %3
+  %832 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %833 = load ptr, ptr %832, align 8
+  %834 = getelementptr inbounds nuw i8, ptr %833, i64 24
+  %835 = tail call noundef zeroext i1 @_ZNK4llvm7APFloat14isExactlyValueEd(ptr noundef nonnull align 8 dereferenceable(32) %834, double noundef 2.000000e+00)
   br label %.critedge489
 
-838:                                              ; preds = %3
-  %839 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
-  %840 = zext i32 %839 to i64
-  %841 = getelementptr inbounds [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %840, i64 5
-  %842 = load i8, ptr %841, align 1
-  %843 = trunc i8 %842 to i1
-  %not. = xor i1 %843, true
+836:                                              ; preds = %3
+  %837 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
+  %838 = zext i32 %837 to i64
+  %839 = getelementptr inbounds [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %838, i64 5
+  %840 = load i8, ptr %839, align 1
+  %841 = trunc i8 %840 to i1
+  %not. = xor i1 %841, true
   br label %.critedge489
 
-844:                                              ; preds = %3
-  %845 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %846 = load i16, ptr %845, align 2
-  %847 = and i16 %846, 1920
-  %or.cond1317 = icmp eq i16 %847, 0
-  br i1 %or.cond1317, label %848, label %.critedge489
+842:                                              ; preds = %3
+  %843 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %844 = load i16, ptr %843, align 2
+  %845 = and i16 %844, 1920
+  %or.cond1317 = icmp eq i16 %845, 0
+  br i1 %or.cond1317, label %846, label %.critedge489
 
-848:                                              ; preds = %844
-  %849 = and i16 %846, 16
-  %850 = icmp ne i16 %849, 0
+846:                                              ; preds = %842
+  %847 = and i16 %844, 16
+  %848 = icmp ne i16 %847, 0
   br label %.critedge489
 
-851:                                              ; preds = %3
-  %852 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i683 = load i16, ptr %852, align 8
+849:                                              ; preds = %3
+  %850 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i683 = load i16, ptr %850, align 8
   %.sroa.21.0..sroa_idx.i684 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i685 = load ptr, ptr %.sroa.21.0..sroa_idx.i684, align 8
   store i16 %.sroa.0.0.copyload.i683, ptr %15, align 8
-  %853 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %.sroa.21.0.copyload.i685, ptr %853, align 8
-  %854 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
-  %855 = extractvalue { i16, ptr } %854, 0
-  %.not.i.i688 = icmp eq i16 %855, 6
+  %851 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %.sroa.21.0.copyload.i685, ptr %851, align 8
+  %852 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %853 = extractvalue { i16, ptr } %852, 0
+  %.not.i.i688 = icmp eq i16 %853, 6
   br label %.critedge489
 
-856:                                              ; preds = %3
-  %857 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %858 = load i16, ptr %857, align 2
-  %859 = and i16 %858, 3968
-  %or.cond1320 = icmp eq i16 %859, 0
-  br i1 %or.cond1320, label %860, label %.critedge489
+854:                                              ; preds = %3
+  %855 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %856 = load i16, ptr %855, align 2
+  %857 = and i16 %856, 3968
+  %or.cond1320 = icmp eq i16 %857, 0
+  br i1 %or.cond1320, label %858, label %.critedge489
 
-860:                                              ; preds = %856
-  %861 = and i16 %858, 16
-  %862 = icmp ne i16 %861, 0
+858:                                              ; preds = %854
+  %859 = and i16 %856, 16
+  %860 = icmp ne i16 %859, 0
   br label %.critedge489
 
-863:                                              ; preds = %3
-  %864 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %865 = load ptr, ptr %864, align 8
-  %866 = getelementptr inbounds nuw i8, ptr %865, i64 24
-  %867 = getelementptr inbounds nuw i8, ptr %865, i64 32
-  %868 = load i32, ptr %867, align 8
-  %869 = icmp ult i32 %868, 65
-  br i1 %869, label %870, label %877
+861:                                              ; preds = %3
+  %862 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %863 = load ptr, ptr %862, align 8
+  %864 = getelementptr inbounds nuw i8, ptr %863, i64 24
+  %865 = getelementptr inbounds nuw i8, ptr %863, i64 32
+  %866 = load i32, ptr %865, align 8
+  %867 = icmp ult i32 %866, 65
+  br i1 %867, label %868, label %875
 
-870:                                              ; preds = %863
-  %871 = load i64, ptr %866, align 8
-  %872 = icmp eq i32 %868, 0
-  %873 = sub nuw nsw i32 64, %868
-  %874 = zext nneg i32 %873 to i64
-  %875 = shl i64 %871, %874
-  %876 = ashr exact i64 %875, %874
-  %.0.i.i.i.i692 = select i1 %872, i64 0, i64 %876
+868:                                              ; preds = %861
+  %869 = load i64, ptr %864, align 8
+  %870 = icmp eq i32 %866, 0
+  %871 = sub nuw nsw i32 64, %866
+  %872 = zext nneg i32 %871 to i64
+  %873 = shl i64 %869, %872
+  %874 = ashr exact i64 %873, %872
+  %.0.i.i.i.i692 = select i1 %870, i64 0, i64 %874
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit693
 
-877:                                              ; preds = %863
-  %878 = load ptr, ptr %866, align 8
-  %879 = load i64, ptr %878, align 8
+875:                                              ; preds = %861
+  %876 = load ptr, ptr %864, align 8
+  %877 = load i64, ptr %876, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit693
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit693: ; preds = %870, %877
-  %.0.i.i.i691 = phi i64 [ %.0.i.i.i.i692, %870 ], [ %879, %877 ]
-  %880 = icmp ult i64 %.0.i.i.i691, 4294967296
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit693: ; preds = %868, %875
+  %.0.i.i.i691 = phi i64 [ %.0.i.i.i.i692, %868 ], [ %877, %875 ]
+  %878 = icmp ult i64 %.0.i.i.i691, 4294967296
   br label %.critedge489
 
-881:                                              ; preds = %3
-  %882 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %883 = load ptr, ptr %882, align 8
-  %884 = getelementptr inbounds nuw i8, ptr %883, i64 24
-  %885 = getelementptr inbounds nuw i8, ptr %883, i64 32
-  %886 = load i32, ptr %885, align 8
-  %887 = icmp ult i32 %886, 65
-  br i1 %887, label %888, label %895
+879:                                              ; preds = %3
+  %880 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %881 = load ptr, ptr %880, align 8
+  %882 = getelementptr inbounds nuw i8, ptr %881, i64 24
+  %883 = getelementptr inbounds nuw i8, ptr %881, i64 32
+  %884 = load i32, ptr %883, align 8
+  %885 = icmp ult i32 %884, 65
+  br i1 %885, label %886, label %893
 
-888:                                              ; preds = %881
-  %889 = load i64, ptr %884, align 8
-  %890 = icmp eq i32 %886, 0
-  %891 = sub nuw nsw i32 64, %886
-  %892 = zext nneg i32 %891 to i64
-  %893 = shl i64 %889, %892
-  %894 = ashr exact i64 %893, %892
-  %.0.i.i.i.i695 = select i1 %890, i64 0, i64 %894
+886:                                              ; preds = %879
+  %887 = load i64, ptr %882, align 8
+  %888 = icmp eq i32 %884, 0
+  %889 = sub nuw nsw i32 64, %884
+  %890 = zext nneg i32 %889 to i64
+  %891 = shl i64 %887, %890
+  %892 = ashr exact i64 %891, %890
+  %.0.i.i.i.i695 = select i1 %888, i64 0, i64 %892
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit696
 
-895:                                              ; preds = %881
-  %896 = load ptr, ptr %884, align 8
-  %897 = load i64, ptr %896, align 8
+893:                                              ; preds = %879
+  %894 = load ptr, ptr %882, align 8
+  %895 = load i64, ptr %894, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit696
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit696: ; preds = %888, %895
-  %.0.i.i.i694 = phi i64 [ %.0.i.i.i.i695, %888 ], [ %897, %895 ]
-  %898 = trunc i64 %.0.i.i.i694 to i32
-  %sext456 = shl i32 %898, 24
-  %899 = ashr exact i32 %sext456, 24
-  %900 = add nsw i32 %899, 16
-  %901 = icmp ult i32 %900, 32
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit696: ; preds = %886, %893
+  %.0.i.i.i694 = phi i64 [ %.0.i.i.i.i695, %886 ], [ %895, %893 ]
+  %896 = trunc i64 %.0.i.i.i694 to i32
+  %sext456 = shl i32 %896, 24
+  %897 = ashr exact i32 %sext456, 24
+  %898 = add nsw i32 %897, 16
+  %899 = icmp ult i32 %898, 32
   br label %.critedge489
 
-902:                                              ; preds = %3
-  %903 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %904 = load ptr, ptr %903, align 8
-  %905 = getelementptr inbounds nuw i8, ptr %904, i64 24
-  %906 = getelementptr inbounds nuw i8, ptr %904, i64 32
-  %907 = load i32, ptr %906, align 8
-  %908 = icmp ult i32 %907, 65
-  br i1 %908, label %909, label %916
+900:                                              ; preds = %3
+  %901 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %902 = load ptr, ptr %901, align 8
+  %903 = getelementptr inbounds nuw i8, ptr %902, i64 24
+  %904 = getelementptr inbounds nuw i8, ptr %902, i64 32
+  %905 = load i32, ptr %904, align 8
+  %906 = icmp ult i32 %905, 65
+  br i1 %906, label %907, label %914
 
-909:                                              ; preds = %902
-  %910 = load i64, ptr %905, align 8
-  %911 = icmp eq i32 %907, 0
-  %912 = sub nuw nsw i32 64, %907
-  %913 = zext nneg i32 %912 to i64
-  %914 = shl i64 %910, %913
-  %915 = ashr exact i64 %914, %913
-  %.0.i.i.i.i698 = select i1 %911, i64 0, i64 %915
+907:                                              ; preds = %900
+  %908 = load i64, ptr %903, align 8
+  %909 = icmp eq i32 %905, 0
+  %910 = sub nuw nsw i32 64, %905
+  %911 = zext nneg i32 %910 to i64
+  %912 = shl i64 %908, %911
+  %913 = ashr exact i64 %912, %911
+  %.0.i.i.i.i698 = select i1 %909, i64 0, i64 %913
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit699
 
-916:                                              ; preds = %902
-  %917 = load ptr, ptr %905, align 8
-  %918 = load i64, ptr %917, align 8
+914:                                              ; preds = %900
+  %915 = load ptr, ptr %903, align 8
+  %916 = load i64, ptr %915, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit699
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit699: ; preds = %909, %916
-  %.0.i.i.i697 = phi i64 [ %.0.i.i.i.i698, %909 ], [ %918, %916 ]
-  %919 = trunc i64 %.0.i.i.i697 to i32
-  %sext = shl i32 %919, 16
-  %920 = ashr exact i32 %sext, 16
-  %921 = add nsw i32 %920, 16
-  %922 = icmp ult i32 %921, 32
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit699: ; preds = %907, %914
+  %.0.i.i.i697 = phi i64 [ %.0.i.i.i.i698, %907 ], [ %916, %914 ]
+  %917 = trunc i64 %.0.i.i.i697 to i32
+  %sext = shl i32 %917, 16
+  %918 = ashr exact i32 %sext, 16
+  %919 = add nsw i32 %918, 16
+  %920 = icmp ult i32 %919, 32
   br label %.critedge489
 
-923:                                              ; preds = %3
-  %924 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %925 = load ptr, ptr %924, align 8
-  %926 = getelementptr inbounds nuw i8, ptr %925, i64 24
-  %927 = getelementptr inbounds nuw i8, ptr %925, i64 32
-  %928 = load i32, ptr %927, align 8
-  %929 = icmp ult i32 %928, 65
-  br i1 %929, label %930, label %937
+921:                                              ; preds = %3
+  %922 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %923 = load ptr, ptr %922, align 8
+  %924 = getelementptr inbounds nuw i8, ptr %923, i64 24
+  %925 = getelementptr inbounds nuw i8, ptr %923, i64 32
+  %926 = load i32, ptr %925, align 8
+  %927 = icmp ult i32 %926, 65
+  br i1 %927, label %928, label %935
 
-930:                                              ; preds = %923
-  %931 = load i64, ptr %926, align 8
-  %932 = icmp eq i32 %928, 0
-  %933 = sub nuw nsw i32 64, %928
-  %934 = zext nneg i32 %933 to i64
-  %935 = shl i64 %931, %934
-  %936 = ashr exact i64 %935, %934
-  %.0.i.i.i.i701 = select i1 %932, i64 0, i64 %936
+928:                                              ; preds = %921
+  %929 = load i64, ptr %924, align 8
+  %930 = icmp eq i32 %926, 0
+  %931 = sub nuw nsw i32 64, %926
+  %932 = zext nneg i32 %931 to i64
+  %933 = shl i64 %929, %932
+  %934 = ashr exact i64 %933, %932
+  %.0.i.i.i.i701 = select i1 %930, i64 0, i64 %934
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit702
 
-937:                                              ; preds = %923
-  %938 = load ptr, ptr %926, align 8
-  %939 = load i64, ptr %938, align 8
+935:                                              ; preds = %921
+  %936 = load ptr, ptr %924, align 8
+  %937 = load i64, ptr %936, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit702
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit702: ; preds = %930, %937
-  %.0.i.i.i700 = phi i64 [ %.0.i.i.i.i701, %930 ], [ %939, %937 ]
-  %940 = and i64 %.0.i.i.i700, 4294967040
-  %941 = icmp eq i64 %940, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit702: ; preds = %928, %935
+  %.0.i.i.i700 = phi i64 [ %.0.i.i.i.i701, %928 ], [ %937, %935 ]
+  %938 = and i64 %.0.i.i.i700, 4294967040
+  %939 = icmp eq i64 %938, 0
   br label %.critedge489
 
-942:                                              ; preds = %3
-  %943 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i703 = load i16, ptr %943, align 8
+940:                                              ; preds = %3
+  %941 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i703 = load i16, ptr %941, align 8
   %.not.i708 = icmp eq i16 %.sroa.0.0.copyload.i703, 2
   br label %.critedge489
 
-944:                                              ; preds = %3
-  %945 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
-  %946 = zext i32 %945 to i64
-  %947 = getelementptr inbounds [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %946, i64 5
-  %948 = load i8, ptr %947, align 1
-  %949 = trunc i8 %948 to i1
+942:                                              ; preds = %3
+  %943 = tail call noundef i32 @_ZNK4llvm9MemSDNode17getMergedOrderingEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
+  %944 = zext i32 %943 to i64
+  %945 = getelementptr inbounds [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %944, i64 5
+  %946 = load i8, ptr %945, align 1
+  %947 = trunc i8 %946 to i1
   br label %.critedge489
 
-950:                                              ; preds = %3
-  %951 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %952 = load ptr, ptr %951, align 8
-  %953 = getelementptr inbounds nuw i8, ptr %952, i64 24
-  %954 = getelementptr inbounds nuw i8, ptr %952, i64 32
-  %955 = load i32, ptr %954, align 8
-  %956 = icmp ult i32 %955, 65
-  br i1 %956, label %957, label %964
+948:                                              ; preds = %3
+  %949 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %950 = load ptr, ptr %949, align 8
+  %951 = getelementptr inbounds nuw i8, ptr %950, i64 24
+  %952 = getelementptr inbounds nuw i8, ptr %950, i64 32
+  %953 = load i32, ptr %952, align 8
+  %954 = icmp ult i32 %953, 65
+  br i1 %954, label %955, label %962
 
-957:                                              ; preds = %950
-  %958 = load i64, ptr %953, align 8
-  %959 = icmp eq i32 %955, 0
-  %960 = sub nuw nsw i32 64, %955
-  %961 = zext nneg i32 %960 to i64
-  %962 = shl i64 %958, %961
-  %963 = ashr exact i64 %962, %961
-  br i1 %959, label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713.thread, label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713
+955:                                              ; preds = %948
+  %956 = load i64, ptr %951, align 8
+  %957 = icmp eq i32 %953, 0
+  %958 = sub nuw nsw i32 64, %953
+  %959 = zext nneg i32 %958 to i64
+  %960 = shl i64 %956, %959
+  %961 = ashr exact i64 %960, %959
+  br i1 %957, label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713.thread, label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713
 
-964:                                              ; preds = %950
-  %965 = load ptr, ptr %953, align 8
-  %966 = load i64, ptr %965, align 8
+962:                                              ; preds = %948
+  %963 = load ptr, ptr %951, align 8
+  %964 = load i64, ptr %963, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713: ; preds = %957, %964
-  %.0.i.i.i711 = phi i64 [ %963, %957 ], [ %966, %964 ]
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713: ; preds = %955, %962
+  %.0.i.i.i711 = phi i64 [ %961, %955 ], [ %964, %962 ]
   %.not455 = icmp slt i64 %.0.i.i.i711, -2147483648
   br i1 %.not455, label %.critedge489, label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713.thread
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713.thread: ; preds = %957, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713
-  %.0.i.i.i7111274 = phi i64 [ %.0.i.i.i711, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713 ], [ 0, %957 ]
-  %967 = icmp slt i64 %.0.i.i.i7111274, 2147483648
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713.thread: ; preds = %955, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713
+  %.0.i.i.i7111274 = phi i64 [ %.0.i.i.i711, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713 ], [ 0, %955 ]
+  %965 = icmp slt i64 %.0.i.i.i7111274, 2147483648
   br label %.critedge489
 
-968:                                              ; preds = %3
-  %969 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %970 = load i8, ptr %969, align 2
-  %971 = and i8 %970, 16
-  %972 = icmp ne i8 %971, 0
+966:                                              ; preds = %3
+  %967 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %968 = load i8, ptr %967, align 2
+  %969 = and i8 %968, 16
+  %970 = icmp ne i8 %969, 0
   br label %.critedge489
 
-973:                                              ; preds = %3
-  %974 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %975 = load ptr, ptr %974, align 8
-  %976 = getelementptr inbounds nuw i8, ptr %975, i64 24
-  %977 = getelementptr inbounds nuw i8, ptr %975, i64 32
-  %978 = load i32, ptr %977, align 8
-  %979 = icmp ult i32 %978, 65
-  br i1 %979, label %980, label %987
+971:                                              ; preds = %3
+  %972 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %973 = load ptr, ptr %972, align 8
+  %974 = getelementptr inbounds nuw i8, ptr %973, i64 24
+  %975 = getelementptr inbounds nuw i8, ptr %973, i64 32
+  %976 = load i32, ptr %975, align 8
+  %977 = icmp ult i32 %976, 65
+  br i1 %977, label %978, label %985
 
-980:                                              ; preds = %973
-  %981 = load i64, ptr %976, align 8
-  %982 = icmp eq i32 %978, 0
-  %983 = sub nuw nsw i32 64, %978
-  %984 = zext nneg i32 %983 to i64
-  %985 = shl i64 %981, %984
-  %986 = ashr exact i64 %985, %984
-  %.0.i.i.i.i715 = select i1 %982, i64 0, i64 %986
+978:                                              ; preds = %971
+  %979 = load i64, ptr %974, align 8
+  %980 = icmp eq i32 %976, 0
+  %981 = sub nuw nsw i32 64, %976
+  %982 = zext nneg i32 %981 to i64
+  %983 = shl i64 %979, %982
+  %984 = ashr exact i64 %983, %982
+  %.0.i.i.i.i715 = select i1 %980, i64 0, i64 %984
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit716
 
-987:                                              ; preds = %973
-  %988 = load ptr, ptr %976, align 8
-  %989 = load i64, ptr %988, align 8
+985:                                              ; preds = %971
+  %986 = load ptr, ptr %974, align 8
+  %987 = load i64, ptr %986, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit716
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit716: ; preds = %980, %987
-  %.0.i.i.i714 = phi i64 [ %.0.i.i.i.i715, %980 ], [ %989, %987 ]
-  %990 = icmp ult i64 %.0.i.i.i714, 64
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit716: ; preds = %978, %985
+  %.0.i.i.i714 = phi i64 [ %.0.i.i.i.i715, %978 ], [ %987, %985 ]
+  %988 = icmp ult i64 %.0.i.i.i714, 64
   br label %.critedge489
 
-991:                                              ; preds = %3
-  %992 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %993 = load ptr, ptr %992, align 8
-  %994 = getelementptr inbounds nuw i8, ptr %993, i64 24
-  %995 = getelementptr inbounds nuw i8, ptr %993, i64 32
-  %996 = load i32, ptr %995, align 8
-  %997 = icmp ult i32 %996, 65
-  br i1 %997, label %998, label %1005
+989:                                              ; preds = %3
+  %990 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %991 = load ptr, ptr %990, align 8
+  %992 = getelementptr inbounds nuw i8, ptr %991, i64 24
+  %993 = getelementptr inbounds nuw i8, ptr %991, i64 32
+  %994 = load i32, ptr %993, align 8
+  %995 = icmp ult i32 %994, 65
+  br i1 %995, label %996, label %1003
 
-998:                                              ; preds = %991
-  %999 = load i64, ptr %994, align 8
-  %1000 = icmp eq i32 %996, 0
-  %1001 = sub nuw nsw i32 64, %996
-  %1002 = zext nneg i32 %1001 to i64
-  %1003 = shl i64 %999, %1002
-  %1004 = ashr exact i64 %1003, %1002
-  %.0.i.i.i.i718 = select i1 %1000, i64 0, i64 %1004
+996:                                              ; preds = %989
+  %997 = load i64, ptr %992, align 8
+  %998 = icmp eq i32 %994, 0
+  %999 = sub nuw nsw i32 64, %994
+  %1000 = zext nneg i32 %999 to i64
+  %1001 = shl i64 %997, %1000
+  %1002 = ashr exact i64 %1001, %1000
+  %.0.i.i.i.i718 = select i1 %998, i64 0, i64 %1002
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit719
 
-1005:                                             ; preds = %991
-  %1006 = load ptr, ptr %994, align 8
-  %1007 = load i64, ptr %1006, align 8
+1003:                                             ; preds = %989
+  %1004 = load ptr, ptr %992, align 8
+  %1005 = load i64, ptr %1004, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit719
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit719: ; preds = %998, %1005
-  %.0.i.i.i717 = phi i64 [ %.0.i.i.i.i718, %998 ], [ %1007, %1005 ]
-  %1008 = and i64 %.0.i.i.i717, 4294967294
-  %1009 = icmp eq i64 %1008, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit719: ; preds = %996, %1003
+  %.0.i.i.i717 = phi i64 [ %.0.i.i.i.i718, %996 ], [ %1005, %1003 ]
+  %1006 = and i64 %.0.i.i.i717, 4294967294
+  %1007 = icmp eq i64 %1006, 0
   br label %.critedge489
 
-1010:                                             ; preds = %3
-  %1011 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1012 = load ptr, ptr %1011, align 8
-  %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 24
-  %1014 = getelementptr inbounds nuw i8, ptr %1012, i64 32
-  %1015 = load i32, ptr %1014, align 8
-  %1016 = icmp ult i32 %1015, 65
-  br i1 %1016, label %1017, label %1024
+1008:                                             ; preds = %3
+  %1009 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1010 = load ptr, ptr %1009, align 8
+  %1011 = getelementptr inbounds nuw i8, ptr %1010, i64 24
+  %1012 = getelementptr inbounds nuw i8, ptr %1010, i64 32
+  %1013 = load i32, ptr %1012, align 8
+  %1014 = icmp ult i32 %1013, 65
+  br i1 %1014, label %1015, label %1022
 
-1017:                                             ; preds = %1010
-  %1018 = load i64, ptr %1013, align 8
-  %1019 = icmp eq i32 %1015, 0
-  %1020 = sub nuw nsw i32 64, %1015
-  %1021 = zext nneg i32 %1020 to i64
-  %1022 = shl i64 %1018, %1021
-  %1023 = ashr exact i64 %1022, %1021
-  %.0.i.i.i.i721 = select i1 %1019, i64 0, i64 %1023
+1015:                                             ; preds = %1008
+  %1016 = load i64, ptr %1011, align 8
+  %1017 = icmp eq i32 %1013, 0
+  %1018 = sub nuw nsw i32 64, %1013
+  %1019 = zext nneg i32 %1018 to i64
+  %1020 = shl i64 %1016, %1019
+  %1021 = ashr exact i64 %1020, %1019
+  %.0.i.i.i.i721 = select i1 %1017, i64 0, i64 %1021
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit722
 
-1024:                                             ; preds = %1010
-  %1025 = load ptr, ptr %1013, align 8
-  %1026 = load i64, ptr %1025, align 8
+1022:                                             ; preds = %1008
+  %1023 = load ptr, ptr %1011, align 8
+  %1024 = load i64, ptr %1023, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit722
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit722: ; preds = %1017, %1024
-  %.0.i.i.i720 = phi i64 [ %.0.i.i.i.i721, %1017 ], [ %1026, %1024 ]
-  %1027 = and i64 %.0.i.i.i720, 4294967292
-  %1028 = icmp eq i64 %1027, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit722: ; preds = %1015, %1022
+  %.0.i.i.i720 = phi i64 [ %.0.i.i.i.i721, %1015 ], [ %1024, %1022 ]
+  %1025 = and i64 %.0.i.i.i720, 4294967292
+  %1026 = icmp eq i64 %1025, 0
   br label %.critedge489
 
-1029:                                             ; preds = %3
-  %1030 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1031 = load ptr, ptr %1030, align 8
-  %1032 = getelementptr inbounds nuw i8, ptr %1031, i64 24
-  %1033 = getelementptr inbounds nuw i8, ptr %1031, i64 32
-  %1034 = load i32, ptr %1033, align 8
-  %1035 = icmp ult i32 %1034, 65
-  br i1 %1035, label %1036, label %1043
+1027:                                             ; preds = %3
+  %1028 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1029 = load ptr, ptr %1028, align 8
+  %1030 = getelementptr inbounds nuw i8, ptr %1029, i64 24
+  %1031 = getelementptr inbounds nuw i8, ptr %1029, i64 32
+  %1032 = load i32, ptr %1031, align 8
+  %1033 = icmp ult i32 %1032, 65
+  br i1 %1033, label %1034, label %1041
 
-1036:                                             ; preds = %1029
-  %1037 = load i64, ptr %1032, align 8
-  %1038 = icmp eq i32 %1034, 0
-  %1039 = sub nuw nsw i32 64, %1034
-  %1040 = zext nneg i32 %1039 to i64
-  %1041 = shl i64 %1037, %1040
-  %1042 = ashr exact i64 %1041, %1040
-  %.0.i.i.i.i724 = select i1 %1038, i64 0, i64 %1042
+1034:                                             ; preds = %1027
+  %1035 = load i64, ptr %1030, align 8
+  %1036 = icmp eq i32 %1032, 0
+  %1037 = sub nuw nsw i32 64, %1032
+  %1038 = zext nneg i32 %1037 to i64
+  %1039 = shl i64 %1035, %1038
+  %1040 = ashr exact i64 %1039, %1038
+  %.0.i.i.i.i724 = select i1 %1036, i64 0, i64 %1040
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit725
 
-1043:                                             ; preds = %1029
-  %1044 = load ptr, ptr %1032, align 8
-  %1045 = load i64, ptr %1044, align 8
+1041:                                             ; preds = %1027
+  %1042 = load ptr, ptr %1030, align 8
+  %1043 = load i64, ptr %1042, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit725
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit725: ; preds = %1036, %1043
-  %.0.i.i.i723 = phi i64 [ %.0.i.i.i.i724, %1036 ], [ %1045, %1043 ]
-  %1046 = and i64 %.0.i.i.i723, 4294967288
-  %1047 = icmp eq i64 %1046, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit725: ; preds = %1034, %1041
+  %.0.i.i.i723 = phi i64 [ %.0.i.i.i.i724, %1034 ], [ %1043, %1041 ]
+  %1044 = and i64 %.0.i.i.i723, 4294967288
+  %1045 = icmp eq i64 %1044, 0
+  br label %.critedge489
+
+1046:                                             ; preds = %3
+  %1047 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i726 = load i16, ptr %1047, align 8
+  %.not.i.i731 = icmp eq i16 %.sroa.0.0.copyload.i726, 5
   br label %.critedge489
 
 1048:                                             ; preds = %3
   %1049 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i726 = load i16, ptr %1049, align 8
-  %.not.i.i731 = icmp eq i16 %.sroa.0.0.copyload.i726, 5
+  %.sroa.0.0.copyload.i734 = load i16, ptr %1049, align 8
+  %.not.i.i739 = icmp eq i16 %.sroa.0.0.copyload.i734, 6
   br label %.critedge489
 
 1050:                                             ; preds = %3
   %1051 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i734 = load i16, ptr %1051, align 8
-  %.not.i.i739 = icmp eq i16 %.sroa.0.0.copyload.i734, 6
-  br label %.critedge489
-
-1052:                                             ; preds = %3
-  %1053 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i742 = load i16, ptr %1053, align 8
+  %.sroa.0.0.copyload.i742 = load i16, ptr %1051, align 8
   %.not.i.i747 = icmp eq i16 %.sroa.0.0.copyload.i742, 7
   br label %.critedge489
 
-1054:                                             ; preds = %3
-  %1055 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1056 = load i16, ptr %1055, align 2
-  %1057 = and i16 %1056, 896
-  %1058 = icmp eq i16 %1057, 0
-  br i1 %1058, label %.critedge489, label %1059
+1052:                                             ; preds = %3
+  %1053 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1054 = load i16, ptr %1053, align 2
+  %1055 = and i16 %1054, 896
+  %1056 = icmp eq i16 %1055, 0
+  br i1 %1056, label %.critedge489, label %1057
 
-1059:                                             ; preds = %1054
-  %1060 = getelementptr inbounds nuw i8, ptr %1, i64 40
+1057:                                             ; preds = %1052
+  %1058 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1059 = load ptr, ptr %1058, align 8
+  %1060 = getelementptr inbounds i8, ptr %1059, i64 160
   %1061 = load ptr, ptr %1060, align 8
-  %1062 = getelementptr inbounds i8, ptr %1061, i64 160
-  %1063 = load ptr, ptr %1062, align 8
-  %1064 = getelementptr inbounds i8, ptr %1061, i64 168
-  %1065 = load i32, ptr %1064, align 8
-  %1066 = getelementptr inbounds nuw i8, ptr %1063, i64 48
-  %1067 = load ptr, ptr %1066, align 8
-  %1068 = zext i32 %1065 to i64
-  %1069 = getelementptr inbounds %"struct.llvm::EVT", ptr %1067, i64 %1068
-  %.sroa.0.0.copyload.i.i750 = load i16, ptr %1069, align 8
-  %.sroa.21.0..sroa_idx.i.i751 = getelementptr inbounds i8, ptr %1069, i64 8
+  %1062 = getelementptr inbounds i8, ptr %1059, i64 168
+  %1063 = load i32, ptr %1062, align 8
+  %1064 = getelementptr inbounds nuw i8, ptr %1061, i64 48
+  %1065 = load ptr, ptr %1064, align 8
+  %1066 = zext i32 %1063 to i64
+  %1067 = getelementptr inbounds %"struct.llvm::EVT", ptr %1065, i64 %1066
+  %.sroa.0.0.copyload.i.i750 = load i16, ptr %1067, align 8
+  %.sroa.21.0..sroa_idx.i.i751 = getelementptr inbounds i8, ptr %1067, i64 8
   %.sroa.21.0.copyload.i.i752 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i751, align 8
   store i16 %.sroa.0.0.copyload.i.i750, ptr %16, align 8
-  %1070 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %.sroa.21.0.copyload.i.i752, ptr %1070, align 8
+  %1068 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %.sroa.21.0.copyload.i.i752, ptr %1068, align 8
   %.not.i755 = icmp eq i16 %.sroa.0.0.copyload.i.i750, 0
-  br i1 %.not.i755, label %1076, label %1071
+  br i1 %.not.i755, label %1074, label %1069
 
-1071:                                             ; preds = %1059
-  %1072 = zext i16 %.sroa.0.0.copyload.i.i750 to i64
-  %1073 = add nsw i64 %1072, -1
-  %1074 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %1073
-  %1075 = load i16, ptr %1074, align 2
+1069:                                             ; preds = %1057
+  %1070 = zext i16 %.sroa.0.0.copyload.i.i750 to i64
+  %1071 = add nsw i64 %1070, -1
+  %1072 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %1071
+  %1073 = load i16, ptr %1072, align 2
   br label %_ZNK4llvm3EVT20getVectorElementTypeEv.exit760
 
-1076:                                             ; preds = %1059
-  %1077 = call { i16, ptr } @_ZNK4llvm3EVT28getExtendedVectorElementTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
-  %1078 = extractvalue { i16, ptr } %1077, 0
+1074:                                             ; preds = %1057
+  %1075 = call { i16, ptr } @_ZNK4llvm3EVT28getExtendedVectorElementTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
+  %1076 = extractvalue { i16, ptr } %1075, 0
   br label %_ZNK4llvm3EVT20getVectorElementTypeEv.exit760
 
-_ZNK4llvm3EVT20getVectorElementTypeEv.exit760:    ; preds = %1071, %1076
-  %.sroa.0.0.i757 = phi i16 [ %1075, %1071 ], [ %1078, %1076 ]
+_ZNK4llvm3EVT20getVectorElementTypeEv.exit760:    ; preds = %1069, %1074
+  %.sroa.0.0.i757 = phi i16 [ %1073, %1069 ], [ %1076, %1074 ]
   %.not.i.i761 = icmp eq i16 %.sroa.0.0.i757, 8
   br i1 %.not.i.i761, label %.critedge489, label %_ZNK4llvm3EVTeqES0_.exit763
 
 _ZNK4llvm3EVTeqES0_.exit763:                      ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit760
-  %1079 = call noundef zeroext i1 @_ZNK4llvm25MaskedGatherScatterSDNode13isIndexScaledEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
+  %1077 = call noundef zeroext i1 @_ZNK4llvm25MaskedGatherScatterSDNode13isIndexScaledEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
   br label %.critedge489
 
-1080:                                             ; preds = %3
-  %1081 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i764 = load i16, ptr %1081, align 8
+1078:                                             ; preds = %3
+  %1079 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i764 = load i16, ptr %1079, align 8
   %.not.i769 = icmp eq i16 %.sroa.0.0.copyload.i764, 6
   br i1 %.not.i769, label %_ZNK4llvm3EVTneES0_.exit771, label %.critedge489
 
-_ZNK4llvm3EVTneES0_.exit771:                      ; preds = %1080
-  %1082 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1083 = load i16, ptr %1082, align 2
-  %1084 = and i16 %1083, 1024
-  %1085 = icmp ne i16 %1084, 0
+_ZNK4llvm3EVTneES0_.exit771:                      ; preds = %1078
+  %1080 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1081 = load i16, ptr %1080, align 2
+  %1082 = and i16 %1081, 1024
+  %1083 = icmp ne i16 %1082, 0
   br label %.critedge489
 
-1086:                                             ; preds = %3
-  %1087 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i772 = load i16, ptr %1087, align 8
+1084:                                             ; preds = %3
+  %1085 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i772 = load i16, ptr %1085, align 8
   %.sroa.21.0..sroa_idx.i773 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i774 = load ptr, ptr %.sroa.21.0..sroa_idx.i773, align 8
   store i16 %.sroa.0.0.copyload.i772, ptr %17, align 8
-  %1088 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %.sroa.21.0.copyload.i774, ptr %1088, align 8
-  %1089 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
-  %1090 = extractvalue { i16, ptr } %1089, 0
-  %.not.i777 = icmp eq i16 %1090, 5
+  %1086 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %.sroa.21.0.copyload.i774, ptr %1086, align 8
+  %1087 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %1088 = extractvalue { i16, ptr } %1087, 0
+  %.not.i777 = icmp eq i16 %1088, 5
   br label %.critedge489
 
-1091:                                             ; preds = %3
-  %1092 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1093 = load ptr, ptr %1092, align 8
-  %1094 = getelementptr inbounds nuw i8, ptr %1093, i64 24
-  %1095 = getelementptr inbounds nuw i8, ptr %1093, i64 32
-  %1096 = load i32, ptr %1095, align 8
-  %1097 = icmp ult i32 %1096, 65
-  br i1 %1097, label %1098, label %1105
+1089:                                             ; preds = %3
+  %1090 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1091 = load ptr, ptr %1090, align 8
+  %1092 = getelementptr inbounds nuw i8, ptr %1091, i64 24
+  %1093 = getelementptr inbounds nuw i8, ptr %1091, i64 32
+  %1094 = load i32, ptr %1093, align 8
+  %1095 = icmp ult i32 %1094, 65
+  br i1 %1095, label %1096, label %1103
 
-1098:                                             ; preds = %1091
-  %1099 = load i64, ptr %1094, align 8
-  %1100 = icmp eq i32 %1096, 0
-  %1101 = sub nuw nsw i32 64, %1096
-  %1102 = zext nneg i32 %1101 to i64
-  %1103 = shl i64 %1099, %1102
-  %1104 = ashr exact i64 %1103, %1102
-  %.0.i.i.i.i781 = select i1 %1100, i64 0, i64 %1104
+1096:                                             ; preds = %1089
+  %1097 = load i64, ptr %1092, align 8
+  %1098 = icmp eq i32 %1094, 0
+  %1099 = sub nuw nsw i32 64, %1094
+  %1100 = zext nneg i32 %1099 to i64
+  %1101 = shl i64 %1097, %1100
+  %1102 = ashr exact i64 %1101, %1100
+  %.0.i.i.i.i781 = select i1 %1098, i64 0, i64 %1102
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit782
 
-1105:                                             ; preds = %1091
-  %1106 = load ptr, ptr %1094, align 8
-  %1107 = load i64, ptr %1106, align 8
+1103:                                             ; preds = %1089
+  %1104 = load ptr, ptr %1092, align 8
+  %1105 = load i64, ptr %1104, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit782
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit782: ; preds = %1098, %1105
-  %.0.i.i.i780 = phi i64 [ %.0.i.i.i.i781, %1098 ], [ %1107, %1105 ]
-  %1108 = and i64 %.0.i.i.i780, -249
-  %1109 = icmp eq i64 %1108, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit782: ; preds = %1096, %1103
+  %.0.i.i.i780 = phi i64 [ %.0.i.i.i.i781, %1096 ], [ %1105, %1103 ]
+  %1106 = and i64 %.0.i.i.i780, -249
+  %1107 = icmp eq i64 %1106, 0
   br label %.critedge489
 
-1110:                                             ; preds = %3
-  %1111 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i783 = load i16, ptr %1111, align 8
+1108:                                             ; preds = %3
+  %1109 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i783 = load i16, ptr %1109, align 8
   %.sroa.21.0..sroa_idx.i784 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i785 = load ptr, ptr %.sroa.21.0..sroa_idx.i784, align 8
   store i16 %.sroa.0.0.copyload.i783, ptr %18, align 8
-  %1112 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %.sroa.21.0.copyload.i785, ptr %1112, align 8
-  %1113 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
-  %1114 = extractvalue { i16, ptr } %1113, 0
-  %.not.i788 = icmp eq i16 %1114, 5
+  %1110 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr %.sroa.21.0.copyload.i785, ptr %1110, align 8
+  %1111 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
+  %1112 = extractvalue { i16, ptr } %1111, 0
+  %.not.i788 = icmp eq i16 %1112, 5
   br label %.critedge489
 
-1115:                                             ; preds = %3
-  %1116 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i791 = load i16, ptr %1116, align 8
+1113:                                             ; preds = %3
+  %1114 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i791 = load i16, ptr %1114, align 8
   %.sroa.21.0..sroa_idx.i792 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i793 = load ptr, ptr %.sroa.21.0..sroa_idx.i792, align 8
   store i16 %.sroa.0.0.copyload.i791, ptr %19, align 8
-  %1117 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %.sroa.21.0.copyload.i793, ptr %1117, align 8
-  %1118 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
-  %1119 = extractvalue { i16, ptr } %1118, 0
-  %.not.i796 = icmp eq i16 %1119, 6
+  %1115 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %.sroa.21.0.copyload.i793, ptr %1115, align 8
+  %1116 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
+  %1117 = extractvalue { i16, ptr } %1116, 0
+  %.not.i796 = icmp eq i16 %1117, 6
   br label %.critedge489
 
-1120:                                             ; preds = %3
-  %1121 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i799 = load i16, ptr %1121, align 8
+1118:                                             ; preds = %3
+  %1119 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i799 = load i16, ptr %1119, align 8
   %.sroa.21.0..sroa_idx.i800 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i801 = load ptr, ptr %.sroa.21.0..sroa_idx.i800, align 8
   store i16 %.sroa.0.0.copyload.i799, ptr %20, align 8
-  %1122 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %.sroa.21.0.copyload.i801, ptr %1122, align 8
-  %1123 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
-  %1124 = extractvalue { i16, ptr } %1123, 0
-  %.not.i804 = icmp eq i16 %1124, 7
+  %1120 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %.sroa.21.0.copyload.i801, ptr %1120, align 8
+  %1121 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
+  %1122 = extractvalue { i16, ptr } %1121, 0
+  %.not.i804 = icmp eq i16 %1122, 7
   br label %.critedge489
 
-1125:                                             ; preds = %3
-  %1126 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1127 = load i16, ptr %1126, align 2
-  %1128 = and i16 %1127, 1024
-  %.not1348 = icmp eq i16 %1128, 0
-  br i1 %.not1348, label %.critedge489, label %1129
+1123:                                             ; preds = %3
+  %1124 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1125 = load i16, ptr %1124, align 2
+  %1126 = and i16 %1125, 1024
+  %.not1348 = icmp eq i16 %1126, 0
+  br i1 %.not1348, label %.critedge489, label %1127
 
-1129:                                             ; preds = %1125
-  %1130 = and i16 %1127, 896
-  %1131 = icmp eq i16 %1130, 0
+1127:                                             ; preds = %1123
+  %1128 = and i16 %1125, 896
+  %1129 = icmp eq i16 %1128, 0
   br label %.critedge489
 
-1132:                                             ; preds = %3
-  %1133 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i807 = load i16, ptr %1133, align 8
+1130:                                             ; preds = %3
+  %1131 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i807 = load i16, ptr %1131, align 8
   %.sroa.21.0..sroa_idx.i808 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i809 = load ptr, ptr %.sroa.21.0..sroa_idx.i808, align 8
   store i16 %.sroa.0.0.copyload.i807, ptr %21, align 8
-  %1134 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %.sroa.21.0.copyload.i809, ptr %1134, align 8
-  %1135 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
-  %1136 = extractvalue { i16, ptr } %1135, 0
-  %.not.i.i812 = icmp eq i16 %1136, 5
+  %1132 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %.sroa.21.0.copyload.i809, ptr %1132, align 8
+  %1133 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
+  %1134 = extractvalue { i16, ptr } %1133, 0
+  %.not.i.i812 = icmp eq i16 %1134, 5
   br label %.critedge489
 
-1137:                                             ; preds = %3
-  %1138 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1139 = load i16, ptr %1138, align 2
-  %1140 = and i16 %1139, 1024
-  %.not1347 = icmp eq i16 %1140, 0
-  br i1 %.not1347, label %.critedge489, label %1141
+1135:                                             ; preds = %3
+  %1136 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1137 = load i16, ptr %1136, align 2
+  %1138 = and i16 %1137, 1024
+  %.not1347 = icmp eq i16 %1138, 0
+  br i1 %.not1347, label %.critedge489, label %1139
 
-1141:                                             ; preds = %1137
-  %1142 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i815 = load i16, ptr %1142, align 8
+1139:                                             ; preds = %1135
+  %1140 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i815 = load i16, ptr %1140, align 8
   %.sroa.21.0..sroa_idx.i816 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i817 = load ptr, ptr %.sroa.21.0..sroa_idx.i816, align 8
   store i16 %.sroa.0.0.copyload.i815, ptr %22, align 8
-  %1143 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %.sroa.21.0.copyload.i817, ptr %1143, align 8
-  %1144 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
-  %1145 = extractvalue { i16, ptr } %1144, 0
-  %.not.i.i820 = icmp eq i16 %1145, 7
+  %1141 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr %.sroa.21.0.copyload.i817, ptr %1141, align 8
+  %1142 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
+  %1143 = extractvalue { i16, ptr } %1142, 0
+  %.not.i.i820 = icmp eq i16 %1143, 7
   br label %.critedge489
 
-1146:                                             ; preds = %3
-  %1147 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1148 = load i16, ptr %1147, align 2
-  %1149 = and i16 %1148, 3072
-  %1150 = icmp eq i16 %1149, 1024
-  br i1 %1150, label %1151, label %.critedge489
+1144:                                             ; preds = %3
+  %1145 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1146 = load i16, ptr %1145, align 2
+  %1147 = and i16 %1146, 3072
+  %1148 = icmp eq i16 %1147, 1024
+  br i1 %1148, label %1149, label %.critedge489
 
-1151:                                             ; preds = %1146
-  %1152 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i823 = load i16, ptr %1152, align 8
+1149:                                             ; preds = %1144
+  %1150 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i823 = load i16, ptr %1150, align 8
   %.sroa.21.0..sroa_idx.i824 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i825 = load ptr, ptr %.sroa.21.0..sroa_idx.i824, align 8
   store i16 %.sroa.0.0.copyload.i823, ptr %23, align 8
-  %1153 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %.sroa.21.0.copyload.i825, ptr %1153, align 8
-  %1154 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %23)
-  %1155 = extractvalue { i16, ptr } %1154, 0
-  %.not.i.i828 = icmp eq i16 %1155, 7
+  %1151 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %.sroa.21.0.copyload.i825, ptr %1151, align 8
+  %1152 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %23)
+  %1153 = extractvalue { i16, ptr } %1152, 0
+  %.not.i.i828 = icmp eq i16 %1153, 7
   br label %.critedge489
 
-1156:                                             ; preds = %3
-  %1157 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1158 = load i16, ptr %1157, align 2
-  %1159 = and i16 %1158, 3072
-  %1160 = icmp eq i16 %1159, 3072
-  br i1 %1160, label %1161, label %.critedge489
+1154:                                             ; preds = %3
+  %1155 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1156 = load i16, ptr %1155, align 2
+  %1157 = and i16 %1156, 3072
+  %1158 = icmp eq i16 %1157, 3072
+  br i1 %1158, label %1159, label %.critedge489
 
-1161:                                             ; preds = %1156
-  %1162 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i831 = load i16, ptr %1162, align 8
+1159:                                             ; preds = %1154
+  %1160 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i831 = load i16, ptr %1160, align 8
   %.sroa.21.0..sroa_idx.i832 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i833 = load ptr, ptr %.sroa.21.0..sroa_idx.i832, align 8
   store i16 %.sroa.0.0.copyload.i831, ptr %24, align 8
-  %1163 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %.sroa.21.0.copyload.i833, ptr %1163, align 8
-  %1164 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
-  %1165 = extractvalue { i16, ptr } %1164, 0
-  %.not.i.i836 = icmp eq i16 %1165, 7
+  %1161 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr %.sroa.21.0.copyload.i833, ptr %1161, align 8
+  %1162 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
+  %1163 = extractvalue { i16, ptr } %1162, 0
+  %.not.i.i836 = icmp eq i16 %1163, 7
   br label %.critedge489
 
-1166:                                             ; preds = %3
-  %1167 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1168 = load i16, ptr %1167, align 2
-  %1169 = and i16 %1168, 3072
-  %1170 = icmp eq i16 %1169, 2048
-  br i1 %1170, label %1171, label %.critedge489
+1164:                                             ; preds = %3
+  %1165 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1166 = load i16, ptr %1165, align 2
+  %1167 = and i16 %1166, 3072
+  %1168 = icmp eq i16 %1167, 2048
+  br i1 %1168, label %1169, label %.critedge489
 
-1171:                                             ; preds = %1166
-  %1172 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i839 = load i16, ptr %1172, align 8
+1169:                                             ; preds = %1164
+  %1170 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i839 = load i16, ptr %1170, align 8
   %.sroa.21.0..sroa_idx.i840 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i841 = load ptr, ptr %.sroa.21.0..sroa_idx.i840, align 8
   store i16 %.sroa.0.0.copyload.i839, ptr %25, align 8
-  %1173 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %.sroa.21.0.copyload.i841, ptr %1173, align 8
-  %1174 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
-  %1175 = extractvalue { i16, ptr } %1174, 0
-  %.not.i.i844 = icmp eq i16 %1175, 7
+  %1171 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %.sroa.21.0.copyload.i841, ptr %1171, align 8
+  %1172 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
+  %1173 = extractvalue { i16, ptr } %1172, 0
+  %.not.i.i844 = icmp eq i16 %1173, 7
   br label %.critedge489
 
-1176:                                             ; preds = %3
-  %1177 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i847 = load i16, ptr %1177, align 8
+1174:                                             ; preds = %3
+  %1175 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i847 = load i16, ptr %1175, align 8
   %.not.i852 = icmp eq i16 %.sroa.0.0.copyload.i847, 5
   br i1 %.not.i852, label %_ZNK4llvm3EVTneES0_.exit854, label %.critedge489
 
-_ZNK4llvm3EVTneES0_.exit854:                      ; preds = %1176
-  %1178 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1179 = load i16, ptr %1178, align 2
-  %1180 = and i16 %1179, 1024
-  %1181 = icmp ne i16 %1180, 0
+_ZNK4llvm3EVTneES0_.exit854:                      ; preds = %1174
+  %1176 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1177 = load i16, ptr %1176, align 2
+  %1178 = and i16 %1177, 1024
+  %1179 = icmp ne i16 %1178, 0
   br label %.critedge489
 
-1182:                                             ; preds = %3
-  %1183 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %1184 = load ptr, ptr %1183, align 8
-  %.sroa.0.0.copyload.i855 = load i16, ptr %1184, align 8
+1180:                                             ; preds = %3
+  %1181 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %1182 = load ptr, ptr %1181, align 8
+  %.sroa.0.0.copyload.i855 = load i16, ptr %1182, align 8
   %.not.i.i860 = icmp eq i16 %.sroa.0.0.copyload.i855, 8
-  br i1 %.not.i.i860, label %1185, label %.critedge489
+  br i1 %.not.i.i860, label %1183, label %.critedge489
 
-1185:                                             ; preds = %1182
-  %1186 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1187 = load ptr, ptr %1186, align 8
-  %1188 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i32 64, ptr %1188, align 8, !alias.scope !23
+1183:                                             ; preds = %1180
+  %1184 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1185 = load ptr, ptr %1184, align 8
+  %1186 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i32 64, ptr %1186, align 8, !alias.scope !23
   store i64 -2, ptr %26, align 8, !alias.scope !23
-  %1189 = call noundef zeroext i1 @_ZNK4llvm12SelectionDAG17MaskedValueIsZeroENS_7SDValueERKNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(904) %1187, ptr nonnull %1, i32 0, ptr noundef nonnull align 8 dereferenceable(12) %26, i32 noundef 0) #22
-  %1190 = load i32, ptr %1188, align 8
-  %1191 = icmp ugt i32 %1190, 64
-  br i1 %1191, label %1192, label %.critedge489
+  %1187 = call noundef zeroext i1 @_ZNK4llvm12SelectionDAG17MaskedValueIsZeroENS_7SDValueERKNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(904) %1185, ptr nonnull %1, i32 0, ptr noundef nonnull align 8 dereferenceable(12) %26, i32 noundef 0) #22
+  %1188 = load i32, ptr %1186, align 8
+  %1189 = icmp ugt i32 %1188, 64
+  br i1 %1189, label %1190, label %.critedge489
 
-1192:                                             ; preds = %1185
-  %1193 = load ptr, ptr %26, align 8
-  %1194 = icmp eq ptr %1193, null
-  br i1 %1194, label %.critedge489, label %1195
+1190:                                             ; preds = %1183
+  %1191 = load ptr, ptr %26, align 8
+  %1192 = icmp eq ptr %1191, null
+  br i1 %1192, label %.critedge489, label %1193
 
-1195:                                             ; preds = %1192
-  call void @_ZdaPv(ptr noundef nonnull %1193) #25
+1193:                                             ; preds = %1190
+  call void @_ZdaPv(ptr noundef nonnull %1191) #25
   br label %.critedge489
 
-1196:                                             ; preds = %3
-  %1197 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1198 = load ptr, ptr %1197, align 8
-  %1199 = getelementptr inbounds nuw i8, ptr %1198, i64 24
-  %1200 = getelementptr inbounds nuw i8, ptr %1198, i64 32
-  %1201 = load i32, ptr %1200, align 8
-  %1202 = icmp ult i32 %1201, 65
-  br i1 %1202, label %1203, label %1210
+1194:                                             ; preds = %3
+  %1195 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1196 = load ptr, ptr %1195, align 8
+  %1197 = getelementptr inbounds nuw i8, ptr %1196, i64 24
+  %1198 = getelementptr inbounds nuw i8, ptr %1196, i64 32
+  %1199 = load i32, ptr %1198, align 8
+  %1200 = icmp ult i32 %1199, 65
+  br i1 %1200, label %1201, label %1208
 
-1203:                                             ; preds = %1196
-  %1204 = load i64, ptr %1199, align 8
-  %1205 = icmp eq i32 %1201, 0
-  %1206 = sub nuw nsw i32 64, %1201
-  %1207 = zext nneg i32 %1206 to i64
-  %1208 = shl i64 %1204, %1207
-  %1209 = ashr exact i64 %1208, %1207
-  %.0.i.i.i.i865 = select i1 %1205, i64 0, i64 %1209
+1201:                                             ; preds = %1194
+  %1202 = load i64, ptr %1197, align 8
+  %1203 = icmp eq i32 %1199, 0
+  %1204 = sub nuw nsw i32 64, %1199
+  %1205 = zext nneg i32 %1204 to i64
+  %1206 = shl i64 %1202, %1205
+  %1207 = ashr exact i64 %1206, %1205
+  %.0.i.i.i.i865 = select i1 %1203, i64 0, i64 %1207
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit866
 
-1210:                                             ; preds = %1196
-  %1211 = load ptr, ptr %1199, align 8
-  %1212 = load i64, ptr %1211, align 8
+1208:                                             ; preds = %1194
+  %1209 = load ptr, ptr %1197, align 8
+  %1210 = load i64, ptr %1209, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit866
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit866: ; preds = %1203, %1210
-  %.0.i.i.i864 = phi i64 [ %.0.i.i.i.i865, %1203 ], [ %1212, %1210 ]
-  %1213 = add i64 %.0.i.i.i864, 128
-  %or.cond7 = icmp ult i64 %1213, 241
-  %1214 = and i64 %.0.i.i.i864, 15
-  %1215 = icmp eq i64 %1214, 0
-  %1216 = and i1 %or.cond7, %1215
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit866: ; preds = %1201, %1208
+  %.0.i.i.i864 = phi i64 [ %.0.i.i.i.i865, %1201 ], [ %1210, %1208 ]
+  %1211 = add i64 %.0.i.i.i864, 128
+  %or.cond7 = icmp ult i64 %1211, 241
+  %1212 = and i64 %.0.i.i.i864, 15
+  %1213 = icmp eq i64 %1212, 0
+  %1214 = and i1 %or.cond7, %1213
   br label %.critedge489
 
-1217:                                             ; preds = %3
-  %1218 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1219 = load ptr, ptr %1218, align 8
-  %1220 = getelementptr inbounds nuw i8, ptr %1219, i64 24
-  %1221 = getelementptr inbounds nuw i8, ptr %1219, i64 32
-  %1222 = load i32, ptr %1221, align 8
-  %1223 = icmp ult i32 %1222, 65
-  br i1 %1223, label %1224, label %1231
+1215:                                             ; preds = %3
+  %1216 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1217 = load ptr, ptr %1216, align 8
+  %1218 = getelementptr inbounds nuw i8, ptr %1217, i64 24
+  %1219 = getelementptr inbounds nuw i8, ptr %1217, i64 32
+  %1220 = load i32, ptr %1219, align 8
+  %1221 = icmp ult i32 %1220, 65
+  br i1 %1221, label %1222, label %1229
 
-1224:                                             ; preds = %1217
-  %1225 = load i64, ptr %1220, align 8
-  %1226 = icmp eq i32 %1222, 0
-  %1227 = sub nuw nsw i32 64, %1222
-  %1228 = zext nneg i32 %1227 to i64
-  %1229 = shl i64 %1225, %1228
-  %1230 = ashr exact i64 %1229, %1228
-  %.0.i.i.i.i868 = select i1 %1226, i64 0, i64 %1230
+1222:                                             ; preds = %1215
+  %1223 = load i64, ptr %1218, align 8
+  %1224 = icmp eq i32 %1220, 0
+  %1225 = sub nuw nsw i32 64, %1220
+  %1226 = zext nneg i32 %1225 to i64
+  %1227 = shl i64 %1223, %1226
+  %1228 = ashr exact i64 %1227, %1226
+  %.0.i.i.i.i868 = select i1 %1224, i64 0, i64 %1228
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit869
 
-1231:                                             ; preds = %1217
-  %1232 = load ptr, ptr %1220, align 8
-  %1233 = load i64, ptr %1232, align 8
+1229:                                             ; preds = %1215
+  %1230 = load ptr, ptr %1218, align 8
+  %1231 = load i64, ptr %1230, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit869
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit869: ; preds = %1224, %1231
-  %.0.i.i.i867 = phi i64 [ %.0.i.i.i.i868, %1224 ], [ %1233, %1231 ]
-  %1234 = and i64 %.0.i.i.i867, 4294967294
-  %1235 = icmp eq i64 %1234, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit869: ; preds = %1222, %1229
+  %.0.i.i.i867 = phi i64 [ %.0.i.i.i.i868, %1222 ], [ %1231, %1229 ]
+  %1232 = and i64 %.0.i.i.i867, 4294967294
+  %1233 = icmp eq i64 %1232, 0
   br label %.critedge489
 
-1236:                                             ; preds = %3
-  %1237 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1238 = load i16, ptr %1237, align 2
-  %1239 = and i16 %1238, 1024
-  %.not1346 = icmp eq i16 %1239, 0
-  br i1 %.not1346, label %.critedge489, label %1240
+1234:                                             ; preds = %3
+  %1235 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1236 = load i16, ptr %1235, align 2
+  %1237 = and i16 %1236, 1024
+  %.not1346 = icmp eq i16 %1237, 0
+  br i1 %.not1346, label %.critedge489, label %1238
 
-1240:                                             ; preds = %1236
-  %1241 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i870 = load i16, ptr %1241, align 8
+1238:                                             ; preds = %1234
+  %1239 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i870 = load i16, ptr %1239, align 8
   %.sroa.21.0..sroa_idx.i871 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i872 = load ptr, ptr %.sroa.21.0..sroa_idx.i871, align 8
   store i16 %.sroa.0.0.copyload.i870, ptr %27, align 8
-  %1242 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %.sroa.21.0.copyload.i872, ptr %1242, align 8
-  %1243 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
-  %1244 = extractvalue { i16, ptr } %1243, 0
-  %.not.i.i875 = icmp eq i16 %1244, 5
+  %1240 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %.sroa.21.0.copyload.i872, ptr %1240, align 8
+  %1241 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
+  %1242 = extractvalue { i16, ptr } %1241, 0
+  %.not.i.i875 = icmp eq i16 %1242, 5
   br label %.critedge489
 
-1245:                                             ; preds = %3
-  %1246 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1247 = load i16, ptr %1246, align 2
-  %1248 = and i16 %1247, 3072
-  %1249 = icmp eq i16 %1248, 1024
-  br i1 %1249, label %1250, label %.critedge489
+1243:                                             ; preds = %3
+  %1244 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1245 = load i16, ptr %1244, align 2
+  %1246 = and i16 %1245, 3072
+  %1247 = icmp eq i16 %1246, 1024
+  br i1 %1247, label %1248, label %.critedge489
 
-1250:                                             ; preds = %1245
-  %1251 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i878 = load i16, ptr %1251, align 8
+1248:                                             ; preds = %1243
+  %1249 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i878 = load i16, ptr %1249, align 8
   %.sroa.21.0..sroa_idx.i879 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i880 = load ptr, ptr %.sroa.21.0..sroa_idx.i879, align 8
   store i16 %.sroa.0.0.copyload.i878, ptr %28, align 8
-  %1252 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %.sroa.21.0.copyload.i880, ptr %1252, align 8
-  %1253 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
-  %1254 = extractvalue { i16, ptr } %1253, 0
-  %.not.i.i883 = icmp eq i16 %1254, 5
+  %1250 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %.sroa.21.0.copyload.i880, ptr %1250, align 8
+  %1251 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
+  %1252 = extractvalue { i16, ptr } %1251, 0
+  %.not.i.i883 = icmp eq i16 %1252, 5
   br label %.critedge489
 
-1255:                                             ; preds = %3
-  %1256 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1257 = load i16, ptr %1256, align 2
-  %1258 = and i16 %1257, 3072
-  %1259 = icmp eq i16 %1258, 3072
-  br i1 %1259, label %1260, label %.critedge489
+1253:                                             ; preds = %3
+  %1254 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1255 = load i16, ptr %1254, align 2
+  %1256 = and i16 %1255, 3072
+  %1257 = icmp eq i16 %1256, 3072
+  br i1 %1257, label %1258, label %.critedge489
 
-1260:                                             ; preds = %1255
-  %1261 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i886 = load i16, ptr %1261, align 8
+1258:                                             ; preds = %1253
+  %1259 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i886 = load i16, ptr %1259, align 8
   %.sroa.21.0..sroa_idx.i887 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i888 = load ptr, ptr %.sroa.21.0..sroa_idx.i887, align 8
   store i16 %.sroa.0.0.copyload.i886, ptr %29, align 8
-  %1262 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %.sroa.21.0.copyload.i888, ptr %1262, align 8
-  %1263 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %29)
-  %1264 = extractvalue { i16, ptr } %1263, 0
-  %.not.i.i891 = icmp eq i16 %1264, 5
+  %1260 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %.sroa.21.0.copyload.i888, ptr %1260, align 8
+  %1261 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %29)
+  %1262 = extractvalue { i16, ptr } %1261, 0
+  %.not.i.i891 = icmp eq i16 %1262, 5
   br label %.critedge489
 
-1265:                                             ; preds = %3
-  %1266 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1267 = load i16, ptr %1266, align 2
-  %1268 = and i16 %1267, 3072
-  %1269 = icmp eq i16 %1268, 2048
-  br i1 %1269, label %1270, label %.critedge489
+1263:                                             ; preds = %3
+  %1264 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1265 = load i16, ptr %1264, align 2
+  %1266 = and i16 %1265, 3072
+  %1267 = icmp eq i16 %1266, 2048
+  br i1 %1267, label %1268, label %.critedge489
 
-1270:                                             ; preds = %1265
-  %1271 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i894 = load i16, ptr %1271, align 8
+1268:                                             ; preds = %1263
+  %1269 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i894 = load i16, ptr %1269, align 8
   %.sroa.21.0..sroa_idx.i895 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i896 = load ptr, ptr %.sroa.21.0..sroa_idx.i895, align 8
   store i16 %.sroa.0.0.copyload.i894, ptr %30, align 8
-  %1272 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %.sroa.21.0.copyload.i896, ptr %1272, align 8
-  %1273 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %30)
-  %1274 = extractvalue { i16, ptr } %1273, 0
-  %.not.i.i899 = icmp eq i16 %1274, 5
+  %1270 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %.sroa.21.0.copyload.i896, ptr %1270, align 8
+  %1271 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %30)
+  %1272 = extractvalue { i16, ptr } %1271, 0
+  %.not.i.i899 = icmp eq i16 %1272, 5
   br label %.critedge489
 
-1275:                                             ; preds = %3
-  %1276 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1277 = load ptr, ptr %1276, align 8
-  %1278 = getelementptr inbounds nuw i8, ptr %1277, i64 24
-  %1279 = getelementptr inbounds nuw i8, ptr %1277, i64 32
-  %1280 = load i32, ptr %1279, align 8
-  %1281 = icmp ult i32 %1280, 65
-  br i1 %1281, label %1282, label %1289
+1273:                                             ; preds = %3
+  %1274 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1275 = load ptr, ptr %1274, align 8
+  %1276 = getelementptr inbounds nuw i8, ptr %1275, i64 24
+  %1277 = getelementptr inbounds nuw i8, ptr %1275, i64 32
+  %1278 = load i32, ptr %1277, align 8
+  %1279 = icmp ult i32 %1278, 65
+  br i1 %1279, label %1280, label %1287
 
-1282:                                             ; preds = %1275
-  %1283 = load i64, ptr %1278, align 8
-  %1284 = icmp eq i32 %1280, 0
-  %1285 = sub nuw nsw i32 64, %1280
-  %1286 = zext nneg i32 %1285 to i64
-  %1287 = shl i64 %1283, %1286
-  %1288 = ashr exact i64 %1287, %1286
-  %.0.i.i.i.i903 = select i1 %1284, i64 0, i64 %1288
+1280:                                             ; preds = %1273
+  %1281 = load i64, ptr %1276, align 8
+  %1282 = icmp eq i32 %1278, 0
+  %1283 = sub nuw nsw i32 64, %1278
+  %1284 = zext nneg i32 %1283 to i64
+  %1285 = shl i64 %1281, %1284
+  %1286 = ashr exact i64 %1285, %1284
+  %.0.i.i.i.i903 = select i1 %1282, i64 0, i64 %1286
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit904
 
-1289:                                             ; preds = %1275
-  %1290 = load ptr, ptr %1278, align 8
-  %1291 = load i64, ptr %1290, align 8
+1287:                                             ; preds = %1273
+  %1288 = load ptr, ptr %1276, align 8
+  %1289 = load i64, ptr %1288, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit904
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit904: ; preds = %1282, %1289
-  %.0.i.i.i902 = phi i64 [ %.0.i.i.i.i903, %1282 ], [ %1291, %1289 ]
-  %1292 = icmp ult i64 %.0.i.i.i902, 32
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit904: ; preds = %1280, %1287
+  %.0.i.i.i902 = phi i64 [ %.0.i.i.i.i903, %1280 ], [ %1289, %1287 ]
+  %1290 = icmp ult i64 %.0.i.i.i902, 32
   br label %.critedge489
 
-1293:                                             ; preds = %3
-  %1294 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i905 = load i16, ptr %1294, align 8
+1291:                                             ; preds = %3
+  %1292 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i905 = load i16, ptr %1292, align 8
   %.sroa.21.0..sroa_idx.i906 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i907 = load ptr, ptr %.sroa.21.0..sroa_idx.i906, align 8
   store i16 %.sroa.0.0.copyload.i905, ptr %31, align 8
-  %1295 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %.sroa.21.0.copyload.i907, ptr %1295, align 8
-  %1296 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
-  %1297 = extractvalue { i16, ptr } %1296, 0
-  %.not.i910 = icmp eq i16 %1297, 6
+  %1293 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %.sroa.21.0.copyload.i907, ptr %1293, align 8
+  %1294 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %1295 = extractvalue { i16, ptr } %1294, 0
+  %.not.i910 = icmp eq i16 %1295, 6
   br label %.critedge489
 
-1298:                                             ; preds = %3
-  %1299 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1300 = load ptr, ptr %1299, align 8
-  %1301 = getelementptr inbounds nuw i8, ptr %1300, i64 24
-  %1302 = getelementptr inbounds nuw i8, ptr %1300, i64 32
-  %1303 = load i32, ptr %1302, align 8
-  %1304 = icmp ult i32 %1303, 65
-  br i1 %1304, label %1305, label %1312
+1296:                                             ; preds = %3
+  %1297 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1298 = load ptr, ptr %1297, align 8
+  %1299 = getelementptr inbounds nuw i8, ptr %1298, i64 24
+  %1300 = getelementptr inbounds nuw i8, ptr %1298, i64 32
+  %1301 = load i32, ptr %1300, align 8
+  %1302 = icmp ult i32 %1301, 65
+  br i1 %1302, label %1303, label %1310
 
-1305:                                             ; preds = %1298
-  %1306 = load i64, ptr %1301, align 8
-  %1307 = icmp eq i32 %1303, 0
-  %1308 = sub nuw nsw i32 64, %1303
-  %1309 = zext nneg i32 %1308 to i64
-  %1310 = shl i64 %1306, %1309
-  %1311 = ashr exact i64 %1310, %1309
-  %.0.i.i.i.i914 = select i1 %1307, i64 0, i64 %1311
+1303:                                             ; preds = %1296
+  %1304 = load i64, ptr %1299, align 8
+  %1305 = icmp eq i32 %1301, 0
+  %1306 = sub nuw nsw i32 64, %1301
+  %1307 = zext nneg i32 %1306 to i64
+  %1308 = shl i64 %1304, %1307
+  %1309 = ashr exact i64 %1308, %1307
+  %.0.i.i.i.i914 = select i1 %1305, i64 0, i64 %1309
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit915
 
-1312:                                             ; preds = %1298
-  %1313 = load ptr, ptr %1301, align 8
-  %1314 = load i64, ptr %1313, align 8
+1310:                                             ; preds = %1296
+  %1311 = load ptr, ptr %1299, align 8
+  %1312 = load i64, ptr %1311, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit915
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit915: ; preds = %1305, %1312
-  %.0.i.i.i913 = phi i64 [ %.0.i.i.i.i914, %1305 ], [ %1314, %1312 ]
-  %1315 = and i64 %.0.i.i.i913, 4294967280
-  %1316 = icmp eq i64 %1315, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit915: ; preds = %1303, %1310
+  %.0.i.i.i913 = phi i64 [ %.0.i.i.i.i914, %1303 ], [ %1312, %1310 ]
+  %1313 = and i64 %.0.i.i.i913, 4294967280
+  %1314 = icmp eq i64 %1313, 0
   br label %.critedge489
 
-1317:                                             ; preds = %3
-  %1318 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1319 = load ptr, ptr %1318, align 8
-  %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 24
-  %1321 = getelementptr inbounds nuw i8, ptr %1319, i64 32
-  %1322 = load i32, ptr %1321, align 8
-  %1323 = icmp ult i32 %1322, 65
-  br i1 %1323, label %1324, label %1331
+1315:                                             ; preds = %3
+  %1316 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1317 = load ptr, ptr %1316, align 8
+  %1318 = getelementptr inbounds nuw i8, ptr %1317, i64 24
+  %1319 = getelementptr inbounds nuw i8, ptr %1317, i64 32
+  %1320 = load i32, ptr %1319, align 8
+  %1321 = icmp ult i32 %1320, 65
+  br i1 %1321, label %1322, label %1329
 
-1324:                                             ; preds = %1317
-  %1325 = load i64, ptr %1320, align 8
-  %1326 = icmp eq i32 %1322, 0
-  %1327 = sub nuw nsw i32 64, %1322
-  %1328 = zext nneg i32 %1327 to i64
-  %1329 = shl i64 %1325, %1328
-  %1330 = ashr exact i64 %1329, %1328
-  %.0.i.i.i.i917 = select i1 %1326, i64 0, i64 %1330
+1322:                                             ; preds = %1315
+  %1323 = load i64, ptr %1318, align 8
+  %1324 = icmp eq i32 %1320, 0
+  %1325 = sub nuw nsw i32 64, %1320
+  %1326 = zext nneg i32 %1325 to i64
+  %1327 = shl i64 %1323, %1326
+  %1328 = ashr exact i64 %1327, %1326
+  %.0.i.i.i.i917 = select i1 %1324, i64 0, i64 %1328
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit918
 
-1331:                                             ; preds = %1317
-  %1332 = load ptr, ptr %1320, align 8
-  %1333 = load i64, ptr %1332, align 8
+1329:                                             ; preds = %1315
+  %1330 = load ptr, ptr %1318, align 8
+  %1331 = load i64, ptr %1330, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit918
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit918: ; preds = %1324, %1331
-  %.0.i.i.i916 = phi i64 [ %.0.i.i.i.i917, %1324 ], [ %1333, %1331 ]
-  %1334 = and i64 %.0.i.i.i916, 255
-  %1335 = icmp eq i64 %1334, 255
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit918: ; preds = %1322, %1329
+  %.0.i.i.i916 = phi i64 [ %.0.i.i.i.i917, %1322 ], [ %1331, %1329 ]
+  %1332 = and i64 %.0.i.i.i916, 255
+  %1333 = icmp eq i64 %1332, 255
   br label %.critedge489
 
-1336:                                             ; preds = %3
-  %1337 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1338 = load ptr, ptr %1337, align 8
-  %1339 = getelementptr inbounds nuw i8, ptr %1338, i64 24
-  %1340 = getelementptr inbounds nuw i8, ptr %1338, i64 32
-  %1341 = load i32, ptr %1340, align 8
-  %1342 = icmp ult i32 %1341, 65
-  br i1 %1342, label %1343, label %1350
+1334:                                             ; preds = %3
+  %1335 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1336 = load ptr, ptr %1335, align 8
+  %1337 = getelementptr inbounds nuw i8, ptr %1336, i64 24
+  %1338 = getelementptr inbounds nuw i8, ptr %1336, i64 32
+  %1339 = load i32, ptr %1338, align 8
+  %1340 = icmp ult i32 %1339, 65
+  br i1 %1340, label %1341, label %1348
 
-1343:                                             ; preds = %1336
-  %1344 = load i64, ptr %1339, align 8
-  %1345 = icmp eq i32 %1341, 0
-  %1346 = sub nuw nsw i32 64, %1341
-  %1347 = zext nneg i32 %1346 to i64
-  %1348 = shl i64 %1344, %1347
-  %1349 = ashr exact i64 %1348, %1347
-  %.0.i.i.i.i920 = select i1 %1345, i64 0, i64 %1349
+1341:                                             ; preds = %1334
+  %1342 = load i64, ptr %1337, align 8
+  %1343 = icmp eq i32 %1339, 0
+  %1344 = sub nuw nsw i32 64, %1339
+  %1345 = zext nneg i32 %1344 to i64
+  %1346 = shl i64 %1342, %1345
+  %1347 = ashr exact i64 %1346, %1345
+  %.0.i.i.i.i920 = select i1 %1343, i64 0, i64 %1347
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit921
 
-1350:                                             ; preds = %1336
-  %1351 = load ptr, ptr %1339, align 8
-  %1352 = load i64, ptr %1351, align 8
+1348:                                             ; preds = %1334
+  %1349 = load ptr, ptr %1337, align 8
+  %1350 = load i64, ptr %1349, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit921
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit921: ; preds = %1343, %1350
-  %.0.i.i.i919 = phi i64 [ %.0.i.i.i.i920, %1343 ], [ %1352, %1350 ]
-  %1353 = and i64 %.0.i.i.i919, 65535
-  %1354 = icmp eq i64 %1353, 65535
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit921: ; preds = %1341, %1348
+  %.0.i.i.i919 = phi i64 [ %.0.i.i.i.i920, %1341 ], [ %1350, %1348 ]
+  %1351 = and i64 %.0.i.i.i919, 65535
+  %1352 = icmp eq i64 %1351, 65535
   br label %.critedge489
 
-1355:                                             ; preds = %3
-  %1356 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i922 = load i16, ptr %1356, align 8
+1353:                                             ; preds = %3
+  %1354 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i922 = load i16, ptr %1354, align 8
   %.sroa.21.0..sroa_idx.i923 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i924 = load ptr, ptr %.sroa.21.0..sroa_idx.i923, align 8
   store i16 %.sroa.0.0.copyload.i922, ptr %32, align 8
-  %1357 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %.sroa.21.0.copyload.i924, ptr %1357, align 8
-  %1358 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %32)
-  %1359 = extractvalue { i16, ptr } %1358, 0
-  %.not.i.i927 = icmp eq i16 %1359, 6
+  %1355 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr %.sroa.21.0.copyload.i924, ptr %1355, align 8
+  %1356 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %32)
+  %1357 = extractvalue { i16, ptr } %1356, 0
+  %.not.i.i927 = icmp eq i16 %1357, 6
   br label %.critedge489
 
-1360:                                             ; preds = %3
-  %1361 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.sroa.0.0.copyload.i930 = load i16, ptr %1361, align 4
-  %1362 = and i16 %.sroa.0.0.copyload.i930, 512
-  %1363 = icmp ne i16 %1362, 0
+1358:                                             ; preds = %3
+  %1359 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.sroa.0.0.copyload.i930 = load i16, ptr %1359, align 4
+  %1360 = and i16 %.sroa.0.0.copyload.i930, 512
+  %1361 = icmp ne i16 %1360, 0
   br label %.critedge489
 
-1364:                                             ; preds = %3
-  %1365 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i931 = load i16, ptr %1365, align 8
+1362:                                             ; preds = %3
+  %1363 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i931 = load i16, ptr %1363, align 8
   %.sroa.21.0..sroa_idx.i932 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i933 = load ptr, ptr %.sroa.21.0..sroa_idx.i932, align 8
   store i16 %.sroa.0.0.copyload.i931, ptr %33, align 8
-  %1366 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %.sroa.21.0.copyload.i933, ptr %1366, align 8
-  %1367 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %33)
-  %1368 = extractvalue { i16, ptr } %1367, 0
-  %.not.i.i936 = icmp eq i16 %1368, 7
+  %1364 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store ptr %.sroa.21.0.copyload.i933, ptr %1364, align 8
+  %1365 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %33)
+  %1366 = extractvalue { i16, ptr } %1365, 0
+  %.not.i.i936 = icmp eq i16 %1366, 7
   br label %.critedge489
 
-1369:                                             ; preds = %3
-  %1370 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1371 = load ptr, ptr %1370, align 8
-  %1372 = getelementptr inbounds nuw i8, ptr %1371, i64 24
-  %1373 = tail call noundef zeroext i1 @_ZNK4llvm7APFloat14isExactlyValueEd(ptr noundef nonnull align 8 dereferenceable(32) %1372, double noundef -0.000000e+00)
+1367:                                             ; preds = %3
+  %1368 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1369 = load ptr, ptr %1368, align 8
+  %1370 = getelementptr inbounds nuw i8, ptr %1369, i64 24
+  %1371 = tail call noundef zeroext i1 @_ZNK4llvm7APFloat14isExactlyValueEd(ptr noundef nonnull align 8 dereferenceable(32) %1370, double noundef -0.000000e+00)
   br label %.critedge489
 
-1374:                                             ; preds = %3
-  %1375 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1376 = load ptr, ptr %1375, align 8
-  %1377 = getelementptr inbounds nuw i8, ptr %1376, i64 24
-  %1378 = getelementptr inbounds nuw i8, ptr %1376, i64 32
-  %1379 = load i32, ptr %1378, align 8
-  %1380 = icmp ult i32 %1379, 65
-  br i1 %1380, label %1381, label %1388
+1372:                                             ; preds = %3
+  %1373 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1374 = load ptr, ptr %1373, align 8
+  %1375 = getelementptr inbounds nuw i8, ptr %1374, i64 24
+  %1376 = getelementptr inbounds nuw i8, ptr %1374, i64 32
+  %1377 = load i32, ptr %1376, align 8
+  %1378 = icmp ult i32 %1377, 65
+  br i1 %1378, label %1379, label %1386
 
-1381:                                             ; preds = %1374
-  %1382 = load i64, ptr %1377, align 8
-  %1383 = icmp eq i32 %1379, 0
-  %1384 = sub nuw nsw i32 64, %1379
-  %1385 = zext nneg i32 %1384 to i64
-  %1386 = shl i64 %1382, %1385
-  %1387 = ashr exact i64 %1386, %1385
-  %.0.i.i.i.i940 = select i1 %1383, i64 0, i64 %1387
+1379:                                             ; preds = %1372
+  %1380 = load i64, ptr %1375, align 8
+  %1381 = icmp eq i32 %1377, 0
+  %1382 = sub nuw nsw i32 64, %1377
+  %1383 = zext nneg i32 %1382 to i64
+  %1384 = shl i64 %1380, %1383
+  %1385 = ashr exact i64 %1384, %1383
+  %.0.i.i.i.i940 = select i1 %1381, i64 0, i64 %1385
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit941
 
-1388:                                             ; preds = %1374
-  %1389 = load ptr, ptr %1377, align 8
-  %1390 = load i64, ptr %1389, align 8
+1386:                                             ; preds = %1372
+  %1387 = load ptr, ptr %1375, align 8
+  %1388 = load i64, ptr %1387, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit941
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit941: ; preds = %1381, %1388
-  %.0.i.i.i939 = phi i64 [ %.0.i.i.i.i940, %1381 ], [ %1390, %1388 ]
-  %1391 = trunc i64 %.0.i.i.i939 to i32
-  %1392 = add i32 %1391, 16
-  %1393 = icmp ult i32 %1392, 32
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit941: ; preds = %1379, %1386
+  %.0.i.i.i939 = phi i64 [ %.0.i.i.i.i940, %1379 ], [ %1388, %1386 ]
+  %1389 = trunc i64 %.0.i.i.i939 to i32
+  %1390 = add i32 %1389, 16
+  %1391 = icmp ult i32 %1390, 32
   br label %.critedge489
 
-1394:                                             ; preds = %3
-  %1395 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1396 = load ptr, ptr %1395, align 8
-  %1397 = getelementptr inbounds nuw i8, ptr %1396, i64 24
-  %1398 = getelementptr inbounds nuw i8, ptr %1396, i64 32
-  %1399 = load i32, ptr %1398, align 8
-  %1400 = icmp ult i32 %1399, 65
-  br i1 %1400, label %1401, label %1408
+1392:                                             ; preds = %3
+  %1393 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1394 = load ptr, ptr %1393, align 8
+  %1395 = getelementptr inbounds nuw i8, ptr %1394, i64 24
+  %1396 = getelementptr inbounds nuw i8, ptr %1394, i64 32
+  %1397 = load i32, ptr %1396, align 8
+  %1398 = icmp ult i32 %1397, 65
+  br i1 %1398, label %1399, label %1406
 
-1401:                                             ; preds = %1394
-  %1402 = load i64, ptr %1397, align 8
-  %1403 = icmp eq i32 %1399, 0
-  %1404 = sub nuw nsw i32 64, %1399
-  %1405 = zext nneg i32 %1404 to i64
-  %1406 = shl i64 %1402, %1405
-  %1407 = ashr exact i64 %1406, %1405
-  %.0.i.i.i.i943 = select i1 %1403, i64 0, i64 %1407
+1399:                                             ; preds = %1392
+  %1400 = load i64, ptr %1395, align 8
+  %1401 = icmp eq i32 %1397, 0
+  %1402 = sub nuw nsw i32 64, %1397
+  %1403 = zext nneg i32 %1402 to i64
+  %1404 = shl i64 %1400, %1403
+  %1405 = ashr exact i64 %1404, %1403
+  %.0.i.i.i.i943 = select i1 %1401, i64 0, i64 %1405
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit944
 
-1408:                                             ; preds = %1394
-  %1409 = load ptr, ptr %1397, align 8
-  %1410 = load i64, ptr %1409, align 8
+1406:                                             ; preds = %1392
+  %1407 = load ptr, ptr %1395, align 8
+  %1408 = load i64, ptr %1407, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit944
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit944: ; preds = %1401, %1408
-  %.0.i.i.i942 = phi i64 [ %.0.i.i.i.i943, %1401 ], [ %1410, %1408 ]
-  %1411 = add i64 %.0.i.i.i942, 16
-  %1412 = icmp ult i64 %1411, 32
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit944: ; preds = %1399, %1406
+  %.0.i.i.i942 = phi i64 [ %.0.i.i.i.i943, %1399 ], [ %1408, %1406 ]
+  %1409 = add i64 %.0.i.i.i942, 16
+  %1410 = icmp ult i64 %1409, 32
   br label %.critedge489
 
-1413:                                             ; preds = %3
-  %1414 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1415 = load ptr, ptr %1414, align 8
-  %1416 = getelementptr inbounds nuw i8, ptr %1415, i64 24
-  %1417 = getelementptr inbounds nuw i8, ptr %1415, i64 32
-  %1418 = load i32, ptr %1417, align 8
-  %1419 = icmp ult i32 %1418, 65
-  br i1 %1419, label %1420, label %1427
+1411:                                             ; preds = %3
+  %1412 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1413 = load ptr, ptr %1412, align 8
+  %1414 = getelementptr inbounds nuw i8, ptr %1413, i64 24
+  %1415 = getelementptr inbounds nuw i8, ptr %1413, i64 32
+  %1416 = load i32, ptr %1415, align 8
+  %1417 = icmp ult i32 %1416, 65
+  br i1 %1417, label %1418, label %1425
 
-1420:                                             ; preds = %1413
-  %1421 = load i64, ptr %1416, align 8
-  %1422 = icmp eq i32 %1418, 0
-  %1423 = sub nuw nsw i32 64, %1418
-  %1424 = zext nneg i32 %1423 to i64
-  %1425 = shl i64 %1421, %1424
-  %1426 = ashr exact i64 %1425, %1424
-  %.0.i.i.i.i946 = select i1 %1422, i64 0, i64 %1426
+1418:                                             ; preds = %1411
+  %1419 = load i64, ptr %1414, align 8
+  %1420 = icmp eq i32 %1416, 0
+  %1421 = sub nuw nsw i32 64, %1416
+  %1422 = zext nneg i32 %1421 to i64
+  %1423 = shl i64 %1419, %1422
+  %1424 = ashr exact i64 %1423, %1422
+  %.0.i.i.i.i946 = select i1 %1420, i64 0, i64 %1424
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit947
 
-1427:                                             ; preds = %1413
-  %1428 = load ptr, ptr %1416, align 8
-  %1429 = load i64, ptr %1428, align 8
+1425:                                             ; preds = %1411
+  %1426 = load ptr, ptr %1414, align 8
+  %1427 = load i64, ptr %1426, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit947
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit947: ; preds = %1420, %1427
-  %.0.i.i.i945 = phi i64 [ %.0.i.i.i.i946, %1420 ], [ %1429, %1427 ]
-  %1430 = icmp ult i64 %.0.i.i.i945, 2
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit947: ; preds = %1418, %1425
+  %.0.i.i.i945 = phi i64 [ %.0.i.i.i.i946, %1418 ], [ %1427, %1425 ]
+  %1428 = icmp ult i64 %.0.i.i.i945, 2
   br label %.critedge489
 
-1431:                                             ; preds = %3
-  %1432 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1433 = load ptr, ptr %1432, align 8
-  %1434 = getelementptr inbounds nuw i8, ptr %1433, i64 24
-  %1435 = getelementptr inbounds nuw i8, ptr %1433, i64 32
-  %1436 = load i32, ptr %1435, align 8
-  %1437 = icmp ult i32 %1436, 65
-  br i1 %1437, label %1438, label %1445
+1429:                                             ; preds = %3
+  %1430 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1431 = load ptr, ptr %1430, align 8
+  %1432 = getelementptr inbounds nuw i8, ptr %1431, i64 24
+  %1433 = getelementptr inbounds nuw i8, ptr %1431, i64 32
+  %1434 = load i32, ptr %1433, align 8
+  %1435 = icmp ult i32 %1434, 65
+  br i1 %1435, label %1436, label %1443
 
-1438:                                             ; preds = %1431
-  %1439 = load i64, ptr %1434, align 8
-  %1440 = icmp eq i32 %1436, 0
-  %1441 = sub nuw nsw i32 64, %1436
-  %1442 = zext nneg i32 %1441 to i64
-  %1443 = shl i64 %1439, %1442
-  %1444 = ashr exact i64 %1443, %1442
-  %.0.i.i.i.i949 = select i1 %1440, i64 0, i64 %1444
+1436:                                             ; preds = %1429
+  %1437 = load i64, ptr %1432, align 8
+  %1438 = icmp eq i32 %1434, 0
+  %1439 = sub nuw nsw i32 64, %1434
+  %1440 = zext nneg i32 %1439 to i64
+  %1441 = shl i64 %1437, %1440
+  %1442 = ashr exact i64 %1441, %1440
+  %.0.i.i.i.i949 = select i1 %1438, i64 0, i64 %1442
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit950
 
-1445:                                             ; preds = %1431
-  %1446 = load ptr, ptr %1434, align 8
-  %1447 = load i64, ptr %1446, align 8
+1443:                                             ; preds = %1429
+  %1444 = load ptr, ptr %1432, align 8
+  %1445 = load i64, ptr %1444, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit950
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit950: ; preds = %1438, %1445
-  %.0.i.i.i948 = phi i64 [ %.0.i.i.i.i949, %1438 ], [ %1447, %1445 ]
-  %1448 = icmp eq i64 %.0.i.i.i948, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit950: ; preds = %1436, %1443
+  %.0.i.i.i948 = phi i64 [ %.0.i.i.i.i949, %1436 ], [ %1445, %1443 ]
+  %1446 = icmp eq i64 %.0.i.i.i948, 0
   br label %.critedge489
 
-1449:                                             ; preds = %3
-  %1450 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %1451 = load ptr, ptr %1450, align 8
-  %.sroa.0.0.copyload.i951 = load i16, ptr %1451, align 8
+1447:                                             ; preds = %3
+  %1448 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %1449 = load ptr, ptr %1448, align 8
+  %.sroa.0.0.copyload.i951 = load i16, ptr %1449, align 8
   %.not.i.i956 = icmp eq i16 %.sroa.0.0.copyload.i951, 7
-  br i1 %.not.i.i956, label %1452, label %.critedge489
+  br i1 %.not.i.i956, label %1450, label %.critedge489
 
-1452:                                             ; preds = %1449
-  %1453 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1454 = load ptr, ptr %1453, align 8
-  %1455 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 32, ptr %1455, align 8, !alias.scope !26
+1450:                                             ; preds = %1447
+  %1451 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1452 = load ptr, ptr %1451, align 8
+  %1453 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i32 32, ptr %1453, align 8, !alias.scope !26
   store i64 4294967294, ptr %34, align 8, !alias.scope !26
-  %1456 = call noundef zeroext i1 @_ZNK4llvm12SelectionDAG17MaskedValueIsZeroENS_7SDValueERKNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(904) %1454, ptr nonnull %1, i32 0, ptr noundef nonnull align 8 dereferenceable(12) %34, i32 noundef 0) #22
-  %1457 = load i32, ptr %1455, align 8
-  %1458 = icmp ugt i32 %1457, 64
-  br i1 %1458, label %1459, label %.critedge489
+  %1454 = call noundef zeroext i1 @_ZNK4llvm12SelectionDAG17MaskedValueIsZeroENS_7SDValueERKNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(904) %1452, ptr nonnull %1, i32 0, ptr noundef nonnull align 8 dereferenceable(12) %34, i32 noundef 0) #22
+  %1455 = load i32, ptr %1453, align 8
+  %1456 = icmp ugt i32 %1455, 64
+  br i1 %1456, label %1457, label %.critedge489
 
-1459:                                             ; preds = %1452
-  %1460 = load ptr, ptr %34, align 8
-  %1461 = icmp eq ptr %1460, null
-  br i1 %1461, label %.critedge489, label %1462
+1457:                                             ; preds = %1450
+  %1458 = load ptr, ptr %34, align 8
+  %1459 = icmp eq ptr %1458, null
+  br i1 %1459, label %.critedge489, label %1460
 
-1462:                                             ; preds = %1459
-  call void @_ZdaPv(ptr noundef nonnull %1460) #25
+1460:                                             ; preds = %1457
+  call void @_ZdaPv(ptr noundef nonnull %1458) #25
   br label %.critedge489
 
-1463:                                             ; preds = %3
-  %1464 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1465 = load ptr, ptr %1464, align 8
-  %1466 = getelementptr inbounds nuw i8, ptr %1465, i64 24
-  %1467 = getelementptr inbounds nuw i8, ptr %1465, i64 32
-  %1468 = load i32, ptr %1467, align 8
-  %1469 = icmp ult i32 %1468, 65
-  %1470 = load ptr, ptr %1466, align 8
-  %.0.in.i = select i1 %1469, ptr %1466, ptr %1470
+1461:                                             ; preds = %3
+  %1462 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1463 = load ptr, ptr %1462, align 8
+  %1464 = getelementptr inbounds nuw i8, ptr %1463, i64 24
+  %1465 = getelementptr inbounds nuw i8, ptr %1463, i64 32
+  %1466 = load i32, ptr %1465, align 8
+  %1467 = icmp ult i32 %1466, 65
+  %1468 = load ptr, ptr %1464, align 8
+  %.0.in.i = select i1 %1467, ptr %1464, ptr %1468
   %.0.i960 = load i64, ptr %.0.in.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %1471 = call fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm(i64 noundef %.0.i960, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %1469 = call fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm(i64 noundef %.0.i960, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.critedge489
 
-1472:                                             ; preds = %3
-  %1473 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1474 = load ptr, ptr %1473, align 8
-  %1475 = getelementptr inbounds nuw i8, ptr %1474, i64 24
-  %1476 = getelementptr inbounds nuw i8, ptr %1474, i64 32
-  %1477 = load i32, ptr %1476, align 8
-  %1478 = icmp ult i32 %1477, 65
-  %1479 = load ptr, ptr %1475, align 8
-  %.0.in.i961 = select i1 %1478, ptr %1475, ptr %1479
+1470:                                             ; preds = %3
+  %1471 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1472 = load ptr, ptr %1471, align 8
+  %1473 = getelementptr inbounds nuw i8, ptr %1472, i64 24
+  %1474 = getelementptr inbounds nuw i8, ptr %1472, i64 32
+  %1475 = load i32, ptr %1474, align 8
+  %1476 = icmp ult i32 %1475, 65
+  %1477 = load ptr, ptr %1473, align 8
+  %.0.in.i961 = select i1 %1476, ptr %1473, ptr %1477
   %.0.i962 = load i64, ptr %.0.in.i961, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %1480 = call fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm(i64 noundef %.0.i962, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %1478 = call fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm(i64 noundef %.0.i962, i32 noundef 64, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  br label %.critedge489
+
+1479:                                             ; preds = %3
+  %1480 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i963 = load i16, ptr %1480, align 8
+  %.not.i.i968 = icmp eq i16 %.sroa.0.0.copyload.i963, 8
   br label %.critedge489
 
 1481:                                             ; preds = %3
   %1482 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i963 = load i16, ptr %1482, align 8
-  %.not.i.i968 = icmp eq i16 %.sroa.0.0.copyload.i963, 8
-  br label %.critedge489
+  %1483 = load ptr, ptr %1482, align 8
+  %1484 = getelementptr inbounds nuw i8, ptr %1483, i64 24
+  %1485 = getelementptr inbounds nuw i8, ptr %1483, i64 32
+  %1486 = load i32, ptr %1485, align 8
+  %1487 = icmp ult i32 %1486, 65
+  br i1 %1487, label %1488, label %1495
 
-1483:                                             ; preds = %3
-  %1484 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1485 = load ptr, ptr %1484, align 8
-  %1486 = getelementptr inbounds nuw i8, ptr %1485, i64 24
-  %1487 = getelementptr inbounds nuw i8, ptr %1485, i64 32
-  %1488 = load i32, ptr %1487, align 8
-  %1489 = icmp ult i32 %1488, 65
-  br i1 %1489, label %1490, label %1497
-
-1490:                                             ; preds = %1483
-  %1491 = load i64, ptr %1486, align 8
-  %1492 = icmp eq i32 %1488, 0
-  %1493 = sub nuw nsw i32 64, %1488
-  %1494 = zext nneg i32 %1493 to i64
-  %1495 = shl i64 %1491, %1494
-  %1496 = ashr exact i64 %1495, %1494
-  %.0.i.i.i.i972 = select i1 %1492, i64 0, i64 %1496
+1488:                                             ; preds = %1481
+  %1489 = load i64, ptr %1484, align 8
+  %1490 = icmp eq i32 %1486, 0
+  %1491 = sub nuw nsw i32 64, %1486
+  %1492 = zext nneg i32 %1491 to i64
+  %1493 = shl i64 %1489, %1492
+  %1494 = ashr exact i64 %1493, %1492
+  %.0.i.i.i.i972 = select i1 %1490, i64 0, i64 %1494
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit973
 
-1497:                                             ; preds = %1483
-  %1498 = load ptr, ptr %1486, align 8
-  %1499 = load i64, ptr %1498, align 8
+1495:                                             ; preds = %1481
+  %1496 = load ptr, ptr %1484, align 8
+  %1497 = load i64, ptr %1496, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit973
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit973: ; preds = %1490, %1497
-  %.0.i.i.i971 = phi i64 [ %.0.i.i.i.i972, %1490 ], [ %1499, %1497 ]
-  %1500 = add i64 %.0.i.i.i971, 128
-  %1501 = icmp ult i64 %1500, 256
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit973: ; preds = %1488, %1495
+  %.0.i.i.i971 = phi i64 [ %.0.i.i.i.i972, %1488 ], [ %1497, %1495 ]
+  %1498 = add i64 %.0.i.i.i971, 128
+  %1499 = icmp ult i64 %1498, 256
   br label %.critedge489
 
-1502:                                             ; preds = %3
-  %1503 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1504 = load ptr, ptr %1503, align 8
-  %1505 = getelementptr inbounds nuw i8, ptr %1504, i64 24
-  %1506 = getelementptr inbounds nuw i8, ptr %1504, i64 32
-  %1507 = load i32, ptr %1506, align 8
-  %1508 = icmp ult i32 %1507, 65
-  br i1 %1508, label %1509, label %1516
+1500:                                             ; preds = %3
+  %1501 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1502 = load ptr, ptr %1501, align 8
+  %1503 = getelementptr inbounds nuw i8, ptr %1502, i64 24
+  %1504 = getelementptr inbounds nuw i8, ptr %1502, i64 32
+  %1505 = load i32, ptr %1504, align 8
+  %1506 = icmp ult i32 %1505, 65
+  br i1 %1506, label %1507, label %1514
 
-1509:                                             ; preds = %1502
-  %1510 = load i64, ptr %1505, align 8
-  %1511 = icmp eq i32 %1507, 0
-  %1512 = sub nuw nsw i32 64, %1507
-  %1513 = zext nneg i32 %1512 to i64
-  %1514 = shl i64 %1510, %1513
-  %1515 = ashr exact i64 %1514, %1513
-  %.0.i.i.i.i975 = select i1 %1511, i64 0, i64 %1515
+1507:                                             ; preds = %1500
+  %1508 = load i64, ptr %1503, align 8
+  %1509 = icmp eq i32 %1505, 0
+  %1510 = sub nuw nsw i32 64, %1505
+  %1511 = zext nneg i32 %1510 to i64
+  %1512 = shl i64 %1508, %1511
+  %1513 = ashr exact i64 %1512, %1511
+  %.0.i.i.i.i975 = select i1 %1509, i64 0, i64 %1513
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit976
 
-1516:                                             ; preds = %1502
-  %1517 = load ptr, ptr %1505, align 8
-  %1518 = load i64, ptr %1517, align 8
+1514:                                             ; preds = %1500
+  %1515 = load ptr, ptr %1503, align 8
+  %1516 = load i64, ptr %1515, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit976
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit976: ; preds = %1509, %1516
-  %.0.i.i.i974 = phi i64 [ %.0.i.i.i.i975, %1509 ], [ %1518, %1516 ]
-  %1519 = icmp ult i64 %.0.i.i.i974, 256
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit976: ; preds = %1507, %1514
+  %.0.i.i.i974 = phi i64 [ %.0.i.i.i.i975, %1507 ], [ %1516, %1514 ]
+  %1517 = icmp ult i64 %.0.i.i.i974, 256
   br label %.critedge489
 
-1520:                                             ; preds = %3
-  %1521 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i977 = load i16, ptr %1521, align 8
+1518:                                             ; preds = %3
+  %1519 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i977 = load i16, ptr %1519, align 8
   %.not.i982 = icmp eq i16 %.sroa.0.0.copyload.i977, 7
   br i1 %.not.i982, label %_ZNK4llvm3EVTneES0_.exit984, label %.critedge489
 
-_ZNK4llvm3EVTneES0_.exit984:                      ; preds = %1520
-  %1522 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %1523 = load i16, ptr %1522, align 2
-  %1524 = and i16 %1523, 1024
-  %1525 = icmp ne i16 %1524, 0
+_ZNK4llvm3EVTneES0_.exit984:                      ; preds = %1518
+  %1520 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %1521 = load i16, ptr %1520, align 2
+  %1522 = and i16 %1521, 1024
+  %1523 = icmp ne i16 %1522, 0
   br label %.critedge489
 
-1526:                                             ; preds = %3
-  %1527 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i985 = load i16, ptr %1527, align 8
+1524:                                             ; preds = %3
+  %1525 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i985 = load i16, ptr %1525, align 8
   %.sroa.21.0..sroa_idx.i986 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i987 = load ptr, ptr %.sroa.21.0..sroa_idx.i986, align 8
   store i16 %.sroa.0.0.copyload.i985, ptr %35, align 8
-  %1528 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %.sroa.21.0.copyload.i987, ptr %1528, align 8
-  %1529 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %35)
-  %1530 = extractvalue { i16, ptr } %1529, 0
-  %.not.i990 = icmp eq i16 %1530, 7
+  %1526 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store ptr %.sroa.21.0.copyload.i987, ptr %1526, align 8
+  %1527 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %35)
+  %1528 = extractvalue { i16, ptr } %1527, 0
+  %.not.i990 = icmp eq i16 %1528, 7
   br label %.critedge489
 
-1531:                                             ; preds = %3
-  %1532 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload.i993 = load i16, ptr %1532, align 8
+1529:                                             ; preds = %3
+  %1530 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload.i993 = load i16, ptr %1530, align 8
   %.sroa.21.0..sroa_idx.i994 = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.21.0.copyload.i995 = load ptr, ptr %.sroa.21.0..sroa_idx.i994, align 8
   store i16 %.sroa.0.0.copyload.i993, ptr %36, align 8
-  %1533 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %.sroa.21.0.copyload.i995, ptr %1533, align 8
-  %1534 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %36)
-  %1535 = extractvalue { i16, ptr } %1534, 0
-  %.not.i.i998 = icmp eq i16 %1535, 7
+  %1531 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %.sroa.21.0.copyload.i995, ptr %1531, align 8
+  %1532 = call { i16, ptr } @_ZNK4llvm3EVT13getScalarTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %36)
+  %1533 = extractvalue { i16, ptr } %1532, 0
+  %.not.i.i998 = icmp eq i16 %1533, 7
   br label %.critedge489
 
-1536:                                             ; preds = %3
-  %1537 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1538 = load ptr, ptr %1537, align 8
-  %1539 = getelementptr inbounds nuw i8, ptr %1538, i64 24
-  %1540 = tail call fastcc noundef i32 @_ZN4llvm10AArch64_AML10getFP16ImmERKNS_7APFloatE(ptr noundef nonnull align 8 dereferenceable(32) %1539)
-  %1541 = icmp ne i32 %1540, -1
+1534:                                             ; preds = %3
+  %1535 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1536 = load ptr, ptr %1535, align 8
+  %1537 = getelementptr inbounds nuw i8, ptr %1536, i64 24
+  %1538 = tail call fastcc noundef i32 @_ZN4llvm10AArch64_AML10getFP16ImmERKNS_7APFloatE(ptr noundef nonnull align 8 dereferenceable(32) %1537)
+  %1539 = icmp ne i32 %1538, -1
   br label %.critedge489
 
-1542:                                             ; preds = %3
-  %1543 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1544 = load ptr, ptr %1543, align 8
-  %1545 = getelementptr inbounds nuw i8, ptr %1544, i64 24
-  %1546 = getelementptr inbounds nuw i8, ptr %1544, i64 32
-  %1547 = load i32, ptr %1546, align 8
-  %1548 = icmp ult i32 %1547, 65
-  br i1 %1548, label %1549, label %1556
+1540:                                             ; preds = %3
+  %1541 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1542 = load ptr, ptr %1541, align 8
+  %1543 = getelementptr inbounds nuw i8, ptr %1542, i64 24
+  %1544 = getelementptr inbounds nuw i8, ptr %1542, i64 32
+  %1545 = load i32, ptr %1544, align 8
+  %1546 = icmp ult i32 %1545, 65
+  br i1 %1546, label %1547, label %1554
 
-1549:                                             ; preds = %1542
-  %1550 = load i64, ptr %1545, align 8
-  %1551 = icmp eq i32 %1547, 0
-  %1552 = sub nuw nsw i32 64, %1547
-  %1553 = zext nneg i32 %1552 to i64
-  %1554 = shl i64 %1550, %1553
-  %1555 = ashr exact i64 %1554, %1553
-  %.0.i.i.i.i1002 = select i1 %1551, i64 0, i64 %1555
+1547:                                             ; preds = %1540
+  %1548 = load i64, ptr %1543, align 8
+  %1549 = icmp eq i32 %1545, 0
+  %1550 = sub nuw nsw i32 64, %1545
+  %1551 = zext nneg i32 %1550 to i64
+  %1552 = shl i64 %1548, %1551
+  %1553 = ashr exact i64 %1552, %1551
+  %.0.i.i.i.i1002 = select i1 %1549, i64 0, i64 %1553
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1003
 
-1556:                                             ; preds = %1542
-  %1557 = load ptr, ptr %1545, align 8
-  %1558 = load i64, ptr %1557, align 8
+1554:                                             ; preds = %1540
+  %1555 = load ptr, ptr %1543, align 8
+  %1556 = load i64, ptr %1555, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1003
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1003: ; preds = %1549, %1556
-  %.0.i.i.i1001 = phi i64 [ %.0.i.i.i.i1002, %1549 ], [ %1558, %1556 ]
-  %1559 = icmp ult i64 %.0.i.i.i1001, 64
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1003: ; preds = %1547, %1554
+  %.0.i.i.i1001 = phi i64 [ %.0.i.i.i.i1002, %1547 ], [ %1556, %1554 ]
+  %1557 = icmp ult i64 %.0.i.i.i1001, 64
   br label %.critedge489
 
-1560:                                             ; preds = %3
-  %1561 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1562 = load ptr, ptr %1561, align 8
-  %1563 = getelementptr inbounds nuw i8, ptr %1562, i64 24
-  %1564 = getelementptr inbounds nuw i8, ptr %1562, i64 32
-  %1565 = load i32, ptr %1564, align 8
-  %1566 = icmp ult i32 %1565, 65
-  br i1 %1566, label %1567, label %1574
+1558:                                             ; preds = %3
+  %1559 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1560 = load ptr, ptr %1559, align 8
+  %1561 = getelementptr inbounds nuw i8, ptr %1560, i64 24
+  %1562 = getelementptr inbounds nuw i8, ptr %1560, i64 32
+  %1563 = load i32, ptr %1562, align 8
+  %1564 = icmp ult i32 %1563, 65
+  br i1 %1564, label %1565, label %1572
 
-1567:                                             ; preds = %1560
-  %1568 = load i64, ptr %1563, align 8
-  %1569 = icmp eq i32 %1565, 0
-  %1570 = sub nuw nsw i32 64, %1565
-  %1571 = zext nneg i32 %1570 to i64
-  %1572 = shl i64 %1568, %1571
-  %1573 = ashr exact i64 %1572, %1571
-  %.0.i.i.i.i1005 = select i1 %1569, i64 0, i64 %1573
+1565:                                             ; preds = %1558
+  %1566 = load i64, ptr %1561, align 8
+  %1567 = icmp eq i32 %1563, 0
+  %1568 = sub nuw nsw i32 64, %1563
+  %1569 = zext nneg i32 %1568 to i64
+  %1570 = shl i64 %1566, %1569
+  %1571 = ashr exact i64 %1570, %1569
+  %.0.i.i.i.i1005 = select i1 %1567, i64 0, i64 %1571
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1006
 
-1574:                                             ; preds = %1560
-  %1575 = load ptr, ptr %1563, align 8
-  %1576 = load i64, ptr %1575, align 8
+1572:                                             ; preds = %1558
+  %1573 = load ptr, ptr %1561, align 8
+  %1574 = load i64, ptr %1573, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1006
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1006: ; preds = %1567, %1574
-  %.0.i.i.i1004 = phi i64 [ %.0.i.i.i.i1005, %1567 ], [ %1576, %1574 ]
-  %1577 = icmp ult i64 %.0.i.i.i1004, 16
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1006: ; preds = %1565, %1572
+  %.0.i.i.i1004 = phi i64 [ %.0.i.i.i.i1005, %1565 ], [ %1574, %1572 ]
+  %1575 = icmp ult i64 %.0.i.i.i1004, 16
   br label %.critedge489
 
-1578:                                             ; preds = %3
-  %1579 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1580 = load ptr, ptr %1579, align 8
-  %1581 = getelementptr inbounds nuw i8, ptr %1580, i64 24
-  %1582 = getelementptr inbounds nuw i8, ptr %1580, i64 32
-  %1583 = load i32, ptr %1582, align 8
-  %1584 = icmp ult i32 %1583, 65
-  br i1 %1584, label %1585, label %1592
+1576:                                             ; preds = %3
+  %1577 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1578 = load ptr, ptr %1577, align 8
+  %1579 = getelementptr inbounds nuw i8, ptr %1578, i64 24
+  %1580 = getelementptr inbounds nuw i8, ptr %1578, i64 32
+  %1581 = load i32, ptr %1580, align 8
+  %1582 = icmp ult i32 %1581, 65
+  br i1 %1582, label %1583, label %1590
 
-1585:                                             ; preds = %1578
-  %1586 = load i64, ptr %1581, align 8
-  %1587 = icmp eq i32 %1583, 0
-  %1588 = sub nuw nsw i32 64, %1583
-  %1589 = zext nneg i32 %1588 to i64
-  %1590 = shl i64 %1586, %1589
-  %1591 = ashr exact i64 %1590, %1589
-  %.0.i.i.i.i1008 = select i1 %1587, i64 0, i64 %1591
+1583:                                             ; preds = %1576
+  %1584 = load i64, ptr %1579, align 8
+  %1585 = icmp eq i32 %1581, 0
+  %1586 = sub nuw nsw i32 64, %1581
+  %1587 = zext nneg i32 %1586 to i64
+  %1588 = shl i64 %1584, %1587
+  %1589 = ashr exact i64 %1588, %1587
+  %.0.i.i.i.i1008 = select i1 %1585, i64 0, i64 %1589
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1009
 
-1592:                                             ; preds = %1578
-  %1593 = load ptr, ptr %1581, align 8
-  %1594 = load i64, ptr %1593, align 8
+1590:                                             ; preds = %1576
+  %1591 = load ptr, ptr %1579, align 8
+  %1592 = load i64, ptr %1591, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1009
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1009: ; preds = %1585, %1592
-  %.0.i.i.i1007 = phi i64 [ %.0.i.i.i.i1008, %1585 ], [ %1594, %1592 ]
-  %1595 = icmp ult i64 %.0.i.i.i1007, 65536
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1009: ; preds = %1583, %1590
+  %.0.i.i.i1007 = phi i64 [ %.0.i.i.i.i1008, %1583 ], [ %1592, %1590 ]
+  %1593 = icmp ult i64 %.0.i.i.i1007, 65536
   br label %.critedge489
 
-1596:                                             ; preds = %3
-  %1597 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1598 = load ptr, ptr %1597, align 8
-  %1599 = getelementptr inbounds nuw i8, ptr %1598, i64 24
-  %1600 = getelementptr inbounds nuw i8, ptr %1598, i64 32
-  %1601 = load i32, ptr %1600, align 8
-  %1602 = icmp ult i32 %1601, 65
-  br i1 %1602, label %1603, label %1610
+1594:                                             ; preds = %3
+  %1595 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1596 = load ptr, ptr %1595, align 8
+  %1597 = getelementptr inbounds nuw i8, ptr %1596, i64 24
+  %1598 = getelementptr inbounds nuw i8, ptr %1596, i64 32
+  %1599 = load i32, ptr %1598, align 8
+  %1600 = icmp ult i32 %1599, 65
+  br i1 %1600, label %1601, label %1608
 
-1603:                                             ; preds = %1596
-  %1604 = load i64, ptr %1599, align 8
-  %1605 = icmp eq i32 %1601, 0
-  %1606 = sub nuw nsw i32 64, %1601
-  %1607 = zext nneg i32 %1606 to i64
-  %1608 = shl i64 %1604, %1607
-  %1609 = ashr exact i64 %1608, %1607
-  %.0.i.i.i.i1011 = select i1 %1605, i64 0, i64 %1609
+1601:                                             ; preds = %1594
+  %1602 = load i64, ptr %1597, align 8
+  %1603 = icmp eq i32 %1599, 0
+  %1604 = sub nuw nsw i32 64, %1599
+  %1605 = zext nneg i32 %1604 to i64
+  %1606 = shl i64 %1602, %1605
+  %1607 = ashr exact i64 %1606, %1605
+  %.0.i.i.i.i1011 = select i1 %1603, i64 0, i64 %1607
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1012
 
-1610:                                             ; preds = %1596
-  %1611 = load ptr, ptr %1599, align 8
-  %1612 = load i64, ptr %1611, align 8
+1608:                                             ; preds = %1594
+  %1609 = load ptr, ptr %1597, align 8
+  %1610 = load i64, ptr %1609, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1012
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1012: ; preds = %1603, %1610
-  %.0.i.i.i1010 = phi i64 [ %.0.i.i.i.i1011, %1603 ], [ %1612, %1610 ]
-  %1613 = and i64 %.0.i.i.i1010, 4294901760
-  %1614 = icmp eq i64 %1613, 0
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1012: ; preds = %1601, %1608
+  %.0.i.i.i1010 = phi i64 [ %.0.i.i.i.i1011, %1601 ], [ %1610, %1608 ]
+  %1611 = and i64 %.0.i.i.i1010, 4294901760
+  %1612 = icmp eq i64 %1611, 0
   br label %.critedge489
 
-1615:                                             ; preds = %3
-  %1616 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %1617 = load i32, ptr %1616, align 8
-  switch i32 %1617, label %.critedge489 [
+1613:                                             ; preds = %3
+  %1614 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %1615 = load i32, ptr %1614, align 8
+  switch i32 %1615, label %.critedge489 [
     i32 13, label %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_6SDNodeEEEDcPT0_.exit
     i32 37, label %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_6SDNodeEEEDcPT0_.exit
     i32 14, label %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_6SDNodeEEEDcPT0_.exit
@@ -12006,446 +12004,446 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1012: ; preds = %1603, %1610
     i32 17, label %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_6SDNodeEEEDcPT0_.exit
   ]
 
-_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_6SDNodeEEEDcPT0_.exit: ; preds = %1615, %1615, %1615, %1615
-  %1618 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1619 = load ptr, ptr %1618, align 8
-  %1620 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1041) %1619) #22
-  %1621 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1622 = load ptr, ptr %1621, align 8
-  %1623 = tail call i8 @_ZNK4llvm5Value19getPointerAlignmentERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(24) %1622, ptr noundef nonnull align 8 dereferenceable(512) %1620) #22
-  %1624 = icmp ugt i8 %1623, 1
-  br i1 %1624, label %1625, label %.critedge489
+_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_6SDNodeEEEDcPT0_.exit: ; preds = %1613, %1613, %1613, %1613
+  %1616 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1617 = load ptr, ptr %1616, align 8
+  %1618 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1041) %1617) #22
+  %1619 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1620 = load ptr, ptr %1619, align 8
+  %1621 = tail call i8 @_ZNK4llvm5Value19getPointerAlignmentERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(24) %1620, ptr noundef nonnull align 8 dereferenceable(512) %1618) #22
+  %1622 = icmp ugt i8 %1621, 1
+  br i1 %1622, label %1623, label %.critedge489
 
-1625:                                             ; preds = %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_6SDNodeEEEDcPT0_.exit
-  %1626 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %1627 = load i64, ptr %1626, align 8
-  %1628 = and i64 %1627, 3
-  %1629 = icmp eq i64 %1628, 0
+1623:                                             ; preds = %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_6SDNodeEEEDcPT0_.exit
+  %1624 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %1625 = load i64, ptr %1624, align 8
+  %1626 = and i64 %1625, 3
+  %1627 = icmp eq i64 %1626, 0
   br label %.critedge489
 
-_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_6SDNodeEEEDcPT0_.exit: ; preds = %1615, %1615
-  %1630 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %.sroa.0.0.copyload.i1015 = load i8, ptr %1630, align 4
-  %1631 = icmp ugt i8 %.sroa.0.0.copyload.i1015, 1
-  br i1 %1631, label %1632, label %.critedge489
+_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_6SDNodeEEEDcPT0_.exit: ; preds = %1613, %1613
+  %1628 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %.sroa.0.0.copyload.i1015 = load i8, ptr %1628, align 4
+  %1629 = icmp ugt i8 %.sroa.0.0.copyload.i1015, 1
+  br i1 %1629, label %1630, label %.critedge489
 
-1632:                                             ; preds = %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_6SDNodeEEEDcPT0_.exit
-  %1633 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %1634 = load i32, ptr %1633, align 8
-  %1635 = and i32 %1634, 3
-  %1636 = icmp eq i32 %1635, 0
+1630:                                             ; preds = %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_6SDNodeEEEDcPT0_.exit
+  %1631 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %1632 = load i32, ptr %1631, align 8
+  %1633 = and i32 %1632, 3
+  %1634 = icmp eq i32 %1633, 0
   br label %.critedge489
 
-1637:                                             ; preds = %3
-  %1638 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1639 = load ptr, ptr %1638, align 8
-  %1640 = getelementptr inbounds nuw i8, ptr %1639, i64 24
-  %1641 = getelementptr inbounds nuw i8, ptr %1639, i64 32
-  %1642 = load i32, ptr %1641, align 8
-  %1643 = icmp ult i32 %1642, 65
-  br i1 %1643, label %1644, label %1651
+1635:                                             ; preds = %3
+  %1636 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1637 = load ptr, ptr %1636, align 8
+  %1638 = getelementptr inbounds nuw i8, ptr %1637, i64 24
+  %1639 = getelementptr inbounds nuw i8, ptr %1637, i64 32
+  %1640 = load i32, ptr %1639, align 8
+  %1641 = icmp ult i32 %1640, 65
+  br i1 %1641, label %1642, label %1649
 
-1644:                                             ; preds = %1637
-  %1645 = load i64, ptr %1640, align 8
-  %1646 = icmp eq i32 %1642, 0
-  %1647 = sub nuw nsw i32 64, %1642
-  %1648 = zext nneg i32 %1647 to i64
-  %1649 = shl i64 %1645, %1648
-  %1650 = ashr exact i64 %1649, %1648
-  %.0.i.i.i.i1017 = select i1 %1646, i64 0, i64 %1650
+1642:                                             ; preds = %1635
+  %1643 = load i64, ptr %1638, align 8
+  %1644 = icmp eq i32 %1640, 0
+  %1645 = sub nuw nsw i32 64, %1640
+  %1646 = zext nneg i32 %1645 to i64
+  %1647 = shl i64 %1643, %1646
+  %1648 = ashr exact i64 %1647, %1646
+  %.0.i.i.i.i1017 = select i1 %1644, i64 0, i64 %1648
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1018
 
-1651:                                             ; preds = %1637
-  %1652 = load ptr, ptr %1640, align 8
-  %1653 = load i64, ptr %1652, align 8
+1649:                                             ; preds = %1635
+  %1650 = load ptr, ptr %1638, align 8
+  %1651 = load i64, ptr %1650, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1018
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1018: ; preds = %1644, %1651
-  %.0.i.i.i1016 = phi i64 [ %.0.i.i.i.i1017, %1644 ], [ %1653, %1651 ]
-  %1654 = trunc i64 %.0.i.i.i1016 to i8
-  %1655 = tail call noundef ptr @_ZN4llvm11AArch64SVCR20lookupSVCRByEncodingEh(i8 noundef zeroext %1654) #22
-  %1656 = icmp ne ptr %1655, null
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1018: ; preds = %1642, %1649
+  %.0.i.i.i1016 = phi i64 [ %.0.i.i.i.i1017, %1642 ], [ %1651, %1649 ]
+  %1652 = trunc i64 %.0.i.i.i1016 to i8
+  %1653 = tail call noundef ptr @_ZN4llvm11AArch64SVCR20lookupSVCRByEncodingEh(i8 noundef zeroext %1652) #22
+  %1654 = icmp ne ptr %1653, null
   br label %.critedge489
 
-1657:                                             ; preds = %3
-  %1658 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1659 = load ptr, ptr %1658, align 8
-  %1660 = getelementptr inbounds nuw i8, ptr %1659, i64 24
-  %1661 = getelementptr inbounds nuw i8, ptr %1659, i64 32
-  %1662 = load i32, ptr %1661, align 8
-  %1663 = icmp ult i32 %1662, 65
-  br i1 %1663, label %1664, label %1671
+1655:                                             ; preds = %3
+  %1656 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1657 = load ptr, ptr %1656, align 8
+  %1658 = getelementptr inbounds nuw i8, ptr %1657, i64 24
+  %1659 = getelementptr inbounds nuw i8, ptr %1657, i64 32
+  %1660 = load i32, ptr %1659, align 8
+  %1661 = icmp ult i32 %1660, 65
+  br i1 %1661, label %1662, label %1669
 
-1664:                                             ; preds = %1657
-  %1665 = load i64, ptr %1660, align 8
-  %1666 = icmp eq i32 %1662, 0
-  %1667 = sub nuw nsw i32 64, %1662
-  %1668 = zext nneg i32 %1667 to i64
-  %1669 = shl i64 %1665, %1668
-  %1670 = ashr exact i64 %1669, %1668
-  %.0.i.i.i.i1020 = select i1 %1666, i64 0, i64 %1670
+1662:                                             ; preds = %1655
+  %1663 = load i64, ptr %1658, align 8
+  %1664 = icmp eq i32 %1660, 0
+  %1665 = sub nuw nsw i32 64, %1660
+  %1666 = zext nneg i32 %1665 to i64
+  %1667 = shl i64 %1663, %1666
+  %1668 = ashr exact i64 %1667, %1666
+  %.0.i.i.i.i1020 = select i1 %1664, i64 0, i64 %1668
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1021
 
-1671:                                             ; preds = %1657
-  %1672 = load ptr, ptr %1660, align 8
-  %1673 = load i64, ptr %1672, align 8
+1669:                                             ; preds = %1655
+  %1670 = load ptr, ptr %1658, align 8
+  %1671 = load i64, ptr %1670, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1021
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1021: ; preds = %1664, %1671
-  %.0.i.i.i1019 = phi i64 [ %.0.i.i.i.i1020, %1664 ], [ %1673, %1671 ]
-  %1674 = and i64 %.0.i.i.i1019, 4294967264
-  %1675 = icmp eq i64 %1674, 32
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1021: ; preds = %1662, %1669
+  %.0.i.i.i1019 = phi i64 [ %.0.i.i.i.i1020, %1662 ], [ %1671, %1669 ]
+  %1672 = and i64 %.0.i.i.i1019, 4294967264
+  %1673 = icmp eq i64 %1672, 32
   br label %.critedge489
 
-1676:                                             ; preds = %3
-  %1677 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1678 = load ptr, ptr %1677, align 8
-  %1679 = getelementptr inbounds nuw i8, ptr %1678, i64 24
-  %1680 = tail call fastcc noundef i32 @_ZN4llvm10AArch64_AML10getFP32ImmERKNS_7APFloatE(ptr noundef nonnull align 8 dereferenceable(32) %1679)
-  %1681 = icmp ne i32 %1680, -1
+1674:                                             ; preds = %3
+  %1675 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1676 = load ptr, ptr %1675, align 8
+  %1677 = getelementptr inbounds nuw i8, ptr %1676, i64 24
+  %1678 = tail call fastcc noundef i32 @_ZN4llvm10AArch64_AML10getFP32ImmERKNS_7APFloatE(ptr noundef nonnull align 8 dereferenceable(32) %1677)
+  %1679 = icmp ne i32 %1678, -1
   br label %.critedge489
 
-1682:                                             ; preds = %3
-  %1683 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1684 = load ptr, ptr %1683, align 8
-  %1685 = getelementptr inbounds nuw i8, ptr %1684, i64 24
-  %1686 = tail call fastcc noundef i32 @_ZN4llvm10AArch64_AML10getFP64ImmERKNS_7APFloatE(ptr noundef nonnull align 8 dereferenceable(32) %1685)
-  %1687 = icmp ne i32 %1686, -1
+1680:                                             ; preds = %3
+  %1681 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1682 = load ptr, ptr %1681, align 8
+  %1683 = getelementptr inbounds nuw i8, ptr %1682, i64 24
+  %1684 = tail call fastcc noundef i32 @_ZN4llvm10AArch64_AML10getFP64ImmERKNS_7APFloatE(ptr noundef nonnull align 8 dereferenceable(32) %1683)
+  %1685 = icmp ne i32 %1684, -1
   br label %.critedge489
 
-1688:                                             ; preds = %3
-  %1689 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.sroa.0.0.copyload.i1022 = load i16, ptr %1689, align 4
-  %1690 = and i16 %.sroa.0.0.copyload.i1022, 32
-  %1691 = icmp ne i16 %1690, 0
+1686:                                             ; preds = %3
+  %1687 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.sroa.0.0.copyload.i1022 = load i16, ptr %1687, align 4
+  %1688 = and i16 %.sroa.0.0.copyload.i1022, 32
+  %1689 = icmp ne i16 %1688, 0
   br label %.critedge489
 
-1692:                                             ; preds = %3
-  %1693 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1694 = load ptr, ptr %1693, align 8
-  %1695 = getelementptr inbounds nuw i8, ptr %1694, i64 24
-  %1696 = getelementptr inbounds nuw i8, ptr %1694, i64 32
-  %1697 = load i32, ptr %1696, align 8
-  %1698 = icmp ult i32 %1697, 65
-  br i1 %1698, label %1699, label %1706
+1690:                                             ; preds = %3
+  %1691 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1692 = load ptr, ptr %1691, align 8
+  %1693 = getelementptr inbounds nuw i8, ptr %1692, i64 24
+  %1694 = getelementptr inbounds nuw i8, ptr %1692, i64 32
+  %1695 = load i32, ptr %1694, align 8
+  %1696 = icmp ult i32 %1695, 65
+  br i1 %1696, label %1697, label %1704
 
-1699:                                             ; preds = %1692
-  %1700 = load i64, ptr %1695, align 8
-  %1701 = icmp eq i32 %1697, 0
-  %1702 = sub nuw nsw i32 64, %1697
-  %1703 = zext nneg i32 %1702 to i64
-  %1704 = shl i64 %1700, %1703
-  %1705 = ashr exact i64 %1704, %1703
-  %.0.i.i.i.i1024 = select i1 %1701, i64 0, i64 %1705
+1697:                                             ; preds = %1690
+  %1698 = load i64, ptr %1693, align 8
+  %1699 = icmp eq i32 %1695, 0
+  %1700 = sub nuw nsw i32 64, %1695
+  %1701 = zext nneg i32 %1700 to i64
+  %1702 = shl i64 %1698, %1701
+  %1703 = ashr exact i64 %1702, %1701
+  %.0.i.i.i.i1024 = select i1 %1699, i64 0, i64 %1703
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1025
 
-1706:                                             ; preds = %1692
-  %1707 = load ptr, ptr %1695, align 8
-  %1708 = load i64, ptr %1707, align 8
+1704:                                             ; preds = %1690
+  %1705 = load ptr, ptr %1693, align 8
+  %1706 = load i64, ptr %1705, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1025
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1025: ; preds = %1699, %1706
-  %.0.i.i.i1023 = phi i64 [ %.0.i.i.i.i1024, %1699 ], [ %1708, %1706 ]
-  %1709 = and i64 %.0.i.i.i1023, 4294967295
-  %1710 = icmp eq i64 %1709, 1
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1025: ; preds = %1697, %1704
+  %.0.i.i.i1023 = phi i64 [ %.0.i.i.i.i1024, %1697 ], [ %1706, %1704 ]
+  %1707 = and i64 %.0.i.i.i1023, 4294967295
+  %1708 = icmp eq i64 %1707, 1
   br label %.critedge489
 
-1711:                                             ; preds = %3
-  %1712 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1713 = load ptr, ptr %1712, align 8
-  %1714 = getelementptr inbounds nuw i8, ptr %1713, i64 24
-  %1715 = getelementptr inbounds nuw i8, ptr %1713, i64 32
-  %1716 = load i32, ptr %1715, align 8
-  %1717 = icmp ult i32 %1716, 65
-  br i1 %1717, label %1718, label %1725
+1709:                                             ; preds = %3
+  %1710 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1711 = load ptr, ptr %1710, align 8
+  %1712 = getelementptr inbounds nuw i8, ptr %1711, i64 24
+  %1713 = getelementptr inbounds nuw i8, ptr %1711, i64 32
+  %1714 = load i32, ptr %1713, align 8
+  %1715 = icmp ult i32 %1714, 65
+  br i1 %1715, label %1716, label %1723
 
-1718:                                             ; preds = %1711
-  %1719 = load i64, ptr %1714, align 8
-  %1720 = icmp eq i32 %1716, 0
-  %1721 = sub nuw nsw i32 64, %1716
-  %1722 = zext nneg i32 %1721 to i64
-  %1723 = shl i64 %1719, %1722
-  %1724 = ashr exact i64 %1723, %1722
-  %.0.i.i.i.i1027 = select i1 %1720, i64 0, i64 %1724
+1716:                                             ; preds = %1709
+  %1717 = load i64, ptr %1712, align 8
+  %1718 = icmp eq i32 %1714, 0
+  %1719 = sub nuw nsw i32 64, %1714
+  %1720 = zext nneg i32 %1719 to i64
+  %1721 = shl i64 %1717, %1720
+  %1722 = ashr exact i64 %1721, %1720
+  %.0.i.i.i.i1027 = select i1 %1718, i64 0, i64 %1722
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1028
 
-1725:                                             ; preds = %1711
-  %1726 = load ptr, ptr %1714, align 8
-  %1727 = load i64, ptr %1726, align 8
+1723:                                             ; preds = %1709
+  %1724 = load ptr, ptr %1712, align 8
+  %1725 = load i64, ptr %1724, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1028
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1028: ; preds = %1718, %1725
-  %.0.i.i.i1026 = phi i64 [ %.0.i.i.i.i1027, %1718 ], [ %1727, %1725 ]
-  %1728 = trunc i64 %.0.i.i.i1026 to i32
-  %1729 = add i32 %1728, -1
-  %1730 = icmp ult i32 %1729, 3
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1028: ; preds = %1716, %1723
+  %.0.i.i.i1026 = phi i64 [ %.0.i.i.i.i1027, %1716 ], [ %1725, %1723 ]
+  %1726 = trunc i64 %.0.i.i.i1026 to i32
+  %1727 = add i32 %1726, -1
+  %1728 = icmp ult i32 %1727, 3
   br label %.critedge489
 
-1731:                                             ; preds = %3
-  %1732 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1733 = load ptr, ptr %1732, align 8
-  %1734 = getelementptr inbounds nuw i8, ptr %1733, i64 24
-  %1735 = getelementptr inbounds nuw i8, ptr %1733, i64 32
-  %1736 = load i32, ptr %1735, align 8
-  %1737 = icmp ult i32 %1736, 65
-  br i1 %1737, label %1738, label %1745
+1729:                                             ; preds = %3
+  %1730 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1731 = load ptr, ptr %1730, align 8
+  %1732 = getelementptr inbounds nuw i8, ptr %1731, i64 24
+  %1733 = getelementptr inbounds nuw i8, ptr %1731, i64 32
+  %1734 = load i32, ptr %1733, align 8
+  %1735 = icmp ult i32 %1734, 65
+  br i1 %1735, label %1736, label %1743
 
-1738:                                             ; preds = %1731
-  %1739 = load i64, ptr %1734, align 8
-  %1740 = icmp eq i32 %1736, 0
-  %1741 = sub nuw nsw i32 64, %1736
-  %1742 = zext nneg i32 %1741 to i64
-  %1743 = shl i64 %1739, %1742
-  %1744 = ashr exact i64 %1743, %1742
-  %.0.i.i.i.i1030 = select i1 %1740, i64 0, i64 %1744
+1736:                                             ; preds = %1729
+  %1737 = load i64, ptr %1732, align 8
+  %1738 = icmp eq i32 %1734, 0
+  %1739 = sub nuw nsw i32 64, %1734
+  %1740 = zext nneg i32 %1739 to i64
+  %1741 = shl i64 %1737, %1740
+  %1742 = ashr exact i64 %1741, %1740
+  %.0.i.i.i.i1030 = select i1 %1738, i64 0, i64 %1742
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1031
 
-1745:                                             ; preds = %1731
-  %1746 = load ptr, ptr %1734, align 8
-  %1747 = load i64, ptr %1746, align 8
+1743:                                             ; preds = %1729
+  %1744 = load ptr, ptr %1732, align 8
+  %1745 = load i64, ptr %1744, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1031
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1031: ; preds = %1738, %1745
-  %.0.i.i.i1029 = phi i64 [ %.0.i.i.i.i1030, %1738 ], [ %1747, %1745 ]
-  %1748 = trunc i64 %.0.i.i.i1029 to i32
-  %1749 = add i32 %1748, -1
-  %1750 = icmp ult i32 %1749, 7
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1031: ; preds = %1736, %1743
+  %.0.i.i.i1029 = phi i64 [ %.0.i.i.i.i1030, %1736 ], [ %1745, %1743 ]
+  %1746 = trunc i64 %.0.i.i.i1029 to i32
+  %1747 = add i32 %1746, -1
+  %1748 = icmp ult i32 %1747, 7
   br label %.critedge489
 
-1751:                                             ; preds = %3
-  %1752 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1753 = load ptr, ptr %1752, align 8
-  %1754 = getelementptr inbounds nuw i8, ptr %1753, i64 24
-  %1755 = getelementptr inbounds nuw i8, ptr %1753, i64 32
-  %1756 = load i32, ptr %1755, align 8
-  %1757 = icmp ult i32 %1756, 65
-  br i1 %1757, label %1758, label %1765
+1749:                                             ; preds = %3
+  %1750 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1751 = load ptr, ptr %1750, align 8
+  %1752 = getelementptr inbounds nuw i8, ptr %1751, i64 24
+  %1753 = getelementptr inbounds nuw i8, ptr %1751, i64 32
+  %1754 = load i32, ptr %1753, align 8
+  %1755 = icmp ult i32 %1754, 65
+  br i1 %1755, label %1756, label %1763
 
-1758:                                             ; preds = %1751
-  %1759 = load i64, ptr %1754, align 8
-  %1760 = icmp eq i32 %1756, 0
-  %1761 = sub nuw nsw i32 64, %1756
-  %1762 = zext nneg i32 %1761 to i64
-  %1763 = shl i64 %1759, %1762
-  %1764 = ashr exact i64 %1763, %1762
-  %.0.i.i.i.i1033 = select i1 %1760, i64 0, i64 %1764
+1756:                                             ; preds = %1749
+  %1757 = load i64, ptr %1752, align 8
+  %1758 = icmp eq i32 %1754, 0
+  %1759 = sub nuw nsw i32 64, %1754
+  %1760 = zext nneg i32 %1759 to i64
+  %1761 = shl i64 %1757, %1760
+  %1762 = ashr exact i64 %1761, %1760
+  %.0.i.i.i.i1033 = select i1 %1758, i64 0, i64 %1762
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1034
 
-1765:                                             ; preds = %1751
-  %1766 = load ptr, ptr %1754, align 8
-  %1767 = load i64, ptr %1766, align 8
+1763:                                             ; preds = %1749
+  %1764 = load ptr, ptr %1752, align 8
+  %1765 = load i64, ptr %1764, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1034
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1034: ; preds = %1758, %1765
-  %.0.i.i.i1032 = phi i64 [ %.0.i.i.i.i1033, %1758 ], [ %1767, %1765 ]
-  %1768 = icmp ult i64 %.0.i.i.i1032, 8
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1034: ; preds = %1756, %1763
+  %.0.i.i.i1032 = phi i64 [ %.0.i.i.i.i1033, %1756 ], [ %1765, %1763 ]
+  %1766 = icmp ult i64 %.0.i.i.i1032, 8
   br label %.critedge489
 
-1769:                                             ; preds = %3
-  %1770 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %1771 = load i32, ptr %1770, align 8
-  %1772 = icmp eq i32 %1771, 50
-  br i1 %1772, label %1773, label %.critedge489
+1767:                                             ; preds = %3
+  %1768 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %1769 = load i32, ptr %1768, align 8
+  %1770 = icmp eq i32 %1769, 50
+  br i1 %1770, label %1771, label %.critedge489
 
-1773:                                             ; preds = %1769
-  %1774 = getelementptr inbounds nuw i8, ptr %1, i64 40
+1771:                                             ; preds = %1767
+  %1772 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1773 = load ptr, ptr %1772, align 8
+  %1774 = getelementptr inbounds i8, ptr %1773, i64 40
   %1775 = load ptr, ptr %1774, align 8
-  %1776 = getelementptr inbounds i8, ptr %1775, i64 40
-  %1777 = load ptr, ptr %1776, align 8
-  %1778 = getelementptr inbounds nuw i8, ptr %1777, i64 88
-  %.sroa.0.0.copyload.i1035 = load i32, ptr %1778, align 8
-  %1779 = icmp eq i32 %.sroa.0.0.copyload.i1035, 8
+  %1776 = getelementptr inbounds nuw i8, ptr %1775, i64 88
+  %.sroa.0.0.copyload.i1035 = load i32, ptr %1776, align 8
+  %1777 = icmp eq i32 %.sroa.0.0.copyload.i1035, 8
   br label %.critedge489
 
-1780:                                             ; preds = %3
-  %1781 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %1782 = load ptr, ptr %1781, align 8
-  %.sroa.0.0.copyload.i1036 = load i16, ptr %1782, align 8
+1778:                                             ; preds = %3
+  %1779 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %1780 = load ptr, ptr %1779, align 8
+  %.sroa.0.0.copyload.i1036 = load i16, ptr %1780, align 8
   %.not.i.i1041 = icmp eq i16 %.sroa.0.0.copyload.i1036, 7
-  br i1 %.not.i.i1041, label %1783, label %.critedge489
+  br i1 %.not.i.i1041, label %1781, label %.critedge489
 
-1783:                                             ; preds = %1780
-  %1784 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1785 = load ptr, ptr %1784, align 8
-  %1786 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i32 32, ptr %1786, align 8, !alias.scope !29
+1781:                                             ; preds = %1778
+  %1782 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1783 = load ptr, ptr %1782, align 8
+  %1784 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i32 32, ptr %1784, align 8, !alias.scope !29
   store i64 4294901760, ptr %37, align 8, !alias.scope !29
-  %1787 = call noundef zeroext i1 @_ZNK4llvm12SelectionDAG17MaskedValueIsZeroENS_7SDValueERKNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(904) %1785, ptr nonnull %1, i32 0, ptr noundef nonnull align 8 dereferenceable(12) %37, i32 noundef 0) #22
-  %1788 = load i32, ptr %1786, align 8
-  %1789 = icmp ugt i32 %1788, 64
-  br i1 %1789, label %1790, label %.critedge489
+  %1785 = call noundef zeroext i1 @_ZNK4llvm12SelectionDAG17MaskedValueIsZeroENS_7SDValueERKNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(904) %1783, ptr nonnull %1, i32 0, ptr noundef nonnull align 8 dereferenceable(12) %37, i32 noundef 0) #22
+  %1786 = load i32, ptr %1784, align 8
+  %1787 = icmp ugt i32 %1786, 64
+  br i1 %1787, label %1788, label %.critedge489
 
-1790:                                             ; preds = %1783
-  %1791 = load ptr, ptr %37, align 8
-  %1792 = icmp eq ptr %1791, null
-  br i1 %1792, label %.critedge489, label %1793
+1788:                                             ; preds = %1781
+  %1789 = load ptr, ptr %37, align 8
+  %1790 = icmp eq ptr %1789, null
+  br i1 %1790, label %.critedge489, label %1791
 
-1793:                                             ; preds = %1790
-  call void @_ZdaPv(ptr noundef nonnull %1791) #25
+1791:                                             ; preds = %1788
+  call void @_ZdaPv(ptr noundef nonnull %1789) #25
   br label %.critedge489
 
-1794:                                             ; preds = %3
-  %1795 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1796 = load ptr, ptr %1795, align 8
-  %1797 = getelementptr inbounds nuw i8, ptr %1796, i64 24
-  %1798 = getelementptr inbounds nuw i8, ptr %1796, i64 32
-  %1799 = load i32, ptr %1798, align 8
-  %1800 = icmp ult i32 %1799, 65
-  br i1 %1800, label %1801, label %1808
+1792:                                             ; preds = %3
+  %1793 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1794 = load ptr, ptr %1793, align 8
+  %1795 = getelementptr inbounds nuw i8, ptr %1794, i64 24
+  %1796 = getelementptr inbounds nuw i8, ptr %1794, i64 32
+  %1797 = load i32, ptr %1796, align 8
+  %1798 = icmp ult i32 %1797, 65
+  br i1 %1798, label %1799, label %1806
 
-1801:                                             ; preds = %1794
-  %1802 = load i64, ptr %1797, align 8
-  %1803 = icmp eq i32 %1799, 0
-  %1804 = sub nuw nsw i32 64, %1799
-  %1805 = zext nneg i32 %1804 to i64
-  %1806 = shl i64 %1802, %1805
-  %1807 = ashr exact i64 %1806, %1805
-  %.0.i.i.i.i1046 = select i1 %1803, i64 0, i64 %1807
+1799:                                             ; preds = %1792
+  %1800 = load i64, ptr %1795, align 8
+  %1801 = icmp eq i32 %1797, 0
+  %1802 = sub nuw nsw i32 64, %1797
+  %1803 = zext nneg i32 %1802 to i64
+  %1804 = shl i64 %1800, %1803
+  %1805 = ashr exact i64 %1804, %1803
+  %.0.i.i.i.i1046 = select i1 %1801, i64 0, i64 %1805
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1047
 
-1808:                                             ; preds = %1794
-  %1809 = load ptr, ptr %1797, align 8
-  %1810 = load i64, ptr %1809, align 8
+1806:                                             ; preds = %1792
+  %1807 = load ptr, ptr %1795, align 8
+  %1808 = load i64, ptr %1807, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1047
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1047: ; preds = %1801, %1808
-  %.0.i.i.i1045 = phi i64 [ %.0.i.i.i.i1046, %1801 ], [ %1810, %1808 ]
-  %1811 = icmp ult i64 %.0.i.i.i1045, 256
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1047: ; preds = %1799, %1806
+  %.0.i.i.i1045 = phi i64 [ %.0.i.i.i.i1046, %1799 ], [ %1808, %1806 ]
+  %1809 = icmp ult i64 %.0.i.i.i1045, 256
   br label %.critedge489
 
-1812:                                             ; preds = %3
-  %1813 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1814 = load ptr, ptr %1813, align 8
-  %1815 = getelementptr inbounds nuw i8, ptr %1814, i64 24
-  %1816 = getelementptr inbounds nuw i8, ptr %1814, i64 32
-  %1817 = load i32, ptr %1816, align 8
-  %1818 = icmp ult i32 %1817, 65
-  br i1 %1818, label %1819, label %1826
+1810:                                             ; preds = %3
+  %1811 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1812 = load ptr, ptr %1811, align 8
+  %1813 = getelementptr inbounds nuw i8, ptr %1812, i64 24
+  %1814 = getelementptr inbounds nuw i8, ptr %1812, i64 32
+  %1815 = load i32, ptr %1814, align 8
+  %1816 = icmp ult i32 %1815, 65
+  br i1 %1816, label %1817, label %1824
 
-1819:                                             ; preds = %1812
-  %1820 = load i64, ptr %1815, align 8
-  %1821 = icmp eq i32 %1817, 0
-  %1822 = sub nuw nsw i32 64, %1817
-  %1823 = zext nneg i32 %1822 to i64
-  %1824 = shl i64 %1820, %1823
-  %1825 = ashr exact i64 %1824, %1823
-  %.0.i.i.i.i1049 = select i1 %1821, i64 0, i64 %1825
+1817:                                             ; preds = %1810
+  %1818 = load i64, ptr %1813, align 8
+  %1819 = icmp eq i32 %1815, 0
+  %1820 = sub nuw nsw i32 64, %1815
+  %1821 = zext nneg i32 %1820 to i64
+  %1822 = shl i64 %1818, %1821
+  %1823 = ashr exact i64 %1822, %1821
+  %.0.i.i.i.i1049 = select i1 %1819, i64 0, i64 %1823
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1050
 
-1826:                                             ; preds = %1812
-  %1827 = load ptr, ptr %1815, align 8
-  %1828 = load i64, ptr %1827, align 8
+1824:                                             ; preds = %1810
+  %1825 = load ptr, ptr %1813, align 8
+  %1826 = load i64, ptr %1825, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1050
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1050: ; preds = %1819, %1826
-  %.0.i.i.i1048 = phi i64 [ %.0.i.i.i.i1049, %1819 ], [ %1828, %1826 ]
-  %1829 = add i64 %.0.i.i.i1048, 32
-  %1830 = icmp ult i64 %1829, 64
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1050: ; preds = %1817, %1824
+  %.0.i.i.i1048 = phi i64 [ %.0.i.i.i.i1049, %1817 ], [ %1826, %1824 ]
+  %1827 = add i64 %.0.i.i.i1048, 32
+  %1828 = icmp ult i64 %1827, 64
   br label %.critedge489
 
-1831:                                             ; preds = %3
-  %1832 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.sroa.0.0.copyload.i1051 = load i16, ptr %1832, align 4
-  %1833 = and i16 %.sroa.0.0.copyload.i1051, 4
-  %1834 = icmp ne i16 %1833, 0
+1829:                                             ; preds = %3
+  %1830 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.sroa.0.0.copyload.i1051 = load i16, ptr %1830, align 4
+  %1831 = and i16 %.sroa.0.0.copyload.i1051, 4
+  %1832 = icmp ne i16 %1831, 0
   br label %.critedge489
 
-1835:                                             ; preds = %3
-  %1836 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1837 = load ptr, ptr %1836, align 8
-  %1838 = getelementptr inbounds nuw i8, ptr %1837, i64 24
-  call void @_ZNK4llvm7APFloat14bitcastToAPIntEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %38, ptr noundef nonnull align 8 dereferenceable(32) %1838)
-  %1839 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %1840 = load i32, ptr %1839, align 8
-  %1841 = icmp ult i32 %1840, 65
-  %1842 = load ptr, ptr %38, align 8
-  %.0.in.i1052 = select i1 %1841, ptr %38, ptr %1842
+1833:                                             ; preds = %3
+  %1834 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1835 = load ptr, ptr %1834, align 8
+  %1836 = getelementptr inbounds nuw i8, ptr %1835, i64 24
+  call void @_ZNK4llvm7APFloat14bitcastToAPIntEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %38, ptr noundef nonnull align 8 dereferenceable(32) %1836)
+  %1837 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %1838 = load i32, ptr %1837, align 8
+  %1839 = icmp ult i32 %1838, 65
+  %1840 = load ptr, ptr %38, align 8
+  %.0.in.i1052 = select i1 %1839, ptr %38, ptr %1840
   %.0.i1053 = load i64, ptr %.0.in.i1052, align 8
-  %1843 = icmp eq ptr %1842, null
-  %or.cond1344 = select i1 %1841, i1 true, i1 %1843
-  br i1 %or.cond1344, label %_ZN4llvm5APIntD2Ev.exit1054, label %1844
+  %1841 = icmp eq ptr %1840, null
+  %or.cond1344 = select i1 %1839, i1 true, i1 %1841
+  br i1 %or.cond1344, label %_ZN4llvm5APIntD2Ev.exit1054, label %1842
 
-1844:                                             ; preds = %1835
-  call void @_ZdaPv(ptr noundef nonnull %1842) #25
+1842:                                             ; preds = %1833
+  call void @_ZdaPv(ptr noundef nonnull %1840) #25
   br label %_ZN4llvm5APIntD2Ev.exit1054
 
-_ZN4llvm5APIntD2Ev.exit1054:                      ; preds = %1835, %1844
+_ZN4llvm5APIntD2Ev.exit1054:                      ; preds = %1833, %1842
   %.not = icmp eq i64 %.0.i1053, 0
-  br i1 %.not, label %.critedge489, label %1845
+  br i1 %.not, label %.critedge489, label %1843
 
-1845:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit1054
-  %1846 = shl i64 %.0.i1053, 32
-  %1847 = or i64 %1846, %.0.i1053
-  %1848 = lshr i64 %1847, 32
-  %1849 = and i64 %.0.i1053, 4294967295
-  %1850 = icmp eq i64 %1848, %1849
-  %1851 = and i64 %1847, 72057589759737855
-  %1852 = icmp eq i64 %1851, 0
-  %1853 = and i1 %1850, %1852
+1843:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit1054
+  %1844 = shl i64 %.0.i1053, 32
+  %1845 = or i64 %1844, %.0.i1053
+  %1846 = lshr i64 %1845, 32
+  %1847 = and i64 %.0.i1053, 4294967295
+  %1848 = icmp eq i64 %1846, %1847
+  %1849 = and i64 %1845, 72057589759737855
+  %1850 = icmp eq i64 %1849, 0
+  %1851 = and i1 %1848, %1850
   br label %.critedge489
 
-1854:                                             ; preds = %3
-  %1855 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1856 = load ptr, ptr %1855, align 8
-  %1857 = getelementptr inbounds nuw i8, ptr %1856, i64 24
-  call void @_ZNK4llvm7APFloat14bitcastToAPIntEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %39, ptr noundef nonnull align 8 dereferenceable(32) %1857)
-  %1858 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %1859 = load i32, ptr %1858, align 8
-  %1860 = icmp ult i32 %1859, 65
-  %1861 = load ptr, ptr %39, align 8
-  %.0.in.i1055 = select i1 %1860, ptr %39, ptr %1861
+1852:                                             ; preds = %3
+  %1853 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1854 = load ptr, ptr %1853, align 8
+  %1855 = getelementptr inbounds nuw i8, ptr %1854, i64 24
+  call void @_ZNK4llvm7APFloat14bitcastToAPIntEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %39, ptr noundef nonnull align 8 dereferenceable(32) %1855)
+  %1856 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %1857 = load i32, ptr %1856, align 8
+  %1858 = icmp ult i32 %1857, 65
+  %1859 = load ptr, ptr %39, align 8
+  %.0.in.i1055 = select i1 %1858, ptr %39, ptr %1859
   %.0.i1056 = load i64, ptr %.0.in.i1055, align 8
-  %1862 = call fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML21isAdvSIMDModImmType10Em(i64 noundef %.0.i1056)
-  %1863 = icmp eq ptr %1861, null
-  %or.cond1345 = select i1 %1860, i1 true, i1 %1863
-  br i1 %or.cond1345, label %.critedge489, label %1864
+  %1860 = call fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML21isAdvSIMDModImmType10Em(i64 noundef %.0.i1056)
+  %1861 = icmp eq ptr %1859, null
+  %or.cond1345 = select i1 %1858, i1 true, i1 %1861
+  br i1 %or.cond1345, label %.critedge489, label %1862
 
-1864:                                             ; preds = %1854
-  call void @_ZdaPv(ptr noundef nonnull %1861) #25
+1862:                                             ; preds = %1852
+  call void @_ZdaPv(ptr noundef nonnull %1859) #25
   br label %.critedge489
 
-1865:                                             ; preds = %3
-  %1866 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1867 = load ptr, ptr %1866, align 8
-  %1868 = getelementptr inbounds nuw i8, ptr %1867, i64 24
-  %1869 = getelementptr inbounds nuw i8, ptr %1867, i64 32
-  %1870 = load i32, ptr %1869, align 8
-  %1871 = icmp ult i32 %1870, 65
-  br i1 %1871, label %1872, label %1879
+1863:                                             ; preds = %3
+  %1864 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1865 = load ptr, ptr %1864, align 8
+  %1866 = getelementptr inbounds nuw i8, ptr %1865, i64 24
+  %1867 = getelementptr inbounds nuw i8, ptr %1865, i64 32
+  %1868 = load i32, ptr %1867, align 8
+  %1869 = icmp ult i32 %1868, 65
+  br i1 %1869, label %1870, label %1877
 
-1872:                                             ; preds = %1865
-  %1873 = load i64, ptr %1868, align 8
-  %1874 = icmp eq i32 %1870, 0
-  %1875 = sub nuw nsw i32 64, %1870
-  %1876 = zext nneg i32 %1875 to i64
-  %1877 = shl i64 %1873, %1876
-  %1878 = ashr exact i64 %1877, %1876
-  %.0.i.i.i.i1059 = select i1 %1874, i64 0, i64 %1878
+1870:                                             ; preds = %1863
+  %1871 = load i64, ptr %1866, align 8
+  %1872 = icmp eq i32 %1868, 0
+  %1873 = sub nuw nsw i32 64, %1868
+  %1874 = zext nneg i32 %1873 to i64
+  %1875 = shl i64 %1871, %1874
+  %1876 = ashr exact i64 %1875, %1874
+  %.0.i.i.i.i1059 = select i1 %1872, i64 0, i64 %1876
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1060
 
-1879:                                             ; preds = %1865
-  %1880 = load ptr, ptr %1868, align 8
-  %1881 = load i64, ptr %1880, align 8
+1877:                                             ; preds = %1863
+  %1878 = load ptr, ptr %1866, align 8
+  %1879 = load i64, ptr %1878, align 8
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1060
 
-_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1060: ; preds = %1872, %1879
-  %.0.i.i.i1058 = phi i64 [ %.0.i.i.i.i1059, %1872 ], [ %1881, %1879 ]
-  %1882 = add i64 %.0.i.i.i1058, 256
-  %or.cond9 = icmp ult i64 %1882, 481
-  %1883 = and i64 %.0.i.i.i1058, 31
-  %1884 = icmp eq i64 %1883, 0
-  %1885 = and i1 %or.cond9, %1884
+_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1060: ; preds = %1870, %1877
+  %.0.i.i.i1058 = phi i64 [ %.0.i.i.i.i1059, %1870 ], [ %1879, %1877 ]
+  %1880 = add i64 %.0.i.i.i1058, 256
+  %or.cond9 = icmp ult i64 %1880, 481
+  %1881 = and i64 %.0.i.i.i1058, 31
+  %1882 = icmp eq i64 %1881, 0
+  %1883 = and i1 %or.cond9, %1882
   br label %.critedge489
 
-1886:                                             ; preds = %3
-  %1887 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.sroa.0.0.copyload.i1061 = load i16, ptr %1887, align 4
-  %1888 = and i16 %.sroa.0.0.copyload.i1061, 128
-  %1889 = icmp ne i16 %1888, 0
+1884:                                             ; preds = %3
+  %1885 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.sroa.0.0.copyload.i1061 = load i16, ptr %1885, align 4
+  %1886 = and i16 %.sroa.0.0.copyload.i1061, 128
+  %1887 = icmp ne i16 %1886, 0
   br label %.critedge489
 
-.critedge489:                                     ; preds = %1531, %1526, %1481, %1364, %1355, %1293, %1270, %1260, %1250, %1240, %1171, %1161, %1151, %1141, %1132, %1120, %1115, %1110, %1086, %1052, %1050, %1048, %942, %851, %828, %818, %808, %798, %621, %465, %389, %244, %41, %1615, %613, %1520, %1176, %1080, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit760, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit641, %1864, %1854, %1793, %1790, %1783, %1780, %1462, %1459, %1452, %1449, %1195, %1192, %1185, %1182, %588, %585, %578, %575, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit547, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit, %.lr.ph.i.i.i.preheader.i.i, %55, %_ZN4llvm5APIntD2Ev.exit1054, %1845, %1769, %1773, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_6SDNodeEEEDcPT0_.exit, %1632, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_6SDNodeEEEDcPT0_.exit, %1625, %_ZNK4llvm3EVTneES0_.exit984, %1265, %1255, %1245, %1236, %_ZNK4llvm3EVTneES0_.exit854, %1166, %1156, %1146, %1137, %1125, %1129, %_ZNK4llvm3EVTneES0_.exit771, %_ZNK4llvm3EVTeqES0_.exit763, %1054, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713.thread, %944, %856, %860, %844, %848, %838, %823, %813, %803, %794, %_ZNK4llvm3EVTeqES0_.exit644, %729, %3, %697, %704, %634, %638, %626, %631, %618, %569, %461, %455, %459, %432, %387, %385, %383, %358, %350, %338, %311, %.critedge476, %215, %.critedge, %146, %116, %119, %51, %47, %43, %1886, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1060, %1831, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1050, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1047, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1034, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1031, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1028, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1025, %1688, %1682, %1676, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1021, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1018, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1012, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1009, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1006, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1003, %1536, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit976, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit973, %1472, %1463, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit950, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit947, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit944, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit941, %1369, %1360, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit921, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit918, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit915, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit904, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit869, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit866, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit782, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit725, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit722, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit719, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit716, %968, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit702, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit699, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit696, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit693, %833, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit650, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit647, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit630, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit627, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit624, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit621, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit610, %589, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit599, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit596, %523, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit593, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit590, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit587, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit576, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit573, %410, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit570, %378, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit559, %354, %342, %333, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit556, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit553, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit536, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit525, %219, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit518, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit515, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit512, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit509, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit506, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit
-  %.0 = phi i1 [ %1889, %1886 ], [ %1885, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1060 ], [ %1834, %1831 ], [ %1830, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1050 ], [ %1811, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1047 ], [ %1768, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1034 ], [ %1750, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1031 ], [ %1730, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1028 ], [ %1710, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1025 ], [ %1691, %1688 ], [ %1687, %1682 ], [ %1681, %1676 ], [ %1675, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1021 ], [ %1656, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1018 ], [ %1614, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1012 ], [ %1595, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1009 ], [ %1577, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1006 ], [ %1559, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1003 ], [ %1541, %1536 ], [ %1519, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit976 ], [ %1501, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit973 ], [ %1480, %1472 ], [ %1471, %1463 ], [ %1448, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit950 ], [ %1430, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit947 ], [ %1412, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit944 ], [ %1393, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit941 ], [ %1373, %1369 ], [ %1363, %1360 ], [ %1354, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit921 ], [ %1335, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit918 ], [ %1316, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit915 ], [ %1292, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit904 ], [ %1235, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit869 ], [ %1216, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit866 ], [ %1109, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit782 ], [ %1047, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit725 ], [ %1028, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit722 ], [ %1009, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit719 ], [ %990, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit716 ], [ %972, %968 ], [ %941, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit702 ], [ %922, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit699 ], [ %901, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit696 ], [ %880, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit693 ], [ %837, %833 ], [ %793, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit650 ], [ %774, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit647 ], [ %728, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit630 ], [ %696, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit627 ], [ %677, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit624 ], [ %658, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit621 ], [ %612, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit610 ], [ %593, %589 ], [ %568, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit599 ], [ %549, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit596 ], [ %530, %523 ], [ %522, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit593 ], [ %504, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit590 ], [ %485, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit587 ], [ %454, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit576 ], [ %431, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit573 ], [ %.not1353, %410 ], [ %409, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit570 ], [ %382, %378 ], [ %377, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit559 ], [ %357, %354 ], [ %349, %342 ], [ %337, %333 ], [ %332, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit556 ], [ %310, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit553 ], [ %264, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit536 ], [ %243, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit525 ], [ %223, %219 ], [ %187, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit518 ], [ %169, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit515 ], [ %145, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit512 ], [ %115, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit509 ], [ %96, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit506 ], [ %78, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit ], [ %.not468, %43 ], [ %.not467, %47 ], [ %.not466, %51 ], [ true, %116 ], [ %126, %119 ], [ %.not1354, %146 ], [ %214, %.critedge ], [ %.not464, %215 ], [ %290, %.critedge476 ], [ %.not463, %311 ], [ %.not462, %338 ], [ true, %350 ], [ %.not461, %358 ], [ %.not460, %383 ], [ %.not459, %385 ], [ %.not458, %387 ], [ %436, %432 ], [ false, %455 ], [ %.not1352, %459 ], [ %.not457, %461 ], [ %not.1351, %569 ], [ %620, %618 ], [ false, %626 ], [ %633, %631 ], [ false, %634 ], [ %.not1350, %638 ], [ false, %697 ], [ %709, %704 ], [ false, %3 ], [ %755, %_ZNK4llvm3EVTeqES0_.exit644 ], [ false, %729 ], [ false, %794 ], [ false, %803 ], [ false, %813 ], [ false, %823 ], [ %not., %838 ], [ false, %844 ], [ %850, %848 ], [ false, %856 ], [ %862, %860 ], [ %949, %944 ], [ false, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713 ], [ %967, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713.thread ], [ %1079, %_ZNK4llvm3EVTeqES0_.exit763 ], [ false, %1054 ], [ %1085, %_ZNK4llvm3EVTneES0_.exit771 ], [ false, %1125 ], [ %1131, %1129 ], [ false, %1137 ], [ false, %1146 ], [ false, %1156 ], [ false, %1166 ], [ %1181, %_ZNK4llvm3EVTneES0_.exit854 ], [ false, %1236 ], [ false, %1245 ], [ false, %1255 ], [ false, %1265 ], [ %1525, %_ZNK4llvm3EVTneES0_.exit984 ], [ false, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_6SDNodeEEEDcPT0_.exit ], [ %1629, %1625 ], [ false, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_6SDNodeEEEDcPT0_.exit ], [ %1636, %1632 ], [ false, %1769 ], [ %1779, %1773 ], [ false, %_ZN4llvm5APIntD2Ev.exit1054 ], [ %1853, %1845 ], [ false, %55 ], [ %60, %.lr.ph.i.i.i.preheader.i.i ], [ false, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ], [ false, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit547 ], [ false, %575 ], [ %582, %578 ], [ %582, %585 ], [ %582, %588 ], [ false, %1182 ], [ %1189, %1185 ], [ %1189, %1192 ], [ %1189, %1195 ], [ false, %1449 ], [ %1456, %1452 ], [ %1456, %1459 ], [ %1456, %1462 ], [ false, %1780 ], [ %1787, %1783 ], [ %1787, %1790 ], [ %1787, %1793 ], [ %1862, %1854 ], [ %1862, %1864 ], [ false, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit641 ], [ false, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit760 ], [ false, %1080 ], [ false, %1176 ], [ false, %1520 ], [ %.not.i, %41 ], [ %.not.i531, %244 ], [ %.not.i565, %389 ], [ %.not.i582, %465 ], [ false, %613 ], [ %.not.i.i616, %621 ], [ %.not.i.i656, %798 ], [ %.not.i.i664, %808 ], [ %.not.i.i672, %818 ], [ %.not.i.i680, %828 ], [ %.not.i.i688, %851 ], [ %.not.i708, %942 ], [ %.not.i.i731, %1048 ], [ %.not.i.i739, %1050 ], [ %.not.i.i747, %1052 ], [ %.not.i777, %1086 ], [ %.not.i788, %1110 ], [ %.not.i796, %1115 ], [ %.not.i804, %1120 ], [ %.not.i.i812, %1132 ], [ %.not.i.i820, %1141 ], [ %.not.i.i828, %1151 ], [ %.not.i.i836, %1161 ], [ %.not.i.i844, %1171 ], [ %.not.i.i875, %1240 ], [ %.not.i.i883, %1250 ], [ %.not.i.i891, %1260 ], [ %.not.i.i899, %1270 ], [ %.not.i910, %1293 ], [ %.not.i.i927, %1355 ], [ %.not.i.i936, %1364 ], [ %.not.i.i968, %1481 ], [ %.not.i990, %1526 ], [ %.not.i.i998, %1531 ], [ false, %1615 ]
+.critedge489:                                     ; preds = %1529, %1524, %1479, %1362, %1353, %1291, %1268, %1258, %1248, %1238, %1169, %1159, %1149, %1139, %1130, %1118, %1113, %1108, %1084, %1050, %1048, %1046, %940, %849, %826, %816, %806, %796, %619, %464, %388, %244, %41, %1613, %611, %1518, %1174, %1078, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit760, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit641, %1862, %1852, %1791, %1788, %1781, %1778, %1460, %1457, %1450, %1447, %1193, %1190, %1183, %1180, %586, %583, %576, %573, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit547, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit, %.lr.ph.i.i.i.preheader.i.i, %55, %_ZN4llvm5APIntD2Ev.exit1054, %1843, %1767, %1771, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_6SDNodeEEEDcPT0_.exit, %1630, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_6SDNodeEEEDcPT0_.exit, %1623, %_ZNK4llvm3EVTneES0_.exit984, %1263, %1253, %1243, %1234, %_ZNK4llvm3EVTneES0_.exit854, %1164, %1154, %1144, %1135, %1123, %1127, %_ZNK4llvm3EVTneES0_.exit771, %_ZNK4llvm3EVTeqES0_.exit763, %1052, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713.thread, %942, %854, %858, %842, %846, %836, %821, %811, %801, %792, %_ZNK4llvm3EVTeqES0_.exit644, %727, %3, %695, %702, %632, %636, %624, %629, %616, %567, %460, %454, %458, %431, %386, %384, %382, %357, %349, %338, %311, %.critedge476, %215, %.critedge, %146, %116, %119, %51, %47, %43, %1884, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1060, %1829, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1050, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1047, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1034, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1031, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1028, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1025, %1686, %1680, %1674, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1021, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1018, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1012, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1009, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1006, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1003, %1534, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit976, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit973, %1470, %1461, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit950, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit947, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit944, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit941, %1367, %1358, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit921, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit918, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit915, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit904, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit869, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit866, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit782, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit725, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit722, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit719, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit716, %966, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit702, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit699, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit696, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit693, %831, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit650, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit647, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit630, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit627, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit624, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit621, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit610, %587, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit599, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit596, %522, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit593, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit590, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit587, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit576, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit573, %409, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit570, %377, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit559, %353, %342, %333, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit556, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit553, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit536, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit525, %219, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit518, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit515, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit512, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit509, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit506, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit
+  %.0 = phi i1 [ %1887, %1884 ], [ %1883, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1060 ], [ %1832, %1829 ], [ %1828, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1050 ], [ %1809, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1047 ], [ %1766, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1034 ], [ %1748, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1031 ], [ %1728, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1028 ], [ %1708, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1025 ], [ %1689, %1686 ], [ %1685, %1680 ], [ %1679, %1674 ], [ %1673, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1021 ], [ %1654, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1018 ], [ %1612, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1012 ], [ %1593, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1009 ], [ %1575, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1006 ], [ %1557, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit1003 ], [ %1539, %1534 ], [ %1517, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit976 ], [ %1499, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit973 ], [ %1478, %1470 ], [ %1469, %1461 ], [ %1446, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit950 ], [ %1428, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit947 ], [ %1410, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit944 ], [ %1391, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit941 ], [ %1371, %1367 ], [ %1361, %1358 ], [ %1352, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit921 ], [ %1333, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit918 ], [ %1314, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit915 ], [ %1290, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit904 ], [ %1233, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit869 ], [ %1214, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit866 ], [ %1107, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit782 ], [ %1045, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit725 ], [ %1026, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit722 ], [ %1007, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit719 ], [ %988, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit716 ], [ %970, %966 ], [ %939, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit702 ], [ %920, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit699 ], [ %899, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit696 ], [ %878, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit693 ], [ %835, %831 ], [ %791, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit650 ], [ %772, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit647 ], [ %726, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit630 ], [ %694, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit627 ], [ %675, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit624 ], [ %656, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit621 ], [ %610, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit610 ], [ %591, %587 ], [ %566, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit599 ], [ %547, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit596 ], [ %528, %522 ], [ %521, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit593 ], [ %503, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit590 ], [ %484, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit587 ], [ %453, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit576 ], [ %430, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit573 ], [ %.not1353, %409 ], [ %408, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit570 ], [ %381, %377 ], [ %376, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit559 ], [ %356, %353 ], [ %348, %342 ], [ %337, %333 ], [ %332, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit556 ], [ %310, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit553 ], [ %264, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit536 ], [ %243, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit525 ], [ %223, %219 ], [ %187, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit518 ], [ %169, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit515 ], [ %145, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit512 ], [ %115, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit509 ], [ %96, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit506 ], [ %78, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit ], [ %.not468, %43 ], [ %.not467, %47 ], [ %.not466, %51 ], [ true, %116 ], [ %126, %119 ], [ %.not1354, %146 ], [ %214, %.critedge ], [ %.not464, %215 ], [ %290, %.critedge476 ], [ %.not463, %311 ], [ %.not462, %338 ], [ true, %349 ], [ %.not461, %357 ], [ %.not460, %382 ], [ %.not459, %384 ], [ %.not458, %386 ], [ %435, %431 ], [ false, %454 ], [ %.not1352, %458 ], [ %.not457, %460 ], [ %not.1351, %567 ], [ %618, %616 ], [ false, %624 ], [ %631, %629 ], [ false, %632 ], [ %.not1350, %636 ], [ false, %695 ], [ %707, %702 ], [ false, %3 ], [ %753, %_ZNK4llvm3EVTeqES0_.exit644 ], [ false, %727 ], [ false, %792 ], [ false, %801 ], [ false, %811 ], [ false, %821 ], [ %not., %836 ], [ false, %842 ], [ %848, %846 ], [ false, %854 ], [ %860, %858 ], [ %947, %942 ], [ false, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713 ], [ %965, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit713.thread ], [ %1077, %_ZNK4llvm3EVTeqES0_.exit763 ], [ false, %1052 ], [ %1083, %_ZNK4llvm3EVTneES0_.exit771 ], [ false, %1123 ], [ %1129, %1127 ], [ false, %1135 ], [ false, %1144 ], [ false, %1154 ], [ false, %1164 ], [ %1179, %_ZNK4llvm3EVTneES0_.exit854 ], [ false, %1234 ], [ false, %1243 ], [ false, %1253 ], [ false, %1263 ], [ %1523, %_ZNK4llvm3EVTneES0_.exit984 ], [ false, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_6SDNodeEEEDcPT0_.exit ], [ %1627, %1623 ], [ false, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_6SDNodeEEEDcPT0_.exit ], [ %1634, %1630 ], [ false, %1767 ], [ %1777, %1771 ], [ false, %_ZN4llvm5APIntD2Ev.exit1054 ], [ %1851, %1843 ], [ false, %55 ], [ %60, %.lr.ph.i.i.i.preheader.i.i ], [ false, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit ], [ false, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit547 ], [ false, %573 ], [ %580, %576 ], [ %580, %583 ], [ %580, %586 ], [ false, %1180 ], [ %1187, %1183 ], [ %1187, %1190 ], [ %1187, %1193 ], [ false, %1447 ], [ %1454, %1450 ], [ %1454, %1457 ], [ %1454, %1460 ], [ false, %1778 ], [ %1785, %1781 ], [ %1785, %1788 ], [ %1785, %1791 ], [ %1860, %1852 ], [ %1860, %1862 ], [ false, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit641 ], [ false, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit760 ], [ false, %1078 ], [ false, %1174 ], [ false, %1518 ], [ %.not.i, %41 ], [ %.not.i531, %244 ], [ %.not.i565, %388 ], [ %.not.i582, %464 ], [ false, %611 ], [ %.not.i.i616, %619 ], [ %.not.i.i656, %796 ], [ %.not.i.i664, %806 ], [ %.not.i.i672, %816 ], [ %.not.i.i680, %826 ], [ %.not.i.i688, %849 ], [ %.not.i708, %940 ], [ %.not.i.i731, %1046 ], [ %.not.i.i739, %1048 ], [ %.not.i.i747, %1050 ], [ %.not.i777, %1084 ], [ %.not.i788, %1108 ], [ %.not.i796, %1113 ], [ %.not.i804, %1118 ], [ %.not.i.i812, %1130 ], [ %.not.i.i820, %1139 ], [ %.not.i.i828, %1149 ], [ %.not.i.i836, %1159 ], [ %.not.i.i844, %1169 ], [ %.not.i.i875, %1238 ], [ %.not.i.i883, %1248 ], [ %.not.i.i891, %1258 ], [ %.not.i.i899, %1268 ], [ %.not.i910, %1291 ], [ %.not.i.i927, %1353 ], [ %.not.i.i936, %1362 ], [ %.not.i.i968, %1479 ], [ %.not.i990, %1524 ], [ %.not.i.i998, %1529 ], [ false, %1613 ]
   ret i1 %.0
 }
 
@@ -16423,227 +16421,226 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISe
   %.sroa.21.0.copyload.i66 = load ptr, ptr %.sroa.21.0..sroa_idx.i65, align 8
   %24 = lshr i16 %16, 7
   %25 = and i16 %24, 7
-  %26 = zext nneg i16 %25 to i32
-  %27 = add nsw i32 %26, -1
-  %28 = icmp ult i32 %27, 2
-  %29 = lshr i16 %16, 10
-  %30 = and i16 %29, 3
+  %26 = add nsw i16 %25, -1
+  %27 = icmp ult i16 %26, 2
+  %28 = lshr i16 %16, 10
+  %29 = and i16 %28, 3
   switch i16 %.sroa.0.0.copyload.i, label %_ZNK4llvm3EVTeqES0_.exit101 [
-    i16 8, label %31
-    i16 7, label %33
-    i16 6, label %40
-    i16 5, label %47
-    i16 11, label %54
-    i16 10, label %56
-    i16 12, label %58
+    i16 8, label %30
+    i16 7, label %32
+    i16 6, label %39
+    i16 5, label %46
+    i16 11, label %53
+    i16 10, label %55
+    i16 12, label %57
     i16 13, label %_ZNK4llvm3EVTeqES0_.exit101.thread
   ]
 
-31:                                               ; preds = %19
-  %32 = select i1 %28, i32 4448, i32 4447
-  br label %66
+30:                                               ; preds = %19
+  %31 = select i1 %27, i32 4448, i32 4447
+  br label %65
 
-33:                                               ; preds = %19
-  switch i16 %30, label %38 [
-    i16 0, label %34
-    i16 2, label %36
+32:                                               ; preds = %19
+  switch i16 %29, label %37 [
+    i16 0, label %33
+    i16 2, label %35
   ]
 
-34:                                               ; preds = %33
-  %35 = select i1 %28, i32 4442, i32 4441
-  br label %66
+33:                                               ; preds = %32
+  %34 = select i1 %27, i32 4442, i32 4441
+  br label %65
 
-36:                                               ; preds = %33
-  %37 = select i1 %28, i32 4430, i32 4429
-  br label %66
+35:                                               ; preds = %32
+  %36 = select i1 %27, i32 4430, i32 4429
+  br label %65
 
-38:                                               ; preds = %33
-  %39 = select i1 %28, i32 4442, i32 4441
-  br label %66
+37:                                               ; preds = %32
+  %38 = select i1 %27, i32 4442, i32 4441
+  br label %65
 
-40:                                               ; preds = %19
-  %41 = icmp eq i16 %30, 2
-  br i1 %41, label %42, label %_ZNK4llvm3EVTeqES0_.exit80
+39:                                               ; preds = %19
+  %40 = icmp eq i16 %29, 2
+  br i1 %40, label %41, label %_ZNK4llvm3EVTeqES0_.exit80
 
-42:                                               ; preds = %40
+41:                                               ; preds = %39
   %.not.i.i75 = icmp eq i16 %.sroa.0.0.copyload.i64, 8
-  br i1 %.not.i.i75, label %43, label %_ZNK4llvm3EVTeqES0_.exit77
+  br i1 %.not.i.i75, label %42, label %_ZNK4llvm3EVTeqES0_.exit77
 
-43:                                               ; preds = %42
-  %44 = select i1 %28, i32 4424, i32 4423
-  br label %66
+42:                                               ; preds = %41
+  %43 = select i1 %27, i32 4424, i32 4423
+  br label %65
 
-_ZNK4llvm3EVTeqES0_.exit77:                       ; preds = %42
-  %45 = select i1 %28, i32 4419, i32 4418
-  br label %66
+_ZNK4llvm3EVTeqES0_.exit77:                       ; preds = %41
+  %44 = select i1 %27, i32 4419, i32 4418
+  br label %65
 
-_ZNK4llvm3EVTeqES0_.exit80:                       ; preds = %40
-  %46 = select i1 %28, i32 4393, i32 4392
+_ZNK4llvm3EVTeqES0_.exit80:                       ; preds = %39
+  %45 = select i1 %27, i32 4393, i32 4392
   %.not.i.i78 = icmp eq i16 %.sroa.0.0.copyload.i64, 8
-  br label %66
+  br label %65
 
-47:                                               ; preds = %19
-  %48 = icmp eq i16 %30, 2
-  br i1 %48, label %49, label %_ZNK4llvm3EVTeqES0_.exit89
+46:                                               ; preds = %19
+  %47 = icmp eq i16 %29, 2
+  br i1 %47, label %48, label %_ZNK4llvm3EVTeqES0_.exit89
 
-49:                                               ; preds = %47
+48:                                               ; preds = %46
   %.not.i.i84 = icmp eq i16 %.sroa.0.0.copyload.i64, 8
-  br i1 %.not.i.i84, label %50, label %_ZNK4llvm3EVTeqES0_.exit86
+  br i1 %.not.i.i84, label %49, label %_ZNK4llvm3EVTeqES0_.exit86
 
-50:                                               ; preds = %49
-  %51 = select i1 %28, i32 4414, i32 4413
-  br label %66
+49:                                               ; preds = %48
+  %50 = select i1 %27, i32 4414, i32 4413
+  br label %65
 
-_ZNK4llvm3EVTeqES0_.exit86:                       ; preds = %49
-  %52 = select i1 %28, i32 4409, i32 4408
-  br label %66
+_ZNK4llvm3EVTeqES0_.exit86:                       ; preds = %48
+  %51 = select i1 %27, i32 4409, i32 4408
+  br label %65
 
-_ZNK4llvm3EVTeqES0_.exit89:                       ; preds = %47
-  %53 = select i1 %28, i32 4377, i32 4376
+_ZNK4llvm3EVTeqES0_.exit89:                       ; preds = %46
+  %52 = select i1 %27, i32 4377, i32 4376
   %.not.i.i87 = icmp eq i16 %.sroa.0.0.copyload.i64, 8
-  br label %66
+  br label %65
 
-54:                                               ; preds = %19
-  %55 = select i1 %28, i32 4398, i32 4397
-  br label %66
+53:                                               ; preds = %19
+  %54 = select i1 %27, i32 4398, i32 4397
+  br label %65
 
-56:                                               ; preds = %19
-  %57 = select i1 %28, i32 4398, i32 4397
-  br label %66
+55:                                               ; preds = %19
+  %56 = select i1 %27, i32 4398, i32 4397
+  br label %65
 
-58:                                               ; preds = %19
-  %59 = select i1 %28, i32 4436, i32 4435
-  br label %66
+57:                                               ; preds = %19
+  %58 = select i1 %27, i32 4436, i32 4435
+  br label %65
 
 _ZNK4llvm3EVTeqES0_.exit101:                      ; preds = %19
-  %60 = call noundef zeroext i1 @_ZNK4llvm3EVT13is64BitVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %60, label %_ZNK4llvm3EVTeqES0_.exit101.thread, label %62
+  %59 = call noundef zeroext i1 @_ZNK4llvm3EVT13is64BitVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br i1 %59, label %_ZNK4llvm3EVTeqES0_.exit101.thread, label %61
 
 _ZNK4llvm3EVTeqES0_.exit101.thread:               ; preds = %19, %_ZNK4llvm3EVTeqES0_.exit101
-  %61 = select i1 %28, i32 4388, i32 4387
-  br label %66
+  %60 = select i1 %27, i32 4388, i32 4387
+  br label %65
 
-62:                                               ; preds = %_ZNK4llvm3EVTeqES0_.exit101
-  %63 = call noundef zeroext i1 @_ZNK4llvm3EVT14is128BitVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %63, label %64, label %_ZN4llvm5SDLocD2Ev.exit
+61:                                               ; preds = %_ZNK4llvm3EVTeqES0_.exit101
+  %62 = call noundef zeroext i1 @_ZNK4llvm3EVT14is128BitVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br i1 %62, label %63, label %_ZN4llvm5SDLocD2Ev.exit
 
-64:                                               ; preds = %62
-  %65 = select i1 %28, i32 4404, i32 4403
-  br label %66
+63:                                               ; preds = %61
+  %64 = select i1 %27, i32 4404, i32 4403
+  br label %65
 
-66:                                               ; preds = %36, %38, %34, %50, %_ZNK4llvm3EVTeqES0_.exit86, %_ZNK4llvm3EVTeqES0_.exit89, %56, %_ZNK4llvm3EVTeqES0_.exit101.thread, %64, %58, %54, %_ZNK4llvm3EVTeqES0_.exit80, %_ZNK4llvm3EVTeqES0_.exit77, %43, %31
-  %.sroa.0162.0 = phi i16 [ %.sroa.0.0.copyload.i64, %31 ], [ 7, %38 ], [ %.sroa.0.0.copyload.i64, %36 ], [ %.sroa.0.0.copyload.i64, %34 ], [ 8, %43 ], [ %.sroa.0.0.copyload.i64, %_ZNK4llvm3EVTeqES0_.exit77 ], [ 7, %_ZNK4llvm3EVTeqES0_.exit80 ], [ 8, %50 ], [ %.sroa.0.0.copyload.i64, %_ZNK4llvm3EVTeqES0_.exit86 ], [ 7, %_ZNK4llvm3EVTeqES0_.exit89 ], [ %.sroa.0.0.copyload.i64, %54 ], [ %.sroa.0.0.copyload.i64, %56 ], [ %.sroa.0.0.copyload.i64, %58 ], [ %.sroa.0.0.copyload.i64, %_ZNK4llvm3EVTeqES0_.exit101.thread ], [ %.sroa.0.0.copyload.i64, %64 ]
-  %.sroa.12.0 = phi ptr [ %.sroa.21.0.copyload.i66, %31 ], [ null, %38 ], [ %.sroa.21.0.copyload.i66, %36 ], [ %.sroa.21.0.copyload.i66, %34 ], [ %.sroa.21.0.copyload.i66, %43 ], [ %.sroa.21.0.copyload.i66, %_ZNK4llvm3EVTeqES0_.exit77 ], [ null, %_ZNK4llvm3EVTeqES0_.exit80 ], [ %.sroa.21.0.copyload.i66, %50 ], [ %.sroa.21.0.copyload.i66, %_ZNK4llvm3EVTeqES0_.exit86 ], [ null, %_ZNK4llvm3EVTeqES0_.exit89 ], [ %.sroa.21.0.copyload.i66, %54 ], [ %.sroa.21.0.copyload.i66, %56 ], [ %.sroa.21.0.copyload.i66, %58 ], [ %.sroa.21.0.copyload.i66, %_ZNK4llvm3EVTeqES0_.exit101.thread ], [ %.sroa.21.0.copyload.i66, %64 ]
-  %.062.shrunk = phi i1 [ false, %31 ], [ true, %38 ], [ false, %36 ], [ false, %34 ], [ false, %43 ], [ false, %_ZNK4llvm3EVTeqES0_.exit77 ], [ %.not.i.i78, %_ZNK4llvm3EVTeqES0_.exit80 ], [ false, %50 ], [ false, %_ZNK4llvm3EVTeqES0_.exit86 ], [ %.not.i.i87, %_ZNK4llvm3EVTeqES0_.exit89 ], [ false, %54 ], [ false, %56 ], [ false, %58 ], [ false, %_ZNK4llvm3EVTeqES0_.exit101.thread ], [ false, %64 ]
-  %.061 = phi i32 [ %32, %31 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %44, %43 ], [ %45, %_ZNK4llvm3EVTeqES0_.exit77 ], [ %46, %_ZNK4llvm3EVTeqES0_.exit80 ], [ %51, %50 ], [ %52, %_ZNK4llvm3EVTeqES0_.exit86 ], [ %53, %_ZNK4llvm3EVTeqES0_.exit89 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ %61, %_ZNK4llvm3EVTeqES0_.exit101.thread ], [ %65, %64 ]
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %68 = load ptr, ptr %67, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false)
-  %69 = getelementptr inbounds i8, ptr %68, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
-  %70 = getelementptr inbounds i8, ptr %68, i64 80
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 88
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %76 = load i32, ptr %75, align 8
-  %77 = icmp ult i32 %76, 65
-  %78 = load ptr, ptr %74, align 8
-  %.0.in.i.i.i = select i1 %77, ptr %74, ptr %78
+65:                                               ; preds = %35, %37, %33, %49, %_ZNK4llvm3EVTeqES0_.exit86, %_ZNK4llvm3EVTeqES0_.exit89, %55, %_ZNK4llvm3EVTeqES0_.exit101.thread, %63, %57, %53, %_ZNK4llvm3EVTeqES0_.exit80, %_ZNK4llvm3EVTeqES0_.exit77, %42, %30
+  %.sroa.0162.0 = phi i16 [ %.sroa.0.0.copyload.i64, %30 ], [ 7, %37 ], [ %.sroa.0.0.copyload.i64, %35 ], [ %.sroa.0.0.copyload.i64, %33 ], [ 8, %42 ], [ %.sroa.0.0.copyload.i64, %_ZNK4llvm3EVTeqES0_.exit77 ], [ 7, %_ZNK4llvm3EVTeqES0_.exit80 ], [ 8, %49 ], [ %.sroa.0.0.copyload.i64, %_ZNK4llvm3EVTeqES0_.exit86 ], [ 7, %_ZNK4llvm3EVTeqES0_.exit89 ], [ %.sroa.0.0.copyload.i64, %53 ], [ %.sroa.0.0.copyload.i64, %55 ], [ %.sroa.0.0.copyload.i64, %57 ], [ %.sroa.0.0.copyload.i64, %_ZNK4llvm3EVTeqES0_.exit101.thread ], [ %.sroa.0.0.copyload.i64, %63 ]
+  %.sroa.12.0 = phi ptr [ %.sroa.21.0.copyload.i66, %30 ], [ null, %37 ], [ %.sroa.21.0.copyload.i66, %35 ], [ %.sroa.21.0.copyload.i66, %33 ], [ %.sroa.21.0.copyload.i66, %42 ], [ %.sroa.21.0.copyload.i66, %_ZNK4llvm3EVTeqES0_.exit77 ], [ null, %_ZNK4llvm3EVTeqES0_.exit80 ], [ %.sroa.21.0.copyload.i66, %49 ], [ %.sroa.21.0.copyload.i66, %_ZNK4llvm3EVTeqES0_.exit86 ], [ null, %_ZNK4llvm3EVTeqES0_.exit89 ], [ %.sroa.21.0.copyload.i66, %53 ], [ %.sroa.21.0.copyload.i66, %55 ], [ %.sroa.21.0.copyload.i66, %57 ], [ %.sroa.21.0.copyload.i66, %_ZNK4llvm3EVTeqES0_.exit101.thread ], [ %.sroa.21.0.copyload.i66, %63 ]
+  %.062.shrunk = phi i1 [ false, %30 ], [ true, %37 ], [ false, %35 ], [ false, %33 ], [ false, %42 ], [ false, %_ZNK4llvm3EVTeqES0_.exit77 ], [ %.not.i.i78, %_ZNK4llvm3EVTeqES0_.exit80 ], [ false, %49 ], [ false, %_ZNK4llvm3EVTeqES0_.exit86 ], [ %.not.i.i87, %_ZNK4llvm3EVTeqES0_.exit89 ], [ false, %53 ], [ false, %55 ], [ false, %57 ], [ false, %_ZNK4llvm3EVTeqES0_.exit101.thread ], [ false, %63 ]
+  %.061 = phi i32 [ %31, %30 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %43, %42 ], [ %44, %_ZNK4llvm3EVTeqES0_.exit77 ], [ %45, %_ZNK4llvm3EVTeqES0_.exit80 ], [ %50, %49 ], [ %51, %_ZNK4llvm3EVTeqES0_.exit86 ], [ %52, %_ZNK4llvm3EVTeqES0_.exit89 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %_ZNK4llvm3EVTeqES0_.exit101.thread ], [ %64, %63 ]
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %67 = load ptr, ptr %66, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false)
+  %68 = getelementptr inbounds i8, ptr %67, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false)
+  %69 = getelementptr inbounds i8, ptr %67, i64 80
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 88
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp ult i32 %75, 65
+  %77 = load ptr, ptr %73, align 8
+  %.0.in.i.i.i = select i1 %76, ptr %73, ptr %77
   %.0.i.i.i = load i64, ptr %.0.in.i.i.i, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %80 = load ptr, ptr %79, align 8
-  store ptr %80, ptr %6, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %80, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, label %81
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %79 = load ptr, ptr %78, align 8
+  store ptr %79, ptr %6, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, label %80
 
-81:                                               ; preds = %66
-  %82 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(8) %80, i64 1) #22
+80:                                               ; preds = %65
+  %81 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(8) %79, i64 1) #22
   br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
 
-_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %66, %81
-  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %85 = load i32, ptr %84, align 4
-  store i32 %85, ptr %83, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %87 = load ptr, ptr %86, align 8
+_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %65, %80
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %84 = load i32, ptr %83, align 4
+  store i32 %84, ptr %82, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %86 = load ptr, ptr %85, align 8
   %sext = shl i64 %.0.i.i.i, 32
-  %88 = ashr exact i64 %sext, 32
-  %89 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %87, i64 noundef %88, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 8, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #22
-  %.fca.0.extract14 = extractvalue { ptr, i32 } %89, 0
-  %.fca.1.extract15 = extractvalue { ptr, i32 } %89, 1
+  %87 = ashr exact i64 %sext, 32
+  %88 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %86, i64 noundef %87, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 8, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #22
+  %.fca.0.extract14 = extractvalue { ptr, i32 } %88, 0
+  %.fca.1.extract15 = extractvalue { ptr, i32 } %88, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false)
-  %90 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %.fca.0.extract14, ptr %90, align 16
+  %89 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %.fca.0.extract14, ptr %89, align 16
   %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
   store i32 %.fca.1.extract15, ptr %.sroa.219.0..sroa_idx, align 8
-  %91 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %91, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  %92 = load ptr, ptr %86, align 8
+  %90 = getelementptr inbounds i8, ptr %7, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %90, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
+  %91 = load ptr, ptr %85, align 8
   store i16 %.sroa.0162.0, ptr %8, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.sroa.12.0, ptr %.sroa.12.0..sroa_idx, align 8
   store i16 1, ptr %9, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr null, ptr %93, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr null, ptr %92, align 8
   store ptr %7, ptr %10, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 3, ptr %94, align 8
-  %95 = call noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTES4_S4_NS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(904) %92, i32 noundef %.061, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 8, ptr null, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %8, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %9, ptr noundef nonnull byval(%"class.llvm::ArrayRef.328") align 8 %10) #22
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr %86, align 8
-  store ptr %97, ptr %11, align 8
-  call void @_ZN4llvm12SelectionDAG14setNodeMemRefsEPNS_13MachineSDNodeENS_8ArrayRefIPNS_17MachineMemOperandEEE(ptr noundef nonnull align 8 dereferenceable(904) %98, ptr noundef %95, ptr nonnull %11, i64 1) #22
-  br i1 %.062.shrunk, label %99, label %105
+  %93 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 3, ptr %93, align 8
+  %94 = call noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTES4_S4_NS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(904) %91, i32 noundef %.061, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 8, ptr null, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %8, ptr noundef nonnull byval(%"struct.llvm::EVT") align 8 %9, ptr noundef nonnull byval(%"class.llvm::ArrayRef.328") align 8 %10) #22
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %85, align 8
+  store ptr %96, ptr %11, align 8
+  call void @_ZN4llvm12SelectionDAG14setNodeMemRefsEPNS_13MachineSDNodeENS_8ArrayRefIPNS_17MachineMemOperandEEE(ptr noundef nonnull align 8 dereferenceable(904) %97, ptr noundef %94, ptr nonnull %11, i64 1) #22
+  br i1 %.062.shrunk, label %98, label %104
 
-99:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
-  %100 = load ptr, ptr %86, align 8
-  %101 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %100, i64 noundef 16, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #22
-  %.fca.0.extract3 = extractvalue { ptr, i32 } %101, 0
-  %.fca.1.extract4 = extractvalue { ptr, i32 } %101, 1
-  %102 = load ptr, ptr %86, align 8
-  %103 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %102, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 8, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #22
-  %.fca.0.extract = extractvalue { ptr, i32 } %103, 0
-  %.fca.1.extract = extractvalue { ptr, i32 } %103, 1
+98:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
+  %99 = load ptr, ptr %85, align 8
+  %100 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %99, i64 noundef 16, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #22
+  %.fca.0.extract3 = extractvalue { ptr, i32 } %100, 0
+  %.fca.1.extract4 = extractvalue { ptr, i32 } %100, 1
+  %101 = load ptr, ptr %85, align 8
+  %102 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %101, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 8, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #22
+  %.fca.0.extract = extractvalue { ptr, i32 } %102, 0
+  %.fca.1.extract = extractvalue { ptr, i32 } %102, 1
   store ptr %.fca.0.extract, ptr %12, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
   store i32 %.fca.1.extract, ptr %.sroa.22.0..sroa_idx, align 8
-  store ptr %95, ptr %13, align 8
+  store ptr %94, ptr %13, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 8
   store ptr %.fca.0.extract3, ptr %14, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %.fca.1.extract4, ptr %.sroa.28.0..sroa_idx, align 8
-  %104 = call noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_(ptr noundef nonnull align 8 dereferenceable(904) %102, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 8, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %12, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %13, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %14) #22
-  br label %105
+  %103 = call noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_(ptr noundef nonnull align 8 dereferenceable(904) %101, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 8, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %12, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %13, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %14) #22
+  br label %104
 
-105:                                              ; preds = %99, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
-  %.sroa.0119.0 = phi ptr [ %104, %99 ], [ %95, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ]
-  %.sroa.4.0 = phi i32 [ 0, %99 ], [ 1, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ]
-  %106 = load ptr, ptr %86, align 8
-  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(904) %106, ptr nonnull %1, i32 0, ptr %.sroa.0119.0, i32 %.sroa.4.0) #22
+104:                                              ; preds = %98, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
+  %.sroa.0119.0 = phi ptr [ %103, %98 ], [ %94, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ]
+  %.sroa.4.0 = phi i32 [ 0, %98 ], [ 1, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ]
+  %105 = load ptr, ptr %85, align 8
+  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(904) %105, ptr nonnull %1, i32 0, ptr %.sroa.0119.0, i32 %.sroa.4.0) #22
   call void @_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE(ptr noundef %.sroa.0119.0) #22
-  %107 = load ptr, ptr %86, align 8
-  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(904) %107, ptr nonnull %1, i32 1, ptr %95, i32 0) #22
-  call void @_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE(ptr noundef %95) #22
-  %108 = load ptr, ptr %86, align 8
-  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(904) %108, ptr nonnull %1, i32 2, ptr %95, i32 2) #22
-  call void @_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE(ptr noundef %95) #22
-  %109 = load ptr, ptr %86, align 8
-  call void @_ZN4llvm12SelectionDAG14RemoveDeadNodeEPNS_6SDNodeE(ptr noundef nonnull align 8 dereferenceable(904) %109, ptr noundef nonnull %1) #22
-  %110 = load ptr, ptr %6, align 8
-  %.not.i.i.i.i.i102 = icmp eq ptr %110, null
-  br i1 %.not.i.i.i.i.i102, label %_ZN4llvm5SDLocD2Ev.exit, label %111
+  %106 = load ptr, ptr %85, align 8
+  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(904) %106, ptr nonnull %1, i32 1, ptr %94, i32 0) #22
+  call void @_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE(ptr noundef %94) #22
+  %107 = load ptr, ptr %85, align 8
+  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(904) %107, ptr nonnull %1, i32 2, ptr %94, i32 2) #22
+  call void @_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE(ptr noundef %94) #22
+  %108 = load ptr, ptr %85, align 8
+  call void @_ZN4llvm12SelectionDAG14RemoveDeadNodeEPNS_6SDNodeE(ptr noundef nonnull align 8 dereferenceable(904) %108, ptr noundef nonnull %1) #22
+  %109 = load ptr, ptr %6, align 8
+  %.not.i.i.i.i.i102 = icmp eq ptr %109, null
+  br i1 %.not.i.i.i.i.i102, label %_ZN4llvm5SDLocD2Ev.exit, label %110
 
-111:                                              ; preds = %105
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(8) %110) #22
+110:                                              ; preds = %104
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(8) %109) #22
   br label %_ZN4llvm5SDLocD2Ev.exit
 
-_ZN4llvm5SDLocD2Ev.exit:                          ; preds = %111, %105, %62, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %62 ], [ true, %105 ], [ true, %111 ]
+_ZN4llvm5SDLocD2Ev.exit:                          ; preds = %110, %104, %61, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %61 ], [ true, %104 ], [ true, %110 ]
   ret i1 %.0
 }
 

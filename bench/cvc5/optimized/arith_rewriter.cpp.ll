@@ -11129,8 +11129,8 @@ terminate.lpad.i.i132:                            ; preds = %invoke.cont81
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit133:           ; preds = %invoke.cont81
-  %39 = add nsw i32 %bf.cast.i, -43
-  %or.cond = icmp ult i32 %39, 2
+  %39 = add nsw i16 %bf.clear.i, -43
+  %or.cond = icmp ult i16 %39, 2
   br i1 %or.cond, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %_ZN4cvc58internal8RationalD2Ev.exit133
@@ -11228,8 +11228,8 @@ invoke.cont121:                                   ; preds = %if.then116
           to label %invoke.cont123 unwind label %lpad120
 
 invoke.cont123:                                   ; preds = %invoke.cont121
-  %51 = add nsw i32 %bf.cast.i, -43
-  %52 = icmp ult i32 %51, 2
+  %51 = add nsw i16 %bf.clear.i, -43
+  %52 = icmp ult i16 %51, 2
   br i1 %52, label %cond.true128, label %cond.false131
 
 cond.true128:                                     ; preds = %invoke.cont123
@@ -11526,8 +11526,8 @@ lpad211:                                          ; preds = %invoke.cont210
   br label %eh.resume
 
 if.else216:                                       ; preds = %if.then159
-  %89 = add nsw i32 %bf.cast.i176, -36
-  %or.cond2 = icmp ult i32 %89, 3
+  %89 = add nsw i16 %bf.clear.i175, -36
+  %or.cond2 = icmp ult i16 %89, 3
   br i1 %or.cond2, label %if.then222, label %if.end385
 
 if.then222:                                       ; preds = %if.else216

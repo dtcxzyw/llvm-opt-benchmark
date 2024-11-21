@@ -10909,8 +10909,8 @@ terminate.lpad.i3468:                             ; preds = %if.then13.i.i3467
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3469: ; preds = %_ZN4cvc58internal8RationalD2Ev.exit3458, %if.then.i.i3461, %if.then13.i.i3467
-  %1111 = add nsw i32 %bf.cast.i, -61
-  %or.cond5 = icmp ult i32 %1111, 2
+  %1111 = add nsw i16 %bf.clear.i, -61
+  %or.cond5 = icmp ult i16 %1111, 2
   br i1 %or.cond5, label %if.then1376, label %if.end1384
 
 if.then1376:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3469

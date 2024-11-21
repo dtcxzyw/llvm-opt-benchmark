@@ -332,9 +332,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64A53Fix83576920runO
 38:                                               ; preds = %.lr.ph.i
   %39 = getelementptr inbounds nuw i8, ptr %.01449.i, i64 68
   %40 = load i16, ptr %39, align 4
-  %41 = zext i16 %40 to i32
-  %.off.i.i = add nsw i32 %41, -4979
-  %switch.i.i = icmp ult i32 %.off.i.i, 5
+  %41 = add i16 %40, -4979
+  %switch.i.i = icmp ult i16 %41, 5
   br i1 %switch.i.i, label %_ZL28isFirstInstructionInSequencePN4llvm12MachineInstrE.exit.thread.i, label %_ZL28isFirstInstructionInSequencePN4llvm12MachineInstrE.exit.i
 
 _ZL28isFirstInstructionInSequencePN4llvm12MachineInstrE.exit.i: ; preds = %38

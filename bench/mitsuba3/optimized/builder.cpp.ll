@@ -2959,9 +2959,9 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS
 
 52:                                               ; preds = %49
   %53 = zext i8 %46 to i64
-  %54 = add nsw i64 %53, -5
-  %55 = and i64 %53, 3
-  %56 = icmp samesign ult i64 %54, 3
+  %54 = and i64 %53, 3
+  %55 = add i8 %46, -5
+  %56 = icmp ult i8 %55, 3
   br i1 %56, label %.loopexit3, label %57
 
 57:                                               ; preds = %52
@@ -2971,7 +2971,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS
 
 .loopexit3:                                       ; preds = %78, %52
   %60 = phi i64 [ 4, %52 ], [ %92, %78 ]
-  %61 = icmp eq i64 %55, 0
+  %61 = icmp eq i64 %54, 0
   br i1 %61, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit3, %.preheader
@@ -2982,7 +2982,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %64, ptr noundef nonnull align 4 dereferenceable(16) %65, i64 16, i1 false)
   %66 = add nuw nsw i64 %62, 1
   %67 = add nuw nsw i64 %63, 1
-  %68 = icmp eq i64 %67, %55
+  %68 = icmp eq i64 %67, %54
   br i1 %68, label %.loopexit, label %.preheader, !llvm.loop !113
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit3

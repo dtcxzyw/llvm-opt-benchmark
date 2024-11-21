@@ -2815,9 +2815,8 @@ _ZNK4llvm9StringRef5rfindEcm.exit.i.i:            ; preds = %537
 547:                                              ; preds = %542
   %548 = getelementptr inbounds i8, ptr %534, i64 %.0.i.i.i
   %549 = load i8, ptr %548, align 1
-  %550 = zext i8 %549 to i32
-  %isdigittmp.i.i = add nsw i32 %550, -48
-  %isdigit.i.i = icmp ult i32 %isdigittmp.i.i, 10
+  %550 = add i8 %549, -48
+  %isdigit.i.i = icmp ult i8 %550, 10
   %spec.select.i.i = select i1 %isdigit.i.i, i64 %538, i64 %535
   br label %_ZL17getTypeNamePrefixN4llvm9StringRefE.exit.i
 

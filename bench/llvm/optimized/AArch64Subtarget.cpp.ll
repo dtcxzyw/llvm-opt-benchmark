@@ -4114,9 +4114,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %60 = load i16, ptr %59, align 4
-  %61 = zext i16 %60 to i32
-  %.off = add nsw i32 %61, -2351
-  %switch4267 = icmp ult i32 %.off, 2
+  %61 = add i16 %60, -2351
+  %switch4267 = icmp ult i16 %61, 2
   br i1 %switch4267, label %62, label %.critedge
 
 62:                                               ; preds = %58
@@ -4135,9 +4134,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 70:                                               ; preds = %55
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %72 = load i16, ptr %71, align 4
-  %73 = zext i16 %72 to i32
-  %.off4268 = add nsw i32 %73, -2351
-  %switch4269 = icmp ult i32 %.off4268, 2
+  %73 = add i16 %72, -2351
+  %switch4269 = icmp ult i16 %73, 2
   br i1 %switch4269, label %74, label %.critedge2
 
 74:                                               ; preds = %70
@@ -4156,9 +4154,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 82:                                               ; preds = %55
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %84 = load i16, ptr %83, align 4
-  %85 = zext i16 %84 to i32
-  %.off4270 = add nsw i32 %85, -2351
-  %switch4271 = icmp ult i32 %.off4270, 2
+  %85 = add i16 %84, -2351
+  %switch4271 = icmp ult i16 %85, 2
   br i1 %switch4271, label %86, label %.critedge4
 
 86:                                               ; preds = %82
@@ -4177,9 +4174,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 94:                                               ; preds = %55
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %96 = load i16, ptr %95, align 4
-  %97 = zext i16 %96 to i32
-  %.off4272 = add nsw i32 %97, -2351
-  %switch4273 = icmp ult i32 %.off4272, 2
+  %97 = add i16 %96, -2351
+  %switch4273 = icmp ult i16 %97, 2
   br i1 %switch4273, label %98, label %.critedge6
 
 98:                                               ; preds = %94
@@ -4198,9 +4194,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 106:                                              ; preds = %55
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %108 = load i16, ptr %107, align 4
-  %109 = zext i16 %108 to i32
-  %.off4274 = add nsw i32 %109, -2351
-  %switch4275 = icmp ult i32 %.off4274, 2
+  %109 = add i16 %108, -2351
+  %switch4275 = icmp ult i16 %109, 2
   br i1 %switch4275, label %110, label %.critedge8
 
 110:                                              ; preds = %106
@@ -4219,9 +4214,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 118:                                              ; preds = %55
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %120 = load i16, ptr %119, align 4
-  %121 = zext i16 %120 to i32
-  %.off4276 = add nsw i32 %121, -2351
-  %switch4277 = icmp ult i32 %.off4276, 2
+  %121 = add i16 %120, -2351
+  %switch4277 = icmp ult i16 %121, 2
   br i1 %switch4277, label %122, label %.critedge10
 
 122:                                              ; preds = %118
@@ -4989,9 +4983,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 477:                                              ; preds = %474
   %478 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %479 = load i16, ptr %478, align 4
-  %480 = zext i16 %479 to i32
-  %.off4296 = add nsw i32 %480, -2351
-  %switch4297 = icmp ult i32 %.off4296, 2
+  %480 = add i16 %479, -2351
+  %switch4297 = icmp ult i16 %480, 2
   br i1 %switch4297, label %481, label %.critedge30
 
 481:                                              ; preds = %477
@@ -5010,9 +5003,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 489:                                              ; preds = %474
   %490 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %491 = load i16, ptr %490, align 4
-  %492 = zext i16 %491 to i32
-  %.off4298 = add nsw i32 %492, -2351
-  %switch4299 = icmp ult i32 %.off4298, 2
+  %492 = add i16 %491, -2351
+  %switch4299 = icmp ult i16 %492, 2
   br i1 %switch4299, label %493, label %.critedge32
 
 493:                                              ; preds = %489
@@ -5031,9 +5023,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 501:                                              ; preds = %474
   %502 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %503 = load i16, ptr %502, align 4
-  %504 = zext i16 %503 to i32
-  %.off4300 = add nsw i32 %504, -2351
-  %switch4301 = icmp ult i32 %.off4300, 2
+  %504 = add i16 %503, -2351
+  %switch4301 = icmp ult i16 %504, 2
   br i1 %switch4301, label %505, label %.critedge34
 
 505:                                              ; preds = %501
@@ -5052,9 +5043,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 513:                                              ; preds = %474
   %514 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %515 = load i16, ptr %514, align 4
-  %516 = zext i16 %515 to i32
-  %.off4302 = add nsw i32 %516, -2351
-  %switch4303 = icmp ult i32 %.off4302, 2
+  %516 = add i16 %515, -2351
+  %switch4303 = icmp ult i16 %516, 2
   br i1 %switch4303, label %517, label %.critedge36
 
 517:                                              ; preds = %513
@@ -5073,9 +5063,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 525:                                              ; preds = %474
   %526 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %527 = load i16, ptr %526, align 4
-  %528 = zext i16 %527 to i32
-  %.off4304 = add nsw i32 %528, -2351
-  %switch4305 = icmp ult i32 %.off4304, 2
+  %528 = add i16 %527, -2351
+  %switch4305 = icmp ult i16 %528, 2
   br i1 %switch4305, label %529, label %.critedge38
 
 529:                                              ; preds = %525
@@ -5094,9 +5083,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 537:                                              ; preds = %474
   %538 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %539 = load i16, ptr %538, align 4
-  %540 = zext i16 %539 to i32
-  %.off4306 = add nsw i32 %540, -2351
-  %switch4307 = icmp ult i32 %.off4306, 2
+  %540 = add i16 %539, -2351
+  %switch4307 = icmp ult i16 %540, 2
   br i1 %switch4307, label %541, label %.critedge40
 
 541:                                              ; preds = %537
@@ -5127,9 +5115,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 552:                                              ; preds = %549
   %553 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %554 = load i16, ptr %553, align 4
-  %555 = zext i16 %554 to i32
-  %.off4308 = add nsw i32 %555, -2351
-  %switch4309 = icmp ult i32 %.off4308, 2
+  %555 = add i16 %554, -2351
+  %switch4309 = icmp ult i16 %555, 2
   br i1 %switch4309, label %556, label %.critedge42
 
 556:                                              ; preds = %552
@@ -5148,9 +5135,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 564:                                              ; preds = %549
   %565 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %566 = load i16, ptr %565, align 4
-  %567 = zext i16 %566 to i32
-  %.off4310 = add nsw i32 %567, -2351
-  %switch4311 = icmp ult i32 %.off4310, 2
+  %567 = add i16 %566, -2351
+  %switch4311 = icmp ult i16 %567, 2
   br i1 %switch4311, label %568, label %.critedge44
 
 568:                                              ; preds = %564
@@ -5169,9 +5155,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 576:                                              ; preds = %549
   %577 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %578 = load i16, ptr %577, align 4
-  %579 = zext i16 %578 to i32
-  %.off4312 = add nsw i32 %579, -2351
-  %switch4313 = icmp ult i32 %.off4312, 2
+  %579 = add i16 %578, -2351
+  %switch4313 = icmp ult i16 %579, 2
   br i1 %switch4313, label %580, label %.critedge46
 
 580:                                              ; preds = %576
@@ -5190,9 +5175,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 588:                                              ; preds = %549
   %589 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %590 = load i16, ptr %589, align 4
-  %591 = zext i16 %590 to i32
-  %.off4314 = add nsw i32 %591, -2351
-  %switch4315 = icmp ult i32 %.off4314, 2
+  %591 = add i16 %590, -2351
+  %switch4315 = icmp ult i16 %591, 2
   br i1 %switch4315, label %592, label %.critedge48
 
 592:                                              ; preds = %588
@@ -5211,9 +5195,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 600:                                              ; preds = %549
   %601 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %602 = load i16, ptr %601, align 4
-  %603 = zext i16 %602 to i32
-  %.off4316 = add nsw i32 %603, -2351
-  %switch4317 = icmp ult i32 %.off4316, 2
+  %603 = add i16 %602, -2351
+  %switch4317 = icmp ult i16 %603, 2
   br i1 %switch4317, label %604, label %.critedge50
 
 604:                                              ; preds = %600
@@ -5232,9 +5215,8 @@ define dso_local noundef range(i32 1570, 1739) i32 @_ZNK4llvm23AArch64GenSubtarg
 612:                                              ; preds = %549
   %613 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %614 = load i16, ptr %613, align 4
-  %615 = zext i16 %614 to i32
-  %.off4318 = add nsw i32 %615, -2351
-  %switch4319 = icmp ult i32 %.off4318, 2
+  %615 = add i16 %614, -2351
+  %switch4319 = icmp ult i16 %615, 2
   br i1 %switch4319, label %616, label %.critedge52
 
 616:                                              ; preds = %612

@@ -1063,55 +1063,54 @@ _ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit: ; pred
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %99 = load i16, ptr %98, align 2
   %100 = and i16 %99, 3
-  %101 = zext nneg i16 %100 to i32
-  %102 = add nsw i32 %101, -1
-  %103 = icmp ult i32 %102, 2
-  %104 = zext i1 %103 to i8
-  store i8 %104, ptr %27, align 1
-  %105 = load ptr, ptr %30, align 8, !noalias !17
-  %106 = load ptr, ptr %29, align 8, !noalias !17
-  %107 = icmp eq ptr %105, %106
-  br i1 %107, label %108, label %122
+  %101 = add nsw i16 %100, -1
+  %102 = icmp ult i16 %101, 2
+  %103 = zext i1 %102 to i8
+  store i8 %103, ptr %27, align 1
+  %104 = load ptr, ptr %30, align 8, !noalias !17
+  %105 = load ptr, ptr %29, align 8, !noalias !17
+  %106 = icmp eq ptr %104, %105
+  br i1 %106, label %107, label %121
 
-108:                                              ; preds = %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %110 = load i32, ptr %109, align 4, !noalias !17
-  %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds ptr, ptr %106, i64 %111
-  %.not24.i.i.i11 = icmp eq i32 %110, 0
+107:                                              ; preds = %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %109 = load i32, ptr %108, align 4, !noalias !17
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds ptr, ptr %105, i64 %110
+  %.not24.i.i.i11 = icmp eq i32 %109, 0
   br i1 %.not24.i.i.i11, label %._crit_edge.i.i.i15, label %.lr.ph.i.i.i12
 
-.lr.ph.i.i.i12:                                   ; preds = %108, %115
-  %.025.i.i.i13 = phi ptr [ %116, %115 ], [ %106, %108 ]
-  %113 = load ptr, ptr %.025.i.i.i13, align 8, !noalias !17
-  %114 = icmp eq ptr %113, %2
-  br i1 %114, label %_ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit, label %115
+.lr.ph.i.i.i12:                                   ; preds = %107, %114
+  %.025.i.i.i13 = phi ptr [ %115, %114 ], [ %105, %107 ]
+  %112 = load ptr, ptr %.025.i.i.i13, align 8, !noalias !17
+  %113 = icmp eq ptr %112, %2
+  br i1 %113, label %_ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit, label %114
 
-115:                                              ; preds = %.lr.ph.i.i.i12
-  %116 = getelementptr inbounds i8, ptr %.025.i.i.i13, i64 8
-  %.not.i.i.i14 = icmp eq ptr %116, %112
+114:                                              ; preds = %.lr.ph.i.i.i12
+  %115 = getelementptr inbounds i8, ptr %.025.i.i.i13, i64 8
+  %.not.i.i.i14 = icmp eq ptr %115, %111
   br i1 %.not.i.i.i14, label %._crit_edge.i.i.i15, label %.lr.ph.i.i.i12, !llvm.loop !9
 
-._crit_edge.i.i.i15:                              ; preds = %115, %108
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %118 = load i32, ptr %117, align 8, !noalias !17
-  %119 = icmp ult i32 %110, %118
-  br i1 %119, label %120, label %122
+._crit_edge.i.i.i15:                              ; preds = %114, %107
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %117 = load i32, ptr %116, align 8, !noalias !17
+  %118 = icmp ult i32 %109, %117
+  br i1 %118, label %119, label %121
 
-120:                                              ; preds = %._crit_edge.i.i.i15
-  %121 = add nuw i32 %110, 1
-  store i32 %121, ptr %109, align 4, !noalias !17
-  store ptr %2, ptr %112, align 8, !noalias !17
+119:                                              ; preds = %._crit_edge.i.i.i15
+  %120 = add nuw i32 %109, 1
+  store i32 %120, ptr %108, align 4, !noalias !17
+  store ptr %2, ptr %111, align 8, !noalias !17
   br label %_ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit
 
-122:                                              ; preds = %._crit_edge.i.i.i15, %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit
-  %123 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %29, ptr noundef nonnull %2) #7, !noalias !17
+121:                                              ; preds = %._crit_edge.i.i.i15, %_ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit
+  %122 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %29, ptr noundef nonnull %2) #7, !noalias !17
   br label %_ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit
 
-_ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit: ; preds = %.lr.ph.i.i.i12, %120, %122
-  %124 = icmp eq i8 %5, 5
+_ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit: ; preds = %.lr.ph.i.i.i12, %119, %121
+  %123 = icmp eq i8 %5, 5
   store i8 1, ptr %0, align 8
-  ret i1 %124
+  ret i1 %123
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1708,11 +1707,11 @@ _ZN4llvm7objcarc14ARCMDKindCache3getENS0_11ARCMDKindIDE.exit: ; preds = %._ZN4ll
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %15, %18, %22
   %.0.i9 = phi ptr [ %17, %15 ], [ %23, %22 ], [ null, %18 ]
-  switch i8 %5, label %60 [
+  switch i8 %5, label %59 [
     i8 1, label %24
     i8 2, label %24
     i8 3, label %_ZN4llvm7objcarc8PtrState21ClearReverseInsertPtsEv.exit
-    i8 0, label %61
+    i8 0, label %60
   ]
 
 24:                                               ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit, %_ZNK4llvm11Instruction11getMetadataEj.exit
@@ -1766,18 +1765,17 @@ _ZN4llvm7objcarc8PtrState21ClearReverseInsertPtsEv.exit: ; preds = %48, %44, %24
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %53 = load i16, ptr %52, align 2
   %54 = and i16 %53, 3
-  %55 = zext nneg i16 %54 to i32
-  %56 = add nsw i32 %55, -1
-  %57 = icmp ult i32 %56, 2
-  %58 = zext i1 %57 to i8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %58, ptr %59, align 1
-  br label %61
+  %55 = add nsw i16 %54, -1
+  %56 = icmp ult i16 %55, 2
+  %57 = zext i1 %56 to i8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 %57, ptr %58, align 1
+  br label %60
 
-60:                                               ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit
+59:                                               ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit
   unreachable
 
-61:                                               ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit, %_ZN4llvm7objcarc8PtrState21ClearReverseInsertPtsEv.exit
+60:                                               ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit, %_ZN4llvm7objcarc8PtrState21ClearReverseInsertPtsEv.exit
   %.0 = phi i1 [ true, %_ZN4llvm7objcarc8PtrState21ClearReverseInsertPtsEv.exit ], [ false, %_ZNK4llvm11Instruction11getMetadataEj.exit ]
   ret i1 %.0
 }

@@ -2843,8 +2843,8 @@ wrapped_tvb_get_guint8.exit:                      ; preds = %50, %54, %56
   %69 = sub i32 %33, %.pre-phi
   %70 = lshr i32 %69, 1
   %71 = add nuw i32 %70, 2
-  %72 = add nsw i32 %60, -8
-  %73 = icmp ult i32 %72, 90
+  %72 = add i8 %58, -8
+  %73 = icmp ult i8 %72, 90
   br i1 %73, label %74, label %.thread
 
 74:                                               ; preds = %68
@@ -6884,8 +6884,8 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
   br label %.thread1988
 
 1887:                                             ; preds = %1878
-  %1888 = add nsw i32 %.01026190619181945, -75
-  %or.cond69 = icmp samesign ult i32 %1888, 112
+  %1888 = add i8 %.01026190619181945.shrunk, -75
+  %or.cond69 = icmp ult i8 %1888, 112
   br i1 %or.cond69, label %1889, label %1896
 
 1889:                                             ; preds = %1887
@@ -6898,8 +6898,8 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
   br label %.thread1988
 
 1896:                                             ; preds = %1887
-  %1897 = add nsw i32 %.01026190619181945, -187
-  %or.cond72 = icmp samesign ult i32 %1897, 64
+  %1897 = add nsw i8 %.01026190619181945.shrunk, 69
+  %or.cond72 = icmp samesign ult i8 %1897, 64
   br i1 %or.cond72, label %1898, label %.thread1988
 
 1898:                                             ; preds = %1896
@@ -6938,8 +6938,8 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
   br label %.thread1996
 
 1920:                                             ; preds = %1911
-  %1921 = add nsw i32 %.01034190519191944, -75
-  %or.cond78 = icmp samesign ult i32 %1921, 112
+  %1921 = add i8 %.01034190519191944.shrunk, -75
+  %or.cond78 = icmp ult i8 %1921, 112
   br i1 %or.cond78, label %1922, label %1929
 
 1922:                                             ; preds = %1920
@@ -6952,8 +6952,8 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
   br label %.thread1996
 
 1929:                                             ; preds = %1920
-  %1930 = add nsw i32 %.01034190519191944, -187
-  %or.cond81 = icmp samesign ult i32 %1930, 64
+  %1930 = add nsw i8 %.01034190519191944.shrunk, 69
+  %or.cond81 = icmp samesign ult i8 %1930, 64
   br i1 %or.cond81, label %1931, label %.thread1996
 
 1931:                                             ; preds = %1929
@@ -6995,8 +6995,8 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
   br label %.thread2004
 
 1954:                                             ; preds = %1945
-  %1955 = add nsw i32 %.0102519241939, -75
-  %or.cond87 = icmp samesign ult i32 %1955, 112
+  %1955 = add i8 %.0102519241939.shrunk, -75
+  %or.cond87 = icmp ult i8 %1955, 112
   br i1 %or.cond87, label %1956, label %1963
 
 1956:                                             ; preds = %1954
@@ -7009,8 +7009,8 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
   br label %.thread2004
 
 1963:                                             ; preds = %1954
-  %1964 = add nsw i32 %.0102519241939, -187
-  %or.cond90 = icmp samesign ult i32 %1964, 64
+  %1964 = add nsw i8 %.0102519241939.shrunk, 69
+  %or.cond90 = icmp samesign ult i8 %1964, 64
   br i1 %or.cond90, label %1965, label %.thread2004
 
 1965:                                             ; preds = %1963
@@ -7049,8 +7049,8 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
   br label %.thread2012
 
 1987:                                             ; preds = %1978
-  %1988 = add nsw i32 %.0103519231940, -75
-  %or.cond96 = icmp samesign ult i32 %1988, 112
+  %1988 = add i8 %.0103519231940.shrunk, -75
+  %or.cond96 = icmp ult i8 %1988, 112
   br i1 %or.cond96, label %1989, label %1996
 
 1989:                                             ; preds = %1987
@@ -7063,8 +7063,8 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
   br label %.thread2012
 
 1996:                                             ; preds = %1987
-  %1997 = add nsw i32 %.0103519231940, -187
-  %or.cond99 = icmp samesign ult i32 %1997, 64
+  %1997 = add nsw i8 %.0103519231940.shrunk, 69
+  %or.cond99 = icmp samesign ult i8 %1997, 64
   br i1 %or.cond99, label %1998, label %.thread2012
 
 1998:                                             ; preds = %1996
@@ -7106,8 +7106,8 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
   br label %.thread2020
 
 2021:                                             ; preds = %2012
-  %2022 = add nsw i32 %.010361946, -62
-  %or.cond105 = icmp samesign ult i32 %2022, 100
+  %2022 = add i8 %.010361946.shrunk, -62
+  %or.cond105 = icmp ult i8 %2022, 100
   br i1 %or.cond105, label %2023, label %2031
 
 2023:                                             ; preds = %2021
@@ -7121,8 +7121,8 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
   br label %.thread2020
 
 2031:                                             ; preds = %2021
-  %2032 = add nsw i32 %.010361946, -162
-  %or.cond108 = icmp samesign ult i32 %2032, 85
+  %2032 = add nsw i8 %.010361946.shrunk, 94
+  %or.cond108 = icmp samesign ult i8 %2032, 85
   br i1 %or.cond108, label %2033, label %.thread2020
 
 2033:                                             ; preds = %2031
@@ -7161,8 +7161,8 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
   br label %.thread2028
 
 2055:                                             ; preds = %2046
-  %2056 = add nsw i32 %.010321947, -62
-  %or.cond114 = icmp samesign ult i32 %2056, 100
+  %2056 = add i8 %.010321947.shrunk, -62
+  %or.cond114 = icmp ult i8 %2056, 100
   br i1 %or.cond114, label %2057, label %2065
 
 2057:                                             ; preds = %2055
@@ -7176,8 +7176,8 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
   br label %.thread2028
 
 2065:                                             ; preds = %2055
-  %2066 = add nsw i32 %.010321947, -187
-  %or.cond117 = icmp ult i32 %2066, 64
+  %2066 = add nsw i8 %.010321947.shrunk, 69
+  %or.cond117 = icmp ult i8 %2066, 64
   br i1 %or.cond117, label %2067, label %.thread2028
 
 2067:                                             ; preds = %2065

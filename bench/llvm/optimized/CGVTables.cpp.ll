@@ -534,7 +534,7 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %6, %22
 33:                                               ; preds = %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
   %34 = load ptr, ptr %25, align 8
   call void @_ZN5clang7CodeGen13CodeGenModule16ErrorUnsupportedEPKNS_4DeclEPKc(ptr noundef nonnull align 8 dereferenceable(3600) %34, ptr noundef nonnull %15, ptr noundef nonnull @.str) #17
-  br label %360
+  br label %359
 
 35:                                               ; preds = %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1192,53 +1192,52 @@ _ZN4llvm4User10setOperandEjPNS_5ValueE.exit:      ; preds = %_ZN4llvm3Use14remov
   call void @llvm.assume(i1 %334)
   %335 = getelementptr inbounds i8, ptr %333, i64 -24
   %336 = load i8, ptr %335, align 8
-  %337 = zext i8 %336 to i32
-  %338 = add nsw i32 %337, -30
-  %339 = icmp ult i32 %338, 11
-  %spec.select.i.i = select i1 %339, ptr %335, ptr null
-  %340 = load i8, ptr %spec.select.i.i, align 8
-  %341 = icmp eq i8 %340, 30
-  br i1 %341, label %342, label %327
+  %337 = add i8 %336, -30
+  %338 = icmp ult i8 %337, 11
+  %spec.select.i.i = select i1 %338, ptr %335, ptr null
+  %339 = load i8, ptr %spec.select.i.i, align 8
+  %340 = icmp eq i8 %339, 30
+  br i1 %340, label %341, label %327
 
-342:                                              ; preds = %.lr.ph
-  %343 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
-  %344 = load i32, ptr %343, align 4
-  %345 = and i32 %344, 1073741824
-  %.not.i.i63 = icmp eq i32 %345, 0
-  br i1 %.not.i.i63, label %349, label %346
+341:                                              ; preds = %.lr.ph
+  %342 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
+  %343 = load i32, ptr %342, align 4
+  %344 = and i32 %343, 1073741824
+  %.not.i.i63 = icmp eq i32 %344, 0
+  br i1 %.not.i.i63, label %348, label %345
 
-346:                                              ; preds = %342
-  %347 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -8
-  %348 = load ptr, ptr %347, align 8
+345:                                              ; preds = %341
+  %346 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -8
+  %347 = load ptr, ptr %346, align 8
   br label %_ZNK4llvm4User10getOperandEj.exit64
 
-349:                                              ; preds = %342
-  %350 = and i32 %344, 134217727
-  %351 = zext nneg i32 %350 to i64
-  %352 = sub nsw i64 0, %351
-  %353 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i, i64 %352
+348:                                              ; preds = %341
+  %349 = and i32 %343, 134217727
+  %350 = zext nneg i32 %349 to i64
+  %351 = sub nsw i64 0, %350
+  %352 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i, i64 %351
   br label %_ZNK4llvm4User10getOperandEj.exit64
 
-_ZNK4llvm4User10getOperandEj.exit64:              ; preds = %346, %349
-  %354 = phi ptr [ %348, %346 ], [ %353, %349 ]
-  %355 = load ptr, ptr %354, align 8
-  %356 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i) #17
-  %357 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr %331, ptr %357, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store ptr %332, ptr %358, align 8
+_ZNK4llvm4User10getOperandEj.exit64:              ; preds = %345, %348
+  %353 = phi ptr [ %347, %345 ], [ %352, %348 ]
+  %354 = load ptr, ptr %353, align 8
+  %355 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i) #17
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store ptr %331, ptr %356, align 8
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  store ptr %332, ptr %357, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 344
   store i16 0, ptr %.sroa.22.0..sroa_idx.i, align 8
-  call fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %.sroa.0.0.copyload.i47, ptr %355, ptr noundef nonnull align 8 dereferenceable(56) %5)
+  call fastcc void @_ZL23PerformReturnAdjustmentRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueERKNS_9ThunkInfoE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %.sroa.0.0.copyload.i47, ptr %354, ptr noundef nonnull align 8 dereferenceable(56) %5)
   %.sroa.066.0.copyload = load ptr, ptr %13, align 8
-  %359 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateRetEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(128) %263, ptr noundef %.sroa.066.0.copyload)
+  %358 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateRetEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(128) %263, ptr noundef %.sroa.066.0.copyload)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %327, %325, %_ZNK4llvm4User10getOperandEj.exit64, %_ZN4llvm4User10setOperandEjPNS_5ValueE.exit
   call void @_ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(57) %10) #17
-  br label %360
+  br label %359
 
-360:                                              ; preds = %.loopexit, %33
+359:                                              ; preds = %.loopexit, %33
   %.0 = phi ptr [ %166, %.loopexit ], [ %1, %33 ]
   ret ptr %.0
 }

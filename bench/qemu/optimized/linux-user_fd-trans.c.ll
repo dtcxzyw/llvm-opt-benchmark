@@ -1414,11 +1414,10 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   ]
 
 sw.caserange3.i.i:                                ; preds = %if.end.i.i
-  %conv.i.i = zext i16 %1 to i32
-  %2 = add nsw i32 %conv.i.i, -1100
-  %inbounds4.i.i = icmp ult i32 %2, 100
-  %3 = add nsw i32 %conv.i.i, -2100
-  %inbounds.i.i = icmp ult i32 %3, 900
+  %2 = add i16 %1, -1100
+  %inbounds4.i.i = icmp ult i16 %2, 100
+  %3 = add i16 %1, -2100
+  %inbounds.i.i = icmp ult i16 %3, 900
   %or.cond.i2.i = or i1 %inbounds4.i.i, %inbounds.i.i
   br i1 %or.cond.i2.i, label %sw.epilog.i.i, label %do.body.i.i
 
@@ -1429,7 +1428,8 @@ do.body.i.i:                                      ; preds = %sw.caserange3.i.i
   br i1 %cmp.i.not.i.i, label %target_to_host_nlmsg_audit.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.body.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %conv.i.i) #5
+  %conv8.i.i = zext i16 %1 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %conv8.i.i) #5
   br label %target_to_host_nlmsg_audit.exit
 
 sw.epilog.i.i:                                    ; preds = %sw.caserange3.i.i, %if.end.i.i, %if.end.i.i

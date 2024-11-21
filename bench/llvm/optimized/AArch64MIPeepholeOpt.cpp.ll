@@ -2710,9 +2710,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120AArch64MIPeepholeO
 33:                                               ; preds = %._crit_edge, %20
   %34 = phi i16 [ %.pre, %._crit_edge ], [ %23, %20 ]
   %35 = phi ptr [ %32, %._crit_edge ], [ %21, %20 ]
-  %36 = zext i16 %34 to i32
-  %.off = add nsw i32 %36, -975
-  %switch = icmp ult i32 %.off, 2
+  %36 = add i16 %34, -975
+  %switch = icmp ult i16 %36, 2
   br i1 %switch, label %37, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50
 
 37:                                               ; preds = %33

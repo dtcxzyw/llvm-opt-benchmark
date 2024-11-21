@@ -1040,9 +1040,8 @@ define dso_local noundef range(i32 0, 7) i32 @_ZNK5clang21analyze_format_string7
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang4Type21canDecayToPointerTypeEv.exit.thread, label %_ZNK5clang4Type21canDecayToPointerTypeEv.exit
 
 _ZNK5clang4Type21canDecayToPointerTypeEv.exit:    ; preds = %3
-  %14 = zext i8 %12 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i = add nsw i32 %14, -2
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i, 5
+  %14 = add i8 %12, -2
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %14, 5
   %15 = icmp ne i8 %12, 3
   %spec.select.i = and i1 %15, %switch.i.i.i.i.i.i.i.i.i.i
   br i1 %spec.select.i, label %_ZNK5clang4Type21canDecayToPointerTypeEv.exit.thread, label %17

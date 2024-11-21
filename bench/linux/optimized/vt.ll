@@ -7858,8 +7858,8 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   %245 = phi i32 [ %137, %232 ], [ -1, %234 ]
   %246 = and i32 %244, -4
   %247 = icmp eq i32 %246, 12
-  %248 = add nsw i32 %113, -8
-  %249 = icmp ult i32 %248, 6
+  %248 = add i8 %112, -8
+  %249 = icmp ult i8 %248, 6
   %250 = and i1 %249, %247
   br i1 %250, label %.thread41, label %251, !llvm.loop !130
 
@@ -8209,8 +8209,8 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   br label %.thread41, !llvm.loop !130
 
 378:                                              ; preds = %375
-  %379 = add nsw i32 %113, -48
-  %380 = icmp ult i32 %379, 10
+  %379 = add i8 %112, -48
+  %380 = icmp ult i8 %379, 10
   br i1 %380, label %381, label %382
 
 381:                                              ; preds = %378
@@ -8807,8 +8807,8 @@ define internal fastcc i32 @do_con_write(ptr nocapture noundef readonly %0, ptr 
   br label %.thread41, !llvm.loop !130
 
 658:                                              ; preds = %346
-  %659 = add nsw i32 %113, -20
-  %660 = icmp ult i32 %659, 44
+  %659 = add i8 %112, -20
+  %660 = icmp ult i8 %659, 44
   br i1 %660, label %.thread41, label %661, !llvm.loop !130
 
 661:                                              ; preds = %658

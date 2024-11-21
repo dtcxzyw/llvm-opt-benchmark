@@ -402,18 +402,17 @@ entry:
   %sub.i31.i = add i64 %3, 11
   %4 = inttoptr i64 %sub.i31.i to ptr
   %5 = load i16, ptr %4, align 2
-  %conv.i.i = zext i16 %5 to i32
   %cmp.i.i = icmp eq i16 %5, 1040
-  %sub.i.i = add nsw i32 %conv.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i.i, 1002
-  %6 = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %6, label %if.then.i.i, label %if.end.i.i
+  %6 = add i16 %5, -1057
+  %cmp1.i.i = icmp ult i16 %6, 1002
+  %7 = or i1 %cmp.i.i, %cmp1.i.i
+  br i1 %7, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %sub.i43.i = add i64 %1, 31
-  %7 = inttoptr i64 %sub.i43.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
+  %8 = inttoptr i64 %sub.i43.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %10 = inttoptr i64 %9 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -421,32 +420,32 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.i11.0.i = phi ptr [ %9, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.i11.0.i = phi ptr [ %10, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
   %cmp = icmp eq ptr %retval.i11.0.i, null
   br i1 %cmp, label %if.end25, label %do.end19
 
 do.end19:                                         ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
   %categories_.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
   %enabled_ = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
-  %10 = load i8, ptr %enabled_, align 8
-  %tobool = trunc i8 %10 to i1
+  %11 = load i8, ptr %enabled_, align 8
+  %tobool = trunc i8 %11 to i1
   br i1 %tobool, label %if.end25, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.end19
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 80
-  %11 = load i64, ptr %_M_node_count.i.i, align 8
-  %cmp.i.i6 = icmp eq i64 %11, 0
+  %12 = load i64, ptr %_M_node_count.i.i, align 8
+  %cmp.i.i6 = icmp eq i64 %12, 0
   br i1 %cmp.i.i6, label %if.end25, label %if.then22
 
 if.then22:                                        ; preds = %land.lhs.true
   tail call void @_ZN4node10V8Platform17StartTracingAgentEv(ptr noundef nonnull align 8 dereferenceable(48) @_ZN4node11per_process11v8_platformE)
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process11v8_platformE, i64 24), align 8
-  %cmp.not.i = icmp eq ptr %12, null
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process11v8_platformE, i64 24), align 8
+  %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %_ZN4node7tracing17AgentWriterHandle6EnableERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then22
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process11v8_platformE, i64 32), align 8
-  tail call void @_ZN4node7tracing5Agent6EnableEiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1312) %12, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(48) %categories_.i) #16
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process11v8_platformE, i64 32), align 8
+  tail call void @_ZN4node7tracing5Agent6EnableEiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1312) %13, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(48) %categories_.i) #16
   br label %_ZN4node7tracing17AgentWriterHandle6EnableERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE.exit
 
 _ZN4node7tracing17AgentWriterHandle6EnableERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE.exit: ; preds = %if.then22, %if.then.i
@@ -468,18 +467,17 @@ entry:
   %sub.i31.i = add i64 %3, 11
   %4 = inttoptr i64 %sub.i31.i to ptr
   %5 = load i16, ptr %4, align 2
-  %conv.i.i = zext i16 %5 to i32
   %cmp.i.i = icmp eq i16 %5, 1040
-  %sub.i.i = add nsw i32 %conv.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i.i, 1002
-  %6 = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %6, label %if.then.i.i, label %if.end.i.i
+  %6 = add i16 %5, -1057
+  %cmp1.i.i = icmp ult i16 %6, 1002
+  %7 = or i1 %cmp.i.i, %cmp1.i.i
+  br i1 %7, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %sub.i43.i = add i64 %1, 31
-  %7 = inttoptr i64 %sub.i43.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
+  %8 = inttoptr i64 %sub.i43.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %10 = inttoptr i64 %9 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -487,31 +485,31 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.i11.0.i = phi ptr [ %9, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.i11.0.i = phi ptr [ %10, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
   %cmp = icmp eq ptr %retval.i11.0.i, null
   br i1 %cmp, label %if.end25, label %do.end19
 
 do.end19:                                         ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
   %categories_.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
   %enabled_ = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
-  %10 = load i8, ptr %enabled_, align 8
-  %tobool = trunc i8 %10 to i1
+  %11 = load i8, ptr %enabled_, align 8
+  %tobool = trunc i8 %11 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end25
 
 land.lhs.true:                                    ; preds = %do.end19
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 80
-  %11 = load i64, ptr %_M_node_count.i.i, align 8
-  %cmp.i.i6 = icmp eq i64 %11, 0
+  %12 = load i64, ptr %_M_node_count.i.i, align 8
+  %cmp.i.i6 = icmp eq i64 %12, 0
   br i1 %cmp.i.i6, label %if.end25, label %if.then22
 
 if.then22:                                        ; preds = %land.lhs.true
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process11v8_platformE, i64 24), align 8
-  %cmp.not.i = icmp eq ptr %12, null
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process11v8_platformE, i64 24), align 8
+  %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %_ZN4node7tracing17AgentWriterHandle7DisableERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then22
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process11v8_platformE, i64 32), align 8
-  tail call void @_ZN4node7tracing5Agent7DisableEiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1312) %12, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(48) %categories_.i) #16
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process11v8_platformE, i64 32), align 8
+  tail call void @_ZN4node7tracing5Agent7DisableEiRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1312) %13, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(48) %categories_.i) #16
   br label %_ZN4node7tracing17AgentWriterHandle7DisableERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE.exit
 
 _ZN4node7tracing17AgentWriterHandle7DisableERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE.exit: ; preds = %if.then22, %if.then.i

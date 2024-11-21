@@ -1951,251 +1951,250 @@ define dso_local noundef zeroext i1 @_ZN4llvm13DWARFVerifier16verifyUnitHeaderEN
   %23 = zext i1 %22 to i8
   store i8 %23, ptr %5, align 1
   %24 = call noundef zeroext i16 @_ZNK4llvm13DataExtractor6getU16EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
-  %25 = zext i16 %24 to i32
-  %26 = icmp ugt i16 %24, 4
-  br i1 %26, label %27, label %40
+  %25 = icmp ugt i16 %24, 4
+  br i1 %25, label %26, label %39
 
-27:                                               ; preds = %6
+26:                                               ; preds = %6
+  %27 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
+  store i8 %27, ptr %4, align 1
   %28 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
-  store i8 %28, ptr %4, align 1
-  %29 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
-  %30 = load i8, ptr %5, align 1
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %32, label %34
+  %29 = load i8, ptr %5, align 1
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %33
 
-32:                                               ; preds = %27
-  %33 = call noundef i64 @_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
-  br label %37
+31:                                               ; preds = %26
+  %32 = call noundef i64 @_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
+  br label %36
 
-34:                                               ; preds = %27
-  %35 = call noundef i32 @_ZNK4llvm13DataExtractor6getU32EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
-  %36 = zext i32 %35 to i64
-  br label %37
+33:                                               ; preds = %26
+  %34 = call noundef i32 @_ZNK4llvm13DataExtractor6getU32EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
+  %35 = zext i32 %34 to i64
+  br label %36
 
-37:                                               ; preds = %34, %32
-  %38 = phi i64 [ %33, %32 ], [ %36, %34 ]
-  %39 = load i8, ptr %4, align 1
-  %.off.i = add i8 %39, -1
+36:                                               ; preds = %33, %31
+  %37 = phi i64 [ %32, %31 ], [ %35, %33 ]
+  %38 = load i8, ptr %4, align 1
+  %.off.i = add i8 %38, -1
   %switch.i = icmp ult i8 %.off.i, 6
-  br label %51
+  br label %50
 
-40:                                               ; preds = %6
+39:                                               ; preds = %6
   store i8 0, ptr %4, align 1
-  %41 = load i8, ptr %5, align 1
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %45
+  %40 = load i8, ptr %5, align 1
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %44
 
-43:                                               ; preds = %40
-  %44 = call noundef i64 @_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
-  br label %48
+42:                                               ; preds = %39
+  %43 = call noundef i64 @_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
+  br label %47
 
-45:                                               ; preds = %40
-  %46 = call noundef i32 @_ZNK4llvm13DataExtractor6getU32EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
-  %47 = zext i32 %46 to i64
-  br label %48
+44:                                               ; preds = %39
+  %45 = call noundef i32 @_ZNK4llvm13DataExtractor6getU32EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
+  %46 = zext i32 %45 to i64
+  br label %47
 
-48:                                               ; preds = %45, %43
-  %49 = phi i64 [ %44, %43 ], [ %47, %45 ]
-  %50 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
-  br label %51
+47:                                               ; preds = %44, %42
+  %48 = phi i64 [ %43, %42 ], [ %46, %44 ]
+  %49 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %2, ptr noundef null) #26
+  br label %50
 
-51:                                               ; preds = %48, %37
-  %.035 = phi i1 [ %switch.i, %37 ], [ true, %48 ]
-  %.033 = phi i8 [ %29, %37 ], [ %50, %48 ]
-  %.0 = phi i64 [ %38, %37 ], [ %49, %48 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = call noundef ptr @_ZN4llvm12DWARFContext14getDebugAbbrevEv(ptr noundef nonnull align 8 dereferenceable(105) %53) #26
-  call void @_ZNK4llvm16DWARFDebugAbbrev29getAbbreviationDeclarationSetEm(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %12, ptr noundef nonnull align 8 dereferenceable(88) %54, i64 noundef %.0) #26
-  %55 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %56 = load i8, ptr %55, align 8
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %67
+50:                                               ; preds = %47, %36
+  %.035 = phi i1 [ %switch.i, %36 ], [ true, %47 ]
+  %.033 = phi i8 [ %28, %36 ], [ %49, %47 ]
+  %.0 = phi i64 [ %37, %36 ], [ %48, %47 ]
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = call noundef ptr @_ZN4llvm12DWARFContext14getDebugAbbrevEv(ptr noundef nonnull align 8 dereferenceable(105) %52) #26
+  call void @_ZNK4llvm16DWARFDebugAbbrev29getAbbreviationDeclarationSetEm(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %12, ptr noundef nonnull align 8 dereferenceable(88) %53, i64 noundef %.0) #26
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %55 = load i8, ptr %54, align 8
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %66
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %51
-  %58 = load i64, ptr %12, align 8, !noalias !9
-  %59 = inttoptr i64 %58 to ptr
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %50
+  %57 = load i64, ptr %12, align 8, !noalias !9
+  %58 = inttoptr i64 %57 to ptr
   store ptr null, ptr %12, align 8, !noalias !9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store ptr %59, ptr %8, align 8
+  store ptr %58, ptr %8, align 8
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
-  %60 = load ptr, ptr %7, align 8
-  %.not.i.i.i = icmp eq ptr %60, null
+  %59 = load ptr, ptr %7, align 8
+  %.not.i.i.i = icmp eq ptr %59, null
   call void @llvm.assume(i1 %.not.i.i.i)
-  %61 = load ptr, ptr %8, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %_ZN4llvm5ErrorD2Ev.exit, label %63
+  %60 = load ptr, ptr %8, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %_ZN4llvm5ErrorD2Ev.exit, label %62
 
-63:                                               ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %64 = load ptr, ptr %61, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  %66 = load ptr, ptr %65, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(8) %61) #26
+62:                                               ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+  %63 = load ptr, ptr %60, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  %65 = load ptr, ptr %64, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(8) %60) #26
   br label %_ZN4llvm5ErrorD2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %63, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %62, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  br label %67
+  br label %66
 
-67:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit, %51
-  %68 = add i64 %.fca.0.extract, 3
-  %69 = add i64 %68, %20
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %71 = load i64, ptr %70, align 8
-  %72 = icmp ule i64 %71, %69
-  %73 = add nsw i32 %25, -6
-  %spec.select.i = icmp ult i32 %73, -4
-  %74 = zext i8 %.033 to i32
-  %75 = call noundef zeroext i1 @_ZN4llvm12DWARFContext22isAddressSizeSupportedEj(i32 noundef %74)
-  %76 = and i1 %.035, %75
-  %77 = xor i1 %76, true
-  %78 = or i1 %spec.select.i, %77
-  %79 = or i1 %72, %78
-  %brmerge42 = or i1 %79, %57
-  br i1 %brmerge42, label %80, label %_ZNSt8functionIFvvEED2Ev.exit50
+66:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit, %50
+  %67 = add i64 %.fca.0.extract, 3
+  %68 = add i64 %67, %20
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %70 = load i64, ptr %69, align 8
+  %71 = icmp ule i64 %70, %68
+  %72 = add i16 %24, -6
+  %spec.select.i = icmp ult i16 %72, -4
+  %73 = zext i8 %.033 to i32
+  %74 = call noundef zeroext i1 @_ZN4llvm12DWARFContext22isAddressSizeSupportedEj(i32 noundef %73)
+  %75 = and i1 %.035, %74
+  %76 = xor i1 %75, true
+  %77 = or i1 %spec.select.i, %76
+  %78 = or i1 %71, %77
+  %brmerge42 = or i1 %78, %56
+  br i1 %brmerge42, label %79, label %_ZNSt8functionIFvvEED2Ev.exit50
 
-80:                                               ; preds = %67
+79:                                               ; preds = %66
   store i8 0, ptr %13, align 1
   store ptr %13, ptr %14, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %0, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %10, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %11, ptr %83, align 8
-  br i1 %72, label %84, label %_ZNSt8functionIFvvEED2Ev.exit
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %0, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr %10, ptr %81, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %11, ptr %82, align 8
+  br i1 %71, label %83, label %_ZNSt8functionIFvvEED2Ev.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %86 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %87 = getelementptr inbounds nuw i8, ptr %15, i64 24
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %85 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %14, ptr %15, align 8
   %.sroa.269.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %0, ptr %.sroa.269.0..sroa_idx, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_0E9_M_invokeERKSt9_Any_data", ptr %87, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %86, align 8
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %85, ptr nonnull @.str, i64 59, ptr noundef nonnull %15)
-  %88 = load ptr, ptr %86, align 8
-  %.not.i.i = icmp eq ptr %88, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %89
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_0E9_M_invokeERKSt9_Any_data", ptr %86, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %85, align 8
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %84, ptr nonnull @.str, i64 59, ptr noundef nonnull %15)
+  %87 = load ptr, ptr %85, align 8
+  %.not.i.i = icmp eq ptr %87, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %88
 
-89:                                               ; preds = %84
-  %90 = call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3) #26
+88:                                               ; preds = %83
+  %89 = call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3) #26
   br label %_ZNSt8functionIFvvEED2Ev.exit
 
-_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %89, %84, %80
-  br i1 %spec.select.i, label %91, label %_ZNSt8functionIFvvEED2Ev.exit44
+_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %88, %83, %79
+  br i1 %spec.select.i, label %90, label %_ZNSt8functionIFvvEED2Ev.exit44
 
-91:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %93 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %94 = getelementptr inbounds nuw i8, ptr %16, i64 24
+90:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %92 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %14, ptr %16, align 8
   %.sroa.265.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %0, ptr %.sroa.265.0..sroa_idx, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_1E9_M_invokeERKSt9_Any_data", ptr %94, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %93, align 8
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %92, ptr nonnull @.str.1, i64 59, ptr noundef nonnull %16)
-  %95 = load ptr, ptr %93, align 8
-  %.not.i.i43 = icmp eq ptr %95, null
-  br i1 %.not.i.i43, label %_ZNSt8functionIFvvEED2Ev.exit44, label %96
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_1E9_M_invokeERKSt9_Any_data", ptr %93, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %92, align 8
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %91, ptr nonnull @.str.1, i64 59, ptr noundef nonnull %16)
+  %94 = load ptr, ptr %92, align 8
+  %.not.i.i43 = icmp eq ptr %94, null
+  br i1 %.not.i.i43, label %_ZNSt8functionIFvvEED2Ev.exit44, label %95
 
-96:                                               ; preds = %91
-  %97 = call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3) #26
+95:                                               ; preds = %90
+  %96 = call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 3) #26
   br label %_ZNSt8functionIFvvEED2Ev.exit44
 
-_ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %96, %91, %_ZNSt8functionIFvvEED2Ev.exit
-  br i1 %.035, label %_ZNSt8functionIFvvEED2Ev.exit46, label %98
+_ZNSt8functionIFvvEED2Ev.exit44:                  ; preds = %95, %90, %_ZNSt8functionIFvvEED2Ev.exit
+  br i1 %.035, label %_ZNSt8functionIFvvEED2Ev.exit46, label %97
 
-98:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit44
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %100 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %101 = getelementptr inbounds nuw i8, ptr %17, i64 24
+97:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit44
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %99 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %14, ptr %17, align 8
   %.sroa.261.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %0, ptr %.sroa.261.0..sroa_idx, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_2E9_M_invokeERKSt9_Any_data", ptr %101, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %100, align 8
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %99, ptr nonnull @.str.2, i64 51, ptr noundef nonnull %17)
-  %102 = load ptr, ptr %100, align 8
-  %.not.i.i45 = icmp eq ptr %102, null
-  br i1 %.not.i.i45, label %_ZNSt8functionIFvvEED2Ev.exit46, label %103
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_2E9_M_invokeERKSt9_Any_data", ptr %100, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %99, align 8
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %98, ptr nonnull @.str.2, i64 51, ptr noundef nonnull %17)
+  %101 = load ptr, ptr %99, align 8
+  %.not.i.i45 = icmp eq ptr %101, null
+  br i1 %.not.i.i45, label %_ZNSt8functionIFvvEED2Ev.exit46, label %102
 
-103:                                              ; preds = %98
-  %104 = call noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3) #26
+102:                                              ; preds = %97
+  %103 = call noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3) #26
   br label %_ZNSt8functionIFvvEED2Ev.exit46
 
-_ZNSt8functionIFvvEED2Ev.exit46:                  ; preds = %103, %98, %_ZNSt8functionIFvvEED2Ev.exit44
-  br i1 %57, label %105, label %_ZNSt8functionIFvvEED2Ev.exit48
+_ZNSt8functionIFvvEED2Ev.exit46:                  ; preds = %102, %97, %_ZNSt8functionIFvvEED2Ev.exit44
+  br i1 %56, label %104, label %_ZNSt8functionIFvvEED2Ev.exit48
 
-105:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit46
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %107 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %108 = getelementptr inbounds nuw i8, ptr %18, i64 24
+104:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit46
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %106 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %14, ptr %18, align 8
   %.sroa.257.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %0, ptr %.sroa.257.0..sroa_idx, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_3E9_M_invokeERKSt9_Any_data", ptr %108, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %107, align 8
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %106, ptr nonnull @.str.3, i64 70, ptr noundef nonnull %18)
-  %109 = load ptr, ptr %107, align 8
-  %.not.i.i47 = icmp eq ptr %109, null
-  br i1 %.not.i.i47, label %_ZNSt8functionIFvvEED2Ev.exit48, label %110
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_3E9_M_invokeERKSt9_Any_data", ptr %107, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %106, align 8
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %105, ptr nonnull @.str.3, i64 70, ptr noundef nonnull %18)
+  %108 = load ptr, ptr %106, align 8
+  %.not.i.i47 = icmp eq ptr %108, null
+  br i1 %.not.i.i47, label %_ZNSt8functionIFvvEED2Ev.exit48, label %109
 
-110:                                              ; preds = %105
-  %111 = call noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3) #26
+109:                                              ; preds = %104
+  %110 = call noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 3) #26
   br label %_ZNSt8functionIFvvEED2Ev.exit48
 
-_ZNSt8functionIFvvEED2Ev.exit48:                  ; preds = %110, %105, %_ZNSt8functionIFvvEED2Ev.exit46
-  br i1 %75, label %_ZNSt8functionIFvvEED2Ev.exit50, label %112
+_ZNSt8functionIFvvEED2Ev.exit48:                  ; preds = %109, %104, %_ZNSt8functionIFvvEED2Ev.exit46
+  br i1 %74, label %_ZNSt8functionIFvvEED2Ev.exit50, label %111
 
-112:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit48
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %114 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %115 = getelementptr inbounds nuw i8, ptr %19, i64 24
+111:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit48
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %113 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %14, ptr %19, align 8
   %.sroa.2.0..sroa_idx53 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %0, ptr %.sroa.2.0..sroa_idx53, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_4E9_M_invokeERKSt9_Any_data", ptr %115, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %114, align 8
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %113, ptr nonnull @.str.4, i64 47, ptr noundef nonnull %19)
-  %116 = load ptr, ptr %114, align 8
-  %.not.i.i49 = icmp eq ptr %116, null
-  br i1 %.not.i.i49, label %_ZNSt8functionIFvvEED2Ev.exit50, label %117
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_4E9_M_invokeERKSt9_Any_data", ptr %114, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier16verifyUnitHeaderENS1_18DWARFDataExtractorEPmjRhRbE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %113, align 8
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %112, ptr nonnull @.str.4, i64 47, ptr noundef nonnull %19)
+  %115 = load ptr, ptr %113, align 8
+  %.not.i.i49 = icmp eq ptr %115, null
+  br i1 %.not.i.i49, label %_ZNSt8functionIFvvEED2Ev.exit50, label %116
 
-117:                                              ; preds = %112
-  %118 = call noundef zeroext i1 %116(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3) #26
+116:                                              ; preds = %111
+  %117 = call noundef zeroext i1 %115(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3) #26
   br label %_ZNSt8functionIFvvEED2Ev.exit50
 
-_ZNSt8functionIFvvEED2Ev.exit50:                  ; preds = %117, %112, %67, %_ZNSt8functionIFvvEED2Ev.exit48
-  %119 = load i64, ptr %11, align 8
-  %120 = add i64 %119, %.fca.0.extract
-  %121 = load i8, ptr %5, align 1
-  %122 = trunc i8 %121 to i1
-  %123 = select i1 %122, i64 12, i64 4
-  %124 = add i64 %120, %123
-  store i64 %124, ptr %2, align 8
-  %125 = load i8, ptr %55, align 8
-  %126 = trunc i8 %125 to i1
-  br i1 %126, label %127, label %_ZN4llvm8ExpectedIPKNS_31DWARFAbbreviationDeclarationSetEED2Ev.exit
+_ZNSt8functionIFvvEED2Ev.exit50:                  ; preds = %116, %111, %66, %_ZNSt8functionIFvvEED2Ev.exit48
+  %118 = load i64, ptr %11, align 8
+  %119 = add i64 %118, %.fca.0.extract
+  %120 = load i8, ptr %5, align 1
+  %121 = trunc i8 %120 to i1
+  %122 = select i1 %121, i64 12, i64 4
+  %123 = add i64 %119, %122
+  store i64 %123, ptr %2, align 8
+  %124 = load i8, ptr %54, align 8
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %126, label %_ZN4llvm8ExpectedIPKNS_31DWARFAbbreviationDeclarationSetEED2Ev.exit
 
-127:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit50
-  %128 = load ptr, ptr %12, align 8
-  %.not.i.i51 = icmp eq ptr %128, null
+126:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit50
+  %127 = load ptr, ptr %12, align 8
+  %.not.i.i51 = icmp eq ptr %127, null
   br i1 %.not.i.i51, label %_ZN4llvm8ExpectedIPKNS_31DWARFAbbreviationDeclarationSetEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %127
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 8
-  %131 = load ptr, ptr %130, align 8
-  call void %131(ptr noundef nonnull align 8 dereferenceable(8) %128) #26
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %126
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %130 = load ptr, ptr %129, align 8
+  call void %130(ptr noundef nonnull align 8 dereferenceable(8) %127) #26
   br label %_ZN4llvm8ExpectedIPKNS_31DWARFAbbreviationDeclarationSetEED2Ev.exit
 
-_ZN4llvm8ExpectedIPKNS_31DWARFAbbreviationDeclarationSetEED2Ev.exit: ; preds = %127, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZNSt8functionIFvvEED2Ev.exit50
+_ZN4llvm8ExpectedIPKNS_31DWARFAbbreviationDeclarationSetEED2Ev.exit: ; preds = %126, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZNSt8functionIFvvEED2Ev.exit50
   %.036 = xor i1 %brmerge42, true
   ret i1 %.036
 }

@@ -6385,15 +6385,14 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %conv = zext i32 %size to i64
   %vtable = load ptr, ptr %istream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %istream, i64 %vbase.offset
   %call = tail call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
-  %sub.off = add nsw i64 %conv, -20
-  %cmp4.not = icmp samesign ult i64 %sub.off, 12
-  %or.cond = select i1 %call, i1 %cmp4.not, i1 false
+  %0 = add i32 %size, -20
+  %cmp4.not = icmp ult i32 %0, 12
+  %or.cond = and i1 %cmp4.not, %call
   br i1 %or.cond, label %if.end6, label %return
 
 if.end6:                                          ; preds = %lor.lhs.false
@@ -6415,16 +6414,16 @@ _ZN9SampleICC5Read8ERSiPvi.exit.i:                ; preds = %if.end6
 
 if.end9:                                          ; preds = %_ZN9SampleICC5Read8ERSiPvi.exit.i
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %res, i64 3
-  %0 = load i8, ptr %res, align 4
-  %1 = load i8, ptr %arrayidx1.i.i, align 1
-  store i8 %1, ptr %res, align 4
-  store i8 %0, ptr %arrayidx1.i.i, align 1
+  %1 = load i8, ptr %res, align 4
+  %2 = load i8, ptr %arrayidx1.i.i, align 1
+  store i8 %2, ptr %res, align 4
+  store i8 %1, ptr %arrayidx1.i.i, align 1
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %res, i64 1
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %res, i64 2
-  %2 = load i8, ptr %arrayidx2.i.i, align 1
-  %3 = load i8, ptr %arrayidx3.i.i, align 2
-  store i8 %3, ptr %arrayidx2.i.i, align 1
-  store i8 %2, ptr %arrayidx3.i.i, align 2
+  %3 = load i8, ptr %arrayidx2.i.i, align 1
+  %4 = load i8, ptr %arrayidx3.i.i, align 2
+  store i8 %4, ptr %arrayidx2.i.i, align 1
+  store i8 %3, ptr %arrayidx3.i.i, align 2
   %vtable.i.i6 = load ptr, ptr %istream, align 8
   %vbase.offset.ptr.i.i7 = getelementptr i8, ptr %vtable.i.i6, i64 -24
   %vbase.offset.i.i8 = load i64, ptr %vbase.offset.ptr.i.i7, align 8
@@ -6446,16 +6445,16 @@ while.body.i.i20:                                 ; preds = %_ZN9SampleICC5Read8
   %ptr.08.i.i21 = phi ptr [ %add.ptr.i4.i26, %while.body.i.i20 ], [ %mXYZ, %_ZN9SampleICC5Read8ERSiPvi.exit.i12 ]
   %num.addr.07.i.i22 = phi i32 [ %dec.i.i27, %while.body.i.i20 ], [ 3, %_ZN9SampleICC5Read8ERSiPvi.exit.i12 ]
   %arrayidx1.i.i23 = getelementptr inbounds i8, ptr %ptr.08.i.i21, i64 3
-  %4 = load i8, ptr %ptr.08.i.i21, align 1
-  %5 = load i8, ptr %arrayidx1.i.i23, align 1
-  store i8 %5, ptr %ptr.08.i.i21, align 1
-  store i8 %4, ptr %arrayidx1.i.i23, align 1
+  %5 = load i8, ptr %ptr.08.i.i21, align 1
+  %6 = load i8, ptr %arrayidx1.i.i23, align 1
+  store i8 %6, ptr %ptr.08.i.i21, align 1
+  store i8 %5, ptr %arrayidx1.i.i23, align 1
   %arrayidx2.i.i24 = getelementptr inbounds i8, ptr %ptr.08.i.i21, i64 1
   %arrayidx3.i.i25 = getelementptr inbounds i8, ptr %ptr.08.i.i21, i64 2
-  %6 = load i8, ptr %arrayidx2.i.i24, align 1
-  %7 = load i8, ptr %arrayidx3.i.i25, align 1
-  store i8 %7, ptr %arrayidx2.i.i24, align 1
-  store i8 %6, ptr %arrayidx3.i.i25, align 1
+  %7 = load i8, ptr %arrayidx2.i.i24, align 1
+  %8 = load i8, ptr %arrayidx3.i.i25, align 1
+  store i8 %8, ptr %arrayidx2.i.i24, align 1
+  store i8 %7, ptr %arrayidx3.i.i25, align 1
   %add.ptr.i4.i26 = getelementptr inbounds i8, ptr %ptr.08.i.i21, i64 4
   %dec.i.i27 = add nsw i32 %num.addr.07.i.i22, -1
   %cmp.i.i28 = icmp samesign ugt i32 %num.addr.07.i.i22, 1

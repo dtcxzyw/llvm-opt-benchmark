@@ -749,7 +749,7 @@ define dso_local void @_ZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEP
   %4 = alloca [17 x %"class.llvm::StringRef"], align 8
   %5 = alloca [4 x %"class.llvm::StringRef"], align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %80, label %6
+  br i1 %.not, label %79, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -769,121 +769,120 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %6, %12
   %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 127
-  %17 = zext nneg i16 %16 to i32
-  %18 = add nsw i32 %17, -59
-  %19 = icmp ult i32 %18, -3
-  %20 = getelementptr inbounds i8, ptr %.0.i, i64 -64
-  br i1 %19, label %80, label %21
+  %17 = add nsw i16 %16, -59
+  %18 = icmp ult i16 %17, -3
+  %19 = getelementptr inbounds i8, ptr %.0.i, i64 -64
+  br i1 %18, label %79, label %20
 
-21:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit
-  %22 = load atomic i8, ptr @_ZGVZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE10Containers acquire, align 8
-  %23 = icmp eq i8 %22, 0
-  br i1 %23, label %24, label %28, !prof !24
+20:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit
+  %21 = load atomic i8, ptr @_ZGVZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE10Containers acquire, align 8
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %27, !prof !24
 
-24:                                               ; preds = %21
-  %25 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE10Containers) #22
-  %.not16 = icmp eq i32 %25, 0
-  br i1 %.not16, label %28, label %26
+23:                                               ; preds = %20
+  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE10Containers) #22
+  %.not16 = icmp eq i32 %24, 0
+  br i1 %.not16, label %27, label %25
 
-26:                                               ; preds = %24
+25:                                               ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %4, ptr noundef nonnull align 8 dereferenceable(272) @constinit, i64 272, i1 false)
   call void @_ZN4llvm9StringSetINS_15MallocAllocatorEEC2ESt16initializer_listINS_9StringRefEE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE10Containers, ptr nonnull %4, i64 17)
-  %27 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm9StringSetINS_15MallocAllocatorEED2Ev, ptr nonnull @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE10Containers, ptr nonnull @__dso_handle) #22
+  %26 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm9StringSetINS_15MallocAllocatorEED2Ev, ptr nonnull @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE10Containers, ptr nonnull @__dso_handle) #22
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE10Containers) #22
-  br label %28
+  br label %27
 
-28:                                               ; preds = %26, %24, %21
-  %29 = load atomic i8, ptr @_ZGVZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE9Iterators acquire, align 8
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %35, !prof !24
+27:                                               ; preds = %25, %23, %20
+  %28 = load atomic i8, ptr @_ZGVZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE9Iterators acquire, align 8
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %30, label %34, !prof !24
 
-31:                                               ; preds = %28
-  %32 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE9Iterators) #22
-  %.not17 = icmp eq i32 %32, 0
-  br i1 %.not17, label %35, label %33
+30:                                               ; preds = %27
+  %31 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE9Iterators) #22
+  %.not17 = icmp eq i32 %31, 0
+  br i1 %.not17, label %34, label %32
 
-33:                                               ; preds = %31
+32:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) @constinit.21, i64 64, i1 false)
   call void @_ZN4llvm9StringSetINS_15MallocAllocatorEEC2ESt16initializer_listINS_9StringRefEE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE9Iterators, ptr nonnull %5, i64 4)
-  %34 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm9StringSetINS_15MallocAllocatorEED2Ev, ptr nonnull @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE9Iterators, ptr nonnull @__dso_handle) #22
+  %33 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm9StringSetINS_15MallocAllocatorEED2Ev, ptr nonnull @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE9Iterators, ptr nonnull @__dso_handle) #22
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE9Iterators) #22
-  br label %35
+  br label %34
 
-35:                                               ; preds = %33, %31, %28
-  %36 = call noundef zeroext i1 @_ZNK5clang4Decl16isInStdNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %20) #22
-  br i1 %36, label %37, label %80
+34:                                               ; preds = %32, %30, %27
+  %35 = call noundef zeroext i1 @_ZNK5clang4Decl16isInStdNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %19) #22
+  br i1 %35, label %36, label %79
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %39 = load i64, ptr %38, align 8
-  %40 = and i64 %39, 7
-  %41 = icmp ne i64 %40, 0
-  %42 = and i64 %39, -8
-  %.not2.i = icmp eq i64 %42, 0
-  %.not.i = or i1 %41, %.not2.i
-  br i1 %.not.i, label %_ZNK5clang9NamedDecl7getNameEv.exit, label %43
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %38 = load i64, ptr %37, align 8
+  %39 = and i64 %38, 7
+  %40 = icmp ne i64 %39, 0
+  %41 = and i64 %38, -8
+  %.not2.i = icmp eq i64 %41, 0
+  %.not.i = or i1 %40, %.not2.i
+  br i1 %.not.i, label %_ZNK5clang9NamedDecl7getNameEv.exit, label %42
 
-43:                                               ; preds = %37
-  %44 = inttoptr i64 %42 to ptr
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
-  %48 = load i64, ptr %46, align 8
-  %49 = and i64 %48, 4294967295
+42:                                               ; preds = %36
+  %43 = inttoptr i64 %41 to ptr
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load i64, ptr %45, align 8
+  %48 = and i64 %47, 4294967295
   br label %_ZNK5clang9NamedDecl7getNameEv.exit
 
-_ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %37, %43
-  %.sroa.3.0.i = phi i64 [ %49, %43 ], [ 0, %37 ]
-  %.sroa.0.0.i = phi ptr [ %47, %43 ], [ @.str.56, %37 ]
-  %50 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.sroa.0.0.i, i64 %.sroa.3.0.i) #22
-  %51 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE9Iterators, ptr nonnull %.sroa.0.0.i, i64 %.sroa.3.0.i, i32 noundef %50) #22
-  %52 = icmp eq i32 %51, -1
-  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE9Iterators, i64 8), align 8
-  %54 = zext i32 %53 to i64
-  %55 = sext i32 %51 to i64
-  %56 = icmp eq i64 %55, %54
-  %.not29 = select i1 %52, i1 true, i1 %56
-  br i1 %.not29, label %80, label %57
+_ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %36, %42
+  %.sroa.3.0.i = phi i64 [ %48, %42 ], [ 0, %36 ]
+  %.sroa.0.0.i = phi ptr [ %46, %42 ], [ @.str.56, %36 ]
+  %49 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.sroa.0.0.i, i64 %.sroa.3.0.i) #22
+  %50 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE9Iterators, ptr nonnull %.sroa.0.0.i, i64 %.sroa.3.0.i, i32 noundef %49) #22
+  %51 = icmp eq i32 %50, -1
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE9Iterators, i64 8), align 8
+  %53 = zext i32 %52 to i64
+  %54 = sext i32 %50 to i64
+  %55 = icmp eq i64 %54, %53
+  %.not29 = select i1 %51, i1 true, i1 %55
+  br i1 %.not29, label %79, label %56
 
-57:                                               ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit
-  %58 = getelementptr inbounds i8, ptr %.0.i, i64 -24
-  %59 = load i64, ptr %58, align 8
-  %60 = and i64 %59, 7
-  %61 = icmp ne i64 %60, 0
-  %62 = and i64 %59, -8
-  %.not2.i20 = icmp eq i64 %62, 0
-  %.not.i21 = or i1 %61, %.not2.i20
-  br i1 %.not.i21, label %_ZNK5clang9NamedDecl7getNameEv.exit26, label %63
+56:                                               ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit
+  %57 = getelementptr inbounds i8, ptr %.0.i, i64 -24
+  %58 = load i64, ptr %57, align 8
+  %59 = and i64 %58, 7
+  %60 = icmp ne i64 %59, 0
+  %61 = and i64 %58, -8
+  %.not2.i20 = icmp eq i64 %61, 0
+  %.not.i21 = or i1 %60, %.not2.i20
+  br i1 %.not.i21, label %_ZNK5clang9NamedDecl7getNameEv.exit26, label %62
 
-63:                                               ; preds = %57
-  %64 = inttoptr i64 %62 to ptr
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
-  %68 = load i64, ptr %66, align 8
-  %69 = and i64 %68, 4294967295
+62:                                               ; preds = %56
+  %63 = inttoptr i64 %61 to ptr
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %67 = load i64, ptr %65, align 8
+  %68 = and i64 %67, 4294967295
   br label %_ZNK5clang9NamedDecl7getNameEv.exit26
 
-_ZNK5clang9NamedDecl7getNameEv.exit26:            ; preds = %57, %63
-  %.sroa.3.0.i22 = phi i64 [ %69, %63 ], [ 0, %57 ]
-  %.sroa.0.0.i23 = phi ptr [ %67, %63 ], [ @.str.56, %57 ]
-  %70 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.sroa.0.0.i23, i64 %.sroa.3.0.i22) #22
-  %71 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE10Containers, ptr nonnull %.sroa.0.0.i23, i64 %.sroa.3.0.i22, i32 noundef %70) #22
-  %72 = icmp eq i32 %71, -1
-  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE10Containers, i64 8), align 8
-  %74 = zext i32 %73 to i64
-  %75 = sext i32 %71 to i64
-  %76 = icmp eq i64 %75, %74
-  %.not32 = select i1 %72, i1 true, i1 %76
-  br i1 %.not32, label %80, label %77
+_ZNK5clang9NamedDecl7getNameEv.exit26:            ; preds = %56, %62
+  %.sroa.3.0.i22 = phi i64 [ %68, %62 ], [ 0, %56 ]
+  %.sroa.0.0.i23 = phi ptr [ %66, %62 ], [ @.str.56, %56 ]
+  %69 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.sroa.0.0.i23, i64 %.sroa.3.0.i22) #22
+  %70 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE10Containers, ptr nonnull %.sroa.0.0.i23, i64 %.sroa.3.0.i22, i32 noundef %69) #22
+  %71 = icmp eq i32 %70, -1
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang4Sema24inferGslPointerAttributeEPNS_9NamedDeclEPNS_13CXXRecordDeclEE10Containers, i64 8), align 8
+  %73 = zext i32 %72 to i64
+  %74 = sext i32 %70 to i64
+  %75 = icmp eq i64 %74, %73
+  %.not32 = select i1 %71, i1 true, i1 %75
+  br i1 %.not32, label %79, label %76
 
-77:                                               ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit26
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %79 = load ptr, ptr %78, align 8
-  call fastcc void @_ZL40addGslOwnerPointerAttributeIfNotExistingIN5clang11PointerAttrEEvRNS0_10ASTContextEPNS0_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %79, ptr noundef nonnull %2)
-  br label %80
+76:                                               ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit26
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %78 = load ptr, ptr %77, align 8
+  call fastcc void @_ZL40addGslOwnerPointerAttributeIfNotExistingIN5clang11PointerAttrEEvRNS0_10ASTContextEPNS0_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %78, ptr noundef nonnull %2)
+  br label %79
 
-80:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit, %3, %77, %_ZNK5clang9NamedDecl7getNameEv.exit26, %_ZNK5clang9NamedDecl7getNameEv.exit, %35
+79:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit, %3, %76, %_ZNK5clang9NamedDecl7getNameEv.exit26, %_ZNK5clang9NamedDecl7getNameEv.exit, %34
   ret void
 }
 
@@ -1726,9 +1725,8 @@ _ZNK5clang8QualType12IgnoreParensEv.exit:         ; preds = %103, %111
   %117 = load ptr, ptr %116, align 16
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load i8, ptr %118, align 16
-  %120 = zext i8 %119 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %120, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %120 = add i8 %119, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %120, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %.critedge2.sink.split, label %.critedge2
 
 .critedge2.sink.split:                            ; preds = %31, %24, %_ZNK5clang8QualType12IgnoreParensEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZNK5clang4Decl7hasAttrINS_17LifetimeBoundAttrEEEbv.exit, %7, %26
@@ -3771,9 +3769,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema20ConstantFoldAttrArgsERKNS_1
   %33 = load ptr, ptr %32, align 16
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i8, ptr %34, align 16
-  %36 = zext i8 %35 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %36, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %36 = add i8 %35, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %36, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %37, label %43
 
 37:                                               ; preds = %25

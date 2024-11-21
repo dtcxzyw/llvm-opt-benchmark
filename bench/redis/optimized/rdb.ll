@@ -4314,9 +4314,9 @@ rdbLoadType.exit:                                 ; preds = %if.end12.i.i
   %conv.i = zext i8 %7 to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %type.i)
   %or.cond = icmp ult i8 %7, 8
-  %8 = add nsw i32 %conv.i, -9
-  %or.cond1 = icmp ult i32 %8, 13
-  %or.cond6 = select i1 %or.cond, i1 true, i1 %or.cond1
+  %8 = add i8 %7, -9
+  %or.cond1 = icmp ult i8 %8, 13
+  %or.cond6 = or i1 %or.cond, %or.cond1
   %spec.select = select i1 %or.cond6, i32 %conv.i, i32 -1
   br label %return
 

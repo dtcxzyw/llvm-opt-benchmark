@@ -247,13 +247,13 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
 
 5:                                                ; preds = %.lr.ph21
   %6 = getelementptr inbounds i8, ptr %.01220, i64 1
-  %7 = zext i8 %4 to i64
-  %8 = add nsw i64 %7, -192
-  %or.cond = icmp ult i64 %8, 53
+  %7 = add i8 %4, 64
+  %or.cond = icmp ult i8 %7, 53
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %5
-  %9 = getelementptr inbounds [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %7
+  %8 = zext i8 %4 to i64
+  %9 = getelementptr inbounds [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %smax = tail call i32 @llvm.smax.i32(i32 %10, i32 2)
   br label %.lr.ph

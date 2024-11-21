@@ -137077,10 +137077,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21AArch64TargetLowering22mayBeEmit
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 3
-  %6 = zext nneg i16 %5 to i32
-  %7 = add nsw i32 %6, -1
-  %8 = icmp ult i32 %7, 2
-  ret i1 %8
+  %6 = add nsw i16 %5, -1
+  %7 = icmp ult i16 %6, 2
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -141412,89 +141411,95 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNK4llvm21AArch64TargetLowering25
   br i1 %or.cond, label %19, label %.critedge
 
 19:                                               ; preds = %2
-  switch i16 %18, label %.critedge [
+  switch i16 %18, label %.critedge.thread [
     i16 0, label %.critedge23
     i16 5, label %.critedge23
     i16 3, label %.critedge23
   ]
 
-.critedge:                                        ; preds = %2, %19
-  %20 = zext nneg i16 %18 to i32
-  %21 = icmp eq i16 %18, 4
-  %22 = icmp ugt i32 %8, 127
-  %or.cond3.not37 = or i1 %22, %21
-  %.off.i.i = add nsw i32 %20, -11
-  %switch.i.i = icmp ult i32 %.off.i.i, 4
-  %or.cond29 = select i1 %or.cond3.not37, i1 true, i1 %switch.i.i
-  br i1 %or.cond29, label %31, label %23
+.critedge:                                        ; preds = %2
+  %20 = icmp ugt i32 %8, 127
+  br i1 %20, label %.critedge.thread, label %switch.early.test
 
-23:                                               ; preds = %.critedge
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 368
-  %25 = load i8, ptr %24, align 8
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %.critedge23, label %27
+switch.early.test:                                ; preds = %.critedge
+  switch i16 %18, label %21 [
+    i16 14, label %.critedge.thread
+    i16 13, label %.critedge.thread
+    i16 12, label %.critedge.thread
+    i16 11, label %.critedge.thread
+    i16 4, label %.critedge.thread
+  ]
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %10, i64 471
-  %29 = load i8, ptr %28, align 1
-  %.fr38 = freeze i8 %29
-  %30 = trunc i8 %.fr38 to i1
-  %switch = icmp ult i32 %.off.i.i, -4
-  %or.cond35.not = and i1 %switch, %30
-  br i1 %or.cond35.not, label %.critedge23, label %31
+21:                                               ; preds = %switch.early.test
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 368
+  %23 = load i8, ptr %22, align 8
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %.critedge23, label %25
 
-31:                                               ; preds = %27, %.critedge
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 664
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.critedge23, label %37
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 471
+  %27 = load i8, ptr %26, align 1
+  %.fr38 = freeze i8 %27
+  %28 = trunc i8 %.fr38 to i1
+  %29 = add nsw i16 %18, -11
+  %switch = icmp ult i16 %29, -4
+  %or.cond35.not = and i1 %switch, %28
+  br i1 %or.cond35.not, label %.critedge23, label %.critedge.thread
 
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 368
-  %39 = load i8, ptr %38, align 8
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %.critedge23, label %41
+.critedge.thread:                                 ; preds = %19, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.critedge, %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 664
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %.critedge23, label %35
 
-41:                                               ; preds = %37
-  %42 = getelementptr i8, ptr %10, i64 348
-  %.val = load i8, ptr %42, align 4
-  br i1 %switch.i.i, label %43, label %.critedge23
+35:                                               ; preds = %.critedge.thread
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 368
+  %37 = load i8, ptr %36, align 8
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %.critedge23, label %39
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i32, ptr %45, align 8
-  %47 = and i32 %46, 255
-  %48 = add nsw i32 %47, -17
-  %spec.select.i.i.i = icmp ult i32 %48, 2
-  br i1 %spec.select.i.i.i, label %49, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i
+39:                                               ; preds = %35
+  %40 = getelementptr i8, ptr %10, i64 348
+  %.val = load i8, ptr %40, align 4
+  %41 = add nsw i16 %18, -11
+  %switch.i.i.i = icmp ult i16 %41, 4
+  br i1 %switch.i.i.i, label %42, label %.critedge23
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %4, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load i32, ptr %44, align 8
+  %46 = and i32 %45, 255
+  %47 = add nsw i32 %46, -17
+  %spec.select.i.i.i = icmp ult i32 %47, 2
+  br i1 %spec.select.i.i.i, label %48, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i
+
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %51, align 8
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i
 
-_ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %49, %43
-  %53 = phi i32 [ %.pre.i, %49 ], [ %46, %43 ]
-  %54 = and i32 %53, 252
-  %switch.i = icmp eq i32 %54, 0
+_ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %48, %42
+  %52 = phi i32 [ %.pre.i, %48 ], [ %45, %42 ]
+  %53 = and i32 %52, 252
+  %switch.i = icmp eq i32 %53, 0
   br i1 %switch.i, label %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit, label %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit.thread
 
 _ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i
   %.val.fr = freeze i8 %.val
-  %55 = trunc i8 %.val.fr to i1
-  br i1 %55, label %.critedge23, label %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit.thread
+  %54 = trunc i8 %.val.fr to i1
+  br i1 %54, label %.critedge23, label %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit.thread
 
 _ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit.thread: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit
   br label %.critedge23
 
-.critedge23:                                      ; preds = %27, %19, %19, %19, %41, %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit.thread, %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit, %31, %37, %23
-  %.0 = phi i32 [ 0, %23 ], [ 4, %37 ], [ 4, %31 ], [ 0, %19 ], [ 4, %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit.thread ], [ 2, %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit ], [ 2, %41 ], [ 0, %19 ], [ 0, %19 ], [ 0, %27 ]
+.critedge23:                                      ; preds = %25, %19, %19, %19, %39, %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit.thread, %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit, %.critedge.thread, %35, %21
+  %.0 = phi i32 [ 0, %21 ], [ 4, %35 ], [ 4, %.critedge.thread ], [ 0, %19 ], [ 4, %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit.thread ], [ 2, %_ZL22rmwOpMayLowerToLibcallRKN4llvm16AArch64SubtargetEPKNS_13AtomicRMWInstE.exit ], [ 2, %39 ], [ 0, %19 ], [ 0, %19 ], [ 0, %25 ]
   ret i32 %.0
 }
 

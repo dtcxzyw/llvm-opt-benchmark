@@ -350,9 +350,8 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.029.039, i64 68
   %50 = load i16, ptr %49, align 4
-  %51 = zext i16 %50 to i32
-  %.off = add nsw i32 %51, -467
-  %switch = icmp ult i32 %.off, 4
+  %51 = add i16 %50, -467
+  %switch = icmp ult i16 %51, 4
   br i1 %switch, label %52, label %128
 
 52:                                               ; preds = %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit

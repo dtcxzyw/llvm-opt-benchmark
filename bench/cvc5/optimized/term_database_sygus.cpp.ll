@@ -15356,16 +15356,14 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEEix
   %d_kind.i = getelementptr inbounds i8, ptr %6, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  %7 = add nsw i32 %bf.cast.i, -41
-  %or.cond4 = icmp ult i32 %7, 6
+  %7 = add nsw i16 %bf.clear.i, -41
+  %or.cond4 = icmp ult i16 %7, 6
   br i1 %or.cond4, label %if.then17, label %if.end44
 
 if.then17:                                        ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEEixERS7_.exit
+  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  %cmp.i.i.i.i.i20 = icmp eq i16 %bf.clear.i, 1023
-  %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i20, i32 -1, i32 %bf.cast.i
-  %call2.i.i.i = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i), !noalias !118
+  %call2.i.i.i = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i), !noalias !118
   %cmp.i.i21 = icmp eq i32 %call2.i.i.i, 2
   %spec.select.i.i22 = select i1 %cmp.i.i21, i64 2, i64 1
   %d_children.i.i = getelementptr inbounds i8, ptr %6, i64 16

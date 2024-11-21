@@ -115,8 +115,8 @@ ft_gzip_get_uncompressed_size.exit:               ; preds = %40
   %spec.store.select.i = zext i32 %narrow.i to i64
   %49 = call i32 @FT_Stream_Seek(ptr noundef nonnull %1, i64 noundef %42) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %50 = add nsw i64 %spec.store.select.i, -1
-  %or.cond3 = icmp ult i64 %50, 40959
+  %50 = add i32 %narrow.i, -1
+  %or.cond3 = icmp ult i32 %50, 40959
   br i1 %or.cond3, label %51, label %71
 
 51:                                               ; preds = %ft_gzip_get_uncompressed_size.exit

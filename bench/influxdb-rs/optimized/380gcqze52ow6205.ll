@@ -7639,12 +7639,12 @@ define void @_ZN16influxdb3_server4http16validate_db_name17h1ddca540ed810586E(pt
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   br label %8
 
-8:                                                ; preds = %.lr.ph, %395
-  %9 = phi i64 [ %2, %.lr.ph ], [ %360, %395 ]
-  %10 = phi ptr [ %1, %.lr.ph ], [ %359, %395 ]
-  %11 = phi i64 [ 0, %.lr.ph ], [ %358, %395 ]
-  %.0211 = phi i1 [ true, %.lr.ph ], [ false, %395 ]
-  %.sroa.8.0210 = phi i64 [ undef, %.lr.ph ], [ %.sroa.8.286, %395 ]
+8:                                                ; preds = %.lr.ph, %394
+  %9 = phi i64 [ %2, %.lr.ph ], [ %360, %394 ]
+  %10 = phi ptr [ %1, %.lr.ph ], [ %359, %394 ]
+  %11 = phi i64 [ 0, %.lr.ph ], [ %358, %394 ]
+  %.0211 = phi i1 [ true, %.lr.ph ], [ false, %394 ]
+  %.sroa.8.0210 = phi i64 [ undef, %.lr.ph ], [ %.sroa.8.286, %394 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1295)
   call void @llvm.experimental.noalias.scope.decl(metadata !1298)
   call void @llvm.experimental.noalias.scope.decl(metadata !1301)
@@ -8507,7 +8507,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9
   call void @_ZN4core3str16slice_error_fail17hb822a60a30984aeeE(ptr noalias noundef nonnull readonly align 1 %359, i64 noundef %360, i64 noundef %11, i64 noundef %358, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.4) #20
   unreachable
 
-._crit_edge:                                      ; preds = %395, %3
+._crit_edge:                                      ; preds = %394, %3
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
   store i8 36, ptr %0, align 8
   br label %380
@@ -8516,49 +8516,48 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9
   %377 = getelementptr inbounds i8, ptr %359, i64 %11
   %378 = sub i64 %358, %11
   %379 = icmp ugt i64 %378, 1
-  br i1 %379, label %398, label %381
+  br i1 %379, label %397, label %381
 
-380:                                              ; preds = %398, %._crit_edge
+380:                                              ; preds = %397, %._crit_edge
   ret void
 
 381:                                              ; preds = %376
   %382 = icmp eq i64 %378, 1
-  br i1 %382, label %383, label %391, !prof !1385
+  br i1 %382, label %383, label %390, !prof !1385
 
 383:                                              ; preds = %381
   %384 = load i8, ptr %377, align 1, !noundef !4
-  %385 = zext i8 %384 to i32
-  %386 = add nsw i32 %385, -48
-  %.0.i45 = icmp ult i32 %386, 10
-  %387 = and i32 %385, 223
-  %388 = add nsw i32 %387, -65
-  %389 = icmp ult i32 %388, 26
-  %390 = or i1 %.0.i45, %389
-  br i1 %.0211, label %393, label %392
+  %385 = add i8 %384, -48
+  %.0.i45 = icmp ult i8 %385, 10
+  %386 = and i8 %384, -33
+  %387 = add i8 %386, -65
+  %388 = icmp ult i8 %387, 26
+  %389 = or i1 %.0.i45, %388
+  br i1 %.0211, label %392, label %391
 
-391:                                              ; preds = %381
+390:                                              ; preds = %381
   call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.242) #20
   unreachable
 
+391:                                              ; preds = %383
+  br i1 %389, label %394, label %393
+
 392:                                              ; preds = %383
-  br i1 %390, label %395, label %394
+  br i1 %389, label %394, label %397
 
-393:                                              ; preds = %383
-  br i1 %390, label %395, label %398
-
-394:                                              ; preds = %392
-  switch i8 %384, label %398 [
-    i8 95, label %395
-    i8 45, label %395
+393:                                              ; preds = %391
+  switch i8 %384, label %397 [
+    i8 95, label %394
+    i8 45, label %394
   ]
 
-395:                                              ; preds = %393, %394, %394, %392
-  %396 = load i64, ptr %.sroa.0.sroa.14.sroa.5.0..sroa.0.sroa.14.0..sroa_idx.sroa_idx, align 8, !alias.scope !1386, !noundef !4
-  %397 = icmp eq i64 %358, %396
-  br i1 %397, label %._crit_edge, label %8
+394:                                              ; preds = %392, %393, %393, %391
+  %395 = load i64, ptr %.sroa.0.sroa.14.sroa.5.0..sroa.0.sroa.14.0..sroa_idx.sroa_idx, align 8, !alias.scope !1386, !noundef !4
+  %396 = icmp eq i64 %358, %395
+  br i1 %396, label %._crit_edge, label %8
 
-398:                                              ; preds = %393, %394, %376
-  %.sink = phi i8 [ 30, %376 ], [ 30, %394 ], [ 29, %393 ]
+397:                                              ; preds = %392, %393, %376
+  %.sink = phi i8 [ 30, %376 ], [ 30, %393 ], [ 29, %392 ]
   store i8 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
   br label %380

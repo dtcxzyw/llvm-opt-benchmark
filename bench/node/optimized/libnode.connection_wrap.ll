@@ -247,18 +247,17 @@ do.body47:                                        ; preds = %if.then37
   %sub.i33.i = add i64 %9, 11
   %10 = inttoptr i64 %sub.i33.i to ptr
   %11 = load i16, ptr %10, align 2
-  %conv.i.i = zext i16 %11 to i32
   %cmp.i.i17 = icmp eq i16 %11, 1040
-  %sub.i.i = add nsw i32 %conv.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i.i, 1002
-  %12 = select i1 %cmp.i.i17, i1 true, i1 %cmp1.i.i
-  br i1 %12, label %if.then.i.i, label %if.end.i.i
+  %12 = add i16 %11, -1057
+  %cmp1.i.i = icmp ult i16 %12, 1002
+  %13 = or i1 %cmp.i.i17, %cmp1.i.i
+  br i1 %13, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %do.body47
   %sub.i45.i = add i64 %7, 31
-  %13 = inttoptr i64 %sub.i45.i to ptr
-  %14 = load i64, ptr %13, align 8
-  %15 = inttoptr i64 %14 to ptr
+  %14 = inttoptr i64 %sub.i45.i to ptr
+  %15 = load i64, ptr %14, align 8
+  %16 = inttoptr i64 %15 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 if.end.i.i:                                       ; preds = %do.body47
@@ -266,7 +265,7 @@ if.end.i.i:                                       ; preds = %do.body47
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.i11.0.i = phi ptr [ %15, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.i11.0.i = phi ptr [ %16, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
   %cmp57 = icmp eq ptr %retval.i11.0.i, null
   br i1 %cmp57, label %cleanup, label %do.end61
 
@@ -281,57 +280,57 @@ do.end61.if.end81_crit_edge:                      ; preds = %do.end61
   br label %if.end81
 
 if.else:                                          ; preds = %do.end35
-  %16 = load ptr, ptr %isolate_.i, align 8
-  %17 = ptrtoint ptr %16 to i64
-  %add1.i = add i64 %17, 608
-  %18 = inttoptr i64 %add1.i to ptr
+  %17 = load ptr, ptr %isolate_.i, align 8
+  %18 = ptrtoint ptr %17 to i64
+  %add1.i = add i64 %18, 608
+  %19 = inttoptr i64 %add1.i to ptr
   br label %if.end81
 
 if.end81:                                         ; preds = %do.end61.if.end81_crit_edge, %if.else
-  %19 = phi ptr [ %16, %if.else ], [ %.pre, %do.end61.if.end81_crit_edge ]
-  %client_handle.sroa.0.0 = phi ptr [ %18, %if.else ], [ %call38, %do.end61.if.end81_crit_edge ]
-  %call84 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %19, i32 noundef %status) #9
+  %20 = phi ptr [ %17, %if.else ], [ %.pre, %do.end61.if.end81_crit_edge ]
+  %client_handle.sroa.0.0 = phi ptr [ %19, %if.else ], [ %call38, %do.end61.if.end81_crit_edge ]
+  %call84 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %20, i32 noundef %status) #9
   store ptr %call84, ptr %argv, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %argv, i64 8
   store ptr %client_handle.sroa.0.0, ptr %arrayinit.element, align 8
   %isolate_data_.i.i = getelementptr inbounds i8, ptr %2, i64 96
-  %20 = load ptr, ptr %isolate_data_.i.i, align 8
-  %onconnection_string_.i.i = getelementptr inbounds i8, ptr %20, i64 1616
-  %21 = load ptr, ptr %onconnection_string_.i.i, align 8
-  %22 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 176
-  %23 = load ptr, ptr %env_.i.i.i.i.i, align 8
-  %isolate_.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 88
-  %24 = load ptr, ptr %isolate_.i.i.i.i, align 8
-  %25 = load ptr, ptr %persistent_handle_.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %25, null
+  %21 = load ptr, ptr %isolate_data_.i.i, align 8
+  %onconnection_string_.i.i = getelementptr inbounds i8, ptr %21, i64 1616
+  %22 = load ptr, ptr %onconnection_string_.i.i, align 8
+  %23 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 176
+  %24 = load ptr, ptr %env_.i.i.i.i.i, align 8
+  %isolate_.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 88
+  %25 = load ptr, ptr %isolate_.i.i.i.i, align 8
+  %26 = load ptr, ptr %persistent_handle_.i, align 8
+  %cmp.i.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.i.i.i.i.i.i, label %_ZNK4node10BaseObject6objectEv.exit.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end81
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 11
-  %26 = load i8, ptr %add.ptr.i.i.i.i.i, align 1
-  %27 = and i8 %26, 3
-  %cmp.i.i.i.i.i = icmp eq i8 %27, 2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 11
+  %27 = load i8, ptr %add.ptr.i.i.i.i.i, align 1
+  %28 = and i8 %27, 3
+  %cmp.i.i.i.i.i = icmp eq i8 %28, 2
   br i1 %cmp.i.i.i.i.i, label %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i, label %_ZNK4node10BaseObject6objectEv.exit.i.i
 
 _ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i
-  %28 = load i64, ptr %25, align 8
-  %call.i.i.i.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %24, i64 noundef %28) #9
+  %29 = load i64, ptr %26, align 8
+  %call.i.i.i.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %25, i64 noundef %29) #9
   %.pre.i.i = load ptr, ptr %realm_.i, align 8
   %env_.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 176
   %.pre4.i.i = load ptr, ptr %env_.i.i.phi.trans.insert.i.i, align 8
   br label %_ZNK4node10BaseObject6objectEv.exit.i.i
 
 _ZNK4node10BaseObject6objectEv.exit.i.i:          ; preds = %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i, %if.end.i.i.i.i.i, %if.end81
-  %29 = phi ptr [ %.pre4.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i ], [ %23, %if.end81 ], [ %23, %if.end.i.i.i.i.i ]
-  %retval.sroa.0.0.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i ], [ null, %if.end81 ], [ %25, %if.end.i.i.i.i.i ]
-  %principal_realm_.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 2728
-  %30 = load ptr, ptr %principal_realm_.i.i.i.i, align 8
-  %vtable.i.i.i = load ptr, ptr %30, align 8
+  %30 = phi ptr [ %.pre4.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i ], [ %24, %if.end81 ], [ %24, %if.end.i.i.i.i.i ]
+  %retval.sroa.0.0.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i ], [ null, %if.end81 ], [ %26, %if.end.i.i.i.i.i ]
+  %principal_realm_.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 2728
+  %31 = load ptr, ptr %principal_realm_.i.i.i.i, align 8
+  %vtable.i.i.i = load ptr, ptr %31, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 64
-  %31 = load ptr, ptr %vfn.i.i.i, align 8
-  %call2.i.i.i = call ptr %31(ptr noundef nonnull align 8 dereferenceable(872) %30) #9
-  %call25.i.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i.i, ptr %call2.i.i.i, ptr %21) #9
+  %32 = load ptr, ptr %vfn.i.i.i, align 8
+  %call2.i.i.i = call ptr %32(ptr noundef nonnull align 8 dereferenceable(872) %31) #9
+  %call25.i.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i.i, ptr %call2.i.i.i, ptr %22) #9
   %cmp.i.i.i.i = icmp eq ptr %call25.i.i, null
   br i1 %cmp.i.i.i.i, label %cleanup, label %if.end.i.i20
 
@@ -431,18 +430,17 @@ do.body47:                                        ; preds = %if.then37
   %sub.i33.i = add i64 %9, 11
   %10 = inttoptr i64 %sub.i33.i to ptr
   %11 = load i16, ptr %10, align 2
-  %conv.i.i = zext i16 %11 to i32
   %cmp.i.i17 = icmp eq i16 %11, 1040
-  %sub.i.i = add nsw i32 %conv.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i.i, 1002
-  %12 = select i1 %cmp.i.i17, i1 true, i1 %cmp1.i.i
-  br i1 %12, label %if.then.i.i, label %if.end.i.i
+  %12 = add i16 %11, -1057
+  %cmp1.i.i = icmp ult i16 %12, 1002
+  %13 = or i1 %cmp.i.i17, %cmp1.i.i
+  br i1 %13, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %do.body47
   %sub.i45.i = add i64 %7, 31
-  %13 = inttoptr i64 %sub.i45.i to ptr
-  %14 = load i64, ptr %13, align 8
-  %15 = inttoptr i64 %14 to ptr
+  %14 = inttoptr i64 %sub.i45.i to ptr
+  %15 = load i64, ptr %14, align 8
+  %16 = inttoptr i64 %15 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 if.end.i.i:                                       ; preds = %do.body47
@@ -450,7 +448,7 @@ if.end.i.i:                                       ; preds = %do.body47
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.i11.0.i = phi ptr [ %15, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.i11.0.i = phi ptr [ %16, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
   %cmp57 = icmp eq ptr %retval.i11.0.i, null
   br i1 %cmp57, label %cleanup, label %do.end61
 
@@ -465,57 +463,57 @@ do.end61.if.end81_crit_edge:                      ; preds = %do.end61
   br label %if.end81
 
 if.else:                                          ; preds = %do.end35
-  %16 = load ptr, ptr %isolate_.i, align 8
-  %17 = ptrtoint ptr %16 to i64
-  %add1.i = add i64 %17, 608
-  %18 = inttoptr i64 %add1.i to ptr
+  %17 = load ptr, ptr %isolate_.i, align 8
+  %18 = ptrtoint ptr %17 to i64
+  %add1.i = add i64 %18, 608
+  %19 = inttoptr i64 %add1.i to ptr
   br label %if.end81
 
 if.end81:                                         ; preds = %do.end61.if.end81_crit_edge, %if.else
-  %19 = phi ptr [ %16, %if.else ], [ %.pre, %do.end61.if.end81_crit_edge ]
-  %client_handle.sroa.0.0 = phi ptr [ %18, %if.else ], [ %call38, %do.end61.if.end81_crit_edge ]
-  %call84 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %19, i32 noundef %status) #9
+  %20 = phi ptr [ %17, %if.else ], [ %.pre, %do.end61.if.end81_crit_edge ]
+  %client_handle.sroa.0.0 = phi ptr [ %19, %if.else ], [ %call38, %do.end61.if.end81_crit_edge ]
+  %call84 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %20, i32 noundef %status) #9
   store ptr %call84, ptr %argv, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %argv, i64 8
   store ptr %client_handle.sroa.0.0, ptr %arrayinit.element, align 8
   %isolate_data_.i.i = getelementptr inbounds i8, ptr %2, i64 96
-  %20 = load ptr, ptr %isolate_data_.i.i, align 8
-  %onconnection_string_.i.i = getelementptr inbounds i8, ptr %20, i64 1616
-  %21 = load ptr, ptr %onconnection_string_.i.i, align 8
-  %22 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 176
-  %23 = load ptr, ptr %env_.i.i.i.i.i, align 8
-  %isolate_.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 88
-  %24 = load ptr, ptr %isolate_.i.i.i.i, align 8
-  %25 = load ptr, ptr %persistent_handle_.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %25, null
+  %21 = load ptr, ptr %isolate_data_.i.i, align 8
+  %onconnection_string_.i.i = getelementptr inbounds i8, ptr %21, i64 1616
+  %22 = load ptr, ptr %onconnection_string_.i.i, align 8
+  %23 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 176
+  %24 = load ptr, ptr %env_.i.i.i.i.i, align 8
+  %isolate_.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 88
+  %25 = load ptr, ptr %isolate_.i.i.i.i, align 8
+  %26 = load ptr, ptr %persistent_handle_.i, align 8
+  %cmp.i.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.i.i.i.i.i.i, label %_ZNK4node10BaseObject6objectEv.exit.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end81
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 11
-  %26 = load i8, ptr %add.ptr.i.i.i.i.i, align 1
-  %27 = and i8 %26, 3
-  %cmp.i.i.i.i.i = icmp eq i8 %27, 2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 11
+  %27 = load i8, ptr %add.ptr.i.i.i.i.i, align 1
+  %28 = and i8 %27, 3
+  %cmp.i.i.i.i.i = icmp eq i8 %28, 2
   br i1 %cmp.i.i.i.i.i, label %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i, label %_ZNK4node10BaseObject6objectEv.exit.i.i
 
 _ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i
-  %28 = load i64, ptr %25, align 8
-  %call.i.i.i.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %24, i64 noundef %28) #9
+  %29 = load i64, ptr %26, align 8
+  %call.i.i.i.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %25, i64 noundef %29) #9
   %.pre.i.i = load ptr, ptr %realm_.i, align 8
   %env_.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 176
   %.pre4.i.i = load ptr, ptr %env_.i.i.phi.trans.insert.i.i, align 8
   br label %_ZNK4node10BaseObject6objectEv.exit.i.i
 
 _ZNK4node10BaseObject6objectEv.exit.i.i:          ; preds = %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i, %if.end.i.i.i.i.i, %if.end81
-  %29 = phi ptr [ %.pre4.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i ], [ %23, %if.end81 ], [ %23, %if.end.i.i.i.i.i ]
-  %retval.sroa.0.0.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i ], [ null, %if.end81 ], [ %25, %if.end.i.i.i.i.i ]
-  %principal_realm_.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 2728
-  %30 = load ptr, ptr %principal_realm_.i.i.i.i, align 8
-  %vtable.i.i.i = load ptr, ptr %30, align 8
+  %30 = phi ptr [ %.pre4.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i ], [ %24, %if.end81 ], [ %24, %if.end.i.i.i.i.i ]
+  %retval.sroa.0.0.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i.i ], [ null, %if.end81 ], [ %26, %if.end.i.i.i.i.i ]
+  %principal_realm_.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 2728
+  %31 = load ptr, ptr %principal_realm_.i.i.i.i, align 8
+  %vtable.i.i.i = load ptr, ptr %31, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 64
-  %31 = load ptr, ptr %vfn.i.i.i, align 8
-  %call2.i.i.i = call ptr %31(ptr noundef nonnull align 8 dereferenceable(872) %30) #9
-  %call25.i.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i.i, ptr %call2.i.i.i, ptr %21) #9
+  %32 = load ptr, ptr %vfn.i.i.i, align 8
+  %call2.i.i.i = call ptr %32(ptr noundef nonnull align 8 dereferenceable(872) %31) #9
+  %call25.i.i = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i.i, ptr %call2.i.i.i, ptr %22) #9
   %cmp.i.i.i.i = icmp eq ptr %call25.i.i, null
   br i1 %cmp.i.i.i.i, label %cleanup, label %if.end.i.i20
 

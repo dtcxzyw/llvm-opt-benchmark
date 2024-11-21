@@ -4909,9 +4909,8 @@ define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter22emitFunctionEntryLab
   %8 = load i16, ptr %7, align 2
   %9 = lshr i16 %8, 4
   %10 = and i16 %9, 1023
-  %11 = zext nneg i16 %10 to i32
-  %.off = add nsw i32 %11, -97
-  %switch = icmp ult i32 %.off, 2
+  %11 = add nsw i16 %10, -97
+  %switch = icmp ult i16 %11, 2
   br i1 %switch, label %18, label %12
 
 12:                                               ; preds = %1

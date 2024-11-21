@@ -316,126 +316,125 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:
   tail call void @llvm.assume(i1 %4)
   %5 = getelementptr inbounds i8, ptr %3, i64 -24
   %6 = load i8, ptr %5, align 8
-  %7 = zext i8 %6 to i32
-  %8 = add nsw i32 %7, -30
-  %9 = icmp ult i32 %8, 11
-  %spec.select.i.i = select i1 %9, ptr %5, ptr null
-  %10 = load i8, ptr %spec.select.i.i, align 8
-  %.not = icmp eq i8 %10, 31
-  br i1 %.not, label %11, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread
+  %7 = add i8 %6, -30
+  %8 = icmp ult i8 %7, 11
+  %spec.select.i.i = select i1 %8, ptr %5, ptr null
+  %9 = load i8, ptr %spec.select.i.i, align 8
+  %.not = icmp eq i8 %9, 31
+  br i1 %.not, label %10, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread
 
-11:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
-  %12 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
-  %13 = load i32, ptr %12, align 4
-  %14 = and i32 %13, 134217727
-  %15 = icmp eq i32 %14, 3
-  br i1 %15, label %16, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread
+10:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
+  %11 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
+  %12 = load i32, ptr %11, align 4
+  %13 = and i32 %12, 134217727
+  %14 = icmp eq i32 %13, 3
+  br i1 %14, label %15, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -32
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -64
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %1, %18
-  %22 = icmp eq ptr %1, %20
-  %or.cond = or i1 %21, %22
-  %23 = icmp eq ptr %18, %20
-  %or.cond46 = or i1 %23, %or.cond
-  br i1 %or.cond46, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread, label %24
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -32
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -64
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %1, %17
+  %21 = icmp eq ptr %1, %19
+  %or.cond = or i1 %20, %21
+  %22 = icmp eq ptr %17, %19
+  %or.cond46 = or i1 %22, %or.cond
+  br i1 %or.cond46, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread, label %23
 
-24:                                               ; preds = %16
-  %25 = tail call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %18) #18
-  %.not40 = icmp eq ptr %25, null
-  br i1 %.not40, label %29, label %26
+23:                                               ; preds = %15
+  %24 = tail call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %17) #18
+  %.not40 = icmp eq ptr %24, null
+  br i1 %.not40, label %28, label %25
 
-26:                                               ; preds = %24
-  %27 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %18) #18
-  %28 = icmp eq ptr %27, %20
-  br i1 %28, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split, label %29
+25:                                               ; preds = %23
+  %26 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %17) #18
+  %27 = icmp eq ptr %26, %19
+  br i1 %27, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split, label %28
 
-29:                                               ; preds = %26, %24
-  %30 = tail call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %20) #18
-  %.not41 = icmp eq ptr %30, null
-  br i1 %.not41, label %34, label %31
+28:                                               ; preds = %25, %23
+  %29 = tail call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %19) #18
+  %.not41 = icmp eq ptr %29, null
+  br i1 %.not41, label %33, label %30
 
-31:                                               ; preds = %29
-  %32 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %20) #18
-  %33 = icmp eq ptr %32, %18
-  br i1 %33, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split, label %34
+30:                                               ; preds = %28
+  %31 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %19) #18
+  %32 = icmp eq ptr %31, %17
+  br i1 %32, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split, label %33
 
-34:                                               ; preds = %31, %29
-  %35 = tail call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %18) #18
-  %.not42 = icmp eq ptr %35, null
-  br i1 %.not42, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread, label %36
+33:                                               ; preds = %30, %28
+  %34 = tail call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %17) #18
+  %.not42 = icmp eq ptr %34, null
+  br i1 %.not42, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread, label %35
 
-36:                                               ; preds = %34
-  %37 = tail call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %20) #18
-  %.not43 = icmp eq ptr %37, null
-  br i1 %.not43, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread, label %38
+35:                                               ; preds = %33
+  %36 = tail call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %19) #18
+  %.not43 = icmp eq ptr %36, null
+  br i1 %.not43, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread, label %37
 
-38:                                               ; preds = %36
-  %39 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %20) #18
-  %.not44 = icmp eq ptr %39, null
-  br i1 %.not44, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread, label %40
+37:                                               ; preds = %35
+  %38 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %19) #18
+  %.not44 = icmp eq ptr %38, null
+  br i1 %.not44, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread, label %39
 
-40:                                               ; preds = %38
-  %41 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %20) #18
-  %.not45 = icmp eq ptr %41, %1
-  br i1 %.not45, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread, label %42
+39:                                               ; preds = %37
+  %40 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %19) #18
+  %.not45 = icmp eq ptr %40, %1
+  br i1 %.not45, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread, label %41
 
-42:                                               ; preds = %40
-  %43 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %20) #18
-  %44 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %18) #18
-  %45 = icmp eq ptr %43, %44
-  br i1 %45, label %46, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread
+41:                                               ; preds = %39
+  %42 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %19) #18
+  %43 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %17) #18
+  %44 = icmp eq ptr %42, %43
+  br i1 %44, label %45, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %48 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  %49 = load ptr, ptr %48, align 8
-  %.not4.i.i.i.i = icmp eq ptr %49, %47
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  %48 = load ptr, ptr %47, align 8
+  %.not4.i.i.i.i = icmp eq ptr %48, %46
   br i1 %.not4.i.i.i.i, label %_ZNK4llvm10BasicBlock4sizeEv.exit.thread, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %46, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi i64 [ %52, %.lr.ph.i.i.i.i ], [ 0, %46 ]
-  %.sroa.02.05.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i ], [ %49, %46 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i.i.i, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = add nuw nsw i64 %.06.i.i.i.i, 1
-  %.not.i.i.i.i = icmp eq ptr %51, %47
+.lr.ph.i.i.i.i:                                   ; preds = %45, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %45 ]
+  %.sroa.02.05.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i ], [ %48, %45 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i.i.i, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = add nuw nsw i64 %.06.i.i.i.i, 1
+  %.not.i.i.i.i = icmp eq ptr %50, %46
   br i1 %.not.i.i.i.i, label %_ZNK4llvm10BasicBlock4sizeEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
 _ZNK4llvm10BasicBlock4sizeEv.exit:                ; preds = %.lr.ph.i.i.i.i
-  %53 = icmp eq i64 %.06.i.i.i.i, 0
-  br i1 %53, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split, label %_ZNK4llvm10BasicBlock4sizeEv.exit.thread
+  %52 = icmp eq i64 %.06.i.i.i.i, 0
+  br i1 %52, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split, label %_ZNK4llvm10BasicBlock4sizeEv.exit.thread
 
-_ZNK4llvm10BasicBlock4sizeEv.exit.thread:         ; preds = %46, %_ZNK4llvm10BasicBlock4sizeEv.exit
-  %54 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %55 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %56 = load ptr, ptr %55, align 8
-  %.not4.i.i.i.i48 = icmp eq ptr %56, %54
+_ZNK4llvm10BasicBlock4sizeEv.exit.thread:         ; preds = %45, %_ZNK4llvm10BasicBlock4sizeEv.exit
+  %53 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %55 = load ptr, ptr %54, align 8
+  %.not4.i.i.i.i48 = icmp eq ptr %55, %53
   br i1 %.not4.i.i.i.i48, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread, label %.lr.ph.i.i.i.i49
 
 .lr.ph.i.i.i.i49:                                 ; preds = %_ZNK4llvm10BasicBlock4sizeEv.exit.thread, %.lr.ph.i.i.i.i49
-  %.06.i.i.i.i50 = phi i64 [ %59, %.lr.ph.i.i.i.i49 ], [ 0, %_ZNK4llvm10BasicBlock4sizeEv.exit.thread ]
-  %.sroa.02.05.i.i.i.i51 = phi ptr [ %58, %.lr.ph.i.i.i.i49 ], [ %56, %_ZNK4llvm10BasicBlock4sizeEv.exit.thread ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i.i.i51, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = add nuw nsw i64 %.06.i.i.i.i50, 1
-  %.not.i.i.i.i52 = icmp eq ptr %58, %54
+  %.06.i.i.i.i50 = phi i64 [ %58, %.lr.ph.i.i.i.i49 ], [ 0, %_ZNK4llvm10BasicBlock4sizeEv.exit.thread ]
+  %.sroa.02.05.i.i.i.i51 = phi ptr [ %57, %.lr.ph.i.i.i.i49 ], [ %55, %_ZNK4llvm10BasicBlock4sizeEv.exit.thread ]
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i.i.i51, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = add nuw nsw i64 %.06.i.i.i.i50, 1
+  %.not.i.i.i.i52 = icmp eq ptr %57, %53
   br i1 %.not.i.i.i.i52, label %_ZNK4llvm10BasicBlock4sizeEv.exit54, label %.lr.ph.i.i.i.i49, !llvm.loop !4
 
 _ZNK4llvm10BasicBlock4sizeEv.exit54:              ; preds = %.lr.ph.i.i.i.i49
-  %60 = icmp eq i64 %.06.i.i.i.i50, 0
-  br i1 %60, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread
+  %59 = icmp eq i64 %.06.i.i.i.i50, 0
+  br i1 %59, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split, label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread
 
-_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split: ; preds = %_ZNK4llvm10BasicBlock4sizeEv.exit54, %_ZNK4llvm10BasicBlock4sizeEv.exit, %31, %26
-  %.sink = phi ptr [ %18, %26 ], [ %20, %31 ], [ %18, %_ZNK4llvm10BasicBlock4sizeEv.exit ], [ %20, %_ZNK4llvm10BasicBlock4sizeEv.exit54 ]
-  %61 = tail call noundef zeroext i1 @_ZN4llvm24SpeculativeExecutionPass22considerHoistingFromToERNS_10BasicBlockES2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(80) %.sink, ptr noundef nonnull align 8 dereferenceable(80) %1)
+_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split: ; preds = %_ZNK4llvm10BasicBlock4sizeEv.exit54, %_ZNK4llvm10BasicBlock4sizeEv.exit, %30, %25
+  %.sink = phi ptr [ %17, %25 ], [ %19, %30 ], [ %17, %_ZNK4llvm10BasicBlock4sizeEv.exit ], [ %19, %_ZNK4llvm10BasicBlock4sizeEv.exit54 ]
+  %60 = tail call noundef zeroext i1 @_ZN4llvm24SpeculativeExecutionPass22considerHoistingFromToERNS_10BasicBlockES2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(80) %.sink, ptr noundef nonnull align 8 dereferenceable(80) %1)
   br label %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread
 
-_ZNK4llvm10BasicBlock4sizeEv.exit54.thread:       ; preds = %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split, %_ZNK4llvm10BasicBlock4sizeEv.exit.thread, %34, %36, %38, %40, %42, %_ZNK4llvm10BasicBlock4sizeEv.exit54, %16, %11, %_ZN4llvm10BasicBlock13getTerminatorEv.exit
-  %.0 = phi i1 [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ false, %11 ], [ false, %16 ], [ false, %_ZNK4llvm10BasicBlock4sizeEv.exit54 ], [ false, %42 ], [ false, %40 ], [ false, %38 ], [ false, %36 ], [ false, %34 ], [ false, %_ZNK4llvm10BasicBlock4sizeEv.exit.thread ], [ %61, %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split ]
+_ZNK4llvm10BasicBlock4sizeEv.exit54.thread:       ; preds = %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split, %_ZNK4llvm10BasicBlock4sizeEv.exit.thread, %33, %35, %37, %39, %41, %_ZNK4llvm10BasicBlock4sizeEv.exit54, %15, %10, %_ZN4llvm10BasicBlock13getTerminatorEv.exit
+  %.0 = phi i1 [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ false, %10 ], [ false, %15 ], [ false, %_ZNK4llvm10BasicBlock4sizeEv.exit54 ], [ false, %41 ], [ false, %39 ], [ false, %37 ], [ false, %35 ], [ false, %33 ], [ false, %_ZNK4llvm10BasicBlock4sizeEv.exit.thread ], [ %60, %_ZNK4llvm10BasicBlock4sizeEv.exit54.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -805,8 +804,8 @@ _ZN4llvm15SmallPtrSetImplIPKNS_11InstructionEE6insertES3_.exit: ; preds = %.lr.p
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br label %141
 
-141:                                              ; preds = %.lr.ph96, %181
-  %.sroa.051.094 = phi ptr [ %139, %.lr.ph96 ], [ %143, %181 ]
+141:                                              ; preds = %.lr.ph96, %180
+  %.sroa.051.094 = phi ptr [ %139, %.lr.ph96 ], [ %143, %180 ]
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.051.094, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %.sroa.051.094, null
@@ -870,7 +869,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_11InstructionEE5countES3_.exit: ; preds = %.lr.p
   %.v.i.i = zext i32 %.v.v.i.i to i64
   %171 = getelementptr inbounds ptr, ptr %168, i64 %.v.i.i
   %.not80 = icmp eq ptr %.0.i.i44, %171
-  br i1 %.not80, label %172, label %181
+  br i1 %.not80, label %172, label %180
 
 172:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPKNS_11InstructionEE5countES3_.exit
   %173 = load ptr, ptr %140, align 8
@@ -880,34 +879,33 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_11InstructionEE5countES3_.exit: ; preds = %.lr.p
 175:                                              ; preds = %172
   %176 = getelementptr inbounds i8, ptr %173, i64 -24
   %177 = load i8, ptr %176, align 8
-  %178 = zext i8 %177 to i32
-  %179 = add nsw i32 %178, -30
-  %180 = icmp ult i32 %179, 11
-  %spec.select.i.i = select i1 %180, ptr %176, ptr null
+  %178 = add i8 %177, -30
+  %179 = icmp ult i8 %178, 11
+  %spec.select.i.i = select i1 %179, ptr %176, ptr null
   br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %172, %175
   %.0.i.i47 = phi ptr [ null, %172 ], [ %spec.select.i.i, %175 ]
   call void @_ZN4llvm11Instruction10moveBeforeEPS0_(ptr noundef nonnull align 8 dereferenceable(72) %146, ptr noundef %.0.i.i47) #18
   call void @_ZN4llvm11Instruction12dropLocationEv(ptr noundef nonnull align 8 dereferenceable(72) %146) #18
-  br label %181
+  br label %180
 
-181:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %_ZNK4llvm15SmallPtrSetImplIPKNS_11InstructionEE5countES3_.exit
+180:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %_ZNK4llvm15SmallPtrSetImplIPKNS_11InstructionEE5countES3_.exit
   %.not79 = icmp eq ptr %143, %11
   br i1 %.not79, label %.thread73, label %141, !llvm.loop !11
 
-.thread73:                                        ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit.thread, %181, %._crit_edge
-  %.not7886 = phi i1 [ true, %._crit_edge ], [ true, %181 ], [ false, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit.thread ], [ false, %_ZN4llvm15InstructionCostpLERKS0_.exit ]
-  %182 = load ptr, ptr %6, align 8
-  %183 = load ptr, ptr %4, align 8
-  %184 = icmp eq ptr %182, %183
-  br i1 %184, label %_ZN4llvm11SmallPtrSetIPKNS_11InstructionELj8EED2Ev.exit, label %185
+.thread73:                                        ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit.thread, %180, %._crit_edge
+  %.not7886 = phi i1 [ true, %._crit_edge ], [ true, %180 ], [ false, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit.thread ], [ false, %_ZN4llvm15InstructionCostpLERKS0_.exit ]
+  %181 = load ptr, ptr %6, align 8
+  %182 = load ptr, ptr %4, align 8
+  %183 = icmp eq ptr %181, %182
+  br i1 %183, label %_ZN4llvm11SmallPtrSetIPKNS_11InstructionELj8EED2Ev.exit, label %184
 
-185:                                              ; preds = %.thread73
-  call void @free(ptr noundef %182) #18
+184:                                              ; preds = %.thread73
+  call void @free(ptr noundef %181) #18
   br label %_ZN4llvm11SmallPtrSetIPKNS_11InstructionELj8EED2Ev.exit
 
-_ZN4llvm11SmallPtrSetIPKNS_11InstructionELj8EED2Ev.exit: ; preds = %.thread73, %185
+_ZN4llvm11SmallPtrSetIPKNS_11InstructionELj8EED2Ev.exit: ; preds = %.thread73, %184
   ret i1 %.not7886
 }
 

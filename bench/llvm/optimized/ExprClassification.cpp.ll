@@ -193,9 +193,8 @@ _ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i: ; preds = %77
   %89 = load ptr, ptr %88, align 16
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load i8, ptr %90, align 16
-  %92 = zext i8 %91 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %92, -2
-  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i.i, 5
+  %92 = add i8 %91, -2
+  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %92, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit, label %93
 
 93:                                               ; preds = %.critedge2.i
@@ -410,9 +409,8 @@ _ZNK5clang14PredefinedExpr15getFunctionNameEv.exit: ; preds = %12
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i8, ptr %32, align 16
   %34 = icmp eq i8 %33, 47
-  %35 = zext i8 %33 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i = add nsw i32 %35, -2
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i, 5
+  %35 = add i8 %33, -2
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %35, 5
   %..i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i32 9, i32 11
   %.0.i = select i1 %34, i32 8, i32 %..i
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
@@ -493,9 +491,8 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %81 = load ptr, ptr %80, align 16
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i8, ptr %82, align 16
-  %84 = zext i8 %83 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %84, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
+  %84 = add i8 %83, -2
+  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %84, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %tailrecurse.backedge, label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread.loopexit
 
 85:                                               ; preds = %tailrecurse
@@ -841,9 +838,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit: ; preds = %254
   %286 = load ptr, ptr %285, align 16
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 16
   %288 = load i8, ptr %287, align 16
-  %289 = zext i8 %288 to i32
-  %.off.i.i.i.i.i.i.i.i = add nsw i32 %289, -2
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 5
+  %289 = add i8 %288, -2
+  %switch.i.i.i.i.i.i.i.i = icmp ult i8 %289, 5
   %.142 = select i1 %switch.i.i.i.i.i.i.i.i, i32 9, i32 8
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
@@ -1394,9 +1390,8 @@ define internal fastcc noundef range(i32 0, 12) i32 @_ZL21ClassifyExprValueKindR
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i8, ptr %14, align 16
   %16 = icmp eq i8 %15, 47
-  %17 = zext i8 %15 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i = add nsw i32 %17, -2
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i, 5
+  %17 = add i8 %15, -2
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %17, 5
   %..i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i32 9, i32 11
   %.0.i = select i1 %16, i32 8, i32 %..i
   br label %20
@@ -1564,9 +1559,8 @@ _ZNK5clang4Type5getAsINS_19RValueReferenceTypeEEEPKT_v.exit.thread: ; preds = %_
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i8, ptr %21, align 16
   %23 = icmp eq i8 %22, 47
-  %24 = zext i8 %22 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i = add nsw i32 %24, -2
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i, 5
+  %24 = add i8 %22, -2
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %24, 5
   %..i = select i1 %switch.i.i.i.i.i.i.i.i.i.i, i32 9, i32 11
   %.0.i7 = select i1 %23, i32 8, i32 %..i
   br label %52

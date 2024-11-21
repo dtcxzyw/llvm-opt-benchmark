@@ -178,8 +178,8 @@ if.then2.i:                                       ; preds = %land.rhs
   br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
 
 if.else6.i:                                       ; preds = %land.rhs
-  %4 = add nsw i32 %conv, -8206
-  %or.cond.i = icmp ult i32 %4, 28
+  %4 = add i16 %0, -8206
+  %or.cond.i = icmp ult i16 %4, 28
   br i1 %or.cond.i, label %if.then9.i, label %while.end
 
 if.then9.i:                                       ; preds = %if.else6.i
@@ -248,8 +248,8 @@ if.then2.i:                                       ; preds = %_ZNK6icu_7513Unicod
   br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
 
 if.else6.i:                                       ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %11 = add nsw i32 %conv, -8206
-  %or.cond.i = icmp ult i32 %11, 28
+  %11 = add i16 %7, -8206
+  %or.cond.i = icmp ult i16 %11, 28
   br i1 %or.cond.i, label %if.then9.i, label %while.end.loopexit.split.loop.exit
 
 if.then9.i:                                       ; preds = %if.else6.i
@@ -306,8 +306,8 @@ if.then2.i:                                       ; preds = %lor.lhs.false
   br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
 
 if.else6.i:                                       ; preds = %lor.lhs.false
-  %5 = add nsw i32 %conv, -8206
-  %or.cond.i = icmp ult i32 %5, 28
+  %5 = add i16 %1, -8206
+  %or.cond.i = icmp ult i16 %5, 28
   br i1 %or.cond.i, label %if.then9.i, label %land.lhs.true
 
 if.then9.i:                                       ; preds = %if.else6.i
@@ -339,8 +339,8 @@ if.then2.i24:                                     ; preds = %land.lhs.true
   br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit27
 
 if.else6.i19:                                     ; preds = %land.lhs.true
-  %14 = add nsw i32 %conv2, -8206
-  %or.cond.i20 = icmp ult i32 %14, 28
+  %14 = add i16 %10, -8206
+  %or.cond.i20 = icmp ult i16 %14, 28
   br i1 %or.cond.i20, label %if.then9.i22, label %return
 
 if.then9.i22:                                     ; preds = %if.else6.i19
@@ -375,8 +375,8 @@ if.then2.i34:                                     ; preds = %land.rhs
   br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit37
 
 if.else6.i29:                                     ; preds = %land.rhs
-  %21 = add nsw i32 %conv8, -8206
-  %or.cond.i30 = icmp ult i32 %21, 28
+  %21 = add i16 %17, -8206
+  %or.cond.i30 = icmp ult i16 %21, 28
   br i1 %or.cond.i30, label %if.then9.i32, label %while.end
 
 if.then9.i32:                                     ; preds = %if.else6.i29
@@ -418,8 +418,8 @@ if.then2.i44:                                     ; preds = %while.cond13
   br label %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit47
 
 if.else6.i39:                                     ; preds = %while.cond13
-  %30 = add nsw i32 %conv17, -8206
-  %or.cond.i40 = icmp ult i32 %30, 28
+  %30 = add i16 %26, -8206
+  %or.cond.i40 = icmp ult i16 %30, 28
   br i1 %or.cond.i40, label %if.then9.i42, label %if.end22.loopexit
 
 if.then9.i42:                                     ; preds = %if.else6.i39
@@ -504,8 +504,8 @@ if.then9.i:                                       ; preds = %if.else7.i
   br label %_ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
-  %6 = add nsw i32 %conv, -64830
-  %or.cond.i = icmp ult i32 %6, 265
+  %6 = add i16 %0, 706
+  %or.cond.i = icmp ult i16 %6, 265
   br i1 %or.cond.i, label %if.then21.i, label %do.cond
 
 if.then21.i:                                      ; preds = %if.else18.i
@@ -574,8 +574,8 @@ if.then9.i:                                       ; preds = %if.else7.i
   br label %_ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi.exit
 
 if.else18.i:                                      ; preds = %if.else7.i
-  %6 = add nsw i32 %conv, -64830
-  %or.cond.i = icmp ult i32 %6, 265
+  %6 = add i16 %0, 706
+  %or.cond.i = icmp ult i16 %6, 265
   br i1 %or.cond.i, label %if.then21.i, label %while.body
 
 if.then21.i:                                      ; preds = %if.else18.i

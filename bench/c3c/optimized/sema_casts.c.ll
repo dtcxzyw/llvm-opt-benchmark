@@ -3787,9 +3787,9 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   store i32 %51, ptr %52, align 4
   %53 = load ptr, ptr @type_bool, align 8
   %54 = icmp eq ptr %30, %53
-  %55 = add nsw i64 %49, -3
-  %56 = icmp ult i64 %55, 10
-  %or.cond = select i1 %54, i1 %56, i1 false
+  %55 = add i32 %37, -3
+  %56 = icmp ult i32 %55, 10
+  %or.cond = and i1 %56, %54
   br i1 %or.cond, label %cast_is_allowed.exit, label %57
 
 57:                                               ; preds = %.thread, %48

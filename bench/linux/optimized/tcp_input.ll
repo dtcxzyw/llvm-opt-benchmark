@@ -2138,8 +2138,8 @@ define dso_local void @tcp_parse_options(ptr noundef %0, ptr nocapture noundef %
   br i1 %152, label %153, label %196
 
 153:                                              ; preds = %144
-  %154 = add nsw i32 %51, -6
-  %155 = icmp ult i32 %154, 13
+  %154 = add i8 %50, -6
+  %155 = icmp ult i8 %154, 13
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %153
@@ -2181,8 +2181,8 @@ define dso_local void @tcp_parse_options(ptr noundef %0, ptr nocapture noundef %
   br i1 %178, label %179, label %196
 
 179:                                              ; preds = %169
-  %180 = add nsw i32 %51, -8
-  %181 = icmp ult i32 %180, 13
+  %180 = add i8 %50, -8
+  %181 = icmp ult i8 %180, 13
   br i1 %181, label %182, label %184
 
 182:                                              ; preds = %179

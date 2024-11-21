@@ -1462,9 +1462,8 @@ define dso_local noundef ptr @_ZN4llvm9DIBuilder20createImportedModuleEPNS_7DISc
 
 _ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.i: ; preds = %6
   %10 = load i8, ptr %1, align 4
-  %11 = zext i8 %10 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %11, -18
-  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i.i, 3
+  %11 = add i8 %10, -18
+  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %11, 3
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.thread.i
 
 12:                                               ; preds = %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.i
@@ -1513,9 +1512,8 @@ define dso_local noundef ptr @_ZN4llvm9DIBuilder20createImportedModuleEPNS_7DISc
 
 _ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.i: ; preds = %6
   %10 = load i8, ptr %1, align 4
-  %11 = zext i8 %10 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %11, -18
-  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i.i, 3
+  %11 = add i8 %10, -18
+  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %11, 3
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.thread.i
 
 12:                                               ; preds = %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.i
@@ -1561,9 +1559,8 @@ define dso_local noundef ptr @_ZN4llvm9DIBuilder20createImportedModuleEPNS_7DISc
 
 _ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.i: ; preds = %6
   %10 = load i8, ptr %1, align 4
-  %11 = zext i8 %10 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %11, -18
-  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i.i, 3
+  %11 = add i8 %10, -18
+  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %11, 3
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.thread.i
 
 12:                                               ; preds = %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.i
@@ -1612,9 +1609,8 @@ define dso_local noundef ptr @_ZN4llvm9DIBuilder25createImportedDeclarationEPNS_
 
 _ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.i: ; preds = %7
   %11 = load i8, ptr %1, align 4
-  %12 = zext i8 %11 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %12, -18
-  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i.i, 3
+  %12 = add i8 %11, -18
+  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %12, 3
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %13, label %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.thread.i
 
 13:                                               ; preds = %_ZN4llvm15isa_and_nonnullIJNS_12DILocalScopeEEPKNS_7DIScopeEEEbRKT0_.exit.i
@@ -3496,9 +3492,8 @@ define dso_local noundef ptr @_ZN4llvm9DIBuilder20getOrCreateTypeArrayENS_8Array
 
 _ZN4llvm15isa_and_nonnullIJNS_6MDNodeEEPNS_8MetadataEEEbRKT0_.exit: ; preds = %.lr.ph
   %8 = load i8, ptr %7, align 4
-  %9 = zext i8 %8 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i = add nsw i32 %9, -5
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i, 31
+  %9 = add i8 %8, -5
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %9, 31
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %10, label %_ZN4llvm15isa_and_nonnullIJNS_6MDNodeEEPNS_8MetadataEEEbRKT0_.exit.thread
 
 10:                                               ; preds = %_ZN4llvm15isa_and_nonnullIJNS_6MDNodeEEPNS_8MetadataEEEbRKT0_.exit
@@ -4511,16 +4506,15 @@ define dso_local noundef i64 @_ZN4llvm9DIBuilder13insertDeclareEPNS_5ValueEPNS_1
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %8, i64 -24
   %12 = load i8, ptr %11, align 8
-  %13 = zext i8 %12 to i32
-  %14 = add nsw i32 %13, -30
-  %15 = icmp ult i32 %14, 11
-  %spec.select.i.i = select i1 %15, ptr %11, ptr null
+  %13 = add i8 %12, -30
+  %14 = icmp ult i8 %13, 11
+  %spec.select.i.i = select i1 %14, ptr %11, ptr null
   br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %6, %10
   %.0.i.i = phi ptr [ null, %6 ], [ %spec.select.i.i, %10 ]
-  %16 = tail call i64 @_ZN4llvm9DIBuilder13insertDeclareEPNS_5ValueEPNS_15DILocalVariableEPNS_12DIExpressionEPKNS_10DILocationEPNS_10BasicBlockEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %.0.i.i)
-  ret i64 %16
+  %15 = tail call i64 @_ZN4llvm9DIBuilder13insertDeclareEPNS_5ValueEPNS_15DILocalVariableEPNS_12DIExpressionEPKNS_10DILocationEPNS_10BasicBlockEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %.0.i.i)
+  ret i64 %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5500,9 +5494,8 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %21, %25
 
 36:                                               ; preds = %34
   %37 = load i8, ptr %35, align 4
-  %38 = zext i8 %37 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i = add nsw i32 %38, -5
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i, 31
+  %38 = add i8 %37, -5
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %38, 31
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %39, label %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_9MDOperandEEEDaRKT0_.exit.thread
 
 39:                                               ; preds = %36

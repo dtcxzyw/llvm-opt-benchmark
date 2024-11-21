@@ -6451,8 +6451,8 @@ dissect_opt_pmtu.exit:                            ; preds = %175, %176
   br i1 %226, label %227, label %dissect_opt_apn6.exit
 
 227:                                              ; preds = %222
-  %228 = add nsw i32 %92, -12
-  %229 = icmp ult i32 %228, 8
+  %228 = add i8 %88, -12
+  %229 = icmp ult i8 %228, 8
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %227

@@ -3342,7 +3342,7 @@ _ZN5clang7CodeGen13EHPersonality3getERNS0_15CodeGenFunctionE.exit73: ; preds = %
   %260 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clang7CodeGen13EHPersonality3getERNS0_13CodeGenModuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(3600) %259, ptr noundef %.0.i.i.i70)
   %261 = icmp ne ptr %260, @_ZN5clang7CodeGen13EHPersonality18GNU_Wasm_CPlusPlusE
   %brmerge = select i1 %261, i1 true, i1 %.041.lcssa
-  br i1 %brmerge, label %287, label %.preheader
+  br i1 %brmerge, label %285, label %.preheader
 
 .preheader:                                       ; preds = %_ZN5clang7CodeGen13EHPersonality3getERNS0_15CodeGenFunctionE.exit73
   %262 = getelementptr inbounds nuw i8, ptr %.040, i64 48
@@ -3353,64 +3353,62 @@ _ZN5clang7CodeGen13EHPersonality3getERNS0_15CodeGenFunctionE.exit73: ; preds = %
 .lr.ph102.preheader:                              ; preds = %.preheader
   %265 = getelementptr inbounds i8, ptr %263, i64 -24
   %266 = load i8, ptr %265, align 8
-  %267 = zext i8 %266 to i32
-  %268 = add nsw i32 %267, -30
-  %269 = icmp ult i32 %268, 11
-  br i1 %269, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit, label %._crit_edge103
+  %267 = add i8 %266, -30
+  %268 = icmp ult i8 %267, 11
+  br i1 %268, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit, label %._crit_edge103
 
 .lr.ph102:                                        ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
-  %270 = getelementptr inbounds i8, ptr %279, i64 -24
-  %271 = load i8, ptr %270, align 8
-  %272 = zext i8 %271 to i32
-  %273 = add nsw i32 %272, -30
-  %274 = icmp ult i32 %273, 11
-  br i1 %274, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit, label %._crit_edge103, !llvm.loop !30
+  %269 = getelementptr inbounds i8, ptr %277, i64 -24
+  %270 = load i8, ptr %269, align 8
+  %271 = add i8 %270, -30
+  %272 = icmp ult i8 %271, 11
+  br i1 %272, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit, label %._crit_edge103, !llvm.loop !30
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %.lr.ph102.preheader, %.lr.ph102
-  %275 = phi ptr [ %279, %.lr.ph102 ], [ %263, %.lr.ph102.preheader ]
-  %276 = getelementptr inbounds i8, ptr %275, i64 -88
+  %273 = phi ptr [ %277, %.lr.ph102 ], [ %263, %.lr.ph102.preheader ]
+  %274 = getelementptr inbounds i8, ptr %273, i64 -88
+  %275 = load ptr, ptr %274, align 8
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 48
   %277 = load ptr, ptr %276, align 8
-  %278 = getelementptr inbounds nuw i8, ptr %277, i64 48
-  %279 = load ptr, ptr %278, align 8
-  %280 = icmp eq ptr %278, %279
-  br i1 %280, label %._crit_edge103, label %.lr.ph102, !llvm.loop !30
+  %278 = icmp eq ptr %276, %277
+  br i1 %278, label %._crit_edge103, label %.lr.ph102, !llvm.loop !30
 
 ._crit_edge103:                                   ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %.lr.ph102, %.lr.ph102.preheader, %.preheader
-  %.042.lcssa = phi ptr [ %.040, %.preheader ], [ %.040, %.lr.ph102.preheader ], [ %277, %.lr.ph102 ], [ %277, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
-  %.lcssa = phi ptr [ %262, %.preheader ], [ %262, %.lr.ph102.preheader ], [ %278, %.lr.ph102 ], [ %278, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
+  %.042.lcssa = phi ptr [ %.040, %.preheader ], [ %.040, %.lr.ph102.preheader ], [ %275, %.lr.ph102 ], [ %275, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
+  %.lcssa = phi ptr [ %262, %.preheader ], [ %262, %.lr.ph102.preheader ], [ %276, %.lr.ph102 ], [ %276, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
   store ptr %.042.lcssa, ptr %60, align 8
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store ptr %.lcssa, ptr %281, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  store ptr %.lcssa, ptr %279, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 344
   store i16 0, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %282 = call noundef ptr @_ZN5clang7CodeGen13CodeGenModule12getIntrinsicEjN4llvm8ArrayRefIPNS2_4TypeEEE(ptr noundef nonnull align 8 dereferenceable(3600) %259, i32 noundef 12503, ptr null, i64 0) #18
-  %.not.i74 = icmp eq ptr %282, null
-  br i1 %.not.i74, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit, label %283
+  %280 = call noundef ptr @_ZN5clang7CodeGen13CodeGenModule12getIntrinsicEjN4llvm8ArrayRefIPNS2_4TypeEEE(ptr noundef nonnull align 8 dereferenceable(3600) %259, i32 noundef 12503, ptr null, i64 0) #18
+  %.not.i74 = icmp eq ptr %280, null
+  br i1 %.not.i74, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit, label %281
 
-283:                                              ; preds = %._crit_edge103
-  %284 = getelementptr inbounds nuw i8, ptr %282, i64 24
-  %285 = load ptr, ptr %284, align 8
+281:                                              ; preds = %._crit_edge103
+  %282 = getelementptr inbounds nuw i8, ptr %280, i64 24
+  %283 = load ptr, ptr %282, align 8
   br label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit
 
-_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ; preds = %._crit_edge103, %283
-  %286 = phi ptr [ %285, %283 ], [ null, %._crit_edge103 ]
-  call void @_ZN5clang7CodeGen15CodeGenFunction31EmitNoreturnRuntimeCallOrInvokeEN4llvm14FunctionCalleeENS2_8ArrayRefIPNS2_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %286, ptr %282, ptr null, i64 0) #18
-  br label %287
+_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ; preds = %._crit_edge103, %281
+  %284 = phi ptr [ %283, %281 ], [ null, %._crit_edge103 ]
+  call void @_ZN5clang7CodeGen15CodeGenFunction31EmitNoreturnRuntimeCallOrInvokeEN4llvm14FunctionCalleeENS2_8ArrayRefIPNS2_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr %284, ptr %280, ptr null, i64 0) #18
+  br label %285
 
-287:                                              ; preds = %_ZN5clang7CodeGen13EHPersonality3getERNS0_15CodeGenFunctionE.exit73, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit
+285:                                              ; preds = %_ZN5clang7CodeGen13EHPersonality3getERNS0_15CodeGenFunctionE.exit73, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit
   call void @_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %59, i1 noundef zeroext false) #18
   call void @_ZN5clang7CodeGen15CodeGenFunction23incrementProfileCounterEPKNS_4StmtEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull %1, ptr noundef null)
   store ptr %113, ptr %114, align 8
-  %288 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %7) #18
-  %289 = load ptr, ptr %7, align 8
-  %290 = icmp eq ptr %289, %43
-  br i1 %290, label %_ZN4llvm11SmallVectorIN5clang7CodeGen12EHCatchScope7HandlerELj8EED2Ev.exit, label %291
+  %286 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(208) %7) #18
+  %287 = load ptr, ptr %7, align 8
+  %288 = icmp eq ptr %287, %43
+  br i1 %288, label %_ZN4llvm11SmallVectorIN5clang7CodeGen12EHCatchScope7HandlerELj8EED2Ev.exit, label %289
 
-291:                                              ; preds = %287
-  call void @free(ptr noundef %289) #18
+289:                                              ; preds = %285
+  call void @free(ptr noundef %287) #18
   br label %_ZN4llvm11SmallVectorIN5clang7CodeGen12EHCatchScope7HandlerELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang7CodeGen12EHCatchScope7HandlerELj8EED2Ev.exit: ; preds = %291, %287, %_ZN5clang7CodeGen12EHCatchScope18clearHandlerBlocksEv.exit
+_ZN4llvm11SmallVectorIN5clang7CodeGen12EHCatchScope7HandlerELj8EED2Ev.exit: ; preds = %289, %285, %_ZN5clang7CodeGen12EHCatchScope18clearHandlerBlocksEv.exit
   ret void
 }
 
@@ -7815,22 +7813,21 @@ _ZNK4llvm10BasicBlock7isEHPadEv.exit.thread:      ; preds = %_ZN4llvm12MemIntrin
 108:                                              ; preds = %_ZNK4llvm10BasicBlock7isEHPadEv.exit.thread
   %109 = getelementptr inbounds i8, ptr %106, i64 -24
   %110 = load i8, ptr %109, align 8
-  %111 = zext i8 %110 to i32
-  %112 = add nsw i32 %111, -30
-  %113 = icmp ult i32 %112, 11
-  br i1 %113, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit, label %.critedge
+  %111 = add i8 %110, -30
+  %112 = icmp ult i8 %111, 11
+  br i1 %112, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit, label %.critedge
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %108
-  %114 = tail call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %109) #19
-  %.not59 = icmp eq i32 %114, 0
+  %113 = tail call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %109) #19
+  %.not59 = icmp eq i32 %113, 0
   br i1 %.not59, label %.critedge, label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %.lr.ph58
-  %.057 = phi i32 [ %116, %.lr.ph58 ], [ 0, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
-  %115 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %109, i32 noundef %.057) #19
-  tail call void @_ZN5clang7CodeGen15CodeGenFunction19VolatilizeTryBlocksEPN4llvm10BasicBlockERNS2_11SmallPtrSetIS4_Lj10EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %115, ptr noundef nonnull align 8 dereferenceable(160) %2)
-  %116 = add nuw i32 %.057, 1
-  %exitcond.not = icmp eq i32 %116, %114
+  %.057 = phi i32 [ %115, %.lr.ph58 ], [ 0, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
+  %114 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %109, i32 noundef %.057) #19
+  tail call void @_ZN5clang7CodeGen15CodeGenFunction19VolatilizeTryBlocksEPN4llvm10BasicBlockERNS2_11SmallPtrSetIS4_Lj10EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %114, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  %115 = add nuw i32 %.057, 1
+  %exitcond.not = icmp eq i32 %115, %113
   br i1 %exitcond.not, label %.critedge, label %.lr.ph58, !llvm.loop !122
 
 .critedge:                                        ; preds = %.lr.ph.i.i, %.lr.ph58, %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %108, %_ZNK4llvm10BasicBlock7isEHPadEv.exit.thread, %32, %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit, %3, %35

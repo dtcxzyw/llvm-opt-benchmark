@@ -721,7 +721,7 @@ _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i:
 
 common.resume:                                    ; preds = %lpad.i142, %lpad.i104, %lpad.i66, %lpad.i
   %ref.tmp2.i127.sink = phi ptr [ %ref.tmp2.i127, %lpad.i142 ], [ %ref.tmp2.i90, %lpad.i104 ], [ %ref.tmp2.i51, %lpad.i66 ], [ %ref.tmp2.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %94, %lpad.i142 ], [ %74, %lpad.i104 ], [ %38, %lpad.i66 ], [ %17, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %92, %lpad.i142 ], [ %74, %lpad.i104 ], [ %38, %lpad.i66 ], [ %17, %lpad.i ]
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i127.sink) #17
   resume { ptr, i32 } %common.resume.op
 
@@ -1090,14 +1090,15 @@ if.end230:                                        ; preds = %if.then226, %if.end
   br i1 %tobool.not.i, label %if.then237, label %land.lhs.true.i112
 
 land.lhs.true.i112:                               ; preds = %if.end230
-  %conv232 = zext i32 %78 to i64
   %82 = ptrtoint ptr %base to i64
-  %83 = add nsw i64 %conv232, -56
-  %84 = icmp ult i64 %83, 1073741769
-  %85 = or i64 %82, %conv232
-  %86 = and i64 %85, 7
-  %87 = icmp eq i64 %86, 0
-  %or.cond = and i1 %87, %84
+  %rem.i113 = and i64 %82, 7
+  %cmp.i114 = icmp eq i64 %rem.i113, 0
+  %83 = add i32 %78, -56
+  %84 = icmp ult i32 %83, 1073741769
+  %or.cond1.i115 = and i1 %cmp.i114, %84
+  %85 = and i32 %78, 7
+  %cmp7.i118 = icmp eq i32 %85, 0
+  %or.cond = and i1 %or.cond1.i115, %cmp7.i118
   br i1 %or.cond, label %land.rhs.i120, label %if.then237
 
 land.rhs.i120:                                    ; preds = %land.lhs.true.i112
@@ -1126,26 +1127,26 @@ cleanup.action.i143:                              ; preds = %cond.false.i139
 
 cleanup.done.i129:                                ; preds = %cleanup.action.i143, %if.then237
   store atomic i8 1, ptr %corrupt_ monotonic, align 1
-  %88 = load i8, ptr %readonly_, align 8
-  %tobool.i132 = trunc i8 %88 to i1
+  %86 = load i8, ptr %readonly_, align 8
+  %tobool.i132 = trunc i8 %86 to i1
   br i1 %tobool.i132, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit144, label %if.then.i133
 
 if.then.i133:                                     ; preds = %cleanup.done.i129
-  %89 = load ptr, ptr %mem_base_, align 8
-  %flags.i135 = getelementptr inbounds i8, ptr %89, i64 28
-  %90 = load atomic volatile i32, ptr %flags.i135 monotonic, align 4
+  %87 = load ptr, ptr %mem_base_, align 8
+  %flags.i135 = getelementptr inbounds i8, ptr %87, i64 28
+  %88 = load atomic volatile i32, ptr %flags.i135 monotonic, align 4
   br label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136
 
 _ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136: ; preds = %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136, %if.then.i133
-  %loaded_flags.0.i.i137 = phi i32 [ %90, %if.then.i133 ], [ %93, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136 ]
+  %loaded_flags.0.i.i137 = phi i32 [ %88, %if.then.i133 ], [ %91, %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136 ]
   %or.i.i138 = or i32 %loaded_flags.0.i.i137, 1
-  %91 = cmpxchg weak volatile ptr %flags.i135, i32 %loaded_flags.0.i.i137, i32 %or.i.i138 seq_cst seq_cst, align 4
-  %92 = extractvalue { i32, i1 } %91, 1
-  %93 = extractvalue { i32, i1 } %91, 0
-  br i1 %92, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit144, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136, !llvm.loop !5
+  %89 = cmpxchg weak volatile ptr %flags.i135, i32 %loaded_flags.0.i.i137, i32 %or.i.i138 seq_cst seq_cst, align 4
+  %90 = extractvalue { i32, i1 } %89, 1
+  %91 = extractvalue { i32, i1 } %89, 0
+  br i1 %90, label %_ZNK4base25PersistentMemoryAllocator10SetCorruptEv.exit144, label %_ZNVSt13__atomic_baseIjE21compare_exchange_weakERjjSt12memory_orderS2_.exit.i.i136, !llvm.loop !5
 
 lpad.i142:                                        ; preds = %cond.false.i139
-  %94 = landingpad { ptr, i32 }
+  %92 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 

@@ -2092,18 +2092,17 @@ do.end7:                                          ; preds = %entry
   %sub.i17.i.i.i.i = add i64 %2, 11
   %3 = inttoptr i64 %sub.i17.i.i.i.i to ptr
   %4 = load i16, ptr %3, align 2
-  %conv.i11.i.i.i.i = zext i16 %4 to i32
   %cmp.i.i.i.i = icmp eq i16 %4, 1040
-  %sub.i.i.i.i = add nsw i32 %conv.i11.i.i.i.i, -1057
-  %cmp1.i.i.i.i = icmp ult i32 %sub.i.i.i.i, 1002
-  %5 = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp1.i.i.i.i
-  br i1 %5, label %if.then.i.i.i.i, label %if.end.i.i.i.i
+  %5 = add i16 %4, -1057
+  %cmp1.i.i.i.i = icmp ult i16 %5, 1002
+  %6 = or i1 %cmp.i.i.i.i, %cmp1.i.i.i.i
+  br i1 %6, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.end7
   %sub.i.i.i.i.i = add i64 %0, 31
-  %6 = inttoptr i64 %sub.i.i.i.i.i to ptr
-  %7 = load i64, ptr %6, align 8
-  %8 = inttoptr i64 %7 to ptr
+  %7 = inttoptr i64 %sub.i.i.i.i.i to ptr
+  %8 = load i64, ptr %7, align 8
+  %9 = inttoptr i64 %8 to ptr
   br label %_ZN4node6UnwrapINS_6crypto15KeyObjectHandleEEEPT_N2v85LocalINS5_5ValueEEE.exit
 
 if.end.i.i.i.i:                                   ; preds = %do.end7
@@ -2111,7 +2110,7 @@ if.end.i.i.i.i:                                   ; preds = %do.end7
   br label %_ZN4node6UnwrapINS_6crypto15KeyObjectHandleEEEPT_N2v85LocalINS5_5ValueEEE.exit
 
 _ZN4node6UnwrapINS_6crypto15KeyObjectHandleEEEPT_N2v85LocalINS5_5ValueEEE.exit: ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
-  %retval.i19.0.i.i.i = phi ptr [ %8, %if.then.i.i.i.i ], [ %call7.i.i.i.i, %if.end.i.i.i.i ]
+  %retval.i19.0.i.i.i = phi ptr [ %9, %if.then.i.i.i.i ], [ %call7.i.i.i.i, %if.end.i.i.i.i ]
   %cmp.not = icmp eq ptr %retval.i19.0.i.i.i, null
   br i1 %cmp.not, label %do.body25, label %do.end28
 
@@ -2122,11 +2121,11 @@ do.body25:                                        ; preds = %_ZN4node6UnwrapINS_
 
 do.end28:                                         ; preds = %_ZN4node6UnwrapINS_6crypto15KeyObjectHandleEEEPT_N2v85LocalINS5_5ValueEEE.exit
   %call29 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4node6crypto15KeyObjectHandle4DataEv(ptr noundef nonnull align 8 dereferenceable(48) %retval.i19.0.i.i.i) #24
-  %9 = load ptr, ptr %call29, align 8
-  %call31 = tail call noundef ptr @_ZNK4node6crypto13KeyObjectData15GetSymmetricKeyEv(ptr noundef nonnull align 8 dereferenceable(72) %9) #24
+  %10 = load ptr, ptr %call29, align 8
+  %call31 = tail call noundef ptr @_ZNK4node6crypto13KeyObjectData15GetSymmetricKeyEv(ptr noundef nonnull align 8 dereferenceable(72) %10) #24
   %call32 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4node6crypto15KeyObjectHandle4DataEv(ptr noundef nonnull align 8 dereferenceable(48) %retval.i19.0.i.i.i) #24
-  %10 = load ptr, ptr %call32, align 8
-  %call34 = tail call noundef i64 @_ZNK4node6crypto13KeyObjectData19GetSymmetricKeySizeEv(ptr noundef nonnull align 8 dereferenceable(72) %10) #24
+  %11 = load ptr, ptr %call32, align 8
+  %call34 = tail call noundef i64 @_ZNK4node6crypto13KeyObjectData19GetSymmetricKeySizeEv(ptr noundef nonnull align 8 dereferenceable(72) %11) #24
   store ptr %call31, ptr %agg.result, align 8, !alias.scope !64
   %allocated_data_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %allocated_data_.i.i, align 8, !alias.scope !64

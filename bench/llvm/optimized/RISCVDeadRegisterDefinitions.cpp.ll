@@ -289,21 +289,24 @@ _ZNK4llvm4Pass11getAnalysisINS_24LiveIntervalsWrapperPassEEERT_v.exit: ; preds =
   %or.cond60.not = icmp eq i64 %43, 0
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.051.078, i64 68
   %45 = load i16, ptr %44, align 4
-  %46 = zext i16 %45 to i32
-  %47 = add nsw i32 %46, -8701
-  %switch = icmp ult i32 %47, -2
-  %or.cond89.not91 = select i1 %or.cond60.not, i1 %switch, i1 false
-  %48 = icmp eq i16 %45, 8701
-  %or.cond90 = select i1 %or.cond89.not91, i1 true, i1 %48
-  br i1 %or.cond90, label %.loopexit, label %49
+  br i1 %or.cond60.not, label %46, label %48
 
-49:                                               ; preds = %.lr.ph79
+46:                                               ; preds = %.lr.ph79
+  %47 = add i16 %45, -8699
+  %switch = icmp ult i16 %47, 2
+  br i1 %switch, label %.thread, label %.loopexit
+
+48:                                               ; preds = %.lr.ph79
+  %49 = icmp eq i16 %45, 8701
+  br i1 %49, label %.loopexit, label %.thread
+
+.thread:                                          ; preds = %46, %48
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %51 = load i8, ptr %50, align 4
   %.not4472 = icmp eq i8 %51, 0
   br i1 %.not4472, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %49
+.lr.ph:                                           ; preds = %.thread
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.051.078, i64 32
   %53 = zext i8 %51 to i64
   br label %54
@@ -380,8 +383,8 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread: ; preds = %71
   %.not44 = icmp eq i64 %indvars.iv.next, %53
   br i1 %.not44, label %.loopexit, label %54, !llvm.loop !4
 
-.loopexit:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread, %.lr.ph79, %49
-  %.2 = phi i1 [ %.177, %49 ], [ %.177, %.lr.ph79 ], [ %.4, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread ]
+.loopexit:                                        ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread, %.thread, %46, %48
+  %.2 = phi i1 [ %.177, %48 ], [ %.177, %46 ], [ %.177, %.thread ], [ %.4, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.051.078, align 8
   %90 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i46 = icmp eq i64 %90, 0

@@ -2642,7 +2642,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113CastOperationC2ERN5clang4SemaENS
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 262144
   %.not = icmp eq i64 %23, 0
-  br i1 %.not, label %24, label %38
+  br i1 %.not, label %24, label %36
 
 24:                                               ; preds = %4
   %.0.copyload.i.i.i.i.i = load i64, ptr %7, align 8
@@ -2656,46 +2656,48 @@ define internal fastcc void @_ZN12_GLOBAL__N_113CastOperationC2ERN5clang4SemaENS
   %31 = load ptr, ptr %30, align 16
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i8, ptr %32, align 16
-  %34 = icmp eq i8 %33, 47
-  %35 = zext i8 %33 to i32
-  %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %35, -2
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 5
-  %or.cond = select i1 %34, i1 true, i1 %switch.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond, label %38, label %36
+  switch i8 %33, label %34 [
+    i8 47, label %36
+    i8 6, label %36
+    i8 5, label %36
+    i8 4, label %36
+    i8 3, label %36
+    i8 2, label %36
+  ]
 
-36:                                               ; preds = %24
-  %37 = call i64 @_ZNK5clang8QualType24getAtomicUnqualifiedTypeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
-  store i64 %37, ptr %7, align 8
-  br label %38
+34:                                               ; preds = %24
+  %35 = call i64 @_ZNK5clang8QualType24getAtomicUnqualifiedTypeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
+  store i64 %35, ptr %7, align 8
+  br label %36
 
-38:                                               ; preds = %36, %24, %4
-  %39 = and i64 %3, -2
-  %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %41, align 8
-  %42 = and i64 %.sroa.0.0.copyload.i, -16
-  %43 = inttoptr i64 %42 to ptr
-  %44 = load ptr, ptr %43, align 16
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = load i8, ptr %45, align 16
-  %.not.i = icmp eq i8 %46, 13
-  br i1 %.not.i, label %47, label %53
+36:                                               ; preds = %24, %24, %24, %24, %24, %24, %34, %4
+  %37 = and i64 %3, -2
+  %38 = inttoptr i64 %37 to ptr
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %39, align 8
+  %40 = and i64 %.sroa.0.0.copyload.i, -16
+  %41 = inttoptr i64 %40 to ptr
+  %42 = load ptr, ptr %41, align 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load i8, ptr %43, align 16
+  %.not.i = icmp eq i8 %44, 13
+  br i1 %.not.i, label %45, label %51
 
-47:                                               ; preds = %38
-  %48 = load i32, ptr %45, align 16
-  %49 = and i32 %48, 267911168
-  %50 = icmp samesign ugt i32 %49, 256901120
-  br i1 %50, label %_ZNK5clang4Type20getAsPlaceholderTypeEv.exit, label %53
+45:                                               ; preds = %36
+  %46 = load i32, ptr %43, align 16
+  %47 = and i32 %46, 267911168
+  %48 = icmp samesign ugt i32 %47, 256901120
+  br i1 %48, label %_ZNK5clang4Type20getAsPlaceholderTypeEv.exit, label %51
 
-_ZNK5clang4Type20getAsPlaceholderTypeEv.exit:     ; preds = %47
-  %51 = lshr i32 %48, 19
-  %52 = and i32 %51, 511
-  br label %53
+_ZNK5clang4Type20getAsPlaceholderTypeEv.exit:     ; preds = %45
+  %49 = lshr i32 %46, 19
+  %50 = and i32 %49, 511
+  br label %51
 
-53:                                               ; preds = %47, %38, %_ZNK5clang4Type20getAsPlaceholderTypeEv.exit
-  %.sink = phi i32 [ %52, %_ZNK5clang4Type20getAsPlaceholderTypeEv.exit ], [ 0, %38 ], [ 0, %47 ]
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.sink, ptr %54, align 8
+51:                                               ; preds = %45, %36, %_ZNK5clang4Type20getAsPlaceholderTypeEv.exit
+  %.sink = phi i32 [ %50, %_ZNK5clang4Type20getAsPlaceholderTypeEv.exit ], [ 0, %36 ], [ 0, %45 ]
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %.sink, ptr %52, align 8
   ret void
 }
 
@@ -10858,9 +10860,8 @@ define internal fastcc void @_ZL15diagnoseBadCastRN5clang4SemaEj8CastTypeNS_11So
   %83 = load ptr, ptr %82, align 16
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load i8, ptr %84, align 16
-  %86 = zext i8 %85 to i32
-  %.off.i.i.i.i.i.i.i.i.i.i = add nsw i32 %86, -2
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i, 5
+  %86 = add i8 %85, -2
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %86, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %_ZL25tryDiagnoseOverloadedCastRN5clang4SemaE8CastTypeNS_11SourceRangeEPNS_4ExprENS_8QualTypeEb.exit, label %87
 
 87:                                               ; preds = %78, %74, %74

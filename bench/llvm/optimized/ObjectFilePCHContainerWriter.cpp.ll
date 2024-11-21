@@ -2157,53 +2157,52 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %25, %31
   %33 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %34 = load i16, ptr %33, align 8
   %35 = and i16 %34, 127
-  %36 = zext nneg i16 %35 to i32
-  %37 = add nsw i32 %36, -60
-  %38 = icmp ult i32 %37, -5
-  br i1 %38, label %43, label %39
+  %36 = add nsw i16 %35, -60
+  %37 = icmp ult i16 %36, -5
+  br i1 %37, label %42, label %38
 
-39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds i8, ptr %.020, i64 10
-  %41 = load i8, ptr %40, align 2
-  %42 = and i8 %41, 1
-  %.not18 = icmp eq i8 %42, 0
-  br i1 %.not18, label %_ZNK5clang9NamedDecl7getNameEv.exit.thread, label %43
+38:                                               ; preds = %.lr.ph
+  %39 = getelementptr inbounds i8, ptr %.020, i64 10
+  %40 = load i8, ptr %39, align 2
+  %41 = and i8 %40, 1
+  %.not18 = icmp eq i8 %41, 0
+  br i1 %.not18, label %_ZNK5clang9NamedDecl7getNameEv.exit.thread, label %42
 
-43:                                               ; preds = %39, %.lr.ph
-  %44 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %.020) #18
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %45, align 8
-  %46 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
-  %47 = icmp eq i64 %46, 0
-  %48 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
-  %49 = inttoptr i64 %48 to ptr
-  br i1 %47, label %_ZN5clang11DeclContext9getParentEv.exit, label %50
+42:                                               ; preds = %38, %.lr.ph
+  %43 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %.020) #18
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
+  %45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
+  %46 = icmp eq i64 %45, 0
+  %47 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
+  %48 = inttoptr i64 %47 to ptr
+  br i1 %46, label %_ZN5clang11DeclContext9getParentEv.exit, label %49
 
-50:                                               ; preds = %43
-  %51 = load ptr, ptr %49, align 8
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %48, align 8
   br label %_ZN5clang11DeclContext9getParentEv.exit
 
-_ZN5clang11DeclContext9getParentEv.exit:          ; preds = %43, %50
-  %.0.i.i = phi ptr [ %51, %50 ], [ %49, %43 ]
+_ZN5clang11DeclContext9getParentEv.exit:          ; preds = %42, %49
+  %.0.i.i = phi ptr [ %50, %49 ], [ %48, %42 ]
   %.not = icmp eq ptr %.0.i.i, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZN5clang11DeclContext9getParentEv.exit, %_ZN5clang4Decl14getDeclContextEv.exit
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 3664
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 424
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %57 = load ptr, ptr %56, align 8
-  store ptr %55, ptr %3, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %57, ptr %58, align 8
-  %59 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %1)
-  %60 = load ptr, ptr %52, align 8
-  call void @_ZN5clang7CodeGen13CodeGenModule19UpdateCompletedTypeEPKNS_7TagDeclE(ptr noundef nonnull align 8 dereferenceable(3600) %60, ptr noundef nonnull %1) #18
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 3664
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 424
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %56 = load ptr, ptr %55, align 8
+  store ptr %54, ptr %3, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %56, ptr %57, align 8
+  %58 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_121PCHContainerGenerator16DebugTypeVisitorEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %1)
+  %59 = load ptr, ptr %51, align 8
+  call void @_ZN5clang7CodeGen13CodeGenModule19UpdateCompletedTypeEPKNS_7TagDeclE(ptr noundef nonnull align 8 dereferenceable(3600) %59, ptr noundef nonnull %1) #18
   br label %_ZNK5clang9NamedDecl7getNameEv.exit.thread
 
-_ZNK5clang9NamedDecl7getNameEv.exit.thread:       ; preds = %39, %13, %_ZNK5clang9NamedDecl7getNameEv.exit, %9, %2, %._crit_edge
+_ZNK5clang9NamedDecl7getNameEv.exit.thread:       ; preds = %38, %13, %_ZNK5clang9NamedDecl7getNameEv.exit, %9, %2, %._crit_edge
   ret void
 }
 

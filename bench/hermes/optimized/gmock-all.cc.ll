@@ -990,20 +990,20 @@ define void @_ZN7testing8internal28ConvertIdentifierNameToWordsB5cxx11EPKc(ptr n
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #27
   %0 = load i8, ptr %id_name, align 1
-  %cmp.not25 = icmp eq i8 %0, 0
-  br i1 %cmp.not25, label %nrvo.skipdtor, label %for.body
+  %cmp.not22 = icmp eq i8 %0, 0
+  br i1 %cmp.not22, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %1 = phi i8 [ %6, %for.inc ], [ %0, %entry ]
-  %prev_char.027 = phi i8 [ %5, %for.inc ], [ 0, %entry ]
-  %p.026 = phi ptr [ %incdec.ptr, %for.inc ], [ %id_name, %entry ]
+  %1 = phi i8 [ %8, %for.inc ], [ %0, %entry ]
+  %prev_char.024 = phi i8 [ %7, %for.inc ], [ 0, %entry ]
+  %p.023 = phi ptr [ %incdec.ptr, %for.inc ], [ %id_name, %entry ]
   %conv.i = zext i8 %1 to i32
   %call.i = tail call i32 @isupper(i32 noundef %conv.i) #30
   %cmp.i.not = icmp eq i32 %call.i, 0
   br i1 %cmp.i.not, label %lor.lhs.false, label %lor.end
 
 lor.lhs.false:                                    ; preds = %for.body
-  %conv.i8 = zext i8 %prev_char.027 to i32
+  %conv.i8 = zext i8 %prev_char.024 to i32
   %call.i9 = tail call i32 @isalpha(i32 noundef %conv.i8) #30
   %cmp.i10.not = icmp eq i32 %call.i9, 0
   br i1 %cmp.i10.not, label %land.lhs.true, label %lor.rhs
@@ -1014,28 +1014,28 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   br i1 %cmp.i13.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %land.lhs.true, %lor.lhs.false
-  %isdigittmp.i = add nsw i32 %conv.i8, -48
-  %isdigit.i = icmp ult i32 %isdigittmp.i, 10
+  %2 = add i8 %prev_char.024, -48
+  %isdigit.i = icmp ult i8 %2, 10
   br i1 %isdigit.i, label %lor.end.thread, label %land.rhs
 
 land.rhs:                                         ; preds = %lor.rhs
-  %isdigittmp.i16 = add nsw i32 %conv.i, -48
-  %isdigit.i17 = icmp ult i32 %isdigittmp.i16, 10
+  %3 = add i8 %1, -48
+  %isdigit.i14 = icmp ult i8 %3, 10
   br label %lor.end
 
 lor.end:                                          ; preds = %land.rhs, %land.lhs.true, %for.body
-  %2 = phi i1 [ true, %land.lhs.true ], [ true, %for.body ], [ %isdigit.i17, %land.rhs ]
-  %call.i19 = tail call i32 @isalnum(i32 noundef %conv.i) #30
-  %cmp.i20.not = icmp eq i32 %call.i19, 0
-  br i1 %cmp.i20.not, label %for.inc, label %if.then
+  %4 = phi i1 [ true, %land.lhs.true ], [ true, %for.body ], [ %isdigit.i14, %land.rhs ]
+  %call.i16 = tail call i32 @isalnum(i32 noundef %conv.i) #30
+  %cmp.i17.not = icmp eq i32 %call.i16, 0
+  br i1 %cmp.i17.not, label %for.inc, label %if.then
 
 lor.end.thread:                                   ; preds = %lor.rhs
-  %call.i1923 = tail call i32 @isalnum(i32 noundef %conv.i) #30
-  %cmp.i2024.not = icmp eq i32 %call.i1923, 0
-  br i1 %cmp.i2024.not, label %for.inc, label %if.end
+  %call.i1620 = tail call i32 @isalnum(i32 noundef %conv.i) #30
+  %cmp.i1721.not = icmp eq i32 %call.i1620, 0
+  br i1 %cmp.i1721.not, label %for.inc, label %if.end
 
 if.then:                                          ; preds = %lor.end
-  br i1 %2, label %invoke.cont12, label %if.end
+  br i1 %4, label %invoke.cont12, label %if.end
 
 invoke.cont12:                                    ; preds = %if.then
   %call.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull @.str.2) #27
@@ -1047,28 +1047,28 @@ if.then14:                                        ; preds = %invoke.cont12
           to label %if.end unwind label %lpad
 
 lpad:                                             ; preds = %if.end, %if.then14
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #27
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %5
 
 if.end:                                           ; preds = %lor.end.thread, %if.then14, %invoke.cont12, %if.then
-  %4 = load i8, ptr %p.026, align 1
-  %conv.i21 = zext i8 %4 to i32
-  %call.i22 = tail call i32 @tolower(i32 noundef %conv.i21) #30
-  %conv1.i = trunc i32 %call.i22 to i8
+  %6 = load i8, ptr %p.023, align 1
+  %conv.i18 = zext i8 %6 to i32
+  %call.i19 = tail call i32 @tolower(i32 noundef %conv.i18) #30
+  %conv1.i = trunc i32 %call.i19 to i8
   %call20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %conv1.i)
           to label %if.end.for.inc_crit_edge unwind label %lpad
 
 if.end.for.inc_crit_edge:                         ; preds = %if.end
-  %.pre = load i8, ptr %p.026, align 1
+  %.pre = load i8, ptr %p.023, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.for.inc_crit_edge, %lor.end.thread, %lor.end
-  %5 = phi i8 [ %.pre, %if.end.for.inc_crit_edge ], [ %1, %lor.end.thread ], [ %1, %lor.end ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.026, i64 1
-  %6 = load i8, ptr %incdec.ptr, align 1
-  %cmp.not = icmp eq i8 %6, 0
+  %7 = phi i8 [ %.pre, %if.end.for.inc_crit_edge ], [ %1, %lor.end.thread ], [ %1, %lor.end ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.023, i64 1
+  %8 = load i8, ptr %incdec.ptr, align 1
+  %cmp.not = icmp eq i8 %8, 0
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !8
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %entry

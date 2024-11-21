@@ -2540,9 +2540,8 @@ _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17AttributedTypeLocENS_14Attrib
   br label %98
 
 _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ArrayTypeLocENS_9ArrayTypeENS_12ArrayLocInfoEE6isKindERKNS_7TypeLocE.exit.i: ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_17AttributedTypeLocENS_14AttributedTypeENS_17AttributedLocInfoEE6isKindERKNS_7TypeLocE.exit.i
-  %56 = zext i8 %27 to i32
-  %.off.i.i.i.i = add nsw i32 %56, -2
-  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, 5
+  %56 = add i8 %27, -2
+  %switch.i.i.i.i = icmp ult i8 %56, 5
   br i1 %switch.i.i.i.i, label %57, label %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_14PointerTypeLocENS_11PointerTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i
 
 57:                                               ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_12ArrayTypeLocENS_9ArrayTypeENS_12ArrayLocInfoEE6isKindERKNS_7TypeLocE.exit.i

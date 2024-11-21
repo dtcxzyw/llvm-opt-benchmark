@@ -64287,45 +64287,43 @@ declare i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 deref
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_128subscriptOperatorNeedsParensEPKN5clang4ExprE(ptr noundef nonnull readonly %0) unnamed_addr #15 {
   %2 = tail call noundef ptr @_ZN5clang4Expr14IgnoreImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   %3 = load i8, ptr %2, align 8
-  %.fr29 = freeze i8 %3
-  %4 = zext i8 %.fr29 to i32
-  %.off.i.i.i.i.i.i.i.i = add nsw i32 %4, -81
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 5
-  br i1 %switch.i.i.i.i.i.i.i.i, label %10, label %switch.early.test
-
-switch.early.test:                                ; preds = %1
-  switch i8 %.fr29, label %5 [
-    i8 123, label %10
-    i8 114, label %10
-    i8 113, label %10
-    i8 98, label %10
-    i8 96, label %10
-    i8 95, label %10
-    i8 93, label %10
-    i8 92, label %10
-    i8 91, label %10
-    i8 90, label %10
-    i8 89, label %10
-    i8 71, label %10
-    i8 46, label %10
-    i8 34, label %10
-    i8 33, label %10
-    i8 32, label %10
-    i8 31, label %10
+  switch i8 %3, label %4 [
+    i8 123, label %9
+    i8 114, label %9
+    i8 113, label %9
+    i8 98, label %9
+    i8 96, label %9
+    i8 95, label %9
+    i8 93, label %9
+    i8 92, label %9
+    i8 91, label %9
+    i8 90, label %9
+    i8 89, label %9
+    i8 85, label %9
+    i8 84, label %9
+    i8 83, label %9
+    i8 82, label %9
+    i8 81, label %9
+    i8 71, label %9
+    i8 46, label %9
+    i8 34, label %9
+    i8 33, label %9
+    i8 32, label %9
+    i8 31, label %9
   ]
 
-5:                                                ; preds = %switch.early.test
-  %6 = load i8, ptr %0, align 8
-  %7 = icmp ne i8 %6, 21
-  %8 = icmp ne i8 %.fr29, 20
-  %or.cond28.not = and i1 %8, %7
-  %9 = icmp ne i8 %.fr29, 13
-  %spec.select = and i1 %or.cond28.not, %9
-  br label %10
+4:                                                ; preds = %1
+  %5 = load i8, ptr %0, align 8
+  %6 = icmp ne i8 %5, 21
+  %7 = icmp ne i8 %3, 20
+  %or.cond28.not = and i1 %7, %6
+  %8 = icmp ne i8 %3, 13
+  %spec.select = and i1 %or.cond28.not, %8
+  br label %9
 
-10:                                               ; preds = %5, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %1
-  %11 = phi i1 [ false, %switch.early.test ], [ false, %1 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ %spec.select, %5 ]
-  ret i1 %11
+9:                                                ; preds = %4, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  %10 = phi i1 [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %spec.select, %4 ]
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

@@ -3018,8 +3018,8 @@ lpad484:                                          ; preds = %land.rhs.i
   br label %ehcleanup621
 
 if.else490:                                       ; preds = %cond.true464
-  %213 = add nsw i32 %bf.cast.i1387, -19
-  %or.cond2 = icmp ult i32 %213, 4
+  %213 = add nsw i16 %bf.clear.i1386, -19
+  %or.cond2 = icmp ult i16 %213, 4
   br i1 %or.cond2, label %if.end620.sink.split, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.else490

@@ -1877,20 +1877,20 @@ define noundef nonnull ptr @_ZN11tree_sitter6Parser3new17h667018fdda0184baE() un
 define { i64, i64 } @_ZN11tree_sitter6Parser12set_language17h128643da33b63ed2E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8, !noundef !4
   %4 = tail call noundef i32 @ts_language_version(ptr noundef %3), !noalias !201
-  %5 = zext i32 %4 to i64
-  %6 = add nsw i64 %5, -13
-  %spec.select.i = icmp ult i64 %6, 2
-  br i1 %spec.select.i, label %7, label %10
+  %5 = add i32 %4, -13
+  %spec.select.i = icmp ult i32 %5, 2
+  br i1 %spec.select.i, label %6, label %9
 
-7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %9 = tail call noundef zeroext i1 @ts_parser_set_language(ptr noundef nonnull %8, ptr noundef %3)
-  br label %10
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %8 = tail call noundef zeroext i1 @ts_parser_set_language(ptr noundef nonnull %7, ptr noundef %3)
+  br label %9
 
-10:                                               ; preds = %2, %7
-  %.sroa.0.0 = phi i64 [ 0, %7 ], [ 1, %2 ]
+9:                                                ; preds = %2, %6
+  %.sroa.0.0 = phi i64 [ 0, %6 ], [ 1, %2 ]
+  %10 = zext i32 %4 to i64
   %11 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %12 = insertvalue { i64, i64 } %11, i64 %5, 1
+  %12 = insertvalue { i64, i64 } %11, i64 %10, 1
   ret { i64, i64 } %12
 }
 

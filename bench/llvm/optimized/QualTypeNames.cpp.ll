@@ -726,173 +726,171 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %2, %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, 127
-  %13 = zext nneg i16 %12 to i32
-  %14 = add nsw i32 %13, -15
-  %15 = icmp ult i32 %14, 63
-  br i1 %15, label %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit, label %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread
+  %13 = add nsw i16 %12, -15
+  %14 = icmp ult i16 %13, 63
+  br i1 %14, label %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit, label %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread
 
 _ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
-  %16 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull %9) #7
-  %17 = load i16, ptr %10, align 8
-  %18 = and i16 %17, 127
-  %19 = getelementptr inbounds i8, ptr %9, i64 -48
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread, label %20
+  %15 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull %9) #7
+  %16 = load i16, ptr %10, align 8
+  %17 = and i16 %16, 127
+  %18 = getelementptr inbounds i8, ptr %9, i64 -48
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread, label %19
 
-20:                                               ; preds = %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit
-  %.not24.not = icmp eq i16 %18, 21
-  br i1 %.not24.not, label %21, label %26
+19:                                               ; preds = %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit
+  %.not24.not = icmp eq i16 %17, 21
+  br i1 %.not24.not, label %20, label %25
 
-21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %9, i64 -8
-  %23 = load i64, ptr %22, align 8
-  %24 = and i64 %23, 7
-  %25 = icmp ne i64 %24, 0
-  %.not1.i = icmp ult i64 %23, 8
-  %.not.i = or i1 %.not1.i, %25
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds i8, ptr %9, i64 -8
+  %22 = load i64, ptr %21, align 8
+  %23 = and i64 %22, 7
+  %24 = icmp ne i64 %23, 0
+  %.not1.i = icmp ult i64 %22, 8
+  %.not.i = or i1 %.not1.i, %24
   br i1 %.not.i, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit, label %.thread18.preheader
 
-26:                                               ; preds = %20
-  %27 = zext nneg i16 %18 to i32
-  %28 = add nsw i32 %27, -59
-  %29 = icmp ult i32 %28, -3
-  br i1 %29, label %.thread, label %30
+25:                                               ; preds = %19
+  %26 = add nsw i16 %17, -59
+  %27 = icmp ult i16 %26, -3
+  br i1 %27, label %.thread, label %28
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %9, i64 -64
-  %32 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl25getDescribedClassTemplateEv(ptr noundef nonnull align 8 dereferenceable(144) %31) #7
-  %.not33 = icmp eq ptr %32, null
-  br i1 %.not33, label %.thread, label %33
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %9, i64 -64
+  %30 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl25getDescribedClassTemplateEv(ptr noundef nonnull align 8 dereferenceable(144) %29) #7
+  %.not33 = icmp eq ptr %30, null
+  br i1 %.not33, label %.thread, label %31
 
-33:                                               ; preds = %30
-  %34 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang17ClassTemplateDecl18getSpecializationsEv(ptr noundef nonnull align 8 dereferenceable(88) %32) #7
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang17ClassTemplateDecl18getSpecializationsEv(ptr noundef nonnull align 8 dereferenceable(88) %32) #7
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #7
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
-  %.not25 = icmp eq ptr %36, %41
-  br i1 %.not25, label %.thread, label %42
+31:                                               ; preds = %28
+  %32 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang17ClassTemplateDecl18getSpecializationsEv(ptr noundef nonnull align 8 dereferenceable(88) %30) #7
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang17ClassTemplateDecl18getSpecializationsEv(ptr noundef nonnull align 8 dereferenceable(88) %30) #7
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #7
+  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %.not25 = icmp eq ptr %34, %39
+  br i1 %.not25, label %.thread, label %40
 
-42:                                               ; preds = %33
-  %43 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang17ClassTemplateDecl18getSpecializationsEv(ptr noundef nonnull align 8 dereferenceable(88) %32) #7
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8
+40:                                               ; preds = %31
+  %41 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang17ClassTemplateDecl18getSpecializationsEv(ptr noundef nonnull align 8 dereferenceable(88) %30) #7
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 104
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 104
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 96
-  %50 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull %48)
-  %51 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %50) #7
-  br i1 %51, label %.lr.ph.i.i.i, label %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit
+  %47 = getelementptr inbounds i8, ptr %46, i64 96
+  %48 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull %46)
+  %49 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %48) #7
+  br i1 %49, label %.lr.ph.i.i.i, label %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit
 
-.lr.ph.i.i.i:                                     ; preds = %42, %.lr.ph.i.i.i
-  %.04.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i ], [ %50, %42 ]
-  %52 = getelementptr inbounds i8, ptr %.04.i.i.i, i64 96
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %52, align 8
-  %53 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3
-  %.not.i.i.i.i.i.i = icmp eq i64 %53, 0
+.lr.ph.i.i.i:                                     ; preds = %40, %.lr.ph.i.i.i
+  %.04.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i ], [ %48, %40 ]
+  %50 = getelementptr inbounds i8, ptr %.04.i.i.i, i64 96
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %50, align 8
+  %51 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3
+  %.not.i.i.i.i.i.i = icmp eq i64 %51, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
-  %54 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(144) %.04.i.i.i)
-  %55 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %54) #7
-  br i1 %55, label %.lr.ph.i.i.i, label %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit, !llvm.loop !7
+  %52 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(144) %.04.i.i.i)
+  %53 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %52) #7
+  br i1 %53, label %.lr.ph.i.i.i, label %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit, !llvm.loop !7
 
-_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit: ; preds = %.lr.ph.i.i.i, %42
-  %.0.lcssa.i.i.i = phi ptr [ %50, %42 ], [ %54, %.lr.ph.i.i.i ]
-  %56 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 28
-  %57 = load i32, ptr %56, align 4
-  %58 = and i32 %57, 127
-  %59 = add nsw i32 %58, -15
-  %60 = icmp ult i32 %59, 63
-  %spec.select.i.i38 = select i1 %60, ptr %.0.lcssa.i.i.i, ptr null
-  %61 = icmp eq i32 %58, 21
-  br i1 %61, label %.thread18.preheader, label %.thread
+_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit: ; preds = %.lr.ph.i.i.i, %40
+  %.0.lcssa.i.i.i = phi ptr [ %48, %40 ], [ %52, %.lr.ph.i.i.i ]
+  %54 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 28
+  %55 = load i32, ptr %54, align 4
+  %56 = and i32 %55, 127
+  %57 = add nsw i32 %56, -15
+  %58 = icmp ult i32 %57, 63
+  %spec.select.i.i38 = select i1 %58, ptr %.0.lcssa.i.i.i, ptr null
+  %59 = icmp eq i32 %56, 21
+  br i1 %59, label %.thread18.preheader, label %.thread
 
-.thread18.preheader:                              ; preds = %21, %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit
-  %.010.i29.ph = phi ptr [ %19, %21 ], [ %.0.lcssa.i.i.i, %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit ]
+.thread18.preheader:                              ; preds = %20, %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit
+  %.010.i29.ph = phi ptr [ %18, %20 ], [ %.0.lcssa.i.i.i, %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit ]
   br label %.thread18
 
 .thread18:                                        ; preds = %.thread18.preheader, %_ZNK5clang4Decl14getDeclContextEv.exit45
-  %.010.i29 = phi ptr [ %76, %_ZNK5clang4Decl14getDeclContextEv.exit45 ], [ %.010.i29.ph, %.thread18.preheader ]
-  %62 = getelementptr inbounds i8, ptr %.010.i29, i64 56
-  %63 = load i16, ptr %62, align 8
-  %64 = and i16 %63, 8192
-  %.not26 = icmp eq i16 %64, 0
-  %65 = getelementptr i8, ptr %.010.i29, i64 16
-  %.010.i.val = load i64, ptr %65, align 8
-  br i1 %.not26, label %.critedge.i, label %66
+  %.010.i29 = phi ptr [ %74, %_ZNK5clang4Decl14getDeclContextEv.exit45 ], [ %.010.i29.ph, %.thread18.preheader ]
+  %60 = getelementptr inbounds i8, ptr %.010.i29, i64 56
+  %61 = load i16, ptr %60, align 8
+  %62 = and i16 %61, 8192
+  %.not26 = icmp eq i16 %62, 0
+  %63 = getelementptr i8, ptr %.010.i29, i64 16
+  %.010.i.val = load i64, ptr %63, align 8
+  br i1 %.not26, label %.critedge.i, label %64
 
-66:                                               ; preds = %.thread18
-  %67 = and i64 %.010.i.val, 4
-  %68 = icmp eq i64 %67, 0
-  %69 = and i64 %.010.i.val, -8
-  %70 = inttoptr i64 %69 to ptr
-  br i1 %68, label %_ZNK5clang4Decl14getDeclContextEv.exit45, label %71
+64:                                               ; preds = %.thread18
+  %65 = and i64 %.010.i.val, 4
+  %66 = icmp eq i64 %65, 0
+  %67 = and i64 %.010.i.val, -8
+  %68 = inttoptr i64 %67 to ptr
+  br i1 %66, label %_ZNK5clang4Decl14getDeclContextEv.exit45, label %69
 
-71:                                               ; preds = %66
-  %72 = load ptr, ptr %70, align 8
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %68, align 8
   br label %_ZNK5clang4Decl14getDeclContextEv.exit45
 
-_ZNK5clang4Decl14getDeclContextEv.exit45:         ; preds = %66, %71
-  %.0.i.i44 = phi ptr [ %72, %71 ], [ %70, %66 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i44, i64 8
-  %74 = load i16, ptr %73, align 8
-  %75 = and i16 %74, 127
-  %.not30 = icmp eq i16 %75, 21
-  %76 = getelementptr inbounds i8, ptr %.0.i.i44, i64 -48
+_ZNK5clang4Decl14getDeclContextEv.exit45:         ; preds = %64, %69
+  %.0.i.i44 = phi ptr [ %70, %69 ], [ %68, %64 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i44, i64 8
+  %72 = load i16, ptr %71, align 8
+  %73 = and i16 %72, 127
+  %.not30 = icmp eq i16 %73, 21
+  %74 = getelementptr inbounds i8, ptr %.0.i.i44, i64 -48
   br i1 %.not30, label %.thread18, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit
 
 .critedge.i:                                      ; preds = %.thread18
-  %77 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.010.i.val, i1 noundef zeroext %1)
-  %78 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_PKNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %77, ptr noundef nonnull %.010.i29) #7
+  %75 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.010.i.val, i1 noundef zeroext %1)
+  %76 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_PKNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %75, ptr noundef nonnull %.010.i29) #7
   br label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit
 
-.thread:                                          ; preds = %26, %33, %30, %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit
-  %.01017 = phi ptr [ %spec.select.i.i38, %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit ], [ %16, %30 ], [ %16, %33 ], [ %16, %26 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.01017, i64 28
-  %80 = load i32, ptr %79, align 4
-  %81 = and i32 %80, 127
-  %82 = add nsw i32 %81, -60
-  %83 = icmp ult i32 %82, -5
+.thread:                                          ; preds = %25, %31, %28, %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit
+  %.01017 = phi ptr [ %spec.select.i.i38, %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit ], [ %15, %28 ], [ %15, %31 ], [ %15, %25 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.01017, i64 28
+  %78 = load i32, ptr %77, align 4
+  %79 = and i32 %78, 127
+  %80 = add nsw i32 %79, -60
+  %81 = icmp ult i32 %80, -5
   %.not3527 = icmp eq ptr %.01017, null
-  %.not35 = or i1 %.not3527, %83
-  br i1 %.not35, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit, label %84
+  %.not35 = or i1 %.not3527, %81
+  br i1 %.not35, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit, label %82
 
-84:                                               ; preds = %.thread
-  %85 = getelementptr inbounds nuw i8, ptr %.01017, i64 48
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %88 = load i8, ptr %87, align 16
-  %.off = add i8 %88, -47
+82:                                               ; preds = %.thread
+  %83 = getelementptr inbounds nuw i8, ptr %.01017, i64 48
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %86 = load i8, ptr %85, align 16
+  %.off = add i8 %86, -47
   %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %89, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit
+  br i1 %switch, label %87, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit
 
-89:                                               ; preds = %84
-  %90 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL29getFullyQualifiedTemplateTypeERKNS_10ASTContextEPKNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef nonnull %86, i1 noundef zeroext %1)
+87:                                               ; preds = %82
+  %88 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL29getFullyQualifiedTemplateTypeERKNS_10ASTContextEPKNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef nonnull %84, i1 noundef zeroext %1)
   br label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit
 
-_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit: ; preds = %84, %89
-  %.09 = phi ptr [ %90, %89 ], [ %86, %84 ]
-  %91 = getelementptr i8, ptr %.01017, i64 16
-  %spec.select.i.i41.val = load i64, ptr %91, align 8
-  %92 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %spec.select.i.i41.val, i1 noundef zeroext %1)
-  %93 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_bPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %92, i1 noundef zeroext false, ptr noundef %.09) #7
+_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit: ; preds = %82, %87
+  %.09 = phi ptr [ %88, %87 ], [ %84, %82 ]
+  %89 = getelementptr i8, ptr %.01017, i64 16
+  %spec.select.i.i41.val = load i64, ptr %89, align 8
+  %90 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %spec.select.i.i41.val, i1 noundef zeroext %1)
+  %91 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_bPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %90, i1 noundef zeroext false, ptr noundef %.09) #7
   br label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit
 
 _ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit
-  %94 = phi i16 [ %18, %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit ], [ %12, %_ZNK5clang4Decl14getDeclContextEv.exit ]
-  %95 = icmp eq i16 %94, 0
-  %or.cond = select i1 %1, i1 %95, i1 false
-  br i1 %or.cond, label %96, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit
+  %92 = phi i16 [ %17, %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit ], [ %12, %_ZNK5clang4Decl14getDeclContextEv.exit ]
+  %93 = icmp eq i16 %92, 0
+  %or.cond = select i1 %1, i1 %93, i1 false
+  br i1 %or.cond, label %94, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit
 
-96:                                               ; preds = %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread
-  %97 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier15GlobalSpecifierERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %0) #7
+94:                                               ; preds = %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread
+  %95 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier15GlobalSpecifierERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %0) #7
   br label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit
 
-_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit45, %21, %.thread, %.critedge.i, %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread, %96, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit
-  %.0 = phi ptr [ %97, %96 ], [ %93, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit ], [ null, %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread ], [ %78, %.critedge.i ], [ null, %.thread ], [ null, %21 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit45 ]
+_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_13NamespaceDeclEb.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit45, %20, %.thread, %.critedge.i, %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread, %94, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit
+  %.0 = phi ptr [ %95, %94 ], [ %91, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit ], [ null, %_ZN4llvm8dyn_castIN5clang9NamedDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread ], [ %76, %.critedge.i ], [ null, %.thread ], [ null, %20 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit45 ]
   ret ptr %.0
 }
 
@@ -1160,8 +1158,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %36, %30
   %.not25 = icmp eq i16 %40, 21
   br i1 %.not25, label %select.unfold10.preheader, label %common.ret9
 
-common.ret9:                                      ; preds = %72, %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread, %.critedge, %76, %_ZNK5clang4Decl14getDeclContextEv.exit.i, %_ZNK5clang4Decl14getDeclContextEv.exit37, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit41, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit, %.critedge.i
-  %common.ret9.op = phi ptr [ %43, %.critedge.i ], [ %57, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit ], [ %71, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit41 ], [ %77, %76 ], [ null, %.critedge ], [ null, %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread ], [ null, %72 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit37 ]
+common.ret9:                                      ; preds = %71, %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread, %.critedge, %75, %_ZNK5clang4Decl14getDeclContextEv.exit.i, %_ZNK5clang4Decl14getDeclContextEv.exit37, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit41, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit, %.critedge.i
+  %common.ret9.op = phi ptr [ %43, %.critedge.i ], [ %56, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit ], [ %70, %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit41 ], [ %76, %75 ], [ null, %.critedge ], [ null, %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread ], [ null, %71 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit37 ]
   ret ptr %common.ret9.op
 
 .critedge.i:                                      ; preds = %select.unfold10.preheader
@@ -1173,74 +1171,73 @@ common.ret9:                                      ; preds = %72, %_ZN4llvm8dyn_c
   br label %common.ret9
 
 44:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
-  %45 = zext nneg i16 %11 to i32
-  %46 = add nsw i32 %45, -60
-  %47 = icmp ult i32 %46, -5
-  br i1 %47, label %58, label %48
+  %45 = add nsw i16 %11, -60
+  %46 = icmp ult i16 %45, -5
+  br i1 %46, label %57, label %47
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %.0.i.i, i64 -16
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load i8, ptr %51, align 16
-  %.off = add i8 %52, -47
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %.0.i.i, i64 -16
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load i8, ptr %50, align 16
+  %.off = add i8 %51, -47
   %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %53, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit
+  br i1 %switch, label %52, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit
 
-53:                                               ; preds = %48
-  %54 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL29getFullyQualifiedTemplateTypeERKNS_10ASTContextEPKNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef nonnull %50, i1 noundef zeroext %1)
+52:                                               ; preds = %47
+  %53 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL29getFullyQualifiedTemplateTypeERKNS_10ASTContextEPKNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef nonnull %49, i1 noundef zeroext %1)
   br label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit
 
-_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit: ; preds = %48, %53
-  %.09 = phi ptr [ %54, %53 ], [ %50, %48 ]
-  %55 = getelementptr i8, ptr %.0.i.i, i64 -48
-  %spec.select.i.i39.val = load i64, ptr %55, align 8
-  %56 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %spec.select.i.i39.val, i1 noundef zeroext %1)
-  %57 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_bPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %56, i1 noundef zeroext false, ptr noundef %.09) #7
+_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit: ; preds = %47, %52
+  %.09 = phi ptr [ %53, %52 ], [ %49, %47 ]
+  %54 = getelementptr i8, ptr %.0.i.i, i64 -48
+  %spec.select.i.i39.val = load i64, ptr %54, align 8
+  %55 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %spec.select.i.i39.val, i1 noundef zeroext %1)
+  %56 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_bPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %55, i1 noundef zeroext false, ptr noundef %.09) #7
   br label %common.ret9
 
-58:                                               ; preds = %44
-  %59 = add nsw i32 %45, -61
-  %60 = icmp ult i32 %59, 3
-  br i1 %60, label %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit, label %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread
+57:                                               ; preds = %44
+  %58 = add nsw i16 %11, -61
+  %59 = icmp ult i16 %58, 3
+  br i1 %59, label %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit, label %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread
 
-_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit: ; preds = %58
-  %61 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull %.0.i.i) #7
-  %.not33 = icmp eq ptr %61, null
-  br i1 %.not33, label %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread, label %62
+_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit: ; preds = %57
+  %60 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull %.0.i.i) #7
+  %.not33 = icmp eq ptr %60, null
+  br i1 %.not33, label %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread, label %61
 
-62:                                               ; preds = %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 48
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load i8, ptr %65, align 16
-  %.off14 = add i8 %66, -47
+61:                                               ; preds = %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 48
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load i8, ptr %64, align 16
+  %.off14 = add i8 %65, -47
   %switch15 = icmp ult i8 %.off14, 2
-  br i1 %switch15, label %67, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit41
+  br i1 %switch15, label %66, label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit41
 
-67:                                               ; preds = %62
-  %68 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL29getFullyQualifiedTemplateTypeERKNS_10ASTContextEPKNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef nonnull %64, i1 noundef zeroext %1)
+66:                                               ; preds = %61
+  %67 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL29getFullyQualifiedTemplateTypeERKNS_10ASTContextEPKNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef nonnull %63, i1 noundef zeroext %1)
   br label %_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit41
 
-_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit41: ; preds = %62, %67
-  %.08 = phi ptr [ %68, %67 ], [ %64, %62 ]
-  %69 = getelementptr i8, ptr %61, i64 16
-  %.0.i.i40.val = load i64, ptr %69, align 8
-  %70 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.0.i.i40.val, i1 noundef zeroext %1)
-  %71 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_bPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %70, i1 noundef zeroext false, ptr noundef %.08) #7
+_ZN5clang8TypeNameL25createNestedNameSpecifierERKNS_10ASTContextEPKNS_8TypeDeclEbb.exit41: ; preds = %61, %66
+  %.08 = phi ptr [ %67, %66 ], [ %63, %61 ]
+  %68 = getelementptr i8, ptr %60, i64 16
+  %.0.i.i40.val = load i64, ptr %68, align 8
+  %69 = tail call fastcc noundef ptr @_ZN5clang8TypeNameL14createOuterNNSERKNS_10ASTContextEPKNS_4DeclEbb(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.0.i.i40.val, i1 noundef zeroext %1)
+  %70 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier6CreateERKNS_10ASTContextEPS0_bPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %69, i1 noundef zeroext false, ptr noundef %.08) #7
   br label %common.ret9
 
-_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread: ; preds = %58, %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit
-  br i1 %1, label %72, label %common.ret9
+_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread: ; preds = %57, %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit
+  br i1 %1, label %71, label %common.ret9
 
-72:                                               ; preds = %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread
-  %73 = load i16, ptr %9, align 8
-  %74 = and i16 %73, 127
-  %75 = icmp eq i16 %74, 0
-  br i1 %75, label %76, label %common.ret9
+71:                                               ; preds = %_ZN4llvm8dyn_castIN5clang15TypedefNameDeclEKNS1_11DeclContextEEEDcPT0_.exit.thread
+  %72 = load i16, ptr %9, align 8
+  %73 = and i16 %72, 127
+  %74 = icmp eq i16 %73, 0
+  br i1 %74, label %75, label %common.ret9
 
-76:                                               ; preds = %72
-  %77 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier15GlobalSpecifierERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %0) #7
+75:                                               ; preds = %71
+  %76 = tail call noundef ptr @_ZN5clang19NestedNameSpecifier15GlobalSpecifierERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %0) #7
   br label %common.ret9
 }
 

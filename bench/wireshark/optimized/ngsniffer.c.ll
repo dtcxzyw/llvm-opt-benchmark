@@ -118,8 +118,8 @@ define hidden range(i32 -1, 2) i32 @ngsniffer_open(ptr nocapture noundef %0, ptr
   %31 = zext nneg i8 %28 to i64
   %32 = getelementptr [11 x i32], ptr @ngsniffer_open.sniffer_encap, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = add nsw i64 %31, -3
-  %35 = icmp ult i64 %34, 4
+  %34 = add nsw i8 %28, -3
+  %35 = icmp ult i8 %34, 4
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %30, %26

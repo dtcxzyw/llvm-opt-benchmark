@@ -2481,7 +2481,7 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   %13 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   call void @dbuf_init2(ptr noundef nonnull %7, ptr noundef %13, ptr noundef nonnull @js_realloc_rt) #30
   %14 = icmp sgt i32 %1, 0
-  br i1 %14, label %15, label %192
+  br i1 %14, label %15, label %188
 
 15:                                               ; preds = %4
   %16 = load i64, ptr %2, align 8
@@ -2504,9 +2504,9 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   %27 = getelementptr inbounds i8, ptr %5, i64 30
   br label %28
 
-28:                                               ; preds = %.lr.ph234, %190
-  %.0233 = phi ptr [ %19, %.lr.ph234 ], [ %114, %190 ]
-  %.0155232 = phi i32 [ 1, %.lr.ph234 ], [ %.4159, %190 ]
+28:                                               ; preds = %.lr.ph234, %186
+  %.0233 = phi ptr [ %19, %.lr.ph234 ], [ %110, %186 ]
+  %.0155232 = phi i32 [ 1, %.lr.ph234 ], [ %.4159, %186 ]
   store ptr %.0233, ptr %8, align 8
   br label %29
 
@@ -2537,370 +2537,366 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   store i8 %43, ptr %5, align 16
   br label %44
 
-44:                                               ; preds = %50, %38
-  %.pn = phi ptr [ %5, %38 ], [ %.0150, %50 ]
-  %.1.pn = phi ptr [ %.1223, %38 ], [ %.2, %50 ]
+44:                                               ; preds = %49, %38
+  %.pn = phi ptr [ %5, %38 ], [ %.0150, %49 ]
+  %.1.pn = phi ptr [ %.1223, %38 ], [ %.2, %49 ]
   %.2 = getelementptr i8, ptr %.1.pn, i64 1
   %.0150 = getelementptr i8, ptr %.pn, i64 1
   %45 = load i8, ptr %.2, align 1
   switch i8 %45, label %.preheader198 [
-    i8 48, label %49
-    i8 45, label %49
-    i8 43, label %49
-    i8 39, label %49
-    i8 35, label %49
-    i8 32, label %49
-    i8 42, label %51
+    i8 48, label %48
+    i8 45, label %48
+    i8 43, label %48
+    i8 39, label %48
+    i8 35, label %48
+    i8 32, label %48
+    i8 42, label %50
   ]
 
 .preheader198:                                    ; preds = %44
-  %46 = zext i8 %45 to i32
-  %47 = add nsw i32 %46, -58
-  %48 = icmp ult i32 %47, -10
-  br i1 %48, label %.loopexit199, label %.lr.ph
+  %46 = add i8 %45, -58
+  %47 = icmp ult i8 %46, -10
+  br i1 %47, label %.loopexit199, label %.lr.ph
 
-49:                                               ; preds = %44, %44, %44, %44, %44, %44
+48:                                               ; preds = %44, %44, %44, %44, %44, %44
   %.not194 = icmp ult ptr %.0150, %24
-  br i1 %.not194, label %50, label %.loopexit
+  br i1 %.not194, label %49, label %.loopexit
 
-50:                                               ; preds = %49
+49:                                               ; preds = %48
   store i8 %45, ptr %.0150, align 1
   br label %44
 
-51:                                               ; preds = %44
+50:                                               ; preds = %44
   %.not175 = icmp slt i32 %.0155232, %1
-  br i1 %.not175, label %52, label %188
+  br i1 %.not175, label %51, label %184
 
-52:                                               ; preds = %51
-  %53 = sext i32 %.0155232 to i64
-  %54 = getelementptr %struct.JSValue, ptr %2, i64 %53
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %54, i64 8
-  %57 = load i64, ptr %56, align 8
-  %58 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %55, i64 %57) #30
-  %.not176 = icmp eq i32 %58, 0
-  br i1 %.not176, label %59, label %.loopexit203
+51:                                               ; preds = %50
+  %52 = sext i32 %.0155232 to i64
+  %53 = getelementptr %struct.JSValue, ptr %2, i64 %52
+  %54 = load i64, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = load i64, ptr %55, align 8
+  %57 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %54, i64 %56) #30
+  %.not176 = icmp eq i32 %57, 0
+  br i1 %.not176, label %58, label %.loopexit203
 
-59:                                               ; preds = %52
-  %60 = add nsw i32 %.0155232, 1
-  %61 = ptrtoint ptr %.0150 to i64
-  %62 = sub i64 %26, %61
-  %63 = load i32, ptr %10, align 4
-  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0150, i64 noundef %62, ptr noundef nonnull @.str.42, i32 noundef %63) #30
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr i8, ptr %.0150, i64 %65
-  %67 = getelementptr i8, ptr %.1.pn, i64 2
-  %.pre = load i8, ptr %67, align 1
+58:                                               ; preds = %51
+  %59 = add nsw i32 %.0155232, 1
+  %60 = ptrtoint ptr %.0150 to i64
+  %61 = sub i64 %26, %60
+  %62 = load i32, ptr %10, align 4
+  %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0150, i64 noundef %61, ptr noundef nonnull @.str.42, i32 noundef %62) #30
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr i8, ptr %.0150, i64 %64
+  %66 = getelementptr i8, ptr %.1.pn, i64 2
+  %.pre = load i8, ptr %66, align 1
   br label %.loopexit199
 
-.lr.ph:                                           ; preds = %.preheader198, %69
-  %68 = phi i8 [ %72, %69 ], [ %45, %.preheader198 ]
-  %.4225 = phi ptr [ %70, %69 ], [ %.2, %.preheader198 ]
-  %.2152224 = phi ptr [ %71, %69 ], [ %.0150, %.preheader198 ]
+.lr.ph:                                           ; preds = %.preheader198, %68
+  %67 = phi i8 [ %71, %68 ], [ %45, %.preheader198 ]
+  %.4225 = phi ptr [ %69, %68 ], [ %.2, %.preheader198 ]
+  %.2152224 = phi ptr [ %70, %68 ], [ %.0150, %.preheader198 ]
   %.not174 = icmp ult ptr %.2152224, %24
-  br i1 %.not174, label %69, label %.loopexit
+  br i1 %.not174, label %68, label %.loopexit
 
-69:                                               ; preds = %.lr.ph
-  %70 = getelementptr i8, ptr %.4225, i64 1
-  %71 = getelementptr i8, ptr %.2152224, i64 1
-  store i8 %68, ptr %.2152224, align 1
-  %72 = load i8, ptr %70, align 1
-  %73 = zext i8 %72 to i32
-  %74 = add nsw i32 %73, -58
-  %75 = icmp ult i32 %74, -10
-  br i1 %75, label %.loopexit199, label %.lr.ph, !llvm.loop !20
+68:                                               ; preds = %.lr.ph
+  %69 = getelementptr i8, ptr %.4225, i64 1
+  %70 = getelementptr i8, ptr %.2152224, i64 1
+  store i8 %67, ptr %.2152224, align 1
+  %71 = load i8, ptr %69, align 1
+  %72 = add i8 %71, -58
+  %73 = icmp ult i8 %72, -10
+  br i1 %73, label %.loopexit199, label %.lr.ph, !llvm.loop !20
 
-.loopexit199:                                     ; preds = %69, %.preheader198, %59
-  %76 = phi i8 [ %.pre, %59 ], [ %45, %.preheader198 ], [ %72, %69 ]
-  %.1156 = phi i32 [ %60, %59 ], [ %.0155232, %.preheader198 ], [ %.0155232, %69 ]
-  %.1151 = phi ptr [ %66, %59 ], [ %.0150, %.preheader198 ], [ %71, %69 ]
-  %.3 = phi ptr [ %67, %59 ], [ %.2, %.preheader198 ], [ %70, %69 ]
-  %77 = icmp eq i8 %76, 46
-  br i1 %77, label %78, label %thread-pre-split
+.loopexit199:                                     ; preds = %68, %.preheader198, %58
+  %74 = phi i8 [ %.pre, %58 ], [ %45, %.preheader198 ], [ %71, %68 ]
+  %.1156 = phi i32 [ %59, %58 ], [ %.0155232, %.preheader198 ], [ %.0155232, %68 ]
+  %.1151 = phi ptr [ %65, %58 ], [ %.0150, %.preheader198 ], [ %70, %68 ]
+  %.3 = phi ptr [ %66, %58 ], [ %.2, %.preheader198 ], [ %69, %68 ]
+  %75 = icmp eq i8 %74, 46
+  br i1 %75, label %76, label %thread-pre-split
 
-78:                                               ; preds = %.loopexit199
+76:                                               ; preds = %.loopexit199
   %.not177 = icmp ult ptr %.1151, %24
-  br i1 %.not177, label %79, label %.loopexit
+  br i1 %.not177, label %77, label %.loopexit
 
-79:                                               ; preds = %78
-  %80 = getelementptr i8, ptr %.3, i64 1
-  %81 = getelementptr i8, ptr %.1151, i64 1
+77:                                               ; preds = %76
+  %78 = getelementptr i8, ptr %.3, i64 1
+  %79 = getelementptr i8, ptr %.1151, i64 1
   store i8 46, ptr %.1151, align 1
-  %82 = load i8, ptr %80, align 1
-  %83 = icmp eq i8 %82, 42
-  br i1 %83, label %87, label %.preheader
+  %80 = load i8, ptr %78, align 1
+  %81 = icmp eq i8 %80, 42
+  br i1 %81, label %84, label %.preheader
 
-.preheader:                                       ; preds = %79
-  %84 = zext i8 %82 to i32
-  %85 = add nsw i32 %84, -58
-  %86 = icmp ult i32 %85, -10
-  br i1 %86, label %thread-pre-split, label %.lr.ph229
+.preheader:                                       ; preds = %77
+  %82 = add i8 %80, -58
+  %83 = icmp ult i8 %82, -10
+  br i1 %83, label %thread-pre-split, label %.lr.ph229
 
-87:                                               ; preds = %79
+84:                                               ; preds = %77
   %.not180 = icmp slt i32 %.1156, %1
-  br i1 %.not180, label %88, label %188
+  br i1 %.not180, label %85, label %184
 
-88:                                               ; preds = %87
-  %89 = sext i32 %.1156 to i64
-  %90 = getelementptr %struct.JSValue, ptr %2, i64 %89
-  %91 = load i64, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %90, i64 8
-  %93 = load i64, ptr %92, align 8
-  %94 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %91, i64 %93) #30
-  %.not181 = icmp eq i32 %94, 0
-  br i1 %.not181, label %95, label %.loopexit203
+85:                                               ; preds = %84
+  %86 = sext i32 %.1156 to i64
+  %87 = getelementptr %struct.JSValue, ptr %2, i64 %86
+  %88 = load i64, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %87, i64 8
+  %90 = load i64, ptr %89, align 8
+  %91 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %88, i64 %90) #30
+  %.not181 = icmp eq i32 %91, 0
+  br i1 %.not181, label %92, label %.loopexit203
 
-95:                                               ; preds = %88
-  %96 = add nsw i32 %.1156, 1
-  %97 = ptrtoint ptr %81 to i64
-  %98 = sub i64 %26, %97
-  %99 = load i32, ptr %10, align 4
-  %100 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %81, i64 noundef %98, ptr noundef nonnull @.str.42, i32 noundef %99) #30
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr i8, ptr %81, i64 %101
-  %103 = getelementptr i8, ptr %.3, i64 2
-  %.pr.pre = load i8, ptr %103, align 1
+92:                                               ; preds = %85
+  %93 = add nsw i32 %.1156, 1
+  %94 = ptrtoint ptr %79 to i64
+  %95 = sub i64 %26, %94
+  %96 = load i32, ptr %10, align 4
+  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %79, i64 noundef %95, ptr noundef nonnull @.str.42, i32 noundef %96) #30
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr i8, ptr %79, i64 %98
+  %100 = getelementptr i8, ptr %.3, i64 2
+  %.pr.pre = load i8, ptr %100, align 1
   br label %thread-pre-split
 
-.lr.ph229:                                        ; preds = %.preheader, %105
-  %104 = phi i8 [ %108, %105 ], [ %82, %.preheader ]
-  %.6228 = phi ptr [ %106, %105 ], [ %80, %.preheader ]
-  %.4154227 = phi ptr [ %107, %105 ], [ %81, %.preheader ]
+.lr.ph229:                                        ; preds = %.preheader, %102
+  %101 = phi i8 [ %105, %102 ], [ %80, %.preheader ]
+  %.6228 = phi ptr [ %103, %102 ], [ %78, %.preheader ]
+  %.4154227 = phi ptr [ %104, %102 ], [ %79, %.preheader ]
   %.not179 = icmp ult ptr %.4154227, %24
-  br i1 %.not179, label %105, label %.loopexit
+  br i1 %.not179, label %102, label %.loopexit
 
-105:                                              ; preds = %.lr.ph229
-  %106 = getelementptr i8, ptr %.6228, i64 1
-  %107 = getelementptr i8, ptr %.4154227, i64 1
-  store i8 %104, ptr %.4154227, align 1
-  %108 = load i8, ptr %106, align 1
-  %109 = zext i8 %108 to i32
-  %110 = add nsw i32 %109, -58
-  %111 = icmp ult i32 %110, -10
-  br i1 %111, label %thread-pre-split, label %.lr.ph229, !llvm.loop !21
+102:                                              ; preds = %.lr.ph229
+  %103 = getelementptr i8, ptr %.6228, i64 1
+  %104 = getelementptr i8, ptr %.4154227, i64 1
+  store i8 %101, ptr %.4154227, align 1
+  %105 = load i8, ptr %103, align 1
+  %106 = add i8 %105, -58
+  %107 = icmp ult i8 %106, -10
+  br i1 %107, label %thread-pre-split, label %.lr.ph229, !llvm.loop !21
 
-thread-pre-split:                                 ; preds = %105, %95, %.preheader, %.loopexit199
-  %112 = phi i8 [ %76, %.loopexit199 ], [ %.pr.pre, %95 ], [ %82, %.preheader ], [ %108, %105 ]
-  %.2157 = phi i32 [ %.1156, %.loopexit199 ], [ %96, %95 ], [ %.1156, %.preheader ], [ %.1156, %105 ]
-  %.3153 = phi ptr [ %.1151, %.loopexit199 ], [ %102, %95 ], [ %81, %.preheader ], [ %107, %105 ]
-  %.5 = phi ptr [ %.3, %.loopexit199 ], [ %103, %95 ], [ %80, %.preheader ], [ %106, %105 ]
-  %113 = icmp eq i8 %112, 108
-  %spec.select.idx = zext i1 %113 to i64
+thread-pre-split:                                 ; preds = %102, %92, %.preheader, %.loopexit199
+  %108 = phi i8 [ %74, %.loopexit199 ], [ %.pr.pre, %92 ], [ %80, %.preheader ], [ %105, %102 ]
+  %.2157 = phi i32 [ %.1156, %.loopexit199 ], [ %93, %92 ], [ %.1156, %.preheader ], [ %.1156, %102 ]
+  %.3153 = phi ptr [ %.1151, %.loopexit199 ], [ %99, %92 ], [ %79, %.preheader ], [ %104, %102 ]
+  %.5 = phi ptr [ %.3, %.loopexit199 ], [ %100, %92 ], [ %78, %.preheader ], [ %103, %102 ]
+  %109 = icmp eq i8 %108, 108
+  %spec.select.idx = zext i1 %109 to i64
   %spec.select = getelementptr i8, ptr %.5, i64 %spec.select.idx
-  %114 = getelementptr i8, ptr %spec.select, i64 1
+  %110 = getelementptr i8, ptr %spec.select, i64 1
   %.not182 = icmp ult ptr %.3153, %24
-  br i1 %.not182, label %115, label %.loopexit
+  br i1 %.not182, label %111, label %.loopexit
 
-115:                                              ; preds = %thread-pre-split
-  %116 = load i8, ptr %spec.select, align 1
-  %117 = getelementptr i8, ptr %.3153, i64 1
-  store i8 %116, ptr %.3153, align 1
-  store i8 0, ptr %117, align 1
-  switch i8 %116, label %.loopexit [
-    i8 99, label %118
-    i8 100, label %141
-    i8 105, label %141
-    i8 111, label %141
-    i8 117, label %141
-    i8 120, label %141
-    i8 88, label %141
-    i8 115, label %162
-    i8 101, label %173
-    i8 102, label %173
-    i8 103, label %173
-    i8 97, label %173
-    i8 69, label %173
-    i8 70, label %173
-    i8 71, label %173
-    i8 65, label %173
-    i8 37, label %185
+111:                                              ; preds = %thread-pre-split
+  %112 = load i8, ptr %spec.select, align 1
+  %113 = getelementptr i8, ptr %.3153, i64 1
+  store i8 %112, ptr %.3153, align 1
+  store i8 0, ptr %113, align 1
+  switch i8 %112, label %.loopexit [
+    i8 99, label %114
+    i8 100, label %137
+    i8 105, label %137
+    i8 111, label %137
+    i8 117, label %137
+    i8 120, label %137
+    i8 88, label %137
+    i8 115, label %158
+    i8 101, label %169
+    i8 102, label %169
+    i8 103, label %169
+    i8 97, label %169
+    i8 69, label %169
+    i8 70, label %169
+    i8 71, label %169
+    i8 65, label %169
+    i8 37, label %181
   ]
 
-118:                                              ; preds = %115
+114:                                              ; preds = %111
   %.not190 = icmp slt i32 %.2157, %1
-  br i1 %.not190, label %119, label %188
+  br i1 %.not190, label %115, label %184
 
-119:                                              ; preds = %118
-  %120 = sext i32 %.2157 to i64
-  %121 = getelementptr %struct.JSValue, ptr %2, i64 %120
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
-  %123 = load i64, ptr %122, align 8
-  %124 = and i64 %123, 4294967295
-  %.not197 = icmp eq i64 %124, 4294967289
-  %125 = load i64, ptr %121, align 8
-  br i1 %.not197, label %126, label %130
+115:                                              ; preds = %114
+  %116 = sext i32 %.2157 to i64
+  %117 = getelementptr %struct.JSValue, ptr %2, i64 %116
+  %118 = getelementptr inbounds i8, ptr %117, i64 8
+  %119 = load i64, ptr %118, align 8
+  %120 = and i64 %119, 4294967295
+  %.not197 = icmp eq i64 %120, 4294967289
+  %121 = load i64, ptr %117, align 8
+  br i1 %.not197, label %122, label %126
 
-126:                                              ; preds = %119
-  %127 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %125, i64 %123, i32 noundef 0) #30
-  %.not193 = icmp eq ptr %127, null
-  br i1 %.not193, label %.loopexit203, label %128
+122:                                              ; preds = %115
+  %123 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %121, i64 %119, i32 noundef 0) #30
+  %.not193 = icmp eq ptr %123, null
+  br i1 %.not193, label %.loopexit203, label %124
 
-128:                                              ; preds = %126
-  %129 = call i32 @unicode_from_utf8(ptr noundef nonnull %127, i32 noundef 6, ptr noundef nonnull %8) #30
-  store i32 %129, ptr %10, align 4
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %127) #30
+124:                                              ; preds = %122
+  %125 = call i32 @unicode_from_utf8(ptr noundef nonnull %123, i32 noundef 6, ptr noundef nonnull %8) #30
+  store i32 %125, ptr %10, align 4
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %123) #30
+  br label %128
+
+126:                                              ; preds = %115
+  %127 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %121, i64 %119) #30
+  %.not192 = icmp eq i32 %127, 0
+  br i1 %.not192, label %128, label %.loopexit203
+
+128:                                              ; preds = %126, %124
+  %.3158 = add nsw i32 %.2157, 1
+  %129 = load i32, ptr %10, align 4
+  %130 = icmp ugt i32 %129, 1114111
+  br i1 %130, label %131, label %132
+
+131:                                              ; preds = %128
+  store i32 65533, ptr %10, align 4
   br label %132
 
-130:                                              ; preds = %119
-  %131 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %125, i64 %123) #30
-  %.not192 = icmp eq i32 %131, 0
-  br i1 %.not192, label %132, label %.loopexit203
+132:                                              ; preds = %131, %128
+  %133 = phi i32 [ 65533, %131 ], [ %129, %128 ]
+  %134 = call i32 @unicode_to_utf8(ptr noundef nonnull %6, i32 noundef %133) #30
+  %135 = sext i32 %134 to i64
+  %136 = call i32 @dbuf_put(ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef %135) #30
+  br label %186
 
-132:                                              ; preds = %130, %128
-  %.3158 = add nsw i32 %.2157, 1
-  %133 = load i32, ptr %10, align 4
-  %134 = icmp ugt i32 %133, 1114111
-  br i1 %134, label %135, label %136
-
-135:                                              ; preds = %132
-  store i32 65533, ptr %10, align 4
-  br label %136
-
-136:                                              ; preds = %135, %132
-  %137 = phi i32 [ 65533, %135 ], [ %133, %132 ]
-  %138 = call i32 @unicode_to_utf8(ptr noundef nonnull %6, i32 noundef %137) #30
-  %139 = sext i32 %138 to i64
-  %140 = call i32 @dbuf_put(ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef %139) #30
-  br label %190
-
-141:                                              ; preds = %115, %115, %115, %115, %115, %115
+137:                                              ; preds = %111, %111, %111, %111, %111, %111
   %.not187 = icmp slt i32 %.2157, %1
-  br i1 %.not187, label %142, label %188
+  br i1 %.not187, label %138, label %184
 
-142:                                              ; preds = %141
-  %143 = add nsw i32 %.2157, 1
-  %144 = sext i32 %.2157 to i64
-  %145 = getelementptr %struct.JSValue, ptr %2, i64 %144
-  %146 = load i64, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %145, i64 8
-  %148 = load i64, ptr %147, align 8
-  %149 = call i32 @JS_ToInt64Ext(ptr noundef %0, ptr noundef nonnull %11, i64 %146, i64 %148) #30
-  %.not188 = icmp eq i32 %149, 0
-  br i1 %.not188, label %150, label %.loopexit203
+138:                                              ; preds = %137
+  %139 = add nsw i32 %.2157, 1
+  %140 = sext i32 %.2157 to i64
+  %141 = getelementptr %struct.JSValue, ptr %2, i64 %140
+  %142 = load i64, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %141, i64 8
+  %144 = load i64, ptr %143, align 8
+  %145 = call i32 @JS_ToInt64Ext(ptr noundef %0, ptr noundef nonnull %11, i64 %142, i64 %144) #30
+  %.not188 = icmp eq i32 %145, 0
+  br i1 %.not188, label %146, label %.loopexit203
 
-150:                                              ; preds = %142
-  br i1 %113, label %151, label %158
+146:                                              ; preds = %138
+  br i1 %109, label %147, label %154
 
-151:                                              ; preds = %150
-  %.not189 = icmp ult ptr %117, %27
-  br i1 %.not189, label %152, label %.loopexit
+147:                                              ; preds = %146
+  %.not189 = icmp ult ptr %113, %27
+  br i1 %.not189, label %148, label %.loopexit
 
-152:                                              ; preds = %151
-  %153 = load i8, ptr %.3153, align 1
-  %154 = getelementptr i8, ptr %.3153, i64 2
-  store i8 %153, ptr %154, align 1
-  store i8 108, ptr %117, align 1
+148:                                              ; preds = %147
+  %149 = load i8, ptr %.3153, align 1
+  %150 = getelementptr i8, ptr %.3153, i64 2
+  store i8 %149, ptr %150, align 1
+  store i8 108, ptr %113, align 1
   store i8 108, ptr %.3153, align 1
-  %155 = getelementptr i8, ptr %.3153, i64 3
-  store i8 0, ptr %155, align 1
-  %156 = load i64, ptr %11, align 8
-  %157 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, i64 noundef %156) #30
-  br label %190
+  %151 = getelementptr i8, ptr %.3153, i64 3
+  store i8 0, ptr %151, align 1
+  %152 = load i64, ptr %11, align 8
+  %153 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, i64 noundef %152) #30
+  br label %186
 
-158:                                              ; preds = %150
-  %159 = load i64, ptr %11, align 8
-  %160 = trunc i64 %159 to i32
-  %161 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef %160) #30
-  br label %190
+154:                                              ; preds = %146
+  %155 = load i64, ptr %11, align 8
+  %156 = trunc i64 %155 to i32
+  %157 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef %156) #30
+  br label %186
 
-162:                                              ; preds = %115
+158:                                              ; preds = %111
   %.not185 = icmp slt i32 %.2157, %1
-  br i1 %.not185, label %163, label %188
+  br i1 %.not185, label %159, label %184
 
-163:                                              ; preds = %162
-  %164 = sext i32 %.2157 to i64
-  %165 = getelementptr %struct.JSValue, ptr %2, i64 %164
-  %166 = load i64, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %165, i64 8
-  %168 = load i64, ptr %167, align 8
-  %169 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %166, i64 %168, i32 noundef 0) #30
-  %.not186 = icmp eq ptr %169, null
-  br i1 %.not186, label %.loopexit203, label %170
+159:                                              ; preds = %158
+  %160 = sext i32 %.2157 to i64
+  %161 = getelementptr %struct.JSValue, ptr %2, i64 %160
+  %162 = load i64, ptr %161, align 8
+  %163 = getelementptr inbounds i8, ptr %161, i64 8
+  %164 = load i64, ptr %163, align 8
+  %165 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %162, i64 %164, i32 noundef 0) #30
+  %.not186 = icmp eq ptr %165, null
+  br i1 %.not186, label %.loopexit203, label %166
 
-170:                                              ; preds = %163
-  %171 = add nsw i32 %.2157, 1
-  %172 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %169) #30
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %169) #30
-  br label %190
+166:                                              ; preds = %159
+  %167 = add nsw i32 %.2157, 1
+  %168 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %165) #30
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %165) #30
+  br label %186
 
-173:                                              ; preds = %115, %115, %115, %115, %115, %115, %115, %115
+169:                                              ; preds = %111, %111, %111, %111, %111, %111, %111, %111
   %.not183 = icmp slt i32 %.2157, %1
-  br i1 %.not183, label %174, label %188
+  br i1 %.not183, label %170, label %184
 
-174:                                              ; preds = %173
-  %175 = sext i32 %.2157 to i64
-  %176 = getelementptr %struct.JSValue, ptr %2, i64 %175
-  %177 = load i64, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %176, i64 8
-  %179 = load i64, ptr %178, align 8
-  %180 = call i32 @JS_ToFloat64(ptr noundef %0, ptr noundef nonnull %12, i64 %177, i64 %179) #30
-  %.not184 = icmp eq i32 %180, 0
-  br i1 %.not184, label %181, label %.loopexit203
+170:                                              ; preds = %169
+  %171 = sext i32 %.2157 to i64
+  %172 = getelementptr %struct.JSValue, ptr %2, i64 %171
+  %173 = load i64, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %172, i64 8
+  %175 = load i64, ptr %174, align 8
+  %176 = call i32 @JS_ToFloat64(ptr noundef %0, ptr noundef nonnull %12, i64 %173, i64 %175) #30
+  %.not184 = icmp eq i32 %176, 0
+  br i1 %.not184, label %177, label %.loopexit203
 
-181:                                              ; preds = %174
-  %182 = add nsw i32 %.2157, 1
-  %183 = load double, ptr %12, align 8
-  %184 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, double noundef %183) #30
-  br label %190
+177:                                              ; preds = %170
+  %178 = add nsw i32 %.2157, 1
+  %179 = load double, ptr %12, align 8
+  %180 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, double noundef %179) #30
+  br label %186
 
-185:                                              ; preds = %115
-  %186 = call i32 @dbuf_putc(ptr noundef nonnull %7, i8 noundef zeroext 37) #30
-  br label %190
+181:                                              ; preds = %111
+  %182 = call i32 @dbuf_putc(ptr noundef nonnull %7, i8 noundef zeroext 37) #30
+  br label %186
 
-.loopexit:                                        ; preds = %115, %151, %thread-pre-split, %78, %49, %.lr.ph, %.lr.ph229
-  %187 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.43) #30
+.loopexit:                                        ; preds = %111, %147, %thread-pre-split, %76, %48, %.lr.ph, %.lr.ph229
+  %183 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.43) #30
   br label %.loopexit203
 
-188:                                              ; preds = %173, %162, %141, %118, %87, %51
-  %189 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.44) #30
+184:                                              ; preds = %169, %158, %137, %114, %84, %50
+  %185 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.44) #30
   br label %.loopexit203
 
-190:                                              ; preds = %152, %158, %185, %181, %170, %136
-  %.4159 = phi i32 [ %.2157, %185 ], [ %182, %181 ], [ %171, %170 ], [ %143, %152 ], [ %143, %158 ], [ %.3158, %136 ]
-  %191 = icmp ult ptr %114, %22
-  br i1 %191, label %28, label %.loopexit202, !llvm.loop !22
+186:                                              ; preds = %148, %154, %181, %177, %166, %132
+  %.4159 = phi i32 [ %.2157, %181 ], [ %178, %177 ], [ %167, %166 ], [ %139, %148 ], [ %139, %154 ], [ %.3158, %132 ]
+  %187 = icmp ult ptr %110, %22
+  br i1 %187, label %28, label %.loopexit202, !llvm.loop !22
 
-.loopexit202:                                     ; preds = %190, %20, %.critedge
+.loopexit202:                                     ; preds = %186, %20, %.critedge
   call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %19) #30
-  br label %192
+  br label %188
 
-192:                                              ; preds = %.loopexit202, %4
-  %193 = getelementptr inbounds i8, ptr %7, i64 24
-  %194 = load i32, ptr %193, align 8
-  %.not195 = icmp eq i32 %194, 0
-  br i1 %.not195, label %199, label %195
+188:                                              ; preds = %.loopexit202, %4
+  %189 = getelementptr inbounds i8, ptr %7, i64 24
+  %190 = load i32, ptr %189, align 8
+  %.not195 = icmp eq i32 %190, 0
+  br i1 %.not195, label %195, label %191
 
-195:                                              ; preds = %192
-  %196 = call { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef %0) #30
-  %197 = extractvalue { i64, i64 } %196, 0
-  %198 = extractvalue { i64, i64 } %196, 1
-  br label %209
+191:                                              ; preds = %188
+  %192 = call { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef %0) #30
+  %193 = extractvalue { i64, i64 } %192, 0
+  %194 = extractvalue { i64, i64 } %192, 1
+  br label %205
 
-199:                                              ; preds = %192
+195:                                              ; preds = %188
   %.not196 = icmp eq ptr %3, null
-  %200 = load ptr, ptr %7, align 8
-  %201 = getelementptr inbounds i8, ptr %7, i64 8
-  %202 = load i64, ptr %201, align 8
-  br i1 %.not196, label %205, label %203
+  %196 = load ptr, ptr %7, align 8
+  %197 = getelementptr inbounds i8, ptr %7, i64 8
+  %198 = load i64, ptr %197, align 8
+  br i1 %.not196, label %201, label %199
 
-203:                                              ; preds = %199
-  %204 = call i64 @fwrite(ptr noundef %200, i64 noundef 1, i64 noundef %202, ptr noundef nonnull %3)
-  %.sroa.0148.0.insert.ext = and i64 %204, 4294967295
-  br label %209
+199:                                              ; preds = %195
+  %200 = call i64 @fwrite(ptr noundef %196, i64 noundef 1, i64 noundef %198, ptr noundef nonnull %3)
+  %.sroa.0148.0.insert.ext = and i64 %200, 4294967295
+  br label %205
 
-205:                                              ; preds = %199
-  %206 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %200, i64 noundef %202) #30
-  %207 = extractvalue { i64, i64 } %206, 0
-  %208 = extractvalue { i64, i64 } %206, 1
-  br label %209
+201:                                              ; preds = %195
+  %202 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %196, i64 noundef %198) #30
+  %203 = extractvalue { i64, i64 } %202, 0
+  %204 = extractvalue { i64, i64 } %202, 1
+  br label %205
 
-.loopexit203:                                     ; preds = %174, %163, %142, %130, %126, %88, %52, %15, %188, %.loopexit
+.loopexit203:                                     ; preds = %170, %159, %138, %126, %122, %85, %51, %15, %184, %.loopexit
   call void @JS_FreeCString(ptr noundef %0, ptr noundef %19) #30
-  br label %209
+  br label %205
 
-209:                                              ; preds = %195, %205, %203, %.loopexit203
-  %.sroa.3.sroa.2.0 = phi i64 [ 6, %.loopexit203 ], [ %198, %195 ], [ 0, %203 ], [ %208, %205 ]
-  %.sroa.0143.0.insert.insert = phi i64 [ 0, %.loopexit203 ], [ %197, %195 ], [ %.sroa.0148.0.insert.ext, %203 ], [ %207, %205 ]
+205:                                              ; preds = %191, %201, %199, %.loopexit203
+  %.sroa.3.sroa.2.0 = phi i64 [ 6, %.loopexit203 ], [ %194, %191 ], [ 0, %199 ], [ %204, %201 ]
+  %.sroa.0143.0.insert.insert = phi i64 [ 0, %.loopexit203 ], [ %193, %191 ], [ %.sroa.0148.0.insert.ext, %199 ], [ %203, %201 ]
   call void @dbuf_free(ptr noundef nonnull %7) #30
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0143.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.sroa.2.0, 1

@@ -5733,8 +5733,8 @@ define internal fastcc i32 @dissect_mts_identifier(ptr noundef %0, ptr noundef %
 48:                                               ; preds = %46
   %49 = load i8, ptr getelementptr inbounds (i8, ptr @dmp, i64 41), align 1
   %50 = zext i8 %49 to i32
-  %51 = add nsw i32 %50, -7
-  %or.cond.i = icmp ult i32 %51, 16
+  %51 = add i8 %49, -7
+  %or.cond.i = icmp ult i8 %51, 16
   br i1 %or.cond.i, label %52, label %dissect_7bit_string.exit
 
 52:                                               ; preds = %48

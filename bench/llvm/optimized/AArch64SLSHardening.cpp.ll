@@ -579,9 +579,8 @@ _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i.i.i.i: ; preds = %_ZN4ll
 192:                                              ; preds = %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i.i.i.i, %185
   %193 = getelementptr inbounds nuw i8, ptr %.sroa.02.09.i.i.i.i, i64 68
   %194 = load i16, ptr %193, align 4, !noalias !4
-  %195 = zext i16 %194 to i32
-  %.off.i.i.i.i.i = add nsw i32 %195, -1777
-  %switch.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i, 5
+  %195 = add i16 %194, -1777
+  %switch.i.i.i.i.i = icmp ult i16 %195, 5
   br i1 %switch.i.i.i.i.i, label %.preheader.i.i.i11.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit.i.i.i.i
 
 .preheader.i.i.i11.i.i.i.i:                       ; preds = %192, %_ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i.i.i.i, %185
@@ -633,9 +632,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i:           ; preds = %208, %_ZN4llvm26Mac
 213:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i
   %214 = getelementptr inbounds nuw i8, ptr %205, i64 68
   %215 = load i16, ptr %214, align 4, !noalias !4
-  %216 = zext i16 %215 to i32
-  %.off.i.i.i.i = add nsw i32 %216, -1217
-  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, 2
+  %216 = add i16 %215, -1217
+  %switch.i.i.i.i = icmp ult i16 %216, 2
   br i1 %switch.i.i.i.i, label %_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.exit.i.i.i, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %213, %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i

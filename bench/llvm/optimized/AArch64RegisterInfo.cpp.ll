@@ -6126,8 +6126,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo14shouldCoale
   %35 = and i32 %30, 31
   %36 = shl nuw i32 1, %35
   %37 = and i32 %36, %34
-  %.not59 = icmp eq i32 %37, 0
-  br i1 %.not59, label %38, label %50
+  %.not58 = icmp eq i32 %37, 0
+  br i1 %.not58, label %38, label %50
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr %2, align 8
@@ -6141,8 +6141,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo14shouldCoale
   %47 = and i32 %42, 31
   %48 = shl nuw i32 1, %47
   %49 = and i32 %48, %46
-  %.not60 = icmp eq i32 %49, 0
-  br i1 %.not60, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %50
+  %.not59 = icmp eq i32 %49, 0
+  br i1 %.not59, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %50
 
 50:                                               ; preds = %38, %29
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -6187,19 +6187,18 @@ _ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit: ; preds = %
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr i8, ptr %75, i64 68
-  %.val.i.i.i.i.i.i.i67 = load i16, ptr %76, align 4
-  %77 = zext i16 %.val.i.i.i.i.i.i.i67 to i32
-  %.off.i.i.i.i.i.i.i.i68 = add nsw i32 %77, -467
-  %switch.i.i.i.i.i.i.i.i69 = icmp ult i32 %.off.i.i.i.i.i.i.i.i68, 4
-  br i1 %switch.i.i.i.i.i.i.i.i69, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %.preheader.i.i.i.i.i.i.preheader
+  %.val.i.i.i.i.i.i.i66 = load i16, ptr %76, align 4
+  %77 = add i16 %.val.i.i.i.i.i.i.i66, -467
+  %switch.i.i.i.i.i.i.i.i67 = icmp ult i16 %77, 4
+  br i1 %switch.i.i.i.i.i.i.i.i67, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %.preheader.i.i.i.i.i.i.preheader
 
 .preheader.i.i.i.i.i.i.preheader:                 ; preds = %_ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i
   %78 = phi ptr [ %85, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ %75, %_ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit ]
-  %.sroa.02.05.i.i.i.i.i.i70 = phi ptr [ %80, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ %.sroa.0.0.i.i, %_ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit ]
+  %.sroa.02.05.i.i.i.i.i.i68 = phi ptr [ %80, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ %.sroa.0.0.i.i, %_ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit ]
   br label %.preheader.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %.preheader.i.i.i.i.i.i.preheader, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i.i.i
-  %.pr3.i.i.i.i.i.i.i = phi ptr [ %80, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i.i.i ], [ %.sroa.02.05.i.i.i.i.i.i70, %.preheader.i.i.i.i.i.i.preheader ]
+  %.pr3.i.i.i.i.i.i.i = phi ptr [ %80, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i.i.i ], [ %.sroa.02.05.i.i.i.i.i.i68, %.preheader.i.i.i.i.i.i.preheader ]
   %79 = getelementptr inbounds nuw i8, ptr %.pr3.i.i.i.i.i.i.i, i64 24
   %80 = load ptr, ptr %79, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %80, null
@@ -6220,9 +6219,8 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb
 _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i: ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i.i.i
   %87 = getelementptr i8, ptr %85, i64 68
   %.val.i.i.i.i.i.i.i = load i16, ptr %87, align 4
-  %88 = zext i16 %.val.i.i.i.i.i.i.i to i32
-  %.off.i.i.i.i.i.i.i.i = add nsw i32 %88, -467
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 4
+  %88 = add i16 %.val.i.i.i.i.i.i.i, -467
+  %switch.i.i.i.i.i.i.i.i = icmp ult i16 %88, 4
   br i1 %switch.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %.preheader.i.i.i.i.i.i.preheader, !llvm.loop !54
 
 "_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit.thread": ; preds = %81, %.preheader.i.i.i.i.i.i, %71, %68, %50
@@ -6263,23 +6261,22 @@ _ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit: ; pre
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i27, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr i8, ptr %104, i64 68
-  %.val.i.i.i.i.i.i.i3171 = load i16, ptr %105, align 4
-  %106 = zext i16 %.val.i.i.i.i.i.i.i3171 to i32
-  %.off.i.i.i.i.i.i.i.i3272 = add nsw i32 %106, -467
-  %switch.i.i.i.i.i.i.i.i3373 = icmp ult i32 %.off.i.i.i.i.i.i.i.i3272, 4
-  br i1 %switch.i.i.i.i.i.i.i.i3373, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %.preheader.i.i.i.i.i.i34.preheader
+  %.val.i.i.i.i.i.i.i3169 = load i16, ptr %105, align 4
+  %106 = add i16 %.val.i.i.i.i.i.i.i3169, -467
+  %switch.i.i.i.i.i.i.i.i3270 = icmp ult i16 %106, 4
+  br i1 %switch.i.i.i.i.i.i.i.i3270, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %.preheader.i.i.i.i.i.i33.preheader
 
-.preheader.i.i.i.i.i.i34.preheader:               ; preds = %_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i
+.preheader.i.i.i.i.i.i33.preheader:               ; preds = %_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i
   %107 = phi ptr [ %112, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ %104, %_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit ]
-  %.sroa.02.08.i.i.i.i.i.i74 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ %.sroa.0.0.i.i27, %_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit ]
+  %.sroa.02.08.i.i.i.i.i.i71 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ %.sroa.0.0.i.i27, %_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit ]
   br label %.critedge2.i.i.i.i.i.i.i.i
 
-.critedge2.i.i.i.i.i.i.i.i:                       ; preds = %.critedge2.i.i.i.i.i.i.i.i.backedge, %.preheader.i.i.i.i.i.i34.preheader
-  %.pn.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.02.08.i.i.i.i.i.i74, %.preheader.i.i.i.i.i.i34.preheader ], [ %storemerge.i.i.i.i.i.i.i.i, %.critedge2.i.i.i.i.i.i.i.i.backedge ]
+.critedge2.i.i.i.i.i.i.i.i:                       ; preds = %.critedge2.i.i.i.i.i.i.i.i.backedge, %.preheader.i.i.i.i.i.i33.preheader
+  %.pn.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.02.08.i.i.i.i.i.i71, %.preheader.i.i.i.i.i.i33.preheader ], [ %storemerge.i.i.i.i.i.i.i.i, %.critedge2.i.i.i.i.i.i.i.i.backedge ]
   %storemerge.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i.i.i35 = icmp eq ptr %storemerge.i.i.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i35, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %108
+  %.not.i.i.i.i.i.i.i.i34 = icmp eq ptr %storemerge.i.i.i.i.i.i.i.i, null
+  br i1 %.not.i.i.i.i.i.i.i.i34, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %108
 
 108:                                              ; preds = %.critedge2.i.i.i.i.i.i.i.i
   %109 = load i32, ptr %storemerge.i.i.i.i.i.i.i.i, align 8
@@ -6299,10 +6296,9 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
 _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i: ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i.i.i
   %114 = getelementptr i8, ptr %112, i64 68
   %.val.i.i.i.i.i.i.i31 = load i16, ptr %114, align 4
-  %115 = zext i16 %.val.i.i.i.i.i.i.i31 to i32
-  %.off.i.i.i.i.i.i.i.i32 = add nsw i32 %115, -467
-  %switch.i.i.i.i.i.i.i.i33 = icmp ult i32 %.off.i.i.i.i.i.i.i.i32, 4
-  br i1 %switch.i.i.i.i.i.i.i.i33, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %.preheader.i.i.i.i.i.i34.preheader, !llvm.loop !57
+  %115 = add i16 %.val.i.i.i.i.i.i.i31, -467
+  %switch.i.i.i.i.i.i.i.i32 = icmp ult i16 %115, 4
+  br i1 %switch.i.i.i.i.i.i.i.i32, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %.preheader.i.i.i.i.i.i33.preheader, !llvm.loop !57
 
 "_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit": ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i, %.critedge2.i.i.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i, %.critedge2.i.i.i.i.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit, %_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit, %28, %38, %8, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit.thread", %24
   %.0 = phi i1 [ false, %24 ], [ true, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit.thread" ], [ true, %8 ], [ true, %38 ], [ true, %28 ], [ false, %_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit ], [ false, %_ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit ], [ true, %.critedge2.i.i.i.i.i.i.i.i ], [ false, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ], [ true, %.critedge2.i.i.i.i ], [ false, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEppEv.exit.i.i.i.i.i.i ]

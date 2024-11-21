@@ -5619,56 +5619,55 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %3, %25
   %28 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 8
   %29 = load i16, ptr %28, align 8
   %30 = and i16 %29, 127
-  %31 = zext nneg i16 %30 to i32
-  %32 = add nsw i32 %31, -55
-  %33 = icmp ult i32 %32, 4
-  %34 = getelementptr inbounds i8, ptr %.0.i16, i64 -64
-  %spec.select.i.i.i = select i1 %33, ptr %34, ptr null
+  %31 = add nsw i16 %30, -55
+  %32 = icmp ult i16 %31, 4
+  %33 = getelementptr inbounds i8, ptr %.0.i16, i64 -64
+  %spec.select.i.i.i = select i1 %32, ptr %33, ptr null
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclENS1_11DeclContextEEEDaPT0_.exit
 
 _ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclENS1_11DeclContextEEEDaPT0_.exit: ; preds = %_ZN5clang4Decl14getDeclContextEv.exit, %27
   %.0.i.i = phi ptr [ %spec.select.i.i.i, %27 ], [ null, %_ZN5clang4Decl14getDeclContextEv.exit ]
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   %.not = icmp eq ptr %spec.select.i.i, null
-  br i1 %.not, label %40, label %38
+  br i1 %.not, label %39, label %37
 
-38:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclENS1_11DeclContextEEEDaPT0_.exit
-  %39 = tail call noundef zeroext i1 @_ZNK5clang9NamedDecl19isCXXInstanceMemberEv(ptr noundef nonnull align 8 dereferenceable(48) %spec.select.i.i) #17
-  br label %40
+37:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclENS1_11DeclContextEEEDaPT0_.exit
+  %38 = tail call noundef zeroext i1 @_ZNK5clang9NamedDecl19isCXXInstanceMemberEv(ptr noundef nonnull align 8 dereferenceable(48) %spec.select.i.i) #17
+  br label %39
 
-40:                                               ; preds = %38, %_ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclENS1_11DeclContextEEEDaPT0_.exit
-  %41 = phi i1 [ false, %_ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclENS1_11DeclContextEEEDaPT0_.exit ], [ %39, %38 ]
-  tail call void @_ZN5clang4Sema16CXXThisScopeRAIIC1ERS0_PNS_4DeclENS_10QualifiersEb(ptr noundef nonnull align 8 dereferenceable(17) %37, ptr noundef nonnull align 8 dereferenceable(17560) %36, ptr noundef %.0.i.i, i64 0, i1 noundef zeroext %41) #17
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %37, ptr %42, align 8
-  %43 = tail call noundef i32 @_ZN5clang6Parser21ReenterTemplateScopesERNS0_15MultiParseScopeEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(2936) %1, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull %14) #17
-  %44 = load i32, ptr %15, align 4
-  %45 = and i32 %44, 127
-  switch i32 %45, label %52 [
-    i32 68, label %46
-    i32 36, label %46
-    i32 35, label %46
-    i32 34, label %46
-    i32 33, label %46
-    i32 32, label %46
-    i32 31, label %46
+39:                                               ; preds = %37, %_ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclENS1_11DeclContextEEEDaPT0_.exit
+  %40 = phi i1 [ false, %_ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclENS1_11DeclContextEEEDaPT0_.exit ], [ %38, %37 ]
+  tail call void @_ZN5clang4Sema16CXXThisScopeRAIIC1ERS0_PNS_4DeclENS_10QualifiersEb(ptr noundef nonnull align 8 dereferenceable(17) %36, ptr noundef nonnull align 8 dereferenceable(17560) %35, ptr noundef %.0.i.i, i64 0, i1 noundef zeroext %40) #17
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %36, ptr %41, align 8
+  %42 = tail call noundef i32 @_ZN5clang6Parser21ReenterTemplateScopesERNS0_15MultiParseScopeEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(2936) %1, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull %14) #17
+  %43 = load i32, ptr %15, align 4
+  %44 = and i32 %43, 127
+  switch i32 %44, label %51 [
+    i32 68, label %45
+    i32 36, label %45
+    i32 35, label %45
+    i32 34, label %45
+    i32 33, label %45
+    i32 32, label %45
+    i32 31, label %45
   ]
 
-46:                                               ; preds = %40, %40, %40, %40, %40, %40, %40
+45:                                               ; preds = %39, %39, %39, %39, %39, %39, %39
   store i8 1, ptr %6, align 8
-  %47 = load ptr, ptr %4, align 8
-  tail call void @_ZN5clang6Parser10EnterScopeEj(ptr noundef nonnull align 8 dereferenceable(2936) %47, i32 noundef 4194313) #17
-  %48 = load i32, ptr %5, align 8
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %5, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %36, i64 608
-  %51 = load ptr, ptr %50, align 8
-  tail call void @_ZN5clang4Sema27ActOnReenterFunctionContextEPNS_5ScopeEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(17560) %36, ptr noundef %51, ptr noundef nonnull %14) #17
-  br label %52
+  %46 = load ptr, ptr %4, align 8
+  tail call void @_ZN5clang6Parser10EnterScopeEj(ptr noundef nonnull align 8 dereferenceable(2936) %46, i32 noundef 4194313) #17
+  %47 = load i32, ptr %5, align 8
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %5, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 608
+  %50 = load ptr, ptr %49, align 8
+  tail call void @_ZN5clang4Sema27ActOnReenterFunctionContextEPNS_5ScopeEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(17560) %35, ptr noundef %50, ptr noundef nonnull %14) #17
+  br label %51
 
-52:                                               ; preds = %40, %46
+51:                                               ; preds = %39, %45
   ret void
 }
 

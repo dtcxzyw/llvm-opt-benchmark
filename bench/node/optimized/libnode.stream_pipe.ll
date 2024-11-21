@@ -1292,18 +1292,17 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit95: ; preds = %if.end.i87, %if
   %sub.i73.i = add i64 %27, 11
   %28 = inttoptr i64 %sub.i73.i to ptr
   %29 = load i16, ptr %28, align 2
-  %conv.i.i = zext i16 %29 to i32
   %cmp.i.i = icmp eq i16 %29, 1040
-  %sub.i.i20 = add nsw i32 %conv.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i.i20, 1002
-  %30 = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %30, label %if.then.i33.i, label %if.end.i31.i
+  %30 = add i16 %29, -1057
+  %cmp1.i.i = icmp ult i16 %30, 1002
+  %31 = or i1 %cmp.i.i, %cmp1.i.i
+  br i1 %31, label %if.then.i33.i, label %if.end.i31.i
 
 if.then.i33.i:                                    ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit95
   %sub.i97.i = add i64 %25, 31
-  %31 = inttoptr i64 %sub.i97.i to ptr
-  %32 = load i64, ptr %31, align 8
-  %33 = inttoptr i64 %32 to ptr
+  %32 = inttoptr i64 %sub.i97.i to ptr
+  %33 = load i64, ptr %32, align 8
+  %34 = inttoptr i64 %33 to ptr
   br label %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i
 
 if.end.i31.i:                                     ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit95
@@ -1311,121 +1310,118 @@ if.end.i31.i:                                     ; preds = %_ZNK2v820FunctionCa
   br label %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i
 
 _ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i: ; preds = %if.end.i31.i, %if.then.i33.i
-  %retval.i20.0.i = phi ptr [ %33, %if.then.i33.i ], [ %call7.i32.i, %if.end.i31.i ]
+  %retval.i20.0.i = phi ptr [ %34, %if.then.i33.i ], [ %call7.i32.i, %if.end.i31.i ]
   %cmp.i = icmp eq ptr %retval.i20.0.i, null
-  br i1 %cmp.i, label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit, label %if.end.i21
+  br i1 %cmp.i, label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit, label %if.end.i20
 
-if.end.i21:                                       ; preds = %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i
-  %34 = load i64, ptr %retval.i78.sroa.0.0, align 8
-  %sub.i85.i = add i64 %34, -1
-  %35 = inttoptr i64 %sub.i85.i to ptr
-  %36 = load i64, ptr %35, align 8
-  %sub.i67.i = add i64 %36, 11
-  %37 = inttoptr i64 %sub.i67.i to ptr
-  %38 = load i16, ptr %37, align 2
-  %conv.i43.i = zext i16 %38 to i32
-  %cmp.i45.i = icmp eq i16 %38, 1040
-  %sub.i47.i = add nsw i32 %conv.i43.i, -1057
-  %cmp1.i48.i = icmp ult i32 %sub.i47.i, 1002
-  %39 = select i1 %cmp.i45.i, i1 true, i1 %cmp1.i48.i
-  br i1 %39, label %if.then.i.i, label %if.end.i.i
+if.end.i20:                                       ; preds = %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i
+  %35 = load i64, ptr %retval.i78.sroa.0.0, align 8
+  %sub.i85.i = add i64 %35, -1
+  %36 = inttoptr i64 %sub.i85.i to ptr
+  %37 = load i64, ptr %36, align 8
+  %sub.i67.i = add i64 %37, 11
+  %38 = inttoptr i64 %sub.i67.i to ptr
+  %39 = load i16, ptr %38, align 2
+  %cmp.i45.i = icmp eq i16 %39, 1040
+  %40 = add i16 %39, -1057
+  %cmp1.i48.i = icmp ult i16 %40, 1002
+  %41 = or i1 %cmp.i45.i, %cmp1.i48.i
+  br i1 %41, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %if.end.i21
-  %sub.i91.i = add i64 %34, 39
-  %40 = inttoptr i64 %sub.i91.i to ptr
-  %41 = load i64, ptr %40, align 8
-  %42 = inttoptr i64 %41 to ptr
+if.then.i.i:                                      ; preds = %if.end.i20
+  %sub.i91.i = add i64 %35, 39
+  %42 = inttoptr i64 %sub.i91.i to ptr
+  %43 = load i64, ptr %42, align 8
+  %44 = inttoptr i64 %43 to ptr
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
-if.end.i.i:                                       ; preds = %if.end.i21
+if.end.i.i:                                       ; preds = %if.end.i20
   %call7.i.i = tail call noundef ptr @_ZN2v86Object38SlowGetAlignedPointerFromInternalFieldEi(ptr noundef nonnull align 1 dereferenceable(1) %retval.i78.sroa.0.0, i32 noundef 2) #12
   br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
 
 _ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit: ; preds = %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i, %if.then.i.i, %if.end.i.i
-  %retval.0.i = phi ptr [ null, %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i ], [ %42, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
-  %43 = load i32, ptr %length_.i121, align 8
-  %cmp2.i = icmp slt i32 %43, 2
+  %retval.0.i = phi ptr [ null, %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i ], [ %44, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %45 = load i32, ptr %length_.i121, align 8
+  %cmp2.i = icmp slt i32 %45, 2
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
-  %44 = load ptr, ptr %args, align 8
-  %arrayidx.i289 = getelementptr inbounds i8, ptr %44, i64 8
-  %45 = load ptr, ptr %arrayidx.i289, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %add1.i = add i64 %46, 608
-  %47 = inttoptr i64 %add1.i to ptr
+  %46 = load ptr, ptr %args, align 8
+  %arrayidx.i289 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = load ptr, ptr %arrayidx.i289, align 8
+  %48 = ptrtoint ptr %47 to i64
+  %add1.i = add i64 %48, 608
+  %49 = inttoptr i64 %add1.i to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit
   %values_.i = getelementptr inbounds i8, ptr %args, i64 8
-  %48 = load ptr, ptr %values_.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = load ptr, ptr %values_.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %50, i64 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
-  %retval.i.sroa.0.0 = phi ptr [ %47, %if.then.i ], [ %add.ptr.i, %if.end.i ]
-  %49 = load i64, ptr %retval.i.sroa.0.0, align 8
-  %sub.i79.i22 = add i64 %49, -1
-  %50 = inttoptr i64 %sub.i79.i22 to ptr
-  %51 = load i64, ptr %50, align 8
-  %sub.i73.i23 = add i64 %51, 11
-  %52 = inttoptr i64 %sub.i73.i23 to ptr
-  %53 = load i16, ptr %52, align 2
-  %conv.i.i24 = zext i16 %53 to i32
-  %cmp.i.i25 = icmp eq i16 %53, 1040
-  %sub.i.i26 = add nsw i32 %conv.i.i24, -1057
-  %cmp1.i.i27 = icmp ult i32 %sub.i.i26, 1002
-  %54 = select i1 %cmp.i.i25, i1 true, i1 %cmp1.i.i27
-  br i1 %54, label %if.then.i33.i45, label %if.end.i31.i28
+  %retval.i.sroa.0.0 = phi ptr [ %49, %if.then.i ], [ %add.ptr.i, %if.end.i ]
+  %51 = load i64, ptr %retval.i.sroa.0.0, align 8
+  %sub.i79.i21 = add i64 %51, -1
+  %52 = inttoptr i64 %sub.i79.i21 to ptr
+  %53 = load i64, ptr %52, align 8
+  %sub.i73.i22 = add i64 %53, 11
+  %54 = inttoptr i64 %sub.i73.i22 to ptr
+  %55 = load i16, ptr %54, align 2
+  %cmp.i.i23 = icmp eq i16 %55, 1040
+  %56 = add i16 %55, -1057
+  %cmp1.i.i24 = icmp ult i16 %56, 1002
+  %57 = or i1 %cmp.i.i23, %cmp1.i.i24
+  br i1 %57, label %if.then.i33.i40, label %if.end.i31.i25
 
-if.then.i33.i45:                                  ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %sub.i97.i46 = add i64 %49, 31
-  %55 = inttoptr i64 %sub.i97.i46 to ptr
-  %56 = load i64, ptr %55, align 8
-  %57 = inttoptr i64 %56 to ptr
-  br label %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i30
+if.then.i33.i40:                                  ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
+  %sub.i97.i41 = add i64 %51, 31
+  %58 = inttoptr i64 %sub.i97.i41 to ptr
+  %59 = load i64, ptr %58, align 8
+  %60 = inttoptr i64 %59 to ptr
+  br label %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i27
 
-if.end.i31.i28:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %call7.i32.i29 = tail call noundef ptr @_ZN2v86Object38SlowGetAlignedPointerFromInternalFieldEi(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0, i32 noundef 1) #12
-  br label %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i30
+if.end.i31.i25:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
+  %call7.i32.i26 = tail call noundef ptr @_ZN2v86Object38SlowGetAlignedPointerFromInternalFieldEi(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0, i32 noundef 1) #12
+  br label %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i27
 
-_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i30: ; preds = %if.end.i31.i28, %if.then.i33.i45
-  %retval.i20.0.i31 = phi ptr [ %57, %if.then.i33.i45 ], [ %call7.i32.i29, %if.end.i31.i28 ]
-  %cmp.i32 = icmp eq ptr %retval.i20.0.i31, null
-  br i1 %cmp.i32, label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit47, label %if.end.i33
+_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i27: ; preds = %if.end.i31.i25, %if.then.i33.i40
+  %retval.i20.0.i28 = phi ptr [ %60, %if.then.i33.i40 ], [ %call7.i32.i26, %if.end.i31.i25 ]
+  %cmp.i29 = icmp eq ptr %retval.i20.0.i28, null
+  br i1 %cmp.i29, label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit42, label %if.end.i30
 
-if.end.i33:                                       ; preds = %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i30
-  %58 = load i64, ptr %retval.i.sroa.0.0, align 8
-  %sub.i85.i34 = add i64 %58, -1
-  %59 = inttoptr i64 %sub.i85.i34 to ptr
-  %60 = load i64, ptr %59, align 8
-  %sub.i67.i35 = add i64 %60, 11
-  %61 = inttoptr i64 %sub.i67.i35 to ptr
-  %62 = load i16, ptr %61, align 2
-  %conv.i43.i36 = zext i16 %62 to i32
-  %cmp.i45.i37 = icmp eq i16 %62, 1040
-  %sub.i47.i38 = add nsw i32 %conv.i43.i36, -1057
-  %cmp1.i48.i39 = icmp ult i32 %sub.i47.i38, 1002
-  %63 = select i1 %cmp.i45.i37, i1 true, i1 %cmp1.i48.i39
-  br i1 %63, label %if.then.i.i43, label %if.end.i.i40
+if.end.i30:                                       ; preds = %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i27
+  %61 = load i64, ptr %retval.i.sroa.0.0, align 8
+  %sub.i85.i31 = add i64 %61, -1
+  %62 = inttoptr i64 %sub.i85.i31 to ptr
+  %63 = load i64, ptr %62, align 8
+  %sub.i67.i32 = add i64 %63, 11
+  %64 = inttoptr i64 %sub.i67.i32 to ptr
+  %65 = load i16, ptr %64, align 2
+  %cmp.i45.i33 = icmp eq i16 %65, 1040
+  %66 = add i16 %65, -1057
+  %cmp1.i48.i34 = icmp ult i16 %66, 1002
+  %67 = or i1 %cmp.i45.i33, %cmp1.i48.i34
+  br i1 %67, label %if.then.i.i38, label %if.end.i.i35
 
-if.then.i.i43:                                    ; preds = %if.end.i33
-  %sub.i91.i44 = add i64 %58, 39
-  %64 = inttoptr i64 %sub.i91.i44 to ptr
-  %65 = load i64, ptr %64, align 8
-  %66 = inttoptr i64 %65 to ptr
-  br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit47
+if.then.i.i38:                                    ; preds = %if.end.i30
+  %sub.i91.i39 = add i64 %61, 39
+  %68 = inttoptr i64 %sub.i91.i39 to ptr
+  %69 = load i64, ptr %68, align 8
+  %70 = inttoptr i64 %69 to ptr
+  br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit42
 
-if.end.i.i40:                                     ; preds = %if.end.i33
-  %call7.i.i41 = tail call noundef ptr @_ZN2v86Object38SlowGetAlignedPointerFromInternalFieldEi(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0, i32 noundef 2) #12
-  br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit47
+if.end.i.i35:                                     ; preds = %if.end.i30
+  %call7.i.i36 = tail call noundef ptr @_ZN2v86Object38SlowGetAlignedPointerFromInternalFieldEi(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0, i32 noundef 2) #12
+  br label %_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit42
 
-_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit47: ; preds = %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i30, %if.then.i.i43, %if.end.i.i40
-  %retval.0.i42 = phi ptr [ null, %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i30 ], [ %66, %if.then.i.i43 ], [ %call7.i.i41, %if.end.i.i40 ]
+_ZN4node10StreamBase10FromObjectEN2v85LocalINS1_6ObjectEEE.exit42: ; preds = %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i27, %if.then.i.i38, %if.end.i.i35
+  %retval.0.i37 = phi ptr [ null, %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit38.i27 ], [ %70, %if.then.i.i38 ], [ %call7.i.i36, %if.end.i.i35 ]
   %values_.i154 = getelementptr inbounds i8, ptr %args, i64 8
-  %67 = load ptr, ptr %values_.i154, align 8
-  %add.ptr.i155 = getelementptr inbounds i8, ptr %67, i64 -8
-  %call71 = tail call { i8, ptr } @_ZN4node10StreamPipe3NewEPNS_10StreamBaseES2_N2v85LocalINS3_6ObjectEEE(ptr noundef %retval.0.i, ptr noundef %retval.0.i42, ptr nonnull %add.ptr.i155)
+  %71 = load ptr, ptr %values_.i154, align 8
+  %add.ptr.i155 = getelementptr inbounds i8, ptr %71, i64 -8
+  %call71 = tail call { i8, ptr } @_ZN4node10StreamPipe3NewEPNS_10StreamBaseES2_N2v85LocalINS3_6ObjectEEE(ptr noundef %retval.0.i, ptr noundef %retval.0.i37, ptr nonnull %add.ptr.i155)
   ret void
 }
 
@@ -1444,18 +1440,17 @@ entry:
   %sub.i25.i = add i64 %3, 11
   %4 = inttoptr i64 %sub.i25.i to ptr
   %5 = load i16, ptr %4, align 2
-  %conv.i.i = zext i16 %5 to i32
   %cmp.i.i = icmp eq i16 %5, 1040
-  %sub.i.i = add nsw i32 %conv.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i.i, 1002
-  %6 = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %6, label %if.then.i.i, label %if.end.i.i
+  %6 = add i16 %5, -1057
+  %cmp1.i.i = icmp ult i16 %6, 1002
+  %7 = or i1 %cmp.i.i, %cmp1.i.i
+  br i1 %7, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %sub.i37.i = add i64 %1, 31
-  %7 = inttoptr i64 %sub.i37.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
+  %8 = inttoptr i64 %sub.i37.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %10 = inttoptr i64 %9 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -1463,7 +1458,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.i13.0.i = phi ptr [ %9, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.i13.0.i = phi ptr [ %10, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
   %cmp = icmp eq ptr %retval.i13.0.i, null
   br i1 %cmp, label %return, label %do.end
 
@@ -1473,38 +1468,38 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %writable_listener_ = getelementptr inbounds i8, ptr %retval.i13.0.i, i64 104
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %callback_scope.i)
-  %10 = ptrtoint ptr %writable_listener_ to i64
-  %sub.i.i.i = add i64 %10, -104
-  %11 = inttoptr i64 %sub.i.i.i to ptr
-  %wanted_data_.i = getelementptr inbounds i8, ptr %11, i64 72
+  %11 = ptrtoint ptr %writable_listener_ to i64
+  %sub.i.i.i = add i64 %11, -104
+  %12 = inttoptr i64 %sub.i.i.i to ptr
+  %wanted_data_.i = getelementptr inbounds i8, ptr %12, i64 72
   store i64 65536, ptr %wanted_data_.i, align 8
-  %is_reading_.i = getelementptr inbounds i8, ptr %11, i64 60
-  %12 = load i8, ptr %is_reading_.i, align 4
-  %tobool.i = trunc i8 %12 to i1
+  %is_reading_.i = getelementptr inbounds i8, ptr %12, i64 60
+  %13 = load i8, ptr %is_reading_.i, align 4
+  %tobool.i = trunc i8 %13 to i1
   br i1 %tobool.i, label %_ZN4node10StreamPipe16WritableListener18OnStreamWantsWriteEm.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %do.end
-  %is_closed_.i = getelementptr inbounds i8, ptr %11, i64 62
-  %13 = load i8, ptr %is_closed_.i, align 2
-  %tobool3.i = trunc i8 %13 to i1
+  %is_closed_.i = getelementptr inbounds i8, ptr %12, i64 62
+  %14 = load i8, ptr %is_closed_.i, align 2
+  %tobool3.i = trunc i8 %14 to i1
   br i1 %tobool3.i, label %_ZN4node10StreamPipe16WritableListener18OnStreamWantsWriteEm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %realm_.i.i = getelementptr inbounds i8, ptr %11, i64 16
-  %14 = load ptr, ptr %realm_.i.i, align 8
-  %env_.i.i.i = getelementptr inbounds i8, ptr %14, i64 176
-  %15 = load ptr, ptr %env_.i.i.i, align 8
-  %isolate_.i.i = getelementptr inbounds i8, ptr %15, i64 88
-  %16 = load ptr, ptr %isolate_.i.i, align 8
-  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i, ptr noundef %16) #12
-  call void @_ZN4node21InternalCallbackScopeC1EPNS_9AsyncWrapEi(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope.i, ptr noundef nonnull %11, i32 noundef 2) #12
+  %realm_.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = load ptr, ptr %realm_.i.i, align 8
+  %env_.i.i.i = getelementptr inbounds i8, ptr %15, i64 176
+  %16 = load ptr, ptr %env_.i.i.i, align 8
+  %isolate_.i.i = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = load ptr, ptr %isolate_.i.i, align 8
+  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i, ptr noundef %17) #12
+  call void @_ZN4node21InternalCallbackScopeC1EPNS_9AsyncWrapEi(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope.i, ptr noundef nonnull %12, i32 noundef 2) #12
   store i8 1, ptr %is_reading_.i, align 4
-  %stream_.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
-  %17 = load ptr, ptr %stream_.i.i.i, align 8
-  %vtable.i = load ptr, ptr %17, align 8
+  %stream_.i.i.i = getelementptr inbounds i8, ptr %12, i64 88
+  %18 = load ptr, ptr %stream_.i.i.i, align 8
+  %vtable.i = load ptr, ptr %18, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %18 = load ptr, ptr %vfn.i, align 8
-  %call8.i = call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(32) %17) #12
+  %19 = load ptr, ptr %vfn.i, align 8
+  %call8.i = call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(32) %18) #12
   call void @_ZN4node21InternalCallbackScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope.i) #12
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #12
   br label %_ZN4node10StreamPipe16WritableListener18OnStreamWantsWriteEm.exit
@@ -1529,18 +1524,17 @@ entry:
   %sub.i25.i = add i64 %3, 11
   %4 = inttoptr i64 %sub.i25.i to ptr
   %5 = load i16, ptr %4, align 2
-  %conv.i.i = zext i16 %5 to i32
   %cmp.i.i = icmp eq i16 %5, 1040
-  %sub.i.i = add nsw i32 %conv.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i.i, 1002
-  %6 = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %6, label %if.then.i.i, label %if.end.i.i
+  %6 = add i16 %5, -1057
+  %cmp1.i.i = icmp ult i16 %6, 1002
+  %7 = or i1 %cmp.i.i, %cmp1.i.i
+  br i1 %7, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %sub.i37.i = add i64 %1, 31
-  %7 = inttoptr i64 %sub.i37.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
+  %8 = inttoptr i64 %sub.i37.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %10 = inttoptr i64 %9 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -1548,7 +1542,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.i13.0.i = phi ptr [ %9, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.i13.0.i = phi ptr [ %10, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
   %cmp = icmp eq ptr %retval.i13.0.i, null
   br i1 %cmp, label %return, label %do.end
 
@@ -1571,18 +1565,17 @@ entry:
   %sub.i25.i = add i64 %3, 11
   %4 = inttoptr i64 %sub.i25.i to ptr
   %5 = load i16, ptr %4, align 2
-  %conv.i.i = zext i16 %5 to i32
   %cmp.i.i = icmp eq i16 %5, 1040
-  %sub.i.i = add nsw i32 %conv.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i.i, 1002
-  %6 = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %6, label %if.then.i.i, label %if.end.i.i
+  %6 = add i16 %5, -1057
+  %cmp1.i.i = icmp ult i16 %6, 1002
+  %7 = or i1 %cmp.i.i, %cmp1.i.i
+  br i1 %7, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %sub.i37.i = add i64 %1, 31
-  %7 = inttoptr i64 %sub.i37.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
+  %8 = inttoptr i64 %sub.i37.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %10 = inttoptr i64 %9 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -1590,25 +1583,25 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.i13.0.i = phi ptr [ %9, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.i13.0.i = phi ptr [ %10, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
   %cmp = icmp eq ptr %retval.i13.0.i, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
-  %10 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 24
   %is_closed_ = getelementptr inbounds i8, ptr %retval.i13.0.i, i64 62
-  %11 = load i8, ptr %is_closed_, align 2
-  %tobool = trunc i8 %11 to i1
+  %12 = load i8, ptr %is_closed_, align 2
+  %tobool = trunc i8 %12 to i1
   %. = select i1 %tobool, i64 56, i64 64
-  %arrayidx.i33 = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = load ptr, ptr %arrayidx.i33, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %add.i.i = add i64 %13, 576
+  %arrayidx.i33 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = load ptr, ptr %arrayidx.i33, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %add.i.i = add i64 %14, 576
   %add1.i.i = add i64 %add.i.i, %.
-  %14 = inttoptr i64 %add1.i.i to ptr
-  %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr %arrayidx.i, align 8
+  %15 = inttoptr i64 %add1.i.i to ptr
+  %16 = load i64, ptr %15, align 8
+  store i64 %16, ptr %arrayidx.i, align 8
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %do.end
@@ -1626,18 +1619,17 @@ entry:
   %sub.i25.i = add i64 %3, 11
   %4 = inttoptr i64 %sub.i25.i to ptr
   %5 = load i16, ptr %4, align 2
-  %conv.i.i = zext i16 %5 to i32
   %cmp.i.i = icmp eq i16 %5, 1040
-  %sub.i.i = add nsw i32 %conv.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i.i, 1002
-  %6 = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %6, label %if.then.i.i, label %if.end.i.i
+  %6 = add i16 %5, -1057
+  %cmp1.i.i = icmp ult i16 %6, 1002
+  %7 = or i1 %cmp.i.i, %cmp1.i.i
+  br i1 %7, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %sub.i37.i = add i64 %1, 31
-  %7 = inttoptr i64 %sub.i37.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
+  %8 = inttoptr i64 %sub.i37.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %10 = inttoptr i64 %9 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -1645,16 +1637,16 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.i13.0.i = phi ptr [ %9, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.i13.0.i = phi ptr [ %10, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
   %cmp = icmp eq ptr %retval.i13.0.i, null
   br i1 %cmp, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
   %pending_writes_ = getelementptr inbounds i8, ptr %retval.i13.0.i, i64 56
-  %10 = load i32, ptr %pending_writes_, align 8
-  %conv.i = sext i32 %10 to i64
-  %11 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 24
+  %11 = load i32, ptr %pending_writes_, align 8
+  %conv.i = sext i32 %11 to i64
+  %12 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 24
   %shl.i = shl nsw i64 %conv.i, 32
   store i64 %shl.i, ptr %arrayidx.i, align 8
   br label %return

@@ -7917,21 +7917,20 @@ do.body:                                          ; preds = %entry, %lor.lhs.fal
   %sub.i149 = add i64 %2, 11
   %3 = inttoptr i64 %sub.i149 to ptr
   %4 = load i16, ptr %3, align 2
-  %conv.i = zext i16 %4 to i32
   %cmp.i = icmp eq i16 %4, 1040
-  %sub.i = add nsw i32 %conv.i, -1057
-  %cmp1.i = icmp ult i32 %sub.i, 1002
-  %5 = select i1 %cmp.i, i1 true, i1 %cmp1.i
-  br i1 %5, label %if.then.i96, label %if.end.i94
+  %5 = add i16 %4, -1057
+  %cmp1.i = icmp ult i16 %5, 1002
+  %6 = or i1 %cmp.i, %cmp1.i
+  br i1 %6, label %if.then.i96, label %if.end.i94
 
 if.then.i96:                                      ; preds = %do.body
   %mul.i97 = shl nsw i32 %index, 3
-  %6 = sext i32 %mul.i97 to i64
-  %add.i172 = add nsw i64 %6, 23
+  %7 = sext i32 %mul.i97 to i64
+  %add.i172 = add nsw i64 %7, 23
   %sub.i173 = add i64 %add.i172, %0
-  %7 = inttoptr i64 %sub.i173 to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
+  %8 = inttoptr i64 %sub.i173 to ptr
+  %9 = load i64, ptr %8, align 8
+  %10 = inttoptr i64 %9 to ptr
   br label %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit101
 
 if.end.i94:                                       ; preds = %do.body
@@ -7939,7 +7938,7 @@ if.end.i94:                                       ; preds = %do.body
   br label %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit101
 
 _ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit101: ; preds = %if.end.i94, %if.then.i96
-  %retval.i82.0 = phi ptr [ %9, %if.then.i96 ], [ %call7.i95, %if.end.i94 ]
+  %retval.i82.0 = phi ptr [ %10, %if.then.i96 ], [ %call7.i95, %if.end.i94 ]
   %cmp.not = icmp eq ptr %retval.i82.0, null
   br i1 %cmp.not, label %return, label %do.body11
 
@@ -7950,31 +7949,30 @@ do.body11:                                        ; preds = %_ZN2v86Object34GetA
 
 if.end13:                                         ; preds = %lor.lhs.false
   %isolate_data_.i = getelementptr inbounds i8, ptr %callback_data, i64 96
-  %10 = load ptr, ptr %isolate_data_.i, align 8
+  %11 = load ptr, ptr %isolate_data_.i, align 8
   %call3.i = tail call noundef i32 @_ZNK2v86Object18InternalFieldCountEv(ptr noundef nonnull align 1 dereferenceable(1) %holder.coerce) #23
   %cmp.i26 = icmp slt i32 %call3.i, 2
   br i1 %cmp.i26, label %if.then19, label %if.end.i27
 
 if.end.i27:                                       ; preds = %if.end13
-  %11 = load i64, ptr %holder.coerce, align 8
-  %sub.i30.i = add i64 %11, -1
-  %12 = inttoptr i64 %sub.i30.i to ptr
-  %13 = load i64, ptr %12, align 8
-  %sub.i24.i = add i64 %13, 11
-  %14 = inttoptr i64 %sub.i24.i to ptr
-  %15 = load i16, ptr %14, align 2
-  %conv.i.i = zext i16 %15 to i32
-  %cmp.i.i = icmp eq i16 %15, 1040
-  %sub.i.i = add nsw i32 %conv.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i.i, 1002
-  %16 = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %16, label %if.then.i.i, label %if.end.i.i
+  %12 = load i64, ptr %holder.coerce, align 8
+  %sub.i30.i = add i64 %12, -1
+  %13 = inttoptr i64 %sub.i30.i to ptr
+  %14 = load i64, ptr %13, align 8
+  %sub.i24.i = add i64 %14, 11
+  %15 = inttoptr i64 %sub.i24.i to ptr
+  %16 = load i16, ptr %15, align 2
+  %cmp.i.i = icmp eq i16 %16, 1040
+  %17 = add i16 %16, -1057
+  %cmp1.i.i = icmp ult i16 %17, 1002
+  %18 = or i1 %cmp.i.i, %cmp1.i.i
+  br i1 %18, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i27
-  %sub.i36.i = add i64 %11, 23
-  %17 = inttoptr i64 %sub.i36.i to ptr
-  %18 = load i64, ptr %17, align 8
-  %19 = inttoptr i64 %18 to ptr
+  %sub.i36.i = add i64 %12, 23
+  %19 = inttoptr i64 %sub.i36.i to ptr
+  %20 = load i64, ptr %19, align 8
+  %21 = inttoptr i64 %20 to ptr
   br label %_ZN4node10BaseObject12IsBaseObjectEPNS_11IsolateDataEN2v85LocalINS3_6ObjectEEE.exit
 
 if.end.i.i:                                       ; preds = %if.end.i27
@@ -7982,57 +7980,56 @@ if.end.i.i:                                       ; preds = %if.end.i27
   br label %_ZN4node10BaseObject12IsBaseObjectEPNS_11IsolateDataEN2v85LocalINS3_6ObjectEEE.exit
 
 _ZN4node10BaseObject12IsBaseObjectEPNS_11IsolateDataEN2v85LocalINS3_6ObjectEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.i.0.i = phi ptr [ %19, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
-  %wrapper_data_.i.i = getelementptr inbounds i8, ptr %10, i64 4184
-  %20 = load ptr, ptr %wrapper_data_.i.i, align 8
-  %non_cppgc_id.i.i = getelementptr inbounds i8, ptr %20, i64 2
+  %retval.i.0.i = phi ptr [ %21, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %wrapper_data_.i.i = getelementptr inbounds i8, ptr %11, i64 4184
+  %22 = load ptr, ptr %wrapper_data_.i.i, align 8
+  %non_cppgc_id.i.i = getelementptr inbounds i8, ptr %22, i64 2
   %cmp7.i = icmp eq ptr %retval.i.0.i, %non_cppgc_id.i.i
   br i1 %cmp7.i, label %if.end24, label %if.then19
 
 if.then19:                                        ; preds = %if.end13, %_ZN4node10BaseObject12IsBaseObjectEPNS_11IsolateDataEN2v85LocalINS3_6ObjectEEE.exit
   store i32 %index, ptr %ref.tmp, align 4
   store ptr %holder.coerce, ptr %ref.tmp20, align 8
-  %21 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 72), align 1
-  %tobool.i.i = trunc i8 %21 to i1
+  %23 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 72), align 1
+  %tobool.i.i = trunc i8 %23 to i1
   br i1 %tobool.i.i, label %if.end.i219, label %return
 
 if.end.i219:                                      ; preds = %if.then19
-  %22 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJiPN2v86ObjectEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %22, ptr noundef nonnull @.str.172, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20) #24
+  %24 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJiPN2v86ObjectEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %24, ptr noundef nonnull @.str.172, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp20) #24
   br label %return
 
 if.end24:                                         ; preds = %_ZN4node10BaseObject12IsBaseObjectEPNS_11IsolateDataEN2v85LocalINS3_6ObjectEEE.exit
   store i32 %index, ptr %ref.tmp25, align 4
   store ptr %holder.coerce, ptr %ref.tmp26, align 8
-  %23 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 72), align 1
-  %tobool.i.i230 = trunc i8 %23 to i1
+  %25 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 72), align 1
+  %tobool.i.i230 = trunc i8 %25 to i1
   br i1 %tobool.i.i230, label %if.end.i233, label %_ZN4node5DebugIJiPN2v86ObjectEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit234
 
 if.end.i233:                                      ; preds = %if.end24
-  %24 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJiPN2v86ObjectEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %24, ptr noundef nonnull @.str.173, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26) #24
+  %26 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJiPN2v86ObjectEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %26, ptr noundef nonnull @.str.173, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26) #24
   br label %_ZN4node5DebugIJiPN2v86ObjectEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit234
 
 _ZN4node5DebugIJiPN2v86ObjectEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit234: ; preds = %if.end24, %if.end.i233
-  %25 = load i64, ptr %holder.coerce, align 8
-  %sub.i161 = add i64 %25, -1
-  %26 = inttoptr i64 %sub.i161 to ptr
-  %27 = load i64, ptr %26, align 8
-  %sub.i143 = add i64 %27, 11
-  %28 = inttoptr i64 %sub.i143 to ptr
-  %29 = load i16, ptr %28, align 2
-  %conv.i119 = zext i16 %29 to i32
-  %cmp.i121 = icmp eq i16 %29, 1040
-  %sub.i123 = add nsw i32 %conv.i119, -1057
-  %cmp1.i124 = icmp ult i32 %sub.i123, 1002
-  %30 = select i1 %cmp.i121, i1 true, i1 %cmp1.i124
-  br i1 %30, label %if.then.i, label %if.end.i
+  %27 = load i64, ptr %holder.coerce, align 8
+  %sub.i161 = add i64 %27, -1
+  %28 = inttoptr i64 %sub.i161 to ptr
+  %29 = load i64, ptr %28, align 8
+  %sub.i143 = add i64 %29, 11
+  %30 = inttoptr i64 %sub.i143 to ptr
+  %31 = load i16, ptr %30, align 2
+  %cmp.i121 = icmp eq i16 %31, 1040
+  %32 = add i16 %31, -1057
+  %cmp1.i124 = icmp ult i16 %32, 1002
+  %33 = or i1 %cmp.i121, %cmp1.i124
+  br i1 %33, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN4node5DebugIJiPN2v86ObjectEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit234
-  %sub.i167 = add i64 %25, 31
-  %31 = inttoptr i64 %sub.i167 to ptr
-  %32 = load i64, ptr %31, align 8
-  %33 = inttoptr i64 %32 to ptr
+  %sub.i167 = add i64 %27, 31
+  %34 = inttoptr i64 %sub.i167 to ptr
+  %35 = load i64, ptr %34, align 8
+  %36 = inttoptr i64 %35 to ptr
   br label %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit
 
 if.end.i:                                         ; preds = %_ZN4node5DebugIJiPN2v86ObjectEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit234
@@ -8040,7 +8037,7 @@ if.end.i:                                         ; preds = %_ZN4node5DebugIJiPN
   br label %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit
 
 _ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit: ; preds = %if.end.i, %if.then.i
-  %retval.i.0 = phi ptr [ %33, %if.then.i ], [ %call7.i, %if.end.i ]
+  %retval.i.0 = phi ptr [ %36, %if.then.i ], [ %call7.i, %if.end.i ]
   %cmp30 = icmp eq ptr %retval.i.0, null
   br i1 %cmp30, label %return, label %if.end34
 
@@ -8051,8 +8048,8 @@ if.end34:                                         ; preds = %_ZN2v86Object34GetA
 if.then36:                                        ; preds = %if.end34
   %call38 = call noalias noundef nonnull dereferenceable(2) ptr @_Znam(i64 noundef 2) #26
   %type_.i = getelementptr inbounds i8, ptr %retval.i.0, i64 32
-  %34 = load i8, ptr %type_.i, align 8
-  store i8 %34, ptr %call38, align 1
+  %37 = load i8, ptr %type_.i, align 8
+  store i8 %37, ptr %call38, align 1
   %mode.i = getelementptr inbounds i8, ptr %call38, i64 1
   store i8 0, ptr %mode.i, align 1
   br label %return
@@ -8060,32 +8057,32 @@ if.then36:                                        ; preds = %if.end34
 if.end42:                                         ; preds = %if.end34
   store ptr %holder.coerce, ptr %ref.tmp43, align 8
   call void @_ZNK4node18SnapshotableObject11GetTypeNameB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(33) %retval.i.0)
-  %35 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 72), align 1
-  %tobool.i.i245 = trunc i8 %35 to i1
+  %38 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 72), align 1
+  %tobool.i.i245 = trunc i8 %38 to i1
   br i1 %tobool.i.i245, label %if.end.i248, label %_ZN4node5DebugIJPN2v86ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit
 
 if.end.i248:                                      ; preds = %if.end42
-  %36 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJPN2v86ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %36, ptr noundef nonnull @.str.174, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #24
+  %39 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJPN2v86ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %39, ptr noundef nonnull @.str.174, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #24
   br label %_ZN4node5DebugIJPN2v86ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit
 
 _ZN4node5DebugIJPN2v86ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit: ; preds = %if.end42, %if.end.i248
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #23
   %vtable = load ptr, ptr %retval.i.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
-  %37 = load ptr, ptr %vfn, align 8
-  %call46 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(33) %retval.i.0, i32 noundef %index) #23
+  %40 = load ptr, ptr %vfn, align 8
+  %call46 = call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(33) %retval.i.0, i32 noundef %index) #23
   %length = getelementptr inbounds i8, ptr %call46, i64 8
-  %38 = load i64, ptr %length, align 8
-  %conv48 = trunc i64 %38 to i32
+  %41 = load i64, ptr %length, align 8
+  %conv48 = trunc i64 %41 to i32
   store i32 %conv48, ptr %ref.tmp47, align 4
-  %39 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 72), align 1
-  %tobool.i.i258 = trunc i8 %39 to i1
+  %42 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 72), align 1
+  %tobool.i.i258 = trunc i8 %42 to i1
   br i1 %tobool.i.i258, label %if.end.i261, label %return
 
 if.end.i261:                                      ; preds = %_ZN4node5DebugIJPN2v86ObjectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit
-  %40 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJiEEEvP8_IO_FILEPKcDpOT_(ptr noundef %40, ptr noundef nonnull @.str.175, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp47) #24
+  %43 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJiEEEvP8_IO_FILEPKcDpOT_(ptr noundef %43, ptr noundef nonnull @.str.175, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp47) #24
   %.pre = load i64, ptr %length, align 8
   %.pre29 = trunc i64 %.pre to i32
   br label %return

@@ -7768,9 +7768,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15TargetInstrInfo22isMBBSafeToOutl
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 68
   %22 = load i16, ptr %21, align 4
-  %23 = zext i16 %22 to i32
-  %.off = add nsw i32 %23, -37
-  %switch = icmp ult i32 %.off, 2
+  %23 = add i16 %22, -37
+  %switch = icmp ult i16 %23, 2
   br i1 %switch, label %25, label %24
 
 24:                                               ; preds = %18, %16, %15

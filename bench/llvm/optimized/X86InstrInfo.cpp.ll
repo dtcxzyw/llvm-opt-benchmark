@@ -11112,9 +11112,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRefC
 _ZN4llvmeqENS_9StringRefES0_.exit.thread23:       ; preds = %16, %_ZN4llvm9StringRefC2EPKc.exit, %10, %_ZN4llvmeqENS_9StringRefES0_.exit, %3
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %22 = load i16, ptr %21, align 4
-  %23 = zext i16 %22 to i32
-  %.off = add nsw i32 %23, -4861
-  %switch = icmp ult i32 %.off, 2
+  %23 = add i16 %22, -4861
+  %switch = icmp ult i16 %23, 2
   br i1 %switch, label %24, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 24:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread23
@@ -33707,9 +33706,8 @@ define linkonce_odr hidden void @_ZN4llvm14X86AddressMode14getFullAddressERNS_15
 define dso_local noundef zeroext i1 @_ZN4llvm12X86InstrInfo18isThreeOperandsLEAERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
-  %4 = zext i16 %3 to i32
-  %.off = add nsw i32 %4, -2093
-  %switch = icmp ult i32 %.off, 4
+  %4 = add i16 %3, -2093
+  %switch = icmp ult i16 %4, 4
   br i1 %switch, label %5, label %33
 
 5:                                                ; preds = %1
@@ -37468,9 +37466,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112LDTLSCleanup9Visit
   %.01016 = phi i32 [ %1, %.lr.ph ], [ %.212, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.03.018, i64 68
   %22 = load i16, ptr %21, align 4
-  %23 = zext i16 %22 to i32
-  %.off = add nsw i32 %23, -4911
-  %switch = icmp ult i32 %.off, 2
+  %23 = add i16 %22, -4911
+  %switch = icmp ult i16 %23, 2
   br i1 %switch, label %24, label %97
 
 24:                                               ; preds = %20

@@ -2877,10 +2877,10 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryL
   br label %_ZStltIJRmRiEJS0_S1_EEbRKSt5tupleIJDpT_EERKS2_IJDpT0_EE.exit
 
 37:                                               ; preds = %25, %17
-  %38 = add nsw i32 %20, -48
-  %39 = icmp ult i32 %38, 10
-  %40 = add nsw i32 %22, -48
-  %41 = icmp ult i32 %40, 10
+  %38 = add i8 %18, -48
+  %39 = icmp ult i8 %38, 10
+  %40 = add i8 %19, -48
+  %41 = icmp ult i8 %40, 10
   %42 = or i1 %39, %41
   br i1 %42, label %43, label %128
 

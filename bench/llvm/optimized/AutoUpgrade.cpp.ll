@@ -17521,9 +17521,8 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %20, %24
   %.sroa.0.0.i.i = phi ptr [ %28, %24 ], [ %22, %20 ]
   %29 = load ptr, ptr %.sroa.0.0.i.i, align 8
   %30 = load i8, ptr %29, align 4
-  %31 = zext i8 %30 to i32
-  %.off.i.i.i.i.i.i.i.i = add nsw i32 %31, -5
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 31
+  %31 = add i8 %30, -5
+  %switch.i.i.i.i.i.i.i.i = icmp ult i8 %31, 31
   %32 = icmp ugt i32 %.0.i.i, 2
   %or.cond = and i1 %32, %switch.i.i.i.i.i.i.i.i
   br i1 %or.cond, label %96, label %33
@@ -20134,9 +20133,8 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
   %110 = load i16, ptr %109, align 2
   %111 = lshr i16 %110, 4
   %112 = and i16 %111, 31
-  %113 = zext nneg i16 %112 to i32
-  %.off.i.i.i.i.i.i.i.i = add nsw i32 %113, -11
-  %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 4
+  %113 = add nsw i16 %112, -11
+  %switch.i.i.i.i.i.i.i.i = icmp ult i16 %113, 4
   br i1 %switch.i.i.i.i.i.i.i.i, label %114, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_135AMDGPUUnsafeFPAtomicsUpgradeVisitorEvE5visitERNS_11InstructionE.exit.i.i.i.i
 
 114:                                              ; preds = %108

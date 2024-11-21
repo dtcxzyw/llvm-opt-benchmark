@@ -117,11 +117,11 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @virtio_blk_fini() #0 section ".exit.text" align 16 {
-  tail call void @unregister_virtio_driver(ptr noundef nonnull @virtio_blk) #13
+  tail call void @unregister_virtio_driver(ptr noundef nonnull @virtio_blk) #14
   %1 = load i32, ptr @major, align 4
-  tail call void @unregister_blkdev(i32 noundef %1, ptr noundef nonnull @.str) #13
+  tail call void @unregister_blkdev(i32 noundef %1, ptr noundef nonnull @.str) #14
   %2 = load ptr, ptr @virtblk_wq, align 8
-  tail call void @destroy_workqueue(ptr noundef %2) #13
+  tail call void @destroy_workqueue(ptr noundef %2) #14
   ret void
 }
 
@@ -136,31 +136,31 @@ declare dso_local void @destroy_workqueue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @virtio_blk_init() #0 section ".init.text" align 16 {
-  %1 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.29, i32 noundef 0, i32 noundef 0) #13
+  %1 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.29, i32 noundef 0, i32 noundef 0) #14
   store ptr %1, ptr @virtblk_wq, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %14, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__register_blkdev(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef null) #13
+  %4 = tail call i32 @__register_blkdev(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef null) #14
   store i32 %4, ptr @major, align 4
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @register_virtio_driver(ptr noundef nonnull @virtio_blk) #13
+  %7 = tail call i32 @register_virtio_driver(ptr noundef nonnull @virtio_blk) #14
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @major, align 4
-  tail call void @unregister_blkdev(i32 noundef %10, ptr noundef nonnull @.str) #13
+  tail call void @unregister_blkdev(i32 noundef %10, ptr noundef nonnull @.str) #14
   br label %11
 
 11:                                               ; preds = %9, %3
   %12 = phi i32 [ %7, %9 ], [ %4, %3 ]
   %13 = load ptr, ptr @virtblk_wq, align 8
-  tail call void @destroy_workqueue(ptr noundef %13) #13
+  tail call void @destroy_workqueue(ptr noundef %13) #14
   br label %14
 
 14:                                               ; preds = %11, %6, %0
@@ -194,16 +194,16 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %23, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.virtblk_probe) #14
-  br label %367
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %23, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.virtblk_probe) #15
+  br label %366
 
 24:                                               ; preds = %1
-  %25 = tail call i32 @ida_alloc_range(ptr noundef nonnull @vd_index_ida, i32 noundef 0, i32 noundef 65535, i32 noundef 3264) #13
+  %25 = tail call i32 @ida_alloc_range(ptr noundef nonnull @vd_index_ida, i32 noundef 0, i32 noundef 65535, i32 noundef 3264) #14
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %367, label %27
+  br i1 %26, label %366, label %27
 
 27:                                               ; preds = %24
-  tail call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 2) #13
+  tail call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 2) #14
   %28 = getelementptr inbounds i8, ptr %0, i64 784
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 4
@@ -211,14 +211,14 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
   store i32 0, ptr %3, align 4, !annotation !5
-  %33 = tail call i32 @__SCT__might_resched() #13
+  %33 = tail call i32 @__SCT__might_resched() #14
   %34 = load ptr, ptr %18, align 8
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %3, i32 noundef 4) #13
+  call void %35(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %3, i32 noundef 4) #14
   %36 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
   br label %37
 
 37:                                               ; preds = %32, %27
@@ -228,14 +228,14 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   %41 = call i32 @llvm.umin.i32(i32 %38, i32 32766)
   %42 = select i1 %40, i32 %41, i32 1
   %43 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
-  %44 = call noalias align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 3264, i64 noundef 288) #15
+  %44 = call noalias align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 3264, i64 noundef 288) #16
   %45 = getelementptr inbounds i8, ptr %0, i64 792
   store ptr %44, ptr %45, align 8
   %46 = icmp eq ptr %44, null
-  br i1 %46, label %365, label %47
+  br i1 %46, label %364, label %47
 
 47:                                               ; preds = %37
-  call void @__mutex_init(ptr noundef nonnull %44, ptr noundef nonnull @.str.3, ptr noundef nonnull @virtblk_probe.__key) #13
+  call void @__mutex_init(ptr noundef nonnull %44, ptr noundef nonnull @.str.3, ptr noundef nonnull @virtblk_probe.__key) #14
   %48 = getelementptr inbounds i8, ptr %44, i64 32
   store ptr %0, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %44, i64 216
@@ -248,7 +248,7 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   store ptr @virtblk_config_changed_work, ptr %52, align 8
   %53 = call fastcc i32 @init_vq(ptr noundef nonnull %44)
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %363
+  br i1 %54, label %55, label %362
 
 55:                                               ; preds = %47
   %56 = load i32, ptr @virtblk_queue_depth, align 4
@@ -294,12 +294,12 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   %84 = icmp eq i32 %83, 0
   %85 = select i1 %84, i32 1, i32 3
   store i32 %85, ptr %81, align 8
-  %86 = call i32 @blk_mq_alloc_tag_set(ptr noundef %71) #13
+  %86 = call i32 @blk_mq_alloc_tag_set(ptr noundef %71) #14
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %356
+  br i1 %87, label %88, label %355
 
 88:                                               ; preds = %69
-  %89 = call ptr @__blk_mq_alloc_disk(ptr noundef %71, ptr noundef nonnull %44, ptr noundef nonnull @virtblk_probe.__key.5) #13
+  %89 = call ptr @__blk_mq_alloc_disk(ptr noundef %71, ptr noundef nonnull %44, ptr noundef nonnull @virtblk_probe.__key.5) #14
   %90 = getelementptr inbounds i8, ptr %44, i64 40
   store ptr %89, ptr %90, align 8
   %91 = icmp ugt ptr %89, inttoptr (i64 -4096 to ptr)
@@ -308,7 +308,7 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
 92:                                               ; preds = %88
   %93 = ptrtoint ptr %89 to i64
   %94 = trunc i64 %93 to i32
-  br label %354
+  br label %353
 
 95:                                               ; preds = %88
   %96 = getelementptr inbounds i8, ptr %89, i64 80
@@ -364,25 +364,25 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   store ptr @virtblk_fops, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %44, i64 248
   store i32 %25, ptr %129, align 8
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 11) #13
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 11) #14
   %130 = load i64, ptr %28, align 8
   %131 = and i64 %130, 2048
   %132 = icmp eq i64 %131, 0
   br i1 %132, label %138, label %133
 
 133:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
   store i8 0, ptr %2, align 1, !annotation !5
-  %134 = call i32 @__SCT__might_resched() #13
+  %134 = call i32 @__SCT__might_resched() #14
   %135 = load ptr, ptr %18, align 8
   %136 = load ptr, ptr %135, align 8
-  call void %136(ptr noundef %0, i32 noundef 32, ptr noundef nonnull %2, i32 noundef 1) #13
+  call void %136(ptr noundef %0, i32 noundef 32, ptr noundef nonnull %2, i32 noundef 1) #14
   %137 = load i8, ptr %2, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
   br label %virtblk_update_cache_mode.exit
 
 138:                                              ; preds = %.loopexit
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 9) #13
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 9) #14
   %139 = load i64, ptr %28, align 8
   %140 = lshr i64 %139, 9
   %141 = trunc i64 %140 to i8
@@ -397,8 +397,8 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   %147 = getelementptr inbounds i8, ptr %146, i64 80
   %148 = load ptr, ptr %147, align 8
   %149 = icmp ne i8 %143, 0
-  call void @blk_queue_write_cache(ptr noundef %148, i1 noundef zeroext %149, i1 noundef zeroext false) #13
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 5) #13
+  call void @blk_queue_write_cache(ptr noundef %148, i1 noundef zeroext %149, i1 noundef zeroext false) #14
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 5) #14
   %150 = load i64, ptr %28, align 8
   %151 = and i64 %150, 32
   %152 = icmp eq i64 %151, 0
@@ -406,434 +406,433 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
 
 153:                                              ; preds = %virtblk_update_cache_mode.exit
   %154 = load ptr, ptr %90, align 8
-  call void @set_disk_ro(ptr noundef %154, i1 noundef zeroext true) #13
+  call void @set_disk_ro(ptr noundef %154, i1 noundef zeroext true) #14
   br label %155
 
 155:                                              ; preds = %153, %virtblk_update_cache_mode.exit
   %156 = trunc nuw nsw i32 %42 to i16
-  call void @blk_queue_max_segments(ptr noundef %97, i16 noundef zeroext %156) #13
-  call void @blk_queue_max_hw_sectors(ptr noundef %97, i32 noundef -1) #13
-  %157 = call i64 @virtio_max_dma_size(ptr noundef %0) #13
+  call void @blk_queue_max_segments(ptr noundef %97, i16 noundef zeroext %156) #14
+  call void @blk_queue_max_hw_sectors(ptr noundef %97, i32 noundef -1) #14
+  %157 = call i64 @virtio_max_dma_size(ptr noundef %0) #14
   %158 = call i64 @llvm.umin.i64(i64 %157, i64 4294967295)
   %159 = trunc nuw i64 %158 to i32
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 1) #13
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 1) #14
   %160 = load i64, ptr %28, align 8
   %161 = and i64 %160, 2
   %162 = icmp eq i64 %161, 0
   br i1 %162, label %168, label %163
 
 163:                                              ; preds = %155
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
   store i32 0, ptr %4, align 4, !annotation !5
-  %164 = call i32 @__SCT__might_resched() #13
+  %164 = call i32 @__SCT__might_resched() #14
   %165 = load ptr, ptr %18, align 8
   %166 = load ptr, ptr %165, align 8
-  call void %166(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %4, i32 noundef 4) #13
+  call void %166(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %4, i32 noundef 4) #14
   %167 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   br label %168
 
 168:                                              ; preds = %163, %155
   %169 = phi i32 [ %167, %163 ], [ 0, %155 ]
   %170 = call i32 @llvm.umin.i32(i32 %169, i32 %159)
   %171 = select i1 %162, i32 %159, i32 %170
-  call void @blk_queue_max_segment_size(ptr noundef %97, i32 noundef %171) #13
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 6) #13
+  call void @blk_queue_max_segment_size(ptr noundef %97, i32 noundef %171) #14
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 6) #14
   %172 = load i64, ptr %28, align 8
   %173 = and i64 %172, 64
   %174 = icmp eq i64 %173, 0
-  br i1 %174, label %188, label %175
+  br i1 %174, label %187, label %175
 
 175:                                              ; preds = %168
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
   store i32 0, ptr %5, align 4, !annotation !5
-  %176 = call i32 @__SCT__might_resched() #13
+  %176 = call i32 @__SCT__might_resched() #14
   %177 = load ptr, ptr %18, align 8
   %178 = load ptr, ptr %177, align 8
-  call void %178(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %5, i32 noundef 4) #13
+  call void %178(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %5, i32 noundef 4) #14
   %179 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
-  %180 = zext i32 %179 to i64
-  %181 = add nsw i64 %180, -512
-  %182 = icmp ult i64 %181, 3585
-  %183 = call range(i64 0, 14) i64 @llvm.ctpop.i64(i64 %180), !range !9
-  %184 = icmp samesign ult i64 %183, 2
-  %or.cond = select i1 %182, i1 %184, i1 false
-  br i1 %or.cond, label %187, label %185
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  %180 = add i32 %179, -512
+  %181 = icmp ult i32 %180, 3585
+  %182 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %179)
+  %183 = icmp samesign ult i32 %182, 2
+  %or.cond = select i1 %181, i1 %183, i1 false
+  br i1 %or.cond, label %186, label %184
 
-185:                                              ; preds = %175
-  %186 = getelementptr inbounds i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %186, ptr noundef nonnull @.str.7, i32 noundef %179) #14
+184:                                              ; preds = %175
+  %185 = getelementptr inbounds i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %185, ptr noundef nonnull @.str.7, i32 noundef %179) #15
   br label %.thread25
 
-187:                                              ; preds = %175
-  call void @blk_queue_logical_block_size(ptr noundef %97, i32 noundef %179) #13
-  br label %195
+186:                                              ; preds = %175
+  call void @blk_queue_logical_block_size(ptr noundef %97, i32 noundef %179) #14
+  br label %194
 
-188:                                              ; preds = %168
-  %189 = icmp eq ptr %97, null
-  br i1 %189, label %195, label %190
+187:                                              ; preds = %168
+  %188 = icmp eq ptr %97, null
+  br i1 %188, label %194, label %189
 
-190:                                              ; preds = %188
-  %191 = getelementptr inbounds i8, ptr %97, i64 172
-  %192 = load i32, ptr %191, align 4
-  %193 = icmp eq i32 %192, 0
-  %194 = select i1 %193, i32 512, i32 %192
-  br label %195
+189:                                              ; preds = %187
+  %190 = getelementptr inbounds i8, ptr %97, i64 172
+  %191 = load i32, ptr %190, align 4
+  %192 = icmp eq i32 %191, 0
+  %193 = select i1 %192, i32 512, i32 %191
+  br label %194
 
-195:                                              ; preds = %190, %188, %187
-  %196 = phi i32 [ %179, %187 ], [ 512, %188 ], [ %194, %190 ]
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #13
-  %197 = load i64, ptr %28, align 8
-  %198 = and i64 %197, 1024
-  %.not = icmp eq i64 %198, 0
-  br i1 %.not, label %.thread20, label %199
+194:                                              ; preds = %189, %187, %186
+  %195 = phi i32 [ %179, %186 ], [ 512, %187 ], [ %193, %189 ]
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #14
+  %196 = load i64, ptr %28, align 8
+  %197 = and i64 %196, 1024
+  %.not = icmp eq i64 %197, 0
+  br i1 %.not, label %.thread20, label %198
 
-199:                                              ; preds = %195
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
+198:                                              ; preds = %194
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #14
   store i8 0, ptr %6, align 1, !annotation !5
-  %200 = call i32 @__SCT__might_resched() #13
-  %201 = load ptr, ptr %18, align 8
-  %202 = load ptr, ptr %201, align 8
-  call void %202(ptr noundef %0, i32 noundef 24, ptr noundef nonnull %6, i32 noundef 1) #13
-  %203 = load i8, ptr %6, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
-  %.not27 = icmp eq i8 %203, 0
-  br i1 %.not27, label %.thread20, label %204
+  %199 = call i32 @__SCT__might_resched() #14
+  %200 = load ptr, ptr %18, align 8
+  %201 = load ptr, ptr %200, align 8
+  call void %201(ptr noundef %0, i32 noundef 24, ptr noundef nonnull %6, i32 noundef 1) #14
+  %202 = load i8, ptr %6, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
+  %.not27 = icmp eq i8 %202, 0
+  br i1 %.not27, label %.thread20, label %203
 
-204:                                              ; preds = %199
-  %205 = zext nneg i8 %203 to i32
-  %206 = shl i32 %196, %205
-  call void @blk_queue_physical_block_size(ptr noundef %97, i32 noundef %206) #13
+203:                                              ; preds = %198
+  %204 = zext nneg i8 %202 to i32
+  %205 = shl i32 %195, %204
+  call void @blk_queue_physical_block_size(ptr noundef %97, i32 noundef %205) #14
   br label %.thread20
 
-.thread20:                                        ; preds = %195, %204, %199
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #13
-  %207 = load i64, ptr %28, align 8
-  %208 = and i64 %207, 1024
-  %.not28 = icmp eq i64 %208, 0
-  br i1 %.not28, label %.thread21, label %209
+.thread20:                                        ; preds = %194, %203, %198
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #14
+  %206 = load i64, ptr %28, align 8
+  %207 = and i64 %206, 1024
+  %.not28 = icmp eq i64 %207, 0
+  br i1 %.not28, label %.thread21, label %208
 
-209:                                              ; preds = %.thread20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #13
+208:                                              ; preds = %.thread20
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #14
   store i8 0, ptr %7, align 1, !annotation !5
-  %210 = call i32 @__SCT__might_resched() #13
-  %211 = load ptr, ptr %18, align 8
-  %212 = load ptr, ptr %211, align 8
-  call void %212(ptr noundef %0, i32 noundef 25, ptr noundef nonnull %7, i32 noundef 1) #13
-  %213 = load i8, ptr %7, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #13
-  %.not29 = icmp eq i8 %213, 0
-  br i1 %.not29, label %.thread21, label %214
+  %209 = call i32 @__SCT__might_resched() #14
+  %210 = load ptr, ptr %18, align 8
+  %211 = load ptr, ptr %210, align 8
+  call void %211(ptr noundef %0, i32 noundef 25, ptr noundef nonnull %7, i32 noundef 1) #14
+  %212 = load i8, ptr %7, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #14
+  %.not29 = icmp eq i8 %212, 0
+  br i1 %.not29, label %.thread21, label %213
 
-214:                                              ; preds = %209
-  %215 = zext i8 %213 to i32
-  %216 = mul i32 %196, %215
-  call void @blk_queue_alignment_offset(ptr noundef %97, i32 noundef %216) #13
+213:                                              ; preds = %208
+  %214 = zext i8 %212 to i32
+  %215 = mul i32 %195, %214
+  call void @blk_queue_alignment_offset(ptr noundef %97, i32 noundef %215) #14
   br label %.thread21
 
-.thread21:                                        ; preds = %.thread20, %214, %209
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #13
-  %217 = load i64, ptr %28, align 8
-  %218 = and i64 %217, 1024
-  %.not30 = icmp eq i64 %218, 0
-  br i1 %.not30, label %.thread22, label %219
+.thread21:                                        ; preds = %.thread20, %213, %208
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #14
+  %216 = load i64, ptr %28, align 8
+  %217 = and i64 %216, 1024
+  %.not30 = icmp eq i64 %217, 0
+  br i1 %.not30, label %.thread22, label %218
 
-219:                                              ; preds = %.thread21
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #13
+218:                                              ; preds = %.thread21
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #14
   store i16 0, ptr %8, align 2, !annotation !5
-  %220 = call i32 @__SCT__might_resched() #13
-  %221 = load ptr, ptr %18, align 8
-  %222 = load ptr, ptr %221, align 8
-  call void %222(ptr noundef %0, i32 noundef 26, ptr noundef nonnull %8, i32 noundef 2) #13
-  %223 = load i16, ptr %8, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #13
-  %.not31 = icmp eq i16 %223, 0
-  br i1 %.not31, label %.thread22, label %224
+  %219 = call i32 @__SCT__might_resched() #14
+  %220 = load ptr, ptr %18, align 8
+  %221 = load ptr, ptr %220, align 8
+  call void %221(ptr noundef %0, i32 noundef 26, ptr noundef nonnull %8, i32 noundef 2) #14
+  %222 = load i16, ptr %8, align 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #14
+  %.not31 = icmp eq i16 %222, 0
+  br i1 %.not31, label %.thread22, label %223
 
-224:                                              ; preds = %219
-  %225 = zext i16 %223 to i32
-  %226 = mul i32 %196, %225
-  call void @blk_queue_io_min(ptr noundef %97, i32 noundef %226) #13
+223:                                              ; preds = %218
+  %224 = zext i16 %222 to i32
+  %225 = mul i32 %195, %224
+  call void @blk_queue_io_min(ptr noundef %97, i32 noundef %225) #14
   br label %.thread22
 
-.thread22:                                        ; preds = %.thread21, %224, %219
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #13
-  %227 = load i64, ptr %28, align 8
-  %228 = and i64 %227, 1024
-  %.not32 = icmp eq i64 %228, 0
-  br i1 %.not32, label %.thread23, label %229
+.thread22:                                        ; preds = %.thread21, %223, %218
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #14
+  %226 = load i64, ptr %28, align 8
+  %227 = and i64 %226, 1024
+  %.not32 = icmp eq i64 %227, 0
+  br i1 %.not32, label %.thread23, label %228
 
-229:                                              ; preds = %.thread22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
+228:                                              ; preds = %.thread22
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #14
   store i32 0, ptr %9, align 4, !annotation !5
-  %230 = call i32 @__SCT__might_resched() #13
-  %231 = load ptr, ptr %18, align 8
-  %232 = load ptr, ptr %231, align 8
-  call void %232(ptr noundef %0, i32 noundef 28, ptr noundef nonnull %9, i32 noundef 4) #13
-  %233 = load i32, ptr %9, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
-  %.not33 = icmp eq i32 %233, 0
-  br i1 %.not33, label %.thread23, label %234
+  %229 = call i32 @__SCT__might_resched() #14
+  %230 = load ptr, ptr %18, align 8
+  %231 = load ptr, ptr %230, align 8
+  call void %231(ptr noundef %0, i32 noundef 28, ptr noundef nonnull %9, i32 noundef 4) #14
+  %232 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
+  %.not33 = icmp eq i32 %232, 0
+  br i1 %.not33, label %.thread23, label %233
 
-234:                                              ; preds = %229
-  %235 = mul i32 %233, %196
-  call void @blk_queue_io_opt(ptr noundef %97, i32 noundef %235) #13
+233:                                              ; preds = %228
+  %234 = mul i32 %232, %195
+  call void @blk_queue_io_opt(ptr noundef %97, i32 noundef %234) #14
   br label %.thread23
 
-.thread23:                                        ; preds = %.thread22, %234, %229
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 13) #13
-  %236 = load i64, ptr %28, align 8
-  %237 = and i64 %236, 8192
-  %238 = icmp eq i64 %237, 0
-  br i1 %238, label %254, label %239
+.thread23:                                        ; preds = %.thread22, %233, %228
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 13) #14
+  %235 = load i64, ptr %28, align 8
+  %236 = and i64 %235, 8192
+  %237 = icmp eq i64 %236, 0
+  br i1 %237, label %253, label %238
 
-239:                                              ; preds = %.thread23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
+238:                                              ; preds = %.thread23
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
   store i32 0, ptr %10, align 4, !annotation !5
-  %240 = call i32 @__SCT__might_resched() #13
-  %241 = load ptr, ptr %18, align 8
-  %242 = load ptr, ptr %241, align 8
-  call void %242(ptr noundef %0, i32 noundef 44, ptr noundef nonnull %10, i32 noundef 4) #13
-  %243 = load i32, ptr %10, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
+  %239 = call i32 @__SCT__might_resched() #14
+  %240 = load ptr, ptr %18, align 8
+  %241 = load ptr, ptr %240, align 8
+  call void %241(ptr noundef %0, i32 noundef 44, ptr noundef nonnull %10, i32 noundef 4) #14
+  %242 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
   store i32 0, ptr %11, align 4, !annotation !5
-  %244 = call i32 @__SCT__might_resched() #13
-  %245 = load ptr, ptr %18, align 8
-  %246 = load ptr, ptr %245, align 8
-  call void %246(ptr noundef %0, i32 noundef 36, ptr noundef nonnull %11, i32 noundef 4) #13
-  %247 = load i32, ptr %11, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
-  %248 = icmp eq i32 %247, 0
-  %249 = select i1 %248, i32 -1, i32 %247
-  call void @blk_queue_max_discard_sectors(ptr noundef %97, i32 noundef %249) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
+  %243 = call i32 @__SCT__might_resched() #14
+  %244 = load ptr, ptr %18, align 8
+  %245 = load ptr, ptr %244, align 8
+  call void %245(ptr noundef %0, i32 noundef 36, ptr noundef nonnull %11, i32 noundef 4) #14
+  %246 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
+  %247 = icmp eq i32 %246, 0
+  %248 = select i1 %247, i32 -1, i32 %246
+  call void @blk_queue_max_discard_sectors(ptr noundef %97, i32 noundef %248) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
   store i32 0, ptr %12, align 4, !annotation !5
-  %250 = call i32 @__SCT__might_resched() #13
-  %251 = load ptr, ptr %18, align 8
-  %252 = load ptr, ptr %251, align 8
-  call void %252(ptr noundef %0, i32 noundef 40, ptr noundef nonnull %12, i32 noundef 4) #13
-  %253 = load i32, ptr %12, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  br label %254
+  %249 = call i32 @__SCT__might_resched() #14
+  %250 = load ptr, ptr %18, align 8
+  %251 = load ptr, ptr %250, align 8
+  call void %251(ptr noundef %0, i32 noundef 40, ptr noundef nonnull %12, i32 noundef 4) #14
+  %252 = load i32, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
+  br label %253
 
-254:                                              ; preds = %239, %.thread23
-  %255 = phi i32 [ %243, %239 ], [ 0, %.thread23 ]
-  %256 = phi i32 [ %253, %239 ], [ 0, %.thread23 ]
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 14) #13
-  %257 = load i64, ptr %28, align 8
-  %258 = and i64 %257, 16384
-  %259 = icmp eq i64 %258, 0
-  br i1 %259, label %267, label %260
+253:                                              ; preds = %238, %.thread23
+  %254 = phi i32 [ %242, %238 ], [ 0, %.thread23 ]
+  %255 = phi i32 [ %252, %238 ], [ 0, %.thread23 ]
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 14) #14
+  %256 = load i64, ptr %28, align 8
+  %257 = and i64 %256, 16384
+  %258 = icmp eq i64 %257, 0
+  br i1 %258, label %266, label %259
 
-260:                                              ; preds = %254
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
+259:                                              ; preds = %253
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
   store i32 0, ptr %13, align 4, !annotation !5
-  %261 = call i32 @__SCT__might_resched() #13
-  %262 = load ptr, ptr %18, align 8
-  %263 = load ptr, ptr %262, align 8
-  call void %263(ptr noundef %0, i32 noundef 48, ptr noundef nonnull %13, i32 noundef 4) #13
-  %264 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
-  %265 = icmp eq i32 %264, 0
-  %266 = select i1 %265, i32 -1, i32 %264
-  call void @blk_queue_max_write_zeroes_sectors(ptr noundef %97, i32 noundef %266) #13
-  br label %267
+  %260 = call i32 @__SCT__might_resched() #14
+  %261 = load ptr, ptr %18, align 8
+  %262 = load ptr, ptr %261, align 8
+  call void %262(ptr noundef %0, i32 noundef 48, ptr noundef nonnull %13, i32 noundef 4) #14
+  %263 = load i32, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  %264 = icmp eq i32 %263, 0
+  %265 = select i1 %264, i32 -1, i32 %263
+  call void @blk_queue_max_write_zeroes_sectors(ptr noundef %97, i32 noundef %265) #14
+  br label %266
 
-267:                                              ; preds = %260, %254
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 16) #13
-  %268 = load i64, ptr %28, align 8
-  %269 = and i64 %268, 65536
-  %270 = icmp eq i64 %269, 0
-  br i1 %270, label %302, label %271
+266:                                              ; preds = %259, %253
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 16) #14
+  %267 = load i64, ptr %28, align 8
+  %268 = and i64 %267, 65536
+  %269 = icmp eq i64 %268, 0
+  br i1 %269, label %301, label %270
 
-271:                                              ; preds = %267
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #13
+270:                                              ; preds = %266
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
   store i32 0, ptr %14, align 4, !annotation !5
-  %272 = call i32 @__SCT__might_resched() #13
-  %273 = load ptr, ptr %18, align 8
-  %274 = load ptr, ptr %273, align 8
-  call void %274(ptr noundef %0, i32 noundef 68, ptr noundef nonnull %14, i32 noundef 4) #13
-  %275 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
-  %276 = icmp eq i32 %275, 0
-  br i1 %276, label %277, label %279
+  %271 = call i32 @__SCT__might_resched() #14
+  %272 = load ptr, ptr %18, align 8
+  %273 = load ptr, ptr %272, align 8
+  call void %273(ptr noundef %0, i32 noundef 68, ptr noundef nonnull %14, i32 noundef 4) #14
+  %274 = load i32, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
+  %275 = icmp eq i32 %274, 0
+  br i1 %275, label %276, label %278
 
-277:                                              ; preds = %271
-  %278 = getelementptr inbounds i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %278, ptr noundef nonnull @.str.8) #14
+276:                                              ; preds = %270
+  %277 = getelementptr inbounds i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %277, ptr noundef nonnull @.str.8) #15
   br label %.thread25
 
-279:                                              ; preds = %271
-  %280 = icmp eq i32 %255, 0
-  %281 = call i32 @llvm.umin.i32(i32 %255, i32 %275)
-  %282 = select i1 %280, i32 %275, i32 %281
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
+278:                                              ; preds = %270
+  %279 = icmp eq i32 %254, 0
+  %280 = call i32 @llvm.umin.i32(i32 %254, i32 %274)
+  %281 = select i1 %279, i32 %274, i32 %280
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #14
   store i32 0, ptr %15, align 4, !annotation !5
-  %283 = call i32 @__SCT__might_resched() #13
-  %284 = load ptr, ptr %18, align 8
-  %285 = load ptr, ptr %284, align 8
-  call void %285(ptr noundef %0, i32 noundef 60, ptr noundef nonnull %15, i32 noundef 4) #13
-  %286 = load i32, ptr %15, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
-  %287 = icmp eq i32 %286, 0
-  br i1 %287, label %288, label %290
+  %282 = call i32 @__SCT__might_resched() #14
+  %283 = load ptr, ptr %18, align 8
+  %284 = load ptr, ptr %283, align 8
+  call void %284(ptr noundef %0, i32 noundef 60, ptr noundef nonnull %15, i32 noundef 4) #14
+  %285 = load i32, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #14
+  %286 = icmp eq i32 %285, 0
+  br i1 %286, label %287, label %289
 
-288:                                              ; preds = %279
-  %289 = getelementptr inbounds i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %289, ptr noundef nonnull @.str.9) #14
+287:                                              ; preds = %278
+  %288 = getelementptr inbounds i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %288, ptr noundef nonnull @.str.9) #15
   br label %.thread25
 
-290:                                              ; preds = %279
-  call void @blk_queue_max_secure_erase_sectors(ptr noundef %97, i32 noundef %286) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #13
+289:                                              ; preds = %278
+  call void @blk_queue_max_secure_erase_sectors(ptr noundef %97, i32 noundef %285) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #14
   store i32 0, ptr %16, align 4, !annotation !5
-  %291 = call i32 @__SCT__might_resched() #13
-  %292 = load ptr, ptr %18, align 8
-  %293 = load ptr, ptr %292, align 8
-  call void %293(ptr noundef %0, i32 noundef 64, ptr noundef nonnull %16, i32 noundef 4) #13
-  %294 = load i32, ptr %16, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #13
-  %295 = icmp eq i32 %294, 0
-  br i1 %295, label %296, label %298
+  %290 = call i32 @__SCT__might_resched() #14
+  %291 = load ptr, ptr %18, align 8
+  %292 = load ptr, ptr %291, align 8
+  call void %292(ptr noundef %0, i32 noundef 64, ptr noundef nonnull %16, i32 noundef 4) #14
+  %293 = load i32, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
+  %294 = icmp eq i32 %293, 0
+  br i1 %294, label %295, label %297
 
-296:                                              ; preds = %290
-  %297 = getelementptr inbounds i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %297, ptr noundef nonnull @.str.10) #14
+295:                                              ; preds = %289
+  %296 = getelementptr inbounds i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %296, ptr noundef nonnull @.str.10) #15
   br label %.thread25
 
-298:                                              ; preds = %290
-  %299 = icmp eq i32 %256, 0
-  %300 = call i32 @llvm.umin.i32(i32 %256, i32 %294)
-  %301 = select i1 %299, i32 %294, i32 %300
-  br label %302
+297:                                              ; preds = %289
+  %298 = icmp eq i32 %255, 0
+  %299 = call i32 @llvm.umin.i32(i32 %255, i32 %293)
+  %300 = select i1 %298, i32 %293, i32 %299
+  br label %301
 
-302:                                              ; preds = %298, %267
-  %303 = phi i32 [ %282, %298 ], [ %255, %267 ]
-  %304 = phi i32 [ %301, %298 ], [ %256, %267 ]
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 13) #13
-  %305 = load i64, ptr %28, align 8
-  %306 = and i64 %305, 8192
-  %307 = icmp eq i64 %306, 0
-  br i1 %307, label %308, label %312
+301:                                              ; preds = %297, %266
+  %302 = phi i32 [ %281, %297 ], [ %254, %266 ]
+  %303 = phi i32 [ %300, %297 ], [ %255, %266 ]
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 13) #14
+  %304 = load i64, ptr %28, align 8
+  %305 = and i64 %304, 8192
+  %306 = icmp eq i64 %305, 0
+  br i1 %306, label %307, label %311
 
-308:                                              ; preds = %302
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 16) #13
-  %309 = load i64, ptr %28, align 8
-  %310 = and i64 %309, 65536
-  %311 = icmp eq i64 %310, 0
-  br i1 %311, label %321, label %312
+307:                                              ; preds = %301
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 16) #14
+  %308 = load i64, ptr %28, align 8
+  %309 = and i64 %308, 65536
+  %310 = icmp eq i64 %309, 0
+  br i1 %310, label %320, label %311
 
-312:                                              ; preds = %308, %302
-  %313 = icmp eq i32 %304, 0
-  %314 = select i1 %313, i32 %42, i32 %304
-  %315 = call i32 @llvm.umin.i32(i32 %314, i32 256)
-  %316 = trunc nuw nsw i32 %315 to i16
-  call void @blk_queue_max_discard_segments(ptr noundef %97, i16 noundef zeroext %316) #13
-  %317 = icmp eq i32 %303, 0
-  %318 = shl i32 %303, 9
-  %319 = select i1 %317, i32 %196, i32 %318
-  %320 = getelementptr inbounds i8, ptr %97, i64 208
-  store i32 %319, ptr %320, align 8
-  br label %321
+311:                                              ; preds = %307, %301
+  %312 = icmp eq i32 %303, 0
+  %313 = select i1 %312, i32 %42, i32 %303
+  %314 = call i32 @llvm.umin.i32(i32 %313, i32 256)
+  %315 = trunc nuw nsw i32 %314 to i16
+  call void @blk_queue_max_discard_segments(ptr noundef %97, i16 noundef zeroext %315) #14
+  %316 = icmp eq i32 %302, 0
+  %317 = shl i32 %302, 9
+  %318 = select i1 %316, i32 %195, i32 %317
+  %319 = getelementptr inbounds i8, ptr %97, i64 208
+  store i32 %318, ptr %319, align 8
+  br label %320
 
-321:                                              ; preds = %312, %308
+320:                                              ; preds = %311, %307
   call fastcc void @virtblk_update_capacity(ptr noundef nonnull %44, i1 noundef zeroext false)
-  %322 = load ptr, ptr %18, align 8
-  %323 = getelementptr inbounds i8, ptr %322, i64 24
-  %324 = load ptr, ptr %323, align 8
-  %325 = call zeroext i8 %324(ptr noundef %0) #13
-  %326 = and i8 %325, 4
-  %327 = icmp eq i8 %326, 0
-  br i1 %327, label %329, label %328, !prof !10
+  %321 = load ptr, ptr %18, align 8
+  %322 = getelementptr inbounds i8, ptr %321, i64 24
+  %323 = load ptr, ptr %322, align 8
+  %324 = call zeroext i8 %323(ptr noundef %0) #14
+  %325 = and i8 %324, 4
+  %326 = icmp eq i8 %325, 0
+  br i1 %326, label %328, label %327, !prof !9
 
-328:                                              ; preds = %321
-  call void asm sideeffect "418: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 418b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 418) #13, !srcloc !11
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 278, i32 2305, i64 12) #13, !srcloc !12
-  call void asm sideeffect "419: nop\0A\09.pushsection .discard.instr_end\0A\09.long 419b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 419) #13, !srcloc !13
-  br label %329
+327:                                              ; preds = %320
+  call void asm sideeffect "418: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 418b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 418) #14, !srcloc !10
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 278, i32 2305, i64 12) #14, !srcloc !11
+  call void asm sideeffect "419: nop\0A\09.pushsection .discard.instr_end\0A\09.long 419b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 419) #14, !srcloc !12
+  br label %328
 
-329:                                              ; preds = %328, %321
-  %330 = load ptr, ptr %18, align 8
-  %331 = getelementptr inbounds i8, ptr %330, i64 32
-  %332 = load ptr, ptr %331, align 8
-  %333 = or i8 %325, 4
-  call void %332(ptr noundef %0, i8 noundef zeroext %333) #13
-  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 17) #13
-  %334 = load i64, ptr %28, align 8
-  %335 = and i64 %334, 131072
-  %336 = icmp eq i64 %335, 0
-  br i1 %336, label %347, label %337
+328:                                              ; preds = %327, %320
+  %329 = load ptr, ptr %18, align 8
+  %330 = getelementptr inbounds i8, ptr %329, i64 32
+  %331 = load ptr, ptr %330, align 8
+  %332 = or i8 %324, 4
+  call void %331(ptr noundef %0, i8 noundef zeroext %332) #14
+  call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 17) #14
+  %333 = load i64, ptr %28, align 8
+  %334 = and i64 %333, 131072
+  %335 = icmp eq i64 %334, 0
+  br i1 %335, label %346, label %336
 
-337:                                              ; preds = %329
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #13
+336:                                              ; preds = %328
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #14
   store i8 0, ptr %17, align 1, !annotation !5
-  %338 = call i32 @__SCT__might_resched() #13
-  %339 = load ptr, ptr %18, align 8
-  %340 = load ptr, ptr %339, align 8
-  call void %340(ptr noundef %0, i32 noundef 92, ptr noundef nonnull %17, i32 noundef 1) #13
-  %341 = load i8, ptr %17, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #13
-  switch i8 %341, label %344 [
-    i8 0, label %347
-    i8 2, label %347
-    i8 1, label %342
+  %337 = call i32 @__SCT__might_resched() #14
+  %338 = load ptr, ptr %18, align 8
+  %339 = load ptr, ptr %338, align 8
+  call void %339(ptr noundef %0, i32 noundef 92, ptr noundef nonnull %17, i32 noundef 1) #14
+  %340 = load i8, ptr %17, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #14
+  switch i8 %340, label %343 [
+    i8 0, label %346
+    i8 2, label %346
+    i8 1, label %341
   ]
 
-342:                                              ; preds = %337
-  %343 = getelementptr inbounds i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %343, ptr noundef nonnull @.str.23) #14
+341:                                              ; preds = %336
+  %342 = getelementptr inbounds i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %342, ptr noundef nonnull @.str.23) #15
   br label %.thread25
 
-344:                                              ; preds = %337
-  %345 = zext i8 %341 to i32
-  %346 = getelementptr inbounds i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %346, ptr noundef nonnull @.str.11, i32 noundef %345) #14
+343:                                              ; preds = %336
+  %344 = zext i8 %340 to i32
+  %345 = getelementptr inbounds i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %345, ptr noundef nonnull @.str.11, i32 noundef %344) #15
   br label %.thread25
 
-347:                                              ; preds = %337, %337, %329
-  %348 = getelementptr inbounds i8, ptr %0, i64 16
-  %349 = load ptr, ptr %90, align 8
-  %350 = call i32 @device_add_disk(ptr noundef %348, ptr noundef %349, ptr noundef nonnull @virtblk_attr_groups) #13
-  %351 = icmp eq i32 %350, 0
-  br i1 %351, label %367, label %.thread25
+346:                                              ; preds = %336, %336, %328
+  %347 = getelementptr inbounds i8, ptr %0, i64 16
+  %348 = load ptr, ptr %90, align 8
+  %349 = call i32 @device_add_disk(ptr noundef %347, ptr noundef %348, ptr noundef nonnull @virtblk_attr_groups) #14
+  %350 = icmp eq i32 %349, 0
+  br i1 %350, label %366, label %.thread25
 
-.thread25:                                        ; preds = %342, %344, %347, %296, %288, %277, %185
-  %352 = phi i32 [ %350, %347 ], [ -22, %296 ], [ -22, %288 ], [ -22, %277 ], [ -22, %185 ], [ -95, %342 ], [ -22, %344 ]
-  %353 = load ptr, ptr %90, align 8
-  call void @put_disk(ptr noundef %353) #13
-  br label %354
+.thread25:                                        ; preds = %341, %343, %346, %295, %287, %276, %184
+  %351 = phi i32 [ %349, %346 ], [ -22, %295 ], [ -22, %287 ], [ -22, %276 ], [ -22, %184 ], [ -95, %341 ], [ -22, %343 ]
+  %352 = load ptr, ptr %90, align 8
+  call void @put_disk(ptr noundef %352) #14
+  br label %353
 
-354:                                              ; preds = %.thread25, %92
-  %355 = phi i32 [ %94, %92 ], [ %352, %.thread25 ]
-  call void @blk_mq_free_tag_set(ptr noundef %71) #13
-  br label %356
+353:                                              ; preds = %.thread25, %92
+  %354 = phi i32 [ %94, %92 ], [ %351, %.thread25 ]
+  call void @blk_mq_free_tag_set(ptr noundef %71) #14
+  br label %355
 
-356:                                              ; preds = %354, %69
-  %357 = phi i32 [ %86, %69 ], [ %355, %354 ]
-  %358 = load ptr, ptr %18, align 8
-  %359 = getelementptr inbounds i8, ptr %358, i64 56
-  %360 = load ptr, ptr %359, align 8
-  call void %360(ptr noundef %0) #13
-  %361 = getelementptr inbounds i8, ptr %44, i64 272
-  %362 = load ptr, ptr %361, align 8
-  call void @kfree(ptr noundef %362) #13
-  br label %363
+355:                                              ; preds = %353, %69
+  %356 = phi i32 [ %86, %69 ], [ %354, %353 ]
+  %357 = load ptr, ptr %18, align 8
+  %358 = getelementptr inbounds i8, ptr %357, i64 56
+  %359 = load ptr, ptr %358, align 8
+  call void %359(ptr noundef %0) #14
+  %360 = getelementptr inbounds i8, ptr %44, i64 272
+  %361 = load ptr, ptr %360, align 8
+  call void @kfree(ptr noundef %361) #14
+  br label %362
 
-363:                                              ; preds = %356, %47
-  %364 = phi i32 [ %53, %47 ], [ %357, %356 ]
-  call void @kfree(ptr noundef nonnull %44) #13
-  br label %365
+362:                                              ; preds = %355, %47
+  %363 = phi i32 [ %53, %47 ], [ %356, %355 ]
+  call void @kfree(ptr noundef nonnull %44) #14
+  br label %364
 
-365:                                              ; preds = %363, %37
-  %366 = phi i32 [ %364, %363 ], [ -12, %37 ]
-  call void @ida_free(ptr noundef nonnull @vd_index_ida, i32 noundef %25) #13
-  br label %367
+364:                                              ; preds = %362, %37
+  %365 = phi i32 [ %363, %362 ], [ -12, %37 ]
+  call void @ida_free(ptr noundef nonnull @vd_index_ida, i32 noundef %25) #14
+  br label %366
 
-367:                                              ; preds = %365, %347, %24, %22
-  %368 = phi i32 [ -22, %22 ], [ 0, %347 ], [ %25, %24 ], [ %366, %365 ]
-  ret i32 %368
+366:                                              ; preds = %364, %346, %24, %22
+  %367 = phi i32 [ -22, %22 ], [ 0, %346 ], [ %25, %24 ], [ %365, %364 ]
+  ret i32 %367
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -841,27 +840,27 @@ define internal void @virtblk_remove(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 792
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 216
-  %5 = tail call zeroext i1 @flush_work(ptr noundef %4) #13
+  %5 = tail call zeroext i1 @flush_work(ptr noundef %4) #14
   %6 = getelementptr inbounds i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8
-  tail call void @del_gendisk(ptr noundef %7) #13
+  tail call void @del_gendisk(ptr noundef %7) #14
   %8 = getelementptr inbounds i8, ptr %3, i64 48
-  tail call void @blk_mq_free_tag_set(ptr noundef %8) #13
-  tail call void @mutex_lock(ptr noundef %3) #13
-  tail call void @virtio_reset_device(ptr noundef %0) #13
+  tail call void @blk_mq_free_tag_set(ptr noundef %8) #14
+  tail call void @mutex_lock(ptr noundef %3) #14
+  tail call void @virtio_reset_device(ptr noundef %0) #14
   %9 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef %0) #13
+  tail call void %13(ptr noundef %0) #14
   %14 = getelementptr inbounds i8, ptr %3, i64 272
   %15 = load ptr, ptr %14, align 8
-  tail call void @kfree(ptr noundef %15) #13
-  tail call void @mutex_unlock(ptr noundef %3) #13
+  tail call void @kfree(ptr noundef %15) #14
+  tail call void @mutex_unlock(ptr noundef %3) #14
   %16 = load ptr, ptr %6, align 8
-  tail call void @put_disk(ptr noundef %16) #13
+  tail call void @put_disk(ptr noundef %16) #14
   ret void
 }
 
@@ -871,7 +870,7 @@ define internal void @virtblk_config_changed(ptr nocapture noundef readonly %0) 
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @virtblk_wq, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 216
-  %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %4, ptr noundef %5) #13
+  %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %4, ptr noundef %5) #14
   ret void
 }
 
@@ -883,18 +882,18 @@ define internal noundef i32 @virtblk_freeze(ptr noundef %0) #2 align 16 {
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 80
   %7 = load ptr, ptr %6, align 8
-  tail call void @blk_mq_freeze_queue(ptr noundef %7) #13
-  tail call void @virtio_reset_device(ptr noundef %0) #13
+  tail call void @blk_mq_freeze_queue(ptr noundef %7) #14
+  tail call void @virtio_reset_device(ptr noundef %0) #14
   %8 = getelementptr inbounds i8, ptr %3, i64 216
-  %9 = tail call zeroext i1 @flush_work(ptr noundef %8) #13
+  %9 = tail call zeroext i1 @flush_work(ptr noundef %8) #14
   %10 = getelementptr inbounds i8, ptr %0, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef %0) #13
+  tail call void %13(ptr noundef %0) #14
   %14 = getelementptr inbounds i8, ptr %3, i64 272
   %15 = load ptr, ptr %14, align 8
-  tail call void @kfree(ptr noundef %15) #13
+  tail call void @kfree(ptr noundef %15) #14
   ret i32 0
 }
 
@@ -911,15 +910,15 @@ define internal i32 @virtblk_restore(ptr noundef %0) #2 align 16 {
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call zeroext i8 %10(ptr noundef %0) #13
+  %11 = tail call zeroext i8 %10(ptr noundef %0) #14
   %12 = and i8 %11, 4
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %15, label %14, !prof !10
+  br i1 %13, label %15, label %14, !prof !9
 
 14:                                               ; preds = %6
-  tail call void asm sideeffect "418: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 418b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 418) #13, !srcloc !11
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 278, i32 2305, i64 12) #13, !srcloc !12
-  tail call void asm sideeffect "419: nop\0A\09.pushsection .discard.instr_end\0A\09.long 419b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 419) #13, !srcloc !13
+  tail call void asm sideeffect "418: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 418b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 418) #14, !srcloc !10
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 278, i32 2305, i64 12) #14, !srcloc !11
+  tail call void asm sideeffect "419: nop\0A\09.pushsection .discard.instr_end\0A\09.long 419b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 419) #14, !srcloc !12
   br label %15
 
 15:                                               ; preds = %14, %6
@@ -927,12 +926,12 @@ define internal i32 @virtblk_restore(ptr noundef %0) #2 align 16 {
   %17 = getelementptr inbounds i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = or i8 %11, 4
-  tail call void %18(ptr noundef %0, i8 noundef zeroext %19) #13
+  tail call void %18(ptr noundef %0, i8 noundef zeroext %19) #14
   %20 = getelementptr inbounds i8, ptr %3, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 80
   %23 = load ptr, ptr %22, align 8
-  tail call void @blk_mq_unfreeze_queue(ptr noundef %23) #13
+  tail call void @blk_mq_unfreeze_queue(ptr noundef %23) #14
   br label %24
 
 24:                                               ; preds = %15, %1
@@ -967,9 +966,9 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  tail call void @virtio_check_driver_offered_feature(ptr noundef %5, i32 noundef 12) #13
+  tail call void @virtio_check_driver_offered_feature(ptr noundef %5, i32 noundef 12) #14
   %6 = getelementptr inbounds i8, ptr %5, i64 784
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 4096
@@ -977,21 +976,21 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
   store i16 0, ptr %3, align 2, !annotation !5
-  %10 = tail call i32 @__SCT__might_resched() #13
+  %10 = tail call i32 @__SCT__might_resched() #14
   %11 = getelementptr inbounds i8, ptr %5, i64 752
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef %5, i32 noundef 34, ptr noundef nonnull %3, i32 noundef 2) #13
+  call void %13(ptr noundef %5, i32 noundef 34, ptr noundef nonnull %3, i32 noundef 2) #14
   %14 = load i16, ptr %3, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
   %15 = icmp eq i16 %14, 0
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %5, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %17, ptr noundef nonnull @.str.14) #14
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %17, ptr noundef nonnull @.str.14) #15
   br label %104
 
 .thread:                                          ; preds = %1, %9
@@ -1026,9 +1025,9 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   %38 = getelementptr i8, ptr %0, i64 264
   store i32 %34, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %5, i64 16
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %39, ptr noundef nonnull @.str.15, i32 noundef %35, i32 noundef 0, i32 noundef %34) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %39, ptr noundef nonnull @.str.15, i32 noundef %35, i32 noundef 0, i32 noundef %34) #15
   %40 = shl nuw nsw i64 %30, 6
-  %41 = call noalias align 8 ptr @__kmalloc(i64 noundef %40, i32 noundef 3264) #16
+  %41 = call noalias align 8 ptr @__kmalloc(i64 noundef %40, i32 noundef 3264) #17
   %42 = getelementptr inbounds i8, ptr %0, i64 272
   store ptr %41, ptr %42, align 8
   %43 = icmp eq ptr %41, null
@@ -1036,9 +1035,9 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
 
 44:                                               ; preds = %26
   %45 = shl nuw nsw i64 %30, 3
-  %46 = call noalias align 8 ptr @__kmalloc(i64 noundef %45, i32 noundef 3264) #16
-  %47 = call noalias align 8 ptr @__kmalloc(i64 noundef %45, i32 noundef 3264) #16
-  %48 = call noalias align 8 ptr @__kmalloc(i64 noundef %45, i32 noundef 3264) #16
+  %46 = call noalias align 8 ptr @__kmalloc(i64 noundef %45, i32 noundef 3264) #17
+  %47 = call noalias align 8 ptr @__kmalloc(i64 noundef %45, i32 noundef 3264) #17
+  %48 = call noalias align 8 ptr @__kmalloc(i64 noundef %45, i32 noundef 3264) #17
   %49 = icmp ne ptr %46, null
   %50 = icmp ne ptr %47, null
   %51 = select i1 %49, i1 %50, i1 false
@@ -1076,7 +1075,7 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   %63 = getelementptr ptr, ptr %47, i64 %indvars.iv
   store ptr @virtblk_done, ptr %63, align 8
   %64 = getelementptr %struct.virtio_blk_vq, ptr %61, i64 %indvars.iv, i32 2
-  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %64, i64 noundef 16, ptr noundef nonnull @.str.16, i32 noundef %62) #13
+  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %64, i64 noundef 16, ptr noundef nonnull @.str.16, i32 noundef %62) #14
   %66 = load ptr, ptr %42, align 8
   %67 = getelementptr %struct.virtio_blk_vq, ptr %66, i64 %indvars.iv, i32 2
   %68 = getelementptr ptr, ptr %46, i64 %indvars.iv
@@ -1084,7 +1083,7 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %69 = trunc nuw i64 %indvars.iv.next to i32
   %70 = icmp samesign ugt i32 %35, %69
-  br i1 %70, label %.preheader10, label %.loopexit11.loopexit, !llvm.loop !14
+  br i1 %70, label %.preheader10, label %.loopexit11.loopexit, !llvm.loop !13
 
 .preheader8:                                      ; preds = %.preheader8.preheader, %.preheader8
   %71 = phi ptr [ %.pre14, %.preheader8.preheader ], [ %76, %.preheader8 ]
@@ -1093,7 +1092,7 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   %73 = getelementptr ptr, ptr %47, i64 %indvars.iv12
   store ptr null, ptr %73, align 8
   %74 = getelementptr %struct.virtio_blk_vq, ptr %71, i64 %indvars.iv12, i32 2
-  %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %74, i64 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %72) #13
+  %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %74, i64 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %72) #14
   %76 = load ptr, ptr %42, align 8
   %77 = getelementptr %struct.virtio_blk_vq, ptr %76, i64 %indvars.iv12, i32 2
   %78 = getelementptr ptr, ptr %46, i64 %indvars.iv12
@@ -1101,14 +1100,14 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   %indvars.iv.next13 = add nuw i64 %indvars.iv12, 1
   %79 = trunc nuw i64 %indvars.iv.next13 to i32
   %80 = icmp samesign ugt i32 %29, %79
-  br i1 %80, label %.preheader8, label %.loopexit9, !llvm.loop !15
+  br i1 %80, label %.preheader8, label %.loopexit9, !llvm.loop !14
 
 .loopexit9:                                       ; preds = %.preheader8, %.loopexit11
   %81 = getelementptr inbounds i8, ptr %5, i64 752
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 48
   %84 = load ptr, ptr %83, align 8
-  %85 = call i32 %84(ptr noundef %5, i32 noundef %29, ptr noundef nonnull %48, ptr noundef nonnull %47, ptr noundef nonnull %46, ptr noundef null, ptr noundef nonnull %2) #13
+  %85 = call i32 %84(ptr noundef %5, i32 noundef %29, ptr noundef nonnull %48, ptr noundef nonnull %47, ptr noundef nonnull %46, ptr noundef null, ptr noundef nonnull %2) #14
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %99
 
@@ -1128,7 +1127,7 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   store ptr %93, ptr %95, align 64
   %96 = add nuw nsw i64 %89, 1
   %97 = icmp eq i64 %96, %30
-  br i1 %97, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %97, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %87
   %98 = getelementptr inbounds i8, ptr %0, i64 252
@@ -1137,20 +1136,20 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
 
 99:                                               ; preds = %.loopexit, %.loopexit9, %44
   %100 = phi i32 [ %85, %.loopexit9 ], [ 0, %.loopexit ], [ -12, %44 ]
-  call void @kfree(ptr noundef %48) #13
-  call void @kfree(ptr noundef %47) #13
-  call void @kfree(ptr noundef %46) #13
+  call void @kfree(ptr noundef %48) #14
+  call void @kfree(ptr noundef %47) #14
+  call void @kfree(ptr noundef %46) #14
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %104, label %102
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %42, align 8
-  call void @kfree(ptr noundef %103) #13
+  call void @kfree(ptr noundef %103) #14
   br label %104
 
 104:                                              ; preds = %102, %99, %26, %16
   %105 = phi i32 [ -22, %16 ], [ -12, %26 ], [ %100, %102 ], [ 0, %99 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #14
   ret i32 %105
 }
 
@@ -1216,10 +1215,10 @@ define internal fastcc void @virtblk_update_capacity(ptr nocapture noundef reado
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  %12 = tail call i32 @__SCT__might_resched() #13
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  %12 = tail call i32 @__SCT__might_resched() #14
   %13 = getelementptr inbounds i8, ptr %7, i64 752
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 16
@@ -1228,7 +1227,7 @@ define internal fastcc void @virtblk_update_capacity(ptr nocapture noundef reado
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %2
-  %19 = tail call i32 %16(ptr noundef %7) #13
+  %19 = tail call i32 %16(ptr noundef %7) #14
   br label %20
 
 20:                                               ; preds = %18, %2
@@ -1236,14 +1235,14 @@ define internal fastcc void @virtblk_update_capacity(ptr nocapture noundef reado
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %3, i8 0, i64 10, i1 false), !annotation !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, i8 0, i64 10, i1 false), !annotation !5
   store i64 0, ptr %5, align 8, !annotation !5
-  %22 = tail call i32 @__SCT__might_resched() #13
+  %22 = tail call i32 @__SCT__might_resched() #14
   br label %23
 
 23:                                               ; preds = %33, %20
   %24 = phi i32 [ %21, %20 ], [ %34, %33 ]
   %25 = load ptr, ptr %13, align 8
   %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef %7, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 8) #13
+  call void %26(ptr noundef %7, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 8) #14
   %27 = load ptr, ptr %13, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
@@ -1251,23 +1250,23 @@ define internal fastcc void @virtblk_update_capacity(ptr nocapture noundef reado
   br i1 %30, label %33, label %31
 
 31:                                               ; preds = %23
-  %32 = call i32 %29(ptr noundef %7) #13
+  %32 = call i32 %29(ptr noundef %7) #14
   br label %33
 
 33:                                               ; preds = %31, %23
   %34 = phi i32 [ %32, %31 ], [ 0, %23 ]
   %35 = icmp eq i32 %34, %24
-  br i1 %35, label %36, label %23, !llvm.loop !17
+  br i1 %35, label %36, label %23, !llvm.loop !16
 
 36:                                               ; preds = %33
   %37 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   %38 = icmp eq ptr %11, null
   br i1 %38, label %.thread5, label %41
 
 .thread5:                                         ; preds = %36
-  %39 = call i32 @string_get_size(i64 noundef %37, i64 noundef 512, i32 noundef 1, ptr noundef nonnull %3, i32 noundef 10) #13
-  %40 = call i32 @string_get_size(i64 noundef %37, i64 noundef 512, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 10) #13
+  %39 = call i32 @string_get_size(i64 noundef %37, i64 noundef 512, i32 noundef 1, ptr noundef nonnull %3, i32 noundef 10) #14
+  %40 = call i32 @string_get_size(i64 noundef %37, i64 noundef 512, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 10) #14
   br label %62
 
 41:                                               ; preds = %36
@@ -1282,12 +1281,12 @@ define internal fastcc void @virtblk_update_capacity(ptr nocapture noundef reado
   %50 = udiv i64 %49, %47
   %51 = select i1 %44, i32 512, i32 %43
   %52 = zext i32 %51 to i64
-  %53 = call i32 @string_get_size(i64 noundef %50, i64 noundef %52, i32 noundef 1, ptr noundef nonnull %3, i32 noundef 10) #13
+  %53 = call i32 @string_get_size(i64 noundef %50, i64 noundef %52, i32 noundef 1, ptr noundef nonnull %3, i32 noundef 10) #14
   %54 = load i32, ptr %42, align 4
   %55 = icmp eq i32 %54, 0
   %56 = select i1 %55, i32 512, i32 %54
   %57 = zext i32 %56 to i64
-  %58 = call i32 @string_get_size(i64 noundef %50, i64 noundef %57, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 10) #13
+  %58 = call i32 @string_get_size(i64 noundef %50, i64 noundef %57, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 10) #14
   %59 = load i32, ptr %42, align 4
   %60 = icmp eq i32 %59, 0
   %61 = select i1 %60, i32 512, i32 %59
@@ -1300,11 +1299,11 @@ define internal fastcc void @virtblk_update_capacity(ptr nocapture noundef reado
   %66 = select i1 %1, ptr @.str.21, ptr @.str.22
   %67 = getelementptr inbounds i8, ptr %65, i64 12
   %68 = getelementptr inbounds i8, ptr %7, i64 16
-  call void (ptr, ptr, ...) @_dev_notice(ptr noundef %68, ptr noundef nonnull @.str.20, ptr noundef %67, ptr noundef nonnull %66, i64 noundef %63, i32 noundef %64, ptr noundef nonnull %4, ptr noundef nonnull %3) #14
+  call void (ptr, ptr, ...) @_dev_notice(ptr noundef %68, ptr noundef nonnull @.str.20, ptr noundef %67, ptr noundef nonnull %66, i64 noundef %63, i32 noundef %64, ptr noundef nonnull %4, ptr noundef nonnull %3) #15
   %69 = load ptr, ptr %8, align 8
-  %70 = call zeroext i1 @set_capacity_and_notify(ptr noundef %69, i64 noundef %37) #13
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #13
+  %70 = call zeroext i1 @set_capacity_and_notify(ptr noundef %69, i64 noundef %37) #14
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #14
   ret void
 }
 
@@ -1347,40 +1346,40 @@ define internal void @virtblk_done(ptr noundef %0) #2 align 16 {
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
   store i32 0, ptr %2, align 4, !annotation !5
   %9 = getelementptr inbounds i8, ptr %6, i64 272
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %8 to i64
   %12 = getelementptr %struct.virtio_blk_vq, ptr %10, i64 %11, i32 1
-  %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %12) #13
+  %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %12) #14
   br label %14
 
 14:                                               ; preds = %.loopexit, %1
   %15 = phi i8 [ 0, %1 ], [ %28, %.loopexit ]
-  call void @virtqueue_disable_cb(ptr noundef %0) #13
+  call void @virtqueue_disable_cb(ptr noundef %0) #14
   %16 = load ptr, ptr %9, align 8
   %17 = getelementptr %struct.virtio_blk_vq, ptr %16, i64 %11
   %18 = load ptr, ptr %17, align 64
-  %19 = call ptr @virtqueue_get_buf(ptr noundef %18, ptr noundef nonnull %2) #13
+  %19 = call ptr @virtqueue_get_buf(ptr noundef %18, ptr noundef nonnull %2) #14
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %14, %.preheader
   %21 = phi ptr [ %26, %.preheader ], [ %19, %14 ]
   %22 = getelementptr i8, ptr %21, i64 -248
-  call void @blk_mq_complete_request(ptr noundef %22) #13
+  call void @blk_mq_complete_request(ptr noundef %22) #14
   %23 = load ptr, ptr %9, align 8
   %24 = getelementptr %struct.virtio_blk_vq, ptr %23, i64 %11
   %25 = load ptr, ptr %24, align 64
-  %26 = call ptr @virtqueue_get_buf(ptr noundef %25, ptr noundef nonnull %2) #13
+  %26 = call ptr @virtqueue_get_buf(ptr noundef %25, ptr noundef nonnull %2) #14
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %14
   %28 = phi i8 [ %15, %14 ], [ 1, %.preheader ]
-  %29 = call zeroext i1 @virtqueue_enable_cb(ptr noundef %0) #13
-  br i1 %29, label %30, label %14, !llvm.loop !19
+  %29 = call zeroext i1 @virtqueue_enable_cb(ptr noundef %0) #14
+  br i1 %29, label %30, label %14, !llvm.loop !18
 
 30:                                               ; preds = %.loopexit
   %31 = and i8 %28, 1
@@ -1392,14 +1391,14 @@ define internal void @virtblk_done(ptr noundef %0) #2 align 16 {
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 80
   %37 = load ptr, ptr %36, align 8
-  call void @blk_mq_start_stopped_hw_queues(ptr noundef %37, i1 noundef zeroext true) #13
+  call void @blk_mq_start_stopped_hw_queues(ptr noundef %37, i1 noundef zeroext true) #14
   br label %38
 
 38:                                               ; preds = %33, %30
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr %struct.virtio_blk_vq, ptr %39, i64 %11, i32 1
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %40, i64 noundef %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %40, i64 noundef %13) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
   ret void
 }
 
@@ -1441,24 +1440,24 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   %12 = load i32, ptr %11, align 4
   %13 = tail call fastcc zeroext i8 @virtblk_prep_rq(ptr noundef %0, ptr noundef %9, ptr noundef %10)
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %15, label %103, !prof !10
+  br i1 %14, label %15, label %103, !prof !9
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %8, i64 272
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %12 to i64
   %19 = getelementptr %struct.virtio_blk_vq, ptr %17, i64 %18, i32 1
-  %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %19) #13
+  %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %19) #14
   %21 = load ptr, ptr %16, align 8
   %22 = getelementptr %struct.virtio_blk_vq, ptr %21, i64 %18
   %23 = load ptr, ptr %22, align 64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !5
-  call void @sg_init_one(ptr noundef nonnull %3, ptr noundef %10, i32 noundef 16) #13
+  call void @sg_init_one(ptr noundef nonnull %3, ptr noundef %10, i32 noundef 16) #14
   store ptr %3, ptr %5, align 16
   %24 = getelementptr i8, ptr %9, i64 288
   %25 = getelementptr i8, ptr %9, i64 296
@@ -1483,16 +1482,16 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   %39 = getelementptr i8, ptr %9, i64 280
   %40 = load i64, ptr %39, align 8
   %41 = trunc i64 %40 to i32
-  call void @sg_init_one(ptr noundef nonnull %4, ptr noundef %38, i32 noundef %41) #13
+  call void @sg_init_one(ptr noundef nonnull %4, ptr noundef %38, i32 noundef %41) #14
   %42 = add nuw nsw i32 %37, 1
   %43 = add nuw nsw i32 %37, %36
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr [3 x ptr], ptr %5, i64 0, i64 %44
   store ptr %4, ptr %45, align 8
-  %46 = call i32 @virtqueue_add_sgs(ptr noundef %23, ptr noundef nonnull %5, i32 noundef %36, i32 noundef %42, ptr noundef %10, i32 noundef 2080) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  %46 = call i32 @virtqueue_add_sgs(ptr noundef %23, ptr noundef nonnull %5, i32 noundef %36, i32 noundef %42, ptr noundef %10, i32 noundef 2080) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %85, label %48
 
@@ -1500,18 +1499,18 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   %49 = load ptr, ptr %16, align 8
   %50 = getelementptr %struct.virtio_blk_vq, ptr %49, i64 %18
   %51 = load ptr, ptr %50, align 64
-  %52 = call zeroext i1 @virtqueue_kick(ptr noundef %51) #13
+  %52 = call zeroext i1 @virtqueue_kick(ptr noundef %51) #14
   %53 = icmp eq i32 %46, -28
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %48
-  call void @blk_mq_stop_hw_queue(ptr noundef %0) #13
+  call void @blk_mq_stop_hw_queue(ptr noundef %0) #14
   br label %55
 
 55:                                               ; preds = %54, %48
   %56 = load ptr, ptr %16, align 8
   %57 = getelementptr %struct.virtio_blk_vq, ptr %56, i64 %18, i32 1
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %57, i64 noundef %20) #13
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %57, i64 noundef %20) #14
   %58 = getelementptr inbounds i8, ptr %9, i64 28
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 262144
@@ -1525,7 +1524,7 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   br i1 %65, label %.thread, label %66
 
 66:                                               ; preds = %55, %62
-  call void @sg_free_table_chained(ptr noundef %24, i32 noundef 2) #13
+  call void @sg_free_table_chained(ptr noundef %24, i32 noundef 2) #14
   %.pre = load i32, ptr %58, align 4
   %.pre2 = and i32 %.pre, 262144
   %67 = icmp eq i32 %.pre2, 0
@@ -1545,7 +1544,7 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
   %81 = getelementptr i8, ptr %77, i64 %80
-  call void @kfree(ptr noundef %81) #13
+  call void @kfree(ptr noundef %81) #14
   br label %.thread
 
 .thread:                                          ; preds = %62, %68, %66
@@ -1556,7 +1555,7 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
 
 85:                                               ; preds = %35
   %86 = getelementptr inbounds i8, ptr %1, i64 8
-  %87 = load i8, ptr %86, align 8, !range !20, !noundef !21
+  %87 = load i8, ptr %86, align 8, !range !19, !noundef !20
   %88 = icmp eq i8 %87, 0
   %89 = load ptr, ptr %16, align 8
   br i1 %88, label %101, label %90
@@ -1564,22 +1563,22 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
 90:                                               ; preds = %85
   %91 = getelementptr %struct.virtio_blk_vq, ptr %89, i64 %18
   %92 = load ptr, ptr %91, align 64
-  %93 = call zeroext i1 @virtqueue_kick_prepare(ptr noundef %92) #13
+  %93 = call zeroext i1 @virtqueue_kick_prepare(ptr noundef %92) #14
   %94 = load ptr, ptr %16, align 8
   %95 = getelementptr %struct.virtio_blk_vq, ptr %94, i64 %18, i32 1
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %95, i64 noundef %20) #13
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %95, i64 noundef %20) #14
   br i1 %93, label %96, label %103
 
 96:                                               ; preds = %90
   %97 = load ptr, ptr %16, align 8
   %98 = getelementptr %struct.virtio_blk_vq, ptr %97, i64 %18
   %99 = load ptr, ptr %98, align 64
-  %100 = call zeroext i1 @virtqueue_notify(ptr noundef %99) #13
+  %100 = call zeroext i1 @virtqueue_notify(ptr noundef %99) #14
   br label %103
 
 101:                                              ; preds = %85
   %102 = getelementptr %struct.virtio_blk_vq, ptr %89, i64 %18, i32 1
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %102, i64 noundef %20) #13
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %102, i64 noundef %20) #14
   br label %103
 
 103:                                              ; preds = %101, %96, %90, %.thread, %2
@@ -1599,15 +1598,15 @@ define internal void @virtio_commit_rqs(ptr nocapture noundef readonly %0) #2 al
   %9 = zext i32 %8 to i64
   %10 = getelementptr %struct.virtio_blk_vq, ptr %6, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 8
-  tail call void @_raw_spin_lock_irq(ptr noundef %11) #13
+  tail call void @_raw_spin_lock_irq(ptr noundef %11) #14
   %12 = load ptr, ptr %10, align 64
-  %13 = tail call zeroext i1 @virtqueue_kick_prepare(ptr noundef %12) #13
-  tail call void @_raw_spin_unlock_irq(ptr noundef %11) #13
+  %13 = tail call zeroext i1 @virtqueue_kick_prepare(ptr noundef %12) #14
+  tail call void @_raw_spin_unlock_irq(ptr noundef %11) #14
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %10, align 64
-  %16 = tail call zeroext i1 @virtqueue_notify(ptr noundef %15) #13
+  %16 = tail call zeroext i1 @virtqueue_notify(ptr noundef %15) #14
   br label %17
 
 17:                                               ; preds = %14, %1
@@ -1680,7 +1679,7 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
   %45 = getelementptr inbounds i8, ptr %36, i64 72
   store ptr null, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %25, i64 8
-  %47 = call i64 @_raw_spin_lock_irqsave(ptr noundef %46) #13
+  %47 = call i64 @_raw_spin_lock_irqsave(ptr noundef %46) #14
   %48 = load ptr, ptr %0, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.loopexit, label %.preheader
@@ -1692,13 +1691,13 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
   store ptr %52, ptr %0, align 8
   %53 = getelementptr i8, ptr %50, i64 248
   %54 = load ptr, ptr %25, align 64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !5
-  call void @sg_init_one(ptr noundef nonnull %2, ptr noundef %53, i32 noundef 16) #13
+  call void @sg_init_one(ptr noundef nonnull %2, ptr noundef %53, i32 noundef 16) #14
   store ptr %2, ptr %4, align 16
   %55 = getelementptr i8, ptr %50, i64 288
   %56 = getelementptr i8, ptr %50, i64 296
@@ -1722,16 +1721,16 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
   %69 = getelementptr i8, ptr %50, i64 280
   %70 = load i64, ptr %69, align 8
   %71 = trunc i64 %70 to i32
-  call void @sg_init_one(ptr noundef nonnull %3, ptr noundef %68, i32 noundef %71) #13
+  call void @sg_init_one(ptr noundef nonnull %3, ptr noundef %68, i32 noundef %71) #14
   %72 = add nuw nsw i32 %67, 1
   %73 = add nuw nsw i32 %67, %66
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr [3 x ptr], ptr %4, i64 0, i64 %74
   store ptr %3, ptr %75, align 8
-  %76 = call i32 @virtqueue_add_sgs(ptr noundef %54, ptr noundef nonnull %4, i32 noundef %66, i32 noundef %72, ptr noundef %53, i32 noundef 2080) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
+  %76 = call i32 @virtqueue_add_sgs(ptr noundef %54, ptr noundef nonnull %4, i32 noundef %66, i32 noundef %72, ptr noundef %53, i32 noundef 2080) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #14
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %103, label %78
 
@@ -1749,7 +1748,7 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
   br i1 %86, label %.thread11, label %87
 
 87:                                               ; preds = %78, %83
-  call void @sg_free_table_chained(ptr noundef %55, i32 noundef 2) #13
+  call void @sg_free_table_chained(ptr noundef %55, i32 noundef 2) #14
   %.pre = load i32, ptr %79, align 4
   %.pre10 = and i32 %.pre, 262144
   %88 = icmp eq i32 %.pre10, 0
@@ -1769,27 +1768,27 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
   %100 = load i32, ptr %99, align 4
   %101 = zext i32 %100 to i64
   %102 = getelementptr i8, ptr %98, i64 %101
-  call void @kfree(ptr noundef %102) #13
+  call void @kfree(ptr noundef %102) #14
   br label %.thread11
 
 .thread11:                                        ; preds = %83, %89, %87
-  call void @blk_mq_requeue_request(ptr noundef nonnull %50, i1 noundef zeroext true) #13
+  call void @blk_mq_requeue_request(ptr noundef nonnull %50, i1 noundef zeroext true) #14
   br label %103
 
 103:                                              ; preds = %.thread11, %65
   %104 = load ptr, ptr %0, align 8
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %105, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %103, %44
   %106 = load ptr, ptr %25, align 64
-  %107 = call zeroext i1 @virtqueue_kick_prepare(ptr noundef %106) #13
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %46, i64 noundef %47) #13
+  %107 = call zeroext i1 @virtqueue_kick_prepare(ptr noundef %106) #14
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %46, i64 noundef %47) #14
   br i1 %107, label %108, label %111
 
 108:                                              ; preds = %.loopexit
   %109 = load ptr, ptr %25, align 64
-  %110 = call zeroext i1 @virtqueue_notify(ptr noundef %109) #13
+  %110 = call zeroext i1 @virtqueue_notify(ptr noundef %109) #14
   br label %111
 
 111:                                              ; preds = %108, %.loopexit
@@ -1804,7 +1803,7 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
 .backedge.backedge:                               ; preds = %112, %38
   %.be = phi ptr [ null, %112 ], [ %36, %38 ]
   %.be13 = phi ptr [ %113, %112 ], [ %35, %38 ]
-  br label %.backedge, !llvm.loop !23
+  br label %.backedge, !llvm.loop !22
 
 .thread:                                          ; preds = %112, %1, %6
   %115 = phi ptr [ null, %6 ], [ null, %1 ], [ %113, %112 ]
@@ -1824,12 +1823,12 @@ define internal i32 @virtblk_poll(ptr nocapture noundef readonly %0, ptr noundef
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = getelementptr %struct.virtio_blk_vq, ptr %8, i64 %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
   store i32 0, ptr %3, align 4, !annotation !5
   %13 = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %13) #13
+  %14 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %13) #14
   %15 = load ptr, ptr %12, align 64
-  %16 = call ptr @virtqueue_get_buf(ptr noundef %15, ptr noundef nonnull %3) #13
+  %16 = call ptr @virtqueue_get_buf(ptr noundef %15, ptr noundef nonnull %3) #14
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread, label %18
 
@@ -1844,7 +1843,7 @@ define internal i32 @virtblk_poll(ptr nocapture noundef readonly %0, ptr noundef
   %24 = phi i32 [ 0, %18 ], [ %26, %118 ]
   %25 = getelementptr i8, ptr %23, i64 -248
   %26 = add i32 %24, 1
-  %27 = call zeroext i1 @blk_mq_complete_request_remote(ptr noundef %25) #13
+  %27 = call zeroext i1 @blk_mq_complete_request_remote(ptr noundef %25) #14
   br i1 %27, label %118, label %28
 
 28:                                               ; preds = %22
@@ -1912,7 +1911,7 @@ define internal i32 @virtblk_poll(ptr nocapture noundef readonly %0, ptr noundef
 
 67:                                               ; preds = %62, %57
   %68 = phi i8 [ %66, %62 ], [ 0, %57 ]
-  %69 = load i8, ptr %21, align 8, !range !20, !noundef !21
+  %69 = load i8, ptr %21, align 8, !range !19, !noundef !20
   %70 = or i8 %69, %68
   store i8 %70, ptr %21, align 8
   %71 = load ptr, ptr %1, align 8
@@ -1962,7 +1961,7 @@ define internal i32 @virtblk_poll(ptr nocapture noundef readonly %0, ptr noundef
 
 93:                                               ; preds = %83, %89
   %94 = getelementptr i8, ptr %23, i64 40
-  call void @sg_free_table_chained(ptr noundef %94, i32 noundef 2) #13
+  call void @sg_free_table_chained(ptr noundef %94, i32 noundef 2) #14
   %.pre5 = load i32, ptr %85, align 4
   %.pre6 = and i32 %.pre5, 262144
   %95 = icmp eq i32 %.pre6, 0
@@ -1982,7 +1981,7 @@ define internal i32 @virtblk_poll(ptr nocapture noundef readonly %0, ptr noundef
   %107 = load i32, ptr %106, align 4
   %108 = zext i32 %107 to i64
   %109 = getelementptr i8, ptr %105, i64 %108
-  call void @kfree(ptr noundef %109) #13
+  call void @kfree(ptr noundef %109) #14
   br label %.thread7
 
 .thread7:                                         ; preds = %89, %96, %93
@@ -1999,14 +1998,14 @@ define internal i32 @virtblk_poll(ptr nocapture noundef readonly %0, ptr noundef
   br label %117
 
 117:                                              ; preds = %114, %.thread7
-  call void @blk_mq_end_request(ptr noundef %25, i8 noundef zeroext %84) #13
+  call void @blk_mq_end_request(ptr noundef %25, i8 noundef zeroext %84) #14
   br label %118
 
 118:                                              ; preds = %117, %67, %22
   %119 = load ptr, ptr %12, align 64
-  %120 = call ptr @virtqueue_get_buf(ptr noundef %119, ptr noundef nonnull %3) #13
+  %120 = call ptr @virtqueue_get_buf(ptr noundef %119, ptr noundef nonnull %3) #14
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %122, label %22, !llvm.loop !24
+  br i1 %121, label %122, label %22, !llvm.loop !23
 
 122:                                              ; preds = %118
   %123 = icmp eq i32 %26, 0
@@ -2017,13 +2016,13 @@ define internal i32 @virtblk_poll(ptr nocapture noundef readonly %0, ptr noundef
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 80
   %128 = load ptr, ptr %127, align 8
-  call void @blk_mq_start_stopped_hw_queues(ptr noundef %128, i1 noundef zeroext true) #13
+  call void @blk_mq_start_stopped_hw_queues(ptr noundef %128, i1 noundef zeroext true) #14
   br label %.thread
 
 .thread:                                          ; preds = %2, %124, %122
   %129 = phi i32 [ %26, %124 ], [ 0, %122 ], [ 0, %2 ]
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %13, i64 noundef %14) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %13, i64 noundef %14) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
   ret i32 %129
 }
 
@@ -2070,7 +2069,7 @@ define internal void @virtblk_request_done(ptr noundef %0) #9 align 16 {
 
 22:                                               ; preds = %12, %18
   %23 = getelementptr i8, ptr %0, i64 288
-  tail call void @sg_free_table_chained(ptr noundef %23, i32 noundef 2) #13
+  tail call void @sg_free_table_chained(ptr noundef %23, i32 noundef 2) #14
   %.pre = load i32, ptr %14, align 4
   %.pre1 = and i32 %.pre, 262144
   %24 = icmp eq i32 %.pre1, 0
@@ -2090,7 +2089,7 @@ define internal void @virtblk_request_done(ptr noundef %0) #9 align 16 {
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
   %38 = getelementptr i8, ptr %34, i64 %37
-  tail call void @kfree(ptr noundef %38) #13
+  tail call void @kfree(ptr noundef %38) #14
   br label %.thread
 
 .thread:                                          ; preds = %18, %25, %22
@@ -2107,7 +2106,7 @@ define internal void @virtblk_request_done(ptr noundef %0) #9 align 16 {
   br label %46
 
 46:                                               ; preds = %43, %.thread
-  tail call void @blk_mq_end_request(ptr noundef %0, i8 noundef zeroext %13) #13
+  tail call void @blk_mq_end_request(ptr noundef %0, i8 noundef zeroext %13) #14
   ret void
 }
 
@@ -2146,19 +2145,19 @@ define internal void @virtblk_map_queues(ptr noundef %0) #2 align 16 {
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %22
-  tail call void @blk_mq_map_queues(ptr noundef %15) #13
+  tail call void @blk_mq_map_queues(ptr noundef %15) #14
   br label %27
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %10, align 8
-  tail call void @blk_mq_virtio_map_queues(ptr noundef %15, ptr noundef %26, i32 noundef 0) #13
+  tail call void @blk_mq_virtio_map_queues(ptr noundef %15, ptr noundef %26, i32 noundef 0) #14
   br label %27
 
 27:                                               ; preds = %25, %24, %11
   %28 = add nuw i32 %13, 1
   %29 = load i32, ptr %2, align 8
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %11, label %.loopexit, !llvm.loop !25
+  br i1 %30, label %11, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %27, %1
   ret void
@@ -2172,7 +2171,7 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   %7 = trunc i32 %6 to i8
   %8 = add i8 %7, -10
   %9 = icmp ult i8 %8, 4
-  br i1 %9, label %146, label %10, !prof !26
+  br i1 %9, label %146, label %10, !prof !25
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %1, i64 124
@@ -2246,9 +2245,9 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   br label %.thread
 
 44:                                               ; preds = %10
-  tail call void asm sideeffect "437: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 437b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 437) #13, !srcloc !27
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 307, i32 2307, i64 12) #13, !srcloc !28
-  tail call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_end\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #13, !srcloc !29
+  tail call void asm sideeffect "437: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 437b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 437) #14, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 307, i32 2307, i64 12) #14, !srcloc !27
+  tail call void asm sideeffect "438: nop\0A\09.pushsection .discard.instr_end\0A\09.long 438b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 438) #14, !srcloc !28
   br label %146
 
 .thread:                                          ; preds = %43, %40, %37, %34, %31, %28, %20, %17, %10
@@ -2275,9 +2274,9 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   %54 = tail call i16 @llvm.umax.i16(i16 %53, i16 1)
   %55 = zext i16 %54 to i64
   %56 = shl nuw nsw i64 %55, 4
-  %57 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %56, i32 noundef 2080) #16
+  %57 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %56, i32 noundef 2080) #17
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %146, label %59, !prof !30
+  br i1 %58, label %146, label %59, !prof !29
 
 59:                                               ; preds = %47
   %60 = load ptr, ptr %1, align 8
@@ -2323,17 +2322,17 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   %87 = add i16 %76, 1
   %88 = load ptr, ptr %77, align 8
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %89, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.preheader, %64
   %90 = phi i16 [ 1, %64 ], [ %87, %.preheader ]
   %91 = icmp eq i16 %90, %54
-  br i1 %91, label %92, label %.thread5, !prof !32
+  br i1 %91, label %92, label %.thread5, !prof !31
 
 .thread5:                                         ; preds = %72, %.loopexit
-  tail call void asm sideeffect "435: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 435b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 435) #13, !srcloc !33
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 199, i32 2307, i64 12) #13, !srcloc !34
-  tail call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_end\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #13, !srcloc !35
+  tail call void asm sideeffect "435: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 435b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 435) #14, !srcloc !32
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 199, i32 2307, i64 12) #14, !srcloc !33
+  tail call void asm sideeffect "436: nop\0A\09.pushsection .discard.instr_end\0A\09.long 436b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 436) #14, !srcloc !34
   br label %92
 
 92:                                               ; preds = %.thread5, %.loopexit
@@ -2395,20 +2394,20 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
 
 134:                                              ; preds = %130, %124
   %135 = phi i32 [ %133, %130 ], [ 1, %124 ]
-  %136 = tail call i32 @sg_alloc_table_chained(ptr noundef %126, i32 noundef %135, ptr noundef %125, i32 noundef 2) #13
+  %136 = tail call i32 @sg_alloc_table_chained(ptr noundef %126, i32 noundef %135, ptr noundef %125, i32 noundef 2) #14
   %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %.thread8, !prof !10
+  br i1 %137, label %138, label %.thread8, !prof !9
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds i8, ptr %0, i64 184
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr %126, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store ptr null, ptr %4, align 8
-  %142 = call i32 @__blk_rq_map_sg(ptr noundef %140, ptr noundef %1, ptr noundef %141, ptr noundef nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  %142 = call i32 @__blk_rq_map_sg(ptr noundef %140, ptr noundef %1, ptr noundef %141, ptr noundef nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
   %143 = icmp slt i32 %142, 0
-  br i1 %143, label %.thread8, label %.thread9, !prof !36
+  br i1 %143, label %.thread8, label %.thread9, !prof !35
 
 .thread8:                                         ; preds = %134, %138
   call fastcc void @virtblk_fail_to_queue(ptr noundef %1)
@@ -2418,7 +2417,7 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   %144 = phi i32 [ %142, %138 ], [ 0, %120 ]
   %145 = getelementptr inbounds i8, ptr %2, i64 48
   store i32 %144, ptr %145, align 8
-  call void @blk_mq_start_request(ptr noundef %1) #13
+  call void @blk_mq_start_request(ptr noundef %1) #14
   br label %146
 
 146:                                              ; preds = %3, %44, %47, %.thread9, %.thread8
@@ -2454,7 +2453,7 @@ define internal fastcc void @virtblk_fail_to_queue(ptr nocapture noundef readonl
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
   %19 = getelementptr i8, ptr %15, i64 %18
-  tail call void @kfree(ptr noundef %19) #13
+  tail call void @kfree(ptr noundef %19) #14
   br label %20
 
 20:                                               ; preds = %6, %1
@@ -2523,7 +2522,7 @@ define internal void @virtblk_complete_batch(ptr noundef %0) #2 align 16 {
 
 15:                                               ; preds = %.preheader, %11
   %16 = getelementptr i8, ptr %6, i64 288
-  tail call void @sg_free_table_chained(ptr noundef %16, i32 noundef 2) #13
+  tail call void @sg_free_table_chained(ptr noundef %16, i32 noundef 2) #14
   %.pre = load i32, ptr %7, align 4
   %.pre3 = and i32 %.pre, 262144
   %17 = icmp eq i32 %.pre3, 0
@@ -2543,17 +2542,17 @@ define internal void @virtblk_complete_batch(ptr noundef %0) #2 align 16 {
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = getelementptr i8, ptr %27, i64 %30
-  tail call void @kfree(ptr noundef %31) #13
+  tail call void @kfree(ptr noundef %31) #14
   br label %.thread4
 
 .thread4:                                         ; preds = %11, %18, %15
   %32 = getelementptr inbounds i8, ptr %6, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread, label %.preheader, !llvm.loop !37
+  br i1 %34, label %.thread, label %.preheader, !llvm.loop !36
 
 .thread:                                          ; preds = %.thread4, %1, %3
-  tail call void @blk_mq_end_request_batch(ptr noundef %0) #13
+  tail call void @blk_mq_end_request_batch(ptr noundef %0) #14
   ret void
 }
 
@@ -2584,14 +2583,14 @@ define internal noundef range(i32 -6, 1) i32 @virtblk_getgeo(ptr nocapture nound
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
-  tail call void @mutex_lock(ptr noundef %9) #13
+  tail call void @mutex_lock(ptr noundef %9) #14
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %49, label %13
 
 13:                                               ; preds = %2
-  tail call void @virtio_check_driver_offered_feature(ptr noundef nonnull %11, i32 noundef 4) #13
+  tail call void @virtio_check_driver_offered_feature(ptr noundef nonnull %11, i32 noundef 4) #14
   %14 = getelementptr inbounds i8, ptr %11, i64 784
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 16
@@ -2599,41 +2598,41 @@ define internal noundef range(i32 -6, 1) i32 @virtblk_getgeo(ptr nocapture nound
   br i1 %17, label %39, label %18
 
 18:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
   store i16 0, ptr %3, align 2, !annotation !5
-  %19 = tail call i32 @__SCT__might_resched() #13
+  %19 = tail call i32 @__SCT__might_resched() #14
   %20 = load ptr, ptr %10, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 752
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef %20, i32 noundef 16, ptr noundef nonnull %3, i32 noundef 2) #13
+  call void %23(ptr noundef %20, i32 noundef 16, ptr noundef nonnull %3, i32 noundef 2) #14
   %24 = load i16, ptr %3, align 2
   %25 = getelementptr inbounds i8, ptr %1, i64 2
   store i16 %24, ptr %25, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
   store i8 0, ptr %4, align 1, !annotation !5
-  %26 = call i32 @__SCT__might_resched() #13
+  %26 = call i32 @__SCT__might_resched() #14
   %27 = load ptr, ptr %10, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef %27, i32 noundef 18, ptr noundef nonnull %4, i32 noundef 1) #13
+  call void %30(ptr noundef %27, i32 noundef 18, ptr noundef nonnull %4, i32 noundef 1) #14
   %31 = load i8, ptr %4, align 1
   store i8 %31, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
   store i8 0, ptr %5, align 1, !annotation !5
-  %32 = call i32 @__SCT__might_resched() #13
+  %32 = call i32 @__SCT__might_resched() #14
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 752
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef %33, i32 noundef 19, ptr noundef nonnull %5, i32 noundef 1) #13
+  call void %36(ptr noundef %33, i32 noundef 19, ptr noundef nonnull %5, i32 noundef 1) #14
   %37 = load i8, ptr %5, align 1
   %38 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %37, ptr %38, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
   br label %49
 
 39:                                               ; preds = %13
@@ -2653,7 +2652,7 @@ define internal noundef range(i32 -6, 1) i32 @virtblk_getgeo(ptr nocapture nound
 
 49:                                               ; preds = %39, %18, %2
   %50 = phi i32 [ 0, %18 ], [ 0, %39 ], [ -6, %2 ]
-  call void @mutex_unlock(ptr noundef %9) #13
+  call void @mutex_unlock(ptr noundef %9) #14
   ret i32 %50
 }
 
@@ -2663,8 +2662,8 @@ define internal void @virtblk_free_disk(ptr nocapture noundef readonly %0) #2 al
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 248
   %5 = load i32, ptr %4, align 8
-  tail call void @ida_free(ptr noundef nonnull @vd_index_ida, i32 noundef %5) #13
-  tail call void @kfree(ptr noundef %3) #13
+  tail call void @ida_free(ptr noundef nonnull @vd_index_ida, i32 noundef %5) #14
+  tail call void @kfree(ptr noundef %3) #14
   ret void
 }
 
@@ -2698,7 +2697,7 @@ define internal zeroext i16 @virtblk_attrs_are_visible(ptr nocapture noundef rea
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
-  tail call void @virtio_check_driver_offered_feature(ptr noundef %11, i32 noundef 11) #13
+  tail call void @virtio_check_driver_offered_feature(ptr noundef %11, i32 noundef 11) #14
   %12 = getelementptr inbounds i8, ptr %11, i64 784
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 2048
@@ -2724,7 +2723,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cache_type_show(ptr noca
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
-  tail call void @virtio_check_driver_offered_feature(ptr noundef %10, i32 noundef 11) #13
+  tail call void @virtio_check_driver_offered_feature(ptr noundef %10, i32 noundef 11) #14
   %11 = getelementptr inbounds i8, ptr %10, i64 784
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2048
@@ -2732,7 +2731,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cache_type_show(ptr noca
   br i1 %14, label %.thread, label %19
 
 .thread:                                          ; preds = %3
-  tail call void @virtio_check_driver_offered_feature(ptr noundef %10, i32 noundef 9) #13
+  tail call void @virtio_check_driver_offered_feature(ptr noundef %10, i32 noundef 9) #14
   %15 = load i64, ptr %11, align 8
   %16 = lshr i64 %15, 9
   %17 = trunc i64 %16 to i8
@@ -2740,21 +2739,21 @@ define internal range(i64 -2147483648, 2147483648) i64 @cache_type_show(ptr noca
   br label %27
 
 19:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
   store i8 0, ptr %4, align 1, !annotation !5
-  %20 = tail call i32 @__SCT__might_resched() #13
+  %20 = tail call i32 @__SCT__might_resched() #14
   %21 = getelementptr inbounds i8, ptr %10, i64 752
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef %10, i32 noundef 32, ptr noundef nonnull %4, i32 noundef 1) #13
+  call void %23(ptr noundef %10, i32 noundef 32, ptr noundef nonnull %4, i32 noundef 1) #14
   %24 = load i8, ptr %4, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   %25 = icmp ugt i8 %24, 1
-  br i1 %25, label %26, label %27, !prof !38
+  br i1 %25, label %26, label %27, !prof !37
 
 26:                                               ; preds = %19
-  call void asm sideeffect "447: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 447b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 447) #13, !srcloc !39
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 1135, i32 0, i64 12) #13, !srcloc !40
+  call void asm sideeffect "447: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 447b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 447) #14, !srcloc !38
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 1135, i32 0, i64 12) #14, !srcloc !39
   unreachable
 
 27:                                               ; preds = %.thread, %19
@@ -2762,7 +2761,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cache_type_show(ptr noca
   %29 = zext nneg i8 %28 to i64
   %30 = getelementptr [2 x ptr], ptr @virtblk_cache_types, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
-  %32 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.25, ptr noundef %31) #13
+  %32 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.25, ptr noundef %31) #14
   %33 = sext i32 %32 to i64
   ret i64 %33
 }
@@ -2777,20 +2776,20 @@ define internal i64 @cache_type_store(ptr nocapture noundef readonly %0, ptr noc
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
-  tail call void @virtio_check_driver_offered_feature(ptr noundef %12, i32 noundef 11) #13
+  tail call void @virtio_check_driver_offered_feature(ptr noundef %12, i32 noundef 11) #14
   %13 = getelementptr inbounds i8, ptr %12, i64 784
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 2048
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %18, !prof !41
+  br i1 %16, label %17, label %18, !prof !40
 
 17:                                               ; preds = %4
-  tail call void asm sideeffect "446: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 446b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 446) #13, !srcloc !42
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 1118, i32 0, i64 12) #13, !srcloc !43
+  tail call void asm sideeffect "446: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 446b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 446) #14, !srcloc !41
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 1118, i32 0, i64 12) #14, !srcloc !42
   unreachable
 
 18:                                               ; preds = %4
-  %19 = tail call i32 @__sysfs_match_string(ptr noundef nonnull @virtblk_cache_types, i64 noundef 2, ptr noundef %2) #13
+  %19 = tail call i32 @__sysfs_match_string(ptr noundef nonnull @virtblk_cache_types, i64 noundef 2, ptr noundef %2) #14
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %21, label %23
 
@@ -2802,32 +2801,32 @@ define internal i64 @cache_type_store(ptr nocapture noundef readonly %0, ptr noc
   %24 = trunc i32 %19 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %24, ptr %6, align 1
-  %25 = tail call i32 @__SCT__might_resched() #13
+  %25 = tail call i32 @__SCT__might_resched() #14
   %26 = getelementptr inbounds i8, ptr %12, i64 752
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  call void %29(ptr noundef %12, i32 noundef 32, ptr noundef nonnull %6, i32 noundef 1) #13
+  call void %29(ptr noundef %12, i32 noundef 32, ptr noundef nonnull %6, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @virtio_check_driver_offered_feature(ptr noundef %12, i32 noundef 11) #13
+  call void @virtio_check_driver_offered_feature(ptr noundef %12, i32 noundef 11) #14
   %30 = load i64, ptr %13, align 8
   %31 = and i64 %30, 2048
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %38, label %33
 
 33:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
   store i8 0, ptr %5, align 1, !annotation !5
-  %34 = call i32 @__SCT__might_resched() #13
+  %34 = call i32 @__SCT__might_resched() #14
   %35 = load ptr, ptr %26, align 8
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef %12, i32 noundef 32, ptr noundef nonnull %5, i32 noundef 1) #13
+  call void %36(ptr noundef %12, i32 noundef 32, ptr noundef nonnull %5, i32 noundef 1) #14
   %37 = load i8, ptr %5, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
   br label %virtblk_update_cache_mode.exit
 
 38:                                               ; preds = %23
-  call void @virtio_check_driver_offered_feature(ptr noundef %12, i32 noundef 9) #13
+  call void @virtio_check_driver_offered_feature(ptr noundef %12, i32 noundef 9) #14
   %39 = load i64, ptr %13, align 8
   %40 = lshr i64 %39, 9
   %41 = trunc i64 %40 to i8
@@ -2843,7 +2842,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %33, %38
   %48 = getelementptr inbounds i8, ptr %47, i64 80
   %49 = load ptr, ptr %48, align 8
   %50 = icmp ne i8 %43, 0
-  call void @blk_queue_write_cache(ptr noundef %49, i1 noundef zeroext %50, i1 noundef zeroext false) #13
+  call void @blk_queue_write_cache(ptr noundef %49, i1 noundef zeroext %50, i1 noundef zeroext false) #14
   br label %51
 
 51:                                               ; preds = %virtblk_update_cache_mode.exit, %21
@@ -2869,7 +2868,7 @@ define internal i64 @serial_show(ptr nocapture noundef readonly %0, ptr nocaptur
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @blk_mq_alloc_request(ptr noundef %12, i32 noundef 34, i32 noundef 0) #13
+  %13 = tail call ptr @blk_mq_alloc_request(ptr noundef %12, i32 noundef 34, i32 noundef 0) #14
   %14 = icmp ugt ptr %13, inttoptr (i64 -4096 to ptr)
   br i1 %14, label %15, label %18
 
@@ -2885,12 +2884,12 @@ define internal i64 @serial_show(ptr nocapture noundef readonly %0, ptr nocaptur
   store i32 8, ptr %19, align 8
   %21 = getelementptr i8, ptr %13, i64 256
   store i64 0, ptr %21, align 8
-  %22 = tail call i32 @blk_rq_map_kern(ptr noundef %12, ptr noundef %13, ptr noundef %2, i32 noundef 20, i32 noundef 3264) #13
+  %22 = tail call i32 @blk_rq_map_kern(ptr noundef %12, ptr noundef %13, ptr noundef %2, i32 noundef 20, i32 noundef 3264) #14
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %35
 
 24:                                               ; preds = %18
-  %25 = tail call zeroext i8 @blk_execute_rq(ptr noundef %13, i1 noundef zeroext false) #13
+  %25 = tail call zeroext i8 @blk_execute_rq(ptr noundef %13, i1 noundef zeroext false) #14
   %26 = getelementptr i8, ptr %13, i64 264
   %27 = load i8, ptr %26, align 8
   switch i8 %27, label %31 [
@@ -2914,12 +2913,12 @@ define internal i64 @serial_show(ptr nocapture noundef readonly %0, ptr nocaptur
 
 32:                                               ; preds = %31, %30, %29, %28, %24
   %33 = phi i8 [ 10, %31 ], [ 16, %30 ], [ 15, %29 ], [ 1, %28 ], [ %27, %24 ]
-  %34 = tail call i32 @blk_status_to_errno(i8 noundef zeroext %33) #13
+  %34 = tail call i32 @blk_status_to_errno(i8 noundef zeroext %33) #14
   br label %35
 
 35:                                               ; preds = %32, %18
   %36 = phi i32 [ %22, %18 ], [ %34, %32 ]
-  tail call void @blk_mq_free_request(ptr noundef %13) #13
+  tail call void @blk_mq_free_request(ptr noundef %13) #14
   br label %37
 
 37:                                               ; preds = %35, %15
@@ -2930,7 +2929,7 @@ define internal i64 @serial_show(ptr nocapture noundef readonly %0, ptr nocaptur
   ]
 
 39:                                               ; preds = %37
-  %40 = tail call i64 @strlen(ptr noundef %2) #13
+  %40 = tail call i64 @strlen(ptr noundef %2) #14
   br label %43
 
 41:                                               ; preds = %37
@@ -2993,8 +2992,8 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #12
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #13
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -3009,10 +3008,11 @@ attributes #9 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid 
 attributes #10 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind allocsize(2) }
-attributes #16 = { nounwind allocsize(0) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { cold nounwind }
+attributes #16 = { nounwind allocsize(2) }
+attributes #17 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -3025,38 +3025,37 @@ attributes #16 = { nounwind allocsize(0) }
 !6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{i64 0, i64 65}
-!10 = !{!"branch_weights", i32 2000, i32 1}
-!11 = !{i64 2155733861, i64 2155733670, i64 2155733722, i64 2155733768, i64 2155733796}
-!12 = !{i64 2155733935, i64 2155733964, i64 2155734010, i64 2155734068, i64 2155734122, i64 2155734176, i64 2155734231, i64 2155734262, i64 2155734570, i64 2155734576, i64 2155734623, i64 2155734646, i64 2155734672}
-!13 = !{i64 2155735134, i64 2155734945, i64 2155734995, i64 2155735041, i64 2155735069}
+!9 = !{!"branch_weights", i32 2000, i32 1}
+!10 = !{i64 2155733861, i64 2155733670, i64 2155733722, i64 2155733768, i64 2155733796}
+!11 = !{i64 2155733935, i64 2155733964, i64 2155734010, i64 2155734068, i64 2155734122, i64 2155734176, i64 2155734231, i64 2155734262, i64 2155734570, i64 2155734576, i64 2155734623, i64 2155734646, i64 2155734672}
+!12 = !{i64 2155735134, i64 2155734945, i64 2155734995, i64 2155735041, i64 2155735069}
+!13 = distinct !{!13, !7, !8}
 !14 = distinct !{!14, !7, !8}
 !15 = distinct !{!15, !7, !8}
 !16 = distinct !{!16, !7, !8}
 !17 = distinct !{!17, !7, !8}
 !18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = !{i8 0, i8 2}
-!21 = !{}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = distinct !{!21, !7, !8}
 !22 = distinct !{!22, !7, !8}
 !23 = distinct !{!23, !7, !8}
 !24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = !{!"branch_weights", i32 2146410443, i32 1073205}
-!27 = !{i64 2156343264, i64 2156343073, i64 2156343125, i64 2156343171, i64 2156343199}
-!28 = !{i64 2156343338, i64 2156343367, i64 2156343413, i64 2156343471, i64 2156343525, i64 2156343579, i64 2156343634, i64 2156343665, i64 2156343973, i64 2156343979, i64 2156344026, i64 2156344049, i64 2156344075}
-!29 = !{i64 2156344534, i64 2156344345, i64 2156344395, i64 2156344441, i64 2156344469}
-!30 = !{!"branch_weights", i32 1073205, i32 2146410443}
-!31 = distinct !{!31, !7, !8}
-!32 = !{!"branch_weights", i32 -2147483648, i32 0}
-!33 = !{i64 2156340142, i64 2156339951, i64 2156340003, i64 2156340049, i64 2156340077}
-!34 = !{i64 2156340216, i64 2156340245, i64 2156340291, i64 2156340349, i64 2156340403, i64 2156340457, i64 2156340512, i64 2156340543, i64 2156340851, i64 2156340857, i64 2156340904, i64 2156340927, i64 2156340953}
-!35 = !{i64 2156341412, i64 2156341223, i64 2156341273, i64 2156341319, i64 2156341347}
-!36 = !{!"branch_weights", i32 247785, i32 2147235863}
-!37 = distinct !{!37, !7, !8}
-!38 = !{!"branch_weights", i32 2, i32 2147483646}
-!39 = !{i64 2156567093, i64 2156566902, i64 2156566954, i64 2156567000, i64 2156567028}
-!40 = !{i64 2156567167, i64 2156567196, i64 2156567242, i64 2156567300, i64 2156567354, i64 2156567408, i64 2156567463, i64 2156567494}
-!41 = !{!"branch_weights", i32 1, i32 2000}
-!42 = !{i64 2156563044, i64 2156562853, i64 2156562905, i64 2156562951, i64 2156562979}
-!43 = !{i64 2156563118, i64 2156563147, i64 2156563193, i64 2156563251, i64 2156563305, i64 2156563359, i64 2156563414, i64 2156563445}
+!25 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!26 = !{i64 2156343264, i64 2156343073, i64 2156343125, i64 2156343171, i64 2156343199}
+!27 = !{i64 2156343338, i64 2156343367, i64 2156343413, i64 2156343471, i64 2156343525, i64 2156343579, i64 2156343634, i64 2156343665, i64 2156343973, i64 2156343979, i64 2156344026, i64 2156344049, i64 2156344075}
+!28 = !{i64 2156344534, i64 2156344345, i64 2156344395, i64 2156344441, i64 2156344469}
+!29 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!30 = distinct !{!30, !7, !8}
+!31 = !{!"branch_weights", i32 -2147483648, i32 0}
+!32 = !{i64 2156340142, i64 2156339951, i64 2156340003, i64 2156340049, i64 2156340077}
+!33 = !{i64 2156340216, i64 2156340245, i64 2156340291, i64 2156340349, i64 2156340403, i64 2156340457, i64 2156340512, i64 2156340543, i64 2156340851, i64 2156340857, i64 2156340904, i64 2156340927, i64 2156340953}
+!34 = !{i64 2156341412, i64 2156341223, i64 2156341273, i64 2156341319, i64 2156341347}
+!35 = !{!"branch_weights", i32 247785, i32 2147235863}
+!36 = distinct !{!36, !7, !8}
+!37 = !{!"branch_weights", i32 2, i32 2147483646}
+!38 = !{i64 2156567093, i64 2156566902, i64 2156566954, i64 2156567000, i64 2156567028}
+!39 = !{i64 2156567167, i64 2156567196, i64 2156567242, i64 2156567300, i64 2156567354, i64 2156567408, i64 2156567463, i64 2156567494}
+!40 = !{!"branch_weights", i32 1, i32 2000}
+!41 = !{i64 2156563044, i64 2156562853, i64 2156562905, i64 2156562951, i64 2156562979}
+!42 = !{i64 2156563118, i64 2156563147, i64 2156563193, i64 2156563251, i64 2156563305, i64 2156563359, i64 2156563414, i64 2156563445}
