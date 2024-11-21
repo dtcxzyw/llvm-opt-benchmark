@@ -686,9 +686,9 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %11 = load i32, ptr %arrayidx.i.i.i, align 4
   br label %invoke.cont2
 
-invoke.cont2:                                     ; preds = %invoke.cont, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i
-  %.us-phi.i13.shrunk = phi i32 [ %11, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i ], [ 0, %invoke.cont ]
-  %cmp.i.i.not76 = icmp eq i32 %.us-phi.i, %.us-phi.i13.shrunk
+invoke.cont2:                                     ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i, %invoke.cont
+  %.us-phi.i13 = phi i32 [ %11, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i ], [ 0, %invoke.cont ]
+  %cmp.i.i.not76 = icmp eq i32 %.us-phi.i, %.us-phi.i13
   br i1 %cmp.i.i.not76, label %for.end25, label %invoke.cont6.lr.ph
 
 invoke.cont6.lr.ph:                               ; preds = %invoke.cont2
@@ -893,7 +893,7 @@ _ZNK16basic_union_find7is_rootEj.exit.i:          ; preds = %land.rhs.i
 
 _ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit: ; preds = %do.body.i, %land.rhs.i, %_ZNK16basic_union_find7is_rootEj.exit.i, %_ZNK16basic_union_find7is_rootEj.exit.i.us, %land.rhs.i.us73, %do.body.i.us68, %do.body.i.preheader.split.us
   %.us-phi67 = phi i32 [ %inc.i.us, %do.body.i.preheader.split.us ], [ %indvars, %_ZNK16basic_union_find7is_rootEj.exit.i.us ], [ %indvars, %land.rhs.i.us73 ], [ 0, %do.body.i.us68 ], [ %25, %do.body.i ], [ %inc.i, %land.rhs.i ], [ %inc.i, %_ZNK16basic_union_find7is_rootEj.exit.i ]
-  %cmp.i.i.not = icmp eq i32 %.us-phi67, %.us-phi.i13.shrunk
+  %cmp.i.i.not = icmp eq i32 %.us-phi67, %.us-phi.i13
   br i1 %cmp.i.i.not, label %for.end25, label %invoke.cont6
 
 for.end25:                                        ; preds = %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit, %invoke.cont2
@@ -1249,9 +1249,9 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %10 = load i32, ptr %arrayidx.i.i.i, align 4
   br label %_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit
 
-_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit: ; preds = %_ZN15obj_equiv_classI4expr11ast_managerE5beginEv.exit, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i
-  %.us-phi.i12.shrunk = phi i32 [ %10, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i ], [ 0, %_ZN15obj_equiv_classI4expr11ast_managerE5beginEv.exit ]
-  %cmp.i.i.not67 = icmp eq i32 %.us-phi.i, %.us-phi.i12.shrunk
+_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i, %_ZN15obj_equiv_classI4expr11ast_managerE5beginEv.exit
+  %.us-phi.i12 = phi i32 [ %10, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i ], [ 0, %_ZN15obj_equiv_classI4expr11ast_managerE5beginEv.exit ]
+  %cmp.i.i.not67 = icmp eq i32 %.us-phi.i, %.us-phi.i12
   br i1 %cmp.i.i.not67, label %for.end16, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit
@@ -1505,7 +1505,7 @@ _ZNK16basic_union_find7is_rootEj.exit.i:          ; preds = %land.rhs.i
 
 _ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit: ; preds = %do.body.i, %land.rhs.i, %_ZNK16basic_union_find7is_rootEj.exit.i, %_ZNK16basic_union_find7is_rootEj.exit.i.us, %land.rhs.i.us64, %do.body.i.us59, %do.body.i.preheader.split.us
   %.us-phi = phi i32 [ %inc.i.us, %do.body.i.preheader.split.us ], [ %indvars, %_ZNK16basic_union_find7is_rootEj.exit.i.us ], [ %indvars, %land.rhs.i.us64 ], [ 0, %do.body.i.us59 ], [ %18, %do.body.i ], [ %inc.i, %land.rhs.i ], [ %inc.i, %_ZNK16basic_union_find7is_rootEj.exit.i ]
-  %cmp.i.i.not = icmp eq i32 %.us-phi, %.us-phi.i12.shrunk
+  %cmp.i.i.not = icmp eq i32 %.us-phi, %.us-phi.i12
   br i1 %cmp.i.i.not, label %for.end16, label %for.body
 
 for.end16:                                        ; preds = %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit, %_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit
@@ -1567,9 +1567,9 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %10 = load i32, ptr %arrayidx.i.i.i, align 4
   br label %_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit
 
-_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit: ; preds = %_ZN15obj_equiv_classI4expr11ast_managerE5beginEv.exit, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i
-  %.us-phi.i8.shrunk = phi i32 [ %10, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i ], [ 0, %_ZN15obj_equiv_classI4expr11ast_managerE5beginEv.exit ]
-  %cmp.i.i.not112 = icmp eq i32 %.us-phi.i, %.us-phi.i8.shrunk
+_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i, %_ZN15obj_equiv_classI4expr11ast_managerE5beginEv.exit
+  %.us-phi.i8 = phi i32 [ %10, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i ], [ 0, %_ZN15obj_equiv_classI4expr11ast_managerE5beginEv.exit ]
+  %cmp.i.i.not112 = icmp eq i32 %.us-phi.i, %.us-phi.i8
   br i1 %cmp.i.i.not112, label %for.end23, label %for.cond6.preheader.lr.ph
 
 for.cond6.preheader.lr.ph:                        ; preds = %_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit
@@ -1861,7 +1861,7 @@ _ZNK16basic_union_find7is_rootEj.exit.i:          ; preds = %land.rhs.i
 
 _ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit: ; preds = %do.body.i, %land.rhs.i, %_ZNK16basic_union_find7is_rootEj.exit.i, %_ZNK16basic_union_find7is_rootEj.exit.i.us, %land.rhs.i.us109, %do.body.i.us104, %do.body.i.preheader.split.us
   %.us-phi = phi i32 [ %inc.i.us, %do.body.i.preheader.split.us ], [ %indvars, %_ZNK16basic_union_find7is_rootEj.exit.i.us ], [ %indvars, %land.rhs.i.us109 ], [ 0, %do.body.i.us104 ], [ %16, %do.body.i ], [ %inc.i, %land.rhs.i ], [ %inc.i, %_ZNK16basic_union_find7is_rootEj.exit.i ]
-  %cmp.i.i.not = icmp eq i32 %.us-phi, %.us-phi.i8.shrunk
+  %cmp.i.i.not = icmp eq i32 %.us-phi, %.us-phi.i8
   br i1 %cmp.i.i.not, label %for.end23, label %for.cond6.preheader
 
 for.end23:                                        ; preds = %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorppEv.exit, %_ZN15obj_equiv_classI4expr11ast_managerE3endEv.exit

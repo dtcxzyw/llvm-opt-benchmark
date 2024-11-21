@@ -35093,7 +35093,7 @@ _ZN7hir_def5lower8LowerCtx8span_map17h10da9b3de3f50cdcE.exit: ; preds = %.noexc
   br label %424
 
 "_ZN4core3ptr50drop_in_place$LT$syntax..token_text..TokenText$GT$17h0a6258da82afbf78E.exit": ; preds = %169, %.loopexit825, %.loopexit.split-lp826, %408, %413, %.body288, %157, %160, %.body284.thread, %.body284
-  %.pn226 = phi { ptr, i32 } [ %.pn224773, %.body284.thread ], [ %eh.lpad-body289709, %.body284 ], [ %158, %160 ], [ %158, %157 ], [ %409, %408 ], [ %409, %413 ], [ %386, %.body288 ], [ %lpad.loopexit827, %.loopexit825 ], [ %lpad.loopexit.split-lp828, %.loopexit.split-lp826 ], [ %lpad.thr_comm.split-lp1700, %169 ]
+  %.pn226 = phi { ptr, i32 } [ %.pn224773, %.body284.thread ], [ %eh.lpad-body289709, %.body284 ], [ %158, %160 ], [ %158, %157 ], [ %409, %408 ], [ %409, %413 ], [ %386, %.body288 ], [ %lpad.loopexit827, %.loopexit825 ], [ %lpad.loopexit.split-lp828, %.loopexit.split-lp826 ], [ %lpad.thr_comm.split-lp1610, %169 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !9292)
   call void @llvm.experimental.noalias.scope.decl(metadata !9295)
   call void @llvm.experimental.noalias.scope.decl(metadata !9298)
@@ -35171,12 +35171,12 @@ _ZN7hir_def5lower8LowerCtx8span_map17h10da9b3de3f50cdcE.exit: ; preds = %.noexc
   br i1 %.2.lpad-body708, label %.body284.thread, label %"_ZN4core3ptr50drop_in_place$LT$syntax..token_text..TokenText$GT$17h0a6258da82afbf78E.exit"
 
 .thread:                                          ; preds = %167, %172, %349, %346
-  %lpad.thr_comm1699 = landingpad { ptr, i32 }
+  %lpad.thr_comm1609 = landingpad { ptr, i32 }
           cleanup
   br label %.body284.thread
 
 169:                                              ; preds = %419
-  %lpad.thr_comm.split-lp1700 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp1610 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$syntax..token_text..TokenText$GT$17h0a6258da82afbf78E.exit"
 
@@ -36223,7 +36223,7 @@ _ZN7hir_def4path5lower10lower_path9qualifier17haf42dd9cdecd23abE.exit.thread741:
   unreachable
 
 .body284.thread:                                  ; preds = %.thread, %371, %343, %.body470, %.body284
-  %.pn224773 = phi { ptr, i32 } [ %eh.lpad-body289709, %.body284 ], [ %372, %371 ], [ %eh.lpad-body471, %343 ], [ %eh.lpad-body471, %.body470 ], [ %lpad.thr_comm1699, %.thread ]
+  %.pn224773 = phi { ptr, i32 } [ %eh.lpad-body289709, %.body284 ], [ %372, %371 ], [ %eh.lpad-body471, %343 ], [ %eh.lpad-body471, %.body470 ], [ %lpad.thr_comm1609, %.thread ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64) #59
           to label %"_ZN4core3ptr50drop_in_place$LT$syntax..token_text..TokenText$GT$17h0a6258da82afbf78E.exit" unwind label %496
 
@@ -38154,18 +38154,18 @@ _ZN4core3ops8function6FnOnce9call_once17h8c82349e4c39bbe4E.exit: ; preds = %1030
   store ptr %1134, ptr %40, align 8
   %1137 = load i64, ptr %77, align 8, !noundef !13
   %1138 = icmp eq i64 %1137, 0
-  br i1 %1138, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h45f7aaa719c06dd4E.exit423.thread1706", label %1139
+  br i1 %1138, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h45f7aaa719c06dd4E.exit423.thread1616", label %1139
 
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h45f7aaa719c06dd4E.exit423.thread1706": ; preds = %1135
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h45f7aaa719c06dd4E.exit423.thread1616": ; preds = %1135
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
   store i64 0, ptr %0, align 8
-  %.sroa.482.0..sroa_idx1709 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1136, ptr %.sroa.482.0..sroa_idx1709, align 8
-  %.sroa.583.0..sroa_idx1710 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr null, ptr %.sroa.583.0..sroa_idx1710, align 8
-  %.sroa.785.0..sroa_idx1712 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %1134, ptr %.sroa.785.0..sroa_idx1712, align 8
+  %.sroa.482.0..sroa_idx1619 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1136, ptr %.sroa.482.0..sroa_idx1619, align 8
+  %.sroa.583.0..sroa_idx1620 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr null, ptr %.sroa.583.0..sroa_idx1620, align 8
+  %.sroa.785.0..sroa_idx1622 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %1134, ptr %.sroa.785.0..sroa_idx1622, align 8
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h45f7aaa719c06dd4E.exit423.thread"
 
 1139:                                             ; preds = %1135
@@ -38194,8 +38194,8 @@ _ZN4core3ops8function6FnOnce9call_once17h8c82349e4c39bbe4E.exit: ; preds = %1030
   %1145 = trunc nuw i8 %.12759 to i1
   br i1 %1145, label %1166, label %.thread767
 
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h45f7aaa719c06dd4E.exit423.thread": ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h45f7aaa719c06dd4E.exit423.thread1706", %1051, %1046, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..PathSegment$GT$17hcfdd3a0c55fac2b5E.exit393"
-  %.12759 = phi i8 [ 1, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..PathSegment$GT$17hcfdd3a0c55fac2b5E.exit393" ], [ 1, %1046 ], [ 1, %1051 ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h45f7aaa719c06dd4E.exit423.thread1706" ]
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h45f7aaa719c06dd4E.exit423.thread": ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h45f7aaa719c06dd4E.exit423.thread1616", %1051, %1046, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..PathSegment$GT$17hcfdd3a0c55fac2b5E.exit393"
+  %.12759 = phi i8 [ 1, %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..PathSegment$GT$17hcfdd3a0c55fac2b5E.exit393" ], [ 1, %1046 ], [ 1, %1051 ], [ 0, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroCall$GT$17h45f7aaa719c06dd4E.exit423.thread1616" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10121)
   %1146 = load ptr, ptr %76, align 8, !alias.scope !10122, !nonnull !13, !noundef !13
   %1147 = load i64, ptr %77, align 8, !alias.scope !10122, !noundef !13

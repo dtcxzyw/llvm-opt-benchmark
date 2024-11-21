@@ -38292,15 +38292,15 @@ sqlite3KeywordCode.exit:                          ; preds = %.critedge.us.i.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @sqlite3_complete(ptr noundef readonly %0) #14 {
+define dso_local range(i32 0, 2) i32 @sqlite3_complete(ptr nocapture noundef readonly %0) #14 {
   br label %2
 
 2:                                                ; preds = %.loopexit, %1
-  %.062 = phi ptr [ %0, %1 ], [ %157, %.loopexit ]
-  %.061 = phi i8 [ 0, %1 ], [ %156, %.loopexit ]
+  %.062 = phi ptr [ %0, %1 ], [ %154, %.loopexit ]
+  %.061 = phi i8 [ 0, %1 ], [ %153, %.loopexit ]
   %3 = load i8, ptr %.062, align 1
   switch i8 %3, label %27 [
-    i8 0, label %158
+    i8 0, label %155
     i8 59, label %.loopexit
     i8 32, label %4
     i8 13, label %4
@@ -38420,8 +38420,8 @@ define dso_local range(i32 0, 2) i32 @sqlite3_complete(ptr noundef readonly %0) 
     i8 67, label %40
     i8 116, label %60
     i8 84, label %60
-    i8 101, label %115
-    i8 69, label %115
+    i8 101, label %112
+    i8 69, label %112
   ]
 
 40:                                               ; preds = %38, %38
@@ -38478,7 +38478,7 @@ sqlite3_strnicmp.exit:                            ; preds = %sqlite3_strnicmp.ex
   switch i32 %39, label %.thread133 [
     i32 7, label %.lr.ph.i83
     i32 4, label %.lr.ph.i92
-    i32 9, label %.lr.ph.i101.preheader
+    i32 9, label %.lr.ph.i101
   ]
 
 .lr.ph.i83:                                       ; preds = %60, %71
@@ -38503,22 +38503,22 @@ sqlite3_strnicmp.exit:                            ; preds = %sqlite3_strnicmp.ex
 71:                                               ; preds = %62
   %72 = getelementptr inbounds i8, ptr %.01422.i86, i64 1
   %.023.i85.add = add nuw nsw i64 %.023.i85.idx, 1
-  %exitcond238.not = icmp eq i64 %.023.i85.idx, 6
-  br i1 %exitcond238.not, label %sqlite3_strnicmp.exit.thread, label %.lr.ph.i83, !llvm.loop !65
+  %exitcond240.not = icmp eq i64 %.023.i85.idx, 6
+  br i1 %exitcond240.not, label %sqlite3_strnicmp.exit.thread, label %.lr.ph.i83, !llvm.loop !65
 
 split.i88:                                        ; preds = %62
   %73 = zext i8 %65 to i32
   br label %sqlite3_strnicmp.exit91
 
 sqlite3_strnicmp.exit91.loopexit:                 ; preds = %.lr.ph.i83
-  %.pre248 = load i8, ptr %.023.i85.ptr, align 1
-  %.phi.trans.insert249 = zext i8 %.pre248 to i64
-  %.phi.trans.insert250 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %.phi.trans.insert249
-  %.pre251 = load i8, ptr %.phi.trans.insert250, align 1
+  %.pre256 = load i8, ptr %.023.i85.ptr, align 1
+  %.phi.trans.insert257 = zext i8 %.pre256 to i64
+  %.phi.trans.insert258 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %.phi.trans.insert257
+  %.pre259 = load i8, ptr %.phi.trans.insert258, align 1
   br label %sqlite3_strnicmp.exit91
 
 sqlite3_strnicmp.exit91:                          ; preds = %sqlite3_strnicmp.exit91.loopexit, %split.i88
-  %74 = phi i8 [ %69, %split.i88 ], [ %.pre251, %sqlite3_strnicmp.exit91.loopexit ]
+  %74 = phi i8 [ %69, %split.i88 ], [ %.pre259, %sqlite3_strnicmp.exit91.loopexit ]
   %75 = phi i32 [ %73, %split.i88 ], [ 0, %sqlite3_strnicmp.exit91.loopexit ]
   %76 = zext i8 %74 to i32
   %77 = icmp eq i32 %75, %76
@@ -38546,115 +38546,106 @@ sqlite3_strnicmp.exit91:                          ; preds = %sqlite3_strnicmp.ex
 88:                                               ; preds = %79
   %89 = getelementptr inbounds i8, ptr %.01422.i95, i64 1
   %.023.i94.add = add nuw nsw i64 %.023.i94.idx, 1
-  %exitcond239.not = icmp eq i64 %.023.i94.idx, 3
-  br i1 %exitcond239.not, label %sqlite3_strnicmp.exit.thread, label %.lr.ph.i92, !llvm.loop !65
+  %exitcond238.not = icmp eq i64 %.023.i94.idx, 3
+  br i1 %exitcond238.not, label %sqlite3_strnicmp.exit.thread, label %.lr.ph.i92, !llvm.loop !65
 
 split.i97:                                        ; preds = %79
   %90 = zext i8 %82 to i32
   br label %sqlite3_strnicmp.exit100
 
 sqlite3_strnicmp.exit100.loopexit:                ; preds = %.lr.ph.i92
-  %.pre252 = load i8, ptr %.023.i94.ptr, align 1
-  %.phi.trans.insert253 = zext i8 %.pre252 to i64
-  %.phi.trans.insert254 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %.phi.trans.insert253
-  %.pre255 = load i8, ptr %.phi.trans.insert254, align 1
+  %.pre248 = load i8, ptr %.023.i94.ptr, align 1
+  %.phi.trans.insert249 = zext i8 %.pre248 to i64
+  %.phi.trans.insert250 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %.phi.trans.insert249
+  %.pre251 = load i8, ptr %.phi.trans.insert250, align 1
   br label %sqlite3_strnicmp.exit100
 
 sqlite3_strnicmp.exit100:                         ; preds = %sqlite3_strnicmp.exit100.loopexit, %split.i97
-  %91 = phi i8 [ %86, %split.i97 ], [ %.pre255, %sqlite3_strnicmp.exit100.loopexit ]
+  %91 = phi i8 [ %86, %split.i97 ], [ %.pre251, %sqlite3_strnicmp.exit100.loopexit ]
   %92 = phi i32 [ %90, %split.i97 ], [ 0, %sqlite3_strnicmp.exit100.loopexit ]
   %93 = zext i8 %91 to i32
   %94 = icmp eq i32 %92, %93
-  br i1 %94, label %sqlite3_strnicmp.exit.thread, label %95
+  br i1 %94, label %sqlite3_strnicmp.exit.thread, label %.thread133
 
-95:                                               ; preds = %sqlite3_strnicmp.exit100
-  %96 = icmp ne i64 %indvars.iv, 9
-  %97 = icmp eq ptr %.062, null
-  %or.cond143 = or i1 %97, %96
-  br i1 %or.cond143, label %.thread133, label %.lr.ph.i101.preheader
-
-.lr.ph.i101.preheader:                            ; preds = %95, %60
-  br label %.lr.ph.i101
-
-.lr.ph.i101:                                      ; preds = %.lr.ph.i101.preheader, %108
-  %.023.i103.idx = phi i64 [ %.023.i103.add, %108 ], [ 0, %.lr.ph.i101.preheader ]
-  %.01422.i104 = phi ptr [ %109, %108 ], [ %.062, %.lr.ph.i101.preheader ]
+.lr.ph.i101:                                      ; preds = %60, %105
+  %.023.i103.idx = phi i64 [ %.023.i103.add, %105 ], [ 0, %60 ]
+  %.01422.i104 = phi ptr [ %106, %105 ], [ %.062, %60 ]
   %.023.i103.ptr = getelementptr inbounds i8, ptr @.str.30, i64 %.023.i103.idx
-  %98 = load i8, ptr %.01422.i104, align 1
-  %.not.i105 = icmp eq i8 %98, 0
-  br i1 %.not.i105, label %sqlite3_strnicmp.exit109.loopexit, label %99
+  %95 = load i8, ptr %.01422.i104, align 1
+  %.not.i105 = icmp eq i8 %95, 0
+  br i1 %.not.i105, label %sqlite3_strnicmp.exit109.loopexit, label %96
 
-99:                                               ; preds = %.lr.ph.i101
-  %100 = zext i8 %98 to i64
-  %101 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %100
-  %102 = load i8, ptr %101, align 1
-  %103 = load i8, ptr %.023.i103.ptr, align 1
-  %104 = zext i8 %103 to i64
-  %105 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %104
-  %106 = load i8, ptr %105, align 1
-  %107 = icmp eq i8 %102, %106
-  br i1 %107, label %108, label %split.i106
+96:                                               ; preds = %.lr.ph.i101
+  %97 = zext i8 %95 to i64
+  %98 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %97
+  %99 = load i8, ptr %98, align 1
+  %100 = load i8, ptr %.023.i103.ptr, align 1
+  %101 = zext i8 %100 to i64
+  %102 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %101
+  %103 = load i8, ptr %102, align 1
+  %104 = icmp eq i8 %99, %103
+  br i1 %104, label %105, label %split.i106
 
-108:                                              ; preds = %99
-  %109 = getelementptr inbounds i8, ptr %.01422.i104, i64 1
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds i8, ptr %.01422.i104, i64 1
   %.023.i103.add = add nuw nsw i64 %.023.i103.idx, 1
-  %exitcond240.not = icmp eq i64 %.023.i103.idx, 8
-  br i1 %exitcond240.not, label %sqlite3_strnicmp.exit.thread, label %.lr.ph.i101, !llvm.loop !65
+  %exitcond239.not = icmp eq i64 %.023.i103.idx, 8
+  br i1 %exitcond239.not, label %sqlite3_strnicmp.exit.thread, label %.lr.ph.i101, !llvm.loop !65
 
-split.i106:                                       ; preds = %99
-  %110 = zext i8 %102 to i32
+split.i106:                                       ; preds = %96
+  %107 = zext i8 %99 to i32
   br label %sqlite3_strnicmp.exit109
 
 sqlite3_strnicmp.exit109.loopexit:                ; preds = %.lr.ph.i101
-  %.pre256 = load i8, ptr %.023.i103.ptr, align 1
-  %.phi.trans.insert257 = zext i8 %.pre256 to i64
-  %.phi.trans.insert258 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %.phi.trans.insert257
-  %.pre259 = load i8, ptr %.phi.trans.insert258, align 1
+  %.pre252 = load i8, ptr %.023.i103.ptr, align 1
+  %.phi.trans.insert253 = zext i8 %.pre252 to i64
+  %.phi.trans.insert254 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %.phi.trans.insert253
+  %.pre255 = load i8, ptr %.phi.trans.insert254, align 1
   br label %sqlite3_strnicmp.exit109
 
 sqlite3_strnicmp.exit109:                         ; preds = %sqlite3_strnicmp.exit109.loopexit, %split.i106
-  %111 = phi i8 [ %106, %split.i106 ], [ %.pre259, %sqlite3_strnicmp.exit109.loopexit ]
-  %112 = phi i32 [ %110, %split.i106 ], [ 0, %sqlite3_strnicmp.exit109.loopexit ]
-  %113 = zext i8 %111 to i32
-  %114 = icmp eq i32 %112, %113
-  br i1 %114, label %sqlite3_strnicmp.exit.thread, label %.thread133
+  %108 = phi i8 [ %103, %split.i106 ], [ %.pre255, %sqlite3_strnicmp.exit109.loopexit ]
+  %109 = phi i32 [ %107, %split.i106 ], [ 0, %sqlite3_strnicmp.exit109.loopexit ]
+  %110 = zext i8 %108 to i32
+  %111 = icmp eq i32 %109, %110
+  br i1 %111, label %sqlite3_strnicmp.exit.thread, label %.thread133
 
-.thread133:                                       ; preds = %sqlite3_strnicmp.exit91, %60, %sqlite3_strnicmp.exit109, %95
+.thread133:                                       ; preds = %sqlite3_strnicmp.exit100, %sqlite3_strnicmp.exit91, %60, %sqlite3_strnicmp.exit109
   br label %sqlite3_strnicmp.exit.thread
 
-115:                                              ; preds = %38, %38
+112:                                              ; preds = %38, %38
   switch i32 %39, label %sqlite3_strnicmp.exit127.thread141 [
     i32 3, label %.lr.ph.i110
     i32 7, label %.lr.ph.i119
   ]
 
-.lr.ph.i110:                                      ; preds = %115, %126
-  %.023.i112.idx = phi i64 [ %.023.i112.add, %126 ], [ 0, %115 ]
-  %.01422.i113 = phi ptr [ %127, %126 ], [ %.062, %115 ]
+.lr.ph.i110:                                      ; preds = %112, %123
+  %.023.i112.idx = phi i64 [ %.023.i112.add, %123 ], [ 0, %112 ]
+  %.01422.i113 = phi ptr [ %124, %123 ], [ %.062, %112 ]
   %.023.i112.ptr = getelementptr inbounds i8, ptr @.str.31, i64 %.023.i112.idx
-  %116 = load i8, ptr %.01422.i113, align 1
-  %.not.i114 = icmp eq i8 %116, 0
-  br i1 %.not.i114, label %sqlite3_strnicmp.exit118.loopexit, label %117
+  %113 = load i8, ptr %.01422.i113, align 1
+  %.not.i114 = icmp eq i8 %113, 0
+  br i1 %.not.i114, label %sqlite3_strnicmp.exit118.loopexit, label %114
 
-117:                                              ; preds = %.lr.ph.i110
-  %118 = zext i8 %116 to i64
-  %119 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %118
-  %120 = load i8, ptr %119, align 1
-  %121 = load i8, ptr %.023.i112.ptr, align 1
-  %122 = zext i8 %121 to i64
-  %123 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %122
-  %124 = load i8, ptr %123, align 1
-  %125 = icmp eq i8 %120, %124
-  br i1 %125, label %126, label %split.i115
+114:                                              ; preds = %.lr.ph.i110
+  %115 = zext i8 %113 to i64
+  %116 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %115
+  %117 = load i8, ptr %116, align 1
+  %118 = load i8, ptr %.023.i112.ptr, align 1
+  %119 = zext i8 %118 to i64
+  %120 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %119
+  %121 = load i8, ptr %120, align 1
+  %122 = icmp eq i8 %117, %121
+  br i1 %122, label %123, label %split.i115
 
-126:                                              ; preds = %117
-  %127 = getelementptr inbounds i8, ptr %.01422.i113, i64 1
+123:                                              ; preds = %114
+  %124 = getelementptr inbounds i8, ptr %.01422.i113, i64 1
   %.023.i112.add = add nuw nsw i64 %.023.i112.idx, 1
   %exitcond237.not = icmp eq i64 %.023.i112.idx, 2
   br i1 %exitcond237.not, label %sqlite3_strnicmp.exit.thread, label %.lr.ph.i110, !llvm.loop !65
 
-split.i115:                                       ; preds = %117
-  %128 = zext i8 %120 to i32
+split.i115:                                       ; preds = %114
+  %125 = zext i8 %117 to i32
   br label %sqlite3_strnicmp.exit118
 
 sqlite3_strnicmp.exit118.loopexit:                ; preds = %.lr.ph.i110
@@ -38665,39 +38656,39 @@ sqlite3_strnicmp.exit118.loopexit:                ; preds = %.lr.ph.i110
   br label %sqlite3_strnicmp.exit118
 
 sqlite3_strnicmp.exit118:                         ; preds = %sqlite3_strnicmp.exit118.loopexit, %split.i115
-  %129 = phi i8 [ %124, %split.i115 ], [ %.pre247, %sqlite3_strnicmp.exit118.loopexit ]
-  %130 = phi i32 [ %128, %split.i115 ], [ 0, %sqlite3_strnicmp.exit118.loopexit ]
-  %131 = zext i8 %129 to i32
-  %132 = icmp eq i32 %130, %131
-  br i1 %132, label %sqlite3_strnicmp.exit.thread, label %sqlite3_strnicmp.exit127.thread141
+  %126 = phi i8 [ %121, %split.i115 ], [ %.pre247, %sqlite3_strnicmp.exit118.loopexit ]
+  %127 = phi i32 [ %125, %split.i115 ], [ 0, %sqlite3_strnicmp.exit118.loopexit ]
+  %128 = zext i8 %126 to i32
+  %129 = icmp eq i32 %127, %128
+  br i1 %129, label %sqlite3_strnicmp.exit.thread, label %sqlite3_strnicmp.exit127.thread141
 
-.lr.ph.i119:                                      ; preds = %115, %143
-  %.023.i121.idx = phi i64 [ %.023.i121.add, %143 ], [ 0, %115 ]
-  %.01422.i122 = phi ptr [ %144, %143 ], [ %.062, %115 ]
+.lr.ph.i119:                                      ; preds = %112, %140
+  %.023.i121.idx = phi i64 [ %.023.i121.add, %140 ], [ 0, %112 ]
+  %.01422.i122 = phi ptr [ %141, %140 ], [ %.062, %112 ]
   %.023.i121.ptr = getelementptr inbounds i8, ptr @.str.32, i64 %.023.i121.idx
-  %133 = load i8, ptr %.01422.i122, align 1
-  %.not.i123 = icmp eq i8 %133, 0
-  br i1 %.not.i123, label %sqlite3_strnicmp.exit127.loopexit, label %134
+  %130 = load i8, ptr %.01422.i122, align 1
+  %.not.i123 = icmp eq i8 %130, 0
+  br i1 %.not.i123, label %sqlite3_strnicmp.exit127.loopexit, label %131
 
-134:                                              ; preds = %.lr.ph.i119
-  %135 = zext i8 %133 to i64
-  %136 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %135
-  %137 = load i8, ptr %136, align 1
-  %138 = load i8, ptr %.023.i121.ptr, align 1
-  %139 = zext i8 %138 to i64
-  %140 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %139
-  %141 = load i8, ptr %140, align 1
-  %142 = icmp eq i8 %137, %141
-  br i1 %142, label %143, label %split.i124
+131:                                              ; preds = %.lr.ph.i119
+  %132 = zext i8 %130 to i64
+  %133 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %132
+  %134 = load i8, ptr %133, align 1
+  %135 = load i8, ptr %.023.i121.ptr, align 1
+  %136 = zext i8 %135 to i64
+  %137 = getelementptr inbounds [274 x i8], ptr @sqlite3UpperToLower, i64 0, i64 %136
+  %138 = load i8, ptr %137, align 1
+  %139 = icmp eq i8 %134, %138
+  br i1 %139, label %140, label %split.i124
 
-143:                                              ; preds = %134
-  %144 = getelementptr inbounds i8, ptr %.01422.i122, i64 1
+140:                                              ; preds = %131
+  %141 = getelementptr inbounds i8, ptr %.01422.i122, i64 1
   %.023.i121.add = add nuw nsw i64 %.023.i121.idx, 1
   %exitcond.not = icmp eq i64 %.023.i121.idx, 6
   br i1 %exitcond.not, label %sqlite3_strnicmp.exit.thread, label %.lr.ph.i119, !llvm.loop !65
 
-split.i124:                                       ; preds = %134
-  %145 = zext i8 %137 to i32
+split.i124:                                       ; preds = %131
+  %142 = zext i8 %134 to i32
   br label %sqlite3_strnicmp.exit127
 
 sqlite3_strnicmp.exit127.loopexit:                ; preds = %.lr.ph.i119
@@ -38708,42 +38699,42 @@ sqlite3_strnicmp.exit127.loopexit:                ; preds = %.lr.ph.i119
   br label %sqlite3_strnicmp.exit127
 
 sqlite3_strnicmp.exit127:                         ; preds = %sqlite3_strnicmp.exit127.loopexit, %split.i124
-  %146 = phi i8 [ %141, %split.i124 ], [ %.pre243, %sqlite3_strnicmp.exit127.loopexit ]
-  %147 = phi i32 [ %145, %split.i124 ], [ 0, %sqlite3_strnicmp.exit127.loopexit ]
-  %148 = zext i8 %146 to i32
-  %149 = icmp eq i32 %147, %148
-  br i1 %149, label %sqlite3_strnicmp.exit.thread, label %sqlite3_strnicmp.exit127.thread141
+  %143 = phi i8 [ %138, %split.i124 ], [ %.pre243, %sqlite3_strnicmp.exit127.loopexit ]
+  %144 = phi i32 [ %142, %split.i124 ], [ 0, %sqlite3_strnicmp.exit127.loopexit ]
+  %145 = zext i8 %143 to i32
+  %146 = icmp eq i32 %144, %145
+  br i1 %146, label %sqlite3_strnicmp.exit.thread, label %sqlite3_strnicmp.exit127.thread141
 
-sqlite3_strnicmp.exit127.thread141:               ; preds = %sqlite3_strnicmp.exit118, %115, %sqlite3_strnicmp.exit127
+sqlite3_strnicmp.exit127.thread141:               ; preds = %sqlite3_strnicmp.exit118, %112, %sqlite3_strnicmp.exit127
   br label %sqlite3_strnicmp.exit.thread
 
-sqlite3_strnicmp.exit.thread:                     ; preds = %143, %126, %88, %108, %71, %52, %38, %sqlite3_strnicmp.exit127, %sqlite3_strnicmp.exit118, %sqlite3_strnicmp.exit109, %sqlite3_strnicmp.exit100, %sqlite3_strnicmp.exit91, %sqlite3_strnicmp.exit, %sqlite3_strnicmp.exit127.thread141, %.thread133, %59
-  %.1 = phi i64 [ 2, %sqlite3_strnicmp.exit127.thread141 ], [ 2, %.thread133 ], [ 2, %59 ], [ 4, %sqlite3_strnicmp.exit ], [ 6, %sqlite3_strnicmp.exit91 ], [ 5, %sqlite3_strnicmp.exit100 ], [ 5, %sqlite3_strnicmp.exit109 ], [ 7, %sqlite3_strnicmp.exit118 ], [ 3, %sqlite3_strnicmp.exit127 ], [ 2, %38 ], [ 4, %52 ], [ 6, %71 ], [ 5, %108 ], [ 5, %88 ], [ 7, %126 ], [ 3, %143 ]
-  %150 = shl i64 %indvars.iv, 32
-  %sext = add i64 %150, -4294967296
-  %151 = ashr exact i64 %sext, 32
-  %152 = getelementptr inbounds i8, ptr %.062, i64 %151
+sqlite3_strnicmp.exit.thread:                     ; preds = %140, %123, %105, %88, %71, %52, %38, %sqlite3_strnicmp.exit127, %sqlite3_strnicmp.exit118, %sqlite3_strnicmp.exit109, %sqlite3_strnicmp.exit100, %sqlite3_strnicmp.exit91, %sqlite3_strnicmp.exit, %sqlite3_strnicmp.exit127.thread141, %.thread133, %59
+  %.1 = phi i64 [ 2, %sqlite3_strnicmp.exit127.thread141 ], [ 2, %.thread133 ], [ 2, %59 ], [ 4, %sqlite3_strnicmp.exit ], [ 6, %sqlite3_strnicmp.exit91 ], [ 5, %sqlite3_strnicmp.exit100 ], [ 5, %sqlite3_strnicmp.exit109 ], [ 7, %sqlite3_strnicmp.exit118 ], [ 3, %sqlite3_strnicmp.exit127 ], [ 2, %38 ], [ 4, %52 ], [ 6, %71 ], [ 5, %88 ], [ 5, %105 ], [ 7, %123 ], [ 3, %140 ]
+  %147 = shl i64 %indvars.iv, 32
+  %sext = add i64 %147, -4294967296
+  %148 = ashr exact i64 %sext, 32
+  %149 = getelementptr inbounds i8, ptr %.062, i64 %148
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %12
-  %153 = getelementptr inbounds i8, ptr %.2, i64 1
+  %150 = getelementptr inbounds i8, ptr %.2, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader152, %.preheader151, %.loopexit.loopexit, %27, %.critedge8, %16, %5, %2, %sqlite3_strnicmp.exit.thread, %4
-  %.163 = phi ptr [ %152, %sqlite3_strnicmp.exit.thread ], [ %.062, %4 ], [ %.062, %2 ], [ %.062, %5 ], [ %.062, %16 ], [ %.5, %.critedge8 ], [ %.062, %27 ], [ %153, %.loopexit.loopexit ], [ %.3, %.preheader151 ], [ %.4, %.preheader152 ]
+  %.163 = phi ptr [ %149, %sqlite3_strnicmp.exit.thread ], [ %.062, %4 ], [ %.062, %2 ], [ %.062, %5 ], [ %.062, %16 ], [ %.5, %.critedge8 ], [ %.062, %27 ], [ %150, %.loopexit.loopexit ], [ %.3, %.preheader151 ], [ %.4, %.preheader152 ]
   %.060 = phi i64 [ %.1, %sqlite3_strnicmp.exit.thread ], [ 1, %4 ], [ 0, %2 ], [ 2, %5 ], [ 2, %16 ], [ 2, %.critedge8 ], [ 2, %27 ], [ 1, %.loopexit.loopexit ], [ 1, %.preheader151 ], [ 2, %.preheader152 ]
-  %154 = zext i8 %.061 to i64
-  %155 = getelementptr inbounds [8 x [8 x i8]], ptr @sqlite3_complete.trans, i64 0, i64 %154, i64 %.060
-  %156 = load i8, ptr %155, align 1
-  %157 = getelementptr inbounds i8, ptr %.163, i64 1
+  %151 = zext i8 %.061 to i64
+  %152 = getelementptr inbounds [8 x [8 x i8]], ptr @sqlite3_complete.trans, i64 0, i64 %151, i64 %.060
+  %153 = load i8, ptr %152, align 1
+  %154 = getelementptr inbounds i8, ptr %.163, i64 1
   br label %2, !llvm.loop !185
 
-158:                                              ; preds = %2
-  %159 = icmp eq i8 %.061, 1
+155:                                              ; preds = %2
+  %156 = icmp eq i8 %.061, 1
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge8, %.preheader152, %10, %158, %22
-  %.059.shrunk = phi i1 [ %23, %22 ], [ %159, %158 ], [ false, %10 ], [ false, %.preheader152 ], [ false, %.critedge8 ]
+.critedge.thread:                                 ; preds = %.critedge8, %.preheader152, %10, %155, %22
+  %.059.shrunk = phi i1 [ %23, %22 ], [ %156, %155 ], [ false, %10 ], [ false, %.preheader152 ], [ false, %.critedge8 ]
   %.059 = zext i1 %.059.shrunk to i32
   ret i32 %.059
 }

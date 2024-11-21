@@ -354,8 +354,8 @@ if.then:                                          ; preds = %entry
 
 while.cond68.i.preheader.split:                   ; preds = %if.then
   %2 = load i16, ptr %s, align 2
-  %cmp71.not.i21 = icmp eq i16 %2, 0
-  br i1 %cmp71.not.i21, label %return, label %while.body72.i.preheader
+  %cmp71.not.i19 = icmp eq i16 %2, 0
+  br i1 %cmp71.not.i19, label %return, label %while.body72.i.preheader
 
 while.body72.i.preheader:                         ; preds = %while.cond68.i.preheader.split
   %3 = and i16 %c, -9216
@@ -365,18 +365,18 @@ while.body72.i.preheader:                         ; preds = %while.cond68.i.preh
 
 while.body72.i:                                   ; preds = %while.body72.i.preheader, %if.end99.i
   %4 = phi i16 [ %9, %if.end99.i ], [ %2, %while.body72.i.preheader ]
-  %s.addr.1.i22 = phi ptr [ %incdec.ptr69.i23, %if.end99.i ], [ %s, %while.body72.i.preheader ]
-  %incdec.ptr69.i23 = getelementptr inbounds i8, ptr %s.addr.1.i22, i64 2
+  %s.addr.1.i20 = phi ptr [ %incdec.ptr69.i21, %if.end99.i ], [ %s, %while.body72.i.preheader ]
+  %incdec.ptr69.i21 = getelementptr inbounds i8, ptr %s.addr.1.i20, i64 2
   %cmp75.i = icmp eq i16 %4, %c
   br i1 %cmp75.i, label %for.cond77.i.preheader, label %if.end99.ithread-pre-split
 
 for.cond77.i.preheader:                           ; preds = %while.body72.i
-  %cmp1.not.i = icmp eq ptr %s, %s.addr.1.i22
+  %cmp1.not.i = icmp eq ptr %s, %s.addr.1.i20
   %or.cond.i = or i1 %cmp1.not.i, %cmp.i
   br i1 %or.cond.i, label %if.end.i, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %for.cond77.i.preheader
-  %add.ptr.i = getelementptr inbounds i8, ptr %s.addr.1.i22, i64 -2
+  %add.ptr.i = getelementptr inbounds i8, ptr %s.addr.1.i20, i64 -2
   %5 = load i16, ptr %add.ptr.i, align 2
   %6 = and i16 %5, -1024
   %cmp5.i = icmp eq i16 %6, -10240
@@ -386,13 +386,13 @@ if.end.i:                                         ; preds = %for.cond77.i.prehea
   br i1 %cmp9.i.not, label %land.lhs.true12.i, label %return
 
 land.lhs.true12.i:                                ; preds = %if.end.i
-  %7 = load i16, ptr %incdec.ptr69.i23, align 2
+  %7 = load i16, ptr %incdec.ptr69.i21, align 2
   %8 = and i16 %7, -1024
   %cmp15.i = icmp eq i16 %8, -9216
   br i1 %cmp15.i, label %if.end99.i, label %return
 
 if.end99.ithread-pre-split:                       ; preds = %while.body72.i, %land.lhs.true2.i
-  %.pr = load i16, ptr %incdec.ptr69.i23, align 2
+  %.pr = load i16, ptr %incdec.ptr69.i21, align 2
   br label %if.end99.i
 
 if.end99.i:                                       ; preds = %if.end99.ithread-pre-split, %land.lhs.true12.i
@@ -413,7 +413,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp3, label %return, label %if.end, !llvm.loop !4
 
 return:                                           ; preds = %if.end8, %if.end, %land.lhs.true2.i, %land.lhs.true12.i, %if.end.i, %if.end99.i, %for.cond.preheader, %while.cond68.i.preheader.split, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %while.cond68.i.preheader.split ], [ %s, %for.cond.preheader ], [ %s.addr.1.i22, %land.lhs.true2.i ], [ %s.addr.1.i22, %land.lhs.true12.i ], [ %s.addr.1.i22, %if.end.i ], [ null, %if.end99.i ], [ %incdec.ptr, %if.end8 ], [ null, %if.end ]
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %while.cond68.i.preheader.split ], [ %s, %for.cond.preheader ], [ %s.addr.1.i20, %land.lhs.true2.i ], [ %s.addr.1.i20, %land.lhs.true12.i ], [ %s.addr.1.i20, %if.end.i ], [ null, %if.end99.i ], [ %incdec.ptr, %if.end8 ], [ null, %if.end ]
   ret ptr %retval.0
 }
 
@@ -750,8 +750,8 @@ if.then.i:                                        ; preds = %if.then
 
 while.cond68.i.preheader.split.i:                 ; preds = %if.then.i
   %2 = load i16, ptr %s, align 2
-  %cmp71.not.i21.i = icmp eq i16 %2, 0
-  br i1 %cmp71.not.i21.i, label %return, label %while.body72.i.preheader.i
+  %cmp71.not.i19.i = icmp eq i16 %2, 0
+  br i1 %cmp71.not.i19.i, label %return, label %while.body72.i.preheader.i
 
 while.body72.i.preheader.i:                       ; preds = %while.cond68.i.preheader.split.i
   %3 = and i16 %conv, -9216
@@ -762,10 +762,10 @@ while.body72.i.preheader.i:                       ; preds = %while.cond68.i.preh
 
 while.body72.i.i.us.us:                           ; preds = %while.body72.i.preheader.i, %if.end99.i.i.us.us
   %4 = phi i16 [ %5, %if.end99.i.i.us.us ], [ %2, %while.body72.i.preheader.i ]
-  %s.addr.1.i22.i.us.us = phi ptr [ %incdec.ptr69.i23.i.us.us, %if.end99.i.i.us.us ], [ %s, %while.body72.i.preheader.i ]
-  %incdec.ptr69.i23.i.us.us = getelementptr inbounds i8, ptr %s.addr.1.i22.i.us.us, i64 2
+  %s.addr.1.i20.i.us.us = phi ptr [ %incdec.ptr69.i21.i.us.us, %if.end99.i.i.us.us ], [ %s, %while.body72.i.preheader.i ]
+  %incdec.ptr69.i21.i.us.us = getelementptr inbounds i8, ptr %s.addr.1.i20.i.us.us, i64 2
   %cmp75.i.i.us.us = icmp ne i16 %4, %conv
-  %5 = load i16, ptr %incdec.ptr69.i23.i.us.us, align 2
+  %5 = load i16, ptr %incdec.ptr69.i21.i.us.us, align 2
   %6 = and i16 %5, -1024
   %cmp15.i.i.us.us = icmp eq i16 %6, -9216
   %or.cond53 = select i1 %cmp75.i.i.us.us, i1 true, i1 %cmp15.i.i.us.us
@@ -777,36 +777,36 @@ if.end99.i.i.us.us:                               ; preds = %while.body72.i.i.us
 
 while.body72.i.i.us:                              ; preds = %while.body72.i.preheader.i, %if.end99.ithread-pre-split.i.us
   %7 = phi i16 [ %.pr.i.us, %if.end99.ithread-pre-split.i.us ], [ %2, %while.body72.i.preheader.i ]
-  %s.addr.1.i22.i.us = phi ptr [ %incdec.ptr69.i23.i.us, %if.end99.ithread-pre-split.i.us ], [ %s, %while.body72.i.preheader.i ]
+  %s.addr.1.i20.i.us = phi ptr [ %incdec.ptr69.i21.i.us, %if.end99.ithread-pre-split.i.us ], [ %s, %while.body72.i.preheader.i ]
   %cmp75.i.i.us = icmp eq i16 %7, %conv
   br i1 %cmp75.i.i.us, label %return, label %if.end99.ithread-pre-split.i.us
 
 if.end99.ithread-pre-split.i.us:                  ; preds = %while.body72.i.i.us
-  %incdec.ptr69.i23.i.us = getelementptr inbounds i8, ptr %s.addr.1.i22.i.us, i64 2
-  %.pr.i.us = load i16, ptr %incdec.ptr69.i23.i.us, align 2
+  %incdec.ptr69.i21.i.us = getelementptr inbounds i8, ptr %s.addr.1.i20.i.us, i64 2
+  %.pr.i.us = load i16, ptr %incdec.ptr69.i21.i.us, align 2
   %cmp71.not.i.i.us = icmp eq i16 %.pr.i.us, 0
   br i1 %cmp71.not.i.i.us, label %return, label %while.body72.i.i.us, !llvm.loop !10
 
 while.body72.i.i:                                 ; preds = %while.body72.i.preheader.i, %if.end99.ithread-pre-split.i
   %8 = phi i16 [ %.pr.i, %if.end99.ithread-pre-split.i ], [ %2, %while.body72.i.preheader.i ]
-  %s.addr.1.i22.i = phi ptr [ %incdec.ptr69.i23.i, %if.end99.ithread-pre-split.i ], [ %s, %while.body72.i.preheader.i ]
-  %incdec.ptr69.i23.i = getelementptr inbounds i8, ptr %s.addr.1.i22.i, i64 2
+  %s.addr.1.i20.i = phi ptr [ %incdec.ptr69.i21.i, %if.end99.ithread-pre-split.i ], [ %s, %while.body72.i.preheader.i ]
+  %incdec.ptr69.i21.i = getelementptr inbounds i8, ptr %s.addr.1.i20.i, i64 2
   %cmp75.i.i = icmp eq i16 %8, %conv
   br i1 %cmp75.i.i, label %for.cond77.i.preheader.i, label %if.end99.ithread-pre-split.i
 
 for.cond77.i.preheader.i:                         ; preds = %while.body72.i.i
-  %cmp1.not.i.i = icmp eq ptr %s, %s.addr.1.i22.i
+  %cmp1.not.i.i = icmp eq ptr %s, %s.addr.1.i20.i
   br i1 %cmp1.not.i.i, label %return, label %land.lhs.true2.i.i
 
 land.lhs.true2.i.i:                               ; preds = %for.cond77.i.preheader.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %s.addr.1.i22.i, i64 -2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %s.addr.1.i20.i, i64 -2
   %9 = load i16, ptr %add.ptr.i.i, align 2
   %10 = and i16 %9, -1024
   %cmp5.i.i = icmp eq i16 %10, -10240
   br i1 %cmp5.i.i, label %if.end99.ithread-pre-split.i, label %return
 
 if.end99.ithread-pre-split.i:                     ; preds = %land.lhs.true2.i.i, %while.body72.i.i
-  %.pr.i = load i16, ptr %incdec.ptr69.i23.i, align 2
+  %.pr.i = load i16, ptr %incdec.ptr69.i21.i, align 2
   %cmp71.not.i.i = icmp eq i16 %.pr.i, 0
   br i1 %cmp71.not.i.i, label %return, label %while.body72.i.i, !llvm.loop !10
 
@@ -852,7 +852,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp6.not, label %return, label %while.body, !llvm.loop !14
 
 return:                                           ; preds = %if.end, %while.body, %if.end8.i, %if.end.i, %while.body72.i.i.us.us, %if.end99.i.i.us.us, %for.cond77.i.preheader.i, %if.end99.ithread-pre-split.i, %land.lhs.true2.i.i, %while.body72.i.i.us, %if.end99.ithread-pre-split.i.us, %if.then2, %while.cond68.i.preheader.split.i, %if.then.i, %for.cond.preheader.i, %if.else
-  %retval.0 = phi ptr [ null, %if.else ], [ null, %if.then.i ], [ null, %while.cond68.i.preheader.split.i ], [ %s, %for.cond.preheader.i ], [ null, %if.then2 ], [ %s.addr.1.i22.i.us, %while.body72.i.i.us ], [ null, %if.end99.ithread-pre-split.i.us ], [ %s, %for.cond77.i.preheader.i ], [ %s.addr.1.i22.i, %land.lhs.true2.i.i ], [ null, %if.end99.ithread-pre-split.i ], [ null, %if.end99.i.i.us.us ], [ %s.addr.1.i22.i.us.us, %while.body72.i.i.us.us ], [ null, %if.end.i ], [ %incdec.ptr.i, %if.end8.i ], [ null, %if.end ], [ %s.addr.014, %while.body ]
+  %retval.0 = phi ptr [ null, %if.else ], [ null, %if.then.i ], [ null, %while.cond68.i.preheader.split.i ], [ %s, %for.cond.preheader.i ], [ null, %if.then2 ], [ %s.addr.1.i20.i.us, %while.body72.i.i.us ], [ null, %if.end99.ithread-pre-split.i.us ], [ %s, %for.cond77.i.preheader.i ], [ %s.addr.1.i20.i, %land.lhs.true2.i.i ], [ null, %if.end99.ithread-pre-split.i ], [ null, %if.end99.i.i.us.us ], [ %s.addr.1.i20.i.us.us, %while.body72.i.i.us.us ], [ null, %if.end.i ], [ %incdec.ptr.i, %if.end8.i ], [ null, %if.end ], [ %s.addr.014, %while.body ]
   ret ptr %retval.0
 }
 

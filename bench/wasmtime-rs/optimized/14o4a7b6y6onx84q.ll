@@ -15387,7 +15387,7 @@ define internal fastcc void @_ZN18wasmtime_cranelift8compiler16FunctionCompiler6
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !4
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %"_ZN4core3ptr73drop_in_place$LT$wasmtime_environ..module_artifacts..WasmFunctionInfo$GT$17hd6b13ff661f29261E.exit", label %16
+  br i1 %12, label %"_ZN4core3ptr76drop_in_place$LT$wasmtime_environ..module_artifacts..StackMapInformation$GT$17h514a9ad7265b09b5E.exit.i.i.i", label %16
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %3, i64 32
@@ -15398,20 +15398,20 @@ define internal fastcc void @_ZN18wasmtime_cranelift8compiler16FunctionCompiler6
   store i64 3, ptr %0, align 8
   br label %17
 
-common.resume:                                    ; preds = %23
-  resume { ptr, i32 } %19
-
-"_ZN4core3ptr73drop_in_place$LT$wasmtime_environ..module_artifacts..WasmFunctionInfo$GT$17hd6b13ff661f29261E.exit": ; preds = %9
+"_ZN4core3ptr76drop_in_place$LT$wasmtime_environ..module_artifacts..StackMapInformation$GT$17h514a9ad7265b09b5E.exit.i.i.i": ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3424) %0, ptr noundef nonnull align 8 dereferenceable(3424) %4, i64 3424, i1 false)
   call void @llvm.lifetime.end.p0(i64 3424, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %17
 
+common.resume:                                    ; preds = %23
+  resume { ptr, i32 } %19
+
 16:                                               ; preds = %9
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.7736b00188ea486646a9328fd927c866.189, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7736b00188ea486646a9328fd927c866.190) #35
           to label %20 unwind label %18
 
-17:                                               ; preds = %"_ZN4core3ptr73drop_in_place$LT$wasmtime_environ..module_artifacts..WasmFunctionInfo$GT$17hd6b13ff661f29261E.exit", %13
+17:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$wasmtime_environ..module_artifacts..StackMapInformation$GT$17h514a9ad7265b09b5E.exit.i.i.i", %13
   ret void
 
 18:                                               ; preds = %16

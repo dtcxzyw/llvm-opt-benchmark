@@ -4643,7 +4643,6 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterC2ERNS_12StreamWriterILb0ELb0EEEt.exit381: 
   %193 = load i64, ptr %cursor.i.i, align 8
   %add9.i.i16.i378 = add i64 %193, 4
   store i64 %add9.i.i16.i378, ptr %cursor.i.i, align 8
-  %d1.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 88
   %c1.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 72
   %b1.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 56
   br label %for.cond119.preheader
@@ -4660,7 +4659,6 @@ for.body121:                                      ; preds = %for.cond119.prehead
     i32 0, label %_ZNK12aiMatrix4x4tIfEixEj.exit
     i32 1, label %sw.bb2.i
     i32 2, label %sw.bb3.i
-    i32 3, label %sw.bb4.i
   ]
 
 sw.bb2.i:                                         ; preds = %for.body121
@@ -4669,14 +4667,11 @@ sw.bb2.i:                                         ; preds = %for.body121
 sw.bb3.i:                                         ; preds = %for.body121
   br label %_ZNK12aiMatrix4x4tIfEixEj.exit
 
-sw.bb4.i:                                         ; preds = %for.body121
-  br label %_ZNK12aiMatrix4x4tIfEixEj.exit
-
 default.unreachable.i:                            ; preds = %for.body121
   unreachable
 
-_ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %for.body121, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i
-  %retval.0.i = phi ptr [ %d1.i, %sw.bb4.i ], [ %c1.i, %sw.bb3.i ], [ %b1.i, %sw.bb2.i ], [ %second.i, %for.body121 ]
+_ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %for.body121, %sw.bb2.i, %sw.bb3.i
+  %retval.0.i = phi ptr [ %c1.i, %sw.bb3.i ], [ %b1.i, %sw.bb2.i ], [ %second.i, %for.body121 ]
   %arrayidx127 = getelementptr inbounds float, ptr %retval.0.i, i64 %indvars.iv1646
   %196 = load float, ptr %arrayidx127, align 4
   %add.i.i384 = add i64 %195, 4

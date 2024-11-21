@@ -4735,12 +4735,12 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17h3a95eb758eb9
 
 "._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit_crit_edge": ; preds = %20
   %.pre = load i64, ptr %15, align 8, !alias.scope !1012
-  %.pre29 = load i64, ptr %0, align 8, !alias.scope !1012
-  %.pre30 = sub i64 %.pre29, %.pre
+  %.pre27 = load i64, ptr %0, align 8, !alias.scope !1012
+  %.pre28 = sub i64 %.pre27, %.pre
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit": ; preds = %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit_crit_edge", %3
-  %.pre-phi = phi i64 [ %.pre30, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit_crit_edge" ], [ %18, %3 ]
+  %.pre-phi = phi i64 [ %.pre28, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit_crit_edge" ], [ %18, %3 ]
   %21 = phi i64 [ %.pre, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit_crit_edge" ], [ %16, %3 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
@@ -4798,46 +4798,46 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17h3a95eb758eb9
   %31 = load i64, ptr %30, align 8, !noundef !4
   store i64 %31, ptr %11, align 8
   %.not = icmp eq i64 %31, %1
-  br i1 %.not, label %"_ZN4core3ptr106drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$17he6fdba953591a7cfE.exit", label %33
+  br i1 %.not, label %"_ZN4core3ptr106drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$17he6fdba953591a7cfE.exit", label %35
 
-.body.thread:                                     ; preds = %33
-  %32 = landingpad { ptr, i32 }
+"_ZN4core3ptr106drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$17he6fdba953591a7cfE.exit": ; preds = %23
+  %32 = load i64, ptr %15, align 8, !noundef !4
+  %33 = add i64 %1, %32
+  store i64 %33, ptr %15, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
+  ret void
+
+.body.thread:                                     ; preds = %35
+  %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr106drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$17he6fdba953591a7cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #62
           to label %"_ZN4core3ptr1226drop_in_place$LT$rayon..iter..collect..special_extend$LT$rayon..iter..while_some..WhileSome$LT$rayon..iter..map..Map$LT$rayon..iter..map..Map$LT$rayon..vec..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$c16" unwind label %44
 
-33:                                               ; preds = %23
+35:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %14, ptr %9, align 8
-  %34 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %11, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 24
+  %36 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %11, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %38, align 8
   store ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.67, ptr %10, align 8, !alias.scope !1046, !noalias !1049
-  %37 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 2, ptr %37, align 8, !alias.scope !1046, !noalias !1049
-  %38 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr null, ptr %38, align 8, !alias.scope !1046, !noalias !1049
-  %39 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %9, ptr %39, align 8, !alias.scope !1046, !noalias !1049
-  %40 = getelementptr inbounds i8, ptr %10, i64 24
-  store i64 2, ptr %40, align 8, !alias.scope !1046, !noalias !1049
+  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 2, ptr %39, align 8, !alias.scope !1046, !noalias !1049
+  %40 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr null, ptr %40, align 8, !alias.scope !1046, !noalias !1049
+  %41 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %9, ptr %41, align 8, !alias.scope !1046, !noalias !1049
+  %42 = getelementptr inbounds i8, ptr %10, i64 24
+  store i64 2, ptr %42, align 8, !alias.scope !1046, !noalias !1049
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0ecd3ce1ce6f6f973ef910aad1a48719.69) #59
-          to label %41 unwind label %.body.thread
+          to label %43 unwind label %.body.thread
 
-41:                                               ; preds = %33
+43:                                               ; preds = %35
   unreachable
-
-"_ZN4core3ptr106drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$17he6fdba953591a7cfE.exit": ; preds = %23
-  %42 = load i64, ptr %15, align 8, !noundef !4
-  %43 = add i64 %1, %42
-  store i64 %43, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  ret void
 
 44:                                               ; preds = %48, %46, %.body.thread
   %45 = landingpad { ptr, i32 }
@@ -4852,7 +4852,7 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17h3a95eb758eb9
           to label %"_ZN4core3ptr1226drop_in_place$LT$rayon..iter..collect..special_extend$LT$rayon..iter..while_some..WhileSome$LT$rayon..iter..map..Map$LT$rayon..iter..map..Map$LT$rayon..vec..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$c16" unwind label %44
 
 "_ZN4core3ptr1226drop_in_place$LT$rayon..iter..collect..special_extend$LT$rayon..iter..while_some..WhileSome$LT$rayon..iter..map..Map$LT$rayon..iter..map..Map$LT$rayon..vec..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$c16": ; preds = %46, %.body.thread, %48
-  %.pn20 = phi { ptr, i32 } [ %49, %48 ], [ %32, %.body.thread ], [ %47, %46 ]
+  %.pn20 = phi { ptr, i32 } [ %49, %48 ], [ %34, %.body.thread ], [ %47, %46 ]
   resume { ptr, i32 } %.pn20
 
 48:                                               ; preds = %20
@@ -4889,12 +4889,12 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17h41464411b8b4
 
 "._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit_crit_edge": ; preds = %20
   %.pre = load i64, ptr %15, align 8, !alias.scope !1052
-  %.pre29 = load i64, ptr %0, align 8, !alias.scope !1052
-  %.pre30 = sub i64 %.pre29, %.pre
+  %.pre27 = load i64, ptr %0, align 8, !alias.scope !1052
+  %.pre28 = sub i64 %.pre27, %.pre
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit": ; preds = %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit_crit_edge", %3
-  %.pre-phi = phi i64 [ %.pre30, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit_crit_edge" ], [ %18, %3 ]
+  %.pre-phi = phi i64 [ %.pre28, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit_crit_edge" ], [ %18, %3 ]
   %21 = phi i64 [ %.pre, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9024c85d96569dc4E.exit_crit_edge" ], [ %16, %3 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
@@ -4952,46 +4952,46 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17h41464411b8b4
   %31 = load i64, ptr %30, align 8, !noundef !4
   store i64 %31, ptr %11, align 8
   %.not = icmp eq i64 %31, %1
-  br i1 %.not, label %"_ZN4core3ptr106drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$17he6fdba953591a7cfE.exit", label %33
+  br i1 %.not, label %"_ZN4core3ptr106drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$17he6fdba953591a7cfE.exit", label %35
 
-.body.thread:                                     ; preds = %33
-  %32 = landingpad { ptr, i32 }
+"_ZN4core3ptr106drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$17he6fdba953591a7cfE.exit": ; preds = %23
+  %32 = load i64, ptr %15, align 8, !noundef !4
+  %33 = add i64 %1, %32
+  store i64 %33, ptr %15, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
+  ret void
+
+.body.thread:                                     ; preds = %35
+  %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr106drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$17he6fdba953591a7cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #62
           to label %"_ZN4core3ptr1229drop_in_place$LT$rayon..iter..collect..special_extend$LT$rayon..iter..while_some..WhileSome$LT$rayon..iter..map..Map$LT$rayon..iter..map..Map$LT$rayon..vec..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u216" unwind label %44
 
-33:                                               ; preds = %23
+35:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %14, ptr %9, align 8
-  %34 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %11, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 24
+  %36 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %11, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %38, align 8
   store ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.67, ptr %10, align 8, !alias.scope !1086, !noalias !1089
-  %37 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 2, ptr %37, align 8, !alias.scope !1086, !noalias !1089
-  %38 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr null, ptr %38, align 8, !alias.scope !1086, !noalias !1089
-  %39 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %9, ptr %39, align 8, !alias.scope !1086, !noalias !1089
-  %40 = getelementptr inbounds i8, ptr %10, i64 24
-  store i64 2, ptr %40, align 8, !alias.scope !1086, !noalias !1089
+  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 2, ptr %39, align 8, !alias.scope !1086, !noalias !1089
+  %40 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr null, ptr %40, align 8, !alias.scope !1086, !noalias !1089
+  %41 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %9, ptr %41, align 8, !alias.scope !1086, !noalias !1089
+  %42 = getelementptr inbounds i8, ptr %10, i64 24
+  store i64 2, ptr %42, align 8, !alias.scope !1086, !noalias !1089
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0ecd3ce1ce6f6f973ef910aad1a48719.69) #59
-          to label %41 unwind label %.body.thread
+          to label %43 unwind label %.body.thread
 
-41:                                               ; preds = %33
+43:                                               ; preds = %35
   unreachable
-
-"_ZN4core3ptr106drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$wasmtime..compile..CompileOutput$GT$$GT$17he6fdba953591a7cfE.exit": ; preds = %23
-  %42 = load i64, ptr %15, align 8, !noundef !4
-  %43 = add i64 %1, %42
-  store i64 %43, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  ret void
 
 44:                                               ; preds = %48, %46, %.body.thread
   %45 = landingpad { ptr, i32 }
@@ -5006,7 +5006,7 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17h41464411b8b4
           to label %"_ZN4core3ptr1229drop_in_place$LT$rayon..iter..collect..special_extend$LT$rayon..iter..while_some..WhileSome$LT$rayon..iter..map..Map$LT$rayon..iter..map..Map$LT$rayon..vec..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u216" unwind label %44
 
 "_ZN4core3ptr1229drop_in_place$LT$rayon..iter..collect..special_extend$LT$rayon..iter..while_some..WhileSome$LT$rayon..iter..map..Map$LT$rayon..iter..map..Map$LT$rayon..vec..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u216": ; preds = %46, %.body.thread, %48
-  %.pn20 = phi { ptr, i32 } [ %49, %48 ], [ %32, %.body.thread ], [ %47, %46 ]
+  %.pn20 = phi { ptr, i32 } [ %49, %48 ], [ %34, %.body.thread ], [ %47, %46 ]
   resume { ptr, i32 } %.pn20
 
 48:                                               ; preds = %20
@@ -7915,7 +7915,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   store ptr @anon.0ecd3ce1ce6f6f973ef910aad1a48719.18.llvm.6452179527160401088, ptr %6, align 8
   store i64 0, ptr %7, align 8
   %.not.i.i = icmp ugt i64 %3, %2
-  br i1 %.not.i.i, label %8, label %"_ZN4core3ptr208drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17h59e22096ba9ea85bE.exit"
+  br i1 %.not.i.i, label %8, label %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i"
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1707
@@ -7940,10 +7940,7 @@ define hidden void @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$ray
   invoke void @"_ZN4core3ptr208drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17h59e22096ba9ea85bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #62
           to label %common.resume unwind label %20
 
-common.resume:                                    ; preds = %13
-  resume { ptr, i32 } %14
-
-"_ZN4core3ptr208drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17h59e22096ba9ea85bE.exit": ; preds = %4
+"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i": ; preds = %4
   %15 = getelementptr inbounds { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }, ptr %1, i64 %3
   %16 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
@@ -7954,6 +7951,9 @@ common.resume:                                    ; preds = %13
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %16, ptr %19, align 8
   ret void
+
+common.resume:                                    ; preds = %13
+  resume { ptr, i32 } %14
 
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
@@ -8028,7 +8028,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, ptr } @"_ZN86_$LT$rayon..vec..DrainProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$9into_iter17hef8c7322f6e16848E.llvm.6452179527160401088"(ptr noalias noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #12 personality ptr @rust_eh_personality {
-"_ZN4core3ptr208drop_in_place$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$GT$17h59e22096ba9ea85bE.exit":
+"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit.i.i.i":
   %2 = getelementptr inbounds { { ptr, i32, i32, i32, [1 x i32] }, { { { ptr, i64 }, i64, i64, i8, [7 x i8] } } }, ptr %0, i64 %1
   %3 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %4 = insertvalue { ptr, ptr } %3, ptr %2, 1

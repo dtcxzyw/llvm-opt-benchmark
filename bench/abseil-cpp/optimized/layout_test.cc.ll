@@ -24835,7 +24835,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i: ; preds = %entry
   %cmp.not.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.not.i.i.i.i, label %for.end35, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
+  br i1 %cmp.not.i.i.i.i, label %cleanup, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %sub.ptr.div.i.i, 5
@@ -24849,34 +24849,45 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %dec.i.i.i.i.i = add i64 %__n.addr.05.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i, label %for.end35, label %for.body.i.i.i.i.i, !llvm.loop !78
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i, !llvm.loop !78
 
-for.end35:                                        ; preds = %for.body.i.i.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
-  %.pr.i = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i ], [ %call5.i.i.i.i2.i.i23, %for.body.i.i.i.i.i ]
-  %2 = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %4 = load ptr, ptr %matchers_.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %.pr.i, %2
-  br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i143, label %for.body.i.i.i.i
+invoke.cont:                                      ; preds = %for.body.i.i.i.i.i
+  %.pre = load ptr, ptr %_M_finish.i.i, align 8
+  %.pre204 = load ptr, ptr %matchers_.i, align 8
+  %cmp37.not = icmp eq ptr %.pre, %.pre204
+  br i1 %cmp37.not, label %cleanup, label %for.body.i.i.i.i.preheader
 
-for.body.i.i.i.i:                                 ; preds = %for.end35, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %.pr.i, %for.end35 ]
+cleanup:                                          ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i, %invoke.cont
+  %2 = phi ptr [ %incdec.ptr.i.i.i.i.i, %invoke.cont ], [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i ]
+  %.pr.i209 = phi ptr [ %call5.i.i.i.i2.i.i23, %invoke.cont ], [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i ]
+  %cmp.not3.i.i.i.i = icmp eq ptr %.pr.i209, %2
+  br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i143, label %for.body.i.i.i.i.preheader
+
+for.body.i.i.i.i.preheader:                       ; preds = %invoke.cont, %cleanup
+  %.pr.i208217 = phi ptr [ %.pr.i209, %cleanup ], [ %call5.i.i.i.i2.i.i23, %invoke.cont ]
+  %3 = phi ptr [ %2, %cleanup ], [ %incdec.ptr.i.i.i.i.i, %invoke.cont ]
+  %cmp37.not210215 = phi i1 [ true, %cleanup ], [ false, %invoke.cont ]
+  br label %for.body.i.i.i.i
+
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %for.body.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %.pr.i208217, %for.body.i.i.i.i.preheader ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
-  %cmp.not.i.i.i.i142 = icmp eq ptr %incdec.ptr.i.i.i.i, %2
+  %cmp.not.i.i.i.i142 = icmp eq ptr %incdec.ptr.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i142, label %invoke.cont.i143, label %for.body.i.i.i.i, !llvm.loop !83
 
-invoke.cont.i143:                                 ; preds = %for.body.i.i.i.i, %for.end35
-  %tobool.not.i.i.i = icmp eq ptr %.pr.i, null
+invoke.cont.i143:                                 ; preds = %for.body.i.i.i.i, %cleanup
+  %.pr.i208218 = phi ptr [ %.pr.i209, %cleanup ], [ %.pr.i208217, %for.body.i.i.i.i ]
+  %cmp37.not210216 = phi i1 [ true, %cleanup ], [ %cmp37.not210215, %for.body.i.i.i.i ]
+  %tobool.not.i.i.i = icmp eq ptr %.pr.i208218, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i143
-  tail call void @_ZdlPv(ptr noundef nonnull %.pr.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.pr.i208218) #23
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i143, %if.then.i.i.i
-  %cmp37.not = icmp eq ptr %3, %4
-  ret i1 %cmp37.not
+  ret i1 %cmp37.not210216
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

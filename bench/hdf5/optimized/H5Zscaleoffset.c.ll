@@ -378,10 +378,10 @@ define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr
   br label %.thread247
 
 20:                                               ; preds = %13, %15
-  %.sink289 = phi i32 [ 0, %15 ], [ 1, %13 ]
+  %.sink294 = phi i32 [ 0, %15 ], [ 1, %13 ]
   %21 = getelementptr inbounds i8, ptr %2, i64 24
   %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, %.sink289
+  %23 = icmp ne i32 %22, %.sink294
   %24 = getelementptr inbounds i8, ptr %2, i64 8
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds i8, ptr %2, i64 12
@@ -507,8 +507,8 @@ define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr
   %89 = getelementptr inbounds i8, ptr %73, i64 4
   %90 = load i8, ptr %89, align 1
   %invariant.gep = getelementptr inbounds i8, ptr %73, i64 5
-  %.not272 = icmp eq i8 %90, 0
-  br i1 %.not272, label %._crit_edge, label %.lr.ph.preheader
+  %.not277 = icmp eq i8 %90, 0
+  br i1 %.not277, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %88
   %narrow = tail call i8 @llvm.umin.i8(i8 %90, i8 8)
@@ -516,17 +516,17 @@ define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv276 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next277, %.lr.ph ]
+  %indvars.iv281 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next282, %.lr.ph ]
   %91 = phi i64 [ 0, %.lr.ph.preheader ], [ %96, %.lr.ph ]
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv276
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv281
   %92 = load i8, ptr %gep, align 1
   %93 = zext i8 %92 to i64
-  %94 = shl nuw nsw i64 %indvars.iv276, 3
+  %94 = shl nuw nsw i64 %indvars.iv281, 3
   %95 = shl nuw i64 %93, %94
   %96 = or i64 %95, %91
-  %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
-  %exitcond279.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count
-  br i1 %exitcond279.not, label %._crit_edge, label %.lr.ph
+  %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
+  %exitcond284.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count
+  br i1 %exitcond284.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %88
   %97 = phi i64 [ 0, %88 ], [ %96, %.lr.ph ]
@@ -548,8 +548,8 @@ define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr
   br i1 %.not213, label %.preheader261, label %108
 
 .preheader261:                                    ; preds = %107
-  %.not273 = icmp eq i64 %100, 0
-  br i1 %.not273, label %.loopexit, label %.lr.ph267
+  %.not278 = icmp eq i64 %100, 0
+  br i1 %.not278, label %.loopexit, label %.lr.ph267
 
 108:                                              ; preds = %107
   %109 = getelementptr inbounds i8, ptr %73, i64 21
@@ -716,34 +716,34 @@ H5Z__scaleoffset_convert.exit237:                 ; preds = %._crit_edge.us.i236
   br label %.thread247
 
 .preheader:                                       ; preds = %166, %.preheader
-  %indvars.iv280 = phi i64 [ %indvars.iv.next281, %.preheader ], [ 0, %166 ]
-  %indvars.iv280.tr = trunc i64 %indvars.iv280 to i32
-  %180 = shl i32 %indvars.iv280.tr, 3
+  %indvars.iv285 = phi i64 [ %indvars.iv.next286, %.preheader ], [ 0, %166 ]
+  %indvars.iv285.tr = trunc i64 %indvars.iv285 to i32
+  %180 = shl i32 %indvars.iv285.tr, 3
   %181 = lshr i32 %167, %180
   %182 = trunc i32 %181 to i8
-  %183 = getelementptr inbounds i8, ptr %174, i64 %indvars.iv280
+  %183 = getelementptr inbounds i8, ptr %174, i64 %indvars.iv285
   store i8 %182, ptr %183, align 1
-  %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
-  %exitcond283.not = icmp eq i64 %indvars.iv.next281, 4
-  br i1 %exitcond283.not, label %184, label %.preheader
+  %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
+  %exitcond288.not = icmp eq i64 %indvars.iv.next286, 4
+  br i1 %exitcond288.not, label %184, label %.preheader
 
 184:                                              ; preds = %.preheader
   %185 = getelementptr inbounds i8, ptr %174, i64 4
   store i8 8, ptr %185, align 1
   %186 = load i64, ptr %8, align 8
-  %invariant.gep269 = getelementptr inbounds i8, ptr %174, i64 5
+  %invariant.gep274 = getelementptr inbounds i8, ptr %174, i64 5
   br label %187
 
 187:                                              ; preds = %184, %187
-  %indvars.iv284 = phi i64 [ 0, %184 ], [ %indvars.iv.next285, %187 ]
-  %188 = shl nuw nsw i64 %indvars.iv284, 3
+  %indvars.iv289 = phi i64 [ 0, %184 ], [ %indvars.iv.next290, %187 ]
+  %188 = shl nuw nsw i64 %indvars.iv289, 3
   %189 = lshr i64 %186, %188
   %190 = trunc i64 %189 to i8
-  %gep270 = getelementptr inbounds i8, ptr %invariant.gep269, i64 %indvars.iv284
-  store i8 %190, ptr %gep270, align 1
-  %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
-  %exitcond287.not = icmp eq i64 %indvars.iv.next285, 8
-  br i1 %exitcond287.not, label %191, label %187
+  %gep275 = getelementptr inbounds i8, ptr %invariant.gep274, i64 %indvars.iv289
+  store i8 %190, ptr %gep275, align 1
+  %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
+  %exitcond292.not = icmp eq i64 %indvars.iv.next290, 8
+  br i1 %exitcond292.not, label %191, label %187
 
 191:                                              ; preds = %187
   %192 = add i64 %172, 9

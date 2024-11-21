@@ -14233,24 +14233,11 @@ if.then.i564:                                     ; preds = %if.then.i.i.i
   %div17.i = lshr i64 %sub.i565, 1
   %add.ptr.i566 = getelementptr inbounds ptr, ptr %130, i64 %div17.i
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i566, i64 8
-  %cmp13.i = icmp ult ptr %add.ptr9.i, %128
   %add.ptr21.i = getelementptr inbounds i8, ptr %108, i64 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr21.i, %128
-  br i1 %cmp13.i, label %if.then14.i, label %if.else.i567
-
-if.then14.i:                                      ; preds = %if.then.i564
-  br i1 %tobool.not.i.i.i.i.i.i, label %.noexc252, label %if.then.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i:                              ; preds = %if.then14.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr21.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr9.i, ptr nonnull align 8 %128, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
-  br label %.noexc252
-
-if.else.i567:                                     ; preds = %if.then.i564
   br i1 %tobool.not.i.i.i.i.i.i, label %.noexc252, label %if.then.i.i.i.i.i19.i
 
-if.then.i.i.i.i.i19.i:                            ; preds = %if.else.i567
+if.then.i.i.i.i.i19.i:                            ; preds = %if.then.i564
   %add.ptr29.i = getelementptr inbounds ptr, ptr %add.ptr9.i, i64 %add.i557
   %sub.ptr.lhs.cast.i.i.i.i.i20.i = ptrtoint ptr %add.ptr21.i to i64
   %sub.ptr.sub.i.i.i.i.i22.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -14297,8 +14284,8 @@ _ZSt4copyIPP10aiVector2tIdES3_ET0_T_S5_S4_.exit30.i: ; preds = %if.then.i.i.i.i.
   store i64 %add38.i, ptr %_M_map_size.i.i705, align 8
   br label %.noexc252
 
-.noexc252:                                        ; preds = %_ZSt4copyIPP10aiVector2tIdES3_ET0_T_S5_S4_.exit30.i, %if.then.i.i.i.i.i19.i, %if.else.i567, %if.then.i.i.i.i.i.i, %if.then14.i
-  %__new_nstart.0.i = phi ptr [ %add.ptr48.i, %_ZSt4copyIPP10aiVector2tIdES3_ET0_T_S5_S4_.exit30.i ], [ %add.ptr9.i, %if.then14.i ], [ %add.ptr9.i, %if.then.i.i.i.i.i.i ], [ %add.ptr9.i, %if.else.i567 ], [ %add.ptr9.i, %if.then.i.i.i.i.i19.i ]
+.noexc252:                                        ; preds = %_ZSt4copyIPP10aiVector2tIdES3_ET0_T_S5_S4_.exit30.i, %if.then.i.i.i.i.i19.i, %if.then.i564
+  %__new_nstart.0.i = phi ptr [ %add.ptr48.i, %_ZSt4copyIPP10aiVector2tIdES3_ET0_T_S5_S4_.exit30.i ], [ %add.ptr9.i, %if.then.i564 ], [ %add.ptr9.i, %if.then.i.i.i.i.i19.i ]
   store ptr %__new_nstart.0.i, ptr %_M_node.i.i172, align 8
   %132 = load ptr, ptr %__new_nstart.0.i, align 8
   store ptr %132, ptr %_M_first.i.i818, align 8
@@ -14401,24 +14388,11 @@ if.then.i612:                                     ; preds = %if.then.i.i.i297
   %div17.i614 = lshr i64 %sub.i613, 1
   %add.ptr.i615 = getelementptr inbounds ptr, ptr %144, i64 %div17.i614
   %add.ptr9.i616 = getelementptr inbounds i8, ptr %add.ptr.i615, i64 8
-  %cmp13.i617 = icmp ult ptr %add.ptr9.i616, %142
   %add.ptr21.i618 = getelementptr inbounds i8, ptr %108, i64 8
   %tobool.not.i.i.i.i.i.i619 = icmp eq ptr %add.ptr21.i618, %142
-  br i1 %cmp13.i617, label %if.then14.i628, label %if.else.i620
-
-if.then14.i628:                                   ; preds = %if.then.i612
-  br i1 %tobool.not.i.i.i.i.i.i619, label %.noexc301, label %if.then.i.i.i.i.i.i629
-
-if.then.i.i.i.i.i.i629:                           ; preds = %if.then14.i628
-  %sub.ptr.lhs.cast.i.i.i.i.i.i630 = ptrtoint ptr %add.ptr21.i618 to i64
-  %sub.ptr.sub.i.i.i.i.i.i631 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i630, %sub.ptr.rhs.cast.i.i.i.i270
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr9.i616, ptr nonnull align 8 %142, i64 %sub.ptr.sub.i.i.i.i.i.i631, i1 false)
-  br label %.noexc301
-
-if.else.i620:                                     ; preds = %if.then.i612
   br i1 %tobool.not.i.i.i.i.i.i619, label %.noexc301, label %if.then.i.i.i.i.i19.i621
 
-if.then.i.i.i.i.i19.i621:                         ; preds = %if.else.i620
+if.then.i.i.i.i.i19.i621:                         ; preds = %if.then.i612
   %add.ptr29.i622 = getelementptr inbounds ptr, ptr %add.ptr9.i616, i64 %add.i577
   %sub.ptr.lhs.cast.i.i.i.i.i20.i623 = ptrtoint ptr %add.ptr21.i618 to i64
   %sub.ptr.sub.i.i.i.i.i22.i624 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20.i623, %sub.ptr.rhs.cast.i.i.i.i270
@@ -14465,8 +14439,8 @@ _ZSt4copyIPP10aiVector2tIdES3_ET0_T_S5_S4_.exit30.i598: ; preds = %if.then.i.i.i
   store i64 %add38.i585, ptr %_M_map_size.i.i705, align 8
   br label %.noexc301
 
-.noexc301:                                        ; preds = %_ZSt4copyIPP10aiVector2tIdES3_ET0_T_S5_S4_.exit30.i598, %if.then.i.i.i.i.i19.i621, %if.else.i620, %if.then.i.i.i.i.i.i629, %if.then14.i628
-  %__new_nstart.0.i599 = phi ptr [ %add.ptr48.i592, %_ZSt4copyIPP10aiVector2tIdES3_ET0_T_S5_S4_.exit30.i598 ], [ %add.ptr9.i616, %if.then14.i628 ], [ %add.ptr9.i616, %if.then.i.i.i.i.i.i629 ], [ %add.ptr9.i616, %if.else.i620 ], [ %add.ptr9.i616, %if.then.i.i.i.i.i19.i621 ]
+.noexc301:                                        ; preds = %_ZSt4copyIPP10aiVector2tIdES3_ET0_T_S5_S4_.exit30.i598, %if.then.i.i.i.i.i19.i621, %if.then.i612
+  %__new_nstart.0.i599 = phi ptr [ %add.ptr48.i592, %_ZSt4copyIPP10aiVector2tIdES3_ET0_T_S5_S4_.exit30.i598 ], [ %add.ptr9.i616, %if.then.i612 ], [ %add.ptr9.i616, %if.then.i.i.i.i.i19.i621 ]
   store ptr %__new_nstart.0.i599, ptr %_M_node.i.i172, align 8
   %146 = load ptr, ptr %__new_nstart.0.i599, align 8
   store ptr %146, ptr %_M_first.i.i818, align 8

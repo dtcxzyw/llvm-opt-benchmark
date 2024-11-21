@@ -52989,24 +52989,24 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17h344096b4b4f1
   %54 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 2, ptr %54, align 8
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3fd1218b2f406ad1341fef897d5dd3d9.337) #71
-          to label %56 unwind label %.body16.thread
+          to label %58 unwind label %.body16.thread
+
+"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit": ; preds = %44
+  %55 = load i64, ptr %17, align 8, !noundef !4
+  %56 = add i64 %1, %55
+  store i64 %56, ptr %17, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
+  ret void
 
 .body16.thread:                                   ; preds = %49
-  %55 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #70
           to label %.thread unwind label %59
 
-56:                                               ; preds = %49
+58:                                               ; preds = %49
   unreachable
-
-"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit": ; preds = %44
-  %57 = load i64, ptr %17, align 8, !noundef !4
-  %58 = add i64 %1, %57
-  store i64 %58, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  ret void
 
 59:                                               ; preds = %63, %61, %.body16.thread
   %60 = landingpad { ptr, i32 }
@@ -53021,7 +53021,7 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17h344096b4b4f1
           to label %.thread unwind label %59
 
 .thread:                                          ; preds = %38, %61, %.body16.thread, %63
-  %.pn21 = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ], [ %55, %.body16.thread ], [ %39, %38 ]
+  %.pn21 = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ], [ %57, %.body16.thread ], [ %39, %38 ]
   resume { ptr, i32 } %.pn21
 
 63:                                               ; preds = %22
@@ -53162,24 +53162,24 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17ha8178848d9d4
   %47 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 2, ptr %47, align 8
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3fd1218b2f406ad1341fef897d5dd3d9.337) #71
-          to label %49 unwind label %.body.thread
+          to label %51 unwind label %.body.thread
+
+"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit": ; preds = %25
+  %48 = load i64, ptr %17, align 8, !noundef !4
+  %49 = add i64 %1, %48
+  store i64 %49, ptr %17, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
+  ret void
 
 .body.thread:                                     ; preds = %42
-  %48 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #70
           to label %.thread unwind label %52
 
-49:                                               ; preds = %42
+51:                                               ; preds = %42
   unreachable
-
-"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit": ; preds = %25
-  %50 = load i64, ptr %17, align 8, !noundef !4
-  %51 = add i64 %1, %50
-  store i64 %51, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  ret void
 
 52:                                               ; preds = %56, %54, %.body.thread
   %53 = landingpad { ptr, i32 }
@@ -53194,7 +53194,7 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17ha8178848d9d4
           to label %.thread unwind label %52
 
 .thread:                                          ; preds = %54, %.body.thread, %56
-  %.pn19 = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ], [ %48, %.body.thread ]
+  %.pn19 = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ], [ %50, %.body.thread ]
   resume { ptr, i32 } %.pn19
 
 56:                                               ; preds = %22
@@ -53298,7 +53298,7 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17hd96c4673161f
   br label %"_ZN5rayon4iter7collect14special_extend28_$u7b$$u7b$closure$u7d$$u7d$17h011ee32609259ef2E.exit"
 
 common.resume:                                    ; preds = %.body.thread, %37
-  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %53, %.body.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %55, %.body.thread ]
   resume { ptr, i32 } %common.resume.op
 
 37:                                               ; preds = %35
@@ -53354,24 +53354,24 @@ common.resume:                                    ; preds = %.body.thread, %37
   %52 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 2, ptr %52, align 8
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3fd1218b2f406ad1341fef897d5dd3d9.337) #71
-          to label %54 unwind label %.body.thread
+          to label %56 unwind label %.body.thread
+
+"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit": ; preds = %"_ZN5rayon4iter7collect14special_extend28_$u7b$$u7b$closure$u7d$$u7d$17h011ee32609259ef2E.exit"
+  %53 = load i64, ptr %16, align 8, !noundef !4
+  %54 = add i64 %1, %53
+  store i64 %54, ptr %16, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
+  ret void
 
 .body.thread:                                     ; preds = %47
-  %53 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #70
           to label %common.resume unwind label %57
 
-54:                                               ; preds = %47
+56:                                               ; preds = %47
   unreachable
-
-"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit": ; preds = %"_ZN5rayon4iter7collect14special_extend28_$u7b$$u7b$closure$u7d$$u7d$17h011ee32609259ef2E.exit"
-  %55 = load i64, ptr %16, align 8, !noundef !4
-  %56 = add i64 %1, %55
-  store i64 %56, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  ret void
 
 57:                                               ; preds = %.body.thread
   %58 = landingpad { ptr, i32 }
@@ -53653,24 +53653,24 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17hee9364d36560
   %45 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 2, ptr %45, align 8
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3fd1218b2f406ad1341fef897d5dd3d9.337) #71
-          to label %47 unwind label %.body.thread
+          to label %49 unwind label %.body.thread
+
+"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit": ; preds = %"_ZN5rayon4iter7collect8consumer24CollectConsumer$LT$T$GT$8appender17h989c0de34f055c0bE.exit"
+  %46 = load i64, ptr %16, align 8, !noundef !4
+  %47 = add i64 %1, %46
+  store i64 %47, ptr %16, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
+  ret void
 
 .body.thread:                                     ; preds = %40
-  %46 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #70
           to label %.body unwind label %50
 
-47:                                               ; preds = %40
+49:                                               ; preds = %40
   unreachable
-
-"_ZN4core3ptr105drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$arroy..parallel..TmpNodesReader$GT$$GT$17h4f2b186647765ffbE.exit": ; preds = %"_ZN5rayon4iter7collect8consumer24CollectConsumer$LT$T$GT$8appender17h989c0de34f055c0bE.exit"
-  %48 = load i64, ptr %16, align 8, !noundef !4
-  %49 = add i64 %1, %48
-  store i64 %49, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  ret void
 
 50:                                               ; preds = %.body.thread
   %51 = landingpad { ptr, i32 }
@@ -53679,7 +53679,7 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17hee9364d36560
   unreachable
 
 .body:                                            ; preds = %.body.thread
-  resume { ptr, i32 } %46
+  resume { ptr, i32 } %48
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

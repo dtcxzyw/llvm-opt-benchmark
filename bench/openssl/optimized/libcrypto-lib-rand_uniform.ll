@@ -91,14 +91,8 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %sub = sub nuw i32 %upper, %lower
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %rand.i)
-  switch i32 %sub, label %if.end14.i [
-    i32 0, label %if.then.i
-    i32 1, label %ossl_rand_uniform_uint32.exit
-  ]
-
-if.then.i:                                        ; preds = %if.end
-  store i32 0, ptr %err, align 4
-  br label %ossl_rand_uniform_uint32.exit
+  %cond = icmp eq i32 %sub, 1
+  br i1 %cond, label %ossl_rand_uniform_uint32.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end
   %call.i = call i32 @RAND_bytes_ex(ptr noundef %ctx, ptr noundef nonnull %rand.i, i64 noundef 4, i32 noundef 0) #3
@@ -154,8 +148,8 @@ if.end50.i:                                       ; preds = %if.end39.i
   %or.cond.i = select i1 %cmp51.not.i, i1 true, i1 %exitcond.not.i
   br i1 %or.cond.i, label %ossl_rand_uniform_uint32.exit, label %for.body.i, !llvm.loop !4
 
-ossl_rand_uniform_uint32.exit:                    ; preds = %if.end50.i, %if.end, %if.then.i, %if.then17.i, %if.end18.i, %if.then38.i, %if.then48.i
-  %retval.0.i = phi i32 [ 0, %if.then17.i ], [ 0, %if.then38.i ], [ %add49.i, %if.then48.i ], [ 0, %if.then.i ], [ 0, %if.end ], [ %conv21.i, %if.end18.i ], [ %conv21.i, %if.end50.i ]
+ossl_rand_uniform_uint32.exit:                    ; preds = %if.end50.i, %if.end, %if.then17.i, %if.end18.i, %if.then38.i, %if.then48.i
+  %retval.0.i = phi i32 [ 0, %if.then17.i ], [ 0, %if.then38.i ], [ %add49.i, %if.then48.i ], [ 0, %if.end ], [ %conv21.i, %if.end18.i ], [ %conv21.i, %if.end50.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %rand.i)
   %add = add i32 %retval.0.i, %lower
   br label %return

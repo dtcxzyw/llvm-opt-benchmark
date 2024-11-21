@@ -4438,99 +4438,67 @@ define internal fastcc void @"_ZN4core3ptr115drop_in_place$LT$smallvec..SmallVec
   %3 = load i64, ptr %2, align 8, !alias.scope !2021, !noundef !4
   %4 = icmp ugt i64 %3, 1
   %5 = load ptr, ptr %0, align 8, !alias.scope !2021, !noundef !4
-  br i1 %4, label %21, label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7cfc9d244644f9f7E.exit.i"
+  br i1 %4, label %9, label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7cfc9d244644f9f7E.exit.i"
 
 "_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7cfc9d244644f9f7E.exit.i": ; preds = %1
   %6 = icmp eq ptr %5, null
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i"
+  %7 = icmp eq i64 %3, 0
+  br i1 %7, label %"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h44aa88e4a6976f4aE.exit", label %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i"
 
-"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i": ; preds = %9, %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7cfc9d244644f9f7E.exit.i"
-  %.0.i.i = phi i64 [ 0, %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7cfc9d244644f9f7E.exit.i" ], [ %11, %9 ]
-  %8 = icmp eq i64 %.0.i.i, %3
-  br i1 %8, label %"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h44aa88e4a6976f4aE.exit", label %9
+"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i": ; preds = %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7cfc9d244644f9f7E.exit.i"
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @"_ZN89_$LT$sqlx_sqlite..statement..handle..StatementHandle$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2694fb7edcefc14fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
+  br label %"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h44aa88e4a6976f4aE.exit"
 
-9:                                                ; preds = %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i"
-  %10 = getelementptr inbounds [0 x ptr], ptr %7, i64 0, i64 %.0.i.i
-  %11 = add nuw nsw i64 %.0.i.i, 1
-  invoke void @"_ZN89_$LT$sqlx_sqlite..statement..handle..StatementHandle$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2694fb7edcefc14fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-          to label %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i" unwind label %14
-
-12:                                               ; preds = %16, %14
-  %.1.i.i = phi i64 [ %11, %14 ], [ %18, %16 ]
-  %13 = icmp eq i64 %.1.i.i, %3
-  br i1 %13, label %common.resume.i, label %16
-
-14:                                               ; preds = %9
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  br label %12
-
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds [0 x ptr], ptr %7, i64 0, i64 %.1.i.i
-  %18 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E"(ptr noalias noundef align 8 dereferenceable(8) %17) #32
-          to label %12 unwind label %19
-
-common.resume.i:                                  ; preds = %12, %.body.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %31, %.body.i.i ], [ %15, %12 ]
-  resume { ptr, i32 } %common.resume.op.i
-
-19:                                               ; preds = %16
-  %20 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #33
-  unreachable
-
-21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = load i64, ptr %22, align 8, !alias.scope !2021, !noundef !4
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = load i64, ptr %10, align 8, !alias.scope !2021, !noundef !4
   br label %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i.i.i"
 
-"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i.i.i": ; preds = %25, %21
-  %.0.i.i.i.i = phi i64 [ 0, %21 ], [ %27, %25 ]
-  %24 = icmp eq i64 %.0.i.i.i.i, %23
-  br i1 %24, label %"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$$GT$17hc8b7450641a9a641E.exit.i", label %25
+"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i.i.i": ; preds = %13, %9
+  %.0.i.i.i.i = phi i64 [ 0, %9 ], [ %15, %13 ]
+  %12 = icmp eq i64 %.0.i.i.i.i, %11
+  br i1 %12, label %"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$$GT$17hc8b7450641a9a641E.exit.i", label %13
 
-25:                                               ; preds = %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i.i.i"
-  %26 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 %.0.i.i.i.i
-  %27 = add i64 %.0.i.i.i.i, 1
-  invoke void @"_ZN89_$LT$sqlx_sqlite..statement..handle..StatementHandle$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2694fb7edcefc14fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
-          to label %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i.i.i" unwind label %30, !noalias !2024
+13:                                               ; preds = %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i.i.i"
+  %14 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 %.0.i.i.i.i
+  %15 = add i64 %.0.i.i.i.i, 1
+  invoke void @"_ZN89_$LT$sqlx_sqlite..statement..handle..StatementHandle$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2694fb7edcefc14fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
+          to label %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i.i.i" unwind label %18, !noalias !2024
 
-28:                                               ; preds = %32, %30
-  %.1.i.i.i.i = phi i64 [ %27, %30 ], [ %34, %32 ]
-  %29 = icmp eq i64 %.1.i.i.i.i, %23
-  br i1 %29, label %.body.i.i, label %32
+16:                                               ; preds = %20, %18
+  %.1.i.i.i.i = phi i64 [ %15, %18 ], [ %22, %20 ]
+  %17 = icmp eq i64 %.1.i.i.i.i, %11
+  br i1 %17, label %.body.i.i, label %20
 
-30:                                               ; preds = %25
-  %31 = landingpad { ptr, i32 }
+18:                                               ; preds = %13
+  %19 = landingpad { ptr, i32 }
           cleanup
-  br label %28
+  br label %16
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 %.1.i.i.i.i
-  %34 = add i64 %.1.i.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E"(ptr noalias noundef align 8 dereferenceable(8) %33) #32
-          to label %28 unwind label %35, !noalias !2024
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 %.1.i.i.i.i
+  %22 = add i64 %.1.i.i.i.i, 1
+  invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E"(ptr noalias noundef align 8 dereferenceable(8) %21) #32
+          to label %16 unwind label %23, !noalias !2024
 
-35:                                               ; preds = %32
-  %36 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #33, !noalias !2024
   unreachable
 
-.body.i.i:                                        ; preds = %28
+.body.i.i:                                        ; preds = %16
   tail call fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$$GT$17h8628a112a774ec53E"(ptr nonnull %5, i64 %3) #32, !noalias !2024
-  br label %common.resume.i
+  resume { ptr, i32 } %19
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$$GT$17hc8b7450641a9a641E.exit.i": ; preds = %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i.i.i"
-  %37 = shl nuw i64 %3, 3
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %37, i64 noundef 8) #30, !noalias !2024
+  %25 = shl nuw i64 %3, 3
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %25, i64 noundef 8) #30, !noalias !2024
   br label %"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h44aa88e4a6976f4aE.exit"
 
-"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h44aa88e4a6976f4aE.exit": ; preds = %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i", %"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$$GT$17hc8b7450641a9a641E.exit.i"
+"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h44aa88e4a6976f4aE.exit": ; preds = %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h7cfc9d244644f9f7E.exit.i", %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17hf512620f0a9b76c5E.exit.i.i", %"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$$GT$17hc8b7450641a9a641E.exit.i"
   ret void
 }
 

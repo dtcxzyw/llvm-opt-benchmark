@@ -63396,50 +63396,14 @@ if.end.i.i:                                       ; preds = %for.body142
 _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i: ; preds = %for.body142, %if.end.i.i
   %retval.0.i.i = phi ptr [ %arrayidx.i.i.i488, %if.end.i.i ], [ %InstanceDataFirst.i.i, %for.body142 ]
   switch i32 %138, label %_ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit [
-    i32 0, label %if.then.i505
-    i32 1, label %if.then2.i503
-    i32 2, label %if.then5.i501
-    i32 3, label %if.then8.i500
-    i32 4, label %if.then11.i498
-    i32 5, label %if.then14.i497
-    i32 6, label %if.then17.i
-    i32 7, label %if.then25.i
-    i32 8, label %if.then36.i
-    i32 9, label %if.then42.i
-    i32 10, label %if.then56.i
-    i32 11, label %if.then71.i
     i32 12, label %if.then85.i
+    i32 11, label %if.then71.i
+    i32 10, label %if.then56.i
+    i32 9, label %if.then42.i
+    i32 8, label %if.then36.i
+    i32 7, label %if.then25.i
+    i32 6, label %if.then17.i
   ]
-
-if.then.i505:                                     ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
-  %retval.sroa.0.0.copyload.i506 = load <2 x float>, ptr %OuterRect.i649, align 8
-  %retval.sroa.21.0.copyload.i = load <2 x float>, ptr %retval.sroa.21.0.OuterRect.sroa_idx.i651, align 8
-  br label %_ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit
-
-if.then2.i503:                                    ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
-  %retval.sroa.0.0.copyload93.i = load <2 x float>, ptr %InnerRect.i644, align 8
-  %retval.sroa.21.0.copyload109.i = load <2 x float>, ptr %retval.sroa.21.0.InnerRect.sroa_idx.i646, align 8
-  br label %_ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit
-
-if.then5.i501:                                    ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
-  %retval.sroa.0.0.copyload94.i = load <2 x float>, ptr %WorkRect.i639, align 8
-  %retval.sroa.21.0.copyload110.i = load <2 x float>, ptr %retval.sroa.21.0.WorkRect.sroa_idx.i641, align 8
-  br label %_ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit
-
-if.then8.i500:                                    ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
-  %retval.sroa.0.0.copyload95.i = load <2 x float>, ptr %HostClipRect.i634, align 8
-  %retval.sroa.21.0.copyload111.i = load <2 x float>, ptr %retval.sroa.21.0.HostClipRect.sroa_idx.i636, align 8
-  br label %_ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit
-
-if.then11.i498:                                   ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
-  %retval.sroa.0.0.copyload96.i = load <2 x float>, ptr %InnerClipRect.i629, align 8
-  %retval.sroa.21.0.copyload112.i = load <2 x float>, ptr %retval.sroa.21.0.InnerClipRect.sroa_idx.i631, align 8
-  br label %_ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit
-
-if.then14.i497:                                   ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
-  %retval.sroa.0.0.copyload97.i = load <2 x float>, ptr %BgClipRect.i624, align 8
-  %retval.sroa.21.0.copyload113.i = load <2 x float>, ptr %retval.sroa.21.0.BgClipRect.sroa_idx.i626, align 8
-  br label %_ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit
 
 if.then17.i:                                      ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
   %144 = load ptr, ptr %Columns87.i, align 8
@@ -63550,9 +63514,9 @@ if.then85.i:                                      ; preds = %_ZN5ImGui20TableGet
   %retval.sroa.21.12.vec.insert135.i = insertelement <2 x float> %retval.sroa.21.8.vec.insert125.i, float %175, i64 1
   br label %_ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit
 
-_ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit: ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i, %if.then.i505, %if.then2.i503, %if.then5.i501, %if.then8.i500, %if.then11.i498, %if.then14.i497, %if.then17.i, %if.then25.i, %if.then36.i, %if.then42.i, %if.then56.i, %if.then71.i, %if.then85.i
-  %retval.sroa.21.0.i = phi <2 x float> [ %retval.sroa.21.12.vec.insert135.i, %if.then85.i ], [ %retval.sroa.21.12.vec.insert133.i, %if.then71.i ], [ %retval.sroa.21.12.vec.insert131.i, %if.then56.i ], [ %retval.sroa.21.12.vec.insert129.i, %if.then42.i ], [ %retval.sroa.21.0.copyload114.i, %if.then36.i ], [ %retval.sroa.21.12.vec.insert127.i, %if.then25.i ], [ %retval.sroa.21.12.vec.insert.i, %if.then17.i ], [ %retval.sroa.21.0.copyload113.i, %if.then14.i497 ], [ %retval.sroa.21.0.copyload112.i, %if.then11.i498 ], [ %retval.sroa.21.0.copyload111.i, %if.then8.i500 ], [ %retval.sroa.21.0.copyload110.i, %if.then5.i501 ], [ %retval.sroa.21.0.copyload109.i, %if.then2.i503 ], [ %retval.sroa.21.0.copyload.i, %if.then.i505 ], [ zeroinitializer, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i ]
-  %retval.sroa.0.0.i489 = phi <2 x float> [ %retval.sroa.0.4.vec.insert108.i, %if.then85.i ], [ %retval.sroa.0.4.vec.insert106.i, %if.then71.i ], [ %retval.sroa.0.4.vec.insert104.i, %if.then56.i ], [ %retval.sroa.0.4.vec.insert102.i, %if.then42.i ], [ %retval.sroa.0.0.copyload98.i, %if.then36.i ], [ %retval.sroa.0.4.vec.insert100.i, %if.then25.i ], [ %retval.sroa.0.4.vec.insert.i496, %if.then17.i ], [ %retval.sroa.0.0.copyload97.i, %if.then14.i497 ], [ %retval.sroa.0.0.copyload96.i, %if.then11.i498 ], [ %retval.sroa.0.0.copyload95.i, %if.then8.i500 ], [ %retval.sroa.0.0.copyload94.i, %if.then5.i501 ], [ %retval.sroa.0.0.copyload93.i, %if.then2.i503 ], [ %retval.sroa.0.0.copyload.i506, %if.then.i505 ], [ zeroinitializer, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i ]
+_ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit: ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i, %if.then17.i, %if.then25.i, %if.then36.i, %if.then42.i, %if.then56.i, %if.then71.i, %if.then85.i
+  %retval.sroa.21.0.i = phi <2 x float> [ %retval.sroa.21.12.vec.insert135.i, %if.then85.i ], [ %retval.sroa.21.12.vec.insert133.i, %if.then71.i ], [ %retval.sroa.21.12.vec.insert131.i, %if.then56.i ], [ %retval.sroa.21.12.vec.insert129.i, %if.then42.i ], [ %retval.sroa.21.0.copyload114.i, %if.then36.i ], [ %retval.sroa.21.12.vec.insert127.i, %if.then25.i ], [ %retval.sroa.21.12.vec.insert.i, %if.then17.i ], [ zeroinitializer, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i ]
+  %retval.sroa.0.0.i489 = phi <2 x float> [ %retval.sroa.0.4.vec.insert108.i, %if.then85.i ], [ %retval.sroa.0.4.vec.insert106.i, %if.then71.i ], [ %retval.sroa.0.4.vec.insert104.i, %if.then56.i ], [ %retval.sroa.0.4.vec.insert102.i, %if.then42.i ], [ %retval.sroa.0.0.copyload98.i, %if.then36.i ], [ %retval.sroa.0.4.vec.insert100.i, %if.then25.i ], [ %retval.sroa.0.4.vec.insert.i496, %if.then17.i ], [ zeroinitializer, %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i ]
   %r143.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.i489, i64 0
   %conv148 = fpext float %r143.sroa.0.0.vec.extract to double
   %r143.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.i489, i64 1

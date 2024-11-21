@@ -11840,46 +11840,46 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17h4bdc47967226
   %31 = load i64, ptr %30, align 8, !noundef !20
   store i64 %31, ptr %9, align 8
   %.not = icmp eq i64 %31, %1
-  br i1 %.not, label %"_ZN4core3ptr168drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$alloc..boxed..Box$LT$$u5b$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$u5d$$GT$$GT$$GT$17h1e5c143666d5ff73E.exit", label %33
+  br i1 %.not, label %"_ZN4core3ptr168drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$alloc..boxed..Box$LT$$u5b$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$u5d$$GT$$GT$$GT$17h1e5c143666d5ff73E.exit", label %35
 
-.body.thread:                                     ; preds = %33
-  %32 = landingpad { ptr, i32 }
+"_ZN4core3ptr168drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$alloc..boxed..Box$LT$$u5b$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$u5d$$GT$$GT$$GT$17h1e5c143666d5ff73E.exit": ; preds = %21
+  %32 = load i64, ptr %13, align 8, !noundef !20
+  %33 = add i64 %1, %32
+  store i64 %33, ptr %13, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  ret void
+
+.body.thread:                                     ; preds = %35
+  %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr168drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$alloc..boxed..Box$LT$$u5b$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$u5d$$GT$$GT$$GT$17h1e5c143666d5ff73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #31
           to label %.thread unwind label %44
 
-33:                                               ; preds = %21
+35:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %12, ptr %7, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %9, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %7, i64 24
+  %36 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %9, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %38, align 8
   store ptr @anon.14a9ed1013eea2e5f2801384a5cae3e9.76, ptr %8, align 8, !alias.scope !2275, !noalias !2278
-  %37 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 2, ptr %37, align 8, !alias.scope !2275, !noalias !2278
-  %38 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr null, ptr %38, align 8, !alias.scope !2275, !noalias !2278
-  %39 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %7, ptr %39, align 8, !alias.scope !2275, !noalias !2278
-  %40 = getelementptr inbounds i8, ptr %8, i64 24
-  store i64 2, ptr %40, align 8, !alias.scope !2275, !noalias !2278
+  %39 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 2, ptr %39, align 8, !alias.scope !2275, !noalias !2278
+  %40 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr null, ptr %40, align 8, !alias.scope !2275, !noalias !2278
+  %41 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %7, ptr %41, align 8, !alias.scope !2275, !noalias !2278
+  %42 = getelementptr inbounds i8, ptr %8, i64 24
+  store i64 2, ptr %42, align 8, !alias.scope !2275, !noalias !2278
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.14a9ed1013eea2e5f2801384a5cae3e9.78) #30
-          to label %41 unwind label %.body.thread
+          to label %43 unwind label %.body.thread
 
-41:                                               ; preds = %33
+43:                                               ; preds = %35
   unreachable
-
-"_ZN4core3ptr168drop_in_place$LT$rayon..iter..collect..consumer..CollectResult$LT$alloc..boxed..Box$LT$$u5b$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$u5d$$GT$$GT$$GT$17h1e5c143666d5ff73E.exit": ; preds = %21
-  %42 = load i64, ptr %13, align 8, !noundef !20
-  %43 = add i64 %1, %42
-  store i64 %43, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  ret void
 
 44:                                               ; preds = %48, %46, %.body.thread
   %45 = landingpad { ptr, i32 }
@@ -11894,7 +11894,7 @@ define hidden void @_ZN5rayon4iter7collect21collect_with_consumer17h4bdc47967226
           to label %.thread unwind label %44
 
 .thread:                                          ; preds = %46, %.body.thread, %48
-  %.pn16 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %32, %.body.thread ]
+  %.pn16 = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ], [ %34, %.body.thread ]
   resume { ptr, i32 } %.pn16
 
 48:                                               ; preds = %18

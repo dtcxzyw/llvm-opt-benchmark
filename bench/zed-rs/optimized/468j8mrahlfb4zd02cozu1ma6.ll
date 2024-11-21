@@ -89882,9 +89882,9 @@ default.unreachable:                              ; preds = %4
   %79 = getelementptr inbounds i8, ptr %16, i64 8
   %80 = load i8, ptr %70, align 8, !range !21, !alias.scope !25714, !noalias !25717, !noundef !4
   %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %.lr.ph241, label %.noexc
+  br i1 %81, label %.lr.ph237, label %.noexc
 
-.noexc:                                           ; preds = %.thread195, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h4f0e028d7c09e36aE.llvm.7770800806426765245.exit.i"
+.noexc:                                           ; preds = %.thread191, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h4f0e028d7c09e36aE.llvm.7770800806426765245.exit.i"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !25719
   store ptr @anon.b3aa91ad3910538ca077da0228902b5c.500.llvm.7770800806426765245, ptr %9, align 8, !noalias !25719
   %82 = getelementptr inbounds i8, ptr %9, i64 8
@@ -89898,13 +89898,13 @@ default.unreachable:                              ; preds = %4
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f181a984f624d3ac5643ba2a53eda325.414) #56
   unreachable
 
-.lr.ph241:                                        ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h4f0e028d7c09e36aE.llvm.7770800806426765245.exit.i", %.thread195
+.lr.ph237:                                        ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h4f0e028d7c09e36aE.llvm.7770800806426765245.exit.i", %.thread191
   call void @llvm.experimental.noalias.scope.decl(metadata !25721)
   %86 = load i32, ptr %16, align 8, !noundef !4
   %.not.i = icmp eq i32 %86, 0
   br i1 %.not.i, label %"_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit47", label %87
 
-87:                                               ; preds = %.lr.ph241
+87:                                               ; preds = %.lr.ph237
   %88 = zext i32 %86 to i64
   %89 = add nsw i64 %88, -1
   %90 = getelementptr inbounds [0 x { ptr, i64, { i32, i32 } }], ptr %79, i64 0, i64 %89
@@ -89943,7 +89943,7 @@ default.unreachable:                              ; preds = %4
   %108 = icmp eq i64 %107, 5
   br i1 %108, label %112, label %109
 
-"_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit47": ; preds = %95, %112, %.lr.ph241
+"_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit47": ; preds = %95, %112, %.lr.ph237
   store i64 5, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %16)
   br label %57
@@ -89951,26 +89951,26 @@ default.unreachable:                              ; preds = %4
 109:                                              ; preds = %104
   %110 = add nsw i64 %107, -5
   %111 = icmp ult i64 %110, -3
-  %switch231 = icmp eq i64 %107, 3
-  %switch = or i1 %111, %switch231
-  br i1 %switch, label %117, label %.thread195
+  %switch227 = icmp eq i64 %107, 3
+  %switch = or i1 %111, %switch227
+  br i1 %switch, label %117, label %.thread191
 
 112:                                              ; preds = %104
   %113 = load i32, ptr %68, align 8, !noundef !4
   %114 = icmp ugt i32 %113, %64
-  br i1 %114, label %"_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit47", label %.thread195
+  br i1 %114, label %"_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit47", label %.thread191
 
-.thread195:                                       ; preds = %109, %117, %112
+.thread191:                                       ; preds = %109, %117, %112
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17hfbcffcbe17322d0bE"(ptr noalias noundef nonnull align 8 dereferenceable(416) %16, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f181a984f624d3ac5643ba2a53eda325.415)
   %115 = load i8, ptr %70, align 8, !range !21, !alias.scope !25722, !noalias !25717, !noundef !4
   %116 = trunc nuw i8 %115 to i1
-  br i1 %116, label %.lr.ph241, label %.noexc
+  br i1 %116, label %.lr.ph237, label %.noexc
 
 117:                                              ; preds = %109
   %118 = getelementptr inbounds i8, ptr %106, i64 488
   %.sroa.4.0.i = load i64, ptr %118, align 8, !noundef !4
   %119 = icmp eq i64 %.sroa.4.0.i, %3
-  br i1 %119, label %.noexc49, label %.thread195
+  br i1 %119, label %.noexc49, label %.thread191
 
 .noexc49:                                         ; preds = %117
   call void @llvm.lifetime.start.p0(i64 395, ptr nonnull %.sroa.10)
@@ -90000,7 +90000,7 @@ default.unreachable:                              ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.i.i, ptr noundef nonnull readonly align 8 dereferenceable(128) %129, i64 32, i1 false), !alias.scope !25739, !noalias !25727
   br label %"_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit51"
 
-"_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit51": ; preds = %.noexc49, %128
+"_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit51": ; preds = %128, %.noexc49
   %131 = getelementptr inbounds i8, ptr %106, i64 496
   %132 = load i32, ptr %131, align 8, !alias.scope !25724, !noalias !25727, !noundef !4
   %133 = getelementptr inbounds i8, ptr %106, i64 500
@@ -90094,7 +90094,7 @@ default.unreachable:                              ; preds = %4
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %.lr.ph, label %.noexc66
 
-.noexc66:                                         ; preds = %.thread200, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h4f0e028d7c09e36aE.llvm.7770800806426765245.exit.i60"
+.noexc66:                                         ; preds = %.thread196, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h4f0e028d7c09e36aE.llvm.7770800806426765245.exit.i60"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !25765
   store ptr @anon.b3aa91ad3910538ca077da0228902b5c.500.llvm.7770800806426765245, ptr %6, align 8, !noalias !25765
   %158 = getelementptr inbounds i8, ptr %6, i64 8
@@ -90108,7 +90108,7 @@ default.unreachable:                              ; preds = %4
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f181a984f624d3ac5643ba2a53eda325.417) #56
   unreachable
 
-.lr.ph:                                           ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h4f0e028d7c09e36aE.llvm.7770800806426765245.exit.i60", %.thread200
+.lr.ph:                                           ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h4f0e028d7c09e36aE.llvm.7770800806426765245.exit.i60", %.thread196
   call void @llvm.experimental.noalias.scope.decl(metadata !25767)
   %162 = load i32, ptr %13, align 8, !noundef !4
   %.not.i63 = icmp eq i32 %162, 0
@@ -90150,7 +90150,7 @@ default.unreachable:                              ; preds = %4
   %181 = getelementptr inbounds i8, ptr %168, i64 136
   %182 = getelementptr inbounds [0 x { { i64, [62 x i64] }, { i32, i32 } }], ptr %181, i64 0, i64 %173
   %183 = load i64, ptr %182, align 8, !range !5226, !noundef !4
-  switch i64 %183, label %.thread200 [
+  switch i64 %183, label %.thread196 [
     i64 5, label %195
     i64 4, label %184
   ]
@@ -90164,26 +90164,26 @@ default.unreachable:                              ; preds = %4
   %185 = getelementptr inbounds i8, ptr %182, i64 8
   %.sroa.4.0.i73 = load i64, ptr %185, align 8, !noundef !4
   %186 = icmp eq i64 %.sroa.4.0.i73, %3
-  br i1 %186, label %"_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit86", label %.thread200
+  br i1 %186, label %"_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit86", label %.thread196
 
-.thread200:                                       ; preds = %180, %184, %195
+.thread196:                                       ; preds = %180, %184, %195
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17hfbcffcbe17322d0bE"(ptr noalias noundef nonnull align 8 dereferenceable(416) %13, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f181a984f624d3ac5643ba2a53eda325.418)
   %187 = load i8, ptr %145, align 8, !range !21, !alias.scope !25768, !noalias !25763, !noundef !4
   %188 = trunc nuw i8 %187 to i1
   br i1 %188, label %.lr.ph, label %.noexc66
 
 "_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit86": ; preds = %184
-  %189 = getelementptr inbounds i8, ptr %182, i64 16
-  %190 = load i32, ptr %189, align 8, !alias.scope !25770, !noalias !25773, !noundef !4
+  %189 = getelementptr inbounds i8, ptr %182, i64 8
+  %190 = load i64, ptr %189, align 8, !alias.scope !25770, !noalias !25773, !noundef !4
   %191 = getelementptr inbounds i8, ptr %182, i64 20
   %192 = load i8, ptr %191, align 4, !range !21, !alias.scope !25770, !noalias !25773, !noundef !4
-  %193 = getelementptr inbounds i8, ptr %182, i64 8
-  %194 = load i64, ptr %193, align 8, !alias.scope !25770, !noalias !25773, !noundef !4
+  %193 = getelementptr inbounds i8, ptr %182, i64 16
+  %194 = load i32, ptr %193, align 8, !alias.scope !25770, !noalias !25773, !noundef !4
   store i64 4, ptr %0, align 8
   %.sroa.6108.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %194, ptr %.sroa.6108.0..sroa_idx, align 8
+  store i64 %190, ptr %.sroa.6108.0..sroa_idx, align 8
   %.sroa.8111.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %190, ptr %.sroa.8111.0..sroa_idx, align 8
+  store i32 %194, ptr %.sroa.8111.0..sroa_idx, align 8
   %.sroa.9114.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   store i8 %192, ptr %.sroa.9114.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %13)
@@ -90192,7 +90192,7 @@ default.unreachable:                              ; preds = %4
 195:                                              ; preds = %180
   %196 = load i32, ptr %143, align 8, !noundef !4
   %197 = icmp ugt i32 %196, %139
-  br i1 %197, label %"_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit71", label %.thread200
+  br i1 %197, label %"_ZN4core3ptr187drop_in_place$LT$sum_tree..cursor..Cursor$LT$editor..display_map..block_map..Transform$C$$LP$editor..display_map..block_map..WrapRow$C$editor..display_map..block_map..BlockRow$RP$$GT$$GT$17hc053a4ba799c88baE.exit71", label %.thread196
 }
 
 ; Function Attrs: nonlazybind uwtable

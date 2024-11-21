@@ -25,7 +25,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.attribute_group = type { ptr, ptr, ptr, ptr, ptr }
 %struct.device_attribute = type { %struct.attribute, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
-%struct.ratelimit_state = type { %struct.raw_spinlock, i32, i32, i32, i32, i64, i64 }
 
 @__param_str_min_width = internal constant [20 x i8] c"hid_ntrig.min_width\00", align 16
 @param_ops_uint = external dso_local constant %struct.kernel_param_ops, align 8
@@ -97,9 +96,6 @@ module asm ".previous\09\09\09\09\09"
 @.str.17 = private unnamed_addr constant [17 x i8] c"activation_width\00", align 1
 @.str.18 = private unnamed_addr constant [18 x i8] c"activation_height\00", align 1
 @.str.19 = private unnamed_addr constant [17 x i8] c"deactivate_slack\00", align 1
-@hid_map_usage._rs = internal global %struct.ratelimit_state { %struct.raw_spinlock zeroinitializer, i32 5000, i32 10, i32 0, i32 0, i64 0, i64 0 }, align 8
-@__func__.hid_map_usage = private unnamed_addr constant [14 x i8] c"hid_map_usage\00", align 1
-@.str.20 = private unnamed_addr constant [31 x i8] c"\014%s: Invalid code %d type %d\0A\00", align 1
 @.str.21 = private unnamed_addr constant [11 x i8] c"N-Trig Pen\00", align 1
 @.str.22 = private unnamed_addr constant [19 x i8] c"N-Trig Touchscreen\00", align 1
 @.str.23 = private unnamed_addr constant [18 x i8] c"N-Trig MultiTouch\00", align 1
@@ -714,204 +710,170 @@ define internal noundef range(i32 -1, 2) i32 @ntrig_input_mapping(ptr nocapture 
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %2, align 8
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %123
+  br i1 %10, label %11, label %105
 
 11:                                               ; preds = %6
   %12 = load i32, ptr %3, align 4
   %13 = and i32 %12, -65536
-  switch i32 %13, label %122 [
+  switch i32 %13, label %104 [
     i32 65536, label %14
-    i32 851968, label %109
-    i32 -16777216, label %123
+    i32 851968, label %91
+    i32 -16777216, label %105
   ]
 
 14:                                               ; preds = %11
-  switch i32 %12, label %123 [
+  switch i32 %12, label %105 [
     i32 65584, label %15
-    i32 65585, label %62
+    i32 65585, label %53
   ]
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 152
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %26, !prof !8
-
-20:                                               ; preds = %15
-  %21 = tail call i32 @___ratelimit(ptr noundef nonnull @hid_map_usage._rs, ptr noundef nonnull @__func__.hid_map_usage) #9
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %29, label %23
-
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %17, align 8
-  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef %24, i32 noundef 53, i32 noundef 3) #11
-  br label %29
-
-26:                                               ; preds = %15
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  store i8 3, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 14
-  store i16 53, ptr %28, align 2
+  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  store i8 3, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %3, i64 14
+  store i16 53, ptr %20, align 2
   store i32 63, ptr %5, align 4
-  br label %29
-
-29:                                               ; preds = %26, %23, %20
   store ptr %18, ptr %4, align 8
-  %30 = load ptr, ptr %16, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 72
-  %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 76
-  %34 = load i32, ptr %33, align 4
-  tail call void @input_set_abs_params(ptr noundef %30, i32 noundef 0, i32 noundef %32, i32 noundef %34, i32 noundef 0, i32 noundef 0) #9
-  %35 = getelementptr inbounds i8, ptr %8, i64 30
-  %36 = load i16, ptr %35, align 2
-  %37 = icmp eq i16 %36, 0
-  br i1 %37, label %38, label %123
+  %21 = load ptr, ptr %16, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 72
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %2, i64 76
+  %25 = load i32, ptr %24, align 4
+  tail call void @input_set_abs_params(ptr noundef %21, i32 noundef 0, i32 noundef %23, i32 noundef %25, i32 noundef 0, i32 noundef 0) #9
+  %26 = getelementptr inbounds i8, ptr %8, i64 30
+  %27 = load i16, ptr %26, align 2
+  %28 = icmp eq i16 %27, 0
+  br i1 %28, label %29, label %105
 
-38:                                               ; preds = %29
-  %39 = load i32, ptr %33, align 4
-  %40 = load i32, ptr %31, align 8
-  %41 = sub i32 %39, %40
-  %42 = trunc i32 %41 to i16
-  store i16 %42, ptr %35, align 2
-  %43 = getelementptr inbounds i8, ptr %2, i64 84
-  %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %2, i64 80
-  %46 = load i32, ptr %45, align 8
-  %47 = sub i32 %44, %46
-  %48 = trunc i32 %47 to i16
-  %49 = getelementptr inbounds i8, ptr %8, i64 34
-  store i16 %48, ptr %49, align 2
-  %50 = load i32, ptr @activation_width, align 4
-  %51 = and i32 %41, 65535
-  %52 = mul i32 %50, %51
-  %53 = and i32 %47, 65535
-  %54 = udiv i32 %52, %53
-  %55 = trunc i32 %54 to i16
-  %56 = getelementptr inbounds i8, ptr %8, i64 26
-  store i16 %55, ptr %56, align 2
-  %57 = load i32, ptr @min_width, align 4
-  %58 = mul i32 %57, %51
-  %59 = udiv i32 %58, %53
-  %60 = trunc i32 %59 to i16
-  %61 = getelementptr inbounds i8, ptr %8, i64 22
-  store i16 %60, ptr %61, align 2
-  br label %123
+29:                                               ; preds = %15
+  %30 = load i32, ptr %24, align 4
+  %31 = load i32, ptr %22, align 8
+  %32 = sub i32 %30, %31
+  %33 = trunc i32 %32 to i16
+  store i16 %33, ptr %26, align 2
+  %34 = getelementptr inbounds i8, ptr %2, i64 84
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %2, i64 80
+  %37 = load i32, ptr %36, align 8
+  %38 = sub i32 %35, %37
+  %39 = trunc i32 %38 to i16
+  %40 = getelementptr inbounds i8, ptr %8, i64 34
+  store i16 %39, ptr %40, align 2
+  %41 = load i32, ptr @activation_width, align 4
+  %42 = and i32 %32, 65535
+  %43 = mul i32 %41, %42
+  %44 = and i32 %38, 65535
+  %45 = udiv i32 %43, %44
+  %46 = trunc i32 %45 to i16
+  %47 = getelementptr inbounds i8, ptr %8, i64 26
+  store i16 %46, ptr %47, align 2
+  %48 = load i32, ptr @min_width, align 4
+  %49 = mul i32 %48, %42
+  %50 = udiv i32 %49, %44
+  %51 = trunc i32 %50 to i16
+  %52 = getelementptr inbounds i8, ptr %8, i64 22
+  store i16 %51, ptr %52, align 2
+  br label %105
 
-62:                                               ; preds = %14
-  %63 = getelementptr inbounds i8, ptr %1, i64 24
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 152
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %67, label %73, !prof !8
-
-67:                                               ; preds = %62
-  %68 = tail call i32 @___ratelimit(ptr noundef nonnull @hid_map_usage._rs, ptr noundef nonnull @__func__.hid_map_usage) #9
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %76, label %70
-
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %64, align 8
-  %72 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef %71, i32 noundef 54, i32 noundef 3) #11
-  br label %76
-
-73:                                               ; preds = %62
-  %74 = getelementptr inbounds i8, ptr %3, i64 16
-  store i8 3, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %3, i64 14
-  store i16 54, ptr %75, align 2
+53:                                               ; preds = %14
+  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 152
+  %57 = getelementptr inbounds i8, ptr %3, i64 16
+  store i8 3, ptr %57, align 4
+  %58 = getelementptr inbounds i8, ptr %3, i64 14
+  store i16 54, ptr %58, align 2
   store i32 63, ptr %5, align 4
-  br label %76
+  store ptr %56, ptr %4, align 8
+  %59 = load ptr, ptr %54, align 8
+  %60 = getelementptr inbounds i8, ptr %2, i64 72
+  %61 = load i32, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %2, i64 76
+  %63 = load i32, ptr %62, align 4
+  tail call void @input_set_abs_params(ptr noundef %59, i32 noundef 1, i32 noundef %61, i32 noundef %63, i32 noundef 0, i32 noundef 0) #9
+  %64 = getelementptr inbounds i8, ptr %8, i64 32
+  %65 = load i16, ptr %64, align 2
+  %66 = icmp eq i16 %65, 0
+  br i1 %66, label %67, label %105
 
-76:                                               ; preds = %73, %70, %67
-  store ptr %65, ptr %4, align 8
-  %77 = load ptr, ptr %63, align 8
-  %78 = getelementptr inbounds i8, ptr %2, i64 72
-  %79 = load i32, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %2, i64 76
-  %81 = load i32, ptr %80, align 4
-  tail call void @input_set_abs_params(ptr noundef %77, i32 noundef 1, i32 noundef %79, i32 noundef %81, i32 noundef 0, i32 noundef 0) #9
-  %82 = getelementptr inbounds i8, ptr %8, i64 32
-  %83 = load i16, ptr %82, align 2
-  %84 = icmp eq i16 %83, 0
-  br i1 %84, label %85, label %123
-
-85:                                               ; preds = %76
-  %86 = load i32, ptr %80, align 4
-  %87 = load i32, ptr %78, align 8
-  %88 = sub i32 %86, %87
+67:                                               ; preds = %53
+  %68 = load i32, ptr %62, align 4
+  %69 = load i32, ptr %60, align 8
+  %70 = sub i32 %68, %69
+  %71 = trunc i32 %70 to i16
+  store i16 %71, ptr %64, align 2
+  %72 = getelementptr inbounds i8, ptr %2, i64 84
+  %73 = load i32, ptr %72, align 4
+  %74 = getelementptr inbounds i8, ptr %2, i64 80
+  %75 = load i32, ptr %74, align 8
+  %76 = sub i32 %73, %75
+  %77 = trunc i32 %76 to i16
+  %78 = getelementptr inbounds i8, ptr %8, i64 36
+  store i16 %77, ptr %78, align 2
+  %79 = load i32, ptr @activation_height, align 4
+  %80 = and i32 %70, 65535
+  %81 = mul i32 %79, %80
+  %82 = and i32 %76, 65535
+  %83 = udiv i32 %81, %82
+  %84 = trunc i32 %83 to i16
+  %85 = getelementptr inbounds i8, ptr %8, i64 28
+  store i16 %84, ptr %85, align 2
+  %86 = load i32, ptr @min_height, align 4
+  %87 = mul i32 %86, %80
+  %88 = udiv i32 %87, %82
   %89 = trunc i32 %88 to i16
-  store i16 %89, ptr %82, align 2
-  %90 = getelementptr inbounds i8, ptr %2, i64 84
-  %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %2, i64 80
-  %93 = load i32, ptr %92, align 8
-  %94 = sub i32 %91, %93
-  %95 = trunc i32 %94 to i16
-  %96 = getelementptr inbounds i8, ptr %8, i64 36
-  store i16 %95, ptr %96, align 2
-  %97 = load i32, ptr @activation_height, align 4
-  %98 = and i32 %88, 65535
-  %99 = mul i32 %97, %98
-  %100 = and i32 %94, 65535
-  %101 = udiv i32 %99, %100
-  %102 = trunc i32 %101 to i16
-  %103 = getelementptr inbounds i8, ptr %8, i64 28
-  store i16 %102, ptr %103, align 2
-  %104 = load i32, ptr @min_height, align 4
-  %105 = mul i32 %104, %98
-  %106 = udiv i32 %105, %100
-  %107 = trunc i32 %106 to i16
-  %108 = getelementptr inbounds i8, ptr %8, i64 24
-  store i16 %107, ptr %108, align 2
-  br label %123
+  %90 = getelementptr inbounds i8, ptr %8, i64 24
+  store i16 %89, ptr %90, align 2
+  br label %105
 
-109:                                              ; preds = %11
-  switch i32 %12, label %121 [
-    i32 852049, label %123
-    i32 852050, label %123
-    i32 852051, label %123
-    i32 852053, label %123
-    i32 852040, label %110
-    i32 852041, label %115
+91:                                               ; preds = %11
+  switch i32 %12, label %103 [
+    i32 852049, label %105
+    i32 852050, label %105
+    i32 852051, label %105
+    i32 852053, label %105
+    i32 852040, label %92
+    i32 852041, label %97
   ]
 
-110:                                              ; preds = %109
-  %111 = getelementptr i8, ptr %1, i64 24
-  %.val = load ptr, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %.val, i64 152
-  %113 = getelementptr inbounds i8, ptr %3, i64 16
-  store i8 3, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %3, i64 14
-  store i16 48, ptr %114, align 2
+92:                                               ; preds = %91
+  %93 = getelementptr i8, ptr %1, i64 24
+  %.val = load ptr, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %.val, i64 152
+  %95 = getelementptr inbounds i8, ptr %3, i64 16
+  store i8 3, ptr %95, align 4
+  %96 = getelementptr inbounds i8, ptr %3, i64 14
+  store i16 48, ptr %96, align 2
   store i32 63, ptr %5, align 4
-  store ptr %112, ptr %4, align 8
-  br label %123
+  store ptr %94, ptr %4, align 8
+  br label %105
 
-115:                                              ; preds = %109
-  %116 = getelementptr i8, ptr %1, i64 24
-  %.val2 = load ptr, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %.val2, i64 152
-  %118 = getelementptr inbounds i8, ptr %3, i64 16
-  store i8 3, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %3, i64 14
-  store i16 49, ptr %119, align 2
+97:                                               ; preds = %91
+  %98 = getelementptr i8, ptr %1, i64 24
+  %.val2 = load ptr, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %.val2, i64 152
+  %100 = getelementptr inbounds i8, ptr %3, i64 16
+  store i8 3, ptr %100, align 4
+  %101 = getelementptr inbounds i8, ptr %3, i64 14
+  store i16 49, ptr %101, align 2
   store i32 63, ptr %5, align 4
-  store ptr %117, ptr %4, align 8
-  %120 = load ptr, ptr %116, align 8
-  tail call void @input_set_abs_params(ptr noundef %120, i32 noundef 52, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #9
-  br label %123
+  store ptr %99, ptr %4, align 8
+  %102 = load ptr, ptr %98, align 8
+  tail call void @input_set_abs_params(ptr noundef %102, i32 noundef 52, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #9
+  br label %105
 
-121:                                              ; preds = %109
-  br label %123
+103:                                              ; preds = %91
+  br label %105
 
-122:                                              ; preds = %11
-  br label %123
+104:                                              ; preds = %11
+  br label %105
 
-123:                                              ; preds = %122, %121, %115, %110, %109, %109, %109, %109, %85, %76, %38, %29, %14, %11, %6
-  %124 = phi i32 [ 0, %122 ], [ 0, %121 ], [ 1, %115 ], [ 1, %110 ], [ 0, %6 ], [ 1, %38 ], [ 1, %29 ], [ 1, %85 ], [ 1, %76 ], [ 0, %14 ], [ -1, %109 ], [ -1, %109 ], [ -1, %109 ], [ -1, %109 ], [ -1, %11 ]
-  ret i32 %124
+105:                                              ; preds = %104, %103, %97, %92, %91, %91, %91, %91, %67, %53, %29, %15, %14, %11, %6
+  %106 = phi i32 [ 0, %104 ], [ 0, %103 ], [ 1, %97 ], [ 1, %92 ], [ 0, %6 ], [ 1, %29 ], [ 1, %15 ], [ 1, %67 ], [ 1, %53 ], [ 0, %14 ], [ -1, %91 ], [ -1, %91 ], [ -1, %91 ], [ -1, %91 ], [ -1, %11 ]
+  ret i32 %106
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -932,7 +894,7 @@ define internal noundef i32 @ntrig_input_mapped(ptr nocapture readnone %0, ptr n
   %16 = getelementptr inbounds i8, ptr %3, i64 14
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %15, i64 %18) #9, !srcloc !9
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %15, i64 %18) #9, !srcloc !8
   br label %19
 
 19:                                               ; preds = %14, %9, %6
@@ -962,10 +924,10 @@ define internal noundef i32 @ntrig_input_configured(ptr nocapture readnone %0, p
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %4, i64 48
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 320) #9, !srcloc !10
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 325) #9, !srcloc !10
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 256) #9, !srcloc !10
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 333) #9, !srcloc !11
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 320) #9, !srcloc !9
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 325) #9, !srcloc !9
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 256) #9, !srcloc !9
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 333) #9, !srcloc !10
   %17 = load ptr, ptr %5, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
@@ -1399,12 +1361,6 @@ declare dso_local void @input_event(ptr noundef, i32 noundef, i32 noundef, i32 n
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @input_set_abs_params(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
-
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -1428,7 +1384,6 @@ attributes #11 = { cold nounwind }
 !5 = !{!"auto-init"}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = !{!"branch_weights", i32 1, i32 2000}
-!9 = !{i64 2148400042, i64 2148400081, i64 2148400102, i64 2148400139, i64 2148400162, i64 2148400032}
-!10 = !{i64 2148400928}
-!11 = !{i64 2148399395}
+!8 = !{i64 2148400042, i64 2148400081, i64 2148400102, i64 2148400139, i64 2148400162, i64 2148400032}
+!9 = !{i64 2148400928}
+!10 = !{i64 2148399395}

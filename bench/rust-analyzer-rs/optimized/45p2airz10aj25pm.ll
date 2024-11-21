@@ -2285,6 +2285,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %211 = icmp eq ptr %198, %52
   br i1 %211, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c90843410a6cab9E.llvm.12643631695175265107.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c90843410a6cab9E.llvm.12643631695175265107.exit"
 
+"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$mbe..ExpandError$GT$$GT$17he1d40c8f7e654135E.exit216": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c90843410a6cab9E.llvm.12643631695175265107.exit.thread"
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
+  br label %70
+
 212:                                              ; preds = %78, %87
   switch i8 %.sroa.0240.0.copyload, label %225 [
     i8 1, label %216
@@ -2312,10 +2316,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.val1.i2.i.i222 = load i64, ptr %217, align 8, !noundef !9
   %218 = icmp eq i64 %.val1.i2.i.i222, 0
   br i1 %218, label %.sink.split.i.i221, label %.sink.split.sink.split.i.i218
-
-"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$mbe..ExpandError$GT$$GT$17he1d40c8f7e654135E.exit216": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c90843410a6cab9E.llvm.12643631695175265107.exit.thread"
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
-  br label %70
 
 .body.thread:                                     ; preds = %173, %187, %202, %.loopexit321
   %eh.lpad-body.ph = phi { ptr, i32 } [ %lpad.loopexit323, %.loopexit321 ], [ %203, %202 ], [ %188, %187 ], [ %174, %173 ]
@@ -3278,6 +3278,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %212 = icmp eq ptr %199, %53
   br i1 %212, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c90843410a6cab9E.llvm.12643631695175265107.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c90843410a6cab9E.llvm.12643631695175265107.exit"
 
+"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$mbe..ExpandError$GT$$GT$17he1d40c8f7e654135E.exit216": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c90843410a6cab9E.llvm.12643631695175265107.exit.thread"
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
+  br label %71
+
 213:                                              ; preds = %79, %88
   switch i8 %.sroa.0240.0.copyload, label %226 [
     i8 1, label %217
@@ -3305,10 +3309,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.val1.i2.i.i222 = load i64, ptr %218, align 8, !noundef !9
   %219 = icmp eq i64 %.val1.i2.i.i222, 0
   br i1 %219, label %.sink.split.i.i221, label %.sink.split.sink.split.i.i218
-
-"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$mbe..ExpandError$GT$$GT$17he1d40c8f7e654135E.exit216": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c90843410a6cab9E.llvm.12643631695175265107.exit.thread"
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
-  br label %71
 
 .body.thread:                                     ; preds = %174, %188, %203, %.loopexit321
   %eh.lpad-body.ph = phi { ptr, i32 } [ %lpad.loopexit323, %.loopexit321 ], [ %204, %203 ], [ %189, %188 ], [ %175, %174 ]

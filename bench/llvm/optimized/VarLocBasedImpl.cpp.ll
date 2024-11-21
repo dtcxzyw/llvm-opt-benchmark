@@ -14028,11 +14028,11 @@ _ZNK4llvm14iterator_rangeINS_19CoalescingBitVectorImE14const_iteratorEE3endEv.ex
   %2026 = load i32, ptr %2010, align 8
   %2027 = load i32, ptr %2017, align 8
   %2028 = icmp eq i32 %2026, %2027
-  %.pre248.i = load i64, ptr %2021, align 8
+  %.pre250.i = load i64, ptr %2021, align 8
   %2029 = load i64, ptr %2020, align 8
-  %2030 = icmp eq i64 %.pre248.i, %2029
-  %or.cond267.i = select i1 %2028, i1 %2030, i1 false
-  br i1 %or.cond267.i, label %_ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.us.i, label %_ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.thread.us.i
+  %2030 = icmp eq i64 %.pre250.i, %2029
+  %or.cond269.i = select i1 %2028, i1 %2030, i1 false
+  br i1 %or.cond269.i, label %_ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.us.i, label %_ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.thread.us.i
 
 _ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.us.i: ; preds = %_ZNK4llvm14iterator_rangeINS_19CoalescingBitVectorImE14const_iteratorEE3endEv.exit79.split.us.i
   %2031 = load i64, ptr %2018, align 8
@@ -14042,7 +14042,7 @@ _ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.us.i: ; preds =
 
 _ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.thread.us.i: ; preds = %_ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.us.i, %_ZNK4llvm14iterator_rangeINS_19CoalescingBitVectorImE14const_iteratorEE3endEv.exit79.split.us.i
   %2033 = zext i32 %2026 to i64
-  %2034 = add i64 %.pre248.i, %2033
+  %2034 = add i64 %.pre250.i, %2033
   %.sroa.0.0.insert.insert.i81.us.i = call noundef i64 @llvm.fshl.i64(i64 %2034, i64 %2034, i64 32)
   %.sroa.03.0.extract.trunc.i82.us.i = trunc i64 %.sroa.0.0.insert.insert.i81.us.i to i32
   %2035 = load i32, ptr %2022, align 8
@@ -14099,11 +14099,11 @@ _ZNK4llvm14iterator_rangeINS_19CoalescingBitVectorImE14const_iteratorEE3endEv.ex
   %2060 = load i32, ptr %2010, align 8
   %2061 = load i32, ptr %2017, align 8
   %2062 = icmp eq i32 %2060, %2061
-  %.pre247.i = load i64, ptr %2021, align 8
+  %.pre249.i = load i64, ptr %2021, align 8
   %2063 = load i64, ptr %2020, align 8
-  %2064 = icmp eq i64 %.pre247.i, %2063
-  %or.cond269.i = select i1 %2062, i1 %2064, i1 false
-  br i1 %or.cond269.i, label %_ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.i, label %_ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.thread.i
+  %2064 = icmp eq i64 %.pre249.i, %2063
+  %or.cond271.i = select i1 %2062, i1 %2064, i1 false
+  br i1 %or.cond271.i, label %_ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.i, label %_ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.thread.i
 
 _ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.i: ; preds = %_ZNK4llvm14iterator_rangeINS_19CoalescingBitVectorImE14const_iteratorEE3endEv.exit79.split.i
   %2065 = load i64, ptr %2018, align 8
@@ -14113,7 +14113,7 @@ _ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.i: ; preds = %_
 
 _ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.thread.i: ; preds = %_ZNK4llvm19CoalescingBitVectorImE14const_iteratorneERKS2_.exit80.i, %_ZNK4llvm14iterator_rangeINS_19CoalescingBitVectorImE14const_iteratorEE3endEv.exit79.split.i
   %2067 = zext i32 %2060 to i64
-  %2068 = add i64 %.pre247.i, %2067
+  %2068 = add i64 %.pre249.i, %2067
   %.sroa.0.0.insert.insert.i81.i = call noundef i64 @llvm.fshl.i64(i64 %2068, i64 %2068, i64 32)
   %.sroa.03.0.extract.trunc.i82.i = trunc i64 %.sroa.0.0.insert.insert.i81.i to i32
   %2069 = load i32, ptr %2022, align 8

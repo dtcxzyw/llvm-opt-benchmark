@@ -148,7 +148,6 @@ $_ZTV11MLException = comdat any
 @_ZTV11MLException = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI11MLException, ptr @_ZN11MLExceptionD2Ev, ptr @_ZN11MLExceptionD0Ev, ptr @_ZNK11MLException4whatEv] }, comdat, align 8
 @_ZN10QArrayData11shared_nullE = external global [2 x %struct.QArrayData], align 16
 @.str.8 = private unnamed_addr constant [30 x i8] c"PR_ARITY passed as parameter!\00", align 1
-@.str.9 = private unnamed_addr constant [59 x i8] c"PRIMITIVE_MODALITY iterator: PR_ARITY passed as parameter!\00", align 1
 @.str.11 = private unnamed_addr constant [52 x i8] c"%s: __position (which is %zu) >= _Nb (which is %zu)\00", align 1
 @.str.12 = private unnamed_addr constant [12 x i8] c"bitset::set\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ml_shared_data_context.cpp, ptr null }]
@@ -1937,9 +1936,9 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %1
 
 184:                                              ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
   %indvars.iv = phi i64 [ 0, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %indvars.iv.next, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
-  %185 = phi i8 [ %.promoted25, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %249, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
-  %186 = phi i8 [ %.promoted24, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %250, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
-  %187 = phi i8 [ %.promoted, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %251, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
+  %185 = phi i8 [ %.promoted25, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %245, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
+  %186 = phi i8 [ %.promoted24, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %246, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
+  %187 = phi i8 [ %.promoted, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %247, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2)
   %.not.i = icmp ugt i64 %179, %indvars.iv
   br i1 %.not.i, label %188, label %.thread
@@ -1988,7 +1987,6 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
     i32 1, label %212
     i32 2, label %212
     i32 3, label %226
-    i32 4, label %245
   ]
 
 201:                                              ; preds = %199
@@ -2059,54 +2057,35 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
   store i8 %244, ptr %13, align 4
   br label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
 
-245:                                              ; preds = %199
-  %246 = tail call ptr @__cxa_allocate_exception(i64 40) #24
-  invoke void @_ZN3vcg20GLMeshAttributesInfo9ExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %246, ptr noundef nonnull @.str.9)
-          to label %.noexc16 unwind label %247
-
-.noexc16:                                         ; preds = %245
-  tail call void @__cxa_throw(ptr nonnull %246, ptr nonnull @_ZTIN3vcg20GLMeshAttributesInfo9ExceptionE, ptr nonnull @_ZN3vcg20GLMeshAttributesInfo9ExceptionD2Ev) #28
-  unreachable
-
-247:                                              ; preds = %245
-  %248 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_free_exception(ptr %246) #24
-  br label %.body
-
 _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %199, %242, %212, %201, %.thread
-  %249 = phi i8 [ %185, %199 ], [ %185, %242 ], [ %185, %212 ], [ %208, %201 ], [ %185, %.thread ]
-  %250 = phi i8 [ %186, %199 ], [ %186, %242 ], [ %219, %212 ], [ %186, %201 ], [ %186, %.thread ]
-  %251 = phi i8 [ %187, %199 ], [ %243, %242 ], [ %187, %212 ], [ %187, %201 ], [ %187, %.thread ]
+  %245 = phi i8 [ %185, %199 ], [ %185, %242 ], [ %185, %212 ], [ %208, %201 ], [ %185, %.thread ]
+  %246 = phi i8 [ %186, %199 ], [ %186, %242 ], [ %219, %212 ], [ %186, %201 ], [ %186, %.thread ]
+  %247 = phi i8 [ %187, %199 ], [ %243, %242 ], [ %187, %212 ], [ %187, %201 ], [ %187, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.noexc17, label %184
 
 .noexc17:                                         ; preds = %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
-  %252 = load ptr, ptr %37, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 8
-  %254 = load ptr, ptr %253, align 8
-  tail call void %254(ptr noundef nonnull align 8 dereferenceable(90) %37) #24
-  %255 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
-  invoke void @_ZN18MLPerViewGLOptionsC2ERKS_(ptr noundef nonnull align 8 dereferenceable(90) %255, ptr noundef nonnull align 8 dereferenceable(90) %3)
-          to label %_ZN15MLRenderingData3setERK18MLPerViewGLOptions.exit unwind label %256
+  %248 = load ptr, ptr %37, align 8
+  %249 = getelementptr inbounds i8, ptr %248, i64 8
+  %250 = load ptr, ptr %249, align 8
+  tail call void %250(ptr noundef nonnull align 8 dereferenceable(90) %37) #24
+  %251 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
+  invoke void @_ZN18MLPerViewGLOptionsC2ERKS_(ptr noundef nonnull align 8 dereferenceable(90) %251, ptr noundef nonnull align 8 dereferenceable(90) %3)
+          to label %_ZN15MLRenderingData3setERK18MLPerViewGLOptions.exit unwind label %.body
 
-256:                                              ; preds = %.noexc17
-  %257 = landingpad { ptr, i32 }
+.body:                                            ; preds = %.noexc17
+  %252 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %255) #23
-  br label %.body
+  call void @_ZdlPv(ptr noundef nonnull %251) #23
+  resume { ptr, i32 } %252
 
 _ZN15MLRenderingData3setERK18MLPerViewGLOptions.exit: ; preds = %.noexc17
-  store ptr %255, ptr %36, align 8
+  store ptr %251, ptr %36, align 8
   br label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread
 
 _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread: ; preds = %1, %_ZN15MLRenderingData3setERK18MLPerViewGLOptions.exit
   ret void
-
-.body:                                            ; preds = %247, %256
-  %.pn = phi { ptr, i32 } [ %248, %247 ], [ %257, %256 ]
-  resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

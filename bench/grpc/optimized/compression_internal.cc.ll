@@ -234,15 +234,10 @@ for.end:                                          ; preds = %for.inc
 
 if.end28:                                         ; preds = %for.end
   switch i32 %level, label %sw.default [
-    i32 0, label %sw.bb
+    i32 3, label %sw.bb36
     i32 1, label %sw.bb29
     i32 2, label %sw.bb32
-    i32 3, label %sw.bb36
   ]
-
-sw.bb:                                            ; preds = %if.end28
-  call void @abort() #26
-  unreachable
 
 sw.bb29:                                          ; preds = %if.end28
   %and.i.i.i = and i64 %11, 1
