@@ -886,7 +886,7 @@ declare noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr nounde
 declare void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7514DayPeriodRulesC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(100) %this) unnamed_addr #10 align 2 {
+define void @_ZN6icu_7514DayPeriodRulesC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(100) initializes((0, 2), (4, 100)) %this) unnamed_addr #10 align 2 {
 entry:
   store i8 0, ptr %this, align 4
   %fHasNoon = getelementptr inbounds i8, ptr %this, i64 1

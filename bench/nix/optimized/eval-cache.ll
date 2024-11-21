@@ -1115,7 +1115,7 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" comda
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10eval_cache9EvalCacheC2ESt8optionalISt17reference_wrapperIKNS_4HashEEERNS_9EvalStateESt8functionIFPNS_5ValueEvEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(1248) %3, ptr noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10eval_cache9EvalCacheC2ESt8optionalISt17reference_wrapperIKNS_4HashEEERNS_9EvalStateESt8functionIFPNS_5ValueEvEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 24)) %0, ptr %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(1248) %3, ptr noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = trunc i8 %2 to i1
@@ -2380,7 +2380,7 @@ _ZNSt12__shared_ptrIN3nix10eval_cache9EvalCacheELN9__gnu_cxx12_Lock_policyE2EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10eval_cache10AttrCursorC2ENS_3refINS0_9EvalCacheEEESt8optionalISt4pairISt10shared_ptrIS1_ENS_6SymbolEEEPNS_5ValueEOS5_IS6_ImSt7variantIJSt6vectorIS9_SaIS9_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setINS_20NixStringContextElemESt4lessISP_ESaISP_EEENS0_13placeholder_tENS0_9missing_tENS0_6misc_tENS0_8failed_tEbNS0_5int_tESF_ISN_SaISN_EEEEEE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(104) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10eval_cache10AttrCursorC2ENS_3refINS0_9EvalCacheEEESt8optionalISt4pairISt10shared_ptrIS1_ENS_6SymbolEEEPNS_5ValueEOS5_IS6_ImSt7variantIJSt6vectorIS9_SaIS9_EES6_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setINS_20NixStringContextElemESt4lessISP_ESaISP_EEENS0_13placeholder_tENS0_9missing_tENS0_6misc_tENS0_8failed_tEbNS0_5int_tESF_ISN_SaISN_EEEEEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 32), (56, 57), (64, 80), (176, 177)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(104) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.anon.388, align 8
   %7 = alloca %"class.std::shared_ptr.0", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

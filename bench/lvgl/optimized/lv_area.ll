@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_point_t = type { i32, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_area_set(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @lv_area_set(ptr nocapture noundef writeonly initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %6, align 4, !tbaa !8
@@ -19,7 +19,7 @@ define void @lv_area_set(ptr nocapture noundef writeonly %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_area_set_width(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @lv_area_set_width(ptr nocapture noundef initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 4, !tbaa !3
   %4 = add i32 %1, -1
   %5 = add i32 %4, %3
@@ -29,7 +29,7 @@ define void @lv_area_set_width(ptr nocapture noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_area_set_height(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @lv_area_set_height(ptr nocapture noundef initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !8
   %5 = add i32 %1, -1
@@ -144,7 +144,7 @@ define void @lv_area_move(ptr nocapture noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define zeroext i1 @lv_area_intersect(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define zeroext i1 @lv_area_intersect(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %1, align 4, !tbaa !3
   %5 = load i32, ptr %2, align 4, !tbaa !3
   %. = tail call i32 @llvm.smax.i32(i32 %4, i32 %5)
@@ -436,7 +436,7 @@ define zeroext i1 @lv_area_is_in(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_area_join(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define void @lv_area_join(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %1, align 4, !tbaa !3
   %5 = load i32, ptr %2, align 4, !tbaa !3
   %. = tail call i32 @llvm.smin.i32(i32 %4, i32 %5)
@@ -592,7 +592,7 @@ lv_area_is_point_on.exit90:                       ; preds = %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_point_set(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_point_set(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 4, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4, !tbaa !14
@@ -1375,7 +1375,7 @@ define <2 x float> @lv_point_to_precise(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_point_precise_set(ptr nocapture noundef writeonly %0, float noundef %1, float noundef %2) local_unnamed_addr #0 {
+define void @lv_point_precise_set(ptr nocapture noundef writeonly initializes((0, 8)) %0, float noundef %1, float noundef %2) local_unnamed_addr #0 {
   store float %1, ptr %0, align 4, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %2, ptr %4, align 4, !tbaa !22

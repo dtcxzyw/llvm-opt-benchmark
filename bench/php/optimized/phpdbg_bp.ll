@@ -234,7 +234,7 @@ define void @phpdbg_export_breakpoints(ptr nocapture noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define void @phpdbg_export_breakpoints_to_string(ptr noundef %0) local_unnamed_addr #1 {
+define void @phpdbg_export_breakpoints_to_string(ptr noundef initializes((0, 8)) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   store ptr @.str, ptr %0, align 8
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 588), align 4
@@ -3453,7 +3453,7 @@ phpdbg_find_breakbase_ex.exit:                    ; preds = %phpdbg_find_breakba
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @phpdbg_find_breakbase_ex(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define noundef ptr @phpdbg_find_breakbase_ex(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
   %5 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 560), i64 noundef %0) #14
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %6

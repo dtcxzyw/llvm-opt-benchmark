@@ -181,7 +181,7 @@ define hidden void @rb_hook_list_mark_and_update(ptr nocapture noundef readonly 
 declare void @rb_gc_mark_and_move(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_hook_list_free(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @rb_hook_list_free(ptr noundef initializes((16, 17)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12
@@ -5149,7 +5149,7 @@ declare void @rb_nativethread_lock_unlock(ptr noundef) local_unnamed_addr #1
 declare ptr @rb_vm_main_ractor_ec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_vm_postponed_job_queue_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @rb_vm_postponed_job_queue_init(ptr nocapture noundef writeonly initializes((1184, 1192)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @ruby_mimmalloc(i64 noundef 520) #4
   %3 = getelementptr inbounds i8, ptr %0, i64 1184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(516) %2, i8 0, i64 516, i1 false)

@@ -26,7 +26,7 @@ $_ZTIN3zmq13i_poll_eventsE = comdat any
 @_ZN3zmq11io_object_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq11io_object_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq11io_object_tC2EPNS_11io_thread_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %io_thread_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq11io_object_tC2EPNS_11io_thread_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %io_thread_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq11io_object_tE, i64 16), ptr %this, align 8
   %_poller = getelementptr inbounds i8, ptr %this, i64 8

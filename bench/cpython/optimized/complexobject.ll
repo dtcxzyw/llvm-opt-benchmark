@@ -3497,7 +3497,7 @@ return:                                           ; preds = %land.lhs.true.i15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @to_complex(ptr nocapture noundef nonnull %pobj, ptr nocapture noundef nonnull writeonly %pc) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @to_complex(ptr nocapture noundef nonnull %pobj, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %pc) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %pobj, align 8
   %1 = getelementptr i8, ptr %0, i64 8

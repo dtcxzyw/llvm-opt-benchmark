@@ -1391,7 +1391,7 @@ declare noundef i32 @_ZN14colvarproxy_io19close_output_streamERKNSt7__cxx1112bas
 declare noundef i32 @_ZN14colvarproxy_io20close_output_streamsEv(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17colvarproxy_atomsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(199) %0) unnamed_addr #7 align 2 {
+define void @_ZN17colvarproxy_atomsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(199) initializes((0, 199)) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17colvarproxy_atoms, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 192
@@ -1407,7 +1407,7 @@ define void @_ZN17colvarproxy_atomsC2Ev(ptr nocapture noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17colvarproxy_atomsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(199) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17colvarproxy_atomsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(199) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17colvarproxy_atoms, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -2511,7 +2511,7 @@ _Z19compute_norm2_statsIN12colvarmodule7rvectorELi1ELb0EEdRKSt6vectorIT_SaIS3_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN23colvarproxy_atom_groupsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0) unnamed_addr #7 align 2 {
+define void @_ZN23colvarproxy_atom_groupsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((0, 192)) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV23colvarproxy_atom_groups, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %2, i8 0, i64 184, i1 false)
@@ -2519,7 +2519,7 @@ define void @_ZN23colvarproxy_atom_groupsC2Ev(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN23colvarproxy_atom_groupsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN23colvarproxy_atom_groupsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV23colvarproxy_atom_groups, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -3394,7 +3394,7 @@ _Z19compute_norm2_statsIN12colvarmodule7rvectorELi1ELb0EEdRKSt6vectorIT_SaIS3_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15colvarproxy_smpC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 {
+define void @_ZN15colvarproxy_smpC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 9), (16, 24)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15colvarproxy_smp, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8
@@ -3420,7 +3420,7 @@ declare i32 @omp_get_thread_num() local_unnamed_addr #15
 declare void @omp_init_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15colvarproxy_smpD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15colvarproxy_smpD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15colvarproxy_smp, i64 16), ptr %0, align 8
   %2 = tail call i32 @omp_get_thread_num()
   %3 = icmp eq i32 %2, 0
@@ -3782,7 +3782,7 @@ declare i32 @omp_test_lock(ptr noundef) local_unnamed_addr #4
 declare void @omp_unset_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18colvarproxy_scriptC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0) unnamed_addr #7 align 2 {
+define void @_ZN18colvarproxy_scriptC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18colvarproxy_script, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -3792,7 +3792,7 @@ define void @_ZN18colvarproxy_scriptC2Ev(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18colvarproxy_scriptD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #0 align 2 {
+define void @_ZN18colvarproxy_scriptD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18colvarproxy_script, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -4042,7 +4042,7 @@ declare void @_ZN19colvarproxy_volmapsD2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN18colvarproxy_systemD2Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11colvarproxyD2Ev(ptr noundef nonnull align 8 dereferenceable(1168) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11colvarproxyD2Ev(ptr noundef nonnull align 8 dereferenceable(1168) initializes((0, 8), (256, 264), (456, 464), (648, 656), (768, 776), (792, 808), (824, 832), (840, 848)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11colvarproxy, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr getelementptr inbounds (i8, ptr @_ZTV11colvarproxy, i64 256), ptr %2, align 8
@@ -4221,7 +4221,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN11colvarproxy11end_of_stepEv(ptr noundef nonnull align 8 dereferenceable(1168) %0) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZN11colvarproxy11end_of_stepEv(ptr noundef nonnull align 8 dereferenceable(1168) initializes((453, 455)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 454
   store i8 0, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 453

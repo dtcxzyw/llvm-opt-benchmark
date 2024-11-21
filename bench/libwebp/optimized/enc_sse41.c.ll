@@ -82,7 +82,7 @@ define internal void @CollectHistogram_SSE41(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1, ptr nocapture noundef readonly %2) #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 192
   %5 = load <8 x i16>, ptr %0, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -161,7 +161,7 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr nocapture noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 64)) %1, ptr nocapture noundef readonly %2) #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 192
   %5 = load <8 x i16>, ptr %0, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -308,7 +308,7 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1, ptr nocapture noundef readonly %2) #2 {
   %4 = load <8 x i16>, ptr %0, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load <8 x i16>, ptr %5, align 1

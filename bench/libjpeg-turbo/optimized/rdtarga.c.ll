@@ -41,7 +41,7 @@ define dso_local noundef ptr @jinit_read_targa(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @start_input_tga(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @start_input_tga(ptr noundef %0, ptr nocapture noundef initializes((8, 16), (56, 60), (80, 88), (96, 104), (108, 112)) %1) #0 {
   %3 = alloca [18 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -892,7 +892,7 @@ define internal noundef i32 @get_8bit_gray_row(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef %1) #0 {
+define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef initializes((32, 40)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 52
@@ -982,7 +982,7 @@ define internal noundef i32 @preload_image(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_memory_row(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @get_memory_row(ptr noundef %0, ptr nocapture noundef initializes((32, 40)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 88

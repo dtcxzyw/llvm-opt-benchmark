@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @mca_rcache_base_registration_constructor(ptr noundef %0) #0 {
+define internal void @mca_rcache_base_registration_constructor(ptr noundef initializes((56, 80)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -174,7 +174,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_rcache_base_module_init(ptr noundef %0) local_unnamed_addr #2 {
+define void @mca_rcache_base_module_init(ptr noundef initializes((56, 64)) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

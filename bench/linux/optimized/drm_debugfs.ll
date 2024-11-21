@@ -252,7 +252,7 @@ declare dso_local void @drmm_kfree(ptr noundef, ptr noundef) local_unnamed_addr 
 declare dso_local void @debugfs_remove(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_debugfs_dev_init(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @drm_debugfs_dev_init(ptr nocapture noundef initializes((1544, 1552)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @debugfs_create_dir(ptr noundef %4, ptr noundef %1) #6
@@ -407,7 +407,7 @@ declare dso_local void @drm_client_debugfs_init(ptr noundef) local_unnamed_addr 
 declare dso_local void @drm_atomic_debugfs_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_debugfs_register(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @drm_debugfs_register(ptr noundef initializes((24, 40)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca [64 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8

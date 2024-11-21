@@ -155,7 +155,7 @@ $_ZN4llvm23SmallVectorTemplateBaseINS_16CodeGenIntrinsic12ArgAttributeELb1EE18gr
 @_ZN4llvm16CodeGenIntrinsicC1EPKNS_6RecordENS_8ArrayRefIS3_EE = unnamed_addr alias void (ptr, ptr, ptr, i64), ptr @_ZN4llvm16CodeGenIntrinsicC2EPKNS_6RecordENS_8ArrayRefIS3_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21CodeGenIntrinsicTableC2ERKNS_12RecordKeeperE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21CodeGenIntrinsicTableC2ERKNS_12RecordKeeperE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector.5", align 8
   %4 = alloca %"class.std::vector.5", align 8
   %5 = alloca %"struct.llvm::CodeGenIntrinsic", align 8
@@ -744,7 +744,7 @@ _ZN4llvm16CodeGenIntrinsic18IntrinsicSignatureD2Ev.exit: ; preds = %_ZNSt6vector
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16CodeGenIntrinsicC2EPKNS_6RecordENS_8ArrayRefIS3_EE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16CodeGenIntrinsicC2EPKNS_6RecordENS_8ArrayRefIS3_EE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %0, ptr noundef %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::allocator.10", align 1
   %6 = alloca %"class.std::allocator.10", align 1
   %7 = alloca %"class.llvm::Twine", align 8

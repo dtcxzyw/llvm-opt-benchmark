@@ -168,7 +168,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @CRYPTO_new_ex_data(ptr nocapture noundef writeonly %ad) local_unnamed_addr #4 {
+define hidden void @CRYPTO_new_ex_data(ptr nocapture noundef writeonly initializes((0, 8)) %ad) local_unnamed_addr #4 {
 entry:
   store ptr null, ptr %ad, align 8
   ret void

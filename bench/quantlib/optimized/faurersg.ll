@@ -61,7 +61,7 @@ $_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIlSaIlEES2_IS4
 @_ZN8QuantLib8FaureRsgC1Em = unnamed_addr alias void (ptr, i64), ptr @_ZN8QuantLib8FaureRsgC2Em
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib8FaureRsgC2Em(ptr noundef nonnull align 8 dereferenceable(208) %this, i64 noundef %dimensionality) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib8FaureRsgC2Em(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this, i64 noundef %dimensionality) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8

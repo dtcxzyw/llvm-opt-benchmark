@@ -87,7 +87,7 @@ define dso_local noalias noundef ptr @mpi_point_new(i32 %0) #0 align 16 {
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpi_point_init(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local void @mpi_point_init(ptr nocapture noundef writeonly initializes((0, 24)) %0) #0 align 16 {
   %2 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   store ptr %2, ptr %0, align 8
   %3 = tail call ptr @mpi_alloc(i32 noundef 0) #9
@@ -149,7 +149,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mpi_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpi_ec_init(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 align 16 {
+define dso_local void @mpi_ec_init(ptr nocapture noundef initializes((0, 40), (72, 80), (96, 112)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %5, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0

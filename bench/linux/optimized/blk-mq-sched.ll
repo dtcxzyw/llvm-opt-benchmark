@@ -694,7 +694,7 @@ define dso_local zeroext i1 @blk_mq_sched_try_insert_merge(ptr noundef %0, ptr n
 declare dso_local zeroext i1 @elv_attempt_insert_merge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @blk_mq_init_sched(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @blk_mq_init_sched(ptr noundef initializes((312, 320)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8

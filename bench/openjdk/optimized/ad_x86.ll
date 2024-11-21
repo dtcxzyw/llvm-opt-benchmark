@@ -7204,31 +7204,31 @@ define hidden noundef zeroext i1 @_ZN7Matcher23use_asm_for_ldiv_by_conEl(i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Matcher14divI_proj_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 %0) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7Matcher14divI_proj_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) @_INT_RAX_REG_mask, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Matcher14modI_proj_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 %0) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7Matcher14modI_proj_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) @_INT_RDX_REG_mask, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Matcher14divL_proj_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 %0) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7Matcher14divL_proj_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) @_LONG_RAX_REG_mask, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Matcher14modL_proj_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 %0) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7Matcher14modL_proj_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) @_LONG_RDX_REG_mask, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Matcher33method_handle_invoke_SP_save_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 %0) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7Matcher33method_handle_invoke_SP_save_maskEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RegMask) align 8 initializes((0, 96)) %0) local_unnamed_addr #10 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) @_NO_REG_mask, i64 96, i1 false)
   ret void
 }
@@ -10905,7 +10905,7 @@ define hidden noundef nonnull ptr @_ZNK15no_rax_RegPOper10in_RegMaskEi(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12MoveVL2FNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12MoveVL2FNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -11022,7 +11022,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 declare void @_ZNK8MachNode17fill_new_machnodeEPS_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13MoveLEG2FNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13MoveLEG2FNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @_STACK_OR_FLOAT_REG_LEGACY_mask, ptr %2, align 8
   ret void
@@ -11133,7 +11133,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12MoveVL2DNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12MoveVL2DNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -11248,7 +11248,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13MoveLEG2DNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13MoveLEG2DNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @_STACK_OR_DOUBLE_REG_LEGACY_mask, ptr %2, align 8
   ret void
@@ -11359,7 +11359,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22countLeadingZerosINode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN22countLeadingZerosINode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -11470,7 +11470,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22countLeadingZerosLNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN22countLeadingZerosLNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -11581,7 +11581,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23countTrailingZerosINode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN23countTrailingZerosINode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -11692,7 +11692,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23countTrailingZerosLNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN23countTrailingZerosLNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -11803,7 +11803,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13popCountINode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13popCountINode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -11914,7 +11914,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13popCountLNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13popCountLNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -12025,7 +12025,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13cmovI_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13cmovI_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -12136,7 +12136,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14cmovI_regUNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14cmovI_regUNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -12247,7 +12247,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16cmovI_regUCFNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN16cmovI_regUCFNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -12358,7 +12358,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13cmovL_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13cmovL_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -12469,7 +12469,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14cmovL_regUNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14cmovL_regUNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -12580,7 +12580,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16cmovL_regUCFNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN16cmovL_regUCFNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -12691,7 +12691,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13addI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13addI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -12802,7 +12802,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13addL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13addL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -12913,7 +12913,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13subI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13subI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -13024,7 +13024,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13subL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13subL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -13135,7 +13135,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13mulI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13mulI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -13246,7 +13246,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17mulI_rReg_immNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN17mulI_rReg_immNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -13357,7 +13357,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13mulL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13mulL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -13468,7 +13468,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17mulL_rReg_immNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN17mulL_rReg_immNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -13579,7 +13579,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18salI_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN18salI_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -13690,7 +13690,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18sarI_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN18sarI_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -13801,7 +13801,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18shrI_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN18shrI_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -13912,7 +13912,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18salL_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN18salL_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -14023,7 +14023,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18sarL_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN18sarL_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -14134,7 +14134,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18shrL_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN18shrL_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -14245,7 +14245,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7i2bNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN7i2bNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -14350,7 +14350,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %49, %51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7i2sNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN7i2sNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -14455,7 +14455,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %49, %51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14rolI_immI8Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14rolI_immI8Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -14572,7 +14572,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14rorI_immI8Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14rorI_immI8Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -14689,7 +14689,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14rolL_immI8Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14rolL_immI8Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -14806,7 +14806,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14rorL_immI8Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14rorL_immI8Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -14923,7 +14923,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN21compressBitsL_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN21compressBitsL_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -15034,7 +15034,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19expandBitsL_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN19expandBitsL_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -15145,7 +15145,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13andI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13andI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15256,7 +15256,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20andI_rReg_imm255Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN20andI_rReg_imm255Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15367,7 +15367,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22andI2L_rReg_imm255Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN22andI2L_rReg_imm255Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15478,7 +15478,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22andI_rReg_imm65535Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN22andI_rReg_imm65535Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15589,7 +15589,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24andI2L_rReg_imm65535Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN24andI2L_rReg_imm65535Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15700,7 +15700,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24andnI_rReg_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN24andnI_rReg_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15811,7 +15811,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN26andnI_rReg_rReg_rReg_0Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN26andnI_rReg_rReg_rReg_0Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -15922,7 +15922,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12orI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN12orI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -16033,7 +16033,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13xorI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13xorI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -16144,7 +16144,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13andL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13andL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -16255,7 +16255,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24andnL_rReg_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN24andnL_rReg_rReg_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -16366,7 +16366,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN26andnL_rReg_rReg_rReg_0Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN26andnL_rReg_rReg_rReg_0Node16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -16477,7 +16477,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12orL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN12orL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -16588,7 +16588,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13xorL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13xorL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -16699,7 +16699,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN18cmpF_cc_reg_CFNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN18cmpF_cc_reg_CFNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16814,7 +16814,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN18cmpD_cc_reg_CFNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN18cmpD_cc_reg_CFNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -16929,7 +16929,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12cmpF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12cmpF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17044,7 +17044,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12cmpD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12cmpD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17159,7 +17159,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19convI2L_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN19convI2L_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -17270,7 +17270,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23convI2L_reg_reg_zexNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN23convI2L_reg_reg_zexNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -17381,7 +17381,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN19MoveF2I_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN19MoveF2I_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17496,7 +17496,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN19MoveD2L_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN19MoveD2L_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -17611,7 +17611,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19MoveI2F_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN19MoveI2F_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -17722,7 +17722,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14compI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14compI_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -17833,7 +17833,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17testI_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN17testI_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -17944,7 +17944,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14compU_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14compU_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -18055,7 +18055,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14compL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN14compL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -18166,7 +18166,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17testL_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN17testL_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -18277,7 +18277,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15compUL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN15compUL_rRegNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -18721,7 +18721,7 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12addF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12addF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18836,7 +18836,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16addF_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16addF_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -18951,7 +18951,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12addD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12addD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19066,7 +19066,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16addD_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16addD_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19181,7 +19181,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12subF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12subF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19296,7 +19296,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16subF_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16subF_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19411,7 +19411,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12subD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12subD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19526,7 +19526,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16subD_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16subD_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19641,7 +19641,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12mulF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12mulF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19756,7 +19756,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16mulF_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16mulF_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19871,7 +19871,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12mulD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12mulD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -19986,7 +19986,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16mulD_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16mulD_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -20101,7 +20101,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12divF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12divF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -20216,7 +20216,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16divF_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16divF_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -20331,7 +20331,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12divD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN12divD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -20446,7 +20446,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16divD_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN16divD_reg_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 134217728
   %.not.i = icmp eq i64 %3, 0
@@ -20561,7 +20561,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13ReplI_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13ReplI_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -20678,7 +20678,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13ReplL_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN13ReplL_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_LONG_REG_mask, ptr %2, align 8
   ret void
@@ -20795,7 +20795,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN14vReplF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN14vReplF_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -20916,7 +20916,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN14vReplD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define hidden void @_ZN14vReplD_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #12 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 8724152320
   %or.cond.i = icmp eq i64 %3, 8724152320
@@ -21037,7 +21037,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN21compressBitsI_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN21compressBitsI_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -21148,7 +21148,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19expandBitsI_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN19expandBitsI_regNode16use_cisc_RegMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @_STACK_OR_INT_REG_mask, ptr %2, align 8
   ret void
@@ -21270,7 +21270,7 @@ define hidden void @_ZN10jmpDirNode9label_setEP5Labelj(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10jmpDirNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN10jmpDirNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21294,7 +21294,7 @@ define hidden void @_ZN10jmpConNode9label_setEP5Labelj(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10jmpConNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN10jmpConNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21318,7 +21318,7 @@ define hidden void @_ZN14jmpLoopEndNode9label_setEP5Labelj(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14jmpLoopEndNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN14jmpLoopEndNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21342,7 +21342,7 @@ define hidden void @_ZN11jmpConUNode9label_setEP5Labelj(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11jmpConUNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN11jmpConUNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21366,7 +21366,7 @@ define hidden void @_ZN13jmpConUCFNode9label_setEP5Labelj(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN13jmpConUCFNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN13jmpConUCFNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21390,7 +21390,7 @@ define hidden void @_ZN14jmpConUCF2Node9label_setEP5Labelj(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14jmpConUCF2Node10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN14jmpConUCF2Node10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21414,7 +21414,7 @@ define hidden void @_ZN16jmpDir_shortNode9label_setEP5Labelj(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16jmpDir_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN16jmpDir_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21438,7 +21438,7 @@ define hidden void @_ZN16jmpCon_shortNode9label_setEP5Labelj(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16jmpCon_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN16jmpCon_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21462,7 +21462,7 @@ define hidden void @_ZN20jmpLoopEnd_shortNode9label_setEP5Labelj(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20jmpLoopEnd_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN20jmpLoopEnd_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21486,7 +21486,7 @@ define hidden void @_ZN17jmpConU_shortNode9label_setEP5Labelj(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN17jmpConU_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN17jmpConU_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21510,7 +21510,7 @@ define hidden void @_ZN19jmpConUCF_shortNode9label_setEP5Labelj(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19jmpConUCF_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN19jmpConUCF_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -21534,7 +21534,7 @@ define hidden void @_ZN20jmpConUCF2_shortNode9label_setEP5Labelj(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20jmpConUCF2_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #15 align 2 {
+define hidden void @_ZN20jmpConUCF2_shortNode10save_labelEPP5LabelPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8

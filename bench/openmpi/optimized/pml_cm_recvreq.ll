@@ -703,7 +703,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_cm_recv_request_construct(ptr noundef %0) #0 {
+define internal void @mca_pml_cm_recv_request_construct(ptr noundef initializes((112, 136), (192, 200)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr @mca_pml_cm_start, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 120

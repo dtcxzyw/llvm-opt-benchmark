@@ -165,7 +165,7 @@ $_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable = comdat any
 @_ZN4llvm17RISCVCallLoweringC1ERKNS_19RISCVTargetLoweringE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm17RISCVCallLoweringC2ERKNS_19RISCVTargetLoweringE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm17RISCVCallLoweringC2ERKNS_19RISCVTargetLoweringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(408136) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17RISCVCallLoweringC2ERKNS_19RISCVTargetLoweringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(408136) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4llvm17RISCVCallLoweringE, i64 16), ptr %0, align 8
@@ -2035,7 +2035,7 @@ define internal void @_ZN12_GLOBAL__N_125RISCVOutgoingValueHandlerD0Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal i32 @_ZN12_GLOBAL__N_125RISCVOutgoingValueHandler15getStackAddressEmlRN4llvm18MachinePointerInfoENS1_3ISD10ArgFlagsTyE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) %3, i64 %4, i64 %5) unnamed_addr #1 align 2 {
+define internal i32 @_ZN12_GLOBAL__N_125RISCVOutgoingValueHandler15getStackAddressEmlRN4llvm18MachinePointerInfoENS1_3ISD10ArgFlagsTyE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) initializes((0, 21)) %3, i64 %4, i64 %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::DstOp", align 8
   %8 = alloca %"class.llvm::SrcOp", align 8
   %9 = alloca %"class.llvm::DstOp", align 8
@@ -2748,7 +2748,7 @@ define internal void @_ZN12_GLOBAL__N_121RISCVFormalArgHandlerD0Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal i32 @_ZN12_GLOBAL__N_125RISCVIncomingValueHandler15getStackAddressEmlRN4llvm18MachinePointerInfoENS1_3ISD10ArgFlagsTyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) %3, i64 %4, i64 %5) unnamed_addr #1 align 2 {
+define internal i32 @_ZN12_GLOBAL__N_125RISCVIncomingValueHandler15getStackAddressEmlRN4llvm18MachinePointerInfoENS1_3ISD10ArgFlagsTyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) initializes((0, 21)) %3, i64 %4, i64 %5) unnamed_addr #1 align 2 {
   %7 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %8 = alloca %"class.llvm::DstOp", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8

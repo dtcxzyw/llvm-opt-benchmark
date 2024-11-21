@@ -379,7 +379,7 @@ define hidden ptr @lxb_html_tree_destroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lxb_html_tree_clean(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @lxb_html_tree_clean(ptr nocapture noundef initializes((8, 32), (80, 82), (88, 96), (104, 116)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @lexbor_array_clean(ptr noundef %3) #9
@@ -690,7 +690,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_html_integration_point(ptr nound
 declare zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lxb_html_tree_appropriate_place_inserting_node(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden ptr @lxb_html_tree_appropriate_place_inserting_node(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store i32 0, ptr %2, align 4
@@ -2401,7 +2401,7 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
 declare void @lxb_html_tree_open_elements_pop_until_tag_id(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @lxb_html_tree_adoption_agency_algorithm(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @lxb_html_tree_adoption_agency_algorithm(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

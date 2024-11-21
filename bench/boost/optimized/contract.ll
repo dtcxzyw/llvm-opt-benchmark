@@ -701,13 +701,13 @@ define linkonce_odr hidden { i32, ptr } @_ZNK5boost6system14error_category23defa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost8contract8null_oldEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::contract::old_value") align 8 %0) local_unnamed_addr #5 {
+define void @_ZN5boost8contract8null_oldEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::contract::old_value") align 8 initializes((0, 16)) %0) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost8contract8make_oldERKNS0_9old_valueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::contract::old_pointer") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract8make_oldERKNS0_9old_valueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::contract::old_pointer") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8, !tbaa !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8, !tbaa !21
@@ -729,7 +729,7 @@ _ZN5boost8contract11old_pointerC2EPNS0_8virtual_ERKNS0_9old_valueE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost8contract8make_oldEPNS0_8virtual_ERKNS0_9old_valueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::contract::old_pointer") align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract8make_oldEPNS0_8virtual_ERKNS0_9old_valueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::contract::old_pointer") align 8 initializes((0, 24)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %2, align 8, !tbaa !21
@@ -774,7 +774,7 @@ define void @_ZN5boost8contract9exceptionD0Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost8contract23bad_virtual_result_castC2EPKcS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract23bad_virtual_result_castC2EPKcS3_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1088,7 +1088,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost8contract23bad_virtual_result_castD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract23bad_virtual_result_castD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost8contract23bad_virtual_result_castE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost8contract23bad_virtual_result_castE, i64 56), ptr %2, align 8, !tbaa !23
@@ -1146,7 +1146,7 @@ define noundef ptr @_ZNK5boost8contract23bad_virtual_result_cast4whatEv(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost8contract17assertion_failureC2EPKcmS3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract17assertion_failureC2EPKcmS3_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 40)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost8contract17assertion_failureE, i64 16), ptr %0, align 8, !tbaa !23
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost8contract17assertion_failureE, i64 56), ptr %5, align 8, !tbaa !23
@@ -1666,7 +1666,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost8contract17assertion_failureC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract17assertion_failureC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost8contract17assertion_failureE, i64 16), ptr %0, align 8, !tbaa !23
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost8contract17assertion_failureE, i64 56), ptr %3, align 8, !tbaa !23
@@ -1713,7 +1713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost8contract17assertion_failureD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract17assertion_failureD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16)) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost8contract17assertion_failureE, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost8contract17assertion_failureE, i64 56), ptr %2, align 8, !tbaa !23
@@ -1972,7 +1972,7 @@ _ZN5boost10lock_guardINS_5mutexEED2Ev.exit:       ; preds = %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost8contract10exception_26get_check_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function") align 8 %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract10exception_26get_check_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function") align 8 initializes((0, 8)) %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5boost8contract6detail21static_local_var_initINS0_10exception_25check_failure_handler_tagENS_8functionIFvvEEEPS6_XadL_ZNS3_15default_handlerILNS3_11failure_keyE0EEEvvEEE3refEvE4data acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_25check_failure_handler_tagENS_8functionIFvvEEEPS6_XadL_ZNS3_15default_handlerILNS3_11failure_keyE0EEEvvEEE3refEv.exit, !prof !56
@@ -2470,7 +2470,7 @@ _ZN5boost10lock_guardINS_5mutexEED2Ev.exit:       ; preds = %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost8contract10exception_24get_pre_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function.1") align 8 %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract10exception_24get_pre_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function.1") align 8 initializes((0, 8)) %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5boost8contract6detail21static_local_var_initINS0_10exception_23pre_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE1EEEvS6_EEE3refEvE4data acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_23pre_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE1EEEvS6_EEE3refEv.exit, !prof !56
@@ -2968,7 +2968,7 @@ _ZN5boost10lock_guardINS_5mutexEED2Ev.exit:       ; preds = %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost8contract10exception_25get_post_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function.1") align 8 %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract10exception_25get_post_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function.1") align 8 initializes((0, 8)) %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5boost8contract6detail21static_local_var_initINS0_10exception_24post_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE2EEEvS6_EEE3refEvE4data acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_24post_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE2EEEvS6_EEE3refEv.exit, !prof !56
@@ -3466,7 +3466,7 @@ _ZN5boost10lock_guardINS_5mutexEED2Ev.exit:       ; preds = %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost8contract10exception_27get_except_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function.1") align 8 %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract10exception_27get_except_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function.1") align 8 initializes((0, 8)) %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5boost8contract6detail21static_local_var_initINS0_10exception_26except_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE3EEEvS6_EEE3refEvE4data acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_26except_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE3EEEvS6_EEE3refEv.exit, !prof !56
@@ -3964,7 +3964,7 @@ _ZN5boost10lock_guardINS_5mutexEED2Ev.exit:       ; preds = %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost8contract10exception_24get_old_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function.1") align 8 %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract10exception_24get_old_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function.1") align 8 initializes((0, 8)) %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5boost8contract6detail21static_local_var_initINS0_10exception_23old_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE4EEEvS6_EEE3refEvE4data acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_23old_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE4EEEvS6_EEE3refEv.exit, !prof !56
@@ -4462,7 +4462,7 @@ _ZN5boost10lock_guardINS_5mutexEED2Ev.exit:       ; preds = %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost8contract10exception_30get_entry_inv_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function.1") align 8 %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract10exception_30get_entry_inv_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function.1") align 8 initializes((0, 8)) %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5boost8contract6detail21static_local_var_initINS0_10exception_29entry_inv_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE5EEEvS6_EEE3refEvE4data acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_29entry_inv_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE5EEEvS6_EEE3refEv.exit, !prof !56
@@ -4960,7 +4960,7 @@ _ZN5boost10lock_guardINS_5mutexEED2Ev.exit:       ; preds = %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost8contract10exception_29get_exit_inv_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function.1") align 8 %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost8contract10exception_29get_exit_inv_failure_unlockedEv(ptr dead_on_unwind noalias writable sret(%"class.boost::function.1") align 8 initializes((0, 8)) %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5boost8contract6detail21static_local_var_initINS0_10exception_28exit_inv_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE6EEEvS6_EEE3refEvE4data acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_28exit_inv_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE6EEEvS6_EEE3refEv.exit, !prof !56

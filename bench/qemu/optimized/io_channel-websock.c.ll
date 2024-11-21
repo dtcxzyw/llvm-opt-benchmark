@@ -932,7 +932,7 @@ return:                                           ; preds = %trace_qio_channel_w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 32) i32 @qio_channel_websock_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly %timeout) #2 {
+define internal range(i32 0, 32) i32 @qio_channel_websock_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly initializes((0, 4)) %timeout) #2 {
 entry:
   store i32 -1, ptr %timeout, align 4
   %wioc.i = getelementptr inbounds i8, ptr %source, i64 96

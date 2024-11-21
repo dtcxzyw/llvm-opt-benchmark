@@ -17,7 +17,7 @@ $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Star
 @_ZN5clang13ObjCAtTryStmtC1ENS_14SourceLocationEPNS_4StmtEPS3_jS3_ = unnamed_addr alias void (ptr, i32, ptr, ptr, i32, ptr), ptr @_ZN5clang13ObjCAtTryStmtC2ENS_14SourceLocationEPNS_4StmtEPS3_jS3_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21ObjCForCollectionStmtC2EPNS_4StmtEPNS_4ExprES2_NS_14SourceLocationES5_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 %4, i32 %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang21ObjCForCollectionStmtC2EPNS_4StmtEPNS_4ExprES2_NS_14SourceLocationES5_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 1), (8, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 %4, i32 %5) unnamed_addr #0 align 2 {
   store i8 -115, ptr %0, align 8
   %7 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
   %8 = trunc i8 %7 to i1
@@ -42,7 +42,7 @@ _ZN5clang4StmtC2ENS0_9StmtClassE.exit:            ; preds = %6, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13ObjCAtTryStmtC2ENS_14SourceLocationEPNS_4StmtEPS3_jS3_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13ObjCAtTryStmtC2ENS_14SourceLocationEPNS_4StmtEPS3_jS3_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 1), (8, 14), (16, 24)) %0, i32 %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
   store i8 -113, ptr %0, align 8
   %7 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
   %8 = trunc i8 %7 to i1

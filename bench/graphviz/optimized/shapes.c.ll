@@ -6741,7 +6741,7 @@ define internal fastcc void @resize_reclbl(ptr nocapture noundef %0, double %1, 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pos_reclbl(ptr nocapture noundef %0, double %1, double %2, i8 noundef zeroext range(i8 0, 16) %3) unnamed_addr #16 {
+define internal fastcc void @pos_reclbl(ptr nocapture noundef initializes((16, 48), (81, 82)) %0, double %1, double %2, i8 noundef zeroext range(i8 0, 16) %3) unnamed_addr #16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 81
   store i8 %3, ptr %5, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6945,7 +6945,7 @@ define internal void @poly_free(ptr nocapture noundef readonly %0) #18 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @poly_port(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.port) align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @poly_port(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.port) align 8 initializes((0, 48)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.port, align 8
   %6 = alloca i8, align 1
   %7 = alloca %union.inside_t, align 8
@@ -8266,7 +8266,7 @@ define internal { double, double } @cylinder_size(double %0, double %1) #19 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @cylinder_vertices(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #20 {
+define internal void @cylinder_vertices(ptr nocapture noundef initializes((0, 112)) %0, ptr nocapture noundef readonly %1) #20 {
   %3 = load double, ptr %1, align 8
   %4 = fmul double %3, 5.000000e-01
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -8361,7 +8361,7 @@ define internal void @record_free(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @record_port(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.port) align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @record_port(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.port) align 8 initializes((0, 48)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.port, align 8
   %6 = load i8, ptr %2, align 1
   %7 = icmp eq i8 %6, 0

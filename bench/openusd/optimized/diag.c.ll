@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @avifDiagnosticsClearError(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @avifDiagnosticsClearError(ptr nocapture noundef writeonly initializes((0, 1)) %0) local_unnamed_addr #0 {
   store i8 0, ptr %0, align 1
   ret void
 }

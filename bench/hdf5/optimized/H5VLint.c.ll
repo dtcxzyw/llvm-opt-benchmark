@@ -1663,7 +1663,7 @@ H5VL_cmp_connector_cls.exit:                      ; preds = %18, %21, %33, %36, 
 declare i32 @H5VL_introspect_get_conn_cls(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5VL_cmp_connector_cls(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #7 {
+define noundef i32 @H5VL_cmp_connector_cls(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %1, %2
   br i1 %4, label %.sink.split, label %5
 
@@ -3185,7 +3185,7 @@ define noundef i32 @H5VL_check_plugin_load(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @H5VL__is_default_conn(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define void @H5VL__is_default_conn(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
   %4 = load i64, ptr @H5VL_def_conn_s, align 8
   %5 = tail call i64 @H5VL_native_register() #10
   %6 = icmp eq i64 %4, %5
@@ -3209,7 +3209,7 @@ define void @H5VL__is_default_conn(i64 noundef %0, i64 noundef %1, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL_setup_args(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL_setup_args(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @H5I_object_verify(i64 noundef %0, i32 noundef %1) #10
   store ptr %4, ptr %2, align 8
   %5 = icmp eq ptr %4, null
@@ -3240,7 +3240,7 @@ define range(i32 -1, 1) i32 @H5VL_setup_args(i64 noundef %0, i32 noundef %1, ptr
 declare i32 @H5CX_set_loc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL_setup_loc_args(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL_setup_loc_args(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @H5VL_vol_object(i64 noundef %0)
   store ptr %4, ptr %1, align 8
   %5 = icmp eq ptr %4, null
@@ -3314,7 +3314,7 @@ define range(i32 -1, 1) i32 @H5VL_setup_acc_args(i64 noundef %0, ptr noundef %1,
 declare i32 @H5CX_set_apl(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL_setup_self_args(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL_setup_self_args(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @H5VL_vol_object(i64 noundef %0)
   store ptr %4, ptr %1, align 8
   %5 = icmp eq ptr %4, null
@@ -3493,7 +3493,7 @@ define range(i32 -1, 1) i32 @H5VL_setup_idx_args(i64 noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL_setup_token_args(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL_setup_token_args(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call ptr @H5VL_vol_object(i64 noundef %0)
   store ptr %5, ptr %2, align 8
   %6 = icmp eq ptr %5, null

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @c__1 = internal global i32 1, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @dsptrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @dsptrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef initializes((0, 4)) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca double, align 8
   %8 = alloca double, align 8

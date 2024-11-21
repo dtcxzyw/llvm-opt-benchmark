@@ -431,7 +431,7 @@ define internal i32 @io_err_iterate_devices(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @io_err_io_hints(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #7 align 16 {
+define internal void @io_err_io_hints(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((68, 76), (88, 92)) %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 68
   store i32 -1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 72

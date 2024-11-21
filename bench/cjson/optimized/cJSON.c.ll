@@ -230,7 +230,7 @@ define void @cJSON_Delete(ptr noundef %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define noundef double @cJSON_SetNumberHelper(ptr nocapture noundef writeonly %0, double noundef returned %1) local_unnamed_addr #9 {
+define noundef double @cJSON_SetNumberHelper(ptr nocapture noundef writeonly initializes((40, 44), (48, 56)) %0, double noundef returned %1) local_unnamed_addr #9 {
   %3 = fcmp ult double %1, 0x41DFFFFFFFC00000
   br i1 %3, label %4, label %8
 

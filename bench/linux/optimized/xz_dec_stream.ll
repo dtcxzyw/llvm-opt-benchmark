@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xz_dec_run(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -753,7 +753,7 @@ define dso_local i32 @xz_dec_run(ptr noundef %0, ptr noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @xz_dec_reset(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @xz_dec_reset(ptr nocapture noundef writeonly initializes((0, 8), (32, 36), (44, 45), (72, 184)) %0) local_unnamed_addr #1 align 16 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   store i8 0, ptr %2, align 4

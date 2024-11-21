@@ -69,7 +69,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_7513LocaleMatcherD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7513LocaleMatcherD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7513LocaleMatcher6ResultC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr nocapture noundef nonnull align 8 dereferenceable(25) %src) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7513LocaleMatcher6ResultC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(25) %src) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
@@ -293,7 +293,7 @@ declare void @_ZN6icu_7513LocaleBuilder5buildER10UErrorCode(ptr sret(%"class.icu
 declare void @_ZN6icu_7513LocaleBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7513LocaleMatcher7BuilderC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(64) %src) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7513LocaleMatcher7BuilderC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 4), (8, 33), (36, 44), (48, 64)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(64) %src) unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %src, align 8
   store i32 %0, ptr %this, align 8
@@ -1096,7 +1096,7 @@ declare signext i8 @uhash_containsKey_75(ptr noundef, ptr noundef) local_unnamed
 declare i32 @uhash_putiAllowZero_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513LocaleMatcherC2ERKNS0_7BuilderER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %builder, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513LocaleMatcherC2ERKNS0_7BuilderER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 52), (56, 84), (88, 104)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %builder, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builderDefaultLSR = alloca %"struct.icu_75::LSR", align 8
   %ref.tmp = alloca %"struct.icu_75::LSR", align 8
@@ -1969,7 +1969,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 declare noundef i32 @_ZNK6icu_7514LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7513LocaleMatcherC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull align 8 dereferenceable(104) %src) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7513LocaleMatcherC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 52), (56, 84), (88, 104)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(104) %src) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
@@ -3763,7 +3763,7 @@ return:                                           ; preds = %entry, %cleanup47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 16), ptr %this, align 8
   %converter_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -3918,7 +3918,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i64 16), ptr %this, align 8
   %converter_.i = getelementptr inbounds i8, ptr %this, i64 24

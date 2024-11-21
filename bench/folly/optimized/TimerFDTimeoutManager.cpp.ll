@@ -89,7 +89,7 @@ entry:
 declare void @_ZN5folly7TimerFD12handlerReadyEt(ptr noundef nonnull align 8 dereferenceable(212), i16 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly21TimerFDTimeoutManager9onTimeoutEv(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21TimerFDTimeoutManager9onTimeoutEv(ptr noundef nonnull align 8 dereferenceable(280) initializes((212, 213)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN5folly21TimerFDTimeoutManager20processExpiredTimersEv(ptr noundef nonnull align 8 dereferenceable(280) %this)
           to label %invoke.cont unwind label %terminate.lpad
@@ -380,7 +380,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeINSt6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly21TimerFDTimeoutManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21TimerFDTimeoutManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8), (176, 192)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 16), ptr %this, align 8, !tbaa !18
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 176
@@ -610,7 +610,7 @@ if.end:                                           ; preds = %if.then, %while.end
 declare void @_ZN5folly7TimerFD5closeEv(ptr noundef nonnull align 8 dereferenceable(212)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly21TimerFDTimeoutManager20processExpiredTimersEv(ptr noundef nonnull align 8 dereferenceable(280) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21TimerFDTimeoutManager20processExpiredTimersEv(ptr noundef nonnull align 8 dereferenceable(280) initializes((212, 213)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp25 = alloca %"class.google::LogMessageFatal", align 8
   %processingExpired_ = getelementptr inbounds i8, ptr %this, i64 212

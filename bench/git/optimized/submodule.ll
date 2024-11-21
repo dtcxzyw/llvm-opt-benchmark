@@ -733,7 +733,7 @@ declare i32 @repo_config_get_string_tmp(ptr noundef, ptr noundef, ptr noundef) l
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @handle_ignore_submodules_arg(ptr nocapture noundef writeonly %diffopt, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local void @handle_ignore_submodules_arg(ptr nocapture noundef writeonly initializes((172, 176), (200, 212)) %diffopt, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %ignore_submodule_set = getelementptr inbounds i8, ptr %diffopt, i64 204
   store i32 1, ptr %ignore_submodule_set, align 4
@@ -3242,7 +3242,7 @@ return:                                           ; preds = %if.end20, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fetch_start_failure(ptr nocapture readnone %err, ptr nocapture noundef writeonly %cb, ptr noundef %task_cb) #0 {
+define internal noundef i32 @fetch_start_failure(ptr nocapture readnone %err, ptr nocapture noundef writeonly initializes((60, 64)) %cb, ptr noundef %task_cb) #0 {
 entry:
   %result = getelementptr inbounds i8, ptr %cb, i64 60
   store i32 1, ptr %result, align 4
@@ -4474,7 +4474,7 @@ declare void @strvec_pop(ptr noundef) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @submodule_to_gitdir(ptr noundef %buf, ptr noundef %submodule) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @submodule_to_gitdir(ptr noundef initializes((8, 16)) %buf, ptr noundef %submodule) local_unnamed_addr #0 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %buf, i64 8
   store i64 0, ptr %len2.i, align 8

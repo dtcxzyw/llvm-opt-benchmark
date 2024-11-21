@@ -1960,7 +1960,7 @@ define internal fastcc void @acpi_video_run_bcl_for_osi(ptr noundef nonnull %0) 
 declare dso_local i32 @__acpi_video_get_backlight_type(i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_video_bus_add_notify_handler(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @acpi_video_bus_add_notify_handler(ptr noundef nonnull initializes((96, 104)) %0) unnamed_addr #0 align 16 {
   %2 = tail call ptr @input_allocate_device() #18
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %2, ptr %3, align 8
@@ -3554,7 +3554,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %22, %40, %44, %.loo
 declare dso_local zeroext i1 @cancel_delayed_work(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @video_get_max_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #15 align 16 {
+define internal noundef i32 @video_get_max_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #15 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144

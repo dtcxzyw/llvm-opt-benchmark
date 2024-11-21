@@ -379,7 +379,7 @@ for.end:                                          ; preds = %_ZN9grpc_core5Slice
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9grpc_core11SliceBuffer8RefSliceEm(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this, i64 noundef %index) local_unnamed_addr #1 align 2 {
+define void @_ZNK9grpc_core11SliceBuffer8RefSliceEm(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this, i64 noundef %index) local_unnamed_addr #1 align 2 {
 entry:
   %slices = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %slices, align 8
@@ -954,7 +954,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @grpc_slice_buffer_init(ptr noundef %sb) local_unnamed_addr #9 {
+define void @grpc_slice_buffer_init(ptr noundef initializes((16, 40)) %sb) local_unnamed_addr #9 {
 entry:
   %count = getelementptr inbounds i8, ptr %sb, i64 16
   store i64 0, ptr %count, align 8

@@ -511,7 +511,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt12OrigIpoptNLPC2ERKNS_8SmartPtrIKNS_10JournalistEEERKNS1_INS_3NLPEEERKNS1_INS_16NLPScalingObjectEEERNS_16TimingStatisticsE(ptr nocapture noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(1976) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt12OrigIpoptNLPC2ERKNS_8SmartPtrIKNS_10JournalistEEERKNS1_INS_3NLPEEERKNS1_INS_16NLPScalingObjectEEERNS_16TimingStatisticsE(ptr nocapture noundef nonnull align 8 dereferenceable(544) initializes((0, 12), (16, 188), (192, 212), (216, 236), (240, 260), (264, 284), (288, 308), (312, 332), (336, 356), (360, 464), (528, 529), (536, 544)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(1976) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i, label %27, label %7
@@ -945,7 +945,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit: ; preds = %.l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt12OrigIpoptNLPD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt12OrigIpoptNLPD2Ev(ptr noundef nonnull align 8 dereferenceable(544) initializes((0, 8), (344, 352)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt12OrigIpoptNLPE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 456
   %3 = load ptr, ptr %2, align 8
@@ -12444,7 +12444,7 @@ _ZNSt6vectorIPKN5Ipopt12TaggedObjectESaIS3_EED2Ev.exit7: ; preds = %22, %.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt12OrigIpoptNLP14get_unscaled_xERKNS_6VectorE(ptr dead_on_unwind noalias nonnull writable sret(%"class.Ipopt::SmartPtr.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt12OrigIpoptNLP14get_unscaled_xERKNS_6VectorE(ptr dead_on_unwind noalias nonnull writable sret(%"class.Ipopt::SmartPtr.18") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.18", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.18", align 8
   store ptr null, ptr %0, align 8
@@ -12815,7 +12815,7 @@ define noundef double @_ZN5Ipopt12OrigIpoptNLP1fERKNS_6VectorEd(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt12OrigIpoptNLP6grad_fERKNS_6VectorE(ptr dead_on_unwind noalias nonnull writable sret(%"class.Ipopt::SmartPtr.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt12OrigIpoptNLP6grad_fERKNS_6VectorE(ptr dead_on_unwind noalias nonnull writable sret(%"class.Ipopt::SmartPtr.18") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.18", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.30", align 1
@@ -13650,7 +13650,7 @@ define linkonce_odr void @_ZN5Ipopt14INTERNAL_ABORTD2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt12OrigIpoptNLP1cERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt12OrigIpoptNLP1cERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.18") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.18", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.30", align 1
@@ -14329,7 +14329,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit73:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt12OrigIpoptNLP1dERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt12OrigIpoptNLP1dERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.18") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.18", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.30", align 1
@@ -15008,7 +15008,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit73:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt12OrigIpoptNLP5jac_cERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.19") align 8 %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt12OrigIpoptNLP5jac_cERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.19") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.19", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.19", align 8
   %6 = alloca %"class.Ipopt::SmartPtr.18", align 8
@@ -16063,7 +16063,7 @@ _ZNSt6vectorIPKN5Ipopt12TaggedObjectESaIS3_EED2Ev.exit7: ; preds = %21, %.body
 declare noundef zeroext i1 @_ZNK5Ipopt6Matrix15HasValidNumbersEv(ptr noundef nonnull align 8 dereferenceable(69)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt12OrigIpoptNLP5jac_dERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.19") align 8 %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt12OrigIpoptNLP5jac_dERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.19") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.19", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.19", align 8
   %6 = alloca %"class.Ipopt::SmartPtr.18", align 8
@@ -16990,7 +16990,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit113:     ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt12OrigIpoptNLP15uninitialized_hEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.57") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %1) unnamed_addr #4 align 2 {
+define void @_ZN5Ipopt12OrigIpoptNLP15uninitialized_hEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.57") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -17013,7 +17013,7 @@ _ZN5Ipopt8SmartPtrIKNS_9SymMatrixEEC2EPS2_.exit:  ; preds = %9, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt12OrigIpoptNLP1hERKNS_6VectorEdS3_S3_(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.57") align 8 %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(205) %4, ptr noundef nonnull align 8 dereferenceable(205) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt12OrigIpoptNLP1hERKNS_6VectorEdS3_S3_(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.57") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(544) %1, ptr noundef nonnull align 8 dereferenceable(205) %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(205) %4, ptr noundef nonnull align 8 dereferenceable(205) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca double, align 8
   %8 = alloca %"class.std::vector.39", align 8
   %9 = alloca %"class.std::vector.44", align 8

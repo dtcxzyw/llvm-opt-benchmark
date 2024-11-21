@@ -807,7 +807,7 @@ define range(i64 -2147483648, 2147483648) i64 @SUNLinSolLastFlag_SPFGMR(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNLinSolSpace_SPFGMR(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define noundef i32 @SUNLinSolSpace_SPFGMR(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %0, align 8

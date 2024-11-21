@@ -144,7 +144,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML10ScanScalarB5cxx11ERNS_6StreamERNS_16ScanScalarParamsE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %INPUT, ptr nocapture noundef nonnull align 8 dereferenceable(41) %params) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML10ScanScalarB5cxx11ERNS_6StreamERNS_16ScanScalarParamsE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %INPUT, ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((40, 41)) %params) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %source.i.i442 = alloca %"class.YAML::StreamCharSource", align 8
   %source.i.i410 = alloca %"class.YAML::StreamCharSource", align 8

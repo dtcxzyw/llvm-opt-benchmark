@@ -39,7 +39,7 @@ copy_and_reverse.exit:                            ; preds = %7
 declare i32 @gcry_mpi_scan(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @x25519_mpi(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @x25519_mpi(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca i64, align 8
@@ -132,7 +132,7 @@ copy_and_reverse.exit15:                          ; preds = %39, %36, %33, %24, 
 declare void @gcry_mpi_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_base(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_base(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @gcry_mpi_set_ui(ptr noundef null, i64 noundef 9) #3
   %4 = tail call fastcc i32 @x25519_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   tail call void @gcry_mpi_release(ptr noundef %3) #3

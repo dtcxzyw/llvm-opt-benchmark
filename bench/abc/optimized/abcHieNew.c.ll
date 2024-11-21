@@ -118,7 +118,7 @@ Vec_PtrGrow.exit:                                 ; preds = %2, %4
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Au_ManAddNtk(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Au_ManAddNtk(ptr noundef %0, ptr noundef initializes((8, 20)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32

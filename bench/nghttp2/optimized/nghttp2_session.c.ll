@@ -377,7 +377,7 @@ nghttp2_session_client_new3.exit:                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_new(ptr nocapture noundef nonnull %session_ptr, ptr nocapture noundef readonly %callbacks, ptr noundef %user_data, i32 noundef range(i32 0, 2) %server, ptr noundef readonly %option, ptr noundef %mem) unnamed_addr #1 {
+define internal fastcc i32 @session_new(ptr nocapture noundef nonnull initializes((0, 8)) %session_ptr, ptr nocapture noundef readonly %callbacks, ptr noundef %user_data, i32 noundef range(i32 0, 2) %server, ptr noundef readonly %option, ptr noundef %mem) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %mem, null
   br i1 %cmp, label %if.then, label %if.end
@@ -3072,7 +3072,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 declare void @nghttp2_outbound_queue_pop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @nghttp2_session_mem_send(ptr noundef %session, ptr nocapture noundef writeonly %data_ptr) local_unnamed_addr #1 {
+define i64 @nghttp2_session_mem_send(ptr noundef %session, ptr nocapture noundef writeonly initializes((0, 8)) %data_ptr) local_unnamed_addr #1 {
 entry:
   store ptr null, ptr %data_ptr, align 8
   %call = tail call fastcc i64 @nghttp2_session_mem_send_internal(ptr noundef %session, ptr noundef nonnull %data_ptr, i32 noundef 1)
@@ -14054,7 +14054,7 @@ entry:
 declare i64 @nghttp2_hd_deflate_get_dynamic_table_size(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nghttp2_session_set_user_data(ptr nocapture noundef writeonly %session, ptr noundef %user_data) local_unnamed_addr #8 {
+define void @nghttp2_session_set_user_data(ptr nocapture noundef writeonly initializes((2568, 2576)) %session, ptr noundef %user_data) local_unnamed_addr #8 {
 entry:
   %user_data1 = getelementptr inbounds i8, ptr %session, i64 2568
   store ptr %user_data, ptr %user_data1, align 8

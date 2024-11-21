@@ -1052,7 +1052,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare { ptr, i64 } @_ZN4llvm17ValueTypeByHwMode10getMVTNameENS_3MVTE(i16) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15TypeSetByHwModeC2ENS_8ArrayRefINS_17ValueTypeByHwModeEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15TypeSetByHwModeC2ENS_8ArrayRefINS_17ValueTypeByHwModeEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((8, 12), (16, 24)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1297,7 +1297,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15TypeSetByHwMode19isValueTypeByHw
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm15TypeSetByHwMode20getValueTypeByHwModeEv(ptr dead_on_unwind noalias writable sret(%"struct.llvm::ValueTypeByHwMode") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm15TypeSetByHwMode20getValueTypeByHwModeEv(ptr dead_on_unwind noalias writable sret(%"struct.llvm::ValueTypeByHwMode") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -11814,7 +11814,7 @@ _ZNK4llvm10ScopedNameeqERKS0_.exit:               ; preds = %2, %6, %12, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15TreePredicateFnC2EPNS_11TreePatternE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4llvm15TreePredicateFnC2EPNS_11TreePatternE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #10 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -16002,7 +16002,7 @@ _ZN4llvm11SmallVectorIPNS_6RecordELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallStri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16SDTypeConstraintC2EPNS_6RecordERKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16SDTypeConstraintC2EPNS_6RecordERKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(72) initializes((24, 28), (32, 40)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::ValueTypeByHwMode", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"struct.llvm::ValueTypeByHwMode", align 8
@@ -17446,7 +17446,7 @@ define linkonce_odr hidden void @_ZN4llvm12InfoByHwModeINS_19MachineValueTypeSet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10SDNodeInfoC2EPNS_6RecordERKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10SDNodeInfoC2EPNS_6RecordERKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 52), (56, 80)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::vector.133", align 8
   %5 = alloca ptr, align 8
   store ptr %1, ptr %0, align 8
@@ -18354,7 +18354,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm9StringSetINS_15MallocAl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm15TreePatternNode5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm15TreePatternNode5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(184) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -24137,7 +24137,7 @@ _ZL22OnlyOnRHSOfCommutativeRN4llvm15TreePatternNodeE.exit.thread52: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11TreePatternC2EPNS_6RecordEPNS_8ListInitEbRNS_18CodeGenDAGPatternsE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(1212) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11TreePatternC2EPNS_6RecordEPNS_8ListInitEbRNS_18CodeGenDAGPatternsE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 90), (96, 120)) %0, ptr noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(1212) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = zext i1 %3 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -25183,7 +25183,7 @@ _ZNK4llvm7DagInit10getNameStrEv.exit:             ; preds = %.loopexit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11TreePatternC2EPNS_6RecordEPNS_7DagInitEbRNS_18CodeGenDAGPatternsE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(1212) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11TreePatternC2EPNS_6RecordEPNS_7DagInitEbRNS_18CodeGenDAGPatternsE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 90), (96, 120)) %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(1212) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = zext i1 %3 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -25262,7 +25262,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit: ; preds = %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11TreePatternC2EPNS_6RecordENS_18IntrusiveRefCntPtrINS_15TreePatternNodeEEEbRNS_18CodeGenDAGPatternsE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(1212) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11TreePatternC2EPNS_6RecordENS_18IntrusiveRefCntPtrINS_15TreePatternNodeEEEbRNS_18CodeGenDAGPatternsE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 90), (96, 120)) %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(1212) %4) unnamed_addr #0 align 2 {
 _ZNSt6vectorIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE9push_backERKS3_.exit:
   %5 = zext i1 %3 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -27645,7 +27645,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %124, %122, %._crit_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18CodeGenDAGPatternsC2ERNS_12RecordKeeperESt8functionIFvPNS_11TreePatternEEE(ptr noundef nonnull align 8 dereferenceable(1212) %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18CodeGenDAGPatternsC2ERNS_12RecordKeeperESt8functionIFvPNS_11TreePatternEEE(ptr noundef nonnull align 8 dereferenceable(1212) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::CodeGenIntrinsicTable", align 8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -41654,7 +41654,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm3MVTEEZNS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN4llvm15TypeSetByHwMode9intersectERNS_19MachineValueTypeSetERKS1_ENK3$_1clESt8optionalINS_3MVTEENS_12function_refIFbS7_EEEENKUlS4_S4_E_clES4_S4_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture readonly %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZN4llvm15TypeSetByHwMode9intersectERNS_19MachineValueTypeSetERKS1_ENK3$_1clESt8optionalINS_3MVTEENS_12function_refIFbS7_EEEENKUlS4_S4_E_clES4_S4_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 64)) %0, ptr nocapture readonly %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   br label %4
 

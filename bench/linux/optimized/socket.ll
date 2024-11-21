@@ -1491,7 +1491,7 @@ define dso_local void @vlan_ioctl_set(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sock_create_lite(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define dso_local i32 @sock_create_lite(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 align 16 {
   %5 = tail call i32 @security_socket_create(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 1) #20
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %.thread
@@ -4660,7 +4660,7 @@ __sys_shutdown.exit:                              ; preds = %1, %.thread.i, %24,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @__copy_msghdr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__copy_msghdr(ptr nocapture noundef initializes((8, 12), (56, 64), (68, 80)) %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, -4
@@ -5112,7 +5112,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_sendmsg(i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @___sys_sendmsg(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 129) %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @___sys_sendmsg(ptr noundef nonnull %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 129) %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.user_msghdr, align 8
   %8 = alloca %struct.__kernel_sockaddr_storage, align 8
   %9 = alloca [8 x %struct.iovec], align 16
@@ -5622,14 +5622,14 @@ define dso_local range(i32 -2147483648, 1) i32 @recvmsg_copy_msghdr(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_recvmsg_sock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_recvmsg_sock(ptr noundef %0, ptr noundef initializes((0, 12), (68, 72)) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = tail call fastcc i32 @____sys_recvmsg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0)
   %7 = sext i32 %6 to i64
   ret i64 %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @____sys_recvmsg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @____sys_recvmsg(ptr noundef %0, ptr noundef initializes((0, 12), (68, 72)) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.__kernel_sockaddr_storage, align 8
   %8 = icmp slt i32 %4, 0
   %9 = select i1 %8, i64 4, i64 8
@@ -7233,7 +7233,7 @@ define dso_local i32 @kernel_listen(ptr noundef %0, i32 noundef %1) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @kernel_accept(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local i32 @kernel_accept(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32

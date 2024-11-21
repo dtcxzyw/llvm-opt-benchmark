@@ -1161,7 +1161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9FdmZabrOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEEdddd(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, double noundef %beta, double noundef %nu, double noundef %rho, double noundef %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9FdmZabrOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEEdddd(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, double noundef %beta, double noundef %nu, double noundef %rho, double noundef %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::SecondOrderMixedDerivativeOp", align 8
   %ref.tmp11 = alloca %"class.QuantLib::Array", align 8

@@ -33,7 +33,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA6Thread19SemaphoreParametersC2EibPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(25) %this, i32 noundef %initialCount, i1 noundef zeroext %bIntraProcess, ptr nocapture readnone %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN2EA6Thread19SemaphoreParametersC2EibPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(25) initializes((0, 9)) %this, i32 noundef %initialCount, i1 noundef zeroext %bIntraProcess, ptr nocapture readnone %0) unnamed_addr #2 align 2 {
 entry:
   %frombool = zext i1 %bIntraProcess to i8
   store i32 %initialCount, ptr %this, align 4

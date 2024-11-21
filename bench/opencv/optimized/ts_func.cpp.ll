@@ -28467,7 +28467,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6cvtest13MatComparatorC2Edi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0, double noundef %1, i32 noundef %2) unnamed_addr #17 align 2 {
+define hidden void @_ZN6cvtest13MatComparatorC2Edi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %0, double noundef %1, i32 noundef %2) unnamed_addr #17 align 2 {
   store double %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %4, align 8

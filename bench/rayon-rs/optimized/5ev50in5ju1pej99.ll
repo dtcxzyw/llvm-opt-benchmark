@@ -1013,7 +1013,7 @@ _ZN10rayon_core8registry19set_global_registry17h8c93fbc64a3f9233E.exit: ; preds 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN10rayon_core8registry15global_registry28_$u7b$$u7b$closure$u7d$$u7d$17hd3ffca1b360982a2E.llvm.14976363794789945401"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, i64 noundef %1, ptr %2) unnamed_addr #0 {
+define hidden void @"_ZN10rayon_core8registry15global_registry28_$u7b$$u7b$closure$u7d$$u7d$17hd3ffca1b360982a2E.llvm.14976363794789945401"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1, ptr %2) unnamed_addr #0 {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = load ptr, ptr @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, align 8, !noundef !4
   %.not = icmp eq ptr %5, null
@@ -1568,7 +1568,7 @@ define void @_ZN10rayon_core8registry8Registry26notify_worker_latch_is_set17hfe5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN10rayon_core8registry10ThreadInfo3new17h98ee6cfac5572a51E(ptr noalias nocapture noundef writeonly sret({ { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }) align 8 dereferenceable(48) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #7 {
+define void @_ZN10rayon_core8registry10ThreadInfo3new17h98ee6cfac5572a51E(ptr noalias nocapture noundef writeonly sret({ { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }) align 8 dereferenceable(48) initializes((0, 9), (16, 30), (32, 42), (44, 48)) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #7 {
   %.sroa.65.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.620.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 44
   store i32 0, ptr %.sroa.620.0..sroa_idx, align 4

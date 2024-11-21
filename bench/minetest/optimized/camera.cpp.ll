@@ -449,7 +449,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6CameraC2ER14MapDrawControlP6ClientP15RenderingEngine(ptr noundef nonnull align 8 dereferenceable(560) %this, ptr noundef nonnull align 4 dereferenceable(7) %draw_control, ptr noundef %client, ptr nocapture noundef readonly %rendering_engine) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6CameraC2ER14MapDrawControlP6ClientP15RenderingEngine(ptr noundef nonnull align 8 dereferenceable(560) initializes((0, 56), (60, 92), (104, 105), (116, 196)) %this, ptr noundef nonnull align 4 dereferenceable(7) %draw_control, ptr noundef %client, ptr nocapture noundef readonly %rendering_engine) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i243 = alloca i64, align 8
   %__dnew.i.i189 = alloca i64, align 8
@@ -1505,7 +1505,7 @@ declare double @llvm.fabs.f64(double) #14
 declare noundef ptr @_ZN6Client15getEventManagerEv(ptr noundef nonnull align 8 dereferenceable(1746)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Camera6updateEP11LocalPlayerff(ptr noundef nonnull align 8 dereferenceable(560) %this, ptr noundef %player, float noundef %frametime, float noundef %tool_reload_ratio) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6Camera6updateEP11LocalPlayerff(ptr noundef nonnull align 8 dereferenceable(560) initializes((60, 84)) %this, ptr noundef %player, float noundef %frametime, float noundef %tool_reload_ratio) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dummy.i1029 = alloca float, align 4
   %dummy.i1027 = alloca float, align 4
@@ -4509,7 +4509,7 @@ delete.end:                                       ; preds = %_ZN7NametagD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK6Camera20getFrustumCullPlanesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK6Camera20getFrustumCullPlanesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_cameranode = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_cameranode, align 8, !tbaa !73

@@ -9841,7 +9841,7 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter8register17hcac83345fdddcecdE(ptr noalias nocapture noundef writeonly sret({ [89 x i64], ptr, [5 x i8], i8, [1946 x i8] }) align 8 dereferenceable(2672) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1) unnamed_addr #4 {
+define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter8register17hcac83345fdddcecdE(ptr noalias nocapture noundef writeonly sret({ [89 x i64], ptr, [5 x i8], i8, [1946 x i8] }) align 8 dereferenceable(2672) initializes((712, 720), (725, 726)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 712
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 725
@@ -9850,7 +9850,7 @@ define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter8register17hca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter18create_self_handle17h5070acb7a07e8f9aE(ptr noalias nocapture noundef writeonly sret({ ptr, [880 x i8], i8, [7 x i8] }) align 8 dereferenceable(896) %0, ptr noalias noundef readonly align 8 dereferenceable(336) %1) unnamed_addr #4 {
+define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter18create_self_handle17h5070acb7a07e8f9aE(ptr noalias nocapture noundef writeonly sret({ ptr, [880 x i8], i8, [7 x i8] }) align 8 dereferenceable(896) initializes((0, 8), (888, 889)) %0, ptr noalias noundef readonly align 8 dereferenceable(336) %1) unnamed_addr #4 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 888
   store i8 0, ptr %3, align 8
@@ -9858,7 +9858,7 @@ define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter18create_self_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter14handle_connect17hb314889564780d84E(ptr noalias nocapture noundef writeonly sret({ [4 x i64], { { { ptr, i64 }, i64 } }, ptr, [3 x i8], i8, [3972 x i8] }) align 8 dereferenceable(4040) %0, ptr noalias noundef align 8 dereferenceable(336) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
+define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter14handle_connect17hb314889564780d84E(ptr noalias nocapture noundef writeonly sret({ [4 x i64], { { { ptr, i64 }, i64 } }, ptr, [3 x i8], i8, [3972 x i8] }) align 8 dereferenceable(4040) initializes((32, 64), (67, 68)) %0, ptr noalias noundef align 8 dereferenceable(336) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -15460,7 +15460,7 @@ common.ret:                                       ; preds = %1692, %560, %174
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter15handle_register17h9ecf1a54ae64d64bE(ptr noalias nocapture noundef writeonly sret({ ptr, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(336) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3) unnamed_addr #5 {
+define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter15handle_register17h9ecf1a54ae64d64bE(ptr noalias nocapture noundef writeonly sret({ ptr, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(72) initializes((0, 65)) %0, ptr noalias noundef align 8 dereferenceable(336) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -16793,7 +16793,7 @@ default.unreachable118:                           ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter17handle_unregister17h818163faf1c1ad8cE(ptr noalias nocapture noundef writeonly sret({ ptr, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(336) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #5 {
+define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter17handle_unregister17h818163faf1c1ad8cE(ptr noalias nocapture noundef writeonly sret({ ptr, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(48) initializes((0, 41)) %0, ptr noalias noundef align 8 dereferenceable(336) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
@@ -22998,7 +22998,7 @@ common.ret:                                       ; preds = %2005, %1974, %873
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter13resolve_route17hb69a5accc0d40dd0E(ptr noalias nocapture noundef writeonly sret({ [515 x i64], ptr, ptr, [117 x i8], i8, [2 x i8] }) align 8 dereferenceable(4256) %0, ptr noalias noundef align 8 dereferenceable(336) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #4 {
+define void @_ZN19ockam_transport_uds6router10uds_router9UdsRouter13resolve_route17hb69a5accc0d40dd0E(ptr noalias nocapture noundef writeonly sret({ [515 x i64], ptr, ptr, [117 x i8], i8, [2 x i8] }) align 8 dereferenceable(4256) initializes((4120, 4136), (4253, 4254)) %0, ptr noalias noundef align 8 dereferenceable(336) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4120
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4128

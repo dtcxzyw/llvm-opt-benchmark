@@ -1626,7 +1626,7 @@ for.end:                                          ; preds = %for.body, %numa_sta
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ram_block_notifier_add(ptr noundef %n) local_unnamed_addr #1 {
+define dso_local void @ram_block_notifier_add(ptr noundef initializes((24, 32)) %n) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ram_list, i64 96), align 8
   %next = getelementptr inbounds i8, ptr %n, i64 24

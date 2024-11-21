@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @enable_dbg_outs = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fra_ParamsDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Fra_ParamsDefault(ptr nocapture noundef writeonly initializes((0, 120)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)
   store i32 32, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
@@ -51,7 +51,7 @@ define void @Fra_ParamsDefault(ptr nocapture noundef writeonly %0) local_unnamed
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fra_ParamsDefaultSeq(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Fra_ParamsDefaultSeq(ptr nocapture noundef writeonly initializes((0, 120)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)
   store i32 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8

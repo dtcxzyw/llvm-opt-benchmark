@@ -1223,7 +1223,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @show_tree_common(ptr nocapture noundef readonly %options, ptr nocapture noundef nonnull writeonly %recurse, ptr nocapture noundef readonly %base, ptr nocapture noundef readonly %pathname, i32 noundef range(i32 1, 4) %type) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 2) i32 @show_tree_common(ptr nocapture noundef readonly %options, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %recurse, ptr nocapture noundef readonly %base, ptr nocapture noundef readonly %pathname, i32 noundef range(i32 1, 4) %type) unnamed_addr #5 {
 entry:
   store i32 0, ptr %recurse, align 4
   switch i32 %type, label %if.end11 [

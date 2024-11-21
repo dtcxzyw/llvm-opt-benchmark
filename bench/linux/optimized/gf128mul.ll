@@ -35,7 +35,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_gf128mul_4k_
 @llvm.compiler.used = appending global [13 x ptr] [ptr @__UNIQUE_ID___addressable_gf128mul_4k_bbe312, ptr @__UNIQUE_ID___addressable_gf128mul_4k_lle311, ptr @__UNIQUE_ID___addressable_gf128mul_64k_bbe308, ptr @__UNIQUE_ID___addressable_gf128mul_bbe305, ptr @__UNIQUE_ID___addressable_gf128mul_free_64k307, ptr @__UNIQUE_ID___addressable_gf128mul_init_4k_bbe310, ptr @__UNIQUE_ID___addressable_gf128mul_init_4k_lle309, ptr @__UNIQUE_ID___addressable_gf128mul_init_64k_bbe306, ptr @__UNIQUE_ID___addressable_gf128mul_lle304, ptr @__UNIQUE_ID___addressable_gf128mul_x8_ble303, ptr @__UNIQUE_ID_description315, ptr @__UNIQUE_ID_file313, ptr @__UNIQUE_ID_license314], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @gf128mul_x8_ble(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @gf128mul_x8_ble(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8

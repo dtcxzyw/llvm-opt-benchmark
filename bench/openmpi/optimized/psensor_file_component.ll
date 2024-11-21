@@ -153,7 +153,7 @@ pmix_obj_run_destructors.exit19:                  ; preds = %.lr.ph.i16, %._crit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @psensor_file_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal noundef i32 @psensor_file_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
   store i32 20, ptr %1, align 4
   store ptr @pmix_psensor_file_module, ptr %0, align 8
   ret i32 0

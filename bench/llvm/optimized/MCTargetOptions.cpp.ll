@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm15MCTargetOptionsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm15MCTargetOptionsC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15MCTargetOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(201) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15MCTargetOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(201) initializes((2, 6), (8, 24)) %0) unnamed_addr #0 align 2 {
   %2 = load i16, ptr %0, align 8
   %3 = and i16 %2, -16384
   %4 = or disjoint i16 %3, 4096

@@ -193,7 +193,7 @@ define internal noundef nonnull ptr @_ZL43initializePhysicalRegisterUsageInfoPas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm25PhysicalRegisterUsageInfo16setTargetMachineERKNS_17LLVMTargetMachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(1232) %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm25PhysicalRegisterUsageInfo16setTargetMachineERKNS_17LLVMTargetMachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(1232) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8
   ret void

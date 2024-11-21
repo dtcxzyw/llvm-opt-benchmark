@@ -70,7 +70,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9HaltonRsgC2Emmbb(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %dimensionality, i64 noundef %seed, i1 noundef zeroext %randomStart, i1 noundef zeroext %randomShift) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9HaltonRsgC2Emmbb(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 16)) %this, i64 noundef %dimensionality, i64 noundef %seed, i1 noundef zeroext %randomStart, i1 noundef zeroext %randomShift) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp24 = alloca %"class.std::__cxx11::basic_string", align 8

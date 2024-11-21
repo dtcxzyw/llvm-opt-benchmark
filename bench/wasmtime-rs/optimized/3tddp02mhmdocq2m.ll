@@ -210,7 +210,7 @@ define { ptr, i64 } @_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14cranelift_isle4sema4Type3pos17h6106c82e2e44935cE(ptr nocapture writeonly sret({ i64, i64, i64, i64 }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @_ZN14cranelift_isle4sema4Type3pos17h6106c82e2e44935cE(ptr nocapture writeonly sret({ i64, i64, i64, i64 }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !3, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
   %.0.v = select i1 %4, i64 8, i64 40

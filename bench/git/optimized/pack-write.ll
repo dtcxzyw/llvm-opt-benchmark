@@ -52,7 +52,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.33 = private unnamed_addr constant [23 x i8] c"pack/tmp_mtimes_XXXXXX\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @reset_pack_idx_option(ptr nocapture noundef writeonly %opts) local_unnamed_addr #0 {
+define dso_local void @reset_pack_idx_option(ptr nocapture noundef writeonly initializes((0, 32)) %opts) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %opts, i8 0, i64 32, i1 false)
   %version = getelementptr inbounds i8, ptr %opts, i64 4
@@ -1155,7 +1155,7 @@ while.end:                                        ; preds = %if.end6, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @create_tmp_packfile(ptr nocapture noundef writeonly %pack_tmp_name) local_unnamed_addr #2 {
+define dso_local ptr @create_tmp_packfile(ptr nocapture noundef writeonly initializes((0, 8)) %pack_tmp_name) local_unnamed_addr #2 {
 entry:
   %tmpname = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tmpname, ptr noundef nonnull align 8 dereferenceable(24) @__const.write_mtimes_file.tmp_file, i64 24, i1 false)

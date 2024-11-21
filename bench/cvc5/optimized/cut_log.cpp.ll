@@ -298,7 +298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7TreeLog12makeInactiveEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(133) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7TreeLog12makeInactiveEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(133) initializes((132, 133)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_active = getelementptr inbounds i8, ptr %this, i64 132
   store i8 0, ptr %d_active, align 4
@@ -306,7 +306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7TreeLog10makeActiveEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(133) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7TreeLog10makeActiveEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(133) initializes((132, 133)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_active = getelementptr inbounds i8, ptr %this, i64 132
   store i8 1, ptr %d_active, align 4
@@ -323,7 +323,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear12PrimitiveVecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear12PrimitiveVecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this) unnamed_addr #7 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %inds = getelementptr inbounds i8, ptr %this, i64 8
@@ -414,7 +414,7 @@ entry:
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear12PrimitiveVec5setupEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %l) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear12PrimitiveVec5setupEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, i32 noundef %l) local_unnamed_addr #12 align 2 {
 entry:
   store i32 %l, ptr %this, align 8
   %add = add nsw i32 %l, 1
@@ -538,7 +538,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfoC2ENS3_12CutInfoKlassEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, i32 noundef %kl, i32 noundef %eid, i32 noundef %o) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfoC2ENS3_12CutInfoKlassEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 36), (40, 68), (72, 88)) %this, i32 noundef %kl, i32 noundef %eid, i32 noundef %o) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i64 16), ptr %this, align 8
   %d_klass = getelementptr inbounds i8, ptr %this, i64 8
@@ -567,7 +567,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i64 16), ptr %this, align 8
   %d_explanation = getelementptr inbounds i8, ptr %this, i64 80
@@ -629,7 +629,7 @@ _ZN4cvc58internal6theory5arith6linear12PrimitiveVecD2Ev.exit: ; preds = %_ZNSt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory5arith6linear7CutInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -656,7 +656,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfo8setRowIdEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, i32 noundef %rid) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfo8setRowIdEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((64, 68)) %this, i32 noundef %rid) local_unnamed_addr #7 align 2 {
 entry:
   %d_rowId = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %rid, ptr %d_rowId, align 8
@@ -752,7 +752,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfo7setKindENS0_4kind6Kind_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, i32 noundef %k) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfo7setKindENS0_4kind6Kind_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((20, 24)) %this, i32 noundef %k) local_unnamed_addr #7 align 2 {
 entry:
   %d_cutType = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %k, ptr %d_cutType, align 4
@@ -768,7 +768,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfo6setRhsEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, double noundef %r) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfo6setRhsEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((24, 32)) %this, double noundef %r) local_unnamed_addr #7 align 2 {
 entry:
   %d_cutRhs = getelementptr inbounds i8, ptr %this, i64 24
   store double %r, ptr %d_cutRhs, align 8
@@ -801,7 +801,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfo13setDimensionsEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, i32 noundef %N, i32 noundef %M) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7CutInfo13setDimensionsEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((56, 64)) %this, i32 noundef %N, i32 noundef %M) local_unnamed_addr #7 align 2 {
 entry:
   %d_mAtCreation = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %M, ptr %d_mAtCreation, align 8
@@ -1220,7 +1220,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7NodeLogC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7NodeLogC2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 4), (8, 48)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -1, ptr %this, align 8
   %d_parent = getelementptr inbounds i8, ptr %this, i64 8
@@ -1266,7 +1266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7NodeLogC2EPNS3_7TreeLogEiRKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %tl, i32 noundef %node, ptr noundef nonnull align 8 dereferenceable(56) %m) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7NodeLogC2EPNS3_7TreeLogEiRKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 4), (8, 48)) %this, ptr noundef %tl, i32 noundef %node, ptr noundef nonnull align 8 dereferenceable(56) %m) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__alloc_node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   store i32 %node, ptr %this, align 8
@@ -1374,7 +1374,7 @@ _ZNSt8_Rb_treeIPN4cvc58internal6theory5arith6linear7CutInfoES6_St9_IdentityIS6_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7NodeLogC2EPNS3_7TreeLogEPS4_i(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %tl, ptr noundef %parent, i32 noundef %node) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7NodeLogC2EPNS3_7TreeLogEPS4_i(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 4), (8, 48)) %this, ptr noundef %tl, ptr noundef %parent, i32 noundef %node) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %node, ptr %this, align 8
   %d_parent = getelementptr inbounds i8, ptr %this, i64 8
@@ -2790,7 +2790,7 @@ _ZNSt3setIPN4cvc58internal6theory5arith6linear7CutInfoENS4_7NodeLog13CmpCutPoint
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7NodeLog9closeNodeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7NodeLog9closeNodeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((120, 124)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_stat = getelementptr inbounds i8, ptr %this, i64 120
   store i32 1, ptr %d_stat, align 8
@@ -2798,7 +2798,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7NodeLog9setBranchEidii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %this, i32 noundef %br, double noundef %val, i32 noundef %d, i32 noundef %u) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7NodeLog9setBranchEidii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((120, 144)) %this, i32 noundef %br, double noundef %val, i32 noundef %d, i32 noundef %u) local_unnamed_addr #7 align 2 {
 entry:
   %d_brVar = getelementptr inbounds i8, ptr %this, i64 124
   store i32 %br, ptr %d_brVar, align 4
@@ -2814,7 +2814,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7TreeLogC2Ev(ptr noundef nonnull align 8 dereferenceable(133) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7TreeLogC2Ev(ptr noundef nonnull align 8 dereferenceable(133) initializes((0, 4), (8, 32)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %empty = alloca %"class.std::unordered_map", align 8
   store i32 0, ptr %this, align 8
@@ -2880,7 +2880,7 @@ lpad2:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7TreeLog5resetERKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE(ptr noundef nonnull align 8 dereferenceable(133) %this, ptr noundef nonnull align 8 dereferenceable(56) %m) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7TreeLog5resetERKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE(ptr noundef nonnull align 8 dereferenceable(133) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(56) %m) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__alloc_node_gen.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %ref.tmp = alloca %"struct.std::pair.74", align 8
@@ -3172,7 +3172,7 @@ _ZN4cvc58internal6theory5arith6linear7TreeLog7getNodeEi.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear7TreeLog5clearEv(ptr noundef nonnull align 8 dereferenceable(133) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear7TreeLog5clearEv(ptr noundef nonnull align 8 dereferenceable(133) initializes((0, 4)) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %d_toNode = getelementptr inbounds i8, ptr %this, i64 8
@@ -3943,7 +3943,7 @@ eh.resume:                                        ; preds = %lpad6, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear11RowsDeletedC2EiiPKi(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %execOrd, i32 noundef %nrows, ptr nocapture noundef readonly %num) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear11RowsDeletedC2EiiPKi(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 36), (40, 68), (72, 88)) %this, i32 noundef %execOrd, i32 noundef %nrows, ptr nocapture noundef readonly %num) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_klass.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 3, ptr %d_klass.i, align 8
@@ -4018,7 +4018,7 @@ for.end:                                          ; preds = %for.body, %_ZN4cvc5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear13BranchCutInfoC2EiiNS0_4kind6Kind_tEd(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %execOrd, i32 noundef %br, i32 noundef %dir, double noundef %val) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear13BranchCutInfoC2EiiNS0_4kind6Kind_tEd(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 36), (40, 68), (72, 88)) %this, i32 noundef %execOrd, i32 noundef %br, i32 noundef %dir, double noundef %val) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_klass.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2, ptr %d_klass.i, align 8

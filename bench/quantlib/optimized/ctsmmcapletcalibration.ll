@@ -325,7 +325,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #8 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22CTSMMCapletCalibrationC2ENS_20EvolutionDescriptionEN5boost10shared_ptrINS_28PiecewiseConstantCorrelationEEESt6vectorINS3_INS_25PiecewiseConstantVarianceEEESaIS8_EES6_IdSaIdEENS3_INS_10CurveStateEEEd(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr nocapture noundef %evolution, ptr nocapture noundef %corr, ptr nocapture noundef %displacedSwapVariances, ptr nocapture noundef %mktCapletVols, ptr nocapture noundef %cs, double noundef %displacement) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22CTSMMCapletCalibrationC2ENS_20EvolutionDescriptionEN5boost10shared_ptrINS_28PiecewiseConstantCorrelationEEESt6vectorINS3_INS_25PiecewiseConstantVarianceEEESaIS8_EES6_IdSaIdEENS3_INS_10CurveStateEEEd(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 200)) %this, ptr nocapture noundef %evolution, ptr nocapture noundef %corr, ptr nocapture noundef %displacedSwapVariances, ptr nocapture noundef %mktCapletVols, ptr nocapture noundef %cs, double noundef %displacement) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib22CTSMMCapletCalibrationE, i64 16), ptr %this, align 8, !tbaa !14
   %evolution_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3267,7 +3267,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib20Evolutio
 declare noundef double @_ZNK8QuantLib25PiecewiseConstantVariance15totalVolatilityEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLib22CTSMMCapletCalibration9calibrateEjjdjd(ptr noundef nonnull align 8 dereferenceable(424) %this, i32 noundef %numberOfFactors, i32 noundef %maxIterations, double noundef %capletVolTolerance, i32 noundef %innerSolvingMaxIterations, double noundef %innerSolvingTolerance) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8QuantLib22CTSMMCapletCalibration9calibrateEjjdjd(ptr noundef nonnull align 8 dereferenceable(424) initializes((352, 353), (356, 400)) %this, i32 noundef %numberOfFactors, i32 noundef %maxIterations, double noundef %capletVolTolerance, i32 noundef %innerSolvingMaxIterations, double noundef %innerSolvingTolerance) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %displacements = alloca %"class.std::vector.10", align 8
   %ctsmm = alloca %"class.boost::shared_ptr.9", align 8

@@ -4304,7 +4304,7 @@ define hidden void @rb_io_fptr_finalize_internal(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_io_fptr_cleanup_all(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @rb_io_fptr_cleanup_all(ptr noundef initializes((32, 40)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 4, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4711,7 +4711,7 @@ rb_io_check_closed.exit:                          ; preds = %rb_io_check_initial
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @io_ascii8bit_binmode(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @io_ascii8bit_binmode(ptr nocapture noundef initializes((96, 116), (120, 128), (176, 180)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -5204,7 +5204,7 @@ declare i64 @rb_check_string_type(i64 noundef) local_unnamed_addr #1
 declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parse_mode_enc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @parse_mode_enc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [43 x i8], align 16
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %7
@@ -7003,7 +7003,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %182
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noalias noundef ptr @ruby_popen_writer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @ruby_popen_writer(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.popen_writer_arg, align 8
   %4 = alloca i32, align 4
   %5 = alloca [80 x i8], align 16
@@ -7048,7 +7048,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @rb_fork_async_signal_safe(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @exec_popen_writer(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal noundef i32 @exec_popen_writer(ptr nocapture noundef initializes((24, 28)) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 2, ptr %5, align 8
@@ -12005,7 +12005,7 @@ io_check_tty.exit:                                ; preds = %clear_codeconv.exit
 declare void @rb_define_hooked_variable(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @deprecated_str_setter(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal void @deprecated_str_setter(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
   %4 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
   call void @rb_str_setter(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %4) #24
@@ -23076,7 +23076,7 @@ declare i64 @rb_fiber_scheduler_current_for_thread(i64 noundef) local_unnamed_ad
 declare ptr @rb_thread_call_with_gvl(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @fiber_scheduler_wait_for(ptr nocapture noundef %0) #0 {
+define internal noalias noundef ptr @fiber_scheduler_wait_for(ptr nocapture noundef initializes((24, 32)) %0) #0 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -28565,7 +28565,7 @@ declare i64 @rb_enumeratorize_with_size(i64 noundef, i64 noundef, i32 noundef, p
 declare i64 @rb_frame_this_func() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @open_key_args(i64 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc void @open_key_args(i64 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly initializes((0, 4), (8, 24)) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
@@ -31452,7 +31452,7 @@ declare ptr @freopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare i64 @rb_str_substr(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @prepare_getline_args(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @prepare_getline_args(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull initializes((8, 24)) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8

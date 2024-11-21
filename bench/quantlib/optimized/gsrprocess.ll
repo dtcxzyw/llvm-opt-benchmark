@@ -266,7 +266,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib10GsrProcessC2ERKNS_5ArrayES3_S3_dRKNS_4DateENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull align 8 dereferenceable(16) %times, ptr noundef nonnull align 8 dereferenceable(16) %vols, ptr noundef nonnull align 8 dereferenceable(16) %reversions, double noundef %T, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef %dc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib10GsrProcessC2ERKNS_5ArrayES3_S3_dRKNS_4DateENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(536) initializes((16, 20), (24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(16) %times, ptr noundef nonnull align 8 dereferenceable(16) %vols, ptr noundef nonnull align 8 dereferenceable(16) %reversions, double noundef %T, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef %dc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !8

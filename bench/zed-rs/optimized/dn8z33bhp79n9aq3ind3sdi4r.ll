@@ -751,7 +751,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN16html_to_markdown8markdown12TableHandler3new17h6fe360117bb99065E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0) unnamed_addr #4 {
+define void @_ZN16html_to_markdown8markdown12TableHandler3new17h6fe360117bb99065E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 10)) %0) unnamed_addr #4 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8
@@ -761,7 +761,7 @@ define void @_ZN16html_to_markdown8markdown12TableHandler3new17h6fe360117bb99065
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN83_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$core..default..Default$GT$7default17ha06059bb710c7aaaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0) unnamed_addr #4 {
+define void @"_ZN83_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$core..default..Default$GT$7default17ha06059bb710c7aaaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 10)) %0) unnamed_addr #4 {
   store i64 0, ptr %0, align 8, !alias.scope !263
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8, !alias.scope !263

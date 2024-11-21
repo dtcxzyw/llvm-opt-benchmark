@@ -48,7 +48,7 @@ define void @_ZN5draco13EncoderBufferC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5draco13EncoderBuffer5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5draco13EncoderBuffer5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((32, 40)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8

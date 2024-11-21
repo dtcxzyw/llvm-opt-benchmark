@@ -1794,7 +1794,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 sect
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmakeC2ENS_4RoleEN7cmState4ModeENS1_11ProjectKindE(ptr noundef nonnull align 8 dereferenceable(2216) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5cmakeC2ENS_4RoleEN7cmState4ModeENS1_11ProjectKindE(ptr noundef nonnull align 8 dereferenceable(2216) initializes((0, 48), (56, 60), (64, 72)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::__detail::_AllocNode", align 8
   %6 = alloca %"class.std::basic_string_view", align 8
   %7 = alloca %"struct.std::__detail::_AllocNode", align 8
@@ -6580,7 +6580,7 @@ declare void @_ZN4Json10FastWriter5writeB5cxx11ERKNS_5ValueE(ptr dead_on_unwind 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmake24CleanupCommandsAndMacrosEv(ptr noundef nonnull align 8 dereferenceable(2216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5cmake24CleanupCommandsAndMacrosEv(ptr noundef nonnull align 8 dereferenceable(2216) initializes((1920, 1944)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.cmStateSnapshot, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1912
   %4 = load ptr, ptr %3, align 8
@@ -20924,7 +20924,7 @@ declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr nound
 declare void @_ZN13cmSystemTools7MessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmake16SetTraceRedirectEPS_(ptr noundef nonnull align 8 dereferenceable(2216) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5cmake16SetTraceRedirectEPS_(ptr noundef nonnull align 8 dereferenceable(2216) initializes((270, 276)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 270
   %4 = load i8, ptr %3, align 2
   %5 = getelementptr inbounds i8, ptr %0, i64 270
@@ -32737,7 +32737,7 @@ _ZNSt6vectorI20cmDocumentationEntrySaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit2
 declare void @_ZNK41cmExternalMakefileProjectGeneratorFactory16GetDocumentationB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmake26GetGeneratorsDocumentationEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.1131") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2216) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5cmake26GetGeneratorsDocumentationEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.1131") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2216) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZN5cmake35AppendGlobalGeneratorsDocumentationERSt6vectorI20cmDocumentationEntrySaIS1_EE(ptr noundef nonnull align 8 dereferenceable(2216) %1, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %3 unwind label %4

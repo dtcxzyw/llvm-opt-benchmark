@@ -2070,7 +2070,7 @@ ExplainYAMLLineStarting.exit:                     ; preds = %40, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExplainPrintPlan(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExplainPrintPlan(ptr noundef initializes((40, 80)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca %struct.StringInfoData, align 8

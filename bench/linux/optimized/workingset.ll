@@ -108,7 +108,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @workingset_test_recent(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @workingset_test_recent(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #6
   %4 = ptrtoint ptr %0 to i64
   %5 = trunc i64 %4 to i8

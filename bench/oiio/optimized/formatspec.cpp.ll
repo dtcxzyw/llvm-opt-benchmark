@@ -2150,7 +2150,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18OpenImageIO_v2_6_09ImageSpecC2ENS_8TypeDescE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, ptr nocapture noundef readonly %format) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_09ImageSpecC2ENS_8TypeDescE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 129), (136, 160)) %this, ptr nocapture noundef readonly %format) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %depth = getelementptr inbounds i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this, i8 0, i64 20, i1 false)
@@ -2192,7 +2192,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_09ImageSpecC2EiiiNS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %xres, i32 noundef %yres, i32 noundef %nchans, ptr nocapture noundef readonly %format) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_09ImageSpecC2EiiiNS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 129), (136, 160)) %this, i32 noundef %xres, i32 noundef %yres, i32 noundef %nchans, ptr nocapture noundef readonly %format) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %y = getelementptr inbounds i8, ptr %this, i64 4
@@ -2480,7 +2480,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_09ImageSpecC2ERKNS_3ROIENS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %roi, ptr nocapture noundef readonly %format) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_09ImageSpecC2ERKNS_3ROIENS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 129), (136, 160)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %roi, ptr nocapture noundef readonly %format) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %roi, align 4
   store i32 %0, ptr %this, align 8
@@ -2570,7 +2570,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18OpenImageIO_v2_6_09ImageSpec10set_formatENS_8TypeDescE(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef readonly %fmt) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_09ImageSpec10set_formatENS_8TypeDescE(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((64, 72)) %this, ptr nocapture noundef readonly %fmt) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %format = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %fmt, align 4

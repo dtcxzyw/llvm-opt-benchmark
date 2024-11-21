@@ -86,7 +86,7 @@ _ZN4llvm13ManagedStaticINS_2cl3optImLb0ENS1_6parserImEEEEN12_GLOBAL__N_110Create
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21RandomNumberGeneratorC2ENS_9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(2504) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21RandomNumberGeneratorC2ENS_9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(2504) initializes((0, 8)) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca [624 x i32], align 16
   %5 = alloca %"class.std::seed_seq", align 8
   store i64 5489, ptr %0, align 8

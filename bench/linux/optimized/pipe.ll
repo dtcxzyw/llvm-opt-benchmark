@@ -2018,7 +2018,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pipe_ioctl(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -512, 1) i32 @fifo_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -512, 1) i32 @fifo_open(ptr noundef %0, ptr noundef initializes((184, 192)) %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 96

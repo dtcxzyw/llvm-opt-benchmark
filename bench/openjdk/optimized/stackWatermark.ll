@@ -710,7 +710,7 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %8, %17, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28StackWatermarkFramesIteratorC2ER14StackWatermark(ptr noundef nonnull align 8 dereferenceable(5081) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN28StackWatermarkFramesIteratorC2ER14StackWatermark(ptr noundef nonnull align 8 dereferenceable(5081) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -769,7 +769,7 @@ _ZN16StackFrameStream7is_doneEv.exit:             ; preds = %2, %_ZNK5frame14is_
 declare void @_ZN16StackFrameStreamC1EP10JavaThreadbbb(ptr noundef nonnull align 8 dereferenceable(5041), ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14StackWatermarkC2EP10JavaThread18StackWatermarkKindj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
+define hidden void @_ZN14StackWatermarkC2EP10JavaThread18StackWatermarkKindj(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14StackWatermark, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = shl i32 %3, 1
@@ -793,7 +793,7 @@ define hidden void @_ZN14StackWatermarkC2EP10JavaThread18StackWatermarkKindj(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14StackWatermarkD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN14StackWatermarkD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (160, 164)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV14StackWatermark, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8

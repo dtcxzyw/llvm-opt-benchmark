@@ -67,7 +67,7 @@ $_ZTIN8QuantLib29MarketModelParametricExerciseE = comdat any
 @_ZN8QuantLib21TriggeredSwapExerciseC1ERKSt6vectorIdSaIdEES5_S3_ = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib21TriggeredSwapExerciseC2ERKSt6vectorIdSaIdEES5_S3_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21TriggeredSwapExerciseC2ERKSt6vectorIdSaIdEES5_S3_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr noundef nonnull align 8 dereferenceable(24) %exerciseTimes, ptr nocapture noundef %strikes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21TriggeredSwapExerciseC2ERKSt6vectorIdSaIdEES5_S3_(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr noundef nonnull align 8 dereferenceable(24) %exerciseTimes, ptr nocapture noundef %strikes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.std::vector.5", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -435,7 +435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib21TriggeredSwapExercise5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) %this) unnamed_addr #7 align 2 {
+define void @_ZN8QuantLib21TriggeredSwapExercise5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((88, 96)) %this) unnamed_addr #7 align 2 {
 entry:
   %currentStep_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i64 0, ptr %currentStep_, align 8, !tbaa !14
@@ -443,7 +443,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib21TriggeredSwapExercise14isExerciseTimeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::valarray") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #0 align 2 {
+define void @_ZNK8QuantLib21TriggeredSwapExercise14isExerciseTimeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::valarray") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16

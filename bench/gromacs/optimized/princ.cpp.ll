@@ -494,7 +494,7 @@ define void @_Z12rotate_atomsiPKiPA3_fS2_(i32 noundef %0, ptr noundef readonly %
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef float @_Z8calc_xcmPA3_KfiPKiPK6t_atomPfb(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef %4, i1 noundef zeroext %5) local_unnamed_addr #3 {
+define noundef float @_Z8calc_xcmPA3_KfiPKiPK6t_atomPfb(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef initializes((0, 12)) %4, i1 noundef zeroext %5) local_unnamed_addr #3 {
   store float 0.000000e+00, ptr %4, align 4
   %7 = getelementptr inbounds i8, ptr %4, i64 4
   store float 0.000000e+00, ptr %7, align 4
@@ -700,7 +700,7 @@ define noundef float @_Z8calc_xcmPA3_KfiPKiPK6t_atomPfb(ptr nocapture noundef re
 declare float @llvm.fabs.f32(float) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef float @_Z7sub_xcmPA3_fiPKiPK6t_atomPfb(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, i1 noundef zeroext %5) local_unnamed_addr #3 {
+define noundef float @_Z7sub_xcmPA3_fiPKiPK6t_atomPfb(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef initializes((0, 12)) %4, i1 noundef zeroext %5) local_unnamed_addr #3 {
   %7 = tail call noundef float @_Z8calc_xcmPA3_KfiPKiPK6t_atomPfb(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5)
   %8 = icmp sgt i32 %1, 0
   br i1 %8, label %.lr.ph, label %._crit_edge

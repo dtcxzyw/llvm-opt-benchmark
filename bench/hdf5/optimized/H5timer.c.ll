@@ -200,7 +200,7 @@ define double @H5_get_time() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5_timer_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define noundef i32 @H5_timer_init(ptr nocapture noundef writeonly initializes((0, 80)) %0) local_unnamed_addr #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   ret i32 0
 }

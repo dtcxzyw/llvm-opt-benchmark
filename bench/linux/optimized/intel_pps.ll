@@ -3019,7 +3019,7 @@ define internal fastcc void @pps_vdd_init(ptr noundef %0) unnamed_addr #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_pps_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_pps_init(ptr noundef initializes((1552, 1560), (1641, 1642)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1641
   store i8 1, ptr %2, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 1552
@@ -3546,7 +3546,7 @@ define dso_local void @intel_pps_unlock_regs_wa(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @intel_pps_setup(ptr nocapture noundef %0) local_unnamed_addr #5 align 16 {
+define dso_local void @intel_pps_setup(ptr nocapture noundef initializes((3280, 3284)) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8112
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -3794,7 +3794,7 @@ declare dso_local zeroext i1 @g4x_dp_port_enabled(ptr noundef, i32, i32 noundef,
 declare dso_local void @intel_display_power_put_unchecked(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_pps_get_registers(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_pps_get_registers(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 20)) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -392
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(20) %1, i8 0, i64 20, i1 false)
@@ -4545,7 +4545,7 @@ declare dso_local i64 @schedule_timeout_uninterruptible(i64 noundef) local_unnam
 declare dso_local i64 @__msecs_to_jiffies(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_pps_readout_hw_state(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_pps_readout_hw_state(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 10)) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.pps_registers, align 4
   %4 = getelementptr i8, ptr %0, i64 -392
   %5 = load ptr, ptr %4, align 8

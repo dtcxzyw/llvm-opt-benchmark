@@ -46,7 +46,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail12segment_iterC2ENS_4core17basic_string_viewIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(46) %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
+define void @_ZN5boost4urls6detail12segment_iterC2ENS_4core17basic_string_viewIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(46) initializes((0, 24), (40, 46)) %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8, !tbaa !3
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -65,7 +65,7 @@ define void @_ZN5boost4urls6detail12segment_iterC2ENS_4core17basic_string_viewIc
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost4urls6detail12segment_iter6rewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(46) %0) unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls6detail12segment_iter6rewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(46) initializes((45, 46)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 0, ptr %2, align 1, !tbaa !17
   ret void
@@ -463,7 +463,7 @@ define void @_ZN5boost4urls6detail18segments_iter_base9copy_implERPcPKcNS_4core1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail20segment_encoded_iterC2ERKNS0_15pct_string_viewE(ptr nocapture noundef nonnull align 8 dereferenceable(46) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
+define void @_ZN5boost4urls6detail20segment_encoded_iterC2ERKNS0_15pct_string_viewE(ptr nocapture noundef nonnull align 8 dereferenceable(46) initializes((0, 24), (40, 46)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !3
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !7
@@ -482,7 +482,7 @@ define void @_ZN5boost4urls6detail20segment_encoded_iterC2ERKNS0_15pct_string_vi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost4urls6detail20segment_encoded_iter6rewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(46) %0) unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls6detail20segment_encoded_iter6rewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(46) initializes((45, 46)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 0, ptr %2, align 1, !tbaa !30
   ret void

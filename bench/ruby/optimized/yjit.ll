@@ -1520,13 +1520,13 @@ define hidden ptr @rb_get_cfp_sp(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @rb_set_cfp_pc(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #10 {
+define hidden void @rb_set_cfp_pc(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #10 {
   store ptr %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @rb_set_cfp_sp(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #10 {
+define hidden void @rb_set_cfp_sp(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void

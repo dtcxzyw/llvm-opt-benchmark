@@ -1125,7 +1125,7 @@ define dso_local void @qdisc_put_stab(ptr noundef %0) #0 align 16 {
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @__qdisc_calculate_pkt_len(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #7 align 16 {
+define dso_local void @__qdisc_calculate_pkt_len(ptr nocapture noundef initializes((40, 44)) %0, ptr nocapture noundef readonly %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1482,7 +1482,7 @@ define dso_local void @qdisc_class_hash_grow(ptr noundef %0, ptr nocapture nound
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @qdisc_class_hash_init(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @qdisc_class_hash_init(ptr nocapture noundef writeonly initializes((0, 8)) %0) #0 align 16 {
   %2 = tail call noalias dereferenceable_or_null(32) ptr @kvmalloc_node(i64 noundef 32, i32 noundef 3264, i32 noundef -1) #22
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.critedge, label %4
@@ -1511,7 +1511,7 @@ define dso_local void @qdisc_class_hash_destroy(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local void @qdisc_class_hash_insert(ptr nocapture noundef %0, ptr noundef %1) #4 align 16 {
+define dso_local void @qdisc_class_hash_insert(ptr nocapture noundef %0, ptr noundef initializes((8, 24)) %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = load i32, ptr %1, align 8

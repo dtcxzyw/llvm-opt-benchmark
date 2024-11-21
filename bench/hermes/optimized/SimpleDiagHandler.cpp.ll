@@ -27,7 +27,7 @@ $_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE4growEm = comdat any
 @_ZN6hermes21SimpleDiagHandlerRAIID1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes21SimpleDiagHandlerRAIID2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes17SimpleDiagHandler11installIntoERNS_18SourceErrorManagerE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(464) %sm) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes17SimpleDiagHandler11installIntoERNS_18SourceErrorManagerE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(464) initializes((104, 120)) %sm) local_unnamed_addr #0 align 2 {
 entry:
   %DiagHandler.i.i = getelementptr inbounds i8, ptr %sm, i64 104
   store ptr @_ZN6hermes17SimpleDiagHandler7handlerERKN4llvh12SMDiagnosticEPv, ptr %DiagHandler.i.i, align 8
@@ -134,7 +134,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit97:
 declare void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(18)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes21SimpleDiagHandlerRAIIC2ERNS_18SourceErrorManagerE(ptr noundef nonnull align 8 dereferenceable(388) %this, ptr noundef nonnull align 8 dereferenceable(464) %sourceErrorManager) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes21SimpleDiagHandlerRAIIC2ERNS_18SourceErrorManagerE(ptr noundef nonnull align 8 dereferenceable(388) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(464) %sourceErrorManager) unnamed_addr #1 align 2 {
 entry:
   %Filename.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %this, i8 0, i64 16, i1 false)

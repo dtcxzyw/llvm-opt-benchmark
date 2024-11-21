@@ -44,41 +44,41 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [3 x i8] c"<=\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @onig_set_match_stack_limit_size_of_match_param(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @onig_set_match_stack_limit_size_of_match_param(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @onig_set_retry_limit_in_match_of_match_param(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @onig_set_retry_limit_in_match_of_match_param(ptr nocapture noundef writeonly initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @onig_set_retry_limit_in_search_of_match_param(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @onig_set_retry_limit_in_search_of_match_param(ptr nocapture noundef writeonly initializes((16, 24)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @onig_set_progress_callout_of_match_param(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @onig_set_progress_callout_of_match_param(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @onig_set_retraction_callout_of_match_param(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @onig_set_retraction_callout_of_match_param(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @onig_set_callout_user_data_of_match_param(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @onig_set_callout_user_data_of_match_param(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret i32 0
@@ -145,7 +145,7 @@ history_root_free.exit:                           ; preds = %._crit_edge, %18
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 -5, 1) i32 @onig_region_resize(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -5, 1) i32 @onig_region_resize(ptr nocapture noundef initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 10)
@@ -278,7 +278,7 @@ onig_region_resize.exit.thread:                   ; preds = %24, %13, %4, %onig_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @onig_region_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @onig_region_init(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -677,7 +677,7 @@ define noalias noundef ptr @onig_new_match_param() local_unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define noundef i32 @onig_initialize_match_param(ptr nocapture noundef writeonly %0) local_unnamed_addr #11 {
+define noundef i32 @onig_initialize_match_param(ptr nocapture noundef writeonly initializes((0, 4), (8, 52), (56, 68)) %0) local_unnamed_addr #11 {
   %2 = load i32, ptr @MatchStackLimit, align 4
   store i32 %2, ptr %0, align 8
   %3 = load i64, ptr @RetryLimitInMatch, align 8
@@ -1881,7 +1881,7 @@ adjust_match_param.exit:                          ; preds = %46, %56, %adjust_ma
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -5, 1) i32 @onig_region_resize_clear(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #4 {
+define internal fastcc range(i32 -5, 1) i32 @onig_region_resize_clear(ptr nocapture noundef nonnull initializes((4, 8)) %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %1, i32 10)
@@ -8409,7 +8409,7 @@ onig_free_match_param_content.exit:               ; preds = %7, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @search_in_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #4 {
+define internal fastcc i32 @search_in_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef initializes((48, 52)) %8) unnamed_addr #4 {
   %10 = alloca %struct.MatchArg, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -9198,7 +9198,7 @@ adjust_match_param.exit:                          ; preds = %35, %48, %44, %58, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @onig_search_with_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #4 {
+define i32 @onig_search_with_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef initializes((48, 52)) %7) local_unnamed_addr #4 {
   %9 = icmp ugt ptr %4, %3
   %. = select i1 %9, ptr %4, ptr %2
   %10 = tail call fastcc i32 @search_in_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %., ptr noundef %5, i32 noundef %6, ptr noundef %7)
@@ -9386,13 +9386,13 @@ define i32 @onig_number_of_capture_histories(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @onig_copy_encoding(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 {
+define void @onig_copy_encoding(ptr nocapture noundef writeonly initializes((0, 160)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -30, 1) i32 @onig_regset_new(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 -30, 1) i32 @onig_regset_new(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   store ptr null, ptr %0, align 8
   %4 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #27
   %5 = icmp eq ptr %4, null

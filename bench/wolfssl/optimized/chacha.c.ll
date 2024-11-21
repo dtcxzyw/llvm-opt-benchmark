@@ -494,7 +494,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @wc_Chacha_wordtobyte(ptr nocapture noundef nonnull %x, ptr nocapture noundef nonnull readonly %state) unnamed_addr #4 {
+define internal fastcc void @wc_Chacha_wordtobyte(ptr nocapture noundef nonnull initializes((0, 64)) %x, ptr nocapture noundef nonnull readonly %state) unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %x, ptr noundef nonnull align 4 dereferenceable(64) %state, i64 64, i1 false)
   %arrayidx1 = getelementptr inbounds i8, ptr %x, i64 16

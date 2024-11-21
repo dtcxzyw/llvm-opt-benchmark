@@ -3740,7 +3740,7 @@ define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPassD0Ev(ptr noundef nonnull a
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPass6onInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(968) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPass6onInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(968) initializes((256, 278), (280, 300), (472, 504), (952, 962)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !47
   %4 = getelementptr inbounds i8, ptr %3, i64 72

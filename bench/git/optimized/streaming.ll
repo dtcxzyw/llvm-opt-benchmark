@@ -192,7 +192,7 @@ return:                                           ; preds = %if.end18, %if.then8
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @open_istream_incore(ptr noundef %st, ptr noundef %r, ptr noundef %oid, ptr noundef %type) #0 {
+define internal i32 @open_istream_incore(ptr noundef initializes((8, 24), (208, 216)) %st, ptr noundef %r, ptr noundef %oid, ptr noundef %type) #0 {
 entry:
   %oi = alloca %struct.object_info, align 8
   %0 = getelementptr inbounds i8, ptr %oi, i64 16

@@ -585,7 +585,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 declare void @destroy_colors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ascii_declare_color(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal noundef i32 @ascii_declare_color(ptr nocapture readnone %0, ptr noundef initializes((16, 20)) %1) #0 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -938,7 +938,7 @@ put.exit:                                         ; preds = %43, %.lr.ph.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ascii_textsize(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3, ptr nocapture noundef writeonly %4) #11 {
+define internal void @ascii_textsize(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, i32 %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #11 {
   %6 = mul i32 %2, 10
   %7 = lshr exact i32 %6, 1
   store i32 %7, ptr %4, align 4

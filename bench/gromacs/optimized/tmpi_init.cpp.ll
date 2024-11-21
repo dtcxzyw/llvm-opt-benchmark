@@ -66,7 +66,7 @@ define noundef ptr @_Z18tMPI_Get_comm_selfv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
   %.not = icmp eq ptr %2, null
@@ -532,7 +532,7 @@ define noundef i32 @_Z12tMPI_Init_fnii22tMPI_Affinity_strategyPFvPKvES1_(i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define noundef i32 @_Z16tMPI_InitializedPi(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
+define noundef i32 @_Z16tMPI_InitializedPi(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr @TMPI_COMM_WORLD, align 8
   %3 = icmp ne ptr %2, null
   %.b = load i1, ptr @_ZL14tmpi_finalized, align 4
@@ -799,7 +799,7 @@ define internal fastcc void @_ZL19tMPI_Global_destroyP11tmpi_global(ptr noundef 
 declare void @_Z16tMPI_Thread_exitPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define noundef i32 @_Z14tMPI_FinalizedPi(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
+define noundef i32 @_Z14tMPI_FinalizedPi(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #5 {
   %.b = load i1, ptr @_ZL14tmpi_finalized, align 4
   %2 = zext i1 %.b to i32
   store i32 %2, ptr %0, align 4

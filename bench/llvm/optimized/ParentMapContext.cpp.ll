@@ -1196,7 +1196,7 @@ $_ZGVZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEvE7NoneLoc = comdat
 @_ZN5clang16ParentMapContext9ParentMapC1ERNS_10ASTContextE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang16ParentMapContext9ParentMapC2ERNS_10ASTContextE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang16ParentMapContextC2ERNS_10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16ParentMapContextC2ERNS_10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -1282,7 +1282,7 @@ define dso_local noundef ptr @_ZNK5clang16ParentMapContext15traverseIgnoredEPNS_
 declare noundef ptr @_ZN5clang4Expr27IgnoreUnlessSpelledInSourceEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang16ParentMapContext15traverseIgnoredERKNS_12DynTypedNodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::DynTypedNode") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK5clang16ParentMapContext15traverseIgnoredERKNS_12DynTypedNodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::DynTypedNode") align 8 initializes((0, 4), (8, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.clang::ASTNodeKind", align 4
   %.sroa.0.0.copyload.i = load i32, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1327,7 +1327,7 @@ _ZNK5clang16ParentMapContext15traverseIgnoredEPKNS_4ExprE.exit: ; preds = %8, %1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16ParentMapContext9ParentMapC2ERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang16ParentMapContext9ParentMapC2ERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 20), (24, 44)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.clang::ParentMapContext::ParentMap::ASTVisitor", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24

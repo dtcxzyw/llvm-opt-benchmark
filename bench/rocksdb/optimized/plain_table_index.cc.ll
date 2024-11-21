@@ -145,7 +145,7 @@ return:                                           ; preds = %if.end7, %if.then4,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 3) i32 @_ZNK7rocksdb15PlainTableIndex9GetOffsetEjPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %prefix_hash, ptr nocapture noundef writeonly %bucket_value) local_unnamed_addr #1 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK7rocksdb15PlainTableIndex9GetOffsetEjPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %prefix_hash, ptr nocapture noundef writeonly initializes((0, 4)) %bucket_value) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %rem.i = urem i32 %prefix_hash, %0
@@ -442,7 +442,7 @@ declare void @_ZN7rocksdb13HistogramImpl3AddEm(ptr noundef nonnull align 8 deref
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_ZN7rocksdb22PlainTableIndexBuilder6FinishEv(ptr noundef nonnull align 8 dereferenceable(1976) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define { ptr, i64 } @_ZN7rocksdb22PlainTableIndexBuilder6FinishEv(ptr noundef nonnull align 8 dereferenceable(1976) initializes((1912, 1916)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hash_to_offsets = alloca %"class.std::vector", align 8
   %entries_per_bucket = alloca %"class.std::vector.65", align 8
@@ -688,7 +688,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i31, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv(ptr nocapture noundef nonnull align 8 dereferenceable(1976) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv(ptr nocapture noundef nonnull align 8 dereferenceable(1976) initializes((1912, 1916)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %prefix_extractor_ = getelementptr inbounds i8, ptr %this, i64 1920
   %0 = load ptr, ptr %prefix_extractor_, align 8

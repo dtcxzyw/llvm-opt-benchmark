@@ -296,7 +296,7 @@ $_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb24CompressedSecondaryCacheESaIvELN9__g
 @_ZN7rocksdb24CompressedSecondaryCacheD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb24CompressedSecondaryCacheD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24CompressedSecondaryCacheC2ERKNS_31CompressedSecondaryCacheOptionsE(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr noundef nonnull align 8 dereferenceable(112) %opts) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24CompressedSecondaryCacheC2ERKNS_31CompressedSecondaryCacheOptionsE(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(112) %opts) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
   %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -851,7 +851,7 @@ _ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb24CompressedSecondaryCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(217) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24CompressedSecondaryCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24CompressedSecondaryCacheE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -1830,7 +1830,7 @@ return:                                           ; preds = %delete.notnull.i.i1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24CompressedSecondaryCache20MergeChunksIntoValueEPKvRm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.14") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %this, ptr noundef readonly %chunks_head, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %charge) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24CompressedSecondaryCache20MergeChunksIntoValueEPKvRm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.14") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %this, ptr noundef readonly %chunks_head, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %charge) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %charge, align 8
   %cmp.not13 = icmp eq ptr %chunks_head, null
@@ -3278,7 +3278,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit4:                  ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24CompressedSecondaryCache11GetCapacityERm(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(217) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24CompressedSecondaryCache11GetCapacityERm(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(217) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %capacity_mutex_ = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %capacity_mutex_)

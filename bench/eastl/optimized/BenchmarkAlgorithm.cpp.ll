@@ -1062,7 +1062,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114TestFindEndStdERN2EA4StdC9StopwatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSD_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr noundef nonnull align 8 dereferenceable(32) %sTest, ptr noundef %pSearchStringBegin, ptr noundef %pSearchStringEnd) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114TestFindEndStdERN2EA4StdC9StopwatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSD_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr noundef nonnull align 8 dereferenceable(32) %sTest, ptr noundef %pSearchStringBegin, ptr noundef %pSearchStringEnd) unnamed_addr #0 {
 entry:
   %__rresult.i.i = alloca %"class.std::reverse_iterator", align 8
   %agg.tmp5.i.i = alloca %"class.std::reverse_iterator", align 8
@@ -1143,7 +1143,7 @@ if.end:                                           ; preds = %if.then, %_ZN2EA4St
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113TestFindEndEaERN2EA4StdC9StopwatchERKN5eastl12basic_stringIcNS4_9allocatorEEEPKcSB_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr noundef nonnull align 8 dereferenceable(24) %sTest, ptr noundef %pSearchStringBegin, ptr noundef %pSearchStringEnd) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113TestFindEndEaERN2EA4StdC9StopwatchERKN5eastl12basic_stringIcNS4_9allocatorEEEPKcSB_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr noundef nonnull align 8 dereferenceable(24) %sTest, ptr noundef %pSearchStringBegin, ptr noundef %pSearchStringEnd) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
@@ -8953,7 +8953,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119TestCopyBackwardStdIN9__gnu_cxx17__normal_iteratorIP8LargePODSt6vectorIS3_SaIS3_EEEES8_EEvRN2EA4StdC9StopwatchET_SD_T0_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr %first.coerce, ptr %last.coerce, ptr writeonly %result.coerce) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119TestCopyBackwardStdIN9__gnu_cxx17__normal_iteratorIP8LargePODSt6vectorIS3_SaIS3_EEEES8_EEvRN2EA4StdC9StopwatchET_SD_T0_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr %first.coerce, ptr %last.coerce, ptr writeonly %result.coerce) unnamed_addr #0 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
@@ -9038,7 +9038,7 @@ _ZSt13copy_backwardIN9__gnu_cxx17__normal_iteratorIP8LargePODSt6vectorIS2_SaIS2_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118TestCopyBackwardEaIP8LargePODS2_EEvRN2EA4StdC9StopwatchET_S7_T0_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr noundef %first, ptr noundef %last, ptr noundef writeonly %result) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118TestCopyBackwardEaIP8LargePODS2_EEvRN2EA4StdC9StopwatchET_S7_T0_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr noundef %first, ptr noundef %last, ptr noundef writeonly %result) unnamed_addr #0 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
@@ -13054,7 +13054,7 @@ _ZNSt7__cxx1110_List_baseI10TestObjectSaIS1_EED2Ev.exit: ; preds = %_ZNSt16alloc
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113TestRotateStdISt14_List_iteratorIiEEEvRN2EA4StdC9StopwatchET_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr %first.coerce, ptr %middle.coerce, ptr readonly %last.coerce) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113TestRotateStdISt14_List_iteratorIiEEEvRN2EA4StdC9StopwatchET_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr %first.coerce, ptr %middle.coerce, ptr readonly %last.coerce) unnamed_addr #0 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
@@ -13209,7 +13209,7 @@ _ZNSt3_V26rotateISt14_List_iteratorIiEEET_S3_S3_S3_.exit: ; preds = %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorIiPiRiEEEEvRN2EA4StdC9StopwatchET_SA_SA_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr nocapture noundef nonnull readonly %first, ptr nocapture noundef nonnull readonly %middle, ptr nocapture noundef nonnull readonly %last) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorIiPiRiEEEEvRN2EA4StdC9StopwatchET_SA_SA_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr nocapture noundef nonnull readonly %first, ptr nocapture noundef nonnull readonly %middle, ptr nocapture noundef nonnull readonly %last) unnamed_addr #0 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
@@ -13358,7 +13358,7 @@ _ZN5eastl6rotateINS_12ListIteratorIiPiRiEEEET_S5_S5_S5_.exit: ; preds = %while.b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorI10TestObjectPS3_RS3_EEEEvRN2EA4StdC9StopwatchET_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr nocapture noundef nonnull readonly %first, ptr nocapture noundef nonnull readonly %middle, ptr nocapture noundef nonnull readonly %last) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112TestRotateEaIN5eastl12ListIteratorI10TestObjectPS3_RS3_EEEEvRN2EA4StdC9StopwatchET_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr nocapture noundef nonnull readonly %first, ptr nocapture noundef nonnull readonly %middle, ptr nocapture noundef nonnull readonly %last) unnamed_addr #0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.eastl::ListIterator", align 8
   %agg.tmp1.i.i = alloca %"struct.eastl::ListIterator", align 8

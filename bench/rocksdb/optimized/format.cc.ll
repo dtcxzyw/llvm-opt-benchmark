@@ -3688,7 +3688,7 @@ declare i64 @ROCKSDB_XXH64_digest(ptr nocapture noundef) local_unnamed_addr #8
 declare i32 @ROCKSDB_XXH64_freeState(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb19UncompressBlockDataERKNS_17UncompressionInfoEPKcmPNS_13BlockContentsEjRKNS_16ImmutableOptionsEPNS_15MemoryAllocatorE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(17) %uncompression_info, ptr noundef %data, i64 noundef %size, ptr nocapture noundef %out_contents, i32 noundef %format_version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(857) %ioptions, ptr noundef %allocator) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19UncompressBlockDataERKNS_17UncompressionInfoEPKcmPNS_13BlockContentsEjRKNS_16ImmutableOptionsEPNS_15MemoryAllocatorE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(17) %uncompression_info, ptr noundef %data, i64 noundef %size, ptr nocapture noundef %out_contents, i32 noundef %format_version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(857) %ioptions, ptr noundef %allocator) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %uncompressed_size = alloca i64, align 8
   %error_msg = alloca ptr, align 8
@@ -4567,7 +4567,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25UncompressSerializedBlockERKNS_17UncompressionInfoEPKcmPNS_13BlockContentsEjRKNS_16ImmutableOptionsEPNS_15MemoryAllocatorE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(17) %uncompression_info, ptr noundef %data, i64 noundef %size, ptr nocapture noundef %out_contents, i32 noundef %format_version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(857) %ioptions, ptr noundef %allocator) local_unnamed_addr #3 {
+define void @_ZN7rocksdb25UncompressSerializedBlockERKNS_17UncompressionInfoEPKcmPNS_13BlockContentsEjRKNS_16ImmutableOptionsEPNS_15MemoryAllocatorE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(17) %uncompression_info, ptr noundef %data, i64 noundef %size, ptr nocapture noundef %out_contents, i32 noundef %format_version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(857) %ioptions, ptr noundef %allocator) local_unnamed_addr #3 {
 entry:
   tail call void @_ZN7rocksdb19UncompressBlockDataERKNS_17UncompressionInfoEPKcmPNS_13BlockContentsEjRKNS_16ImmutableOptionsEPNS_15MemoryAllocatorE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(17) %uncompression_info, ptr noundef %data, i64 noundef %size, ptr noundef %out_contents, i32 noundef %format_version, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr noundef %allocator)
   ret void

@@ -111,7 +111,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @MemoryContextCreate(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @GenerationReset(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @GenerationReset(ptr noundef initializes((104, 112)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
@@ -174,7 +174,7 @@ define dso_local void @GenerationReset(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @GenerationDelete(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @GenerationDelete(ptr noundef initializes((104, 112)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112

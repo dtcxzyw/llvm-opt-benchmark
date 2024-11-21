@@ -187,7 +187,7 @@ define dso_local void @mpi_free_limb_space(ptr noundef %0) local_unnamed_addr #1
 declare dso_local void @kfree_sensitive(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpi_assign_limb_space(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local void @mpi_assign_limb_space(ptr nocapture noundef initializes((0, 4)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

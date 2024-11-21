@@ -81,7 +81,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Ins_S45ROUND = private unnamed_addr constant [4 x i64] [i64 5792, i64 11585, i64 23170, i64 11585], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @tt_driver_init(ptr nocapture noundef writeonly %0) #0 {
+define internal noundef i32 @tt_driver_init(ptr nocapture noundef writeonly initializes((120, 124)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 40, ptr %2, align 8
   ret i32 0
@@ -373,7 +373,7 @@ define internal void @tt_face_done(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @tt_size_init(ptr nocapture noundef writeonly %0) #0 {
+define internal noundef i32 @tt_size_init(ptr nocapture noundef writeonly initializes((224, 225), (240, 248), (544, 552)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 544
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 548
@@ -386,7 +386,7 @@ define internal noundef i32 @tt_size_init(ptr nocapture noundef writeonly %0) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tt_size_done(ptr nocapture noundef %0) #2 {
+define internal void @tt_size_done(ptr nocapture noundef initializes((256, 264), (272, 280), (288, 296), (440, 448), (456, 458), (544, 552)) %0) #2 {
   tail call fastcc void @tt_size_done_bytecode(ptr noundef %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   store i8 0, ptr %2, align 8
@@ -1589,7 +1589,7 @@ TT_Load_Glyph.exit:                               ; preds = %81, %84, %131, %132
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tt_get_kerning(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #2 {
+define internal noundef i32 @tt_get_kerning(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 16)) %3) #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 880
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -1866,7 +1866,7 @@ tt_size_select.exit:                              ; preds = %32, %25, %23, %41, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tt_size_select(ptr noundef %0, i64 noundef %1) #2 {
+define internal i32 @tt_size_select(ptr noundef initializes((240, 248)) %0, i64 noundef %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   store i64 %1, ptr %4, align 8
@@ -1942,7 +1942,7 @@ declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 n
 declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TT_RunIns(ptr noundef %0) #2 {
+define noundef i32 @TT_RunIns(ptr noundef initializes((480, 488), (632, 636), (664, 665), (668, 672), (1008, 1016), (1024, 1040), (1048, 1096), (1100, 1102), (1104, 1136)) %0) #2 {
   %2 = alloca %struct.FT_Vector_, align 8
   %3 = alloca %struct.FT_Vector_, align 8
   %4 = alloca %struct.TT_GlyphZoneRec_, align 8
@@ -6280,7 +6280,7 @@ Modify_CVT_Check.exit:                            ; preds = %3, %8, %13, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ins_SPVFS(ptr nocapture noundef %0, i64 %.0.val, i64 %.8.val) unnamed_addr #2 {
+define internal fastcc void @Ins_SPVFS(ptr nocapture noundef initializes((480, 488), (542, 546), (1008, 1016), (1024, 1040), (1048, 1064)) %0, i64 %.0.val, i64 %.8.val) unnamed_addr #2 {
   %2 = alloca %struct.FT_Vector_, align 8
   %sext = shl i64 %.8.val, 48
   %3 = ashr exact i64 %sext, 48
@@ -6415,7 +6415,7 @@ Compute_Funcs.exit:                               ; preds = %63, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ins_SFVFS(ptr nocapture noundef %0, i64 %.0.val, i64 %.8.val) unnamed_addr #2 {
+define internal fastcc void @Ins_SFVFS(ptr nocapture noundef initializes((480, 488), (1008, 1016), (1024, 1040), (1048, 1064)) %0, i64 %.0.val, i64 %.8.val) unnamed_addr #2 {
   %2 = alloca %struct.FT_Vector_, align 8
   %sext = shl i64 %.8.val, 48
   %3 = ashr exact i64 %sext, 48
@@ -6587,7 +6587,7 @@ Compute_Funcs.exit:                               ; preds = %83, %86
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @Ins_SFVTPV(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc void @Ins_SFVTPV(ptr nocapture noundef initializes((480, 488), (550, 554), (1008, 1016), (1024, 1040), (1048, 1064)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 550
   %3 = getelementptr inbounds i8, ptr %0, i64 546
   %4 = load i32, ptr %3, align 2
@@ -11218,7 +11218,7 @@ declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnam
 declare ptr @FT_Get_Module(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @TT_Set_MM_Blend(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal i32 @TT_Set_MM_Blend(ptr noundef initializes((1209, 1210)) %0, i32 noundef %1, ptr noundef %2) #2 {
   %4 = tail call fastcc i32 @tt_set_mm_blend(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext 1)
   ret i32 %4
 }
@@ -13433,7 +13433,7 @@ define internal void @tt_done_blend(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tt_set_mm_blend(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #2 {
+define internal fastcc i32 @tt_set_mm_blend(ptr noundef initializes((1209, 1210)) %0, i32 noundef %1, ptr noundef readonly %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca %struct.GX_GVar_Head_, align 8
@@ -14729,7 +14729,7 @@ declare hidden i32 @FT_Stream_Seek(ptr noundef, i64 noundef) local_unnamed_addr 
 declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ft_var_readpackedpoints(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
+define internal fastcc ptr @ft_var_readpackedpoints(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -16328,7 +16328,7 @@ define internal void @tt_apply_mvar(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 152) i32 @tt_size_reset_height(ptr nocapture noundef %0) #8 {
+define internal range(i32 0, 152) i32 @tt_size_reset_height(ptr nocapture noundef initializes((224, 225)) %0) #8 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = getelementptr inbounds i8, ptr %0, i64 224
@@ -16524,7 +16524,7 @@ define internal noundef i32 @ft_size_reset_iterator(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 0, 4294967296) i64 @tt_face_get_location(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #8 {
+define internal range(i64 0, 4294967296) i64 @tt_face_get_location(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #8 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 1272
   %6 = load i64, ptr %5, align 8
@@ -16780,7 +16780,7 @@ define internal fastcc void @TT_Get_VMetrics(ptr noundef %0, i32 noundef %1, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @load_truetype_glyph(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #2 {
+define internal fastcc i32 @load_truetype_glyph(ptr noundef nonnull initializes((40, 44)) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #2 {
   %5 = alloca %struct.FT_Incremental_MetricsRec_, align 8
   %6 = alloca %struct.FT_Incremental_MetricsRec_, align 8
   %7 = alloca i16, align 2
@@ -18329,7 +18329,7 @@ define internal fastcc i32 @compute_glyph_metrics(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TT_Load_Context(ptr nocapture noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #2 {
+define internal fastcc i32 @TT_Load_Context(ptr nocapture noundef initializes((0, 16), (392, 536), (728, 768)) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -18612,7 +18612,7 @@ TT_Save_Context.exit:                             ; preds = %84, %._crit_edge
 declare hidden void @FT_GlyphLoader_Rewind(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tt_glyphzone_new(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
+define internal fastcc i32 @tt_glyphzone_new(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef nonnull initializes((0, 64)) %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 56, i1 false)
@@ -18804,7 +18804,7 @@ TT_Save_Context.exit:                             ; preds = %52, %29, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tt_size_done_bytecode(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @tt_size_done_bytecode(ptr nocapture noundef initializes((256, 264), (272, 280), (288, 296), (440, 448), (456, 458), (544, 552)) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 184
   %4 = load ptr, ptr %3, align 8
@@ -20677,7 +20677,7 @@ define internal fastcc void @tt_delta_interpolate(i32 noundef %0, i32 noundef ra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @tt_prepare_zone(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65535) %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #6 {
+define internal fastcc void @tt_prepare_zone(ptr nocapture noundef nonnull writeonly initializes((12, 58)) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65535) %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %1, i64 2
   %6 = load i16, ptr %5, align 2
   %7 = trunc nuw i32 %2 to i16
@@ -20956,7 +20956,7 @@ declare void @FT_Outline_Get_CBox(ptr noundef, ptr noundef) local_unnamed_addr #
 declare hidden i32 @FT_Request_Metrics(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 152) i32 @tt_size_reset(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 152) i32 @tt_size_reset(ptr noundef initializes((224, 225)) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = getelementptr inbounds i8, ptr %0, i64 224
@@ -21911,7 +21911,7 @@ define internal fastcc void @iup_worker_interpolate_(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @Compute_Point_Displacement(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
+define internal fastcc zeroext range(i8 0, 2) i8 @Compute_Point_Displacement(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %4) unnamed_addr #2 {
   %.sroa.0 = alloca [12 x i8], align 8
   %.sroa.8 = alloca { ptr, ptr, ptr, i16 }, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 664

@@ -903,7 +903,7 @@ define void @add_box(ptr nocapture noundef %0, ptr nocapture noundef readonly by
 }
 
 ; Function Attrs: nounwind uwtable
-define void @beginpath(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define void @beginpath(ptr nocapture noundef initializes((0, 16), (33, 34), (96, 100), (112, 120)) %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((32, 48)) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.port, align 8
   %7 = load i32, ptr %1, align 8
   %8 = and i32 %7, 3
@@ -1660,7 +1660,7 @@ define internal fastcc double @conc_slope(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @endpath(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define void @endpath(ptr nocapture noundef initializes((48, 64), (81, 82)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef initializes((32, 48)) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.port, align 8
   %7 = load i32, ptr %1, align 8
   %8 = and i32 %7, 3

@@ -1092,7 +1092,7 @@ _ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EE13AssertNotNu
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16LogicalAggregate17GetColumnBindingsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.44") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16LogicalAggregate17GetColumnBindingsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.44") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %groups = getelementptr inbounds i8, ptr %this, i64 128
@@ -2114,7 +2114,7 @@ return:                                           ; preds = %if.end, %entry
 declare noundef i64 @_ZN6duckdb15LogicalOperator19EstimateCardinalityERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(97), ptr noundef nonnull align 1) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb16LogicalAggregate13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb16LogicalAggregate13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %group_index = getelementptr inbounds i8, ptr %this, i64 104
   %call5.i.i.i.i5.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
@@ -2271,7 +2271,7 @@ entry:
 declare void @_ZN6duckdb15LogicalOperator22GenerateColumnBindingsEmm(ptr dead_on_unwind writable sret(%"class.duckdb::vector.44") align 8, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb20LogicalColumnDataGet13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb20LogicalColumnDataGet13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_index = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %table_index, align 8, !tbaa !106
@@ -5325,7 +5325,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb16CopyDatabaseInfoC2ERNS_7CatalogES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %from_database, ptr noundef nonnull align 8 dereferenceable(16) %to_database) unnamed_addr #10 align 2 {
+define void @_ZN6duckdb16CopyDatabaseInfoC2ERNS_7CatalogES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(16) %from_database, ptr noundef nonnull align 8 dereferenceable(16) %to_database) unnamed_addr #10 align 2 {
 entry:
   store ptr %from_database, ptr %this, align 8, !tbaa !3
   %to_database3 = getelementptr inbounds i8, ptr %this, i64 8
@@ -5394,7 +5394,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb19LogicalCopyDatabaseD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb19LogicalCopyDatabaseD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb19LogicalCopyDatabaseE, i64 16), ptr %this, align 8, !tbaa !11
   %info = getelementptr inbounds i8, ptr %this, i64 104
@@ -7533,7 +7533,7 @@ _ZN6duckdb10unique_ptrINS_15LogicalOperatorESt14default_deleteIS1_ELb1EE13Assert
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb13LogicalCTERef13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(169) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb13LogicalCTERef13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(169) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_index = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load i64, ptr %table_index, align 8, !tbaa !321
@@ -7725,7 +7725,7 @@ cond.end:                                         ; preds = %cond.true, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb13LogicalDelete13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb13LogicalDelete13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_index = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i64, ptr %table_index, align 8, !tbaa !324
@@ -7926,7 +7926,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb15LogicalDelimGet13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb15LogicalDelimGet13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_index = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %table_index, align 8, !tbaa !328
@@ -8812,7 +8812,7 @@ _ZN6duckdb6vectorINS_10unique_ptrINS_15LogicalOperatorESt14default_deleteIS2_ELb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb16LogicalDummyScan13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb16LogicalDummyScan13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_index = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %table_index, align 8, !tbaa !361
@@ -8937,7 +8937,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb20LogicalExpressionGet13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb20LogicalExpressionGet13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_index = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %table_index, align 8, !tbaa !363
@@ -11425,7 +11425,7 @@ cleanup9:                                         ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb10LogicalGet17GetColumnBindingsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.duckdb::vector.44") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb10LogicalGet17GetColumnBindingsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.duckdb::vector.44") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp31 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp32 = alloca %"class.std::allocator.32", align 1
@@ -15373,7 +15373,7 @@ _ZN6duckdb13TableFunctionD2Ev.exit:               ; preds = %if.then7.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb10LogicalGet13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(816) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb10LogicalGet13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(816) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_index = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %table_index, align 8, !tbaa !406
@@ -15614,7 +15614,7 @@ cond.end:                                         ; preds = %cond.true, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb13LogicalInsert13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb13LogicalInsert13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_index = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load i64, ptr %table_index, align 8, !tbaa !480
@@ -16611,7 +16611,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12LogicalOrder17GetColumnBindingsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.duckdb::vector.44") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12LogicalOrder17GetColumnBindingsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.duckdb::vector.44") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %child_bindings = alloca %"class.duckdb::vector.44", align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %child_bindings) #28
@@ -17474,7 +17474,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i23
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12LogicalPivot17GetColumnBindingsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.44") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12LogicalPivot17GetColumnBindingsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.44") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %types = getelementptr inbounds i8, ptr %this, i64 120
@@ -17626,7 +17626,7 @@ _ZNSt6vectorIN6duckdb13ColumnBindingESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb12LogicalPivot13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb12LogicalPivot13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pivot_index = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %pivot_index, align 8, !tbaa !527
@@ -18245,7 +18245,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb17LogicalProjection13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb17LogicalProjection13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_index = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %table_index, align 8, !tbaa !563
@@ -18268,7 +18268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb19LogicalRecursiveCTE13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb19LogicalRecursiveCTE13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_index = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load i64, ptr %table_index, align 8, !tbaa !565
@@ -18291,7 +18291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb22LogicalMaterializedCTE13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb22LogicalMaterializedCTE13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_index = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %table_index, align 8, !tbaa !567
@@ -18526,7 +18526,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb19LogicalSetOperation13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(122) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb19LogicalSetOperation13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(122) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_index = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %table_index, align 8, !tbaa !577
@@ -18909,7 +18909,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb13LogicalUnnest13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb13LogicalUnnest13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %unnest_index = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %unnest_index, align 8, !tbaa !590
@@ -19431,7 +19431,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb13LogicalWindow13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb13LogicalWindow13GetTableIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.50") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %window_index = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %window_index, align 8, !tbaa !601

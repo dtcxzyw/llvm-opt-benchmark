@@ -50,7 +50,7 @@ define ptr @get_srt_packet_func(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @set_srt_table_param_data(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @set_srt_table_param_data(ptr nocapture noundef writeonly initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
@@ -244,7 +244,7 @@ declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @srt_table_get_filter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #2 {
+define void @srt_table_get_filter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #2 {
   %5 = load i32, ptr %0, align 8
   %6 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %5) #8
   %7 = tail call ptr @g_string_new(ptr noundef %6) #8

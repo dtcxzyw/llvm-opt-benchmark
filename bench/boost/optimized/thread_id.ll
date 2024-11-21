@@ -266,7 +266,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN5boost3log11v2_mt_posix3aux16format_thread_idEPcmNS2_2idINS2_6threadEEE(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 %2) local_unnamed_addr #9 {
+define hidden void @_ZN5boost3log11v2_mt_posix3aux16format_thread_idEPcmNS2_2idINS2_6threadEEE(ptr nocapture noundef writeonly initializes((0, 2)) %0, i64 noundef %1, i64 %2) local_unnamed_addr #9 {
   %4 = load i8, ptr @_ZN5boost3log11v2_mt_posix3aux16g_hex_char_tableE, align 16, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %4, ptr %0, align 1, !tbaa !19

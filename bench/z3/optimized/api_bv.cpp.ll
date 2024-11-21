@@ -4771,7 +4771,7 @@ declare void @Z3_dec_ref(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @Z3_mk_bvmsb(ptr noundef %c, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @Z3_mk_bvmsb(ptr noundef initializes((1560, 1564)) %c, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -4861,7 +4861,7 @@ declare void @_ZN3api7context14set_error_codeE13Z3_error_codePKc(ptr noundef non
 declare ptr @Z3_mk_int64(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define ptr @Z3_mk_bvadd_no_overflow(ptr noundef %c, ptr noundef %t1, ptr noundef %t2, i1 noundef zeroext %is_signed) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define ptr @Z3_mk_bvadd_no_overflow(ptr noundef initializes((1560, 1564)) %c, ptr noundef %t1, ptr noundef %t2, i1 noundef zeroext %is_signed) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %args = alloca [2 x ptr], align 16
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
@@ -5058,7 +5058,7 @@ declare ptr @Z3_mk_implies(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @Z3_mk_eq(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define ptr @Z3_mk_bvadd_no_underflow(ptr noundef %c, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define ptr @Z3_mk_bvadd_no_underflow(ptr noundef initializes((1560, 1564)) %c, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %args = alloca [2 x ptr], align 16
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
@@ -5186,7 +5186,7 @@ terminate.lpad:                                   ; preds = %lpad30
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @Z3_mk_bvsub_no_overflow(ptr noundef %c, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define ptr @Z3_mk_bvsub_no_overflow(ptr noundef initializes((1560, 1564)) %c, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -5446,7 +5446,7 @@ terminate.lpad:                                   ; preds = %lpad46, %lpad34
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @Z3_mk_bvsub_no_underflow(ptr noundef %c, ptr noundef %t1, ptr noundef %t2, i1 noundef zeroext %is_signed) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define ptr @Z3_mk_bvsub_no_underflow(ptr noundef initializes((1560, 1564)) %c, ptr noundef %t1, ptr noundef %t2, i1 noundef zeroext %is_signed) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -5808,7 +5808,7 @@ terminate.lpad:                                   ; preds = %lpad31
 declare void @_Z28log_Z3_mk_bvmul_no_underflowP11_Z3_contextP7_Z3_astS2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define ptr @Z3_mk_bvneg_no_overflow(ptr noundef %c, ptr noundef %t) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define ptr @Z3_mk_bvneg_no_overflow(ptr noundef initializes((1560, 1564)) %c, ptr noundef %t) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -5888,7 +5888,7 @@ declare i32 @Z3_get_error_code(ptr noundef) local_unnamed_addr #0
 declare ptr @Z3_mk_not(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define ptr @Z3_mk_bvsdiv_no_overflow(ptr noundef %c, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define ptr @Z3_mk_bvsdiv_no_overflow(ptr noundef initializes((1560, 1564)) %c, ptr noundef %t1, ptr noundef %t2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %args = alloca [2 x ptr], align 16
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560

@@ -1709,7 +1709,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @qemu_strtou64(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @range_set_bounds(ptr nocapture noundef writeonly %range, i64 noundef %lob, i64 noundef %upb) unnamed_addr #0 {
+define internal fastcc void @range_set_bounds(ptr nocapture noundef writeonly initializes((0, 16)) %range, i64 noundef %lob, i64 noundef %upb) unnamed_addr #0 {
 entry:
   store i64 %lob, ptr %range, align 8
   %upb2 = getelementptr inbounds i8, ptr %range, i64 8

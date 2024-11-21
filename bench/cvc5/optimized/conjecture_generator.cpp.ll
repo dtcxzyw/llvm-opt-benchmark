@@ -3509,7 +3509,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers19ConjectureGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(4072) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers19ConjectureGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(4072) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers19ConjectureGeneratorE, i64 16), ptr %this, align 8
   %d_eqc_info = getelementptr inbounds i8, ptr %this, i64 1936
@@ -4208,7 +4208,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit142: ; preds = %_ZN4cvc58internal1
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers19ConjectureGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(4072) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers19ConjectureGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(4072) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers19ConjectureGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(4072) %this) #31
   tail call void @_ZdlPv(ptr noundef nonnull %this) #30
@@ -32349,7 +32349,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers13TermGenerator5resetEPNS2_10TermGenEnvENS0_8TypeNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %s, ptr nocapture noundef readonly %tn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers13TermGenerator5resetEPNS2_10TermGenEnvENS0_8TypeNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 20)) %this, ptr noundef %s, ptr nocapture noundef readonly %tn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::vector", align 8
   %0 = load ptr, ptr %this, align 8
@@ -35644,7 +35644,7 @@ _ZNSt3mapIN4cvc58internal8TypeNodeEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers13TermGenerator13resetMatchingEPNS2_10TermGenEnvENS0_12NodeTemplateILb0EEEj(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %eqc, i32 noundef %mode) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers13TermGenerator13resetMatchingEPNS2_10TermGenEnvENS0_12NodeTemplateILb0EEEj(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((48, 60)) %this, ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %eqc, i32 noundef %mode) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_match_status = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %d_match_status, align 8

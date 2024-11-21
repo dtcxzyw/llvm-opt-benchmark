@@ -665,7 +665,7 @@ declare i32 @pair_chunk(ptr noundef, i32 noundef, ptr noundef, ptr noundef) loca
 declare i32 @read_chunk(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @midx_read_oid_fanout(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef writeonly %data) #1 {
+define internal range(i32 0, 2) i32 @midx_read_oid_fanout(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef writeonly initializes((104, 112)) %data) #1 {
 entry:
   %chunk_oid_fanout = getelementptr inbounds i8, ptr %data, i64 104
   store ptr %chunk_start, ptr %chunk_oid_fanout, align 8
@@ -732,7 +732,7 @@ return:                                           ; preds = %if.else.i22, %_.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @midx_read_oid_lookup(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef %data) #1 {
+define internal range(i32 0, 2) i32 @midx_read_oid_lookup(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef initializes((112, 120)) %data) #1 {
 entry:
   %chunk_oid_lookup = getelementptr inbounds i8, ptr %data, i64 112
   store ptr %chunk_start, ptr %chunk_oid_lookup, align 8
@@ -766,7 +766,7 @@ return:                                           ; preds = %entry, %_.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @midx_read_object_offsets(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef %data) #1 {
+define internal range(i32 0, 2) i32 @midx_read_object_offsets(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef initializes((120, 128)) %data) #1 {
 entry:
   %chunk_object_offsets = getelementptr inbounds i8, ptr %data, i64 120
   store ptr %chunk_start, ptr %chunk_object_offsets, align 8

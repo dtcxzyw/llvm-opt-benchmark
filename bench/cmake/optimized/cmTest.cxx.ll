@@ -710,7 +710,7 @@ define dso_local noundef zeroext i1 @_ZNK6cmTest21GetCommandExpandListsEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6cmTest21SetCommandExpandListsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(148) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN6cmTest21SetCommandExpandListsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(148) initializes((112, 113)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   store i8 %3, ptr %4, align 8

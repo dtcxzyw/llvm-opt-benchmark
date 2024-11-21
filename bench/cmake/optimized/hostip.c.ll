@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.30 = private unnamed_addr constant [9 x i8] c"IPv4: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_printable_address(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @Curl_printable_address(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 1)) %1, i64 noundef %2) local_unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1210,7 +1210,7 @@ Curl_printable_address.exit:                      ; preds = %31, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 2) i32 @Curl_resolv_timeout(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 2) i32 @Curl_resolv_timeout(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i64 noundef %4) local_unnamed_addr #0 {
   store ptr null, ptr %3, align 8
   %6 = icmp slt i64 %4, 0
   br i1 %6, label %17, label %7

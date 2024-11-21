@@ -1031,7 +1031,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.e
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6ClientC2EPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER14MapDrawControlP22IWritableTextureSourceP21IWritableShaderSourceP23IWritableItemDefManagerP14NodeDefManagerP13ISoundManagerP14MtEventManagerP15RenderingEngineP6GameUI14ELoginRegister(ptr noundef nonnull align 8 dereferenceable(1746) %this, ptr noundef %playername, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %password, ptr noundef nonnull align 4 dereferenceable(7) %control, ptr noundef %tsrc, ptr noundef %shsrc, ptr noundef %itemdef, ptr noundef %nodedef, ptr noundef %sound, ptr noundef %event, ptr noundef %rendering_engine, ptr noundef %game_ui, i32 noundef %allow_login_or_register) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6ClientC2EPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER14MapDrawControlP22IWritableTextureSourceP21IWritableShaderSourceP23IWritableItemDefManagerP14NodeDefManagerP13ISoundManagerP14MtEventManagerP15RenderingEngineP6GameUI14ELoginRegister(ptr noundef nonnull align 8 dereferenceable(1746) initializes((0, 24), (25, 26), (28, 104)) %this, ptr noundef %playername, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %password, ptr noundef nonnull align 4 dereferenceable(7) %control, ptr noundef %tsrc, ptr noundef %shsrc, ptr noundef %itemdef, ptr noundef %nodedef, ptr noundef %sound, ptr noundef %event, ptr noundef %rendering_engine, ptr noundef %game_ui, i32 noundef %allow_login_or_register) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i269 = alloca i64, align 8
   %__dnew.i.i251 = alloca i64, align 8
@@ -7463,7 +7463,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN6Client4StopEv(ptr nocapture noundef nonnull align 8 dereferenceable(1746) %this) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN6Client4StopEv(ptr nocapture noundef nonnull align 8 dereferenceable(1746) initializes((1712, 1713)) %this) local_unnamed_addr #14 align 2 {
 entry:
   %m_shutdown = getelementptr inbounds i8, ptr %this, i64 1712
   store i8 1, ptr %m_shutdown, align 8, !tbaa !337
@@ -7610,7 +7610,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 declare noundef zeroext i1 @_ZN17MeshUpdateManager9isRunningEv(ptr noundef nonnull align 8 dereferenceable(528)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6ClientD2Ev(ptr noundef nonnull align 8 dereferenceable(1746) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6ClientD2Ev(ptr noundef nonnull align 8 dereferenceable(1746) initializes((0, 24), (1712, 1713)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator.46", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator.46", align 16
@@ -8714,7 +8714,7 @@ declare void @_ZN7MinimapD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) 
 declare void @_ZN13ISoundManager6freeIdEij(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn8_N6ClientD1Ev(ptr noundef %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZThn8_N6ClientD1Ev(ptr noundef initializes((-8, 16), (1704, 1705)) %this) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN6ClientD2Ev(ptr noundef nonnull align 8 dereferenceable(1746) %0) #39
@@ -8722,7 +8722,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6ClientD0Ev(ptr noundef nonnull align 8 dereferenceable(1746) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN6ClientD0Ev(ptr noundef nonnull align 8 dereferenceable(1746) initializes((0, 24), (1712, 1713)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN6ClientD2Ev(ptr noundef nonnull align 8 dereferenceable(1746) %this) #39
   tail call void @_ZdlPv(ptr noundef nonnull %this) #40
@@ -8730,7 +8730,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn8_N6ClientD0Ev(ptr noundef %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZThn8_N6ClientD0Ev(ptr noundef initializes((-8, 16), (1704, 1705)) %this) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN6ClientD2Ev(ptr noundef nonnull align 8 dereferenceable(1746) %0) #39
@@ -18638,7 +18638,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Client9startAuthE13AuthMechanism(ptr noundef nonnull align 8 dereferenceable(1746) %this, i32 noundef %chosen_auth_mechanism) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6Client9startAuthE13AuthMechanism(ptr noundef nonnull align 8 dereferenceable(1746) initializes((1016, 1020)) %this, i32 noundef %chosen_auth_mechanism) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i145 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -20694,7 +20694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Client13setPlayerItemEt(ptr nocapture noundef nonnull align 8 dereferenceable(1746) %this, i16 noundef zeroext %item) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6Client13setPlayerItemEt(ptr nocapture noundef nonnull align 8 dereferenceable(1746) initializes((652, 653)) %this, i16 noundef zeroext %item) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pkt = alloca %class.NetworkPacket, align 8
   %m_local_player.i = getelementptr inbounds i8, ptr %this, i64 232

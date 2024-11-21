@@ -467,7 +467,7 @@ return:                                           ; preds = %do.body27, %do.body
 declare void @throttle_account(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @cryptodev_backend_set_used(ptr nocapture noundef writeonly %backend, i1 noundef zeroext %used) local_unnamed_addr #3 {
+define dso_local void @cryptodev_backend_set_used(ptr nocapture noundef writeonly initializes((41, 42)) %backend, i1 noundef zeroext %used) local_unnamed_addr #3 {
 entry:
   %frombool = zext i1 %used to i8
   %is_used = getelementptr inbounds i8, ptr %backend, i64 41
@@ -485,7 +485,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @cryptodev_backend_set_ready(ptr nocapture noundef writeonly %backend, i1 noundef zeroext %ready) local_unnamed_addr #3 {
+define dso_local void @cryptodev_backend_set_ready(ptr nocapture noundef writeonly initializes((40, 41)) %backend, i1 noundef zeroext %ready) local_unnamed_addr #3 {
 entry:
   %frombool = zext i1 %ready to i8
   %ready1 = getelementptr inbounds i8, ptr %backend, i64 40

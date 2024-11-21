@@ -271,7 +271,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30DiscretizedDoubleBarrierOptionC2ERKNS_19DoubleBarrierOption9argumentsERKNS_17StochasticProcessERKNS_8TimeGridE(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %args, ptr noundef nonnull align 8 dereferenceable(128) %process, ptr noundef nonnull align 8 dereferenceable(72) %grid) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30DiscretizedDoubleBarrierOptionC2ERKNS_19DoubleBarrierOption9argumentsERKNS_17StochasticProcessERKNS_8TimeGridE(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8), (16, 160)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %args, ptr noundef nonnull align 8 dereferenceable(128) %process, ptr noundef nonnull align 8 dereferenceable(72) %grid) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -940,7 +940,7 @@ _ZN8QuantLib19DoubleBarrierOption9argumentsD2Ev.exit: ; preds = %_ZN5boost10shar
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30DiscretizedDoubleBarrierOption5resetEm(ptr noundef nonnull align 8 dereferenceable(288) %this, i64 noundef %size) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30DiscretizedDoubleBarrierOption5resetEm(ptr noundef nonnull align 8 dereferenceable(288) initializes((208, 216)) %this, i64 noundef %size) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vanilla_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %method_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2013,7 +2013,7 @@ unreachable:                                      ; preds = %invoke.cont256, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib40DiscretizedDermanKaniDoubleBarrierOptionC2ERKNS_19DoubleBarrierOption9argumentsERKNS_17StochasticProcessERKNS_8TimeGridE(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(72) %args, ptr noundef nonnull align 8 dereferenceable(128) %process, ptr noundef nonnull align 8 dereferenceable(72) %grid) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib40DiscretizedDermanKaniDoubleBarrierOptionC2ERKNS_19DoubleBarrierOption9argumentsERKNS_17StochasticProcessERKNS_8TimeGridE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8), (16, 64)) %this, ptr noundef nonnull align 8 dereferenceable(72) %args, ptr noundef nonnull align 8 dereferenceable(128) %process, ptr noundef nonnull align 8 dereferenceable(72) %grid) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %latestPreAdjustment_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double 0x7FEFFFFFFFFFFFFF, ptr %latestPreAdjustment_.i, align 8, !tbaa !18
@@ -2037,7 +2037,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib40DiscretizedDermanKaniDoubleBarrierOption5resetEm(ptr noundef nonnull align 8 dereferenceable(352) %this, i64 noundef %size) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib40DiscretizedDermanKaniDoubleBarrierOption5resetEm(ptr noundef nonnull align 8 dereferenceable(352) initializes((112, 120)) %this, i64 noundef %size) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %unenhanced_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %method_.i = getelementptr inbounds nuw i8, ptr %this, i64 48

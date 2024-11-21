@@ -1078,7 +1078,7 @@ _ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErrorESt4pairIKS2_NSt7__cxx1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11ProxyStatusC2ENS_10StatusTypeE(ptr noundef nonnull align 8 dereferenceable(100) %this, i32 noundef %statusType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11ProxyStatusC2ENS_10StatusTypeE(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %this, i32 noundef %statusType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen11ProxyStatusE, i64 16), ptr %this, align 8
   %pIdent_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1178,7 +1178,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11ProxyStatus13setStatusTypeENS_10StatusTypeE(ptr noundef nonnull align 8 dereferenceable(100) %this, i32 noundef %statusType) local_unnamed_addr #0 align 2 {
+define void @_ZN8proxygen11ProxyStatus13setStatusTypeENS_10StatusTypeE(ptr noundef nonnull align 8 dereferenceable(100) initializes((96, 100)) %this, i32 noundef %statusType) local_unnamed_addr #0 align 2 {
 entry:
   %statusType_ = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %statusType, ptr %statusType_, align 8

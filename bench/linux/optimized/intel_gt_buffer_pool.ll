@@ -188,7 +188,7 @@ define dso_local ptr @intel_gt_get_buffer_pool(ptr noundef %0, i64 noundef %1, i
 declare dso_local i32 @i915_active_acquire(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_init_buffer_pool(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_init_buffer_pool(ptr noundef initializes((4704, 4708)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4704
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4712
@@ -533,7 +533,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #1
 declare dso_local void @__i915_active_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pool_retire(ptr noundef %0) #0 align 16 {
+define internal void @pool_retire(ptr noundef initializes((168, 184)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 160

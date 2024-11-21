@@ -85,7 +85,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare void @backtrace_symbols_fd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_backtrace_buffer(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @prte_backtrace_buffer(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = alloca [32 x ptr], align 16
   %4 = call i32 @backtrace(ptr noundef nonnull %3, i32 noundef 32) #6
   %5 = call ptr @backtrace_symbols(ptr noundef nonnull %3, i32 noundef %4) #6

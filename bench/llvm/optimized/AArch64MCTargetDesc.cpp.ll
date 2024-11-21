@@ -14747,7 +14747,7 @@ declare { i64, i8 } @_ZNK4llvm15MCInstrAnalysis28evaluateMemoryOperandAddressERK
 declare { i64, i8 } @_ZNK4llvm15MCInstrAnalysis32getMemoryOperandRelocationOffsetERKNS_6MCInstEm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(128), i64 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_122AArch64MCInstrAnalysis14findPltEntriesEmN4llvm8ArrayRefIhEERKNS1_6TripleE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.36") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 noundef %2, ptr %3, i64 %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_122AArch64MCInstrAnalysis14findPltEntriesEmN4llvm8ArrayRefIhEERKNS1_6TripleE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.36") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, i64 noundef %2, ptr %3, i64 %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %7 = icmp ugt i64 %4, 7
   br i1 %7, label %.lr.ph, label %._crit_edge

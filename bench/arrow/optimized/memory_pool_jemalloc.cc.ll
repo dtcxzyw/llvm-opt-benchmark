@@ -80,7 +80,7 @@ $_ZN5arrow6Status17FromDetailAndArgsIJRA30_KcEEES0_NS_10StatusCodeESt10shared_pt
 @"_ZTIZN5arrow21jemalloc_stats_stringB5cxx11EPKcE3$_0" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZN5arrow21jemalloc_stats_stringB5cxx11EPKcE3$_0" }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow11memory_pool8internal17JemallocAllocator15AllocateAlignedEllPPh(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 noundef %size, i64 noundef %alignment, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow11memory_pool8internal17JemallocAllocator15AllocateAlignedEllPPh(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 noundef %size, i64 noundef %alignment, ptr nocapture noundef writeonly initializes((0, 8)) %out) local_unnamed_addr #0 align 2 {
 entry:
   %size.addr = alloca i64, align 8
   store i64 %size, ptr %size.addr, align 8
@@ -725,7 +725,7 @@ _ZNSt8functionIFvPKcEED2Ev.exit:                  ; preds = %_ZN5arrow6StatusD2E
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow20jemalloc_stats_printESt8functionIFvPKcEES2_(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %write_cb, ptr noundef %opts) local_unnamed_addr #2 {
+define void @_ZN5arrow20jemalloc_stats_printESt8functionIFvPKcEES2_(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %write_cb, ptr noundef %opts) local_unnamed_addr #2 {
 entry:
   tail call void @je_arrow_malloc_stats_print(ptr noundef nonnull @"_ZZN5arrow20jemalloc_stats_printESt8functionIFvPKcEES2_EN3$_08__invokeEPvS2_", ptr noundef %write_cb, ptr noundef %opts) #17
   store ptr null, ptr %agg.result, align 8, !alias.scope !37
@@ -738,7 +738,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow20jemalloc_stats_printEPKc(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %opts) local_unnamed_addr #2 {
+define void @_ZN5arrow20jemalloc_stats_printEPKc(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %opts) local_unnamed_addr #2 {
 entry:
   tail call void @je_arrow_malloc_stats_print(ptr noundef null, ptr noundef null, ptr noundef %opts) #17
   store ptr null, ptr %agg.result, align 8, !alias.scope !40

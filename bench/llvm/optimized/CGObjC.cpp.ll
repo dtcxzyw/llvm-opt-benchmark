@@ -2502,7 +2502,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %157
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime22GetRuntimeProtocolListEPKPNS_16ObjCProtocolDeclES5_(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.988") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %1, ptr noundef readonly %2, ptr noundef readnone %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime22GetRuntimeProtocolListEPKPNS_16ObjCProtocolDeclES5_(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.988") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %1, ptr noundef readonly %2, ptr noundef readnone %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::DenseSet.993", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::UniqueVector", align 8
@@ -7020,7 +7020,7 @@ declare noundef ptr @_ZN5clang10ReturnStmt6CreateERKNS_10ASTContextENS_14SourceL
 declare void @_ZN5clang7CodeGen15CodeGenFunction14EmitReturnStmtERKNS_10ReturnStmtE(ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120PropertyImplStrategyC2ERN5clang7CodeGen13CodeGenModuleEPKNS1_20ObjCPropertyImplDeclE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3600) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120PropertyImplStrategyC2ERN5clang7CodeGen13CodeGenModuleEPKNS1_20ObjCPropertyImplDeclE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3600) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.clang::TypeInfoChars", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16175,7 +16175,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction33EmitARCUnsafeU
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction28EmitARCStoreUnsafeUnretainedEPKNS_14BinaryOperatorEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.1224") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction28EmitARCStoreUnsafeUnretainedEPKNS_14BinaryOperatorEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.1224") align 8 initializes((0, 144)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CodeGen::LValue", align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -16202,7 +16202,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction28EmitARCStoreUnsafeUnr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction18EmitARCStoreStrongEPKNS_14BinaryOperatorEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.1224") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction18EmitARCStoreStrongEPKNS_14BinaryOperatorEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.1224") align 8 initializes((0, 144)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CodeGen::LValue", align 8
   %6 = alloca %"struct.(anonymous namespace)::ARCRetainExprEmitter", align 8
   %7 = alloca %"class.clang::CodeGen::LValue", align 8
@@ -16340,7 +16340,7 @@ _ZN5clang7CodeGen15CodeGenFunction18EmitARCStoreStrongENS0_6LValueEPN4llvm5Value
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction25EmitARCStoreAutoreleasingEPKNS_14BinaryOperatorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.1224") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction25EmitARCStoreAutoreleasingEPKNS_14BinaryOperatorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.1224") align 8 initializes((0, 144)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CodeGen::LValue", align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8

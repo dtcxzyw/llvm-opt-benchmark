@@ -1589,7 +1589,7 @@ write_name_quoted.exit:                           ; preds = %if.then.i, %if.else
 declare ptr @relative_path(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @quote_path(ptr noundef %in, ptr noundef %prefix, ptr noundef %out, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local ptr @quote_path(ptr noundef %in, ptr noundef %prefix, ptr noundef initializes((8, 16)) %out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %sb = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.quote_path.sb, i64 24, i1 false)

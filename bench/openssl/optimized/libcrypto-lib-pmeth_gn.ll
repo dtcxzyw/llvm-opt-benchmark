@@ -448,7 +448,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_CTX_set_cb(ptr nocapture noundef writeonly %ctx, ptr noundef %cb) local_unnamed_addr #2 {
+define void @EVP_PKEY_CTX_set_cb(ptr nocapture noundef writeonly initializes((96, 104)) %ctx, ptr noundef %cb) local_unnamed_addr #2 {
 entry:
   %pkey_gencb = getelementptr inbounds i8, ptr %ctx, i64 96
   store ptr %cb, ptr %pkey_gencb, align 8
@@ -814,7 +814,7 @@ return:                                           ; preds = %if.end6, %if.then3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_pkey_todata_cb(ptr noundef %params, ptr nocapture noundef writeonly %arg) #0 {
+define internal noundef i32 @ossl_pkey_todata_cb(ptr noundef %params, ptr nocapture noundef writeonly initializes((0, 8)) %arg) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_dup(ptr noundef %params) #6
   store ptr %call, ptr %arg, align 8

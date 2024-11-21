@@ -69,7 +69,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [30 x i8] c"application's callback failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__huge_init(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef i32 @H5HF__huge_init(ptr nocapture noundef initializes((664, 672), (680, 682)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 252
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0

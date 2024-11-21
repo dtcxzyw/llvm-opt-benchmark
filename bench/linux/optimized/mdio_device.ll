@@ -229,7 +229,7 @@ define dso_local void @mdio_device_reset(ptr nocapture noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mdio_driver_register(ptr noundef %0) #0 align 16 {
+define dso_local i32 @mdio_driver_register(ptr noundef initializes((8, 16), (56, 64), (72, 88)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @mdio_bus_type, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56

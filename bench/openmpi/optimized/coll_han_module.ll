@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [53 x i8] c"(%s/%s): no underlying scatter; disqualifying myself\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_coll_han_module_construct(ptr nocapture noundef writeonly %0) #0 {
+define internal void @mca_coll_han_module_construct(ptr nocapture noundef writeonly initializes((568, 576), (592, 593), (596, 600), (608, 641), (648, 808), (816, 873), (876, 904)) %0) #0 {
 .preheader:
   %1 = getelementptr inbounds i8, ptr %0, i64 592
   store i8 1, ptr %1, align 8
@@ -67,7 +67,7 @@ define internal void @mca_coll_han_module_construct(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_coll_han_module_destruct(ptr noundef %0) #1 {
+define internal void @mca_coll_han_module_destruct(ptr noundef initializes((592, 593)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 596
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1

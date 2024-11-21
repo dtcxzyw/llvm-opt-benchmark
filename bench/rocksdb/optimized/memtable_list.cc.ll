@@ -819,7 +819,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb19MemTableListVersion3GetERKNS_9LookupKeyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_19PinnableWideColumnsESA_PNS_6StatusEPNS_12MergeContextEPmSH_RKNS_11ReadOptionsEPNS_12ReadCallbackEPb(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(224) %key, ptr noundef %value, ptr noundef %columns, ptr noundef %timestamp, ptr noundef %s, ptr noundef %merge_context, ptr noundef %max_covering_tombstone_seq, ptr nocapture noundef %seq, ptr noundef nonnull align 8 dereferenceable(154) %read_opts, ptr noundef %callback, ptr noundef %is_blob_index) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb19MemTableListVersion3GetERKNS_9LookupKeyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_19PinnableWideColumnsESA_PNS_6StatusEPNS_12MergeContextEPmSH_RKNS_11ReadOptionsEPNS_12ReadCallbackEPb(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(224) %key, ptr noundef %value, ptr noundef %columns, ptr noundef %timestamp, ptr noundef %s, ptr noundef %merge_context, ptr noundef %max_covering_tombstone_seq, ptr nocapture noundef initializes((0, 8)) %seq, ptr noundef nonnull align 8 dereferenceable(154) %read_opts, ptr noundef %callback, ptr noundef %is_blob_index) local_unnamed_addr #4 align 2 {
 entry:
   %current_seq.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %current_seq.i)
@@ -866,7 +866,7 @@ _ZN7rocksdb19MemTableListVersion11GetFromListEPNSt7__cxx114listIPNS_8MemTableESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb19MemTableListVersion11GetFromListEPNSt7__cxx114listIPNS_8MemTableESaIS4_EEERKNS_9LookupKeyEPNS1_12basic_stringIcSt11char_traitsIcESaIcEEEPNS_19PinnableWideColumnsESG_PNS_6StatusEPNS_12MergeContextEPmSN_RKNS_11ReadOptionsEPNS_12ReadCallbackEPb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %this, ptr noundef readonly %list, ptr noundef nonnull align 8 dereferenceable(224) %key, ptr noundef %value, ptr noundef %columns, ptr noundef %timestamp, ptr noundef %s, ptr noundef %merge_context, ptr noundef %max_covering_tombstone_seq, ptr nocapture noundef %seq, ptr noundef nonnull align 8 dereferenceable(154) %read_opts, ptr noundef %callback, ptr noundef %is_blob_index) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb19MemTableListVersion11GetFromListEPNSt7__cxx114listIPNS_8MemTableESaIS4_EEERKNS_9LookupKeyEPNS1_12basic_stringIcSt11char_traitsIcESaIcEEEPNS_19PinnableWideColumnsESG_PNS_6StatusEPNS_12MergeContextEPmSN_RKNS_11ReadOptionsEPNS_12ReadCallbackEPb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %this, ptr noundef readonly %list, ptr noundef nonnull align 8 dereferenceable(224) %key, ptr noundef %value, ptr noundef %columns, ptr noundef %timestamp, ptr noundef %s, ptr noundef %merge_context, ptr noundef %max_covering_tombstone_seq, ptr nocapture noundef initializes((0, 8)) %seq, ptr noundef nonnull align 8 dereferenceable(154) %read_opts, ptr noundef %callback, ptr noundef %is_blob_index) local_unnamed_addr #4 align 2 {
 entry:
   %current_seq = alloca i64, align 8
   store i64 72057594037927935, ptr %seq, align 8
@@ -973,7 +973,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb19MemTableListVersion14GetFromHistoryERKNS_9LookupKeyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_19PinnableWideColumnsESA_PNS_6StatusEPNS_12MergeContextEPmSH_RKNS_11ReadOptionsEPb(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(224) %key, ptr noundef %value, ptr noundef %columns, ptr noundef %timestamp, ptr noundef %s, ptr noundef %merge_context, ptr noundef %max_covering_tombstone_seq, ptr nocapture noundef %seq, ptr noundef nonnull align 8 dereferenceable(154) %read_opts, ptr noundef %is_blob_index) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb19MemTableListVersion14GetFromHistoryERKNS_9LookupKeyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_19PinnableWideColumnsESA_PNS_6StatusEPNS_12MergeContextEPmSH_RKNS_11ReadOptionsEPb(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(224) %key, ptr noundef %value, ptr noundef %columns, ptr noundef %timestamp, ptr noundef %s, ptr noundef %merge_context, ptr noundef %max_covering_tombstone_seq, ptr nocapture noundef initializes((0, 8)) %seq, ptr noundef nonnull align 8 dereferenceable(154) %read_opts, ptr noundef %is_blob_index) local_unnamed_addr #4 align 2 {
 entry:
   %current_seq.i = alloca i64, align 8
   %memlist_history_ = getelementptr inbounds i8, ptr %this, i64 24

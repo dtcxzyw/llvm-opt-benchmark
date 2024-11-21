@@ -207,7 +207,7 @@ if.end8:                                          ; preds = %_Z7deallocI7obj_map
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18macro_substitutionC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18macro_substitutionC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 28), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_decl2macro = getelementptr inbounds i8, ptr %this, i64 8
@@ -353,7 +353,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18macro_substitutionC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %cores_enabled) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18macro_substitutionC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 28), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %cores_enabled) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_decl2macro = getelementptr inbounds i8, ptr %this, i64 8
@@ -398,7 +398,7 @@ lpad4:                                            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18macro_substitutionC2ER11ast_managerbb(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %cores_enabled, i1 noundef zeroext %proofs_enabled) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18macro_substitutionC2ER11ast_managerbb(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 28), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %cores_enabled, i1 noundef zeroext %proofs_enabled) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_decl2macro = getelementptr inbounds i8, ptr %this, i64 8
@@ -1675,7 +1675,7 @@ if.end23:                                         ; preds = %for.body.i.i.i60, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN18macro_substitution12get_head_defEP10quantifierP9func_declRP3appRP4expr(ptr nocapture noundef nonnull readnone align 8 dereferenceable(49) %this, ptr nocapture noundef readonly %q, ptr noundef readnone %f, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %head, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %def) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN18macro_substitution12get_head_defEP10quantifierP9func_declRP3appRP4expr(ptr nocapture noundef nonnull readnone align 8 dereferenceable(49) %this, ptr nocapture noundef readonly %q, ptr noundef readnone %f, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %head, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %def) local_unnamed_addr #7 align 2 {
 entry:
   %m_expr.i = getelementptr inbounds i8, ptr %q, i64 24
   %0 = load ptr, ptr %m_expr.i, align 8

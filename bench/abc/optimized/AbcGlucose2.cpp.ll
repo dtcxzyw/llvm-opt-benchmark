@@ -327,7 +327,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit15:              ; preds = %_ZN6Gluco210SimpSol
 declare noundef i32 @_ZN6Gluco210SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1684), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z27glucose2_solver_setcallbackPN6Gluco210SimpSolverEPvPFiS2_iPiE(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define void @_Z27glucose2_solver_setcallbackPN6Gluco210SimpSolverEPvPFiS2_iPiE(ptr nocapture noundef writeonly initializes((16, 36)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -464,7 +464,7 @@ define noundef range(i32 0, 2) i32 @_Z33glucose2_solver_read_cex_varvaluePN6Gluc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z23glucose2_solver_setstopPN6Gluco210SimpSolverEPi(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @_Z23glucose2_solver_setstopPN6Gluco210SimpSolverEPi(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret void
@@ -618,7 +618,7 @@ define noundef range(i32 0, 2) i32 @bmcg2_sat_solver_addclause(ptr noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @bmcg2_sat_solver_setcallback(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define void @bmcg2_sat_solver_setcallback(ptr nocapture noundef writeonly initializes((16, 36)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -635,7 +635,7 @@ define noundef i32 @bmcg2_sat_solver_solve(ptr noundef nonnull %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @bmcg2_sat_solver_final(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define i32 @bmcg2_sat_solver_final(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8
@@ -806,7 +806,7 @@ define range(i32 0, 2) i32 @bmcg2_sat_solver_read_cex_varvalue(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @bmcg2_sat_solver_set_stop(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @bmcg2_sat_solver_set_stop(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret void
@@ -827,7 +827,7 @@ define i64 @bmcg2_sat_solver_set_runtime_limit(ptr nocapture noundef %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @bmcg2_sat_solver_set_conflict_budget(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @bmcg2_sat_solver_set_conflict_budget(ptr nocapture noundef initializes((1128, 1136)) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %10
 
@@ -1142,7 +1142,7 @@ define i32 @bmcg2_sat_solver_jftr(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @bmcg2_sat_solver_set_jftr(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @bmcg2_sat_solver_set_jftr(ptr nocapture noundef writeonly initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %1, ptr %3, align 8
   ret void
@@ -3420,7 +3420,7 @@ declare ptr @Gia_ManDupConeSupp(ptr noundef, i32 noundef, ptr noundef) local_unn
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z24bmcg2_sat_generate_dvarsP10Vec_Int_t_P10Vec_Str_t_S0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @_Z24bmcg2_sat_generate_dvarsP10Vec_Int_t_P10Vec_Str_t_S0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val43 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 4

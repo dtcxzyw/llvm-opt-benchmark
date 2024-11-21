@@ -315,7 +315,7 @@ define hidden void @_ZN13WeakProcessor4Task10initializeEv(ptr nocapture noundef 
 declare void @_ZN18WeakProcessorTimes18set_active_workersEj(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13WeakProcessor4TaskC2Ej(ptr noundef nonnull align 8 dereferenceable(584) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13WeakProcessor4TaskC2Ej(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 12), (16, 584)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -338,7 +338,7 @@ _ZN13WeakProcessor4TaskC2EP18WeakProcessorTimesj.exit: ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13WeakProcessor4TaskC2EP18WeakProcessorTimesj(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN13WeakProcessor4TaskC2EP18WeakProcessorTimesj(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 12), (16, 584)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8

@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.8 = private unnamed_addr constant [98 x i8] c"Cannot validate operation for these seed values, please compare with results on a known platform.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @iterate(ptr noundef %pres) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @iterate(ptr noundef initializes((96, 104)) %pres) local_unnamed_addr #0 {
 entry:
   %iterations1 = getelementptr inbounds i8, ptr %pres, i64 44
   %0 = load i32, ptr %iterations1, align 4

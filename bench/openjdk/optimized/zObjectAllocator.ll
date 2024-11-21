@@ -81,7 +81,7 @@ declare void @_Z21ZStatUnitOpsPerSecond15LogTargetHandleRK12ZStatSamplerRK19ZSta
 declare void @_ZN12ZStatCounterC1EPKcS1_PFv15LogTargetHandleRK12ZStatSamplerRK19ZStatSamplerHistoryE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZObjectAllocatorC2E8ZPageAge(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN16ZObjectAllocatorC2E8ZPageAge(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 2)) %0, i8 noundef zeroext %1) unnamed_addr #1 align 2 {
   store i8 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = tail call noundef zeroext i1 @_ZN11ZHeuristics30use_per_cpu_shared_small_pagesEv() #8

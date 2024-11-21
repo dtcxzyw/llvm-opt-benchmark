@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @WebPUnfilters = external local_unnamed_addr global [4 x ptr], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @WebPDeallocateAlphaMemory(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @WebPDeallocateAlphaMemory(ptr nocapture noundef initializes((3000, 3008)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2992
   %3 = load ptr, ptr %2, align 8
   tail call void @WebPSafeFree(ptr noundef %3) #3

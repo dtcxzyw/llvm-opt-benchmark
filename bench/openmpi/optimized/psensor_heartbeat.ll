@@ -430,7 +430,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ft_constructor(ptr nocapture noundef writeonly %0) #1 {
+define internal void @ft_constructor(ptr nocapture noundef writeonly initializes((144, 161), (424, 457), (464, 481)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = getelementptr inbounds i8, ptr %0, i64 424
   %4 = getelementptr inbounds i8, ptr %0, i64 456
@@ -548,7 +548,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cd_con(ptr nocapture noundef writeonly %0) #1 {
+define internal void @cd_con(ptr nocapture noundef writeonly initializes((248, 264)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -636,7 +636,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @bcon(ptr nocapture noundef writeonly %0) #1 {
+define internal void @bcon(ptr nocapture noundef writeonly initializes((248, 256)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   store ptr null, ptr %2, align 8
   ret void
@@ -891,7 +891,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_tracker(i32 %0, i16 signext %1, ptr noundef %2) #0 {
+define internal void @add_tracker(i32 %0, i16 signext %1, ptr noundef initializes((128, 136)) %2) #0 {
   fence acquire
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_heartbeat_component, i64 480), align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 128

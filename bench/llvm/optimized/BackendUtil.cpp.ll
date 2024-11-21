@@ -5517,7 +5517,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11cha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17initTargetOptionsRN5clang17DiagnosticsEngineERN4llvm13TargetOptionsERKNS_14CodeGenOptionsERKNS_13TargetOptionsERKNS_11LangOptionsERKNS_19HeaderSearchOptionsE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(2136) %2, ptr noundef nonnull align 8 dereferenceable(536) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %4, ptr noundef nonnull align 8 dereferenceable(627) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL17initTargetOptionsRN5clang17DiagnosticsEngineERN4llvm13TargetOptionsERKNS_14CodeGenOptionsERKNS_13TargetOptionsERKNS_11LangOptionsERKNS_19HeaderSearchOptionsE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 8), (24, 28), (92, 100), (104, 108)) %1, ptr noundef nonnull align 8 dereferenceable(2136) %2, ptr noundef nonnull align 8 dereferenceable(536) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %4, ptr noundef nonnull align 8 dereferenceable(627) %5) unnamed_addr #0 {
   %7 = alloca %"class.std::__shared_ptr.320", align 8
   %8 = alloca %"class.llvm::ErrorOr", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -7051,7 +7051,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit32: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_4JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
@@ -7837,7 +7837,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbjRKN4llvm6Module
 declare void @_ZN4llvm18WriteBitcodeToFileERKNS_6ModuleERNS_11raw_ostreamEbPKNS_18ModuleSummaryIndexEbPSt5arrayIjLm5EE(ptr noundef nonnull align 8 dereferenceable(857), ptr noundef nonnull align 8 dereferenceable(48), i1 noundef zeroext, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEEjRKNS0_5TwineEEZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPNS0_6ModuleERKNSC_19HeaderSearchOptionsERKNSC_14CodeGenOptionsERKNSC_13TargetOptionsERKNSC_11LangOptionsES2_INS0_17raw_pwrite_streamES4_ISV_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES13_NSC_13BackendActionEE3$_3E9_M_invokeERKSt9_Any_dataOjSA_"(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.477") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture nonnull readonly align 4 %2, ptr nocapture nonnull readnone align 8 %3) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEEjRKNS0_5TwineEEZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS0_18ModuleSummaryIndexEPNS0_6ModuleERKNSC_19HeaderSearchOptionsERKNSC_14CodeGenOptionsERKNSC_13TargetOptionsERKNSC_11LangOptionsES2_INS0_17raw_pwrite_streamES4_ISV_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES13_NSC_13BackendActionEE3$_3E9_M_invokeERKSt9_Any_dataOjSA_"(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.477") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture nonnull readonly align 4 %2, ptr nocapture nonnull readnone align 8 %3) #0 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %.val = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -8370,7 +8370,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZL17runThinLTOBackendRN5clang17DiagnosticsEngineEPNS_18ModuleSummaryIndexEPNS_6ModuleERKNS1_19HeaderSearchOptionsERKNS1_14CodeGenOptionsERKNS1_13TargetOptionsERKNS1_11LangOptionsESt10unique_ptrINS_17raw_pwrite_streamESt14default_deleteISL_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_NS1_13BackendActionEE3$_5JEEENS_5ErrorESK_INS_13ErrorInfoBaseESM_ISY_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
@@ -12510,7 +12510,7 @@ declare noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef 
 declare void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(857), i32 noundef, ptr, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118EmitAssemblyHelper14openOutputFileEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118EmitAssemblyHelper14openOutputFileEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::error_code", align 8
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

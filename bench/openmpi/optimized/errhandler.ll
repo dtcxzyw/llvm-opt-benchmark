@@ -1080,7 +1080,7 @@ declare ptr @opal_strerror(i32 noundef) local_unnamed_addr #3
 declare void @PMIx_Info_destruct(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @ompi_errhandler_registration_callback(i32 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @ompi_errhandler_registration_callback(i32 noundef %0, i64 noundef %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #6 {
   store i64 %1, ptr @default_errhandler_id, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %0, ptr %4, align 4

@@ -216,7 +216,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @HMAC_CTX_reset(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HMAC_CTX_reset(ptr nocapture noundef initializes((0, 8)) %ctx) local_unnamed_addr #0 {
 entry:
   %i_ctx.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %i_ctx.i, align 8
@@ -422,7 +422,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @HMAC_CTX_copy(ptr nocapture noundef %dctx, ptr nocapture noundef readonly %sctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HMAC_CTX_copy(ptr nocapture noundef initializes((0, 8)) %dctx, ptr nocapture noundef readonly %sctx) local_unnamed_addr #0 {
 entry:
   %i_ctx.i = getelementptr inbounds i8, ptr %dctx, i64 16
   %0 = load ptr, ptr %i_ctx.i, align 8

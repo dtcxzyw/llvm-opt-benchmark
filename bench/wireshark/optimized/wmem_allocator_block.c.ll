@@ -385,7 +385,7 @@ wmem_block_verify_block.exit:                     ; preds = %90, %143, %145
 declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @wmem_block_allocator_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @wmem_block_allocator_init(ptr nocapture noundef writeonly initializes((0, 48), (56, 64)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 24) #6
   store ptr @wmem_block_alloc, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1019,7 +1019,7 @@ wmem_block_cycle_recycler.exit:                   ; preds = %44, %33, %17, %wmem
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @wmem_block_free_all(ptr nocapture noundef %0) #0 {
+define internal void @wmem_block_free_all(ptr nocapture noundef initializes((8, 24)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %0, align 8

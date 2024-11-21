@@ -122,7 +122,7 @@ define dso_local void @drm_flip_work_commit(ptr noundef %0, ptr noundef %1) #0 a
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @drm_flip_work_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
+define dso_local void @drm_flip_work_init(ptr noundef initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) #3 align 16 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store volatile ptr %4, ptr %4, align 8

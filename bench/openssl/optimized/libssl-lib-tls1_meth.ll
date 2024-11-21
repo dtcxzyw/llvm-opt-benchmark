@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [14 x i8] c"tls-data-size\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_allocate_write_buffers(ptr noundef %rl, ptr nocapture noundef readonly %templates, i64 noundef %numtempl, ptr nocapture noundef writeonly %prefix) #0 {
+define range(i32 0, 2) i32 @tls1_allocate_write_buffers(ptr noundef %rl, ptr nocapture noundef readonly %templates, i64 noundef %numtempl, ptr nocapture noundef writeonly initializes((0, 8)) %prefix) #0 {
 entry:
   %need_empty_fragments = getelementptr inbounds i8, ptr %rl, i64 4120
   %0 = load i32, ptr %need_empty_fragments, align 8

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @rc = internal unnamed_addr constant [11 x i64] [i64 0, i64 1739452583106838863, i64 3938066875928252754, i64 6970617360185850677, i64 2152957850883456599, i64 1546766456395418330, i64 6397689871562992517, i64 -4801662984139176601, i64 -2006563040903981608, i64 -293160144494704738, i64 -3878233664402062541], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_WHIRLPOOLInit(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_WHIRLPOOLInit(ptr nocapture noundef writeonly initializes((0, 168)) %0, ptr nocapture readnone %1) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 0, i64 168, i1 false)
   ret void
 }

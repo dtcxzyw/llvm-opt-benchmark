@@ -2211,7 +2211,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost6metric15GPUBinaryROCAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEERKNS_8MetaInfoEPSt10shared_ptrINS0_14DeviceAUCCacheEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple") align 8 %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %3, ptr nocapture noundef readnone %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost6metric15GPUBinaryROCAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEERKNS_8MetaInfoEPSt10shared_ptrINS0_14DeviceAUCCacheEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple") align 8 initializes((0, 24)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %3, ptr nocapture noundef readnone %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7xgboost6common16AssertGPUSupportEv()
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
@@ -2284,7 +2284,7 @@ define { double, i32 } @_ZN7xgboost6metric13GPURankingAUCEPKNS_7ContextENS_6comm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost6metric14GPUBinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEERKNS_8MetaInfoEPSt10shared_ptrINS0_14DeviceAUCCacheEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple") align 8 %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %3, ptr nocapture noundef readnone %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost6metric14GPUBinaryPRAUCEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEERKNS_8MetaInfoEPSt10shared_ptrINS0_14DeviceAUCCacheEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple") align 8 initializes((0, 24)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %3, ptr nocapture noundef readnone %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7xgboost6common16AssertGPUSupportEv()
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void

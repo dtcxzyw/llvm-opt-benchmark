@@ -758,7 +758,7 @@ asn1_string_get_uint64.exit:                      ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_INTEGER_set_uint64(ptr noundef %a, i64 noundef %r) local_unnamed_addr #0 {
+define i32 @ASN1_INTEGER_set_uint64(ptr noundef initializes((4, 8)) %a, i64 noundef %r) local_unnamed_addr #0 {
 entry:
   %tbuf.i = alloca [8 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tbuf.i)

@@ -36,7 +36,7 @@ define hidden void @ftype_register_tvbuff() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @value_new(ptr nocapture noundef writeonly %0) #1 {
+define internal void @value_new(ptr nocapture noundef writeonly initializes((8, 20), (24, 33)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -49,7 +49,7 @@ define internal void @value_new(ptr nocapture noundef writeonly %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @value_copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @value_copy(ptr nocapture noundef writeonly initializes((8, 20), (24, 33)) %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @tvb_clone(ptr noundef %4) #9
@@ -94,7 +94,7 @@ define internal void @value_free(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @val_from_literal(ptr nocapture noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef %3) #0 {
+define internal noundef zeroext i1 @val_from_literal(ptr nocapture noundef initializes((16, 20)) %0, ptr noundef %1, i1 zeroext %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -141,7 +141,7 @@ value_free.exit:                                  ; preds = %4, %7, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @val_from_string(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef zeroext i1 @val_from_string(ptr nocapture noundef initializes((16, 20)) %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -186,7 +186,7 @@ value_free.exit:                                  ; preds = %4, %7, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @val_from_charconst(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @val_from_charconst(ptr nocapture noundef initializes((16, 20)) %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -347,7 +347,7 @@ define internal ptr @val_to_repr(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @value_set(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal void @value_set(ptr nocapture noundef initializes((16, 20)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %5
 

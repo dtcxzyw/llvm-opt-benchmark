@@ -342,7 +342,7 @@ define dso_local noundef ptr @dm_kcopyd_prepare_callback(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dm_kcopyd_do_callback(ptr noundef %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
+define dso_local void @dm_kcopyd_do_callback(ptr noundef initializes((28, 40)) %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %1, ptr %5, align 4
@@ -1220,7 +1220,7 @@ define internal noundef i32 @run_complete_job(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @run_pages_job(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @run_pages_job(ptr noundef initializes((272, 280)) %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 7

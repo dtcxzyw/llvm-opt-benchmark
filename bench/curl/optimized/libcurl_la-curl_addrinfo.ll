@@ -32,7 +32,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_getaddrinfo_ex(ptr noundef %nodename, ptr noundef %servname, ptr noundef %hints, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
+define hidden i32 @Curl_getaddrinfo_ex(ptr noundef %nodename, ptr noundef %servname, ptr noundef %hints, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #0 {
 entry:
   %aihead = alloca ptr, align 8
   store ptr null, ptr %result, align 8
@@ -485,7 +485,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Curl_unix2addr(ptr nocapture noundef readonly %path, ptr nocapture noundef writeonly %longpath, i1 noundef zeroext %abstract) local_unnamed_addr #0 {
+define hidden ptr @Curl_unix2addr(ptr nocapture noundef readonly %path, ptr nocapture noundef writeonly initializes((0, 1)) %longpath, i1 noundef zeroext %abstract) local_unnamed_addr #0 {
 entry:
   store i8 0, ptr %longpath, align 1
   %0 = load ptr, ptr @Curl_ccalloc, align 8

@@ -4762,7 +4762,7 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 declare dso_local ptr @alloc_netdev_mqs(i32 noundef, ptr noundef, i8 noundef zeroext, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @reg_vif_setup(ptr nocapture noundef %0) #10 align 16 {
+define internal void @reg_vif_setup(ptr nocapture noundef initializes((8, 16), (56, 60), (168, 172), (552, 554), (1308, 1309)) %0) #10 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 552
   store i16 779, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -6502,7 +6502,7 @@ declare dso_local i32 @netif_rx(ptr noundef) local_unnamed_addr #4
 declare dso_local void @skb_scrub_packet(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ipmr_net_init(ptr noundef %0) #1 align 16 {
+define internal i32 @ipmr_net_init(ptr noundef initializes((1392, 1396)) %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1392
   store i32 0, ptr %2, align 16
   %3 = tail call ptr @fib_notifier_ops_register(ptr noundef nonnull @ipmr_notifier_ops_template, ptr noundef %0) #17

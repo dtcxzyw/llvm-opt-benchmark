@@ -130,7 +130,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_ZN6icu_7510Appendable15getAppendBufferEiiPDsiPi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %minCapacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratchCapacity, ptr nocapture noundef writeonly %resultCapacity) unnamed_addr #6 align 2 {
+define noundef ptr @_ZN6icu_7510Appendable15getAppendBufferEiiPDsiPi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %minCapacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratchCapacity, ptr nocapture noundef writeonly initializes((0, 4)) %resultCapacity) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp slt i32 %minCapacity, 1
   %cmp2 = icmp slt i32 %scratchCapacity, %minCapacity

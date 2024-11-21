@@ -1349,7 +1349,7 @@ define ptr @fileblobGetFilename(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @fileblobSetCTX(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #12 {
+define void @fileblobSetCTX(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void

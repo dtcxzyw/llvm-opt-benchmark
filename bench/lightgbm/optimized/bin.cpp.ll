@@ -4000,7 +4000,7 @@ define weak_odr noundef ptr @_ZN8LightGBM8DenseBinIhLb1EE5CloneEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK8LightGBM8DenseBinIhLb1EE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK8LightGBM8DenseBinIhLb1EE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef %3, i32 %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %2, align 1
   store i8 4, ptr %1, align 1
   %6 = load ptr, ptr %3, align 8
@@ -4020,7 +4020,7 @@ _ZNSt6vectorIPN8LightGBM11BinIteratorESaIS2_EE5clearEv.exit: ; preds = %5, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK8LightGBM8DenseBinIhLb1EE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK8LightGBM8DenseBinIhLb1EE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #2 align 2 {
   store i8 0, ptr %2, align 1
   store i8 4, ptr %1, align 1
   store ptr null, ptr %3, align 8
@@ -5463,7 +5463,7 @@ define weak_odr noundef ptr @_ZN8LightGBM8DenseBinIhLb0EE5CloneEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK8LightGBM8DenseBinIhLb0EE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK8LightGBM8DenseBinIhLb0EE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef %3, i32 %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %2, align 1
   store i8 8, ptr %1, align 1
   %6 = load ptr, ptr %3, align 8
@@ -5483,7 +5483,7 @@ _ZNSt6vectorIPN8LightGBM11BinIteratorESaIS2_EE5clearEv.exit: ; preds = %5, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK8LightGBM8DenseBinIhLb0EE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK8LightGBM8DenseBinIhLb0EE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #2 align 2 {
   store i8 0, ptr %2, align 1
   store i8 8, ptr %1, align 1
   store ptr null, ptr %3, align 8
@@ -6952,7 +6952,7 @@ define weak_odr noundef ptr @_ZN8LightGBM8DenseBinItLb0EE5CloneEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK8LightGBM8DenseBinItLb0EE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK8LightGBM8DenseBinItLb0EE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef %3, i32 %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %2, align 1
   store i8 16, ptr %1, align 1
   %6 = load ptr, ptr %3, align 8
@@ -6972,7 +6972,7 @@ _ZNSt6vectorIPN8LightGBM11BinIteratorESaIS2_EE5clearEv.exit: ; preds = %5, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK8LightGBM8DenseBinItLb0EE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK8LightGBM8DenseBinItLb0EE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #2 align 2 {
   store i8 0, ptr %2, align 1
   store i8 16, ptr %1, align 1
   store ptr null, ptr %3, align 8
@@ -8434,7 +8434,7 @@ define weak_odr noundef ptr @_ZN8LightGBM8DenseBinIjLb0EE5CloneEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK8LightGBM8DenseBinIjLb0EE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK8LightGBM8DenseBinIjLb0EE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef %3, i32 %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %2, align 1
   store i8 32, ptr %1, align 1
   %6 = load ptr, ptr %3, align 8
@@ -8454,7 +8454,7 @@ _ZNSt6vectorIPN8LightGBM11BinIteratorESaIS2_EE5clearEv.exit: ; preds = %5, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK8LightGBM8DenseBinIjLb0EE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK8LightGBM8DenseBinIjLb0EE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #2 align 2 {
   store i8 0, ptr %2, align 1
   store i8 32, ptr %1, align 1
   store ptr null, ptr %3, align 8
@@ -11819,7 +11819,7 @@ define weak_odr noundef ptr @_ZN8LightGBM9SparseBinIhE5CloneEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZNK8LightGBM9SparseBinIhE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @_ZNK8LightGBM9SparseBinIhE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr %2, align 1
   store i8 8, ptr %1, align 1
   %6 = icmp sgt i32 %4, 0
@@ -11933,7 +11933,7 @@ _ZNSt6vectorIPN8LightGBM11BinIteratorESaIS2_EE12emplace_backIJPNS0_17SparseBinIt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZNK8LightGBM9SparseBinIhE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @_ZNK8LightGBM9SparseBinIhE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr %2, align 1
   store i8 8, ptr %1, align 1
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #35
@@ -15271,7 +15271,7 @@ define weak_odr noundef ptr @_ZN8LightGBM9SparseBinItE5CloneEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZNK8LightGBM9SparseBinItE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @_ZNK8LightGBM9SparseBinItE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr %2, align 1
   store i8 16, ptr %1, align 1
   %6 = icmp sgt i32 %4, 0
@@ -15385,7 +15385,7 @@ _ZNSt6vectorIPN8LightGBM11BinIteratorESaIS2_EE12emplace_backIJPNS0_17SparseBinIt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZNK8LightGBM9SparseBinItE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @_ZNK8LightGBM9SparseBinItE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr %2, align 1
   store i8 16, ptr %1, align 1
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #35
@@ -18715,7 +18715,7 @@ define weak_odr noundef ptr @_ZN8LightGBM9SparseBinIjE5CloneEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZNK8LightGBM9SparseBinIjE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @_ZNK8LightGBM9SparseBinIjE14GetColWiseDataEPhPbPSt6vectorIPNS_11BinIteratorESaIS6_EEi(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr %2, align 1
   store i8 32, ptr %1, align 1
   %6 = icmp sgt i32 %4, 0
@@ -18829,7 +18829,7 @@ _ZNSt6vectorIPN8LightGBM11BinIteratorESaIS2_EE12emplace_backIJPNS0_17SparseBinIt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZNK8LightGBM9SparseBinIjE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @_ZNK8LightGBM9SparseBinIjE14GetColWiseDataEPhPbPPNS_11BinIteratorE(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr %2, align 1
   store i8 32, ptr %1, align 1
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #35
@@ -58472,7 +58472,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i: ; preds = %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM9BinMapperC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM9BinMapperC2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 4), (8, 33), (48, 52)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i32 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -58579,7 +58579,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKijELb0EEEEE19_M_dea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM9BinMapperC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM9BinMapperC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) initializes((8, 32)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -59250,7 +59250,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM9BinMapperC2EPKv(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM9BinMapperC2EPKv(ptr noundef nonnull align 8 dereferenceable(160) initializes((8, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -59297,7 +59297,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM9BinMapper8CopyFromEPKc(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM9BinMapper8CopyFromEPKc(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8), (32, 33), (40, 52), (136, 160)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 1
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -59651,7 +59651,7 @@ define noundef zeroext i1 @_ZN8LightGBM10NeedFilterERKSt6vectorIiSaIiEEiiNS_7Bin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM13GreedyFindBinEPKdPKiiimi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.131") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM13GreedyFindBinEPKdPKiiimi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.131") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %10, label %9
@@ -60394,7 +60394,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit190:                 ; preds = %.body, %281
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM24FindBinWithPredefinedBinEPKdPKiiimiRKSt6vectorIdSaIdEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.131") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM24FindBinWithPredefinedBinEPKdPKiiimiRKSt6vectorIdSaIdEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.131") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::vector.131", align 8
   %10 = alloca %"class.std::vector.131", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -62310,7 +62310,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM23FindBinWithZeroAsOneBinEPKdPKiiimi(ptr dead_on_unwind noalias writable sret(%"class.std::vector.131") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM23FindBinWithZeroAsOneBinEPKdPKiiimi(ptr dead_on_unwind noalias writable sret(%"class.std::vector.131") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::vector.131", align 8
   %9 = alloca %"class.std::vector.131", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -62676,7 +62676,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit90:                  ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM23FindBinWithZeroAsOneBinEPKdPKiiimiRKSt6vectorIdSaIdEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.131") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %7) local_unnamed_addr #1 {
+define void @_ZN8LightGBM23FindBinWithZeroAsOneBinEPKdPKiiimiRKSt6vectorIdSaIdEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.131") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %7) local_unnamed_addr #1 {
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -68790,7 +68790,7 @@ _ZNSt14_Function_base13_Base_managerIZN8LightGBM9ArrayArgsIiE8ArgMaxMTERKSt6vect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8LightGBM9BinMapper6CopyToEPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #26 align 2 {
+define void @_ZNK8LightGBM9BinMapper6CopyToEPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 12), (16, 17), (24, 36), (40, 60), (64, 68)) %1) local_unnamed_addr #26 align 2 {
   %3 = load i32, ptr %0, align 8
   store i32 %3, ptr %1, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 8

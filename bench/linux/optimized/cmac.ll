@@ -144,7 +144,7 @@ declare dso_local ptr @crypto_attr_alg_name(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @crypto_inst_setname(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @crypto_cmac_digest_init(ptr nocapture noundef %0) #4 align 16 {
+define internal noundef i32 @crypto_cmac_digest_init(ptr nocapture noundef initializes((8, 12)) %0) #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32

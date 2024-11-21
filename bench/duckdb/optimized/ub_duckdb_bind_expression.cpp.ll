@@ -939,7 +939,7 @@ $_ZTIN6duckdb17BoundSubqueryNodeE = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ub_duckdb_bind_expression.cpp, ptr null }]
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16BaseSelectBinder13BindAggregateERNS_18FunctionExpressionERNS_29AggregateFunctionCatalogEntryEm(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BindResult") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(209) %aggr, ptr noundef nonnull align 8 dereferenceable(256) %func, i64 noundef %depth) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16BaseSelectBinder13BindAggregateERNS_18FunctionExpressionERNS_29AggregateFunctionCatalogEntryEm(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BindResult") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((105, 106)) %this, ptr noundef nonnull align 8 dereferenceable(209) %aggr, ptr noundef nonnull align 8 dereferenceable(256) %func, i64 noundef %depth) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i1188 = alloca i64, align 8
   %agg.tmp.i.i.i = alloca %"class.duckdb::unique_ptr", align 8
@@ -32219,7 +32219,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16ExpressionBinder20BindGroupingFunctionERNS_18OperatorExpressionEm(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BindResult") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %op, i64 noundef %depth) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16ExpressionBinder20BindGroupingFunctionERNS_18OperatorExpressionEm(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BindResult") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %op, i64 noundef %depth) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8

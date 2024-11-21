@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8proxygen6WindowC1Ej = unnamed_addr alias void (ptr, i32), ptr @_ZN8proxygen6WindowC2Ej
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen6WindowC2Ej(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen6WindowC2Ej(ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   store i32 0, ptr %this, align 4

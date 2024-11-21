@@ -1649,7 +1649,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf14DescriptorPool6TablesC2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf14DescriptorPool6TablesC2Ev(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 416)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont15:
   %ref.tmp = alloca [16 x %"struct.std::pair"], align 8
   %ref.tmp17 = alloca i32, align 4
@@ -2857,7 +2857,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6google8protobuf20FileDescriptorTablesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf20FileDescriptorTablesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((0, 156), (160, 200)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont10:
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
   %slots_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -6748,7 +6748,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf14DescriptorPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf14DescriptorPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 40)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   %call = invoke noalias noundef nonnull dereferenceable(416) ptr @_Znwm(i64 noundef 416) #42
@@ -6809,7 +6809,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf14DescriptorPoolC2EPNS0_18DescriptorDatabaseEPNS1_14ErrorCollectorE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %fallback_database, ptr noundef %error_collector) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf14DescriptorPoolC2EPNS0_18DescriptorDatabaseEPNS1_14ErrorCollectorE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 40)) %this, ptr noundef %fallback_database, ptr noundef %error_collector) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #42
   store i64 0, ptr %call, align 8
@@ -6859,7 +6859,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf14DescriptorPoolC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %underlay) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf14DescriptorPoolC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 40)) %this, ptr noundef %underlay) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %underlay_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
@@ -6994,7 +6994,7 @@ _ZNSt10unique_ptrIN4absl12lts_2023080212AnyInvocableIKFvNS1_11FunctionRefIFvvEEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf14DescriptorPool31InternalDontEnforceDependenciesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN6google8protobuf14DescriptorPool31InternalDontEnforceDependenciesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((48, 49)) %this) local_unnamed_addr #5 align 2 {
 entry:
   %enforce_dependencies_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %enforce_dependencies_, align 8
@@ -11674,7 +11674,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf10Descriptor14ExtensionRange6CopyToEPNS0_30DescriptorProto_ExtensionRangeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef %proto) local_unnamed_addr #3 align 2 {
+define void @_ZNK6google8protobuf10Descriptor14ExtensionRange6CopyToEPNS0_30DescriptorProto_ExtensionRangeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef initializes((32, 40)) %proto) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %start_.i.i = getelementptr inbounds i8, ptr %proto, i64 32
@@ -11962,7 +11962,7 @@ return:                                           ; preds = %for.inc, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6google8protobuf14DescriptorPool21BuildFileFromDatabaseERKNS0_19FileDescriptorProtoE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(224) %proto) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6google8protobuf14DescriptorPool21BuildFileFromDatabaseERKNS0_19FileDescriptorProtoE(ptr noundef nonnull align 8 dereferenceable(96) initializes((55, 56)) %this, ptr noundef nonnull align 8 dereferenceable(224) %proto) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.328", align 8
   %args.i = alloca %"class.absl::lts_20230802::FunctionRef", align 8
@@ -28483,7 +28483,7 @@ _ZN6google8protobuf18FeatureSetDefaultsC2EOS1_.exit: ; preds = %invoke.cont.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilderC2EPKNS0_14DescriptorPoolEPNS2_6TablesEPNS2_14ErrorCollectorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef %pool, ptr noundef %tables, ptr noundef %error_collector) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilderC2EPKNS0_14DescriptorPoolEPNS2_6TablesEPNS2_14ErrorCollectorE(ptr noundef nonnull align 8 dereferenceable(356) initializes((0, 24), (96, 97), (104, 129)) %this, ptr noundef %pool, ptr noundef %tables, ptr noundef %error_collector) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %ref.tmp = alloca %"class.std::allocator.85", align 1
   store ptr %pool, ptr %this, align 8
@@ -30379,7 +30379,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN6google8protobuf17DescriptorBuilder25LookupSymbolNoPlaceholderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS1_11ResolveModeEb(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %relative_to, i32 noundef %resolve_mode, i1 noundef zeroext %build_it) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN6google8protobuf17DescriptorBuilder25LookupSymbolNoPlaceholderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS1_11ResolveModeEb(ptr noundef nonnull align 8 dereferenceable(356) initializes((280, 288)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %relative_to, i32 noundef %resolve_mode, i1 noundef zeroext %build_it) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %first_part_of_name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30618,7 +30618,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN6google8protobuf17DescriptorBuilder12LookupSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_14DescriptorPool15PlaceholderTypeENS1_11ResolveModeEb(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %relative_to, i32 noundef %placeholder_type, i32 noundef %resolve_mode, i1 noundef zeroext %build_it) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN6google8protobuf17DescriptorBuilder12LookupSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_14DescriptorPool15PlaceholderTypeENS1_11ResolveModeEb(ptr noundef nonnull align 8 dereferenceable(356) initializes((280, 288)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %relative_to, i32 noundef %placeholder_type, i32 noundef %resolve_mode, i1 noundef zeroext %build_it) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call ptr @_ZN6google8protobuf17DescriptorBuilder25LookupSymbolNoPlaceholderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS1_11ResolveModeEb(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %relative_to, i32 noundef %resolve_mode, i1 noundef zeroext %build_it)
   %0 = load i8, ptr %call, align 1
@@ -33092,7 +33092,7 @@ cleanup.done19:                                   ; preds = %cleanup.done
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN6google8protobuf17DescriptorBuilder13BuildFileImplERKNS0_19FileDescriptorProtoERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(224) %proto, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN6google8protobuf17DescriptorBuilder13BuildFileImplERKNS0_19FileDescriptorProtoERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) initializes((168, 176)) %this, ptr noundef nonnull align 8 dereferenceable(224) %proto, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon.342, align 8
   %ref.tmp.i801 = alloca %"struct.google::protobuf::internal::VisitImpl.989", align 8
@@ -36047,7 +36047,7 @@ while.end:                                        ; preds = %cleanup.done
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder12BuildMessageERKNS0_15DescriptorProtoEPKNS0_10DescriptorEPS5_RNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(232) %proto, ptr noundef %parent, ptr noundef %result, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder12BuildMessageERKNS0_15DescriptorProtoEPKNS0_10DescriptorEPS5_RNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(232) %proto, ptr noundef %parent, ptr noundef initializes((2, 4), (8, 40)) %result, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i245 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %class.anon.342, align 8
@@ -37388,7 +37388,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit547, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder9BuildEnumERKNS0_19EnumDescriptorProtoEPKNS0_10DescriptorEPNS0_14EnumDescriptorERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(112) %proto, ptr noundef %parent, ptr noundef %result, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder9BuildEnumERKNS0_19EnumDescriptorProtoEPKNS0_10DescriptorEPNS0_14EnumDescriptorERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(112) %proto, ptr noundef %parent, ptr noundef initializes((8, 32)) %result, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i146 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i = alloca %class.anon.342, align 8
@@ -37990,7 +37990,7 @@ _ZN4absl12lts_2023080213flat_hash_setISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder12BuildServiceERKNS0_22ServiceDescriptorProtoEPKvPNS0_17ServiceDescriptorERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(64) %proto, ptr nocapture readnone %0, ptr noundef %result, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder12BuildServiceERKNS0_22ServiceDescriptorProtoEPKvPNS0_17ServiceDescriptorERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(64) %proto, ptr nocapture readnone %0, ptr noundef initializes((8, 24), (56, 60)) %result, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp13.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
@@ -40777,7 +40777,7 @@ return:                                           ; preds = %invoke.cont, %_ZN6g
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder10BuildOneofERKNS0_20OneofDescriptorProtoEPNS0_10DescriptorEPNS0_15OneofDescriptorERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(40) %proto, ptr noundef %parent, ptr noundef %result, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder10BuildOneofERKNS0_20OneofDescriptorProtoEPNS0_10DescriptorEPNS0_15OneofDescriptorERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(40) %proto, ptr noundef %parent, ptr noundef initializes((4, 24), (48, 56)) %result, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %all_names_.i = getelementptr inbounds i8, ptr %parent, i64 8
   %0 = load ptr, ptr %all_names_.i, align 8
@@ -40811,7 +40811,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder19BuildExtensionRangeERKNS0_30DescriptorProto_ExtensionRangeEPKNS0_10DescriptorEPNS5_14ExtensionRangeERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(40) %proto, ptr noundef %parent, ptr noundef %result, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder19BuildExtensionRangeERKNS0_30DescriptorProto_ExtensionRangeEPKNS0_10DescriptorEPNS5_14ExtensionRangeERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(40) %proto, ptr noundef %parent, ptr noundef initializes((0, 8), (16, 24)) %result, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i18 = alloca %class.anon.342, align 8
   %ref.tmp.i14 = alloca %class.anon.342, align 8
@@ -40977,7 +40977,7 @@ if.end13:                                         ; preds = %if.then11, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder18BuildReservedRangeERKNS0_29DescriptorProto_ReservedRangeEPKNS0_10DescriptorEPNS5_13ReservedRangeERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %proto, ptr noundef %parent, ptr nocapture noundef %result, ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder18BuildReservedRangeERKNS0_29DescriptorProto_ReservedRangeEPKNS0_10DescriptorEPNS5_13ReservedRangeERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %proto, ptr noundef %parent, ptr nocapture noundef initializes((0, 8)) %result, ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i14 = alloca %class.anon.342, align 8
   %ref.tmp.i11 = alloca %class.anon.342, align 8
@@ -43828,7 +43828,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit14:                  ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder18BuildReservedRangeERKNS0_37EnumDescriptorProto_EnumReservedRangeEPKNS0_14EnumDescriptorEPNS5_13ReservedRangeERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %proto, ptr nocapture noundef readonly %parent, ptr nocapture noundef writeonly %result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(224) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder18BuildReservedRangeERKNS0_37EnumDescriptorProto_EnumReservedRangeEPKNS0_14EnumDescriptorEPNS5_13ReservedRangeERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(32) %proto, ptr nocapture noundef readonly %parent, ptr nocapture noundef writeonly initializes((0, 8)) %result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(224) %0) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca %class.anon.342, align 8
   %start_.i.i = getelementptr inbounds i8, ptr %proto, i64 24
@@ -45094,7 +45094,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit13:                  ; preds = %lpad, %if.then.i.i.
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder11BuildMethodERKNS0_21MethodDescriptorProtoEPKNS0_17ServiceDescriptorEPNS0_16MethodDescriptorERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(64) %proto, ptr noundef %parent, ptr noundef %result, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder11BuildMethodERKNS0_21MethodDescriptorProtoEPKNS0_17ServiceDescriptorEPNS0_16MethodDescriptorERNS0_8internal13FlatAllocatorE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull align 8 dereferenceable(64) %proto, ptr noundef %parent, ptr noundef initializes((8, 56)) %result, ptr noundef nonnull align 8 dereferenceable(224) %alloc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %service_ = getelementptr inbounds i8, ptr %result, i64 16
   store ptr %parent, ptr %service_, align 8
@@ -47749,7 +47749,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder15CrossLinkMethodEPNS0_16MethodDescriptorERKNS0_21MethodDescriptorProtoE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr nocapture noundef %method, ptr noundef nonnull align 8 dereferenceable(64) %proto) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder15CrossLinkMethodEPNS0_16MethodDescriptorERKNS0_21MethodDescriptorProtoE(ptr noundef nonnull align 8 dereferenceable(356) initializes((280, 288)) %this, ptr nocapture noundef %method, ptr noundef nonnull align 8 dereferenceable(64) %proto) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3.i58 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp3.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
@@ -52078,7 +52078,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf17DescriptorBuilder17OptionInterpreterC2EPS1_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %builder) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf17DescriptorBuilder17OptionInterpreterC2EPS1_(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (24, 88)) %this, ptr noundef %builder) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp5 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   store ptr %builder, ptr %this, align 8
@@ -55962,7 +55962,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorE, i64 16), ptr %this, align 8
   %error_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -62865,7 +62865,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf17DescriptorBuilder17OptionInterpreter20InterpretOptionsImplEPNS0_12_GLOBAL__N_118OptionsToInterpretEb(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %options_to_interpret, i1 noundef zeroext %skip_extensions) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf17DescriptorBuilder17OptionInterpreter20InterpretOptionsImplEPNS0_12_GLOBAL__N_118OptionsToInterpretEb(ptr noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %this, ptr noundef %options_to_interpret, i1 noundef zeroext %skip_extensions) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options = alloca ptr, align 8
   %ref.tmp5 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
@@ -63435,7 +63435,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf15UnknownFieldSet14ParseFromArray
 declare void @_ZN6google8protobuf15UnknownFieldSet13ClearFallbackEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorE, i64 16), ptr %this, align 8
   %error_.i = getelementptr inbounds i8, ptr %this, i64 8

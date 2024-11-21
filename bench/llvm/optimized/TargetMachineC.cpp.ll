@@ -201,7 +201,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i:        ; preds = %.lr.ph.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @LLVMGetTargetFromTriple(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @LLVMGetTargetFromTriple(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   %.not.i = icmp eq ptr %0, null
@@ -357,7 +357,7 @@ define dso_local void @LLVMTargetMachineOptionsSetABI(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMTargetMachineOptionsSetCodeGenOptLevel(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define dso_local void @LLVMTargetMachineOptionsSetCodeGenOptLevel(ptr nocapture noundef writeonly initializes((96, 100)) %0, i32 noundef %1) local_unnamed_addr #8 {
 switch.lookup:
   %switch.tableidx = add i32 %1, -1
   %2 = icmp ult i32 %switch.tableidx, 3
@@ -368,7 +368,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMTargetMachineOptionsSetRelocMode(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define dso_local void @LLVMTargetMachineOptionsSetRelocMode(ptr nocapture noundef writeonly initializes((100, 108)) %0, i32 noundef %1) local_unnamed_addr #8 {
 switch.lookup:
   %switch.tableidx = add i32 %1, -1
   %2 = icmp ult i32 %switch.tableidx, 6
@@ -382,7 +382,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMTargetMachineOptionsSetCodeModel(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define dso_local void @LLVMTargetMachineOptionsSetCodeModel(ptr nocapture noundef writeonly initializes((108, 117)) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i8 0, ptr %3, align 1
   switch i32 %1, label %9 [
@@ -857,7 +857,7 @@ define dso_local void @LLVMSetTargetMachineGlobalISel(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMSetTargetMachineGlobalISelAbort(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define dso_local void @LLVMSetTargetMachineGlobalISelAbort(ptr nocapture noundef writeonly initializes((884, 888)) %0, i32 noundef %1) local_unnamed_addr #8 {
   %switch.selectcmp = icmp eq i32 %1, 2
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 1
   %switch.selectcmp2 = icmp eq i32 %1, 1
@@ -1067,7 +1067,7 @@ _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %46, %40, %36
 declare void @_ZN4llvm14raw_fd_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 2) i32 @LLVMTargetMachineEmitToMemoryBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 2) i32 @LLVMTargetMachineEmitToMemoryBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallString", align 8
   %7 = alloca %"class.llvm::raw_svector_ostream", align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 24

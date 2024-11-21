@@ -1030,7 +1030,7 @@ sub_1100:                                         ; preds = %sub_094
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #11 {
+define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr nocapture noundef writeonly %2) #11 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %4, align 8
@@ -1399,7 +1399,7 @@ hwloc__nolibxml_export_end_object.exit:           ; preds = %68, %70
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @hwloc__nolibxml_export_new_child(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #4 {
+define internal void @hwloc__nolibxml_export_new_child(ptr noundef %0, ptr nocapture noundef initializes((0, 84)) %1, ptr noundef %2) #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = getelementptr inbounds i8, ptr %0, i64 76
   %6 = load i32, ptr %5, align 4

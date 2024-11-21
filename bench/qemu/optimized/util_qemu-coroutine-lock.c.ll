@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [15 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_unlock, ptr @.str.18, ptr @.str.19, i32 276, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_coroutine_yield, ptr @.str.18, ptr @.str.20, i32 101, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_rwlock_downgrade, ptr @.str.18, ptr @.str.19, i32 422, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_restart_all, ptr @.str.18, ptr @.str.19, i32 107, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_rwlock_rdlock, ptr @.str.18, ptr @.str.19, i32 379, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_rwlock_upgrade, ptr @.str.18, ptr @.str.19, i32 452, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_wait_impl, ptr @.str.18, ptr @.str.19, i32 41, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_wake, ptr @.str.18, ptr @.str.19, i32 184, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_rwlock_maybe_wake_one, ptr @.str.18, ptr @.str.19, i32 346, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @push_waiter, ptr @.str.18, ptr @.str.19, i32 142, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_rwlock_unlock, ptr @.str.18, ptr @.str.19, i32 404, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock_slowpath, ptr @.str.18, ptr @.str.19, i32 194, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_next, ptr @.str.18, ptr @.str.19, i32 94, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_rwlock_wrlock, ptr @.str.18, ptr @.str.19, i32 432, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock, ptr @.str.18, ptr @.str.19, i32 236, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_co_queue_init(ptr noundef %queue) local_unnamed_addr #0 {
+define dso_local void @qemu_co_queue_init(ptr noundef initializes((0, 8)) %queue) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %queue, align 8
   %sqh_last = getelementptr inbounds i8, ptr %queue, i64 8
@@ -312,7 +312,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_co_mutex_init(ptr nocapture noundef writeonly %mutex) local_unnamed_addr #0 {
+define dso_local void @qemu_co_mutex_init(ptr nocapture noundef writeonly initializes((0, 48)) %mutex) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mutex, i8 0, i64 48, i1 false)
   ret void
@@ -806,7 +806,7 @@ return:                                           ; preds = %if.end7, %trace_qem
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_co_mutex_wake(ptr nocapture noundef writeonly %mutex, ptr noundef %co) #1 {
+define internal void @qemu_co_mutex_wake(ptr nocapture noundef writeonly initializes((8, 16)) %mutex, ptr noundef %co) #1 {
 entry:
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   %ctx = getelementptr inbounds i8, ptr %co, i64 40
@@ -818,7 +818,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_co_rwlock_init(ptr noundef %lock) local_unnamed_addr #0 {
+define dso_local void @qemu_co_rwlock_init(ptr noundef initializes((0, 52), (56, 64)) %lock) local_unnamed_addr #0 {
 entry:
   %tickets = getelementptr inbounds i8, ptr %lock, i64 56
   store ptr null, ptr %tickets, align 8
@@ -1307,7 +1307,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @push_waiter(ptr nocapture noundef %mutex, ptr noundef %w) #1 {
+define internal void @push_waiter(ptr nocapture noundef %mutex, ptr noundef initializes((0, 8)) %w) #1 {
 entry:
   %call = tail call ptr @qemu_coroutine_self() #9
   store ptr %call, ptr %w, align 8

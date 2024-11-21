@@ -1271,7 +1271,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #11 {
+define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #11 {
   %2 = tail call noalias ptr @malloc(i64 noundef 0) #32
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !132
@@ -3334,7 +3334,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @pseudo_solve(ptr noalias noc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #4 {
   %4 = tail call ptr @dt_alloc_aligned(i64 noundef 320128) #31
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6
@@ -5728,7 +5728,7 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #4 {
 declare void @dt_iop_request_focus(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #4 {
+define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #4 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 3072) #31
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -8087,7 +8087,7 @@ define internal void @_develop_ui_pipe_started_callback(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #4 {
+define void @gui_cleanup(ptr noundef initializes((496, 500)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 16, !tbaa !61
   %4 = getelementptr inbounds i8, ptr %0, i64 496

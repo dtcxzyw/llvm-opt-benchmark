@@ -35,7 +35,7 @@ define hidden void @mbedtls_poly1305_free(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_poly1305_starts(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef i32 @mbedtls_poly1305_starts(ptr noundef initializes((0, 52)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i16, ptr %1, align 1
   %4 = zext i16 %3 to i32
   %5 = getelementptr inbounds i8, ptr %1, i64 2
@@ -392,7 +392,7 @@ define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @mbedtls_poly1305_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden noundef i32 @mbedtls_poly1305_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -545,7 +545,7 @@ define hidden noundef i32 @mbedtls_poly1305_finish(ptr nocapture noundef %0, ptr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_poly1305_mac(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden noundef i32 @mbedtls_poly1305_mac(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 16)) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.mbedtls_poly1305_context, align 8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 80) #8
   %6 = load i16, ptr %0, align 1

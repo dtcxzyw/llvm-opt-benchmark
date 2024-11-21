@@ -846,7 +846,7 @@ $_ZTVN4llvm13format_objectIJPKcEEE = comdat any
 @_ZN4llvm6object17BindRebaseSegInfoC1EPKNS0_15MachOObjectFileE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm6object17BindRebaseSegInfoC2EPKNS0_15MachOObjectFileE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object15MachOObjectFile6createENS_15MemoryBufferRefEbbjjm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i64 noundef %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object15MachOObjectFile6createENS_15MemoryBufferRefEbbjjm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i64 noundef %6) local_unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %7 = alloca %"class.llvm::Error", align 8
   store ptr null, ptr %7, align 8
@@ -7690,7 +7690,7 @@ define dso_local noundef nonnull align 4 dereferenceable(28) ptr @_ZNK4llvm6obje
 declare { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL14malformedErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1045)
@@ -10389,7 +10389,7 @@ _ZN4llvm8ExpectedINS_5MachO16dylinker_commandEED2Ev.exit: ; preds = %_ZL14malfor
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, i32 %.12.val, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL16checkVersCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjPPKcS8_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr %.0.val, i32 %.12.val, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -10619,7 +10619,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %14, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19checkEncryptCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjmmPPKcS8_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef range(i64 0, 4294967296) %4, i64 noundef range(i64 0, 4294967296) %5, ptr nocapture noundef nonnull %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZL19checkEncryptCommandRKN4llvm6object15MachOObjectFileERKNS1_15LoadCommandInfoEjmmPPKcS8_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef range(i64 0, 4294967296) %4, i64 noundef range(i64 0, 4294967296) %5, ptr nocapture noundef nonnull %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -16626,7 +16626,7 @@ define dso_local void @_ZNK4llvm6object15MachOObjectFile15moveSectionNextERNS0_1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4llvm6object15MachOObjectFile14getSectionNameENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.27") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %1, i64 %2) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK4llvm6object15MachOObjectFile14getSectionNameENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.27") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %1, i64 %2) unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = and i64 %2, 4294967295
   %6 = load ptr, ptr %4, align 8
@@ -17283,7 +17283,7 @@ _ZNK4llvm6object15MachOObjectFile12getSection64ENS0_11DataRefImplE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object15MachOObjectFile10getSectionEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.53") align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm6object15MachOObjectFile10getSectionEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.53") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -19356,7 +19356,7 @@ _ZL24getPlainRelocationLengthRKN4llvm6object15MachOObjectFileERKNS_5MachO19any_r
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local { ptr, i64 } @_ZN4llvm6object15MachOObjectFile21guessLibraryShortNameENS_9StringRefERbRS2_(ptr %0, i64 %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3) local_unnamed_addr #11 align 2 {
+define dso_local { ptr, i64 } @_ZN4llvm6object15MachOObjectFile21guessLibraryShortNameENS_9StringRefERbRS2_(ptr %0, i64 %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %3) local_unnamed_addr #11 align 2 {
   store i8 0, ptr %2, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   br label %5
@@ -19889,7 +19889,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO13dylib_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO13dylib_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #29
@@ -21155,7 +21155,7 @@ _ZNK4llvm6object15MachOObjectFile24getDataInCodeLoadCommandEv.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object11ExportEntryC2EPNS_5ErrorEPKNS0_15MachOObjectFileENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(1353) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object11ExportEntryC2EPNS_5ErrorEPKNS0_15MachOObjectFileENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(1353) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -22852,7 +22852,7 @@ define dso_local noundef i32 @_ZNK4llvm6object11ExportEntry10nodeOffsetEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm6object11ExportEntry9NodeStateC2EPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(61) %0, ptr noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZN4llvm6object11ExportEntry9NodeStateC2EPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(61) initializes((0, 61)) %0, ptr noundef %1) unnamed_addr #15 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -23617,7 +23617,7 @@ _ZN4llvm8ExpectedINS_5MachO21linkedit_data_commandEED2Ev.exit: ; preds = %_ZNSt1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object23MachOAbstractFixupEntryC2EPNS_5ErrorEPKNS0_15MachOObjectFileE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object23MachOAbstractFixupEntryC2EPNS_5ErrorEPKNS0_15MachOObjectFileE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 28), (32, 81)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::MachO::segment_command", align 4
   %5 = alloca %"struct.llvm::MachO::segment_command_64", align 8
   store ptr %1, ptr %0, align 8
@@ -24237,7 +24237,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object23MachOAbstractFixupEntry8typeNam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm6object23MachOAbstractFixupEntry11moveToFirstEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN4llvm6object23MachOAbstractFixupEntry11moveToFirstEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((16, 28), (48, 64), (80, 81)) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -24250,7 +24250,7 @@ define dso_local void @_ZN4llvm6object23MachOAbstractFixupEntry11moveToFirstEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm6object23MachOAbstractFixupEntry9moveToEndEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN4llvm6object23MachOAbstractFixupEntry9moveToEndEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((80, 81)) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 1, ptr %2, align 8
   ret void
@@ -24262,7 +24262,7 @@ define dso_local void @_ZN4llvm6object23MachOAbstractFixupEntry8moveNextEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object22MachOChainedFixupEntryC2EPNS_5ErrorEPKNS0_15MachOObjectFileEb(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object22MachOChainedFixupEntryC2EPNS_5ErrorEPKNS0_15MachOObjectFileEb(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 28), (32, 81), (96, 160), (164, 176)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Expected.92", align 8
   %6 = alloca %"class.llvm::Expected.96", align 8
   tail call void @_ZN4llvm6object23MachOAbstractFixupEntryC2EPNS_5ErrorEPKNS0_15MachOObjectFileE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2)
@@ -25978,7 +25978,7 @@ define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWith
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry11moveToFirstEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry11moveToFirstEv(ptr noundef nonnull align 8 dereferenceable(176) initializes((16, 28), (48, 64), (80, 81)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -26488,7 +26488,7 @@ _ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry9moveToEndEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %0) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry9moveToEndEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((80, 81)) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 1, ptr %2, align 8
   ret void
@@ -26553,7 +26553,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object22MachOChainedFixupEntryeqE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm6object16MachORebaseEntryC2EPNS_5ErrorEPKNS0_15MachOObjectFileENS_8ArrayRefIhEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(75) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4, i1 noundef zeroext %5) unnamed_addr #15 align 2 {
+define dso_local void @_ZN4llvm6object16MachORebaseEntryC2EPNS_5ErrorEPKNS0_15MachOObjectFileENS_8ArrayRefIhEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(75) initializes((0, 52), (56, 75)) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4, i1 noundef zeroext %5) unnamed_addr #15 align 2 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -26578,7 +26578,7 @@ define dso_local void @_ZN4llvm6object16MachORebaseEntryC2EPNS_5ErrorEPKNS0_15Ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object16MachORebaseEntry11moveToFirstEv(ptr noundef nonnull align 8 dereferenceable(75) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object16MachORebaseEntry11moveToFirstEv(ptr noundef nonnull align 8 dereferenceable(75) initializes((32, 40)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -27978,7 +27978,7 @@ _ZN4llvm5ErrorD2Ev.exit189:                       ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm6object16MachORebaseEntry9moveToEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(75) %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm6object16MachORebaseEntry9moveToEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(75) initializes((32, 40), (56, 64), (74, 75)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -28348,7 +28348,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object16MachORebaseEntryeqERKS1_(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object15MachOObjectFile11rebaseTableERNS_5ErrorEPS1_NS_8ArrayRefIhEEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr %3, i64 %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object15MachOObjectFile11rebaseTableERNS_5ErrorEPS1_NS_8ArrayRefIhEEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.106") align 8 initializes((0, 160)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr %3, i64 %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::object::MachORebaseEntry", align 8
   %8 = alloca %"class.llvm::object::MachORebaseEntry", align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -28405,7 +28405,7 @@ _ZNSt10unique_ptrIN4llvm6object17BindRebaseSegInfoESt14default_deleteIS2_EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object15MachOObjectFile11rebaseTableERNS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object15MachOObjectFile11rebaseTableERNS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.106") align 8 initializes((0, 160)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Expected.117", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 304
@@ -28504,7 +28504,7 @@ _ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit: ; preds = %15, %_ZNKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm6object14MachOBindEntryC2EPNS_5ErrorEPKNS0_15MachOObjectFileENS_8ArrayRefIhEEbNS1_4KindE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(121) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4, i1 noundef zeroext %5, i32 noundef %6) unnamed_addr #15 align 2 {
+define dso_local void @_ZN4llvm6object14MachOBindEntryC2EPNS_5ErrorEPKNS0_15MachOObjectFileENS_8ArrayRefIhEEbNS1_4KindE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(121) initializes((0, 52), (56, 73), (76, 84), (88, 114), (116, 121)) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4, i1 noundef zeroext %5, i32 noundef %6) unnamed_addr #15 align 2 {
   store ptr %1, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %8, align 8
@@ -28537,7 +28537,7 @@ define dso_local void @_ZN4llvm6object14MachOBindEntryC2EPNS_5ErrorEPKNS0_15Mach
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object14MachOBindEntry11moveToFirstEv(ptr noundef nonnull align 8 dereferenceable(121) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object14MachOBindEntry11moveToFirstEv(ptr noundef nonnull align 8 dereferenceable(121) initializes((32, 40)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -30974,7 +30974,7 @@ _ZN4llvm5ErrorD2Ev.exit290:                       ; preds = %.lr.ph993
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm6object14MachOBindEntry9moveToEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(121) %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm6object14MachOBindEntry9moveToEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(121) initializes((32, 40), (96, 104), (120, 121)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -31937,7 +31937,7 @@ _ZN4llvm6object17BindRebaseSegInfo11findSectionEim.exit: ; preds = %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object15MachOObjectFile9bindTableERNS_5ErrorEPS1_NS_8ArrayRefIhEEbNS0_14MachOBindEntry4KindE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.113") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr %3, i64 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object15MachOObjectFile9bindTableERNS_5ErrorEPS1_NS_8ArrayRefIhEEbNS0_14MachOBindEntry4KindE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.113") align 8 initializes((0, 256)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr %3, i64 %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::object::MachOBindEntry", align 8
   %9 = alloca %"class.llvm::object::MachOBindEntry", align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -31994,7 +31994,7 @@ _ZNSt10unique_ptrIN4llvm6object17BindRebaseSegInfoESt14default_deleteIS2_EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object15MachOObjectFile9bindTableERNS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.113") align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object15MachOObjectFile9bindTableERNS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.113") align 8 initializes((0, 256)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Expected.117", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 304
@@ -32093,7 +32093,7 @@ _ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit: ; preds = %15, %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object15MachOObjectFile13lazyBindTableERNS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.113") align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object15MachOObjectFile13lazyBindTableERNS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.113") align 8 initializes((0, 256)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Expected.117", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 304
@@ -32192,7 +32192,7 @@ _ZN4llvm8ExpectedINS_5MachO17dyld_info_commandEED2Ev.exit: ; preds = %15, %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object15MachOObjectFile13weakBindTableERNS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.113") align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object15MachOObjectFile13weakBindTableERNS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.113") align 8 initializes((0, 256)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Expected.117", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 304
@@ -34718,7 +34718,7 @@ _ZL9getStructIN4llvm5MachO21linkedit_data_commandEET_RKNS0_6object15MachOObjectF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO17dyld_info_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #29
@@ -35318,7 +35318,7 @@ _ZN4llvm8ExpectedISt8optionalINS_5MachO21linkedit_data_commandEEED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr nocapture readonly %.8.val, ptr noundef byval(%"class.llvm::Twine") align 8 %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm6object15MachOObjectFile24getChainedFixupsSegmentsEvENK3$_0clENS_5TwineE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr %.0.val, ptr nocapture readonly %.8.val, ptr noundef byval(%"class.llvm::Twine") align 8 %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -35788,7 +35788,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object15MachOObjectFile19isReloca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object10ObjectFile21createMachOObjectFileENS_15MemoryBufferRefEjjm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object10ObjectFile21createMachOObjectFileENS_15MemoryBufferRefEjjm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %"class.llvm::Error", align 8
@@ -37294,7 +37294,7 @@ _ZN4llvm5ErrorD2Ev.exit:
 declare void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(34), i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18getLoadCommandInfoRKN4llvm6object15MachOObjectFileEPKcj(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL18getLoadCommandInfoRKN4llvm6object15MachOObjectFileEPKcj(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -39149,7 +39149,7 @@ declare i64 @llvm.bswap.i64(i64) #17
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO18segment_command_64EENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #29
@@ -39282,7 +39282,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %26, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStructOrErrIN4llvm5MachO15segment_commandEENS0_8ExpectedIT_EERKNS0_6object15MachOObjectFileEPKc(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #29

@@ -33179,7 +33179,7 @@ Vec_IntAlloc.exit:                                ; preds = %2, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManDemiterDual(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define noundef i32 @Gia_ManDemiterDual(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #1 {
   store ptr null, ptr %2, align 8
   store ptr null, ptr %1, align 8
   %4 = getelementptr i8, ptr %0, i64 64
@@ -33680,7 +33680,7 @@ Vec_IntAlloc.exit:                                ; preds = %2, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManDemiterTwoWords(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define noundef i32 @Gia_ManDemiterTwoWords(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #1 {
   store ptr null, ptr %2, align 8
   store ptr null, ptr %1, align 8
   %4 = getelementptr i8, ptr %0, i64 64
@@ -34483,7 +34483,7 @@ Abc_UtilStrsav.exit161:                           ; preds = %Abc_UtilStrsav.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManSeqEquivMerge(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @Gia_ManSeqEquivMerge(ptr noundef initializes((192, 200)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val114 = load i32, ptr %3, align 8
   %4 = sext i32 %.val114 to i64

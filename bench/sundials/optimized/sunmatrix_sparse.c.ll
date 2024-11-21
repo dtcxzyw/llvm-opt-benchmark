@@ -1473,7 +1473,7 @@ Matvec_SparseCSC.exit:                            ; preds = %.loopexit.i14, %.lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNMatSpace_Sparse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #5 {
+define noundef i32 @SUNMatSpace_Sparse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
@@ -1971,7 +1971,7 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr nocapture noundef readonly %0, d
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNSparseMatrix_ToCSR(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @SUNSparseMatrix_ToCSR(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8
@@ -2221,7 +2221,7 @@ SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNSparseMatrix_ToCSC(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @SUNSparseMatrix_ToCSC(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8

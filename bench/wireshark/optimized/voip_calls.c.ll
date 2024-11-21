@@ -668,7 +668,7 @@ define hidden void @voip_calls_reset_all_taps(ptr nocapture noundef %0) local_un
 declare ptr @g_queue_peek_nth_link(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @voip_calls_free_callsinfo(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @voip_calls_free_callsinfo(ptr noundef initializes((56, 64)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
@@ -1392,7 +1392,7 @@ declare double @nstime_to_msec(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_address(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @copy_address(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4

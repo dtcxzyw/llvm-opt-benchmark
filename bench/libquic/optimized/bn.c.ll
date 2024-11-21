@@ -39,7 +39,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @BN_init(ptr nocapture noundef writeonly %bn) local_unnamed_addr #4 {
+define hidden void @BN_init(ptr nocapture noundef writeonly initializes((0, 24)) %bn) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bn, i8 0, i64 24, i1 false)
   ret void
@@ -302,7 +302,7 @@ return:                                           ; preds = %entry, %if.end11, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @BN_clear(ptr nocapture noundef %bn) local_unnamed_addr #8 {
+define hidden void @BN_clear(ptr nocapture noundef initializes((8, 12), (16, 20)) %bn) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %bn, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -331,7 +331,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @BN_with_flags(ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i32 noundef %flags) local_unnamed_addr #10 {
+define hidden void @BN_with_flags(ptr nocapture noundef initializes((0, 24)) %out, ptr nocapture noundef readonly %in, i32 noundef %flags) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) %in, i64 24, i1 false)
   %flags1 = getelementptr inbounds i8, ptr %out, i64 20
@@ -675,7 +675,7 @@ BN_num_bits.exit:                                 ; preds = %entry, %BN_num_bits
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @BN_zero(ptr nocapture noundef writeonly %bn) local_unnamed_addr #4 {
+define hidden void @BN_zero(ptr nocapture noundef writeonly initializes((8, 12), (16, 20)) %bn) local_unnamed_addr #4 {
 entry:
   %neg = getelementptr inbounds i8, ptr %bn, i64 16
   store i32 0, ptr %neg, align 8

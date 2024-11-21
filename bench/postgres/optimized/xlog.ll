@@ -1305,7 +1305,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReserveXLogInsertLocation(i32 noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @ReserveXLogInsertLocation(i32 noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #0 {
   %5 = load ptr, ptr @XLogCtl, align 8
   %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %5, i8 1, ptr elementtype(i8) %5) #26, !srcloc !8
   %.not = icmp eq i8 %6, 0
@@ -3236,7 +3236,7 @@ get_sync_bit.exit:                                ; preds = %7, %16, %16, %16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileInitInternal(i64 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileInitInternal(i64 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca i64, align 8
   %7 = load i32, ptr @wal_segment_size, align 4
@@ -7307,7 +7307,7 @@ define dso_local i64 @GetRedoRecPtr() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @GetFullPageWriteInfo(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
+define dso_local void @GetFullPageWriteInfo(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #16 {
   %3 = load i64, ptr @RedoRecPtr, align 8
   store i64 %3, ptr %0, align 8
   %4 = load i8, ptr @doPageWrites, align 1
@@ -7402,7 +7402,7 @@ define dso_local i64 @GetLastImportantRecPtr() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @GetLastSegSwitchData(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local i64 @GetLastSegSwitchData(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @MainLWLockArray, align 8
   %3 = getelementptr i8, ptr %2, i64 1024
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef %3, i32 noundef 1) #26
@@ -11011,7 +11011,7 @@ XLogBytePosToRecPtr.exit:                         ; preds = %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @GetOldestRestartPoint(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @GetOldestRestartPoint(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MainLWLockArray, align 8
   %4 = getelementptr i8, ptr %3, i64 1152
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 1) #26

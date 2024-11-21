@@ -12,7 +12,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl3_set_handshake_header(ptr noundef %ssl, i32 noundef %htype, i64 noundef %len) local_unnamed_addr #1 {
+define hidden i32 @ssl3_set_handshake_header(ptr noundef initializes((72, 80)) %ssl, i32 noundef %htype, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %init_buf = getelementptr inbounds i8, ptr %ssl, i64 56
   %0 = load ptr, ptr %init_buf, align 8
@@ -524,7 +524,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 declare ptr @BUF_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @SSL_get0_certificate_types(ptr nocapture noundef readonly %ssl, ptr nocapture noundef writeonly %out_types) local_unnamed_addr #10 {
+define hidden i64 @SSL_get0_certificate_types(ptr nocapture noundef readonly %ssl, ptr nocapture noundef writeonly initializes((0, 8)) %out_types) local_unnamed_addr #10 {
 entry:
   %server = getelementptr inbounds i8, ptr %ssl, i64 385
   %bf.load = load i8, ptr %server, align 1
@@ -561,7 +561,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @tls1_set_curves(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @SSL_CTX_set_tlsext_servername_callback(ptr nocapture noundef writeonly %ctx, ptr noundef %callback) local_unnamed_addr #11 {
+define hidden noundef i32 @SSL_CTX_set_tlsext_servername_callback(ptr nocapture noundef writeonly initializes((400, 408)) %ctx, ptr noundef %callback) local_unnamed_addr #11 {
 entry:
   %tlsext_servername_callback = getelementptr inbounds i8, ptr %ctx, i64 400
   store ptr %callback, ptr %tlsext_servername_callback, align 8
@@ -569,7 +569,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @SSL_CTX_set_tlsext_servername_arg(ptr nocapture noundef writeonly %ctx, ptr noundef %arg) local_unnamed_addr #11 {
+define hidden noundef i32 @SSL_CTX_set_tlsext_servername_arg(ptr nocapture noundef writeonly initializes((408, 416)) %ctx, ptr noundef %arg) local_unnamed_addr #11 {
 entry:
   %tlsext_servername_arg = getelementptr inbounds i8, ptr %ctx, i64 408
   store ptr %arg, ptr %tlsext_servername_arg, align 8
@@ -637,7 +637,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @SSL_CTX_set_tlsext_ticket_key_cb(ptr nocapture noundef writeonly %ctx, ptr noundef %callback) local_unnamed_addr #11 {
+define hidden noundef i32 @SSL_CTX_set_tlsext_ticket_key_cb(ptr nocapture noundef writeonly initializes((464, 472)) %ctx, ptr noundef %callback) local_unnamed_addr #11 {
 entry:
   %tlsext_ticket_key_cb = getelementptr inbounds i8, ptr %ctx, i64 464
   store ptr %callback, ptr %tlsext_ticket_key_cb, align 8

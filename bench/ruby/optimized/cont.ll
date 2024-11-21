@@ -394,7 +394,7 @@ declare ptr @rb_st_init_numtable() local_unnamed_addr #1
 declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_fiber_inherit_storage(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden i64 @rb_fiber_inherit_storage(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((160, 168)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %5 = tail call i64 @rb_obj_dup(i64 noundef %4) #9
@@ -871,7 +871,7 @@ declare void @rb_threadptr_pending_interrupt_enque(ptr noundef, i64 noundef) loc
 declare i64 @rb_vm_make_jump_tag_but_local_jump(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @rb_fiber_terminate(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1, i64 noundef %2) unnamed_addr #6 {
+define internal fastcc void @rb_fiber_terminate(ptr nocapture noundef initializes((56, 64), (72, 80)) %0, i32 noundef range(i32 0, 2) %1, i64 noundef %2) unnamed_addr #6 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store i64 %2, ptr %4, align 8
@@ -4297,7 +4297,7 @@ define internal fastcc i64 @make_passing_arg(i32 noundef %0, ptr noundef %1) unn
 declare void @rb_exc_raise(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @fiber_setcontext(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @fiber_setcontext(ptr noundef %0, ptr noundef initializes((232, 248)) %1) unnamed_addr #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 48
@@ -4392,7 +4392,7 @@ declare ptr @coroutine_transfer(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @rb_syserr_fail(i32 noundef, ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @fiber_restore_thread(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @fiber_restore_thread(ptr noundef initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8

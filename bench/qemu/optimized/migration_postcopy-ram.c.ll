@@ -1534,7 +1534,7 @@ return:                                           ; preds = %cond.false, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @postcopy_ram_incoming_setup(ptr noundef %mis) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @postcopy_ram_incoming_setup(ptr noundef initializes((272, 276)) %mis) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %local_err = alloca ptr, align 8
@@ -1718,7 +1718,7 @@ return:                                           ; preds = %postcopy_temp_pages
 declare i32 @eventfd(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @postcopy_ram_fault_thread(ptr noundef %opaque) #0 {
+define internal noundef ptr @postcopy_ram_fault_thread(ptr noundef initializes((336, 344)) %opaque) #0 {
 entry:
   %_now.i.i143 = alloca %struct.timeval, align 8
   %_now.i.i1.i = alloca %struct.timeval, align 8
@@ -3282,7 +3282,7 @@ return:                                           ; preds = %for.body.i, %for.co
 declare zeroext i1 @qemu_ram_is_uf_zeroable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @postcopy_temp_page_reset(ptr nocapture noundef writeonly %tmp_page) local_unnamed_addr #6 {
+define dso_local void @postcopy_temp_page_reset(ptr nocapture noundef writeonly initializes((8, 21)) %tmp_page) local_unnamed_addr #6 {
 entry:
   %target_pages = getelementptr inbounds i8, ptr %tmp_page, i64 16
   store i32 0, ptr %target_pages, align 8
@@ -3509,7 +3509,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 declare ptr @g_array_remove_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @postcopy_preempt_new_channel(ptr noundef %mis, ptr noundef %file) local_unnamed_addr #0 {
+define dso_local void @postcopy_preempt_new_channel(ptr noundef initializes((352, 360)) %mis, ptr noundef %file) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   tail call void @qemu_file_set_blocking(ptr noundef %file, i1 noundef zeroext true) #16

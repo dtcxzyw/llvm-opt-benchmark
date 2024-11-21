@@ -510,7 +510,7 @@ entry:
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp8ImporterC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp8ImporterC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noalias noundef nonnull dereferenceable(384) ptr @_Znwm(i64 noundef 384) #27
@@ -7056,7 +7056,7 @@ _Z18GetGenericPropertyIPvERKT_RKSt3mapIjS1_St4lessIjESaISt4pairIKjS1_EEEPKcS3_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6Assimp8Importer21GetMemoryRequirementsER12aiMemoryInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(32) %in) local_unnamed_addr #2 align 2 {
+define void @_ZNK6Assimp8Importer21GetMemoryRequirementsER12aiMemoryInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(32) initializes((0, 32)) %in) local_unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %in, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %this, align 8

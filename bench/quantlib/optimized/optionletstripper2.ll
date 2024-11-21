@@ -3534,7 +3534,7 @@ _ZN5boost10shared_ptrIN8QuantLib22CapFloorTermVolSurfaceEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18OptionletStripper2C1ERKN5boost10shared_ptrINS_18OptionletStripper1EEERKNS_6HandleINS_20CapFloorTermVolCurveEEE(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optionletStripper1, ptr noundef nonnull align 8 dereferenceable(16) %atmCapFloorTermVolCurve) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18OptionletStripper2C1ERKN5boost10shared_ptrINS_18OptionletStripper1EEERKNS_6HandleINS_20CapFloorTermVolCurveEEE(ptr noundef nonnull align 8 dereferenceable(480) initializes((480, 488), (496, 500), (504, 512)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optionletStripper1, ptr noundef nonnull align 8 dereferenceable(16) %atmCapFloorTermVolCurve) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::shared_ptr.90", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr.58", align 8
@@ -8911,7 +8911,7 @@ _ZN5boost10shared_ptrIN8QuantLib11SimpleQuoteEED2Ev.exit: ; preds = %_ZN5boost10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib18OptionletStripper210spreadsVolEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib18OptionletStripper210spreadsVolEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.26") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !35
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -8961,7 +8961,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib18OptionletStripper218atmCapFloorStrikesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib18OptionletStripper218atmCapFloorStrikesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.26") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !35
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -9011,7 +9011,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib18OptionletStripper217atmCapFloorPricesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib18OptionletStripper217atmCapFloorPricesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.26") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !35
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -9061,7 +9061,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18OptionletStripper217ObjectiveFunctionC2ERKN5boost10shared_ptrINS_18OptionletStripper1EEENS3_INS_8CapFloorEEEd(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optionletStripper1, ptr nocapture noundef %cap, double noundef %targetValue) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18OptionletStripper217ObjectiveFunctionC2ERKN5boost10shared_ptrINS_18OptionletStripper1EEENS3_INS_8CapFloorEEEd(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %optionletStripper1, ptr nocapture noundef %cap, double noundef %targetValue) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %adapter = alloca %"class.boost::shared_ptr.57", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr.91", align 8

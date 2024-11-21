@@ -23703,7 +23703,7 @@ _ZN5Yosys7hashlib4poolIiNS0_8hash_opsIiEEEaSEOS4_.exit: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114OnehotDatabase10initializeEv(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114OnehotDatabase10initializeEv(ptr noundef nonnull align 8 dereferenceable(256) initializes((17, 18)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [75 x i32], align 4
   %3 = alloca %"class.std::allocator.10", align 1
   %4 = alloca [75 x i32], align 4

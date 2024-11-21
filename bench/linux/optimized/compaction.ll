@@ -2105,7 +2105,7 @@ define dso_local zeroext i1 @PageMovable(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @__SetPageMovable(ptr nocapture noundef writeonly %0, ptr noundef %1) #5 align 16 {
+define dso_local void @__SetPageMovable(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1) #5 align 16 {
   %3 = ptrtoint ptr %1 to i64
   %4 = or i64 %3, 2
   %5 = inttoptr i64 %4 to ptr
@@ -2115,7 +2115,7 @@ define dso_local void @__SetPageMovable(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @__ClearPageMovable(ptr nocapture noundef writeonly %0) #5 align 16 {
+define dso_local void @__ClearPageMovable(ptr nocapture noundef writeonly initializes((24, 32)) %0) #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr inttoptr (i64 2 to ptr), ptr %2, align 8
   ret void
@@ -2960,7 +2960,7 @@ define dso_local i32 @isolate_migratepages_range(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @isolate_migratepages_block(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 16) %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((48, 56)) %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 16) %3) unnamed_addr #1 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
@@ -4864,7 +4864,7 @@ define dso_local void @kcompactd_run(i32 noundef %0) local_unnamed_addr #7 secti
 declare dso_local ptr @kthread_create_on_node(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kcompactd(ptr noundef %0) #1 align 16 {
+define internal noundef i32 @kcompactd(ptr noundef initializes((13308, 13316)) %0) #1 align 16 {
   %2 = alloca %struct.compact_control, align 8
   %3 = alloca %struct.compact_control, align 8
   %4 = alloca %struct.wait_queue_entry, align 8
@@ -6610,7 +6610,7 @@ define internal fastcc i64 @_compound_head(ptr noundef %0) unnamed_addr #13 alig
 declare dso_local ptr @__pageblock_pfn_to_page(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @compact_lock_irqsave(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @compact_lock_irqsave(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 112
   %6 = load i32, ptr %5, align 8
@@ -6759,7 +6759,7 @@ declare dso_local zeroext i1 @__zone_watermark_ok(ptr noundef, i32 noundef, i64 
 declare dso_local ptr @__next_zones_zonelist(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes((32, 40), (72, 88)) %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = alloca %struct.list_head, align 8
   %5 = alloca i8, align 1

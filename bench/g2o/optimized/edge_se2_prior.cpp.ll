@@ -468,7 +468,7 @@ _ZNK3g2o8BaseEdgeILi3ENS_3SE2EE22writeInformationMatrixERSo.exit: ; preds = %30
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3g2o12EdgeSE2Prior14setMeasurementERKNS_3SE2E(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(368) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(32) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o12EdgeSE2Prior14setMeasurementERKNS_3SE2E(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(368) initializes((176, 184), (192, 208), (336, 344), (352, 368)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(32) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load i64, ptr %1, align 16
   store i64 %4, ptr %3, align 16
@@ -509,7 +509,7 @@ define void @_ZN3g2o12EdgeSE2Prior14setMeasurementERKNS_3SE2E(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3g2o12EdgeSE2Prior18setMeasurementDataEPKd(ptr nocapture noundef nonnull align 16 dereferenceable(368) %0, ptr nocapture noundef readonly %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3g2o12EdgeSE2Prior18setMeasurementDataEPKd(ptr nocapture noundef nonnull align 16 dereferenceable(368) initializes((176, 184), (192, 208), (336, 344), (352, 368)) %0, ptr nocapture noundef readonly %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load double, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8

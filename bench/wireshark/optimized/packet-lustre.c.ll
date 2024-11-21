@@ -8295,7 +8295,7 @@ define internal fastcc noundef i32 @dissect_struct_llog_cookie_array(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process_opcode_reint_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @process_opcode_reint_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef initializes((8, 16)) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #8
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds i8, ptr %4, i64 8

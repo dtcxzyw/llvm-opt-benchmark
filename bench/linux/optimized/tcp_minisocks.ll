@@ -703,7 +703,7 @@ define dso_local void @tcp_twsk_purge(ptr noundef readonly %0, i32 noundef %1) #
 declare dso_local void @inet_twsk_purge(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_openreq_init_rwin(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local void @tcp_openreq_init_rwin(ptr noundef initializes((132, 136)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 280
   %6 = load volatile i32, ptr %5, align 8

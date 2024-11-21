@@ -641,7 +641,7 @@ define linkonce_odr void @_ZN3gmx25ModularSimulatorAlgorithm12SignalHelperD0Ev(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx25ModularSimulatorAlgorithm12SignalHelper24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx25ModularSimulatorAlgorithm12SignalHelper24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((0, 33)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -656,7 +656,7 @@ define void @_ZN3gmx25ModularSimulatorAlgorithm12SignalHelper24registerLastStepC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((0, 33)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -683,7 +683,7 @@ define linkonce_odr void @_ZThn8_N3gmx25ModularSimulatorAlgorithm12SignalHelperD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZThn8_N3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((0, 33)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -8
   %4 = ptrtoint ptr %3 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -699,7 +699,7 @@ define void @_ZThn8_N3gmx25ModularSimulatorAlgorithm12SignalHelper18registerNSCa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx25ModularSimulatorAlgorithmC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8_IO_FILEP9t_commrecRKNS_8MDLoggerERKNS_12MdrunOptionsEPK10t_inputrecP6t_nrnbP13gmx_wallcycleP10t_forcerecP23gmx_walltime_accounting(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx25ModularSimulatorAlgorithmC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8_IO_FILEP9t_commrecRKNS_8MDLoggerERKNS_12MdrunOptionsEPK10t_inputrecP6t_nrnbP13gmx_wallcycleP10t_forcerecP23gmx_walltime_accounting(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 256), (264, 268), (272, 280)) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %12 = getelementptr inbounds i8, ptr %0, i64 80
   %13 = getelementptr inbounds i8, ptr %0, i64 104
   %14 = getelementptr inbounds i8, ptr %0, i64 128
@@ -3726,7 +3726,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3gmx25Modula
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx32ModularSimulatorAlgorithmBuilderC2ENS_6compat8not_nullIPNS_19LegacySimulatorDataEEESt10unique_ptrINS_24ReadCheckpointDataHolderESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx32ModularSimulatorAlgorithmBuilderC2ENS_6compat8not_nullIPNS_19LegacySimulatorDataEEESt10unique_ptrINS_24ReadCheckpointDataHolderESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(712) initializes((0, 1), (8, 32), (40, 44), (48, 56)) %0, ptr %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.515", align 8
   %5 = alloca %"class.std::unique_ptr.75", align 8
   %6 = alloca i8, align 1
@@ -15492,7 +15492,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx25Modul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx25GlobalCommunicationHelperC2EiPSt5arrayINS_16SimulationSignalELm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define void @_ZN3gmx25GlobalCommunicationHelperC2EiPSt5arrayINS_16SimulationSignalELm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -15500,7 +15500,7 @@ define void @_ZN3gmx25GlobalCommunicationHelperC2EiPSt5arrayINS_16SimulationSign
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelperC2EPNS_32ModularSimulatorAlgorithmBuilderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelperC2EPNS_32ModularSimulatorAlgorithmBuilderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

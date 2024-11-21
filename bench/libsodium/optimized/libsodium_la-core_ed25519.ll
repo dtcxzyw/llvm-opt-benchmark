@@ -321,7 +321,7 @@ entry:
 declare void @_sodium_sc25519_invert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define void @crypto_core_ed25519_scalar_negate(ptr nocapture noundef nonnull writeonly %neg, ptr nocapture noundef nonnull readonly %s) local_unnamed_addr #0 {
+define void @crypto_core_ed25519_scalar_negate(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %neg, ptr nocapture noundef nonnull readonly %s) local_unnamed_addr #0 {
 entry:
   %t_ = alloca [64 x i8], align 16
   %s_ = alloca [64 x i8], align 16
@@ -348,7 +348,7 @@ declare void @sodium_sub(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare void @_sodium_sc25519_reduce(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define void @crypto_core_ed25519_scalar_complement(ptr nocapture noundef nonnull writeonly %comp, ptr nocapture noundef nonnull readonly %s) local_unnamed_addr #0 {
+define void @crypto_core_ed25519_scalar_complement(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %comp, ptr nocapture noundef nonnull readonly %s) local_unnamed_addr #0 {
 entry:
   %t_ = alloca [64 x i8], align 16
   %s_ = alloca [64 x i8], align 16
@@ -366,7 +366,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define void @crypto_core_ed25519_scalar_add(ptr nocapture noundef nonnull writeonly %z, ptr nocapture noundef nonnull readonly %x, ptr nocapture noundef nonnull readonly %y) local_unnamed_addr #0 {
+define void @crypto_core_ed25519_scalar_add(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %z, ptr nocapture noundef nonnull readonly %x, ptr nocapture noundef nonnull readonly %y) local_unnamed_addr #0 {
 entry:
   %t.i = alloca [64 x i8], align 16
   %x_ = alloca [64 x i8], align 16
@@ -390,7 +390,7 @@ entry:
 declare void @sodium_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define void @crypto_core_ed25519_scalar_reduce(ptr nocapture noundef nonnull writeonly %r, ptr nocapture noundef nonnull readonly %s) local_unnamed_addr #0 {
+define void @crypto_core_ed25519_scalar_reduce(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %r, ptr nocapture noundef nonnull readonly %s) local_unnamed_addr #0 {
 entry:
   %t = alloca [64 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t, ptr noundef nonnull align 1 dereferenceable(64) %s, i64 64, i1 false)
@@ -401,7 +401,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define void @crypto_core_ed25519_scalar_sub(ptr nocapture noundef nonnull writeonly %z, ptr nocapture noundef nonnull readonly %x, ptr nocapture noundef nonnull readonly %y) local_unnamed_addr #0 {
+define void @crypto_core_ed25519_scalar_sub(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %z, ptr nocapture noundef nonnull readonly %x, ptr nocapture noundef nonnull readonly %y) local_unnamed_addr #0 {
 entry:
   %t.i.i = alloca [64 x i8], align 16
   %x_.i = alloca [64 x i8], align 16

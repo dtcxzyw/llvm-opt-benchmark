@@ -313,7 +313,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory7TypeSet27setTypeEnumeratorPropertiesEPNS1_24TypeEnumeratorPropertiesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this, ptr noundef %tep) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory7TypeSet27setTypeEnumeratorPropertiesEPNS1_24TypeEnumeratorPropertiesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((112, 120)) %this, ptr noundef %tep) local_unnamed_addr #7 align 2 {
 entry:
   %d_tep = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %tep, ptr %d_tep, align 8

@@ -421,7 +421,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_zip_options(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 2) i32 @archive_read_format_zip_streamable_read_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -30, 2) i32 @archive_read_format_zip_streamable_read_header(ptr noundef initializes((16, 20)) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 327680, ptr %4, align 8
@@ -584,7 +584,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_streamable_read_h
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 2) i32 @archive_read_format_zip_read_data(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -30, 2) i32 @archive_read_format_zip_read_data(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 2072
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -1267,7 +1267,7 @@ define internal range(i32 -1, 33) i32 @archive_read_format_zip_seekable_bid(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -30, 2) i32 @archive_read_format_zip_seekable_read_header(ptr noundef initializes((16, 20)) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.archive_string, align 8
   %5 = alloca %struct.tm, align 8
@@ -2190,7 +2190,7 @@ declare void @__archive_read_reset_passphrase(ptr noundef) local_unnamed_addr #1
 declare i64 @__archive_read_consume(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr noundef %0, ptr noundef %1, ptr noundef initializes((128, 152), (161, 163)) %2) unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca %struct.archive_wstring, align 8
   %6 = alloca %struct.archive_wstring, align 8

@@ -148,7 +148,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_757PackageC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(201237) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_757PackageC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(201237) initializes((0, 1), (64, 65), (128, 168), (1160, 1180), (1184, 1200), (201200, 201204), (201208, 201236)) %this) unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 8
   %pkgPrefix = getelementptr inbounds i8, ptr %this, i64 64
@@ -2451,7 +2451,7 @@ return:                                           ; preds = %return.loopexit129,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_757Package12setMatchModeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(201237) %this, i32 noundef %mode) local_unnamed_addr #17 align 2 {
+define void @_ZN6icu_757Package12setMatchModeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(201237) initializes((201200, 201204)) %this, i32 noundef %mode) local_unnamed_addr #17 align 2 {
 entry:
   %matchMode = getelementptr inbounds i8, ptr %this, i64 201200
   store i32 %mode, ptr %matchMode, align 8
@@ -3272,7 +3272,7 @@ if.end:                                           ; preds = %while.body.i, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_757Package17checkDependenciesEv(ptr noundef nonnull align 8 dereferenceable(201237) %this) local_unnamed_addr #12 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_757Package17checkDependenciesEv(ptr noundef nonnull align 8 dereferenceable(201237) initializes((201236, 201237)) %this) local_unnamed_addr #12 align 2 {
 entry:
   %isMissingItems = getelementptr inbounds i8, ptr %this, i64 201236
   store i8 0, ptr %isMissingItems, align 4

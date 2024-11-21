@@ -1701,7 +1701,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 declare void @_ZN8facebook5velox6DOUBLEEv(ptr sret(%"class.std::shared_ptr.66") align 8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_116CumeDistFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_116CumeDistFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(108) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec14WindowFunctionE, i64 16), ptr %this, align 8
   %invalidRows_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -1792,7 +1792,7 @@ _ZN8facebook5velox4exec14WindowFunctionD2Ev.exit: ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_116CumeDistFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_116CumeDistFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec14WindowFunctionE, i64 16), ptr %this, align 8
   %invalidRows_.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -1884,7 +1884,7 @@ _ZN8facebook5velox6window9prestosql12_GLOBAL__N_116CumeDistFunctionD2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_116CumeDistFunction14resetPartitionEPKNS0_4exec15WindowPartitionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) %this, ptr nocapture noundef readonly %partition) unnamed_addr #12 align 2 {
+define internal void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_116CumeDistFunction14resetPartitionEPKNS0_4exec15WindowPartitionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((80, 108)) %this, ptr nocapture noundef readonly %partition) unnamed_addr #12 align 2 {
 entry:
   %runningTotal_ = getelementptr inbounds i8, ptr %this, i64 80
   %currentPeerGroupStart_ = getelementptr inbounds i8, ptr %this, i64 96

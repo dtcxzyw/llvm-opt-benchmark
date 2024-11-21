@@ -127,7 +127,7 @@ $_ZTIN6duckdb17InternalExceptionE = comdat any
 @_ZN6duckdb15IsNotNullFilterC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6duckdb15IsNotNullFilterC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb19ConjunctionOrFilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb19ConjunctionOrFilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 9), (16, 40)) %this) unnamed_addr #0 align 2 {
 entry:
   %filter_type.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 3, ptr %filter_type.i.i, align 8, !tbaa !3
@@ -848,7 +848,7 @@ _ZN6duckdb10unique_ptrINS_11TableFilterESt14default_deleteIS1_ELb1EE13AssertNotN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb20ConjunctionAndFilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb20ConjunctionAndFilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 9), (16, 40)) %this) unnamed_addr #0 align 2 {
 entry:
   %filter_type.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 4, ptr %filter_type.i.i, align 8, !tbaa !3
@@ -1255,7 +1255,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb14ConstantFilterC2ENS_14ExpressionTypeENS_5ValueE(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 noundef zeroext %comparison_type_p, ptr noundef nonnull %constant_p) unnamed_addr #3 align 2 {
+define void @_ZN6duckdb14ConstantFilterC2ENS_14ExpressionTypeENS_5ValueE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 10)) %this, i8 noundef zeroext %comparison_type_p, ptr noundef nonnull %constant_p) unnamed_addr #3 align 2 {
 entry:
   %filter_type.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %filter_type.i, align 8, !tbaa !3
@@ -1743,7 +1743,7 @@ unreachable:                                      ; preds = %invoke.cont4
 declare noundef zeroext i1 @_ZNK6duckdb5ValueeqERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb12IsNullFilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb12IsNullFilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this) unnamed_addr #0 align 2 {
 entry:
   %filter_type.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %filter_type.i, align 8, !tbaa !3
@@ -1859,7 +1859,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb15IsNotNullFilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb15IsNotNullFilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this) unnamed_addr #0 align 2 {
 entry:
   %filter_type.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 2, ptr %filter_type.i, align 8, !tbaa !3

@@ -3752,7 +3752,7 @@ declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #1
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_active_row(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @_update_active_row(ptr noundef nonnull initializes((44, 48)) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %4 = and i64 %3, 8192
   %.not = icmp eq i64 %4, 0

@@ -215,7 +215,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb25DataBlockHashIndexBuilder5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25DataBlockHashIndexBuilder5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((8, 17)) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %estimated_num_buckets_ = getelementptr inbounds i8, ptr %this, i64 8
   store double 0.000000e+00, ptr %estimated_num_buckets_, align 8
@@ -237,7 +237,7 @@ _ZNSt6vectorISt4pairIjhESaIS1_EE5clearEv.exit:    ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb18DataBlockHashIndex10InitializeEPKctPt(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %this, ptr nocapture noundef readonly %data, i16 noundef zeroext %size, ptr nocapture noundef writeonly %map_offset) local_unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb18DataBlockHashIndex10InitializeEPKctPt(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %this, ptr nocapture noundef readonly %data, i16 noundef zeroext %size, ptr nocapture noundef writeonly initializes((0, 2)) %map_offset) local_unnamed_addr #2 align 2 {
 entry:
   %idx.ext = zext i16 %size to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext

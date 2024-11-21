@@ -126,7 +126,7 @@ define dso_local noundef nonnull ptr @mei_hbm_state_str(i32 noundef %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @mei_hbm_idle(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @mei_hbm_idle(ptr nocapture noundef writeonly initializes((428, 432), (436, 438)) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 436
   store i16 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 428

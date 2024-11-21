@@ -48,7 +48,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental17MakeDefaultPollerEPNS0_9SchedulerE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef %scheduler) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental17MakeDefaultPollerEPNS0_9SchedulerE(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr noundef %scheduler) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %strings = alloca %"class.absl::lts_20230802::strings_internal::Splitter", align 8
   %it = alloca %"class.absl::lts_20230802::strings_internal::SplitIterator", align 8

@@ -112,7 +112,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core5SleepC2ENS_9TimestampE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 %deadline.coerce) unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core5SleepC2ENS_9TimestampE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i64 %deadline.coerce) unnamed_addr #3 align 2 {
 entry:
   store i64 %deadline.coerce, ptr %this, align 8
   %closure_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -383,7 +383,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core5Sleep13ActiveClosureC2ENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %deadline.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core5Sleep13ActiveClosureC2ENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, i64 %deadline.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::Duration", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core5Sleep13ActiveClosureE, i64 16), ptr %this, align 8

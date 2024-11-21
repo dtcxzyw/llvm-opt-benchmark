@@ -118,7 +118,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14StrikeRegisterC2EjjjPKhNS0_11StartupTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %max_entries, i32 noundef %current_time, i32 noundef %window_secs, ptr nocapture noundef readonly %orbit, i32 noundef %startup) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14StrikeRegisterC2EjjjPKhNS0_11StartupTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 24), (48, 56)) %this, i32 noundef %max_entries, i32 noundef %current_time, i32 noundef %window_secs, ptr nocapture noundef readonly %orbit, i32 noundef %startup) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %max_entries, ptr %this, align 8
   %window_secs_ = getelementptr inbounds i8, ptr %this, i64 4
@@ -257,7 +257,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3net14StrikeRegister5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN3net14StrikeRegister5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((24, 28)) %this) local_unnamed_addr #6 align 2 {
 entry:
   %internal_node_free_head_ = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %internal_node_free_head_, align 8

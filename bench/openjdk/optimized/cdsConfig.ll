@@ -601,7 +601,7 @@ define hidden noundef i32 @_ZN9CDSConfig12num_archivesEPKc(ptr noundef readonly 
 declare noundef ptr @_ZN2os14path_separatorEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9CDSConfig28extract_shared_archive_pathsEPKcPPcS3_(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN9CDSConfig28extract_shared_archive_pathsEPKcPPcS3_(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #2 align 2 {
   %4 = tail call noundef ptr @_ZN2os14path_separatorEv() #9
   %5 = load i8, ptr %4, align 1
   %6 = sext i8 %5 to i32

@@ -1038,7 +1038,7 @@ define dso_local void @intel_gmch_remove() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none)
-define dso_local void @intel_gmch_gtt_get(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #4 align 16 {
+define dso_local void @intel_gmch_gtt_get(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #4 align 16 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @intel_private, i64 192), align 8
   %5 = shl i32 %4, 12
   %6 = zext i32 %5 to i64

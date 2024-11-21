@@ -266,7 +266,7 @@ define zeroext i1 @_ZN6common3cpu9CpuBudget16has_budget_exact17h3683d15e44eb3109
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6common3cpu9CpuBudget26notify_on_budget_available17h4d37d9ce951b5a76E(ptr nocapture writeonly sret({ ptr, i64, [144 x i8], i8, [7 x i8] }) align 8 %0, ptr align 8 %1, i64 %2) unnamed_addr #1 {
+define void @_ZN6common3cpu9CpuBudget26notify_on_budget_available17h4d37d9ce951b5a76E(ptr nocapture writeonly sret({ ptr, i64, [144 x i8], i8, [7 x i8] }) align 8 initializes((0, 16), (160, 161)) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -329,7 +329,7 @@ _ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E.exit: ; preds = %0, %4, %6, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6common3cpu9CpuPermit3new17h3fed45f9dca002bdE(ptr nocapture writeonly sret({ { ptr, [1 x i64] }, i32, [1 x i32] }) align 8 %0, i32 %1, ptr %2, i32 %3) unnamed_addr #1 {
+define void @_ZN6common3cpu9CpuPermit3new17h3fed45f9dca002bdE(ptr nocapture writeonly sret({ { ptr, [1 x i64] }, i32, [1 x i32] }) align 8 initializes((0, 12), (16, 20)) %0, i32 %1, ptr %2, i32 %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %5, align 8
   store ptr %2, ptr %0, align 8
@@ -339,7 +339,7 @@ define void @_ZN6common3cpu9CpuPermit3new17h3fed45f9dca002bdE(ptr nocapture writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6common3cpu9CpuPermit5dummy17ha0410902a5b29f39E(ptr nocapture writeonly sret({ { ptr, [1 x i64] }, i32, [1 x i32] }) align 8 %0, i32 %1) unnamed_addr #1 {
+define void @_ZN6common3cpu9CpuPermit5dummy17ha0410902a5b29f39E(ptr nocapture writeonly sret({ { ptr, [1 x i64] }, i32, [1 x i32] }) align 8 initializes((0, 8), (16, 20)) %0, i32 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   store ptr null, ptr %0, align 8
@@ -484,13 +484,13 @@ define zeroext i1 @"_ZN71_$LT$common..cpu..ThreadPriorityError$u20$as$u20$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6common3cpu19ThreadPriorityError17SetThreadPriority17h7273e710dd8d709eE(ptr nocapture writeonly sret({ i32, [5 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define hidden void @_ZN6common3cpu19ThreadPriorityError17SetThreadPriority17h7273e710dd8d709eE(ptr nocapture writeonly sret({ i32, [5 x i32] }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6common3cpu19ThreadPriorityError9ParseNice17hedf8771cbcfdc0aaE(ptr nocapture writeonly sret({ i32, [5 x i32] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #3 {
+define hidden void @_ZN6common3cpu19ThreadPriorityError9ParseNice17hedf8771cbcfdc0aaE(ptr nocapture writeonly sret({ i32, [5 x i32] }) align 8 initializes((0, 4), (8, 24)) %0, ptr align 1 %1, i64 %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

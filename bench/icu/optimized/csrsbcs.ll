@@ -188,7 +188,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_7526CharsetRecog_IBM420_ar_ltrD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7526CharsetRecog_IBM420_ar_ltrD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7511NGramParserC2EPKiPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7511NGramParserC2EPKiPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 36), (40, 48)) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511NGramParserE, i64 16), ptr %this, align 8
   %ngram = getelementptr inbounds i8, ptr %this, i64 8
@@ -717,7 +717,7 @@ _ZN6icu_7511NGramParser7addByteEi.exit:           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7518NGramParser_IBM420C2EPKiPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7518NGramParser_IBM420C2EPKiPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 12), (16, 36), (40, 52)) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
 entry:
   %ngram.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %ngram.i, align 8
@@ -1169,7 +1169,7 @@ while.end:                                        ; preds = %if.end30, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7517CharsetRecog_sbcsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7517CharsetRecog_sbcsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CharsetRecog_sbcsE, i64 16), ptr %this, align 8
   ret void

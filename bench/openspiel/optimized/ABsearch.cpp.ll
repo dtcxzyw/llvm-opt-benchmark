@@ -1567,7 +1567,7 @@ define void @_Z5Undo3P3posiRK8moveType(ptr nocapture noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds [50 x i32], ptr %6, i64 0, i64 %7
@@ -1803,7 +1803,7 @@ define void @_Z5Undo0P3posiRK8moveTypePK10ThreadData(ptr nocapture noundef %0, i
 declare noundef nonnull align 4 dereferenceable(36) ptr @_ZN5Moves12GetTrickDataEi(ptr noundef nonnull align 8 dereferenceable(39992), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11Make3SimpleP3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @_Z11Make3SimpleP3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 987992
   %7 = add nsw i32 %2, 3
   %8 = ashr i32 %7, 2

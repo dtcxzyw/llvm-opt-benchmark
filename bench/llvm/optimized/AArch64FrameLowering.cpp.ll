@@ -21086,7 +21086,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm20AArch64FrameLowering25enableStac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZL30determineSVEStackObjectOffsetsRN4llvm16MachineFrameInfoERiS2_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZL30determineSVEStackObjectOffsetsRN4llvm16MachineFrameInfoERiS2_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::SmallVector.627", align 8
   store i32 2147483647, ptr %1, align 4
   store i32 -2147483648, ptr %2, align 4
@@ -21440,7 +21440,7 @@ _ZN4llvm11SmallVectorIiLj8EED2Ev.exit:            ; preds = %._crit_edge91, %200
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK4llvm20AArch64FrameLowering27assignSVEStackObjectOffsetsERNS_16MachineFrameInfoERiS3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(21) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK4llvm20AArch64FrameLowering27assignSVEStackObjectOffsetsERNS_16MachineFrameInfoERiS3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(21) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call fastcc noundef i64 @_ZL30determineSVEStackObjectOffsetsRN4llvm16MachineFrameInfoERiS2_b(ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, i1 noundef zeroext true)
   ret i64 %5
 }

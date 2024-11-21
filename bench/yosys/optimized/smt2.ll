@@ -6282,7 +6282,7 @@ define internal fastcc noundef ptr @_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110Smt2WorkerC2EPN5Yosys5RTLIL6ModuleEbbbbbbbRNS1_7hashlib4dictINS2_8IdStringEiNS5_8hash_opsIS7_EEEERNS6_IS7_NS6_IS7_St4pairIbbES9_EES9_EE(ptr noundef nonnull align 8 dereferenceable(1057) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef nonnull align 8 dereferenceable(49) %9, ptr noundef nonnull align 8 dereferenceable(49) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110Smt2WorkerC2EPN5Yosys5RTLIL6ModuleEbbbbbbbRNS1_7hashlib4dictINS2_8IdStringEiNS5_8hash_opsIS7_EEEERNS6_IS7_NS6_IS7_St4pairIbbES9_EES9_EE(ptr noundef nonnull align 8 dereferenceable(1057) initializes((0, 48)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef nonnull align 8 dereferenceable(49) %9, ptr noundef nonnull align 8 dereferenceable(49) %10) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca [75 x i32], align 4
   %13 = alloca %"class.std::allocator.6", align 1
   %14 = alloca [75 x i32], align 4
@@ -151101,7 +151101,7 @@ _ZNSt8_Rb_treeIPN5Yosys3MemESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110Smt2Worker12witness_pathIN5Yosys5RTLIL4CellEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPT_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110Smt2Worker12witness_pathIN5Yosys5RTLIL4CellEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPT_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::vector", align 8

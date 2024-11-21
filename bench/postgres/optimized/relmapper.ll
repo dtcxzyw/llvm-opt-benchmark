@@ -442,7 +442,7 @@ define dso_local void @RelationMapCopy(i32 noundef %0, i32 noundef %1, ptr nound
 declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_relmap_file(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc void @write_relmap_file(ptr noundef initializes((0, 4)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #1 {
   %8 = alloca [1024 x i8], align 16
   %9 = alloca [1024 x i8], align 16
   %10 = alloca %struct.xl_relmap_update, align 4
@@ -1293,7 +1293,7 @@ define dso_local noundef i64 @EstimateRelationMapSpace() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @SerializeRelationMap(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define dso_local void @SerializeRelationMap(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 1048)) %1) local_unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(524) %1, ptr noundef nonnull align 4 dereferenceable(524) @active_shared_updates, i64 524, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 524
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(524) %3, ptr noundef nonnull align 4 dereferenceable(524) @active_local_updates, i64 524, i1 false)

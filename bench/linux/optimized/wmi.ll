@@ -1045,7 +1045,7 @@ define dso_local ptr @wmi_get_acpi_device_uid(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__wmi_driver_register(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @__wmi_driver_register(ptr noundef initializes((8, 24)) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

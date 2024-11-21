@@ -2955,7 +2955,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceI21duckdb_fsst_decoder_tSaIvELN9__gnu_cxx12_Lock
 @_ZN6duckdb30UncompressedStringSegmentStateD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6duckdb30UncompressedStringSegmentStateD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb16ConstantInitScanERNS_13ColumnSegmentE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %segment) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16ConstantInitScanERNS_13ColumnSegmentE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %segment) #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8, !tbaa !3
   ret void
@@ -3314,7 +3314,7 @@ _ZN6duckdb28ConstantFillFunctionValidityERNS_13ColumnSegmentERNS_6VectorEmm.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb27ConstantGetFunctionValidityENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 {
+define void @_ZN6duckdb27ConstantGetFunctionValidityENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 initializes((0, 2), (8, 160)) %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 {
 entry:
   store i8 2, ptr %agg.result, align 8, !tbaa !31
   %data_type3.i = getelementptr inbounds i8, ptr %agg.result, i64 1
@@ -3576,7 +3576,7 @@ unreachable:                                      ; preds = %invoke.cont3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb20FixedSizeInitAnalyzeERNS_10ColumnDataENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.32") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %col_data, i8 zeroext %type) #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb20FixedSizeInitAnalyzeERNS_10ColumnDataENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.32") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %col_data, i8 zeroext %type) #1 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb21FixedSizeAnalyzeStateESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34, !noalias !44
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb21FixedSizeAnalyzeStateE, i64 16), ptr %call.i, align 8, !tbaa !47, !noalias !44
@@ -3597,7 +3597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb25UncompressedCompressStateC2ERNS_22ColumnDataCheckpointerE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(192) %checkpointer) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb25UncompressedCompressStateC2ERNS_22ColumnDataCheckpointerE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24), (32, 72)) %this, ptr noundef nonnull align 8 dereferenceable(192) %checkpointer) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb25UncompressedCompressStateE, i64 16), ptr %this, align 8, !tbaa !47
   %checkpointer2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -6769,7 +6769,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb24DictionaryCompressionFun11GetFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb24DictionaryCompressionFun11GetFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 initializes((0, 2), (8, 160)) %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 align 2 {
 entry:
   store i8 4, ptr %agg.result, align 8, !tbaa !31
   %data_type3.i = getelementptr inbounds i8, ptr %agg.result, i64 1
@@ -7054,7 +7054,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb30UncompressedStringSegmentStateD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb30UncompressedStringSegmentStateD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb30UncompressedStringSegmentStateE, i64 16), ptr %this, align 8, !tbaa !47
   %head = getelementptr inbounds i8, ptr %this, i64 8
@@ -7368,7 +7368,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb25UncompressedStringStorage17StringInitAnalyzeERNS_10ColumnDataENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.32") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %col_data, i8 zeroext %type) #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb25UncompressedStringStorage17StringInitAnalyzeERNS_10ColumnDataENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.32") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %col_data, i8 zeroext %type) #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb18StringAnalyzeStateESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #34, !noalias !308
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb18StringAnalyzeStateE, i64 16), ptr %call.i, align 8, !tbaa !47, !noalias !308
@@ -8887,7 +8887,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb18StringUncompressed11GetFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb18StringUncompressed11GetFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 initializes((0, 2), (8, 160)) %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 align 2 {
 entry:
   store i8 1, ptr %agg.result, align 8, !tbaa !31
   %data_type3.i = getelementptr inbounds i8, ptr %agg.result, i64 1
@@ -10334,7 +10334,7 @@ _ZN6duckdb8string_tC2EPKcj.exit:                  ; preds = %if.else.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb25UncompressedStringStorage17WriteStringMarkerEPhli(ptr nocapture noundef writeonly %target, i64 noundef %block_id, i32 noundef %offset) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb25UncompressedStringStorage17WriteStringMarkerEPhli(ptr nocapture noundef writeonly initializes((0, 12)) %target, i64 noundef %block_id, i32 noundef %offset) local_unnamed_addr #0 align 2 {
 entry:
   store i64 %block_id, ptr %target, align 1
   %add.ptr = getelementptr inbounds i8, ptr %target, i64 8
@@ -10343,7 +10343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb25UncompressedStringStorage16ReadStringMarkerEPhRlRi(ptr nocapture noundef readonly %target, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %block_id, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %offset) local_unnamed_addr #6 align 2 {
+define void @_ZN6duckdb25UncompressedStringStorage16ReadStringMarkerEPhRlRi(ptr nocapture noundef readonly %target, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %block_id, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %offset) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i64, ptr %target, align 1
   store i64 %0, ptr %block_id, align 8
@@ -10614,7 +10614,7 @@ unreachable:                                      ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb20ValidityUncompressed11GetFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb20ValidityUncompressed11GetFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 initializes((0, 2), (8, 160)) %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 align 2 {
 entry:
   store i8 1, ptr %agg.result, align 8, !tbaa !31
   %data_type3.i = getelementptr inbounds i8, ptr %agg.result, i64 1
@@ -10663,7 +10663,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb19ValidityInitAnalyzeERNS_10ColumnDataENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.32") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %col_data, i8 zeroext %type) #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb19ValidityInitAnalyzeERNS_10ColumnDataENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.32") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %col_data, i8 zeroext %type) #1 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb20ValidityAnalyzeStateESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34, !noalias !384
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb20ValidityAnalyzeStateE, i64 16), ptr %call.i, align 8, !tbaa !47, !noalias !384
@@ -13946,7 +13946,7 @@ sw.epilog:                                        ; preds = %for.body.i50, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb16GetPatasFunctionIfEENS_19CompressionFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 {
+define void @_ZN6duckdb16GetPatasFunctionIfEENS_19CompressionFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 initializes((0, 2), (8, 160)) %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 {
 entry:
   store i8 9, ptr %agg.result, align 8, !tbaa !31
   %data_type3.i = getelementptr inbounds i8, ptr %agg.result, i64 1
@@ -14899,7 +14899,7 @@ _ZN6duckdb14PatasScanStateIfE4SkipERNS_13ColumnSegmentEm.exit: ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb16GetPatasFunctionIdEENS_19CompressionFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 {
+define void @_ZN6duckdb16GetPatasFunctionIdEENS_19CompressionFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 initializes((0, 2), (8, 160)) %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 {
 entry:
   store i8 9, ptr %agg.result, align 8, !tbaa !31
   %data_type3.i = getelementptr inbounds i8, ptr %agg.result, i64 1
@@ -19559,7 +19559,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb11FSSTStorage22ParseFSSTSegmentHeaderEPhP21duckdb_fsst_decoder_tS1_(ptr noundef %base_ptr, ptr noundef %decoder_out, ptr nocapture noundef writeonly %width_out) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN6duckdb11FSSTStorage22ParseFSSTSegmentHeaderEPhP21duckdb_fsst_decoder_tS1_(ptr noundef %base_ptr, ptr noundef %decoder_out, ptr nocapture noundef writeonly initializes((0, 1)) %width_out) local_unnamed_addr #1 align 2 {
 entry:
   %fsst_symbol_table_offset1 = getelementptr inbounds i8, ptr %base_ptr, i64 12
   %ret.0.copyload.i = load i32, ptr %fsst_symbol_table_offset1, align 1
@@ -19575,7 +19575,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb18DeltaDecodeIndicesEPjS0_mj(ptr nocapture noundef readonly %buffer_in, ptr nocapture noundef writeonly %buffer_out, i64 noundef %decode_count, i32 noundef %last_known_value) local_unnamed_addr #23 {
+define void @_ZN6duckdb18DeltaDecodeIndicesEPjS0_mj(ptr nocapture noundef readonly %buffer_in, ptr nocapture noundef writeonly initializes((0, 4)) %buffer_out, i64 noundef %decode_count, i32 noundef %last_known_value) local_unnamed_addr #23 {
 entry:
   %0 = load i32, ptr %buffer_in, align 4, !tbaa !116
   %add = add i32 %0, %last_known_value
@@ -20539,7 +20539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb11FSSTStorage23CalculateBpDeltaOffsetsElmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.duckdb::BPDeltaDecodeOffsets") align 8 %agg.result, i64 noundef %last_known_row, i64 noundef %start, i64 noundef %scan_count) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb11FSSTStorage23CalculateBpDeltaOffsetsElmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.duckdb::BPDeltaDecodeOffsets") align 8 initializes((0, 56)) %agg.result, i64 noundef %last_known_row, i64 noundef %start, i64 noundef %scan_count) local_unnamed_addr #0 align 2 {
 entry:
   %add = add nsw i64 %last_known_row, 1
   store i64 %add, ptr %agg.result, align 8, !tbaa !755
@@ -20641,7 +20641,7 @@ _ZN6duckdb10unique_ptrIA_jSt14default_deleteIS1_ELb1EE13AssertNotNullEb.exit: ; 
 declare { i64, ptr } @_ZN6duckdb14FSSTPrimitives15DecompressValueEPvRNS_6VectorEPKcm(ptr noundef, ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb7FSSTFun11GetFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb7FSSTFun11GetFunctionENS_12PhysicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::CompressionFunction") align 8 initializes((0, 2), (8, 160)) %agg.result, i8 noundef zeroext %data_type) local_unnamed_addr #0 align 2 {
 entry:
   store i8 7, ptr %agg.result, align 8, !tbaa !31
   %data_type3.i = getelementptr inbounds i8, ptr %agg.result, i64 1

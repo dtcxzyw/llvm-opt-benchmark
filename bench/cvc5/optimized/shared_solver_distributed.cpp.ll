@@ -766,7 +766,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory23SharedSolverDistributed7explainENS0_12NodeTemplateILb0EEENS1_8TheoryIdE(ptr noalias sret(%"class.cvc5::internal::TrustNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %this, ptr nocapture noundef readonly %literal, i32 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory23SharedSolverDistributed7explainENS0_12NodeTemplateILb0EEENS1_8TheoryIdE(ptr noalias sret(%"class.cvc5::internal::TrustNode") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %this, ptr nocapture noundef readonly %literal, i32 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::TrustNode", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.47", align 8

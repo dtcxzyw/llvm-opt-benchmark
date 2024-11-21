@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @oldrs = internal global %struct.ReservoirStateData zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @BlockSampler_Init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @BlockSampler_Init(ptr noundef initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4

@@ -207,7 +207,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib32Burley2020SobolBrownianGenera
 @_ZN8QuantLib39Burley2020SobolBrownianGeneratorFactoryC1ENS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersEm = unnamed_addr alias void (ptr, i32, i64, i32, i64), ptr @_ZN8QuantLib39Burley2020SobolBrownianGeneratorFactoryC2ENS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersEm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26SobolBrownianGeneratorBaseC2EmmNS0_8OrderingE(ptr noundef nonnull align 8 dereferenceable(288) %this, i64 noundef %factors, i64 noundef %steps, i32 noundef %ordering) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26SobolBrownianGeneratorBaseC2EmmNS0_8OrderingE(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 28)) %this, i64 noundef %factors, i64 noundef %steps, i32 noundef %ordering) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.0", align 8
   %ref.tmp10 = alloca %"class.std::vector", align 8
@@ -2659,7 +2659,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22SobolBrownianGeneratorC2EmmNS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersE(ptr noundef nonnull align 8 dereferenceable(448) %this, i64 noundef %factors, i64 noundef %steps, i32 noundef %ordering, i64 noundef %seed, i32 noundef %integers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22SobolBrownianGeneratorC2EmmNS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersE(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 28)) %this, i64 noundef %factors, i64 noundef %steps, i32 noundef %ordering, i64 noundef %seed, i32 noundef %integers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::SobolRsg", align 8
   tail call void @_ZN8QuantLib26SobolBrownianGeneratorBaseC2EmmNS0_8OrderingE(ptr noundef nonnull align 8 dereferenceable(288) %this, i64 noundef %factors, i64 noundef %steps, i32 noundef %ordering)
@@ -3041,7 +3041,7 @@ _ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit15: ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib29SobolBrownianGeneratorFactoryC2ENS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, i32 noundef %ordering, i64 noundef %seed, i32 noundef %integers) unnamed_addr #10 align 2 {
+define void @_ZN8QuantLib29SobolBrownianGeneratorFactoryC2ENS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 12), (16, 28)) %this, i32 noundef %ordering, i64 noundef %seed, i32 noundef %integers) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib29SobolBrownianGeneratorFactoryE, i64 16), ptr %this, align 8, !tbaa !3
   %ordering_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3134,7 +3134,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib32Burley2020SobolBrownianGeneratorC2EmmNS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersEm(ptr noundef nonnull align 8 dereferenceable(472) %this, i64 noundef %factors, i64 noundef %steps, i32 noundef %ordering, i64 noundef %seed, i32 noundef %integers, i64 noundef %scrambleSeed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib32Burley2020SobolBrownianGeneratorC2EmmNS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersEm(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 28)) %this, i64 noundef %factors, i64 noundef %steps, i32 noundef %ordering, i64 noundef %seed, i32 noundef %integers, i64 noundef %scrambleSeed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Burley2020SobolRsg", align 8
   tail call void @_ZN8QuantLib26SobolBrownianGeneratorBaseC2EmmNS0_8OrderingE(ptr noundef nonnull align 8 dereferenceable(288) %this, i64 noundef %factors, i64 noundef %steps, i32 noundef %ordering)
@@ -3505,7 +3505,7 @@ _ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit15: ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib39Burley2020SobolBrownianGeneratorFactoryC2ENS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %ordering, i64 noundef %seed, i32 noundef %integers, i64 noundef %scrambleSeed) unnamed_addr #10 align 2 {
+define void @_ZN8QuantLib39Burley2020SobolBrownianGeneratorFactoryC2ENS_26SobolBrownianGeneratorBase8OrderingEmNS_8SobolRsg17DirectionIntegersEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 28), (32, 40)) %this, i32 noundef %ordering, i64 noundef %seed, i32 noundef %integers, i64 noundef %scrambleSeed) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib39Burley2020SobolBrownianGeneratorFactoryE, i64 16), ptr %this, align 8, !tbaa !3
   %ordering_ = getelementptr inbounds nuw i8, ptr %this, i64 8

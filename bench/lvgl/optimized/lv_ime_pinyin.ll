@@ -964,7 +964,7 @@ declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_ime_pinyin_set_keyboard(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_ime_pinyin_set_keyboard(ptr noundef initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8, !tbaa !31
   %4 = tail call ptr @lv_obj_get_parent(ptr noundef %1) #6
@@ -1337,7 +1337,7 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
 declare void @lv_obj_align_to(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @lv_ime_pinyin_set_dict(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @lv_ime_pinyin_set_dict(ptr nocapture noundef writeonly initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8, !tbaa !20
   %4 = load ptr, ptr %1, align 8, !tbaa !24
@@ -1411,7 +1411,7 @@ init_pinyin_dict.exit:                            ; preds = %8, %27, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_ime_pinyin_set_mode(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_ime_pinyin_set_mode(ptr nocapture noundef initializes((260, 264)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 %1, ptr %3, align 4, !tbaa !10
   %4 = icmp eq i32 %1, 1

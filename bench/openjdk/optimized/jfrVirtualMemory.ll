@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN16JfrVirtualMemoryD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16JfrVirtualMemoryD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23JfrVirtualMemorySegmentC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN23JfrVirtualMemorySegmentC2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @_ZN13ReservedSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(49) %2) #11
@@ -72,7 +72,7 @@ declare void @_ZN13ReservedSpace7releaseEv(ptr noundef nonnull align 8 dereferen
 declare void @_ZN12VirtualSpaceD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN23JfrVirtualMemorySegment10initializeEm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN23JfrVirtualMemorySegment10initializeEm(ptr noundef nonnull align 8 dereferenceable(184) initializes((16, 65)) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ThreadCritical, align 1
   %4 = alloca %class.ReservedSpace, align 8
   %5 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
@@ -181,7 +181,7 @@ define hidden noundef ptr @_ZN23JfrVirtualMemorySegment19take_from_committedEm(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23JfrVirtualMemoryManagerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN23JfrVirtualMemoryManagerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
@@ -220,7 +220,7 @@ _ZN23JfrVirtualMemorySegmentD2Ev.exit:            ; preds = %.lr.ph, %6
 declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager10initializeEmm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN23JfrVirtualMemoryManager10initializeEmm(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((16, 32)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %4, align 8
   %5 = mul i64 %2, %1
@@ -507,7 +507,7 @@ _ZN23JfrVirtualMemorySegment6commitEm.exit11:     ; preds = %34, %24, %20, %_ZN2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16JfrVirtualMemoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN16JfrVirtualMemoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
@@ -559,7 +559,7 @@ define hidden noundef i64 @_ZNK16JfrVirtualMemory24aligned_datum_size_bytesEv(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16JfrVirtualMemory10initializeEmmm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16JfrVirtualMemory10initializeEmmm(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 48) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7

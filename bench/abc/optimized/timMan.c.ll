@@ -1632,7 +1632,7 @@ define void @Tim_ManStopP(ptr nocapture noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Tim_ManCreate(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define void @Tim_ManCreate(ptr nocapture noundef initializes((8, 16)) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %5
 
@@ -3241,7 +3241,7 @@ Tim_ManBoxNum.exit:                               ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Tim_ManBlackBoxIoNum(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Tim_ManBlackBoxIoNum(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8
@@ -3293,21 +3293,21 @@ Tim_ManBoxNum.exit:                               ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Tim_ManSetDelayTables(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @Tim_ManSetDelayTables(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Tim_ManTravIdDisable(ptr nocapture noundef writeonly %0) local_unnamed_addr #11 {
+define void @Tim_ManTravIdDisable(ptr nocapture noundef writeonly initializes((28, 32)) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Tim_ManTravIdEnable(ptr nocapture noundef writeonly %0) local_unnamed_addr #11 {
+define void @Tim_ManTravIdEnable(ptr nocapture noundef writeonly initializes((28, 32)) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 1, ptr %2, align 4
   ret void

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SHA224_Init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
+define noundef i32 @SHA224_Init(ptr nocapture noundef writeonly initializes((0, 112)) %c) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %c, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
@@ -32,7 +32,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SHA256_Init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
+define noundef i32 @SHA256_Init(ptr nocapture noundef writeonly initializes((0, 112)) %c) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %c, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
@@ -57,7 +57,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_sha256_192_init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
+define noundef i32 @ossl_sha256_192_init(ptr nocapture noundef writeonly initializes((0, 112)) %c) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %c, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)

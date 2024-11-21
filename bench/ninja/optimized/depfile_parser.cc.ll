@@ -15,7 +15,7 @@ $_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIP11StringPieceSt6vectorIS2_SaIS2_
 @_ZN13DepfileParserC1E20DepfileParserOptions = dso_local unnamed_addr alias void (ptr), ptr @_ZN13DepfileParserC2E20DepfileParserOptions
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13DepfileParserC2E20DepfileParserOptions(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN13DepfileParserC2E20DepfileParserOptions(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 48)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }

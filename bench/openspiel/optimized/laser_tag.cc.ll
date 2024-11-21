@@ -2971,7 +2971,7 @@ define noundef signext i8 @_ZNK10open_spiel9laser_tag13LaserTagState5fieldEii(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9laser_tag13LaserTagState5ResetEib(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9laser_tag13LaserTagState5ResetEib(ptr noundef nonnull align 8 dereferenceable(240) initializes((72, 76), (84, 89)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = alloca [2 x i32], align 8
   %6 = alloca [2 x double], align 8
@@ -4585,7 +4585,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9laser_tag13LaserTagState12LegalActionsEi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, i32 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9laser_tag13LaserTagState12LegalActionsEi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.44") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, i32 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8
@@ -5901,7 +5901,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit55:                  ; preds = %171, %170
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9laser_tag13LaserTagState23map_observation_to_gridEiii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.23") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9laser_tag13LaserTagState23map_observation_to_gridEiii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.23") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds [2 x i32], ptr %6, i64 0, i64 %7
@@ -6049,7 +6049,7 @@ define noundef zeroext i1 @_ZNK10open_spiel9laser_tag13LaserTagState10IsTerminal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9laser_tag13LaserTagState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.28") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9laser_tag13LaserTagState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.28") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %5 = load ptr, ptr %4, align 8
@@ -6094,7 +6094,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9laser_tag13LaserTagState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.28") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9laser_tag13LaserTagState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.28") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %5 = load ptr, ptr %4, align 8
@@ -7356,7 +7356,7 @@ define { i8, double } @_ZNK10open_spiel9laser_tag12LaserTagGame10UtilitySumEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9laser_tag12LaserTagGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.23") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(356) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9laser_tag12LaserTagGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.23") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(356) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 341
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1

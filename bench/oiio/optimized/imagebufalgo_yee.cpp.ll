@@ -81,7 +81,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11compare_YeeERKNS_8ImageBufES3_RNS0_14CompareResultsEffNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %img0, ptr noundef nonnull align 8 dereferenceable(16) %img1, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, float noundef %luminance, float noundef %fov, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo11compare_YeeERKNS_8ImageBufES3_RNS0_14CompareResultsEffNS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %img0, ptr noundef nonnull align 8 dereferenceable(16) %img1, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, float noundef %luminance, float noundef %fov, ptr nocapture noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1.i193 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2.i194 = alloca %"class.std::function", align 8

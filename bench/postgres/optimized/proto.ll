@@ -120,7 +120,7 @@ define dso_local void @logicalrep_write_begin(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_read_begin(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @logicalrep_read_begin(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
   store i64 %3, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
@@ -309,7 +309,7 @@ define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr nocapt
 declare void @pq_sendstring(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_read_begin_prepare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @logicalrep_read_begin_prepare(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
   store i64 %3, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
@@ -811,7 +811,7 @@ define dso_local void @logicalrep_write_origin(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @logicalrep_read_origin(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @logicalrep_read_origin(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
   store i64 %3, ptr %1, align 8
   %4 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
@@ -1186,7 +1186,7 @@ define dso_local i32 @logicalrep_read_insert(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr nocapture noundef initializes((0, 20)) %1) unnamed_addr #0 {
   %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #8
   %4 = sext i32 %3 to i64
   %5 = mul nsw i64 %4, 24
@@ -1553,7 +1553,7 @@ define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @logicalrep_read_truncate(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local ptr @logicalrep_read_truncate(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   %5 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 1) #8
   %6 = trunc i32 %5 to i8
@@ -2114,7 +2114,7 @@ declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_read_typ(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @logicalrep_read_typ(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 24)) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   store i32 %3, ptr %1, align 8
   %4 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
@@ -2167,7 +2167,7 @@ define dso_local void @logicalrep_write_stream_start(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @logicalrep_read_stream_start(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @logicalrep_read_stream_start(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
   %5 = icmp eq i32 %4, 1
@@ -2350,7 +2350,7 @@ define dso_local void @logicalrep_write_stream_abort(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_read_stream_abort(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @logicalrep_read_stream_abort(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 24)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   store i32 %4, ptr %1, align 8
   %5 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8

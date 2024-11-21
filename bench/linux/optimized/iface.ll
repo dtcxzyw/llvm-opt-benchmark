@@ -2611,7 +2611,7 @@ define dso_local i32 @ieee80211_if_change_type(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_setup_sdata(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_setup_sdata(ptr noundef initializes((24, 28), (1528, 1530), (1580, 1585), (1644, 1648), (1904, 3176), (3632, 3840), (4056, 4060), (4137, 4138), (4332, 4336), (5068, 5069)) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1904
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(1272) %3, i8 0, i64 1272, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 3632
@@ -3184,7 +3184,7 @@ define dso_local i32 @ieee80211_if_add(ptr noundef %0, ptr noundef %1, i8 nounde
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_assign_perm_addr(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_assign_perm_addr(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32

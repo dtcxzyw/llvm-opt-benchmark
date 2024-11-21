@@ -705,7 +705,7 @@ declare void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl10
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen15RateLimitFilter15setSessionStatsEPNS_16HTTPSessionStatsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %this, ptr noundef %httpSessionStats) local_unnamed_addr #7 align 2 {
+define void @_ZN8proxygen15RateLimitFilter15setSessionStatsEPNS_16HTTPSessionStatsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((160, 168)) %this, ptr noundef %httpSessionStats) local_unnamed_addr #7 align 2 {
 entry:
   %httpSessionStats_ = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %httpSessionStats, ptr %httpSessionStats_, align 8
@@ -713,7 +713,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen15RateLimitFilter9setParamsEjNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %this, i32 noundef %maxEventsInInterval, i64 %timeoutDuration.coerce) local_unnamed_addr #7 align 2 {
+define void @_ZN8proxygen15RateLimitFilter9setParamsEjNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((140, 152)) %this, i32 noundef %maxEventsInInterval, i64 %timeoutDuration.coerce) local_unnamed_addr #7 align 2 {
 entry:
   %maxEventsInInterval_ = getelementptr inbounds i8, ptr %this, i64 140
   store i32 %maxEventsInInterval, ptr %maxEventsInInterval_, align 4
@@ -723,7 +723,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen15RateLimitFilter18attachThreadLocalsEPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %this, ptr noundef %timer) local_unnamed_addr #7 align 2 {
+define void @_ZN8proxygen15RateLimitFilter18attachThreadLocalsEPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((152, 160)) %this, ptr noundef %timer) local_unnamed_addr #7 align 2 {
 entry:
   %timer_ = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %timer, ptr %timer_, align 8

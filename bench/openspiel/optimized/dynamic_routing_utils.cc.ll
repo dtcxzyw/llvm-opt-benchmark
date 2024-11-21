@@ -907,7 +907,7 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7_
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15dynamic_routing7NetworkC2EN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EENS3_18container_internal10StringHashENSE_12StringHashEq2EqESaISt4pairIKSA_SD_EEEENS4_ISA_SI_IffESF_SH_SaISI_ISJ_SN_EEEENS4_ISA_fSF_SH_SaISI_ISJ_fEEEEST_ST_ST_(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15dynamic_routing7NetworkC2EN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EENS3_18container_internal10StringHashENSE_12StringHashEq2EqESaISt4pairIKSA_SD_EEEENS4_ISA_SI_IffESF_SH_SaISI_ISJ_SN_EEEENS4_ISA_fSF_SH_SaISI_ISJ_fEEEEST_ST_ST_(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 344)) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::allocator.0", align 1
   %9 = alloca %"class.std::allocator.9", align 1
   %10 = alloca %"class.std::allocator.0", align 1

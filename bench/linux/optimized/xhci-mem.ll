@@ -301,7 +301,7 @@ define dso_local void @xhci_ring_free(ptr nocapture noundef readonly %0, ptr nou
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @xhci_initialize_ring_info(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
+define dso_local void @xhci_initialize_ring_info(ptr nocapture noundef initializes((16, 48), (64, 68), (76, 80)) %0, i32 noundef %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1568,7 +1568,7 @@ define dso_local void @xhci_free_command(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xhci_setup_streams_ep_input_ctx(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @xhci_setup_streams_ep_input_ctx(ptr noundef %0, ptr nocapture noundef initializes((8, 16)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 -1) #20, !srcloc !50
@@ -1635,7 +1635,7 @@ define internal void @trace_xhci_dbg_context_change(ptr noundef %0) #4 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xhci_setup_no_streams_ep_input_ctx(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @xhci_setup_no_streams_ep_input_ctx(ptr nocapture noundef initializes((8, 16)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr %0, align 8
   %4 = and i32 %3, -64513
   store i32 %4, ptr %0, align 8
@@ -3281,7 +3281,7 @@ define dso_local void @xhci_endpoint_zero(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @xhci_clear_endpoint_bw_info(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 align 16 {
+define dso_local void @xhci_clear_endpoint_bw_info(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #7 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -4923,7 +4923,7 @@ declare dso_local void @delayed_work_timer_fn(ptr noundef) #1
 declare dso_local ptr @dma_pool_create(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr noundef initializes((2504, 2512)) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8

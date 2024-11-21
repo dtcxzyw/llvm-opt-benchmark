@@ -288,7 +288,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImplC2Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImplC2Ev(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds i8, ptr %this, i64 8
@@ -299,7 +299,7 @@ entry:
 declare void @_ZN19OpenColorIO_v2_4dev11Lut1DOpDataC1Em(ptr noundef nonnull align 8 dereferenceable(364), i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImplC2ENS_11Lut1DOpData9HalfFlagsEm(ptr noundef nonnull align 8 dereferenceable(376) %this, i32 noundef %halfFlag, i64 noundef %length) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImplC2ENS_11Lut1DOpData9HalfFlagsEm(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 8)) %this, i32 noundef %halfFlag, i64 noundef %length) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut1DTransformImplE, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds i8, ptr %this, i64 8
@@ -456,7 +456,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImpl12setDirectionENS_18TransformDirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %this, i32 noundef %dir) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImpl12setDirectionENS_18TransformDirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((240, 244)) %this, i32 noundef %dir) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_direction.i = getelementptr inbounds i8, ptr %this, i64 240
   store i32 %dir, ptr %m_direction.i, align 8
@@ -619,7 +619,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImpl21setFileOutputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %this, i32 noundef %bitdepth) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImpl21setFileOutputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((368, 372)) %this, i32 noundef %bitdepth) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fileOutBitDepth.i = getelementptr inbounds i8, ptr %this, i64 368
   store i32 %bitdepth, ptr %m_fileOutBitDepth.i, align 8
@@ -668,7 +668,7 @@ terminate.lpad:                                   ; preds = %if.end
 declare noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11Lut1DOpDataES2_(ptr noundef nonnull align 8 dereferenceable(364), ptr noundef nonnull align 8 dereferenceable(364)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImpl9setLengthEm(ptr noundef nonnull align 8 dereferenceable(376) %this, i64 noundef %length) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18Lut1DTransformImpl9setLengthEm(ptr noundef nonnull align 8 dereferenceable(376) initializes((192, 208)) %this, i64 noundef %length) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.OpenColorIO_v2_4dev::Lut1DOpData::Lut3by1DArray", align 8
   %m_halfFlags.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -866,7 +866,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev18Lut1DTransformImpl8getValueEmRfS1_S1_(ptr noundef nonnull align 8 dereferenceable(376) %this, i64 noundef %index, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %r, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %g, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %b) unnamed_addr #3 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev18Lut1DTransformImpl8getValueEmRfS1_S1_(ptr noundef nonnull align 8 dereferenceable(376) %this, i64 noundef %index, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %r, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %g, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %b) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 96

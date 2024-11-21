@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [6 x i8] c"close\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @Curl_http_proxy_get_destination(ptr nocapture noundef readonly %cf, ptr nocapture noundef %phostname, ptr nocapture noundef writeonly %pport, ptr nocapture noundef writeonly %pipv6_ip) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_http_proxy_get_destination(ptr nocapture noundef readonly %cf, ptr nocapture noundef initializes((0, 8)) %phostname, ptr nocapture noundef writeonly initializes((0, 4)) %pport, ptr nocapture noundef writeonly initializes((0, 1)) %pipv6_ip) local_unnamed_addr #0 {
 entry:
   %conn = getelementptr inbounds i8, ptr %cf, i64 24
   %0 = load ptr, ptr %conn, align 8
@@ -111,7 +111,7 @@ if.end43:                                         ; preds = %if.else35, %if.then
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_http_proxy_create_CONNECT(ptr nocapture noundef writeonly %preq, ptr nocapture noundef readonly %cf, ptr noundef %data, i32 noundef %http_version_major) local_unnamed_addr #2 {
+define hidden i32 @Curl_http_proxy_create_CONNECT(ptr nocapture noundef writeonly initializes((0, 8)) %preq, ptr nocapture noundef readonly %cf, ptr noundef %data, i32 noundef %http_version_major) local_unnamed_addr #2 {
 entry:
   %req = alloca ptr, align 8
   store ptr null, ptr %req, align 8

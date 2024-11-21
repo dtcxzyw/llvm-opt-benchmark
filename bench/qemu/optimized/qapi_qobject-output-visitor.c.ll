@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qobject_unref_impl = private unnamed_addr constant [35 x i8] c"void qobject_unref_impl(QObject *)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @qobject_output_visitor_new(ptr noundef %result) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qobject_output_visitor_new(ptr noundef initializes((0, 8)) %result) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(240) ptr @g_malloc0(i64 noundef 240) #6
   %type = getelementptr inbounds i8, ptr %call, i64 160

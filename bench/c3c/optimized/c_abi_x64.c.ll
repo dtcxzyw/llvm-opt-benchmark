@@ -547,7 +547,7 @@ x64_indirect_return_result.exit:                  ; preds = %.critedge.i32, %82,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
+define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull initializes((0, 8)) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call fastcc void @x64_classify(ptr noundef %0, i64 noundef 0, ptr noundef %6, ptr noundef %5, i32 noundef %3)
@@ -1000,7 +1000,7 @@ x64_classify_post_merge.exit:                     ; preds = %52, %85, %84, %.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x64_classify(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @x64_classify(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull initializes((0, 4)) %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, i32 noundef %4) unnamed_addr #1 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   %6 = icmp ult i64 %1, 8

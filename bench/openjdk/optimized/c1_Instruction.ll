@@ -399,7 +399,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11Instruction22update_exception_stateEP10ValueStack(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -948,7 +948,7 @@ _ZN10BlockBegin26number_of_exception_statesEv.exit: ; preds = %17, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6InvokeC2EN9Bytecodes4CodeEP9ValueTypeP11InstructionP13GrowableArrayIS5_EP8ciMethodP10ValueStack(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 align 2 {
+define hidden void @_ZN6InvokeC2EN9Bytecodes4CodeEP9ValueTypeP11InstructionP13GrowableArrayIS5_EP8ciMethodP10ValueStack(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 20), (24, 60), (64, 108), (112, 144)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 496) (i8, ptr @_ZTV11Instruction, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

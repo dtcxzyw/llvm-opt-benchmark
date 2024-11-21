@@ -39,7 +39,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core12BdpEstimatorC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, i64 %name.coerce0, ptr %name.coerce1) unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core12BdpEstimatorC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %this, i64 %name.coerce0, ptr %name.coerce1) unnamed_addr #3 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %estimate_ = getelementptr inbounds i8, ptr %this, i64 8

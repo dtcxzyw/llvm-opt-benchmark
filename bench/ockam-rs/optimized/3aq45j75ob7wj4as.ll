@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN61_$LT$ockam..error..OckamError$u20$as$u20$core..fmt..Debug$GT$3fmt17h37e42993bb5817ccE.8" = private unnamed_addr constant [8 x ptr] [ptr @anon.0877f6d8f216d3c19dcd2c7e58f8a4db.13, ptr @anon.0877f6d8f216d3c19dcd2c7e58f8a4db.14, ptr @anon.0877f6d8f216d3c19dcd2c7e58f8a4db.15, ptr @anon.0877f6d8f216d3c19dcd2c7e58f8a4db.16, ptr @anon.0877f6d8f216d3c19dcd2c7e58f8a4db.17, ptr @anon.0877f6d8f216d3c19dcd2c7e58f8a4db.18, ptr @anon.0877f6d8f216d3c19dcd2c7e58f8a4db.19, ptr @anon.0877f6d8f216d3c19dcd2c7e58f8a4db.20], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h51d457c7b352c49aE.llvm.2530427196549672958"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h51d457c7b352c49aE.llvm.2530427196549672958"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16

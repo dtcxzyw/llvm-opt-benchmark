@@ -1280,7 +1280,7 @@ cleanup:                                          ; preds = %_ZN4llvh12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE(ptr nocapture noundef nonnull align 8 dereferenceable(61) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture %it.coerce0, ptr nocapture readnone %it.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE(ptr nocapture noundef nonnull align 8 dereferenceable(61) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture initializes((0, 12)) %it.coerce0, ptr nocapture readnone %it.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %valueStorage_ = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %valueStorage_, align 8

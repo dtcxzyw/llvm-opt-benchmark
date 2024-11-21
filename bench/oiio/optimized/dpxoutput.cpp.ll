@@ -3928,7 +3928,7 @@ declare noundef ptr @_ZN18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basi
 declare void @_ZN3dpx14IndustryHeader11SetTimeCodeEPKc(ptr noundef nonnull align 4 dereferenceable(384), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_09DPXOutput18set_keycode_valuesEPi(ptr noundef nonnull align 8 dereferenceable(2424) %this, ptr nocapture noundef readonly %array) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_09DPXOutput18set_keycode_valuesEPi(ptr noundef nonnull align 8 dereferenceable(2424) initializes((1864, 1880)) %this, ptr nocapture noundef readonly %array) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i22 = alloca %"class.fmt::v8::format_arg_store", align 16
   %ref.tmp.i19 = alloca %"class.fmt::v8::format_arg_store", align 16

@@ -507,7 +507,7 @@ avifDecoderCleanup.exit:                          ; preds = %5, %8
 declare void @avifIODestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @avifDecoderSetSource(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden i32 @avifDecoderSetSource(ptr noundef initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = tail call i32 @avifDecoderReset(ptr noundef %0)
@@ -2811,7 +2811,7 @@ avifDecoderIsKeyframe.exit:                       ; preds = %.loopexit, %.lr.ph,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull initializes((0, 8)) %2) unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4

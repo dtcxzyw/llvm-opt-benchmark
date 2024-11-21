@@ -101,7 +101,7 @@ declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video15CImageWriterPNGC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this) unnamed_addr #5 align 2 {
+define void @_ZN3irr5video15CImageWriterPNGC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this) unnamed_addr #5 align 2 {
 entry:
   %DebugName.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !6

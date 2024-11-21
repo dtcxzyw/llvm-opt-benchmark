@@ -129,7 +129,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb3log6ReaderC2ESt10shared_ptrINS_6LoggerEEOSt10unique_ptrINS_20SequentialFileReaderESt14default_deleteIS6_EEPNS1_8ReporterEbm(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef readonly %info_log, ptr nocapture noundef nonnull align 8 dereferenceable(8) %_file, ptr noundef %reporter, i1 noundef zeroext %checksum, i64 noundef %log_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb3log6ReaderC2ESt10shared_ptrINS_6LoggerEEOSt10unique_ptrINS_20SequentialFileReaderESt14default_deleteIS6_EEPNS1_8ReporterEbm(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 41)) %this, ptr nocapture noundef readonly %info_log, ptr nocapture noundef nonnull align 8 dereferenceable(8) %_file, ptr noundef %reporter, i1 noundef zeroext %checksum, i64 noundef %log_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %checksum to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb3log6ReaderE, i64 16), ptr %this, align 8
@@ -321,7 +321,7 @@ _ZNSt12__shared_ptrIN7rocksdb6LoggerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb3log6ReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb3log6ReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb3log6ReaderE, i64 16), ptr %this, align 8
   %backing_store_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -538,7 +538,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb3log6Reader10ReadRecordEPNS_5SliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15WALRecoveryModeEPm(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef writeonly %record, ptr noundef nonnull %scratch, i8 noundef signext %wal_recovery_mode, ptr noundef %record_checksum) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb3log6Reader10ReadRecordEPNS_5SliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15WALRecoveryModeEPm(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef writeonly initializes((0, 16)) %record, ptr noundef nonnull %scratch, i8 noundef signext %wal_recovery_mode, ptr noundef %record_checksum) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i450 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp2.i451 = alloca %"class.rocksdb::Slice", align 8
@@ -2463,7 +2463,7 @@ return:                                           ; preds = %if.end8, %if.then4,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb3log6Reader15InitCompressionERKNS_21CompressionTypeRecordE(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %compression_record) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb3log6Reader15InitCompressionERKNS_21CompressionTypeRecordE(ptr nocapture noundef nonnull align 8 dereferenceable(240) initializes((114, 116), (120, 128)) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %compression_record) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %compression_record, align 1
   %compression_type_ = getelementptr inbounds i8, ptr %this, i64 114
@@ -3055,7 +3055,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb3log6Reader8ReadMoreEPmPi(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef writeonly %drop_size, ptr nocapture noundef writeonly %error) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb3log6Reader8ReadMoreEPmPi(ptr noundef nonnull align 8 dereferenceable(240) initializes((56, 64)) %this, ptr nocapture noundef writeonly %drop_size, ptr nocapture noundef writeonly %error) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca %"class.rocksdb::Status", align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
@@ -3211,7 +3211,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 declare noundef ptr @_ZN7rocksdb19StreamingUncompress6CreateENS_15CompressionTypeEjm(i8 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb3log22FragmentBufferedReader10ReadRecordEPNS_5SliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15WALRecoveryModeEPm(ptr noundef nonnull align 8 dereferenceable(273) %this, ptr nocapture noundef writeonly %record, ptr noundef nonnull %scratch, i8 signext %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb3log22FragmentBufferedReader10ReadRecordEPNS_5SliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15WALRecoveryModeEPm(ptr noundef nonnull align 8 dereferenceable(273) %this, ptr nocapture noundef writeonly initializes((0, 16)) %record, ptr noundef nonnull %scratch, i8 signext %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i289 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp2.i290 = alloca %"class.rocksdb::Slice", align 8

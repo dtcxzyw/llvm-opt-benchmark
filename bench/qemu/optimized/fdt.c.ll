@@ -574,7 +574,7 @@ return:                                           ; preds = %if.then17, %lor.lhs
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @fdt_next_tag(ptr noundef readonly %fdt, i32 noundef %startoffset, ptr nocapture noundef writeonly %nextoffset) local_unnamed_addr #2 {
+define dso_local noundef i32 @fdt_next_tag(ptr noundef readonly %fdt, i32 noundef %startoffset, ptr nocapture noundef writeonly initializes((0, 4)) %nextoffset) local_unnamed_addr #2 {
 entry:
   store i32 -8, ptr %nextoffset, align 4
   %call = tail call ptr @fdt_offset_ptr(ptr noundef %fdt, i32 noundef %startoffset, i32 noundef 4)

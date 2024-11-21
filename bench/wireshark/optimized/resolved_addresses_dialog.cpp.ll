@@ -3711,7 +3711,7 @@ declare void @_ZN10QTabWidget14currentChangedEi(ptr noundef nonnull align 8 dere
 declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN23ResolvedAddressesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 align 2 {
+define void @_ZN23ResolvedAddressesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV23ResolvedAddressesDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV23ResolvedAddressesDialog, i64 488), ptr %2, align 8

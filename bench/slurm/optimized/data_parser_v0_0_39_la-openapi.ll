@@ -632,7 +632,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @get_parsers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @data_parser_p_increment_reference(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define noundef i32 @data_parser_p_increment_reference(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #2 {
   store ptr inttoptr (i64 768602689902870592 to ptr), ptr %2, align 8
   ret i32 0
 }
@@ -648,7 +648,7 @@ define noundef i32 @data_parser_p_populate_parameters(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @data_parser_p_release_references(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define void @data_parser_p_release_references(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #2 {
   store ptr null, ptr %1, align 8
   ret void
 }

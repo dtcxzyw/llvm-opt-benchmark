@@ -587,7 +587,7 @@ declare void @_ZN3vcg9TrackballD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN9QGLWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15AlignPairWidget8initMeshEPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEPS3_(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #10 align 2 {
+define void @_ZN15AlignPairWidget8initMeshEPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEPS3_(ptr noundef nonnull align 8 dereferenceable(1367) initializes((48, 64)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3901,7 +3901,7 @@ define void @_ZN15AlignPairWidget13keyPressEventEP9QKeyEvent(ptr noundef nonnull
 declare void @_ZN3vcg9Trackball10ButtonDownENS0_6ButtonEj(ptr noundef nonnull align 8 dereferenceable(597), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15AlignPairWidget21mouseDoubleClickEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr nocapture noundef readonly %1) unnamed_addr #10 align 2 {
+define void @_ZN15AlignPairWidget21mouseDoubleClickEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(1367) initializes((1352, 1353)) %0, ptr nocapture noundef readonly %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1352
   store i8 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32

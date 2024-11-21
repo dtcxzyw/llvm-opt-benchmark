@@ -7348,7 +7348,7 @@ declare i32 @FLAC__stream_encoder_set_ogg_serial_number(ptr noundef, i64 noundef
 declare i32 @FLAC__stream_encoder_init_ogg_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @encoder_progress_callback(ptr nocapture readnone %encoder, i64 noundef %bytes_written, i64 noundef %samples_written, i32 %frames_written, i32 %total_frames_estimate, ptr nocapture noundef %client_data) #0 {
+define internal void @encoder_progress_callback(ptr nocapture readnone %encoder, i64 noundef %bytes_written, i64 noundef %samples_written, i32 %frames_written, i32 %total_frames_estimate, ptr nocapture noundef initializes((72, 88), (8416, 8432)) %client_data) #0 {
 entry:
   %unencoded_size = getelementptr inbounds i8, ptr %client_data, i64 64
   %0 = load i64, ptr %unencoded_size, align 8

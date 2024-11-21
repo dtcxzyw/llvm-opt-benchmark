@@ -36,7 +36,7 @@ define void @SzCoderInfo_Free(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 declare void @Buf_Free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SzFolder_Init(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define void @SzFolder_Init(ptr nocapture noundef writeonly initializes((0, 56)) %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
@@ -263,7 +263,7 @@ SzFolder_GetNumOutStreams.exit.thread:            ; preds = %12, %1, %SzFolder_G
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SzFile_Init(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define void @SzFile_Init(ptr nocapture noundef writeonly initializes((24, 29)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 25
@@ -272,7 +272,7 @@ define void @SzFile_Init(ptr nocapture noundef writeonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SzAr_Init(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define void @SzAr_Init(ptr nocapture noundef writeonly initializes((0, 52)) %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   ret void
 }
@@ -372,7 +372,7 @@ SzFolder_Free.exit:                               ; preds = %8, %.preheader.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @SzArEx_Init(ptr noundef %0) local_unnamed_addr #0 {
+define void @SzArEx_Init(ptr noundef initializes((0, 52), (72, 112)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = getelementptr inbounds i8, ptr %0, i64 112
@@ -5711,7 +5711,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadFileNames(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef initializes((72, 80)) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0

@@ -2379,7 +2379,7 @@ _ZNK10open_spiel8quoridor13QuoridorState9GetPlayerENS0_4MoveE.exit.thread: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel8quoridor13QuoridorState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.24") align 8 %0, ptr noundef nonnull align 8 dereferenceable(228) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel8quoridor13QuoridorState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.24") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(228) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.open_spiel::quoridor::QuoridorState::SearchState", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8

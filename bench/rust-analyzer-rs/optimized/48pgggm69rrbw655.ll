@@ -48526,7 +48526,7 @@ define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h0095902160
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h0bb5b4b7de25b5fcE"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [6 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(80) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h0bb5b4b7de25b5fcE"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [6 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(80) initializes((0, 78)) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.5 = alloca [6 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.5)
   %3 = tail call i64 @"_ZN63_$LT$salsa..lru..LruIndex$u20$as$u20$core..default..Default$GT$7default17h787de8d9fe99be65E"()
@@ -48549,7 +48549,7 @@ define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h0bb5b4b7de
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h0ed8bc6ea8752cd7E"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [5 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(72) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h0ed8bc6ea8752cd7E"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [5 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(72) initializes((0, 70)) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.5 = alloca [5 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5)
   %3 = tail call i64 @"_ZN63_$LT$salsa..lru..LruIndex$u20$as$u20$core..default..Default$GT$7default17h787de8d9fe99be65E"()
@@ -48572,7 +48572,7 @@ define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h0ed8bc6ea8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h116b8e05b705ff67E"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [6 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(80) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h116b8e05b705ff67E"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [6 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(80) initializes((0, 78)) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.5 = alloca [6 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.5)
   %3 = tail call i64 @"_ZN63_$LT$salsa..lru..LruIndex$u20$as$u20$core..default..Default$GT$7default17h787de8d9fe99be65E"()
@@ -48715,7 +48715,7 @@ define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h2a8c6d4011
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h35fefac054c28ec3E"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [4 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(64) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h35fefac054c28ec3E"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [4 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(64) initializes((0, 62)) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.5 = alloca [4 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.5)
   %3 = tail call i64 @"_ZN63_$LT$salsa..lru..LruIndex$u20$as$u20$core..default..Default$GT$7default17h787de8d9fe99be65E"()
@@ -48778,7 +48778,7 @@ define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h3c06852959
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h3c0781b4d0b2aafcE"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [3 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(56) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h3c0781b4d0b2aafcE"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [3 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(56) initializes((0, 54)) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.5 = alloca [3 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5)
   %3 = tail call i64 @"_ZN63_$LT$salsa..lru..LruIndex$u20$as$u20$core..default..Default$GT$7default17h787de8d9fe99be65E"()
@@ -49201,7 +49201,7 @@ define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h679860a6a5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h684d067e8eebe03bE"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [5 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(72) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h684d067e8eebe03bE"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [5 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(72) initializes((0, 70)) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.5 = alloca [5 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5)
   %3 = tail call i64 @"_ZN63_$LT$salsa..lru..LruIndex$u20$as$u20$core..default..Default$GT$7default17h787de8d9fe99be65E"()
@@ -49784,7 +49784,7 @@ define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17hf29add5805
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17hf888fb3999adc7b2E"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [4 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(64) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17hf888fb3999adc7b2E"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [4 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(64) initializes((0, 62)) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.5 = alloca [4 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.5)
   %3 = tail call i64 @"_ZN63_$LT$salsa..lru..LruIndex$u20$as$u20$core..default..Default$GT$7default17h787de8d9fe99be65E"()

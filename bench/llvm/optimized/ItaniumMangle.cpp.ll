@@ -1218,7 +1218,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN5clang13MangleContext6anchorEv(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124ItaniumMangleContextImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124ItaniumMangleContextImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(193) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTVN12_GLOBAL__N_124ItaniumMangleContextImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
@@ -1267,7 +1267,7 @@ define internal void @_ZN12_GLOBAL__N_124ItaniumMangleContextImplD2Ev(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124ItaniumMangleContextImplD0Ev(ptr noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124ItaniumMangleContextImplD0Ev(ptr noundef nonnull align 8 dereferenceable(193) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 272) (i8, ptr @_ZTVN12_GLOBAL__N_124ItaniumMangleContextImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
@@ -1856,7 +1856,7 @@ _ZN12_GLOBAL__N_124ItaniumMangleContextImpl21isInternalLinkageDeclEPKN5clang9Nam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124ItaniumMangleContextImpl31needsUniqueInternalLinkageNamesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(193) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_124ItaniumMangleContextImpl31needsUniqueInternalLinkageNamesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(193) initializes((192, 193)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 1, ptr %2, align 8
   ret void
@@ -6212,7 +6212,7 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %109, %116
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameManglerC2ERS0_RN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameManglerC2ERS0_RN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 19), (24, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -34426,7 +34426,7 @@ _ZN4llvm7APFloat7StorageD2Ev.exit:                ; preds = %5, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler23mangleFixedPointLiteralEv(ptr %.0.val.16.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler23mangleFixedPointLiteralEv(ptr initializes((368, 376)) %.0.val.16.val) unnamed_addr #0 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val.16.val, i64 32
   %2 = load ptr, ptr %1, align 8
   %3 = tail call noundef i32 @_ZN5clang13DiagnosticIDs15getCustomDiagIDENS0_5LevelEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 4, ptr nonnull @.str.188, i64 38) #24

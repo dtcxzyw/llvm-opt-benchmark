@@ -179,7 +179,7 @@ $__clang_call_terminate = comdat any
 @.str.133 = private unnamed_addr constant [20 x i8] c"Unknown data type!!\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z13init_enxframeP10t_enxframe(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @_Z13init_enxframeP10t_enxframe(ptr nocapture noundef writeonly initializes((44, 60), (64, 76)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %3, align 8
@@ -374,7 +374,7 @@ _ZL13enxblock_freeP10t_enxblock.exit:             ; preds = %12, %._crit_edge.i
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z19add_blocks_enxframeP10t_enxframei(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @_Z19add_blocks_enxframeP10t_enxframei(ptr nocapture noundef initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -464,7 +464,7 @@ define noundef ptr @_Z22find_block_id_enxframeP10t_enxframeiP10t_enxblock(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22add_subblocks_enxblockP10t_enxblocki(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @_Z22add_subblocks_enxblockP10t_enxblocki(ptr nocapture noundef initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1655,7 +1655,7 @@ declare noundef ptr @_Z12gmx_fio_openRKNSt10filesystem7__cxx114pathEPKc(ptr noun
 declare void @_Z20gmx_fio_setprecisionP8t_fileiob(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL10do_eheaderP9ener_filePiP10t_enxframeiPbS4_(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr nocapture noundef nonnull %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL10do_eheaderP9ener_filePiP10t_enxframeiPbS4_(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr nocapture noundef nonnull initializes((0, 1)) %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %9 = alloca %"class.std::filesystem::__cxx11::path", align 8

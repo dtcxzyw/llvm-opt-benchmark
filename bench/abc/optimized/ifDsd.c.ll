@@ -185,7 +185,7 @@ define i32 @If_DsdManPermBitNum(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @If_DsdManSetLutSize(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @If_DsdManSetLutSize(ptr nocapture noundef writeonly initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void
@@ -237,7 +237,7 @@ define range(i32 0, 2) i32 @If_DsdManReadMark(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @If_DsdManSetNewAsUseless(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @If_DsdManSetNewAsUseless(ptr nocapture noundef initializes((676, 680)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -8137,7 +8137,7 @@ Vec_IntPush.exit29:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @If_DsdManCollect(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define void @If_DsdManCollect(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 4

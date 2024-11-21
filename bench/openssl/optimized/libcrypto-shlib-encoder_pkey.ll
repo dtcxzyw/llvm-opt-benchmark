@@ -622,7 +622,7 @@ declare ptr @OSSL_ENCODER_INSTANCE_get_encoder(ptr noundef) local_unnamed_addr #
 declare i32 @evp_keymgmt_export(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @encoder_import_cb(ptr noundef %params, ptr nocapture noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @encoder_import_cb(ptr noundef %params, ptr nocapture noundef initializes((32, 40)) %arg) #0 {
 entry:
   %encoder_inst1 = getelementptr inbounds i8, ptr %arg, i64 16
   %0 = load ptr, ptr %encoder_inst1, align 8

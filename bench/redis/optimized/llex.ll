@@ -254,7 +254,7 @@ declare hidden ptr @luaH_setstr(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare hidden void @luaC_step(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaX_setinput(ptr noundef %L, ptr nocapture noundef %ls, ptr noundef %z, ptr noundef %source) local_unnamed_addr #0 {
+define hidden void @luaX_setinput(ptr noundef %L, ptr nocapture noundef initializes((0, 12), (32, 36), (48, 72), (80, 89)) %ls, ptr noundef %z, ptr noundef %source) local_unnamed_addr #0 {
 entry:
   %decpoint = getelementptr inbounds i8, ptr %ls, i64 88
   store i8 46, ptr %decpoint, align 8, !tbaa !36
@@ -313,7 +313,7 @@ declare hidden ptr @luaM_realloc_(ptr noundef, ptr noundef, i64 noundef, i64 nou
 declare hidden i32 @luaZ_fill(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaX_next(ptr noundef %ls) local_unnamed_addr #0 {
+define hidden void @luaX_next(ptr noundef initializes((8, 12)) %ls) local_unnamed_addr #0 {
 entry:
   %linenumber = getelementptr inbounds i8, ptr %ls, i64 4
   %0 = load i32, ptr %linenumber, align 4, !tbaa !18

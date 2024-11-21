@@ -876,7 +876,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt18FilmBaseParametersC2ERKNS_19ParameterDictionaryENS_6FilterEPKNS_11PixelSensorEPKNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture noundef readonly %filter, ptr noundef %sensor, ptr noundef %loc) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt18FilmBaseParametersC2ERKNS_19ParameterDictionaryENS_6FilterEPKNS_11PixelSensorEPKNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 32), (40, 48)) %this, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture noundef readonly %filter, ptr noundef %sensor, ptr noundef %loc) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i454 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i314 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2101,7 +2101,7 @@ _ZN4pbrt12StringPrintfIJRKNS_6Point2IiEERKfRKNS_6FilterERKNSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4pbrt14VisibleSurfaceC2ERKNS_18SurfaceInteractionENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(89) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %si, <2 x float> %albedo.coerce0, <2 x float> %albedo.coerce1, ptr nocapture nonnull readnone align 4 %lambda) unnamed_addr #7 align 2 {
+define dso_local void @_ZN4pbrt14VisibleSurfaceC2ERKNS_18SurfaceInteractionENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(89) initializes((0, 89)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %si, <2 x float> %albedo.coerce0, <2 x float> %albedo.coerce1, ptr nocapture nonnull readnone align 4 %lambda) unnamed_addr #7 align 2 {
 entry:
   %z.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %n = getelementptr inbounds i8, ptr %this, i64 12
@@ -10901,7 +10901,7 @@ ehcleanup60:                                      ; preds = %lpad8, %lpad.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt4Film6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryEfRKNS_15CameraTransformENS_6FilterEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Film") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, float noundef %exposureTime, ptr noundef nonnull align 4 dereferenceable(824) %cameraTransform, ptr nocapture noundef readonly %filter, ptr noundef %loc, i64 %alloc.coerce) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt4Film6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryEfRKNS_15CameraTransformENS_6FilterEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Film") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, float noundef %exposureTime, ptr noundef nonnull align 4 dereferenceable(824) %cameraTransform, ptr nocapture noundef readonly %filter, ptr noundef %loc, i64 %alloc.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp = alloca %"class.pbrt::Filter", align 8
   %agg.tmp9 = alloca %"class.pbrt::Filter", align 8

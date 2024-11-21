@@ -1139,7 +1139,7 @@ define dso_local zeroext i1 @consume_const_name(ptr noundef %0, ptr noundef %1) 
 declare zeroext i1 @consume(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parse_path_prefix(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @parse_path_prefix(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store ptr null, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40

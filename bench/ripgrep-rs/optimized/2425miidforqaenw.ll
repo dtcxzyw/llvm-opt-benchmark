@@ -2534,7 +2534,7 @@ define { ptr, i64 } @_ZN7globset4glob4Glob5regex17hf63259528b53d875E(ptr noalias
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN7globset4glob11GlobBuilder3new17h7ae7fae7cea581abE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { i8, i8, i8, i8 }, [4 x i8] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 {
+define void @_ZN7globset4glob11GlobBuilder3new17h7ae7fae7cea581abE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { i8, i8, i8, i8 }, [4 x i8] }) align 8 dereferenceable(24) initializes((0, 20)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -5113,7 +5113,7 @@ common.resume:                                    ; preds = %.body, %785, %763
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7globset4glob11GlobBuilder16case_insensitive17h14f8fd3548f8e53dE(ptr noalias noundef returned writeonly align 8 dereferenceable(24) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7globset4glob11GlobBuilder16case_insensitive17h14f8fd3548f8e53dE(ptr noalias noundef returned writeonly align 8 dereferenceable(24) initializes((16, 17)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8
@@ -5121,7 +5121,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7globset4glob11GlobBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7globset4glob11GlobBuilder17literal_separator17ha4c57b2f891ceef1E(ptr noalias noundef returned writeonly align 8 dereferenceable(24) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7globset4glob11GlobBuilder17literal_separator17ha4c57b2f891ceef1E(ptr noalias noundef returned writeonly align 8 dereferenceable(24) initializes((17, 18)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 17
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -5129,7 +5129,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7globset4glob11GlobBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7globset4glob11GlobBuilder16backslash_escape17hd3536188abfb9986E(ptr noalias noundef returned writeonly align 8 dereferenceable(24) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7globset4glob11GlobBuilder16backslash_escape17hd3536188abfb9986E(ptr noalias noundef returned writeonly align 8 dereferenceable(24) initializes((18, 19)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 18
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 2
@@ -5137,7 +5137,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7globset4glob11GlobBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7globset4glob11GlobBuilder16empty_alternates17h5acc1423db7fe28cE(ptr noalias noundef returned writeonly align 8 dereferenceable(24) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7globset4glob11GlobBuilder16empty_alternates17h5acc1423db7fe28cE(ptr noalias noundef returned writeonly align 8 dereferenceable(24) initializes((19, 20)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 19
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1

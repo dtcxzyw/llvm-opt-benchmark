@@ -76,7 +76,7 @@ if.end7:                                          ; preds = %if.end7.sink.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @HMAC_CTX_init(ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden void @HMAC_CTX_init(ptr noundef initializes((0, 8)) %ctx) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %ctx, align 8
   %i_ctx = getelementptr inbounds i8, ptr %ctx, i64 40
@@ -359,7 +359,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @HMAC_CTX_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @HMAC_CTX_copy(ptr noundef initializes((0, 8)) %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %dest, align 8
   %i_ctx.i = getelementptr inbounds i8, ptr %dest, i64 40

@@ -219,7 +219,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hdmi_infofra
 @llvm.compiler.used = appending global [27 x ptr] [ptr @__UNIQUE_ID___addressable_hdmi_audio_infoframe_check324, ptr @__UNIQUE_ID___addressable_hdmi_audio_infoframe_init323, ptr @__UNIQUE_ID___addressable_hdmi_audio_infoframe_pack326, ptr @__UNIQUE_ID___addressable_hdmi_audio_infoframe_pack_for_dp327, ptr @__UNIQUE_ID___addressable_hdmi_audio_infoframe_pack_only325, ptr @__UNIQUE_ID___addressable_hdmi_avi_infoframe_check312, ptr @__UNIQUE_ID___addressable_hdmi_avi_infoframe_init311, ptr @__UNIQUE_ID___addressable_hdmi_avi_infoframe_pack314, ptr @__UNIQUE_ID___addressable_hdmi_avi_infoframe_pack_only313, ptr @__UNIQUE_ID___addressable_hdmi_drm_infoframe_check333, ptr @__UNIQUE_ID___addressable_hdmi_drm_infoframe_init332, ptr @__UNIQUE_ID___addressable_hdmi_drm_infoframe_pack335, ptr @__UNIQUE_ID___addressable_hdmi_drm_infoframe_pack_only334, ptr @__UNIQUE_ID___addressable_hdmi_drm_infoframe_unpack_only352, ptr @__UNIQUE_ID___addressable_hdmi_infoframe_check340, ptr @__UNIQUE_ID___addressable_hdmi_infoframe_log351, ptr @__UNIQUE_ID___addressable_hdmi_infoframe_pack350, ptr @__UNIQUE_ID___addressable_hdmi_infoframe_pack_only345, ptr @__UNIQUE_ID___addressable_hdmi_infoframe_unpack353, ptr @__UNIQUE_ID___addressable_hdmi_spd_infoframe_check320, ptr @__UNIQUE_ID___addressable_hdmi_spd_infoframe_init319, ptr @__UNIQUE_ID___addressable_hdmi_spd_infoframe_pack322, ptr @__UNIQUE_ID___addressable_hdmi_spd_infoframe_pack_only321, ptr @__UNIQUE_ID___addressable_hdmi_vendor_infoframe_check329, ptr @__UNIQUE_ID___addressable_hdmi_vendor_infoframe_init328, ptr @__UNIQUE_ID___addressable_hdmi_vendor_infoframe_pack331, ptr @__UNIQUE_ID___addressable_hdmi_vendor_infoframe_pack_only330], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @hdmi_avi_infoframe_init(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local void @hdmi_avi_infoframe_init(ptr nocapture noundef writeonly initializes((0, 60)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(60) %2, i8 0, i64 56, i1 false)
   store i32 130, ptr %0, align 4
@@ -523,7 +523,7 @@ select.unfold:                                    ; preds = %3, %6, %10, %14, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @hdmi_spd_infoframe_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 align 16 {
+define dso_local noundef i32 @hdmi_spd_infoframe_init(ptr nocapture noundef writeonly initializes((0, 36)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(36) %4, i8 0, i64 32, i1 false)
   store i32 131, ptr %0, align 4
@@ -711,7 +711,7 @@ define dso_local range(i64 -28, 30) i64 @hdmi_spd_infoframe_pack(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @hdmi_audio_infoframe_init(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local noundef i32 @hdmi_audio_infoframe_init(ptr nocapture noundef writeonly initializes((0, 28)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(28) %2, i8 0, i64 24, i1 false)
   store i32 132, ptr %0, align 4
@@ -1054,7 +1054,7 @@ define dso_local range(i64 -22, 260) i64 @hdmi_audio_infoframe_pack_for_dp(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @hdmi_vendor_infoframe_init(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local noundef i32 @hdmi_vendor_infoframe_init(ptr nocapture noundef writeonly initializes((0, 24)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %2, i8 0, i64 20, i1 false)
   store i32 129, ptr %0, align 4
@@ -1070,7 +1070,7 @@ define dso_local noundef i32 @hdmi_vendor_infoframe_init(ptr nocapture noundef w
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local range(i32 -22, 1) i32 @hdmi_vendor_infoframe_check(ptr nocapture noundef %0) #8 align 16 {
+define dso_local range(i32 -22, 1) i32 @hdmi_vendor_infoframe_check(ptr nocapture noundef initializes((5, 6)) %0) #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 7
@@ -1265,7 +1265,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_vendor_infoframe_pack_only(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local range(i64 -28, 260) i64 @hdmi_vendor_infoframe_pack(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local range(i64 -28, 260) i64 @hdmi_vendor_infoframe_pack(ptr nocapture noundef initializes((5, 6)) %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 7
@@ -1326,7 +1326,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_vendor_infoframe_pack(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @hdmi_drm_infoframe_init(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local noundef i32 @hdmi_drm_infoframe_init(ptr nocapture noundef writeonly initializes((0, 40)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(40) %2, i8 0, i64 36, i1 false)
   store i32 135, ptr %0, align 4

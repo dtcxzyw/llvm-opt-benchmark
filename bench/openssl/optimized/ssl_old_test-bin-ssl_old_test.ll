@@ -2984,7 +2984,7 @@ declare i32 @SSL_CTX_use_psk_identity_hint(ptr noundef, ptr noundef) local_unnam
 declare void @SSL_CTX_set_next_proto_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @cb_client_npn(ptr nocapture readnone %s, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %in, i32 %inlen, ptr nocapture readnone %arg) #9 {
+define internal noundef i32 @cb_client_npn(ptr nocapture readnone %s, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 1)) %outlen, ptr nocapture readnone %in, i32 %inlen, ptr nocapture readnone %arg) #9 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @NEXT_PROTO_STRING, i64 1), ptr %out, align 8
   store i8 9, ptr %outlen, align 1
@@ -2994,7 +2994,7 @@ entry:
 declare void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @cb_server_npn(ptr nocapture readnone %s, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %len, ptr nocapture readnone %arg) #9 {
+define internal noundef i32 @cb_server_npn(ptr nocapture readnone %s, ptr nocapture noundef writeonly initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 4)) %len, ptr nocapture readnone %arg) #9 {
 entry:
   store ptr @NEXT_PROTO_STRING, ptr %data, align 8
   store i32 10, ptr %len, align 4
@@ -3045,7 +3045,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_1_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
+define internal noundef i32 @custom_ext_1_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
 entry:
   %cmp.not = icmp eq i32 %ext_type, 1001
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3067,7 +3067,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_2_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
+define internal noundef i32 @custom_ext_2_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
 entry:
   %cmp.not = icmp eq i32 %ext_type, 1002
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3099,7 +3099,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef i32 @custom_ext_3_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
+define internal noundef i32 @custom_ext_3_cli_add_cb(ptr nocapture readnone %s, i32 noundef %ext_type, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #13 {
 entry:
   %cmp.not = icmp eq i32 %ext_type, 1003
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3187,7 +3187,7 @@ if.end6:                                          ; preds = %if.then5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @custom_ext_2_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #9 {
+define internal noundef i32 @custom_ext_2_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #9 {
 entry:
   store ptr null, ptr %out, align 8
   store i64 0, ptr %outlen, align 8
@@ -3220,7 +3220,7 @@ if.end6:                                          ; preds = %if.then5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @custom_ext_3_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #9 {
+define internal noundef i32 @custom_ext_3_srv_add_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outlen, ptr nocapture readnone %al, ptr nocapture readnone %arg) #9 {
 entry:
   store ptr @custom_ext_srv_string, ptr %out, align 8
   store i64 4, ptr %outlen, align 8

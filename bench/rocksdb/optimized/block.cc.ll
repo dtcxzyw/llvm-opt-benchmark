@@ -3055,7 +3055,7 @@ _ZN7rocksdb13PerfStepTimerD2Ev.exit:              ; preds = %cleanup, %if.end7.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter10PrefixSeekERKNS_5SliceEPjPb(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(16) %target, ptr nocapture noundef writeonly %index, ptr nocapture noundef writeonly %prefix_may_exist) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter10PrefixSeekERKNS_5SliceEPjPb(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(16) %target, ptr nocapture noundef writeonly %index, ptr nocapture noundef writeonly initializes((0, 1)) %prefix_may_exist) local_unnamed_addr #1 align 2 {
 entry:
   %seek_key = alloca %"class.rocksdb::Slice", align 8
   %block_ids = alloca ptr, align 8
@@ -4680,7 +4680,7 @@ while.end:                                        ; preds = %land.rhs, %_ZN7rock
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter20BinaryBlockIndexSeekERKNS_5SliceEPjjjS4_Pb(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(16) %target, ptr nocapture noundef readonly %block_ids, i32 noundef %left, i32 noundef %right, ptr nocapture noundef writeonly %index, ptr nocapture noundef writeonly %prefix_may_exist) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter20BinaryBlockIndexSeekERKNS_5SliceEPjjjS4_Pb(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(16) %target, ptr nocapture noundef readonly %block_ids, i32 noundef %left, i32 noundef %right, ptr nocapture noundef writeonly %index, ptr nocapture noundef writeonly initializes((0, 1)) %prefix_may_exist) local_unnamed_addr #1 align 2 {
 entry:
   store i8 1, ptr %prefix_may_exist, align 1
   %cmp.not33 = icmp ugt i32 %left, %right
@@ -5223,7 +5223,7 @@ _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb5BlockC2EONS_13BlockContentsEmPNS_10StatisticsE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %contents, i64 noundef %read_amp_bytes_per_bit, ptr noundef %statistics) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb5BlockC2EONS_13BlockContentsEmPNS_10StatisticsE(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 32)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %contents, i64 noundef %read_amp_bytes_per_bit, ptr noundef %statistics) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_restarts.i6 = alloca i32, align 4
   %index_type.i7 = alloca i8, align 1
@@ -5545,7 +5545,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb5Block33InitializeDataBlockProtectionInfoEhPKNS_10ComparatorE(ptr noundef nonnull align 8 dereferenceable(84) %this, i8 noundef zeroext %protection_bytes_per_key, ptr noundef %raw_ucmp) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb5Block33InitializeDataBlockProtectionInfoEhPKNS_10ComparatorE(ptr noundef nonnull align 8 dereferenceable(84) initializes((80, 81)) %this, i8 noundef zeroext %protection_bytes_per_key, ptr noundef %raw_ucmp) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i171 = alloca %"class.std::unique_ptr.2", align 8
   %ref.tmp.i139 = alloca %"class.std::unique_ptr.2", align 8
@@ -6588,7 +6588,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb5Block34InitializeIndexBlockProtectionInfoEhPKNS_10ComparatorEbb(ptr nocapture noundef nonnull align 8 dereferenceable(84) %this, i8 noundef zeroext %protection_bytes_per_key, ptr noundef %raw_ucmp, i1 noundef zeroext %value_is_full, i1 noundef zeroext %index_has_first_key) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb5Block34InitializeIndexBlockProtectionInfoEhPKNS_10ComparatorEbb(ptr nocapture noundef nonnull align 8 dereferenceable(84) initializes((80, 81)) %this, i8 noundef zeroext %protection_bytes_per_key, ptr noundef %raw_ucmp, i1 noundef zeroext %value_is_full, i1 noundef zeroext %index_has_first_key) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i158 = alloca %"class.std::unique_ptr.2", align 8
   %ref.tmp.i126 = alloca %"class.std::unique_ptr.2", align 8
@@ -7464,7 +7464,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb5Block38InitializeMetaIndexBlockProtectionInfoEh(ptr nocapture noundef nonnull align 8 dereferenceable(84) %this, i8 noundef zeroext %protection_bytes_per_key) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb5Block38InitializeMetaIndexBlockProtectionInfoEh(ptr nocapture noundef nonnull align 8 dereferenceable(84) initializes((80, 81)) %this, i8 noundef zeroext %protection_bytes_per_key) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i124 = alloca %"class.std::unique_ptr.2", align 8
   %ref.tmp.i92 = alloca %"class.std::unique_ptr.2", align 8

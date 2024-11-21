@@ -102,7 +102,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN21ThreadLocalAllocStatsC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN21ThreadLocalAllocStatsC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN22ThreadLocalAllocBufferC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22ThreadLocalAllocBufferC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) initializes((0, 109), (112, 116)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   %3 = load i64, ptr @TLABAllocationWeight, align 8
@@ -462,7 +462,7 @@ define hidden void @_ZN21ThreadLocalAllocStats23update_slow_allocationsEj(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22ThreadLocalAllocBuffer16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN22ThreadLocalAllocBuffer16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) initializes((72, 96)) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
@@ -643,7 +643,7 @@ _ZN22ThreadLocalAllocBuffer13insert_fillerEv.exit: ; preds = %7, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22ThreadLocalAllocBuffer10initializeEPP12HeapWordImplS2_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN22ThreadLocalAllocBuffer10initializeEPP12HeapWordImplS2_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #7 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -833,7 +833,7 @@ define hidden void @_ZN22ThreadLocalAllocBuffer4fillEPP12HeapWordImplS2_m(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ThreadLocalAllocBuffer10initializeEv(ptr noundef nonnull align 8 dereferenceable(116) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN22ThreadLocalAllocBuffer10initializeEv(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 40)) %0) local_unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %2 = load i64, ptr @TLABSize, align 8
   %.not.i = icmp eq i64 %2, 0
@@ -1376,7 +1376,7 @@ define hidden void @_ZN22ThreadLocalAllocBuffer14set_sample_endEb(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22ThreadLocalAllocBuffer23set_back_allocation_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(116) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN22ThreadLocalAllocBuffer23set_back_allocation_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(116) initializes((24, 32)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1430,7 +1430,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %20, %22
 declare void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN21ThreadLocalAllocStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #7 align 2 {
+define hidden void @_ZN21ThreadLocalAllocStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %0) unnamed_addr #7 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -1505,7 +1505,7 @@ define hidden void @_ZN21ThreadLocalAllocStats6updateERKS_(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN21ThreadLocalAllocStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN21ThreadLocalAllocStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %0) local_unnamed_addr #7 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4

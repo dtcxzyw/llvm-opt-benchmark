@@ -741,7 +741,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #11
 declare noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z13GetConfigNamePKwPwmbb(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #3 {
+define void @_Z13GetConfigNamePKwPwmbb(ptr noundef %0, ptr noundef initializes((0, 4)) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #3 {
   store i32 0, ptr %1, align 4
   br i1 %3, label %.split.us, label %.split
 
@@ -1484,7 +1484,7 @@ define noundef zeroext i1 @_Z14IsFullRootPathPKw(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11GetPathRootPKwPwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define void @_Z11GetPathRootPKwPwm(ptr noundef %0, ptr noundef initializes((0, 4)) %1, i64 noundef %2) local_unnamed_addr #3 {
   store i32 0, ptr %1, align 4
   %4 = load i32, ptr %0, align 4
   %5 = tail call noundef signext i32 @_Z9etoupperww(i32 noundef signext %4)

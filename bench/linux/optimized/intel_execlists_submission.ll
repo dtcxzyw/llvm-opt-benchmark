@@ -2006,7 +2006,7 @@ declare dso_local void @lrc_init_wa_ctx(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @intel_uncore_forcewake_for_reg(ptr noundef, i32, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @execlists_sanitize(ptr noundef %0) #0 align 16 {
+define internal void @execlists_sanitize(ptr noundef initializes((1185, 1186)) %0) #0 align 16 {
   tail call fastcc void @reset_csb_pointers(ptr noundef %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
@@ -2030,7 +2030,7 @@ define internal void @execlists_sanitize(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @execlists_release(ptr noundef %0) #0 align 16 {
+define internal void @execlists_release(ptr noundef initializes((792, 800)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 792
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 968
@@ -4638,7 +4638,7 @@ declare dso_local ptr @gen12_emit_fini_breadcrumb_xcs(ptr noundef, ptr noundef) 
 declare dso_local i32 @gen12_emit_flush_xcs(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal void @execlists_set_default_submission(ptr nocapture noundef %0) #11 align 16 {
+define internal void @execlists_set_default_submission(ptr nocapture noundef initializes((928, 936)) %0) #11 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 928
   store ptr @execlists_submit_request, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144
@@ -5933,7 +5933,7 @@ define internal void @virtual_context_exit(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtual_context_destroy(ptr noundef %0) #0 align 16 {
+define internal void @virtual_context_destroy(ptr noundef initializes((760, 768)) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 760
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 768
@@ -6403,7 +6403,7 @@ define internal fastcc void @execlists_reset_csb(ptr noundef %0) unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @reset_csb_pointers(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @reset_csb_pointers(ptr nocapture noundef initializes((1185, 1186)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1184
   %3 = load i8, ptr %2, align 8
   %4 = zext i8 %3 to i32

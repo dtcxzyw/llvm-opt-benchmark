@@ -1172,7 +1172,7 @@ lpad:                                             ; preds = %cond.false.i.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly6detail15SingletonHolderISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(2304) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly6detail15SingletonHolderISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(2304) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly6detail15SingletonHolderISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEEE, i64 16), ptr %this, align 8, !tbaa !7
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 2296
@@ -1538,7 +1538,7 @@ _ZN5folly19ReadMostlySharedPtrISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecuto
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly6detail15SingletonHolderISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEE4ImplINS0_10DefaultTagES8_ED0Ev(ptr noundef nonnull align 8 dereferenceable(2304) %this) unnamed_addr #12 align 2 {
+define internal void @_ZN5folly6detail15SingletonHolderISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEE4ImplINS0_10DefaultTagES8_ED0Ev(ptr noundef nonnull align 8 dereferenceable(2304) initializes((0, 8)) %this) unnamed_addr #12 align 2 {
 entry:
   tail call void @_ZN5folly6detail15SingletonHolderISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(2304) %this) #33
   tail call void @_ZdlPv(ptr noundef nonnull %this) #36
@@ -4096,7 +4096,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly6detail15SingletonHolderISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEED0Ev(ptr noundef nonnull align 8 dereferenceable(2304) %this) unnamed_addr #12 align 2 {
+define internal void @_ZN5folly6detail15SingletonHolderISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEED0Ev(ptr noundef nonnull align 8 dereferenceable(2304) initializes((0, 8)) %this) unnamed_addr #12 align 2 {
 entry:
   tail call void @_ZN5folly6detail15SingletonHolderISt10shared_ptrIN12_GLOBAL__N_118DefaultCPUExecutorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(2304) %this) #33
   tail call void @_ZdlPv(ptr noundef nonnull %this) #36
@@ -23296,7 +23296,7 @@ cleanup.cont.i.i:                                 ; preds = %_ZNSt12__shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118getImmutablePtrPtrIN5folly10IOExecutorEEESt10shared_ptrIS3_IT_EEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118getImmutablePtrPtrIN5folly10IOExecutorEEESt10shared_ptrIS3_IT_EEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((8, 16)) %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cpu.i.i.i.i.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !680)
@@ -23540,7 +23540,7 @@ return:                                           ; preds = %cleanup.cont, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118getImmutablePtrPtrIN5folly8ExecutorEEESt10shared_ptrIS3_IT_EEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118getImmutablePtrPtrIN5folly8ExecutorEEESt10shared_ptrIS3_IT_EEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((8, 16)) %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cpu.i.i.i.i.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !698)
@@ -24054,7 +24054,7 @@ unreachable:                                      ; preds = %invoke.cont
 declare void @_ZN5folly13async_tracing25logGetImmutableIOExecutorEPNS_10IOExecutorE(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly33getUnsafeMutableGlobalCPUExecutorEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.238") align 8 %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly33getUnsafeMutableGlobalCPUExecutorEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.238") align 8 initializes((8, 16)) %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i.i = alloca i32, align 4
   %ctx.i.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
@@ -24341,7 +24341,7 @@ cleanup:                                          ; preds = %invoke.cont8, %_ZNS
 declare void @_ZN5folly6detail52singletonWarnLeakyInstantiatingNotRegisteredAndAbortERKNS0_14TypeDescriptorE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14getCPUExecutorEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.238") align 8 %agg.result) local_unnamed_addr #3 {
+define void @_ZN5folly14getCPUExecutorEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.238") align 8 initializes((8, 16)) %agg.result) local_unnamed_addr #3 {
 entry:
   tail call void @_ZN5folly33getUnsafeMutableGlobalCPUExecutorEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.238") align 8 %agg.result)
   ret void
@@ -24818,7 +24818,7 @@ _ZNSt10__weak_ptrIN5folly8ExecutorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit16: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly32getUnsafeMutableGlobalIOExecutorEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.374") align 8 %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly32getUnsafeMutableGlobalIOExecutorEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.374") align 8 initializes((8, 16)) %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i.i = alloca i32, align 4
   %ctx.i.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
@@ -25102,7 +25102,7 @@ cleanup:                                          ; preds = %invoke.cont8, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13getIOExecutorEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.374") align 8 %agg.result) local_unnamed_addr #3 {
+define void @_ZN5folly13getIOExecutorEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.374") align 8 initializes((8, 16)) %agg.result) local_unnamed_addr #3 {
 entry:
   tail call void @_ZN5folly32getUnsafeMutableGlobalIOExecutorEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.374") align 8 %agg.result)
   ret void

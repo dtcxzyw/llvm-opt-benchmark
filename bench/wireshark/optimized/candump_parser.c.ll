@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [12 x i8] c"Parse Error\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @CandumpParserInit(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @CandumpParserInit(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -108,7 +108,7 @@ CandumpParserFinalize.exit:                       ; preds = %4, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CandumpParser(ptr noundef %0, i32 noundef %1, i64 %2, i64 %3, ptr noundef %4) local_unnamed_addr #1 {
+define hidden void @CandumpParser(ptr noundef initializes((16, 24)) %0, i32 noundef %1, i64 %2, i64 %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca %union.YYMINORTYPE, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %4, ptr %7, align 8
@@ -531,7 +531,7 @@ define hidden noundef i32 @CandumpParserFallback(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @run_candump_parser(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @run_candump_parser(ptr noundef initializes((120, 124), (128, 144)) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 0, ptr %5, align 8

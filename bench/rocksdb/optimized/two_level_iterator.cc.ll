@@ -151,7 +151,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorE, i64 16), ptr %this, align 8
   %first_level_iter_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -210,7 +210,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %delete.end, %_ZNKSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorE, i64 16), ptr %this, align 8
   %first_level_iter_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -285,7 +285,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIterator11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIterator11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(160) initializes((80, 81)) %this) unnamed_addr #0 align 2 {
 entry:
   %first_level_iter_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %first_level_iter_, align 8
@@ -367,7 +367,7 @@ if.end:                                           ; preds = %if.then.i.i8, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIterator10SeekToLastEv(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIterator10SeekToLastEv(ptr noundef nonnull align 8 dereferenceable(160) initializes((80, 81)) %this) unnamed_addr #0 align 2 {
 entry:
   %first_level_iter_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %first_level_iter_, align 8
@@ -449,7 +449,7 @@ if.end:                                           ; preds = %if.then.i.i8, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIterator4SeekERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %target) unnamed_addr #0 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIterator4SeekERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(160) initializes((80, 81)) %this, ptr noundef nonnull align 8 dereferenceable(16) %target) unnamed_addr #0 align 2 {
 entry:
   %first_level_iter_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %first_level_iter_, align 8
@@ -531,7 +531,7 @@ if.end:                                           ; preds = %if.then.i.i9, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIterator11SeekForPrevERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %target) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIterator11SeekForPrevERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(160) initializes((80, 81)) %this, ptr noundef nonnull align 8 dereferenceable(16) %target) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %first_level_iter_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -772,7 +772,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIterator4PrevEv(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_121TwoLevelIndexIterator4PrevEv(ptr noundef nonnull align 8 dereferenceable(160) initializes((120, 121)) %this) unnamed_addr #0 align 2 {
 entry:
   %second_level_iter_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %second_level_iter_, align 8

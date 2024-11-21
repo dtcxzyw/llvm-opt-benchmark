@@ -1965,7 +1965,7 @@ define internal i32 @dissect_h450_T_rosApdus(ptr noundef %0, i32 noundef %1, ptr
 declare i32 @dissect_per_constrained_sequence_of(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_h450_T_rosApdus_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal i32 @dissect_h450_T_rosApdus_item(ptr noundef %0, i32 noundef %1, ptr noundef initializes((200, 208)) %2, ptr noundef %3, i32 noundef %4) #0 {
   store i32 1, ptr getelementptr inbounds (i8, ptr @h450_rose_ctx, i64 56), align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 200
   store ptr @h450_rose_ctx, ptr %6, align 8

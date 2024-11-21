@@ -123,7 +123,7 @@ define dso_local void @e1000e_set_laa_state_82571(ptr noundef %0, i1 noundef zer
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @e1000_get_variants_82571(ptr noundef %0) #0 align 16 {
+define internal i32 @e1000_get_variants_82571(ptr noundef initializes((1504, 1520), (1560, 1576), (1616, 1624), (1726, 1728), (2240, 2242), (2243, 2244), (2500, 2504)) %0) #0 align 16 {
   %2 = alloca i16, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 1464
   %4 = getelementptr inbounds i8, ptr %0, i64 1456

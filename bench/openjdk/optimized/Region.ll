@@ -80,7 +80,7 @@ define void @Java_sun_java2d_pipe_Region_initIDs(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Region_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @Region_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 20), (24, 32)) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %9
 
@@ -150,7 +150,7 @@ define noundef i32 @Region_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Region_GetBounds(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define void @Region_GetBounds(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %8
 
@@ -198,7 +198,7 @@ define void @Region_GetBounds(ptr noundef %0, ptr noundef %1, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Region_StartIteration(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Region_StartIteration(ptr noundef %0, ptr nocapture noundef initializes((32, 48)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0

@@ -701,13 +701,13 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3f21BuildOrthonormalFrameEPS0_S1_f(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, float noundef %3) local_unnamed_addr #6 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3f21BuildOrthonormalFrameEPS0_S1_f(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, ptr nocapture noundef initializes((0, 12)) %1, ptr nocapture noundef initializes((0, 12)) %2, float noundef %3) local_unnamed_addr #6 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3fEPS0_S3_f(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef %1, ptr noundef %2, float noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3fEPS0_S3_f(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, float noundef %3) local_unnamed_addr #7 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3fEPS0_S3_f(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, ptr nocapture noundef initializes((0, 12)) %1, ptr nocapture noundef initializes((0, 12)) %2, float noundef %3) local_unnamed_addr #7 {
   %5 = load float, ptr %0, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4

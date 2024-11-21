@@ -4261,7 +4261,7 @@ zend_generator_rewind.exit:                       ; preds = %zend_generator_ensu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noalias noundef ptr @zend_generator_iterator_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #6 {
+define internal noalias noundef ptr @zend_generator_iterator_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %4, ptr %1, align 8
   store i32 1, ptr %2, align 4

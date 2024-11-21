@@ -829,7 +829,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm15Cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm15ContextTrieNode14setCallSiteLocERKNS_10sampleprof12LineLocationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm15ContextTrieNode14setCallSiteLocERKNS_10sampleprof12LineLocationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 8
@@ -837,7 +837,7 @@ define dso_local void @_ZN4llvm15ContextTrieNode14setCallSiteLocERKNS_10samplepr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15ContextTrieNode16setParentContextEPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm15ContextTrieNode16setParentContextEPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
@@ -874,7 +874,7 @@ _ZN4llvm10sampleprof15FunctionSamples15getCallSiteHashENS0_10FunctionIdERKNS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15ContextTrieNode18setFunctionSamplesEPNS_10sampleprof15FunctionSamplesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm15ContextTrieNode18setFunctionSamplesEPNS_10sampleprof15FunctionSamplesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8
   ret void
@@ -888,7 +888,7 @@ define dso_local i64 @_ZNK4llvm15ContextTrieNode15getFunctionSizeEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm15ContextTrieNode15addFunctionSizeEj(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm15ContextTrieNode15addFunctionSizeEj(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((85, 88)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
 _ZNSt8optionalIjEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -2487,7 +2487,7 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker19getCalleeContextFo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20SampleContextTracker34getIndirectCalleeContextSamplesForEPKNS_10DILocationE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.64") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20SampleContextTracker34getIndirectCalleeContextSamplesForEPKNS_10DILocationE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.64") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %48, label %4

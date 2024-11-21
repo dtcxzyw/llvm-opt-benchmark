@@ -1064,7 +1064,7 @@ _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8R
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm8RAGreedyC2ESt8functionIFbRKNS_18TargetRegisterInfoERKNS_19MachineRegisterInfoENS_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(29034) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm8RAGreedyC2ESt8functionIFbRKNS_18TargetRegisterInfoERKNS_19MachineRegisterInfoENS_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(29034) initializes((0, 28), (32, 104)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::function.78", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
@@ -12061,7 +12061,7 @@ _ZN4llvm15AllocationOrderD2Ev.exit:               ; preds = %_ZN4llvm16NamedRegi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZN4llvm8RAGreedy13selectOrSplitERKNS_12LiveIntervalERNS_15SmallVectorImplINS_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(29034) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define hidden i32 @_ZN4llvm8RAGreedy13selectOrSplitERKNS_12LiveIntervalERNS_15SmallVectorImplINS_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(29034) initializes((944, 945)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallSet", align 8
   %5 = alloca %"class.llvm::SmallVector.623", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -12169,7 +12169,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getC
 declare void @_ZN4llvm11LLVMContext9emitErrorERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_ZThn56_N4llvm8RAGreedy13selectOrSplitERKNS_12LiveIntervalERNS_15SmallVectorImplINS_8RegisterEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #5 align 2 {
+define hidden i32 @_ZThn56_N4llvm8RAGreedy13selectOrSplitERKNS_12LiveIntervalERNS_15SmallVectorImplINS_8RegisterEEE(ptr noundef initializes((888, 889)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -56
   %5 = tail call i32 @_ZN4llvm8RAGreedy13selectOrSplitERKNS_12LiveIntervalERNS_15SmallVectorImplINS_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(29034) %4, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret i32 %5
@@ -12639,7 +12639,7 @@ define hidden void @_ZThn56_N4llvm8RAGreedy21aboutToRemoveIntervalERKNS_12LiveIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm8RAGreedy17initializeCSRCostEv(ptr noundef nonnull align 8 dereferenceable(29034) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm8RAGreedy17initializeCSRCostEv(ptr noundef nonnull align 8 dereferenceable(29034) initializes((28904, 28912)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::BranchProbability", align 4
   %3 = alloca %"class.llvm::BranchProbability", align 4
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16CSRFirstTimeCost, i64 128), align 8
@@ -13916,7 +13916,7 @@ declare void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefE
 declare void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefEf(ptr noundef nonnull align 8 dereferenceable(80), ptr, i64, float noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm8RAGreedy12computeStatsERNS_17MachineBasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::RAGreedy::RAGreedyStats") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(29034) %1, ptr noundef nonnull align 8 dereferenceable(288) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm8RAGreedy12computeStatsERNS_17MachineBasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::RAGreedy::RAGreedyStats") align 4 initializes((0, 44)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(29034) %1, ptr noundef nonnull align 8 dereferenceable(288) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::optional.678", align 8
   %6 = alloca %"class.llvm::SmallVector.686", align 8
@@ -15075,7 +15075,7 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit:      ; preds = %_ZNSt8_Rb_treeIjjSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm8RAGreedy11reportStatsEPNS_11MachineLoopE(ptr dead_on_unwind noalias nocapture writable sret(%"struct.llvm::RAGreedy::RAGreedyStats") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(29034) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm8RAGreedy11reportStatsEPNS_11MachineLoopE(ptr dead_on_unwind noalias nocapture writable sret(%"struct.llvm::RAGreedy::RAGreedyStats") align 4 initializes((0, 44)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(29034) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::DiagnosticLocation", align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = alloca %"class.llvm::MachineOptimizationRemarkMissed", align 8
@@ -15923,7 +15923,7 @@ _ZN4llvm12RegAllocBase22shouldAllocateRegisterENS_8RegisterE.exit.thread: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvm8RAGreedy20runOnMachineFunctionERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(29034) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN4llvm8RAGreedy20runOnMachineFunctionERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(29034) initializes((752, 768)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Register", align 4
   %4 = alloca %"class.std::unique_ptr.111", align 8
   %5 = alloca %"class.std::unique_ptr.119", align 8

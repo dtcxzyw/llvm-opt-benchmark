@@ -68,7 +68,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.55 = private unnamed_addr constant [69 x i8] c"Unable to read the interleaved parameter from Transport header: [%s]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @rtsp_setup_connection(ptr nocapture noundef writeonly %data, ptr noundef %conn) #0 {
+define internal range(i32 0, 28) i32 @rtsp_setup_connection(ptr nocapture noundef writeonly initializes((392, 400)) %data, ptr noundef %conn) #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 128) #7
@@ -88,7 +88,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rtsp_do(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
+define internal i32 @rtsp_do(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
 entry:
   %req_buffer = alloca %struct.dynbuf, align 8
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
@@ -700,7 +700,7 @@ if.end8:                                          ; preds = %if.then5, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @rtsp_getsock_do(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly %socks) #1 {
+define internal noundef i32 @rtsp_getsock_do(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly initializes((0, 4)) %socks) #1 {
 entry:
   %sock = getelementptr inbounds i8, ptr %conn, i64 392
   %0 = load i32, ptr %sock, align 8
@@ -717,7 +717,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rtsp_rtp_write_resp(ptr noundef %data, ptr noundef %buf, i64 noundef %blen, i1 noundef zeroext %is_eos, ptr noundef %done) #0 {
+define internal i32 @rtsp_rtp_write_resp(ptr noundef %data, ptr noundef %buf, i64 noundef %blen, i1 noundef zeroext %is_eos, ptr noundef initializes((0, 1)) %done) #0 {
 entry:
   %consumed = alloca i64, align 8
   %conn = getelementptr inbounds i8, ptr %data, i64 32
@@ -1182,7 +1182,7 @@ declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_
 declare i32 @Curl_pgrsUpdate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %data, ptr noundef %buf, i64 noundef %blen, ptr nocapture noundef nonnull %pconsumed) unnamed_addr #0 {
+define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %data, ptr noundef %buf, i64 noundef %blen, ptr nocapture noundef nonnull initializes((0, 8)) %pconsumed) unnamed_addr #0 {
 entry:
   %conn = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8

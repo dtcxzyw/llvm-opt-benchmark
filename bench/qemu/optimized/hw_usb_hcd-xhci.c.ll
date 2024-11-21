@@ -798,7 +798,7 @@ return:                                           ; preds = %for.body16, %for.in
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xhci_init_epctx(ptr nocapture noundef %epctx, i64 noundef %pctx, ptr nocapture noundef nonnull readonly %ctx) unnamed_addr #2 {
+define internal fastcc void @xhci_init_epctx(ptr nocapture noundef initializes((64, 68), (72, 84), (92, 97)) %epctx, i64 noundef %pctx, ptr nocapture noundef nonnull readonly %ctx) unnamed_addr #2 {
 entry:
   %arrayidx = getelementptr i8, ptr %ctx, i64 8
   %0 = load i32, ptr %arrayidx, align 4

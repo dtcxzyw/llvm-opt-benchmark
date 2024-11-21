@@ -18,7 +18,7 @@ define hidden void @_ZN19JfrStringPoolBufferC2Ev(ptr noundef nonnull align 8 der
 declare void @_ZN9JfrBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19JfrStringPoolBuffer12reinitializeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19JfrStringPoolBuffer12reinitializeEv(ptr noundef nonnull align 8 dereferenceable(64) initializes((48, 64)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   tail call void @_ZN9JfrBuffer12reinitializeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6
@@ -26,14 +26,14 @@ define hidden void @_ZN19JfrStringPoolBuffer12reinitializeEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19JfrStringPoolBuffer14set_string_posEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN19JfrStringPoolBuffer14set_string_posEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19JfrStringPoolBuffer14set_string_topEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN19JfrStringPoolBuffer14set_string_topEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 64)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %1, ptr %3, align 8
   ret void

@@ -219,7 +219,7 @@ _ZNSt12_Vector_baseIPN4mold7CounterESaIS2_EED2Ev.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold14ZlibCompressorC2EPhl(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %buf, i64 noundef %size) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4mold14ZlibCompressorC2EPhl(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef %buf, i64 noundef %size) unnamed_addr #4 align 2 {
 entry:
   %alloc.i.i.i.i.i = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %wn.i.i.i.i.i = alloca %"struct.tbb::detail::d1::wait_node", align 8
@@ -486,7 +486,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4moldL5splitESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture nonnull align 8 %agg.result, i64 %input.coerce0, ptr %input.coerce1) unnamed_addr #4 {
+define internal fastcc void @_ZN4moldL5splitESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, i64 %input.coerce0, ptr %input.coerce1) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp17 = icmp ugt i64 %input.coerce0, 1048575
@@ -862,7 +862,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %"_ZN3tbb6detail2d11
 }
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold14ZstdCompressorC2EPhl(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %buf, i64 noundef %size) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4mold14ZstdCompressorC2EPhl(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %buf, i64 noundef %size) unnamed_addr #4 align 2 {
 entry:
   %alloc.i.i.i.i.i = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %wn.i.i.i.i.i = alloca %"struct.tbb::detail::d1::wait_node", align 8

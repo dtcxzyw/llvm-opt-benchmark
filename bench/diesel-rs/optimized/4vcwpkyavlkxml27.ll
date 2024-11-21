@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.42149bed2bef2d9869e56fc8a260eeb9.4 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.42149bed2bef2d9869e56fc8a260eeb9.3, [16 x i8] c"p\00\00\00\00\00\00\00\B0\00\00\00\11\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN5serde2de9MapAccess10next_entry17h85474c78146c47f1E(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de9MapAccess10next_entry17h85474c78146c47f1E(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 initializes((0, 9)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [11 x i64] }, align 8
   %4 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -71,7 +71,7 @@ define void @_ZN5serde2de9MapAccess10next_value17h9fbdb79fe1fac6c9E(ptr sret({ i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 initializes((0, 9)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [11 x i64] }, align 8
   %4 = alloca { i64, [11 x i64] }, align 8
   call void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17hd9bbdeca0f0a8179E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %4, ptr align 8 %1)

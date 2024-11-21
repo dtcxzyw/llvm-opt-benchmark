@@ -882,7 +882,7 @@ declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput19ioproxy_use_or
 declare noundef i64 @_ZNK18OpenImageIO_v2_6_09ImageSpec14scanline_bytesEb(ptr noundef nonnull align 8 dereferenceable(160), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_09BmpOutput28create_and_write_file_headerEv(ptr noundef nonnull align 8 dereferenceable(456) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN18OpenImageIO_v2_6_09BmpOutput28create_and_write_file_headerEv(ptr noundef nonnull align 8 dereferenceable(456) initializes((224, 226), (228, 240)) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_bmp_header = getelementptr inbounds i8, ptr %this, i64 224
   store i16 19778, ptr %m_bmp_header, align 8
@@ -913,7 +913,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_09BmpOutput30create_and_write_bitmap_headerEv(ptr noundef nonnull align 8 dereferenceable(456) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_09BmpOutput30create_and_write_bitmap_headerEv(ptr noundef nonnull align 8 dereferenceable(456) initializes((240, 260), (272, 280)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %res_units = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8

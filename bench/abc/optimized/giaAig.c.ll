@@ -2465,7 +2465,7 @@ Gia_ObjReprObj.exit.thread:                       ; preds = %12, %Aig_ManObj.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManReprFromAigRepr(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Gia_ManReprFromAigRepr(ptr nocapture noundef readonly %0, ptr noundef initializes((192, 200)) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 24
   %.val43 = load i32, ptr %3, align 8
   %4 = sext i32 %.val43 to i64
@@ -2608,7 +2608,7 @@ Aig_ManObj.exit:                                  ; preds = %19
 declare ptr @Gia_ManDeriveNexts(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManReprFromAigRepr2(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Gia_ManReprFromAigRepr2(ptr nocapture noundef readonly %0, ptr noundef initializes((192, 200)) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 24
   %.val27 = load i32, ptr %3, align 8
   %4 = sext i32 %.val27 to i64

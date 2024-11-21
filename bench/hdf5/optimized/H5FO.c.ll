@@ -271,7 +271,7 @@ declare i64 @H5SL_count(ptr noundef) local_unnamed_addr #1
 declare i32 @H5SL_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FO_top_create(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FO_top_create(ptr nocapture noundef writeonly initializes((40, 48)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @H5SL_create(i32 noundef 1, ptr noundef null) #2
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %2, ptr %3, align 8

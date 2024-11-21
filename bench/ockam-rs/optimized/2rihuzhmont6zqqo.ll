@@ -112,7 +112,7 @@ define void @_ZN15ockam_multiaddr4iter9BytesIter3new17h1d49b63c42f64a9eE(ptr noa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15ockam_multiaddr4iter9BytesIter13with_registry17h2231026a17281537E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, ptr, i64, i8, [7 x i8] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #3 {
+define void @_ZN15ockam_multiaddr4iter9BytesIter13with_registry17h2231026a17281537E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, ptr, i64, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 33)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8
@@ -371,7 +371,7 @@ define void @_ZN15ockam_multiaddr4iter7StrIter3new17hf635453972a752c0E(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15ockam_multiaddr4iter7StrIter13with_registry17h3b01800863aea2d4E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, ptr }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #3 {
+define void @_ZN15ockam_multiaddr4iter7StrIter13with_registry17h3b01800863aea2d4E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8

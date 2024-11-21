@@ -6287,7 +6287,7 @@ declare i64 @_ZNK6duckdb16ColumnDefinition8PhysicalEv(ptr noundef nonnull align 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6duckdb16ColumnDefinition10StorageOidEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb17ColumnAliasBinderC2ERNS_15BoundSelectNodeERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKS9_mEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(473) %node, ptr noundef nonnull align 8 dereferenceable(56) %alias_map) unnamed_addr #9 align 2 {
+define void @_ZN6duckdb17ColumnAliasBinderC2ERNS_15BoundSelectNodeERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKS9_mEEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16), (48, 56)) %this, ptr noundef nonnull align 8 dereferenceable(473) %node, ptr noundef nonnull align 8 dereferenceable(56) %alias_map) unnamed_addr #9 align 2 {
 entry:
   store ptr %node, ptr %this, align 8, !tbaa !17
   %alias_map3 = getelementptr inbounds i8, ptr %this, i64 8
@@ -12734,7 +12734,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb11OrderBinderC2ENS_6vectorIPNS_6BinderELb1EEEmRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKSB_mEEERS5_ISt17reference_wrapperINS_16ParsedExpressionEEmNS_22ExpressionHashFunctionISL_EENS_18ExpressionEqualityISL_EESaISE_IKSM_mEEEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef %binders, i64 noundef %projection_index, ptr noundef nonnull align 8 dereferenceable(56) %alias_map, ptr noundef nonnull align 8 dereferenceable(56) %projection_map, i64 noundef %max_count) unnamed_addr #11 align 2 {
+define void @_ZN6duckdb11OrderBinderC2ENS_6vectorIPNS_6BinderELb1EEEmRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKSB_mEEERS5_ISt17reference_wrapperINS_16ParsedExpressionEEmNS_22ExpressionHashFunctionISL_EENS_18ExpressionEqualityISL_EESaISE_IKSM_mEEEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %this, ptr nocapture noundef %binders, i64 noundef %projection_index, ptr noundef nonnull align 8 dereferenceable(56) %alias_map, ptr noundef nonnull align 8 dereferenceable(56) %projection_map, i64 noundef %max_count) unnamed_addr #11 align 2 {
 entry:
   %0 = load <2 x ptr>, ptr %binders, align 8, !tbaa !17
   store <2 x ptr> %0, ptr %this, align 8, !tbaa !17
@@ -12757,7 +12757,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb11OrderBinderC2ENS_6vectorIPNS_6BinderELb1EEEmRNS_10SelectNodeERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKSD_mEEERS7_ISt17reference_wrapperINS_16ParsedExpressionEEmNS_22ExpressionHashFunctionISN_EENS_18ExpressionEqualityISN_EESaISG_IKSO_mEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef %binders, i64 noundef %projection_index, ptr noundef nonnull align 8 dereferenceable(216) %node, ptr noundef nonnull align 8 dereferenceable(56) %alias_map, ptr noundef nonnull align 8 dereferenceable(56) %projection_map) unnamed_addr #11 align 2 {
+define void @_ZN6duckdb11OrderBinderC2ENS_6vectorIPNS_6BinderELb1EEEmRNS_10SelectNodeERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKSD_mEEERS7_ISt17reference_wrapperINS_16ParsedExpressionEEmNS_22ExpressionHashFunctionISN_EENS_18ExpressionEqualityISN_EESaISG_IKSO_mEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %this, ptr nocapture noundef %binders, i64 noundef %projection_index, ptr noundef nonnull align 8 dereferenceable(216) %node, ptr noundef nonnull align 8 dereferenceable(56) %alias_map, ptr noundef nonnull align 8 dereferenceable(56) %projection_map) unnamed_addr #11 align 2 {
 entry:
   %0 = load <2 x ptr>, ptr %binders, align 8, !tbaa !17
   store <2 x ptr> %0, ptr %this, align 8, !tbaa !17

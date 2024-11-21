@@ -204,7 +204,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib25HestonHullWhitePathPricerC2EdN5boost10shared_ptrINS_6PayoffEEENS2_INS_28HybridHestonHullWhiteProcessEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, double noundef %exerciseTime, ptr nocapture noundef %payoff, ptr nocapture noundef %process) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib25HestonHullWhitePathPricerC2EdN5boost10shared_ptrINS_6PayoffEEENS2_INS_28HybridHestonHullWhiteProcessEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, double noundef %exerciseTime, ptr nocapture noundef %payoff, ptr nocapture noundef %process) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib25HestonHullWhitePathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %exerciseTime_ = getelementptr inbounds nuw i8, ptr %this, i64 8

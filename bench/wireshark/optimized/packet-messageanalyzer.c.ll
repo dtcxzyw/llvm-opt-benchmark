@@ -688,7 +688,7 @@ define hidden void @proto_reg_handoff_message_analyzer() local_unnamed_addr #0 {
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ma_wfp_capture_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ma_wfp_capture_v4(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.222) #4
@@ -700,7 +700,7 @@ define internal i32 @dissect_ma_wfp_capture_v4(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ma_wfp_capture2_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ma_wfp_capture2_v4(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.225) #4
@@ -712,7 +712,7 @@ define internal i32 @dissect_ma_wfp_capture2_v4(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ma_wfp_capture_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ma_wfp_capture_v6(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.228) #4
@@ -724,7 +724,7 @@ define internal i32 @dissect_ma_wfp_capture_v6(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ma_wfp_capture2_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ma_wfp_capture2_v6(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.231) #4
@@ -736,7 +736,7 @@ define internal i32 @dissect_ma_wfp_capture2_v6(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ma_wfp_capture_auth_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ma_wfp_capture_auth_v4(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.234) #4
@@ -748,7 +748,7 @@ define internal i32 @dissect_ma_wfp_capture_auth_v4(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ma_wfp_capture_auth_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ma_wfp_capture_auth_v6(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.237) #4
@@ -1529,7 +1529,7 @@ declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ma_wfp_capture_v4_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ma_wfp_capture_v4_common(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
@@ -1581,7 +1581,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ipv4_src_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @add_ipv4_src_address(ptr noundef %0, ptr noundef %1, ptr noundef initializes((160, 184), (208, 232)) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 160
   %6 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef 0, i32 noundef 4) #4
   store i32 2, ptr %5, align 8
@@ -1690,7 +1690,7 @@ proto_item_set_hidden.exit41:                     ; preds = %45, %52, %48, %prot
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ipv4_dst_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 4, 17) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @add_ipv4_dst_address(ptr noundef %0, ptr noundef %1, ptr noundef initializes((184, 208), (232, 256)) %2, i32 noundef range(i32 4, 17) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 184
   %7 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef range(i32 0, 17) %3, i32 noundef 4) #4
   store i32 2, ptr %6, align 8
@@ -1827,7 +1827,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ma_wfp_capture_v6_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ma_wfp_capture_v6_common(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
@@ -1875,7 +1875,7 @@ define internal fastcc i32 @dissect_ma_wfp_capture_v6_common(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ipv6_src_address(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_ipv6_src_address(ptr noundef %0, ptr noundef %1, ptr noundef initializes((160, 184), (208, 232)) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 160
   %5 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef 0, i32 noundef 16) #4
   store i32 3, ptr %4, align 8
@@ -1981,7 +1981,7 @@ proto_item_set_hidden.exit36:                     ; preds = %43, %50, %46, %prot
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ipv6_dst_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 4, 17) %3) unnamed_addr #0 {
+define internal fastcc void @add_ipv6_dst_address(ptr noundef %0, ptr noundef %1, ptr noundef initializes((184, 208), (232, 256)) %2, i32 noundef range(i32 4, 17) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 184
   %6 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef range(i32 0, 17) %3, i32 noundef 16) #4
   store i32 3, ptr %5, align 8
@@ -2089,7 +2089,7 @@ proto_item_set_hidden.exit36:                     ; preds = %44, %51, %47, %prot
 declare ptr @address_to_display(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ma_wfp_capture_auth_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ma_wfp_capture_auth_common(ptr noundef %0, ptr noundef initializes((160, 184), (208, 232)) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @TMPI_COMM_WORLD = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z18tMPI_Coll_env_initP8coll_envi(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z18tMPI_Coll_env_initP8coll_envi(ptr nocapture noundef initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = mul nsw i64 %3, 304
   %5 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %4)
@@ -116,7 +116,7 @@ define void @_Z21tMPI_Coll_env_destroyP8coll_env(ptr nocapture noundef readonly 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr nocapture noundef initializes((0, 20)) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
@@ -155,7 +155,7 @@ define noundef range(i32 0, 2) i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr noca
 declare void @_Z15tMPI_Event_initP12tMPI_Event_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22tMPI_Coll_sync_destroyP9coll_sync(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @_Z22tMPI_Coll_sync_destroyP9coll_sync(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -189,7 +189,7 @@ define void @_Z22tMPI_Coll_sync_destroyP9coll_sync(ptr nocapture noundef %0) loc
 declare void @_Z18tMPI_Event_destroyP12tMPI_Event_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_Z12tMPI_Get_cevP10tmpi_comm_iPi(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define noundef ptr @_Z12tMPI_Get_cevP10tmpi_comm_iPi(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64

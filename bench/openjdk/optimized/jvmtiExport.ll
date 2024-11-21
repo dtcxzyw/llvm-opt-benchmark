@@ -710,7 +710,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %40, %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11JvmtiExport21decode_version_valuesEiPiS0_S0_(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11JvmtiExport21decode_version_valuesEiPiS0_S0_(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #2 align 2 {
   %5 = lshr i32 %0, 16
   %6 = and i32 %5, 4095
   store i32 %6, ptr %1, align 4
@@ -17109,7 +17109,7 @@ define hidden void @_ZN19JvmtiEventCollector24unset_jvmti_thread_stateEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30JvmtiDynamicCodeEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN30JvmtiDynamicCodeEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 17), (24, 32)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17130,7 +17130,7 @@ define hidden void @_ZN30JvmtiDynamicCodeEventCollectorC2Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30JvmtiDynamicCodeEventCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN30JvmtiDynamicCodeEventCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.JvmtiDeferredEvent, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV30JvmtiDynamicCodeEventCollector, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -17279,7 +17279,7 @@ declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #8
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 17), (24, 33), (40, 48)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17382,7 +17382,7 @@ _ZN9OopHandle7releaseEP10OopStorage.exit:         ; preds = %_ZNK9OopHandle7reso
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24NoJvmtiVMObjectAllocMarkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN24NoJvmtiVMObjectAllocMarkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
   %2 = load i8, ptr @_ZN11JvmtiExport28_should_post_vm_object_allocE, align 1
   %3 = trunc i8 %2 to i1
@@ -17444,7 +17444,7 @@ define hidden void @_ZN24NoJvmtiVMObjectAllocMarkD2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN32JvmtiVMObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN32JvmtiVMObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 17), (24, 33), (40, 48)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -17471,7 +17471,7 @@ define hidden void @_ZN32JvmtiVMObjectAllocEventCollectorC2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN32JvmtiVMObjectAllocEventCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN32JvmtiVMObjectAllocEventCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV32JvmtiVMObjectAllocEventCollector, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
@@ -17638,7 +17638,7 @@ _ZN37JvmtiSampledObjectAllocEventCollector30object_alloc_is_safe_to_sampleEv.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN37JvmtiSampledObjectAllocEventCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN37JvmtiSampledObjectAllocEventCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8

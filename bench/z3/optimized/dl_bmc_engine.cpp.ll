@@ -819,7 +819,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog3bmcD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog3bmcD2Ev(ptr noundef nonnull align 8 dereferenceable(368) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog3bmcE, i64 16), ptr %this, align 8
   %m_rule_trace = getelementptr inbounds i8, ptr %this, i64 352
@@ -965,7 +965,7 @@ _ZN3refI6solverED2Ev.exit:                        ; preds = %_ZN7obj_refI9func_d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog3bmcD0Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN7datalog3bmcD0Ev(ptr noundef nonnull align 8 dereferenceable(368) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7datalog3bmcD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -2303,7 +2303,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7datalog3bmc10get_answerEv(ptr noalias nocapture writeonly sret(%class.obj_ref.25) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN7datalog3bmc10get_answerEv(ptr noalias nocapture writeonly sret(%class.obj_ref.25) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) unnamed_addr #7 align 2 {
 entry:
   %m_answer = getelementptr inbounds i8, ptr %this, i64 336
   %0 = load ptr, ptr %m_answer, align 8
@@ -2327,7 +2327,7 @@ _ZN7obj_refI4expr11ast_managerEC2ERKS2_.exit:     ; preds = %entry, %_ZN11ast_ma
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7datalog3bmc9get_proofEv(ptr noalias nocapture writeonly sret(%class.obj_ref.41) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN7datalog3bmc9get_proofEv(ptr noalias nocapture writeonly sret(%class.obj_ref.41) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this) unnamed_addr #7 align 2 {
 entry:
   %m_answer = getelementptr inbounds i8, ptr %this, i64 336
   %0 = load ptr, ptr %m_answer, align 8

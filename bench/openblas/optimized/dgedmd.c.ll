@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @c__2 = internal global i32 2, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dgedmd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr nocapture noundef readonly %11, ptr nocapture noundef readonly %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr nocapture noundef writeonly %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr nocapture noundef readonly %26, ptr noundef %27, ptr noundef %28, ptr nocapture noundef %29) local_unnamed_addr #0 {
+define noundef i32 @dgedmd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr nocapture noundef readonly %11, ptr nocapture noundef readonly %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr nocapture noundef writeonly %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr nocapture noundef readonly %26, ptr noundef %27, ptr noundef %28, ptr nocapture noundef initializes((0, 4)) %29) local_unnamed_addr #0 {
   %31 = alloca i32, align 4
   %32 = alloca i32, align 4
   %33 = alloca double, align 8

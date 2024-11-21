@@ -2801,7 +2801,7 @@ declare void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr nounde
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal18MinimizePolynomialERKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEddPdS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, double noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal18MinimizePolynomialERKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEddPdS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, double noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Eigen::Matrix", align 8
   %7 = alloca %"class.Eigen::Matrix", align 8
   %8 = alloca %"class.google::LogMessage", align 8
@@ -3504,7 +3504,7 @@ define linkonce_odr hidden void @_ZN5Eigen9FullPivLUINS_6MatrixIdLin1ELin1ELi1EL
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal31MinimizeInterpolatingPolynomialERKSt6vectorINS0_14FunctionSampleESaIS2_EEddPdS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, double noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal31MinimizeInterpolatingPolynomialERKSt6vectorINS0_14FunctionSampleESaIS2_EEddPdS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, double noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Eigen::Matrix", align 8
   call void @_ZN5ceres8internal27FindInterpolatingPolynomialERKSt6vectorINS0_14FunctionSampleESaIS2_EE(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0)
   invoke void @_ZN5ceres8internal18MinimizePolynomialERKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEddPdS6_(ptr noundef nonnull align 8 dereferenceable(16) %6, double noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4)

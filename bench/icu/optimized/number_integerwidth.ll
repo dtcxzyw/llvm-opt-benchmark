@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_756number12IntegerWidthC1Essb = unnamed_addr alias void (ptr, i16, i16, i1), ptr @_ZN6icu_756number12IntegerWidthC2Essb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number12IntegerWidthC2Essb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(9) %this, i16 noundef signext %minInt, i16 noundef signext %maxInt, i1 noundef zeroext %formatFailIfMoreThanMaxDigits) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number12IntegerWidthC2Essb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(9) initializes((0, 5), (8, 9)) %this, i16 noundef signext %minInt, i16 noundef signext %maxInt, i1 noundef zeroext %formatFailIfMoreThanMaxDigits) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %formatFailIfMoreThanMaxDigits to i8
   %fHasError = getelementptr inbounds i8, ptr %this, i64 8

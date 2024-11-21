@@ -104,7 +104,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.21253c77e3fc4844456cc94e3b0b613d.101 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.21253c77e3fc4844456cc94e3b0b613d.0, [16 x i8] c"#\00\00\00\00\00\00\00\B0\01\00\00\16\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15wiggle_generate5funcs11define_func17h1d256a1b9dc21d5aE(ptr nocapture writeonly sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
+define void @_ZN15wiggle_generate5funcs11define_func17h1d256a1b9dc21d5aE(ptr nocapture writeonly sret({ { i64, [3 x i64] }, {} }) align 8 initializes((0, 32)) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
   %5 = alloca { { { i64, [3 x i64] }, {} }, { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   call fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a9E(ptr noalias align 8 %5, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3)
@@ -116,7 +116,7 @@ define void @_ZN15wiggle_generate5funcs11define_func17h1d256a1b9dc21d5aE(ptr noc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN15wiggle_generate5funcs11func_bounds17h959f448e0f2572a7E(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
+define hidden void @_ZN15wiggle_generate5funcs11func_bounds17h959f448e0f2572a7E(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 initializes((0, 24)) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 {
   %5 = alloca { { { i64, [3 x i64] }, {} }, { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { { i64, [3 x i64] }, {} }, align 8
   call fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b73bcea3a9E(ptr noalias align 8 %5, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3)

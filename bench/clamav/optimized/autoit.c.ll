@@ -3795,7 +3795,7 @@ MT_getnext.exit:                                  ; preds = %18, %._crit_edge.i
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65536) i32 @getbits(ptr nocapture noundef nonnull %0, i32 noundef range(i32 1, 16) %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65536) i32 @getbits(ptr nocapture noundef nonnull initializes((38, 40)) %0, i32 noundef range(i32 1, 16) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = getelementptr inbounds i8, ptr %0, i64 38
   store i16 0, ptr %4, align 2

@@ -540,7 +540,7 @@ declare ptr @makeConst(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 n
 declare ptr @query_planner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @minmax_qp_callback(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @minmax_qp_callback(ptr noundef initializes((320, 328), (336, 352)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 336

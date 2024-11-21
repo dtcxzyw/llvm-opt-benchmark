@@ -2154,7 +2154,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %expanded_record
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ER_flatten_into(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @ER_flatten_into(ptr noundef %0, ptr noundef initializes((0, 12)) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 17

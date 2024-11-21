@@ -73,7 +73,7 @@ define noundef i32 @fini() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gpu_p_get_device_count(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @gpu_p_get_device_count(ptr nocapture noundef initializes((0, 4)) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %3 = tail call ptr @opendir(ptr noundef nonnull @.str.4)

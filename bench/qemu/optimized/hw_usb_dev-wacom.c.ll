@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @usb_wacom_handle_reset(ptr nocapture noundef writeonly %dev) #2 {
+define internal void @usb_wacom_handle_reset(ptr nocapture noundef writeonly initializes((5880, 5904), (5908, 5912)) %dev) #2 {
 entry:
   %dx = getelementptr inbounds i8, ptr %dev, i64 5880
   %mode = getelementptr inbounds i8, ptr %dev, i64 5908
@@ -430,7 +430,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @qemu_remove_mouse_event_handler(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 3, 5) i32 @usb_mouse_poll(ptr noundef %s, ptr nocapture noundef writeonly %buf, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 3, 5) i32 @usb_mouse_poll(ptr noundef %s, ptr nocapture noundef writeonly initializes((0, 3)) %buf, i32 noundef %len) unnamed_addr #0 {
 entry:
   %mouse_grabbed = getelementptr inbounds i8, ptr %s, i64 5904
   %0 = load i32, ptr %mouse_grabbed, align 8
@@ -560,7 +560,7 @@ return:                                           ; preds = %if.end19, %if.end
 declare ptr @qemu_add_mouse_event_handler(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_mouse_event(ptr nocapture noundef %opaque, i32 noundef %dx1, i32 noundef %dy1, i32 noundef %dz1, i32 noundef %buttons_state) #0 {
+define internal void @usb_mouse_event(ptr nocapture noundef initializes((5892, 5896), (5916, 5920)) %opaque, i32 noundef %dx1, i32 noundef %dy1, i32 noundef %dz1, i32 noundef %buttons_state) #0 {
 entry:
   %dx = getelementptr inbounds i8, ptr %opaque, i64 5880
   %0 = load i32, ptr %dx, align 8
@@ -589,7 +589,7 @@ declare void @qemu_activate_mouse_event_handler(ptr noundef) local_unnamed_addr 
 declare void @usb_wakeup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_wacom_event(ptr nocapture noundef %opaque, i32 noundef %x, i32 noundef %y, i32 noundef %dz, i32 noundef %buttons_state) #0 {
+define internal void @usb_wacom_event(ptr nocapture noundef initializes((5892, 5904), (5916, 5920)) %opaque, i32 noundef %x, i32 noundef %y, i32 noundef %dz, i32 noundef %buttons_state) #0 {
 entry:
   %mul = mul i32 %x, 5040
   %div = sdiv i32 %mul, 32767

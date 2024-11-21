@@ -4301,7 +4301,7 @@ _ZN5clang17AArch64SVEPcsAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17AArch64SVEPcsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17AArch64SVEPcsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 47, ptr %4, align 8
@@ -4817,7 +4817,7 @@ _ZN5clang20AArch64VectorPcsAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20AArch64VectorPcsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20AArch64VectorPcsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 48, ptr %4, align 8
@@ -5331,7 +5331,7 @@ _ZN5clang27AMDGPUFlatWorkGroupSizeAttr6CreateERNS_10ASTContextEPNS_4ExprES4_RKNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang27AMDGPUFlatWorkGroupSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprES7_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang27AMDGPUFlatWorkGroupSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprES7_(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 34), (40, 56)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 95, ptr %6, align 8
@@ -5951,7 +5951,7 @@ _ZN5clang20AMDGPUKernelCallAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20AMDGPUKernelCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20AMDGPUKernelCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 49, ptr %4, align 8
@@ -6465,7 +6465,7 @@ _ZN5clang26AMDGPUMaxNumWorkGroupsAttr6CreateERNS_10ASTContextEPNS_4ExprES4_S4_RK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang26AMDGPUMaxNumWorkGroupsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprES7_S7_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang26AMDGPUMaxNumWorkGroupsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprES7_S7_(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 64)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 96, ptr %7, align 8
@@ -6483,7 +6483,7 @@ define dso_local void @_ZN5clang26AMDGPUMaxNumWorkGroupsAttrC2ERNS_10ASTContextE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang26AMDGPUMaxNumWorkGroupsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang26AMDGPUMaxNumWorkGroupsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 64)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 96, ptr %5, align 8
@@ -7189,7 +7189,7 @@ _ZN5clang17AMDGPUNumSGPRAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17AMDGPUNumSGPRAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17AMDGPUNumSGPRAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 97, ptr %5, align 8
@@ -7743,7 +7743,7 @@ _ZN5clang17AMDGPUNumVGPRAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17AMDGPUNumVGPRAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17AMDGPUNumVGPRAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 98, ptr %5, align 8
@@ -8297,7 +8297,7 @@ _ZN5clang20AMDGPUWavesPerEUAttr6CreateERNS_10ASTContextEPNS_4ExprES4_RKNS_19Attr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20AMDGPUWavesPerEUAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprES7_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20AMDGPUWavesPerEUAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprES7_(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 34), (40, 56)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 99, ptr %6, align 8
@@ -8313,7 +8313,7 @@ define dso_local void @_ZN5clang20AMDGPUWavesPerEUAttrC2ERNS_10ASTContextERKNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20AMDGPUWavesPerEUAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20AMDGPUWavesPerEUAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 34), (40, 56)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 99, ptr %5, align 8
@@ -8949,7 +8949,7 @@ _ZN5clang16ARMInterruptAttr6CreateERNS_10ASTContextENS0_13InterruptTypeERKNS_19A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16ARMInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13InterruptTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16ARMInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13InterruptTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 100, ptr %5, align 8
@@ -8963,7 +8963,7 @@ define dso_local void @_ZN5clang16ARMInterruptAttrC2ERNS_10ASTContextERKNS_19Att
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16ARMInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16ARMInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 100, ptr %4, align 8
@@ -9859,7 +9859,7 @@ _ZN5clang16AVRInterruptAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16AVRInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16AVRInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 101, ptr %4, align 8
@@ -10375,7 +10375,7 @@ _ZN5clang13AVRSignalAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13AVRSignalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13AVRSignalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 102, ptr %4, align 8
@@ -10889,7 +10889,7 @@ _ZN5clang10AbiTagAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjRKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10AbiTagAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10AbiTagAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 386, ptr %6, align 8
@@ -10998,7 +10998,7 @@ _ZnamRKN5clang10ASTContextEm.exit19:              ; preds = %43, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10AbiTagAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10AbiTagAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 386, ptr %4, align 8
@@ -11764,7 +11764,7 @@ _ZN5clang21AcquireCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjRKNS_19Attr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21AcquireCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang21AcquireCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 103, ptr %6, align 8
@@ -11824,7 +11824,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21AcquireCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21AcquireCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 103, ptr %4, align 8
@@ -12997,7 +12997,7 @@ _ZN5clang17AcquireHandleAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Att
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17AcquireHandleAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang17AcquireHandleAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 50, ptr %6, align 8
@@ -13882,7 +13882,7 @@ _ZN5clang17AcquiredAfterAttr6CreateERNS_10ASTContextEPPNS_4ExprEjRKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17AcquiredAfterAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang17AcquiredAfterAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 104, ptr %6, align 8
@@ -13942,7 +13942,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17AcquiredAfterAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17AcquiredAfterAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 104, ptr %4, align 8
@@ -14457,7 +14457,7 @@ _ZN5clang18AcquiredBeforeAttr6CreateERNS_10ASTContextEPPNS_4ExprEjRKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18AcquiredBeforeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang18AcquiredBeforeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 105, ptr %6, align 8
@@ -14517,7 +14517,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18AcquiredBeforeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18AcquiredBeforeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 105, ptr %4, align 8
@@ -15038,7 +15038,7 @@ _ZN5clang16AddressSpaceAttr6CreateERNS_10ASTContextEiRKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16AddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEi(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16AddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEi(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 0, ptr %5, align 8
@@ -15675,7 +15675,7 @@ _ZN5clang9AliasAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19AttributeCom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9AliasAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9AliasAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 387, ptr %6, align 8
@@ -16560,7 +16560,7 @@ _ZN5clang15AlignMac68kAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15AlignMac68kAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15AlignMac68kAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 106, ptr %4, align 8
@@ -16917,7 +16917,7 @@ _ZN5clang16AlignNaturalAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16AlignNaturalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16AlignNaturalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 107, ptr %4, align 8
@@ -17274,7 +17274,7 @@ _ZN5clang14AlignValueAttr6CreateERNS_10ASTContextEPNS_4ExprERKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14AlignValueAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14AlignValueAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 388, ptr %5, align 8
@@ -17726,7 +17726,7 @@ _ZN5clang11AlignedAttr6CreateERNS_10ASTContextEbPvRKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11AlignedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEbPv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11AlignedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEbPv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 34), (35, 36), (40, 48), (52, 53)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #5 align 2 {
   %6 = zext i1 %3 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -17745,7 +17745,7 @@ define dso_local void @_ZN5clang11AlignedAttrC2ERNS_10ASTContextERKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11AlignedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11AlignedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 34), (35, 36), (52, 53)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 108, ptr %4, align 8
@@ -18942,7 +18942,7 @@ _ZN5clang14AllocAlignAttr6CreateERNS_10ASTContextENS_8ParamIdxERKNS_19AttributeC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14AllocAlignAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS_8ParamIdxE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14AllocAlignAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS_8ParamIdxE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 109, ptr %5, align 8
@@ -19582,7 +19582,7 @@ _ZN5clang13AllocSizeAttr6CreateERNS_10ASTContextENS_8ParamIdxES3_RKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13AllocSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS_8ParamIdxES6_(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 %3, i32 %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13AllocSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS_8ParamIdxES6_(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 34), (36, 44)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 %3, i32 %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 110, ptr %6, align 8
@@ -19598,7 +19598,7 @@ define dso_local void @_ZN5clang13AllocSizeAttrC2ERNS_10ASTContextERKNS_19Attrib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13AllocSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS_8ParamIdxE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13AllocSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS_8ParamIdxE(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 34), (36, 44)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 110, ptr %5, align 8
@@ -20341,7 +20341,7 @@ _ZN5clang14AllocatingAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14AllocatingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14AllocatingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 1, ptr %4, align 8
@@ -20855,7 +20855,7 @@ _ZN5clang17AlwaysDestroyAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17AlwaysDestroyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17AlwaysDestroyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 111, ptr %4, align 8
@@ -21307,7 +21307,7 @@ _ZN5clang16AlwaysInlineAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16AlwaysInlineAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16AlwaysInlineAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 43, ptr %4, align 8
@@ -21937,7 +21937,7 @@ _ZN5clang20AnalyzerNoReturnAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20AnalyzerNoReturnAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20AnalyzerNoReturnAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 112, ptr %4, align 8
@@ -22615,7 +22615,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12AnnotateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12AnnotateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 34), (36, 52), (56, 68), (72, 80)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 83, ptr %8, align 8
@@ -22720,7 +22720,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %53, %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12AnnotateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12AnnotateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 34), (36, 52), (56, 68), (72, 80)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 83, ptr %6, align 8
@@ -22783,7 +22783,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %24, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12AnnotateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12AnnotateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 34), (36, 52), (56, 68), (72, 80)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 83, ptr %4, align 8
@@ -24051,7 +24051,7 @@ define dso_local noundef ptr @_ZN5clang16AnnotateTypeAttr21CreateWithDelayedArgs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16AnnotateTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16AnnotateTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 34), (36, 52), (56, 68), (72, 80)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 2, ptr %8, align 8
@@ -24156,7 +24156,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %53, %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16AnnotateTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16AnnotateTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 34), (36, 52), (56, 68), (72, 80)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 2, ptr %6, align 8
@@ -24219,7 +24219,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %24, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16AnnotateTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16AnnotateTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 34), (36, 52), (56, 68), (72, 80)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 2, ptr %4, align 8
@@ -25051,7 +25051,7 @@ _ZN5clang19AnyX86InterruptAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19AnyX86InterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19AnyX86InterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 113, ptr %4, align 8
@@ -25567,7 +25567,7 @@ _ZN5clang32AnyX86NoCallerSavedRegistersAttr6CreateERNS_10ASTContextERKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang32AnyX86NoCallerSavedRegistersAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang32AnyX86NoCallerSavedRegistersAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 114, ptr %4, align 8
@@ -26083,7 +26083,7 @@ _ZN5clang19AnyX86NoCfCheckAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19AnyX86NoCfCheckAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19AnyX86NoCfCheckAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 51, ptr %4, align 8
@@ -26599,7 +26599,7 @@ _ZN5clang25ArcWeakrefUnavailableAttr6CreateERNS_10ASTContextERKNS_19AttributeCom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang25ArcWeakrefUnavailableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang25ArcWeakrefUnavailableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 115, ptr %4, align 8
@@ -27349,7 +27349,7 @@ _ZN5clang23ArgumentWithTypeTagAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang23ArgumentWithTypeTagAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoENS_8ParamIdxES8_b(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 %4, i32 %5, i1 noundef zeroext %6) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang23ArgumentWithTypeTagAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoENS_8ParamIdxES8_b(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 34), (40, 57)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 %4, i32 %5, i1 noundef zeroext %6) unnamed_addr #5 align 2 {
   %8 = zext i1 %6 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -27370,7 +27370,7 @@ define dso_local void @_ZN5clang23ArgumentWithTypeTagAttrC2ERNS_10ASTContextERKN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang23ArgumentWithTypeTagAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoENS_8ParamIdxES8_(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 %4, i32 %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang23ArgumentWithTypeTagAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoENS_8ParamIdxES8_(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 34), (40, 57)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 %4, i32 %5) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 116, ptr %7, align 8
@@ -28794,7 +28794,7 @@ _ZN5clang19ArmBuiltinAliasAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoERKNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19ArmBuiltinAliasAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19ArmBuiltinAliasAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 117, ptr %5, align 8
@@ -29533,7 +29533,7 @@ _ZN5clang9ArmInAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjRKNS_19AttributeC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ArmInAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ArmInAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 3, ptr %6, align 8
@@ -29642,7 +29642,7 @@ _ZnamRKN5clang10ASTContextEm.exit19:              ; preds = %43, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9ArmInAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang9ArmInAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 3, ptr %4, align 8
@@ -30200,7 +30200,7 @@ _ZN5clang12ArmInOutAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjRKNS_19Attrib
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12ArmInOutAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12ArmInOutAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 4, ptr %6, align 8
@@ -30309,7 +30309,7 @@ _ZnamRKN5clang10ASTContextEm.exit19:              ; preds = %43, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12ArmInOutAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12ArmInOutAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 4, ptr %4, align 8
@@ -30867,7 +30867,7 @@ _ZN5clang23ArmLocallyStreamingAttr6CreateERNS_10ASTContextERKNS_19AttributeCommo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang23ArmLocallyStreamingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang23ArmLocallyStreamingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 118, ptr %4, align 8
@@ -31274,7 +31274,7 @@ _ZN5clang28ArmMveStrictPolymorphismAttr6CreateERNS_10ASTContextERKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang28ArmMveStrictPolymorphismAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang28ArmMveStrictPolymorphismAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 5, ptr %4, align 8
@@ -31784,7 +31784,7 @@ _ZN5clang10ArmNewAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjRKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10ArmNewAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10ArmNewAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 119, ptr %6, align 8
@@ -31893,7 +31893,7 @@ _ZnamRKN5clang10ASTContextEm.exit19:              ; preds = %43, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10ArmNewAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10ArmNewAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 119, ptr %4, align 8
@@ -32451,7 +32451,7 @@ _ZN5clang10ArmOutAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjRKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10ArmOutAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10ArmOutAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 6, ptr %6, align 8
@@ -32560,7 +32560,7 @@ _ZnamRKN5clang10ASTContextEm.exit19:              ; preds = %43, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10ArmOutAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10ArmOutAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 6, ptr %4, align 8
@@ -33118,7 +33118,7 @@ _ZN5clang16ArmPreservesAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjRKNS_19At
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16ArmPreservesAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16ArmPreservesAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 7, ptr %6, align 8
@@ -33227,7 +33227,7 @@ _ZnamRKN5clang10ASTContextEm.exit19:              ; preds = %43, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16ArmPreservesAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16ArmPreservesAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 7, ptr %4, align 8
@@ -33785,7 +33785,7 @@ _ZN5clang16ArmStreamingAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16ArmStreamingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16ArmStreamingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 8, ptr %4, align 8
@@ -34186,7 +34186,7 @@ _ZN5clang26ArmStreamingCompatibleAttr6CreateERNS_10ASTContextERKNS_19AttributeCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang26ArmStreamingCompatibleAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang26ArmStreamingCompatibleAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 9, ptr %4, align 8
@@ -34593,7 +34593,7 @@ _ZN5clang14ArtificialAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14ArtificialAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14ArtificialAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 120, ptr %4, align 8
@@ -35375,7 +35375,7 @@ _ZN5clang12AsmLabelAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12AsmLabelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefEb(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12AsmLabelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefEb(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 34), (36, 49)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %5 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -35433,7 +35433,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %26, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12AsmLabelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12AsmLabelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 34), (36, 49)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 121, ptr %6, align 8
@@ -36122,7 +36122,7 @@ _ZN5clang20AssertCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjRKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20AssertCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang20AssertCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 122, ptr %6, align 8
@@ -36182,7 +36182,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20AssertCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20AssertCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 122, ptr %4, align 8
@@ -37104,7 +37104,7 @@ _ZN5clang23AssertExclusiveLockAttr6CreateERNS_10ASTContextEPPNS_4ExprEjRKNS_19At
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang23AssertExclusiveLockAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang23AssertExclusiveLockAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 123, ptr %6, align 8
@@ -37164,7 +37164,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang23AssertExclusiveLockAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang23AssertExclusiveLockAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 123, ptr %4, align 8
@@ -37679,7 +37679,7 @@ _ZN5clang20AssertSharedLockAttr6CreateERNS_10ASTContextEPPNS_4ExprEjRKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20AssertSharedLockAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang20AssertSharedLockAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 124, ptr %6, align 8
@@ -37739,7 +37739,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20AssertSharedLockAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20AssertSharedLockAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 124, ptr %4, align 8
@@ -38260,7 +38260,7 @@ _ZN5clang17AssumeAlignedAttr6CreateERNS_10ASTContextEPNS_4ExprES4_RKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17AssumeAlignedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprES7_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17AssumeAlignedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprES7_(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 34), (40, 56)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 125, ptr %6, align 8
@@ -38276,7 +38276,7 @@ define dso_local void @_ZN5clang17AssumeAlignedAttrC2ERNS_10ASTContextERKNS_19At
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17AssumeAlignedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17AssumeAlignedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 34), (40, 56)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 125, ptr %5, align 8
@@ -39051,7 +39051,7 @@ _ZN5clang16AvailabilityAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoEN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16AvailabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoEN4llvm12VersionTupleES9_S9_bNS8_9StringRefEbSA_iS7_(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i64 %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %6, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %7, i1 noundef zeroext %8, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %9, i1 noundef zeroext %10, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %11, i32 noundef %12, ptr noundef %13) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16AvailabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoEN4llvm12VersionTupleES9_S9_bNS8_9StringRefEbSA_iS7_(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 34), (40, 97), (100, 113), (116, 132), (136, 144)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i64 %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %6, ptr nocapture noundef readonly byval(%"class.llvm::VersionTuple") align 8 %7, i1 noundef zeroext %8, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %9, i1 noundef zeroext %10, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %11, i32 noundef %12, ptr noundef %13) unnamed_addr #0 align 2 {
   %15 = zext i1 %8 to i8
   %16 = zext i1 %10 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
@@ -41088,7 +41088,7 @@ _ZN5clang36AvailableOnlyInDefaultEvalMethodAttr6CreateERNS_10ASTContextERKNS_19A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang36AvailableOnlyInDefaultEvalMethodAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang36AvailableOnlyInDefaultEvalMethodAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 127, ptr %4, align 8
@@ -41604,7 +41604,7 @@ _ZN5clang15BPFFastCallAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15BPFFastCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15BPFFastCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 128, ptr %4, align 8
@@ -42120,7 +42120,7 @@ _ZN5clang26BPFPreserveAccessIndexAttr6CreateERNS_10ASTContextERKNS_19AttributeCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang26BPFPreserveAccessIndexAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang26BPFPreserveAccessIndexAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 129, ptr %4, align 8
@@ -42636,7 +42636,7 @@ _ZN5clang27BPFPreserveStaticOffsetAttr6CreateERNS_10ASTContextERKNS_19AttributeC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang27BPFPreserveStaticOffsetAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang27BPFPreserveStaticOffsetAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 130, ptr %4, align 8
@@ -43152,7 +43152,7 @@ _ZN5clang14BTFDeclTagAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attrib
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14BTFDeclTagAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14BTFDeclTagAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 131, ptr %6, align 8
@@ -44043,7 +44043,7 @@ _ZN5clang14BTFTypeTagAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attrib
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14BTFTypeTagAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14BTFTypeTagAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 10, ptr %6, align 8
@@ -44934,7 +44934,7 @@ _ZN5clang12BlockingAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12BlockingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12BlockingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 11, ptr %4, align 8
@@ -45450,7 +45450,7 @@ _ZN5clang10BlocksAttr6CreateERNS_10ASTContextENS0_9BlockTypeERKNS_19AttributeCom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10BlocksAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_9BlockTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10BlocksAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_9BlockTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 132, ptr %5, align 8
@@ -46288,7 +46288,7 @@ _ZN5clang11BuiltinAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11BuiltinAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11BuiltinAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 133, ptr %5, align 8
@@ -46633,7 +46633,7 @@ _ZN5clang16BuiltinAliasAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoERKNS_19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16BuiltinAliasAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16BuiltinAliasAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 389, ptr %5, align 8
@@ -47402,7 +47402,7 @@ _ZN5clang15C11NoReturnAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15C11NoReturnAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15C11NoReturnAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 134, ptr %4, align 8
@@ -47811,7 +47811,7 @@ _ZN5clang9CDeclAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9CDeclAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang9CDeclAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 52, ptr %4, align 8
@@ -48368,7 +48368,7 @@ _ZN5clang21CFAuditedTransferAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21CFAuditedTransferAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21CFAuditedTransferAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 135, ptr %4, align 8
@@ -48884,7 +48884,7 @@ _ZN5clang14CFConsumedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14CFConsumedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14CFConsumedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 84, ptr %4, align 8
@@ -49402,7 +49402,7 @@ _ZN5clang11CFGuardAttr6CreateERNS_10ASTContextENS0_8GuardArgERKNS_19AttributeCom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11CFGuardAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_8GuardArgE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11CFGuardAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_8GuardArgE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 136, ptr %5, align 8
@@ -50380,7 +50380,7 @@ _ZN5clang25CFICanonicalJumpTableAttr6CreateERNS_10ASTContextERKNS_19AttributeCom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang25CFICanonicalJumpTableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang25CFICanonicalJumpTableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 137, ptr %4, align 8
@@ -50896,7 +50896,7 @@ _ZN5clang24CFReturnsNotRetainedAttr6CreateERNS_10ASTContextERKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang24CFReturnsNotRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang24CFReturnsNotRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 138, ptr %4, align 8
@@ -51412,7 +51412,7 @@ _ZN5clang21CFReturnsRetainedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21CFReturnsRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21CFReturnsRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 139, ptr %4, align 8
@@ -51928,7 +51928,7 @@ _ZN5clang21CFUnknownTransferAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21CFUnknownTransferAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21CFUnknownTransferAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 140, ptr %4, align 8
@@ -52444,7 +52444,7 @@ _ZN5clang15CPUDispatchAttr6CreateERNS_10ASTContextEPPNS_14IdentifierInfoEjRKNS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15CPUDispatchAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_14IdentifierInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15CPUDispatchAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_14IdentifierInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 141, ptr %6, align 8
@@ -52503,7 +52503,7 @@ _ZSt4copyIPPN5clang14IdentifierInfoES3_ET0_T_S5_S4_.exit: ; preds = %_ZnamRKN5cl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15CPUDispatchAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15CPUDispatchAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 141, ptr %4, align 8
@@ -53397,7 +53397,7 @@ _ZN5clang15CPUSpecificAttr6CreateERNS_10ASTContextEPPNS_14IdentifierInfoEjRKNS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15CPUSpecificAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_14IdentifierInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15CPUSpecificAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_14IdentifierInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 142, ptr %6, align 8
@@ -53456,7 +53456,7 @@ _ZSt4copyIPPN5clang14IdentifierInfoES3_ET0_T_S5_S4_.exit: ; preds = %_ZnamRKN5cl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15CPUSpecificAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15CPUSpecificAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 142, ptr %4, align 8
@@ -54348,7 +54348,7 @@ _ZN5clang16CUDAConstantAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16CUDAConstantAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16CUDAConstantAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 143, ptr %4, align 8
@@ -54824,7 +54824,7 @@ _ZN5clang14CUDADeviceAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14CUDADeviceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14CUDADeviceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 144, ptr %4, align 8
@@ -55300,7 +55300,7 @@ _ZN5clang32CUDADeviceBuiltinSurfaceTypeAttr6CreateERNS_10ASTContextERKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang32CUDADeviceBuiltinSurfaceTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang32CUDADeviceBuiltinSurfaceTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 145, ptr %4, align 8
@@ -55776,7 +55776,7 @@ _ZN5clang32CUDADeviceBuiltinTextureTypeAttr6CreateERNS_10ASTContextERKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang32CUDADeviceBuiltinTextureTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang32CUDADeviceBuiltinTextureTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 146, ptr %4, align 8
@@ -56252,7 +56252,7 @@ _ZN5clang14CUDAGlobalAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14CUDAGlobalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14CUDAGlobalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 147, ptr %4, align 8
@@ -56728,7 +56728,7 @@ _ZN5clang12CUDAHostAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12CUDAHostAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12CUDAHostAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 148, ptr %4, align 8
@@ -57200,7 +57200,7 @@ _ZN5clang21CUDAInvalidTargetAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21CUDAInvalidTargetAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21CUDAInvalidTargetAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 149, ptr %4, align 8
@@ -57561,7 +57561,7 @@ _ZN5clang20CUDALaunchBoundsAttr6CreateERNS_10ASTContextEPNS_4ExprES4_S4_RKNS_19A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20CUDALaunchBoundsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprES7_S7_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20CUDALaunchBoundsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprES7_S7_(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 64)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 150, ptr %7, align 8
@@ -57579,7 +57579,7 @@ define dso_local void @_ZN5clang20CUDALaunchBoundsAttrC2ERNS_10ASTContextERKNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20CUDALaunchBoundsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20CUDALaunchBoundsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 64)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 150, ptr %5, align 8
@@ -58289,7 +58289,7 @@ _ZN5clang14CUDASharedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14CUDASharedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14CUDASharedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 151, ptr %4, align 8
@@ -58745,7 +58745,7 @@ _ZN5clang17CXX11NoReturnAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17CXX11NoReturnAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17CXX11NoReturnAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 152, ptr %4, align 8
@@ -59293,7 +59293,7 @@ _ZN5clang13CXXAssumeAttr6CreateERNS_10ASTContextEPNS_4ExprERKNS_19AttributeCommo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13CXXAssumeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13CXXAssumeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 35, ptr %5, align 8
@@ -60016,7 +60016,7 @@ _ZN5clang16CallableWhenAttr6CreateERNS_10ASTContextEPNS0_13ConsumedStateEjRKNS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16CallableWhenAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS0_13ConsumedStateEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16CallableWhenAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS0_13ConsumedStateEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 153, ptr %6, align 8
@@ -60075,7 +60075,7 @@ _ZSt4copyIPN5clang16CallableWhenAttr13ConsumedStateES3_ET0_T_S5_S4_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16CallableWhenAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16CallableWhenAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 153, ptr %4, align 8
@@ -60905,7 +60905,7 @@ _ZN5clang12CallbackAttr6CreateERNS_10ASTContextEPijRKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12CallbackAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPij(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12CallbackAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPij(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 154, ptr %6, align 8
@@ -60964,7 +60964,7 @@ _ZSt4copyIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12CallbackAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12CallbackAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 154, ptr %4, align 8
@@ -61743,7 +61743,7 @@ _ZN5clang14CalledOnceAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14CalledOnceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14CalledOnceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 390, ptr %4, align 8
@@ -62237,7 +62237,7 @@ _ZN5clang14CapabilityAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attrib
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14CapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14CapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 155, ptr %6, align 8
@@ -63298,7 +63298,7 @@ _ZN5clang18CapturedRecordAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18CapturedRecordAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18CapturedRecordAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 156, ptr %4, align 8
@@ -63659,7 +63659,7 @@ _ZN5clang21CarriesDependencyAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21CarriesDependencyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21CarriesDependencyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 85, ptr %4, align 8
@@ -64133,7 +64133,7 @@ _ZN5clang11CleanupAttr6CreateERNS_10ASTContextEPNS_12FunctionDeclERKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11CleanupAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_12FunctionDeclE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11CleanupAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_12FunctionDeclE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 157, ptr %5, align 8
@@ -64823,7 +64823,7 @@ _ZN5clang22ClspvLibclcBuiltinAttr6CreateERNS_10ASTContextERKNS_19AttributeCommon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang22ClspvLibclcBuiltinAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang22ClspvLibclcBuiltinAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 158, ptr %4, align 8
@@ -65333,7 +65333,7 @@ _ZN5clang14CmseNSCallAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14CmseNSCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14CmseNSCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 12, ptr %4, align 8
@@ -65755,7 +65755,7 @@ _ZN5clang15CmseNSEntryAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15CmseNSEntryAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15CmseNSEntryAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 159, ptr %4, align 8
@@ -66183,7 +66183,7 @@ _ZN5clang13CodeAlignAttr6CreateERNS_10ASTContextEPNS_4ExprERKNS_19AttributeCommo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13CodeAlignAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13CodeAlignAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 36, ptr %5, align 8
@@ -66829,7 +66829,7 @@ _ZN5clang13CodeModelAttr6CreateERNS_10ASTContextEN4llvm9CodeModel5ModelERKNS_19A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13CodeModelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9CodeModel5ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13CodeModelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9CodeModel5ModelE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 160, ptr %5, align 8
@@ -67712,7 +67712,7 @@ _ZN5clang11CodeSegAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang11CodeSegAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11CodeSegAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 161, ptr %6, align 8
@@ -68294,7 +68294,7 @@ _ZN5clang8ColdAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8ColdAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang8ColdAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 162, ptr %4, align 8
@@ -68810,7 +68810,7 @@ _ZN5clang10CommonAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10CommonAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10CommonAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 163, ptr %4, align 8
@@ -69326,7 +69326,7 @@ _ZN5clang9ConstAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9ConstAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang9ConstAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 164, ptr %4, align 8
@@ -69939,7 +69939,7 @@ _ZN5clang13ConstInitAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13ConstInitAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13ConstInitAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 165, ptr %4, align 8
@@ -70464,7 +70464,7 @@ _ZN5clang15ConstructorAttr6CreateERNS_10ASTContextEiRKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15ConstructorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEi(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15ConstructorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEi(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 166, ptr %5, align 8
@@ -70478,7 +70478,7 @@ define dso_local void @_ZN5clang15ConstructorAttrC2ERNS_10ASTContextERKNS_19Attr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15ConstructorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15ConstructorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 166, ptr %4, align 8
@@ -71113,7 +71113,7 @@ _ZN5clang14ConsumableAttr6CreateERNS_10ASTContextENS0_13ConsumedStateERKNS_19Att
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14ConsumableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13ConsumedStateE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14ConsumableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13ConsumedStateE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 167, ptr %5, align 8
@@ -71847,7 +71847,7 @@ _ZN5clang22ConsumableAutoCastAttr6CreateERNS_10ASTContextERKNS_19AttributeCommon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang22ConsumableAutoCastAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang22ConsumableAutoCastAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 168, ptr %4, align 8
@@ -72319,7 +72319,7 @@ _ZN5clang23ConsumableSetOnReadAttr6CreateERNS_10ASTContextERKNS_19AttributeCommo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang23ConsumableSetOnReadAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang23ConsumableSetOnReadAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 169, ptr %4, align 8
@@ -72793,7 +72793,7 @@ _ZN5clang14ConvergentAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14ConvergentAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14ConvergentAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 170, ptr %4, align 8
@@ -73309,7 +73309,7 @@ _ZN5clang28CoroDisableLifetimeBoundAttr6CreateERNS_10ASTContextERKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang28CoroDisableLifetimeBoundAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang28CoroDisableLifetimeBoundAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 171, ptr %4, align 8
@@ -73825,7 +73825,7 @@ _ZN5clang21CoroLifetimeBoundAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21CoroLifetimeBoundAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21CoroLifetimeBoundAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 172, ptr %4, align 8
@@ -74341,7 +74341,7 @@ _ZN5clang31CoroOnlyDestroyWhenCompleteAttr6CreateERNS_10ASTContextERKNS_19Attrib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang31CoroOnlyDestroyWhenCompleteAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang31CoroOnlyDestroyWhenCompleteAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 173, ptr %4, align 8
@@ -74857,7 +74857,7 @@ _ZN5clang18CoroReturnTypeAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18CoroReturnTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18CoroReturnTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 174, ptr %4, align 8
@@ -75373,7 +75373,7 @@ _ZN5clang15CoroWrapperAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15CoroWrapperAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15CoroWrapperAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 175, ptr %4, align 8
@@ -75889,7 +75889,7 @@ _ZN5clang13CountedByAttr6CreateERNS_10ASTContextEPNS_4ExprEiRKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13CountedByAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13CountedByAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (40, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 53, ptr %6, align 8
@@ -75906,7 +75906,7 @@ define dso_local void @_ZN5clang13CountedByAttrC2ERNS_10ASTContextERKNS_19Attrib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13CountedByAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13CountedByAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (40, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 53, ptr %5, align 8
@@ -76629,7 +76629,7 @@ _ZN5clang19CountedByOrNullAttr6CreateERNS_10ASTContextEPNS_4ExprEiRKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19CountedByOrNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19CountedByOrNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (40, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 54, ptr %6, align 8
@@ -76646,7 +76646,7 @@ define dso_local void @_ZN5clang19CountedByOrNullAttrC2ERNS_10ASTContextERKNS_19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19CountedByOrNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19CountedByOrNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (40, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 54, ptr %5, align 8
@@ -77371,7 +77371,7 @@ _ZN5clang13DLLExportAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13DLLExportAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13DLLExportAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 176, ptr %4, align 8
@@ -77915,7 +77915,7 @@ _ZN5clang24DLLExportStaticLocalAttr6CreateERNS_10ASTContextERKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang24DLLExportStaticLocalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang24DLLExportStaticLocalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 177, ptr %4, align 8
@@ -78280,7 +78280,7 @@ _ZN5clang13DLLImportAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13DLLImportAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13DLLImportAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 34), (35, 36)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 178, ptr %4, align 8
@@ -78826,7 +78826,7 @@ _ZN5clang24DLLImportStaticLocalAttr6CreateERNS_10ASTContextERKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang24DLLImportStaticLocalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang24DLLImportStaticLocalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 179, ptr %4, align 8
@@ -79211,7 +79211,7 @@ _ZN5clang14DeprecatedAttr6CreateERNS_10ASTContextEN4llvm9StringRefES4_RKNS_19Att
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14DeprecatedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefES7_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14DeprecatedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefES7_(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (36, 52), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 180, ptr %7, align 8
@@ -79311,7 +79311,7 @@ _ZnamRKN5clang10ASTContextEm.exit10:              ; preds = %41, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14DeprecatedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14DeprecatedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (36, 52), (56, 64)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 180, ptr %4, align 8
@@ -80598,7 +80598,7 @@ _ZN5clang14DestructorAttr6CreateERNS_10ASTContextEiRKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14DestructorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEi(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14DestructorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEi(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 181, ptr %5, align 8
@@ -80612,7 +80612,7 @@ define dso_local void @_ZN5clang14DestructorAttrC2ERNS_10ASTContextERKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14DestructorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14DestructorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 181, ptr %4, align 8
@@ -81249,7 +81249,7 @@ _ZN5clang21DiagnoseAsBuiltinAttr6CreateERNS_10ASTContextEPNS_12FunctionDeclEPjjR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21DiagnoseAsBuiltinAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_12FunctionDeclEPjj(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang21DiagnoseAsBuiltinAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_12FunctionDeclEPjj(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 52), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 182, ptr %7, align 8
@@ -81310,7 +81310,7 @@ _ZSt4copyIPjS0_ET0_T_S2_S1_.exit:                 ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21DiagnoseAsBuiltinAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_12FunctionDeclE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21DiagnoseAsBuiltinAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_12FunctionDeclE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 52), (56, 64)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 182, ptr %5, align 8
@@ -82389,7 +82389,7 @@ _ZN5clang14DiagnoseIfAttr6CreateERNS_10ASTContextEPNS_4ExprEN4llvm9StringRefENS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14DiagnoseIfAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEN4llvm9StringRefENS0_14DiagnosticTypeEbPNS_9NamedDeclE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture readonly %4, i64 %5, i32 noundef %6, i1 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14DiagnoseIfAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEN4llvm9StringRefENS0_14DiagnosticTypeEbPNS_9NamedDeclE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 34), (40, 52), (56, 69), (72, 80)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture readonly %4, i64 %5, i32 noundef %6, i1 noundef zeroext %7, ptr noundef %8) unnamed_addr #0 align 2 {
   %10 = zext i1 %7 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -82454,7 +82454,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %31, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14DiagnoseIfAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEN4llvm9StringRefENS0_14DiagnosticTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture readonly %4, i64 %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14DiagnoseIfAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEN4llvm9StringRefENS0_14DiagnosticTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 34), (40, 52), (56, 69), (72, 80)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture readonly %4, i64 %5, i32 noundef %6) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 183, ptr %8, align 8
@@ -83208,7 +83208,7 @@ _ZN5clang35DisableSanitizerInstrumentationAttr6CreateERNS_10ASTContextERKNS_19At
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang35DisableSanitizerInstrumentationAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang35DisableSanitizerInstrumentationAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 184, ptr %4, align 8
@@ -83724,7 +83724,7 @@ _ZN5clang20DisableTailCallsAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20DisableTailCallsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20DisableTailCallsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 185, ptr %4, align 8
@@ -84234,7 +84234,7 @@ _ZN5clang14EmptyBasesAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14EmptyBasesAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14EmptyBasesAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 186, ptr %4, align 8
@@ -84653,7 +84653,7 @@ _ZN5clang12EnableIfAttr6CreateERNS_10ASTContextEPNS_4ExprEN4llvm9StringRefERKNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12EnableIfAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture readonly %4, i64 %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12EnableIfAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 52), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture readonly %4, i64 %5) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 187, ptr %7, align 8
@@ -85269,7 +85269,7 @@ _ZN5clang14EnforceTCBAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attrib
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14EnforceTCBAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14EnforceTCBAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 188, ptr %6, align 8
@@ -86161,7 +86161,7 @@ _ZN5clang18EnforceTCBLeafAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19At
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18EnforceTCBLeafAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang18EnforceTCBLeafAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 189, ptr %6, align 8
@@ -87053,7 +87053,7 @@ _ZN5clang21EnumExtensibilityAttr6CreateERNS_10ASTContextENS0_4KindERKNS_19Attrib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21EnumExtensibilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_4KindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21EnumExtensibilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_4KindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 190, ptr %5, align 8
@@ -87900,7 +87900,7 @@ _ZN5clang9ErrorAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19AttributeCom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ErrorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ErrorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 191, ptr %6, align 8
@@ -89259,7 +89259,7 @@ _ZN5clang36ExcludeFromExplicitInstantiationAttr6CreateERNS_10ASTContextERKNS_19A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang36ExcludeFromExplicitInstantiationAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang36ExcludeFromExplicitInstantiationAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 192, ptr %4, align 8
@@ -89769,7 +89769,7 @@ _ZN5clang28ExclusiveTrylockFunctionAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang28ExclusiveTrylockFunctionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPS7_j(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang28ExclusiveTrylockFunctionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPS7_j(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 52), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 193, ptr %7, align 8
@@ -89831,7 +89831,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang28ExclusiveTrylockFunctionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang28ExclusiveTrylockFunctionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 52), (56, 64)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 193, ptr %5, align 8
@@ -90372,7 +90372,7 @@ _ZN5clang24ExternalSourceSymbolAttr6CreateERNS_10ASTContextEN4llvm9StringRefES4_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang24ExternalSourceSymbolAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefES7_bS7_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, i1 noundef zeroext %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang24ExternalSourceSymbolAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefES7_bS7_(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 34), (36, 52), (56, 65), (68, 80)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, i1 noundef zeroext %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7) unnamed_addr #0 align 2 {
   %9 = zext i1 %6 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -90519,7 +90519,7 @@ _ZnamRKN5clang10ASTContextEm.exit17:              ; preds = %61, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang24ExternalSourceSymbolAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang24ExternalSourceSymbolAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 34), (36, 52), (56, 65), (68, 80)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 194, ptr %4, align 8
@@ -92039,7 +92039,7 @@ _ZN5clang15FallThroughAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15FallThroughAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15FallThroughAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 37, ptr %4, align 8
@@ -92668,7 +92668,7 @@ _ZN5clang12FastCallAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12FastCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12FastCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 55, ptr %4, align 8
@@ -93199,7 +93199,7 @@ _ZN5clang9FinalAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9FinalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang9FinalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 195, ptr %4, align 8
@@ -93661,7 +93661,7 @@ _ZN5clang12FlagEnumAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12FlagEnumAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12FlagEnumAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 196, ptr %4, align 8
@@ -94177,7 +94177,7 @@ _ZN5clang11FlattenAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11FlattenAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11FlattenAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 197, ptr %4, align 8
@@ -94693,7 +94693,7 @@ _ZN5clang10FormatAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoEiiRKNS_19Attr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10FormatAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoEii(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10FormatAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoEii(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 34), (40, 56)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 198, ptr %7, align 8
@@ -95590,7 +95590,7 @@ _ZN5clang13FormatArgAttr6CreateERNS_10ASTContextENS_8ParamIdxERKNS_19AttributeCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13FormatArgAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS_8ParamIdxE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13FormatArgAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS_8ParamIdxE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 199, ptr %5, align 8
@@ -96230,7 +96230,7 @@ _ZN5clang24FunctionReturnThunksAttr6CreateERNS_10ASTContextENS0_4KindERKNS_19Att
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang24FunctionReturnThunksAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_4KindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang24FunctionReturnThunksAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_4KindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 200, ptr %5, align 8
@@ -97099,7 +97099,7 @@ _ZN5clang13GNUInlineAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13GNUInlineAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13GNUInlineAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 201, ptr %4, align 8
@@ -97609,7 +97609,7 @@ _ZN5clang13GuardedByAttr6CreateERNS_10ASTContextEPNS_4ExprERKNS_19AttributeCommo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13GuardedByAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13GuardedByAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 202, ptr %5, align 8
@@ -98082,7 +98082,7 @@ _ZN5clang14GuardedVarAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14GuardedVarAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14GuardedVarAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 203, ptr %4, align 8
@@ -98554,7 +98554,7 @@ _ZN5clang14HIPManagedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14HIPManagedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14HIPManagedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 204, ptr %4, align 8
@@ -99026,7 +99026,7 @@ _ZN5clang31HLSLGroupSharedAddressSpaceAttr6CreateERNS_10ASTContextERKNS_19Attrib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang31HLSLGroupSharedAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang31HLSLGroupSharedAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 13, ptr %4, align 8
@@ -99407,7 +99407,7 @@ _ZN5clang16HLSLLoopHintAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16HLSLLoopHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16HLSLLoopHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 38, ptr %5, align 8
@@ -99421,7 +99421,7 @@ define dso_local void @_ZN5clang16HLSLLoopHintAttrC2ERNS_10ASTContextERKNS_19Att
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16HLSLLoopHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16HLSLLoopHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 38, ptr %4, align 8
@@ -99995,7 +99995,7 @@ _ZN5clang18HLSLNumThreadsAttr6CreateERNS_10ASTContextEiiiRKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18HLSLNumThreadsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEiii(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18HLSLNumThreadsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEiii(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 205, ptr %7, align 8
@@ -100513,7 +100513,7 @@ _ZN5clang18HLSLPackOffsetAttr6CreateERNS_10ASTContextEiiRKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18HLSLPackOffsetAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEii(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18HLSLPackOffsetAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEii(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 34), (36, 44)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 92, ptr %6, align 8
@@ -101221,7 +101221,7 @@ _ZN5clang21HLSLParamModifierAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21HLSLParamModifierAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEb(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21HLSLParamModifierAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEb(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 34), (35, 36)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 {
   %5 = zext i1 %3 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -101236,7 +101236,7 @@ define dso_local void @_ZN5clang21HLSLParamModifierAttrC2ERNS_10ASTContextERKNS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21HLSLParamModifierAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21HLSLParamModifierAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 34), (35, 36)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 78, ptr %4, align 8
@@ -101719,7 +101719,7 @@ _ZN5clang11HLSLROVAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11HLSLROVAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11HLSLROVAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 206, ptr %4, align 8
@@ -102141,7 +102141,7 @@ _ZN5clang16HLSLResourceAttr6CreateERNS_10ASTContextEN4llvm4dxil12ResourceKindERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16HLSLResourceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm4dxil12ResourceKindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16HLSLResourceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm4dxil12ResourceKindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 207, ptr %5, align 8
@@ -102645,7 +102645,7 @@ _ZN5clang23HLSLResourceBindingAttr6CreateERNS_10ASTContextEN4llvm9StringRefES4_R
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang23HLSLResourceBindingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefES7_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang23HLSLResourceBindingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefES7_(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (36, 52), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 208, ptr %7, align 8
@@ -102745,7 +102745,7 @@ _ZnamRKN5clang10ASTContextEm.exit10:              ; preds = %41, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang23HLSLResourceBindingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang23HLSLResourceBindingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (36, 52), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 208, ptr %6, align 8
@@ -103410,7 +103410,7 @@ _ZN5clang21HLSLResourceClassAttr6CreateERNS_10ASTContextEN4llvm4dxil13ResourceCl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21HLSLResourceClassAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm4dxil13ResourceClassE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i8 noundef zeroext %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21HLSLResourceClassAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm4dxil13ResourceClassE(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 34), (35, 36)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i8 noundef zeroext %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 209, ptr %5, align 8
@@ -103990,7 +103990,7 @@ _ZN5clang27HLSLSV_DispatchThreadIDAttr6CreateERNS_10ASTContextERKNS_19AttributeC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang27HLSLSV_DispatchThreadIDAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang27HLSLSV_DispatchThreadIDAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 93, ptr %4, align 8
@@ -104391,7 +104391,7 @@ _ZN5clang21HLSLSV_GroupIndexAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21HLSLSV_GroupIndexAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21HLSLSV_GroupIndexAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 94, ptr %4, align 8
@@ -104792,7 +104792,7 @@ _ZN5clang14HLSLShaderAttr6CreateERNS_10ASTContextEN4llvm6Triple15EnvironmentType
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14HLSLShaderAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm6Triple15EnvironmentTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14HLSLShaderAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm6Triple15EnvironmentTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 210, ptr %5, align 8
@@ -105427,7 +105427,7 @@ _ZN5clang16HLSLWaveSizeAttr6CreateERNS_10ASTContextEiiiRKNS_19AttributeCommonInf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16HLSLWaveSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEiii(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16HLSLWaveSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEiii(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (36, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 211, ptr %7, align 8
@@ -105447,7 +105447,7 @@ define dso_local void @_ZN5clang16HLSLWaveSizeAttrC2ERNS_10ASTContextERKNS_19Att
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16HLSLWaveSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16HLSLWaveSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (36, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 211, ptr %5, align 8
@@ -105973,7 +105973,7 @@ _ZN5clang7HotAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang7HotAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang7HotAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 212, ptr %4, align 8
@@ -106491,7 +106491,7 @@ _ZN5clang19HybridPatchableAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19HybridPatchableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19HybridPatchableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 213, ptr %4, align 8
@@ -107041,7 +107041,7 @@ _ZN5clang12IBActionAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12IBActionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12IBActionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 214, ptr %4, align 8
@@ -107557,7 +107557,7 @@ _ZN5clang12IBOutletAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12IBOutletAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12IBOutletAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 215, ptr %4, align 8
@@ -108073,7 +108073,7 @@ _ZN5clang22IBOutletCollectionAttr6CreateERNS_10ASTContextEPNS_14TypeSourceInfoER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang22IBOutletCollectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14TypeSourceInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang22IBOutletCollectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14TypeSourceInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 216, ptr %5, align 8
@@ -108087,7 +108087,7 @@ define dso_local void @_ZN5clang22IBOutletCollectionAttrC2ERNS_10ASTContextERKNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang22IBOutletCollectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang22IBOutletCollectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 216, ptr %4, align 8
@@ -108762,7 +108762,7 @@ _ZN5clang9IFuncAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19AttributeCom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9IFuncAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9IFuncAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 391, ptr %6, align 8
@@ -109651,7 +109651,7 @@ _ZN5clang16InitPriorityAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16InitPriorityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16InitPriorityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 217, ptr %5, align 8
@@ -110201,7 +110201,7 @@ _ZN5clang11InitSegAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang11InitSegAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11InitSegAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 392, ptr %6, align 8
@@ -110747,7 +110747,7 @@ _ZN5clang16IntelOclBiccAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16IntelOclBiccAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16IntelOclBiccAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 56, ptr %4, align 8
@@ -111221,7 +111221,7 @@ _ZN5clang19InternalLinkageAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19InternalLinkageAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19InternalLinkageAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 218, ptr %4, align 8
@@ -111737,7 +111737,7 @@ _ZN5clang23LTOVisibilityPublicAttr6CreateERNS_10ASTContextERKNS_19AttributeCommo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang23LTOVisibilityPublicAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang23LTOVisibilityPublicAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 219, ptr %4, align 8
@@ -112247,7 +112247,7 @@ _ZN5clang17LayoutVersionAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17LayoutVersionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17LayoutVersionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 220, ptr %5, align 8
@@ -112715,7 +112715,7 @@ _ZN5clang8LeafAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8LeafAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang8LeafAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 221, ptr %4, align 8
@@ -113229,7 +113229,7 @@ _ZN5clang17LifetimeBoundAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17LifetimeBoundAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17LifetimeBoundAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 57, ptr %4, align 8
@@ -113701,7 +113701,7 @@ _ZN5clang10LikelyAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10LikelyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10LikelyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 39, ptr %4, align 8
@@ -114175,7 +114175,7 @@ _ZN5clang23LoaderUninitializedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang23LoaderUninitializedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang23LoaderUninitializedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 393, ptr %4, align 8
@@ -114685,7 +114685,7 @@ _ZN5clang16LockReturnedAttr6CreateERNS_10ASTContextEPNS_4ExprERKNS_19AttributeCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16LockReturnedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16LockReturnedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 222, ptr %5, align 8
@@ -115154,7 +115154,7 @@ _ZN5clang17LocksExcludedAttr6CreateERNS_10ASTContextEPPNS_4ExprEjRKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17LocksExcludedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang17LocksExcludedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 223, ptr %6, align 8
@@ -115214,7 +115214,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17LocksExcludedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17LocksExcludedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 223, ptr %4, align 8
@@ -115711,7 +115711,7 @@ _ZN5clang12LoopHintAttr6CreateERNS_10ASTContextENS0_10OptionTypeENS0_13LoopHintS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12LoopHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_10OptionTypeENS0_13LoopHintStateEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12LoopHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_10OptionTypeENS0_13LoopHintStateEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 34), (36, 44), (48, 56)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 394, ptr %7, align 8
@@ -116483,7 +116483,7 @@ _ZN5clang17M68kInterruptAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17M68kInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17M68kInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 224, ptr %5, align 8
@@ -116954,7 +116954,7 @@ _ZN5clang11M68kRTDAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11M68kRTDAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11M68kRTDAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 58, ptr %4, align 8
@@ -117470,7 +117470,7 @@ _ZN5clang20MIGServerRoutineAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20MIGServerRoutineAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20MIGServerRoutineAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 225, ptr %4, align 8
@@ -117986,7 +117986,7 @@ _ZN5clang9MSABIAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9MSABIAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang9MSABIAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 59, ptr %4, align 8
@@ -118496,7 +118496,7 @@ _ZN5clang15MSAllocatorAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15MSAllocatorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15MSAllocatorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 226, ptr %4, align 8
@@ -118915,7 +118915,7 @@ _ZN5clang15MSConstexprAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15MSConstexprAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15MSConstexprAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 227, ptr %4, align 8
@@ -119573,7 +119573,7 @@ _ZN5clang17MSInheritanceAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17MSInheritanceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEb(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17MSInheritanceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEb(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 34), (35, 36)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 {
   %5 = zext i1 %3 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -119588,7 +119588,7 @@ define dso_local void @_ZN5clang17MSInheritanceAttrC2ERNS_10ASTContextERKNS_19At
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17MSInheritanceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17MSInheritanceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 34), (35, 36)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 228, ptr %4, align 8
@@ -120087,7 +120087,7 @@ _ZN5clang14MSNoVTableAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14MSNoVTableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14MSNoVTableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 229, ptr %4, align 8
@@ -120512,7 +120512,7 @@ _ZN5clang19MSP430InterruptAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19MSP430InterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19MSP430InterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 230, ptr %5, align 8
@@ -121149,7 +121149,7 @@ _ZN5clang12MSStructAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12MSStructAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12MSStructAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 231, ptr %4, align 8
@@ -121659,7 +121659,7 @@ _ZN5clang14MSVtorDispAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14MSVtorDispAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14MSVtorDispAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 232, ptr %5, align 8
@@ -122020,7 +122020,7 @@ _ZN5clang21MaxFieldAlignmentAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21MaxFieldAlignmentAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21MaxFieldAlignmentAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 233, ptr %5, align 8
@@ -122387,7 +122387,7 @@ _ZN5clang12MayAliasAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12MayAliasAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12MayAliasAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 234, ptr %4, align 8
@@ -122903,7 +122903,7 @@ _ZN5clang14MaybeUndefAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14MaybeUndefAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14MaybeUndefAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 235, ptr %4, align 8
@@ -123419,7 +123419,7 @@ _ZN5clang13MicroMipsAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13MicroMipsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13MicroMipsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 236, ptr %4, align 8
@@ -123935,7 +123935,7 @@ _ZN5clang11MinSizeAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11MinSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11MinSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 237, ptr %4, align 8
@@ -124451,7 +124451,7 @@ _ZN5clang18MinVectorWidthAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonInf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18MinVectorWidthAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18MinVectorWidthAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 238, ptr %5, align 8
@@ -125088,7 +125088,7 @@ _ZN5clang10Mips16Attr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10Mips16AttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10Mips16AttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 239, ptr %4, align 8
@@ -125604,7 +125604,7 @@ _ZN5clang17MipsInterruptAttr6CreateERNS_10ASTContextENS0_13InterruptTypeERKNS_19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17MipsInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13InterruptTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17MipsInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13InterruptTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 240, ptr %5, align 8
@@ -126498,7 +126498,7 @@ _ZN5clang16MipsLongCallAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16MipsLongCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16MipsLongCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 241, ptr %4, align 8
@@ -127133,7 +127133,7 @@ _ZN5clang17MipsShortCallAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17MipsShortCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17MipsShortCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 242, ptr %4, align 8
@@ -127790,7 +127790,7 @@ _ZN5clang8ModeAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoERKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8ModeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang8ModeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 395, ptr %5, align 8
@@ -128535,7 +128535,7 @@ _ZN5clang12MustTailAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12MustTailAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12MustTailAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 40, ptr %4, align 8
@@ -129051,7 +129051,7 @@ _ZN5clang14NSConsumedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14NSConsumedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14NSConsumedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 86, ptr %4, align 8
@@ -129567,7 +129567,7 @@ _ZN5clang18NSConsumesSelfAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18NSConsumesSelfAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18NSConsumesSelfAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 243, ptr %4, align 8
@@ -130077,7 +130077,7 @@ _ZN5clang17NSErrorDomainAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoERKNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17NSErrorDomainAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17NSErrorDomainAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 244, ptr %5, align 8
@@ -130584,7 +130584,7 @@ _ZN5clang25NSReturnsAutoreleasedAttr6CreateERNS_10ASTContextERKNS_19AttributeCom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang25NSReturnsAutoreleasedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang25NSReturnsAutoreleasedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 245, ptr %4, align 8
@@ -131100,7 +131100,7 @@ _ZN5clang24NSReturnsNotRetainedAttr6CreateERNS_10ASTContextERKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang24NSReturnsNotRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang24NSReturnsNotRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 246, ptr %4, align 8
@@ -131616,7 +131616,7 @@ _ZN5clang21NSReturnsRetainedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21NSReturnsRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21NSReturnsRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 60, ptr %4, align 8
@@ -132132,7 +132132,7 @@ _ZN5clang15NVPTXKernelAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15NVPTXKernelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15NVPTXKernelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 247, ptr %4, align 8
@@ -132648,7 +132648,7 @@ _ZN5clang9NakedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9NakedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang9NakedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 248, ptr %4, align 8
@@ -133192,7 +133192,7 @@ _ZN5clang11NoAliasAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11NoAliasAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11NoAliasAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 249, ptr %4, align 8
@@ -133617,7 +133617,7 @@ _ZN5clang13NoBuiltinAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjRKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13NoBuiltinAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13NoBuiltinAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 396, ptr %6, align 8
@@ -133726,7 +133726,7 @@ _ZnamRKN5clang10ASTContextEm.exit19:              ; preds = %43, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13NoBuiltinAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13NoBuiltinAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 396, ptr %4, align 8
@@ -134709,7 +134709,7 @@ _ZN5clang12NoCommonAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12NoCommonAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12NoCommonAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 250, ptr %4, align 8
@@ -135225,7 +135225,7 @@ _ZN5clang16NoConvergentAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16NoConvergentAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16NoConvergentAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 251, ptr %4, align 8
@@ -135775,7 +135775,7 @@ _ZN5clang11NoDebugAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11NoDebugAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11NoDebugAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 252, ptr %4, align 8
@@ -136291,7 +136291,7 @@ _ZN5clang11NoDerefAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11NoDerefAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11NoDerefAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 14, ptr %4, align 8
@@ -136805,7 +136805,7 @@ _ZN5clang13NoDestroyAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13NoDestroyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13NoDestroyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 253, ptr %4, align 8
@@ -137279,7 +137279,7 @@ _ZN5clang15NoDuplicateAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15NoDuplicateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15NoDuplicateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 254, ptr %4, align 8
@@ -137795,7 +137795,7 @@ _ZN5clang12NoEscapeAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12NoEscapeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12NoEscapeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 397, ptr %4, align 8
@@ -138313,7 +138313,7 @@ _ZN5clang12NoInlineAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12NoInlineAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12NoInlineAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 44, ptr %4, align 8
@@ -139035,7 +139035,7 @@ _ZN5clang24NoInstrumentFunctionAttr6CreateERNS_10ASTContextERKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang24NoInstrumentFunctionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang24NoInstrumentFunctionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 255, ptr %4, align 8
@@ -139551,7 +139551,7 @@ _ZN5clang11NoMergeAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11NoMergeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11NoMergeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 45, ptr %4, align 8
@@ -140067,7 +140067,7 @@ _ZN5clang15NoMicroMipsAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15NoMicroMipsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15NoMicroMipsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 256, ptr %4, align 8
@@ -140583,7 +140583,7 @@ _ZN5clang12NoMips16Attr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12NoMips16AttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12NoMips16AttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 257, ptr %4, align 8
@@ -141099,7 +141099,7 @@ _ZN5clang21NoProfileFunctionAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21NoProfileFunctionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21NoProfileFunctionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 258, ptr %4, align 8
@@ -141615,7 +141615,7 @@ _ZN5clang21NoRandomizeLayoutAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21NoRandomizeLayoutAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21NoRandomizeLayoutAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 259, ptr %4, align 8
@@ -142131,7 +142131,7 @@ _ZN5clang12NoReturnAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12NoReturnAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12NoReturnAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 260, ptr %4, align 8
@@ -142681,7 +142681,7 @@ _ZN5clang14NoSanitizeAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjRKNS_19Attr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14NoSanitizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14NoSanitizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 261, ptr %6, align 8
@@ -142790,7 +142790,7 @@ _ZnamRKN5clang10ASTContextEm.exit19:              ; preds = %43, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14NoSanitizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14NoSanitizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 261, ptr %4, align 8
@@ -143773,7 +143773,7 @@ _ZN5clang30NoSpeculativeLoadHardeningAttr6CreateERNS_10ASTContextERKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang30NoSpeculativeLoadHardeningAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang30NoSpeculativeLoadHardeningAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 262, ptr %4, align 8
@@ -144289,7 +144289,7 @@ _ZN5clang16NoSplitStackAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16NoSplitStackAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16NoSplitStackAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 263, ptr %4, align 8
@@ -144783,7 +144783,7 @@ _ZN5clang20NoStackProtectorAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20NoStackProtectorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20NoStackProtectorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 264, ptr %4, align 8
@@ -145437,7 +145437,7 @@ _ZN5clang26NoThreadSafetyAnalysisAttr6CreateERNS_10ASTContextERKNS_19AttributeCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang26NoThreadSafetyAnalysisAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang26NoThreadSafetyAnalysisAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 265, ptr %4, align 8
@@ -145953,7 +145953,7 @@ _ZN5clang11NoThrowAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11NoThrowAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11NoThrowAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 266, ptr %4, align 8
@@ -146501,7 +146501,7 @@ _ZN5clang19NoUniqueAddressAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19NoUniqueAddressAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19NoUniqueAddressAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 267, ptr %4, align 8
@@ -146975,7 +146975,7 @@ _ZN5clang13NoUwtableAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13NoUwtableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13NoUwtableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 268, ptr %4, align 8
@@ -147491,7 +147491,7 @@ _ZN5clang17NonAllocatingAttr6CreateERNS_10ASTContextEPNS_4ExprERKNS_19AttributeC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17NonAllocatingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17NonAllocatingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 15, ptr %5, align 8
@@ -147505,7 +147505,7 @@ define dso_local void @_ZN5clang17NonAllocatingAttrC2ERNS_10ASTContextERKNS_19At
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17NonAllocatingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17NonAllocatingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 15, ptr %4, align 8
@@ -148166,7 +148166,7 @@ _ZN5clang15NonBlockingAttr6CreateERNS_10ASTContextEPNS_4ExprERKNS_19AttributeCom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15NonBlockingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15NonBlockingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 16, ptr %5, align 8
@@ -148180,7 +148180,7 @@ define dso_local void @_ZN5clang15NonBlockingAttrC2ERNS_10ASTContextERKNS_19Attr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15NonBlockingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15NonBlockingAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 16, ptr %4, align 8
@@ -148841,7 +148841,7 @@ _ZN5clang11NonNullAttr6CreateERNS_10ASTContextEPNS_8ParamIdxEjRKNS_19AttributeCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang11NonNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_8ParamIdxEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11NonNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_8ParamIdxEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 87, ptr %6, align 8
@@ -148909,7 +148909,7 @@ _ZSt4copyIPN5clang8ParamIdxES2_ET0_T_S4_S3_.exit: ; preds = %.loopexit, %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11NonNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11NonNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 87, ptr %4, align 8
@@ -149692,7 +149692,7 @@ _ZN5clang17NotTailCalledAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17NotTailCalledAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17NotTailCalledAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 269, ptr %4, align 8
@@ -150202,7 +150202,7 @@ _ZN5clang19OMPAllocateDeclAttr6CreateERNS_10ASTContextENS0_15AllocatorTypeTyEPNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19OMPAllocateDeclAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_15AllocatorTypeTyEPNS_4ExprES8_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19OMPAllocateDeclAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_15AllocatorTypeTyEPNS_4ExprES8_(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 34), (36, 56)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 270, ptr %7, align 8
@@ -150646,7 +150646,7 @@ _ZN5clang13OMPAssumeAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13OMPAssumeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13OMPAssumeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 271, ptr %6, align 8
@@ -151226,7 +151226,7 @@ _ZN5clang18OMPCaptureKindAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonInf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18OMPCaptureKindAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18OMPCaptureKindAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 398, ptr %5, align 8
@@ -151587,7 +151587,7 @@ _ZN5clang20OMPCaptureNoInitAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20OMPCaptureNoInitAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20OMPCaptureNoInitAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 272, ptr %4, align 8
@@ -151944,7 +151944,7 @@ _ZN5clang22OMPDeclareSimdDeclAttr6CreateERNS_10ASTContextENS0_13BranchStateTyEPN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang22OMPDeclareSimdDeclAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13BranchStateTyEPNS_4ExprEPS8_jS9_jS9_jS9_jPjjS9_j(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, ptr nocapture noundef readonly %11, i32 noundef %12, ptr nocapture noundef readonly %13, i32 noundef %14, ptr nocapture noundef readonly %15, i32 noundef %16) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang22OMPDeclareSimdDeclAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13BranchStateTyEPNS_4ExprEPS8_jS9_jS9_jS9_jPjjS9_j(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 34), (36, 52), (56, 68), (72, 84), (88, 100), (104, 116), (120, 132), (136, 144)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8, ptr nocapture noundef readonly %9, i32 noundef %10, ptr nocapture noundef readonly %11, i32 noundef %12, ptr nocapture noundef readonly %13, i32 noundef %14, ptr nocapture noundef readonly %15, i32 noundef %16) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 399, ptr %18, align 8
@@ -152233,7 +152233,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit66:  ; preds = %_ZSt4copyIPjS0_ET0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang22OMPDeclareSimdDeclAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13BranchStateTyEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang22OMPDeclareSimdDeclAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13BranchStateTyEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 34), (36, 52), (56, 68), (72, 84), (88, 100), (104, 116), (120, 132), (136, 144)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 399, ptr %6, align 8
@@ -152736,7 +152736,7 @@ _ZN5clang24OMPDeclareTargetDeclAttr6CreateERNS_10ASTContextENS0_9MapTypeTyENS0_9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang24OMPDeclareTargetDeclAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_9MapTypeTyENS0_9DevTypeTyEPNS_4ExprEbj(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang24OMPDeclareTargetDeclAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_9MapTypeTyENS0_9DevTypeTyEPNS_4ExprEbj(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (36, 44), (48, 57), (60, 64)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #5 align 2 {
   %9 = zext i1 %6 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -153243,7 +153243,7 @@ _ZN5clang21OMPDeclareVariantAttr6CreateERNS_10ASTContextEPNS_4ExprEPNS_12OMPTrai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21OMPDeclareVariantAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPNS_12OMPTraitInfoEPS7_jSA_jPNS_14OMPInteropInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang21OMPDeclareVariantAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPNS_12OMPTraitInfoEPS7_jSA_jPNS_14OMPInteropInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 34), (40, 60), (64, 76), (80, 92)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 274, ptr %12, align 8
@@ -153434,7 +153434,7 @@ _ZSt4copyIPN5clang14OMPInteropInfoES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21OMPDeclareVariantAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPNS_12OMPTraitInfoEPNS_14OMPInteropInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang21OMPDeclareVariantAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPNS_12OMPTraitInfoEPNS_14OMPInteropInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 34), (40, 60), (64, 76), (80, 92)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 274, ptr %8, align 8
@@ -153965,7 +153965,7 @@ _ZN5clang20OMPReferencedVarAttr6CreateERNS_10ASTContextEPNS_4ExprERKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20OMPReferencedVarAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20OMPReferencedVarAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 400, ptr %5, align 8
@@ -154326,7 +154326,7 @@ _ZN5clang24OMPThreadPrivateDeclAttr6CreateERNS_10ASTContextERKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang24OMPThreadPrivateDeclAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang24OMPThreadPrivateDeclAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 275, ptr %4, align 8
@@ -154689,7 +154689,7 @@ _ZN5clang14OSConsumedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14OSConsumedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14OSConsumedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 88, ptr %4, align 8
@@ -155205,7 +155205,7 @@ _ZN5clang18OSConsumesThisAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18OSConsumesThisAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18OSConsumesThisAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 276, ptr %4, align 8
@@ -155721,7 +155721,7 @@ _ZN5clang24OSReturnsNotRetainedAttr6CreateERNS_10ASTContextERKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang24OSReturnsNotRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang24OSReturnsNotRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 277, ptr %4, align 8
@@ -156237,7 +156237,7 @@ _ZN5clang21OSReturnsRetainedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21OSReturnsRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21OSReturnsRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 278, ptr %4, align 8
@@ -156753,7 +156753,7 @@ _ZN5clang30OSReturnsRetainedOnNonZeroAttr6CreateERNS_10ASTContextERKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang30OSReturnsRetainedOnNonZeroAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang30OSReturnsRetainedOnNonZeroAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 279, ptr %4, align 8
@@ -157269,7 +157269,7 @@ _ZN5clang27OSReturnsRetainedOnZeroAttr6CreateERNS_10ASTContextERKNS_19AttributeC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang27OSReturnsRetainedOnZeroAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang27OSReturnsRetainedOnZeroAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 280, ptr %4, align 8
@@ -157785,7 +157785,7 @@ _ZN5clang15ObjCBoxableAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15ObjCBoxableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15ObjCBoxableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 401, ptr %4, align 8
@@ -158301,7 +158301,7 @@ _ZN5clang14ObjCBridgeAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoERKNS_19At
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14ObjCBridgeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14ObjCBridgeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 281, ptr %5, align 8
@@ -159046,7 +159046,7 @@ _ZN5clang21ObjCBridgeMutableAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21ObjCBridgeMutableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21ObjCBridgeMutableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 282, ptr %5, align 8
@@ -159791,7 +159791,7 @@ _ZN5clang21ObjCBridgeRelatedAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoES4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21ObjCBridgeRelatedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoES7_S7_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21ObjCBridgeRelatedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoES7_S7_(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 64)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 283, ptr %7, align 8
@@ -160904,7 +160904,7 @@ _ZN5clang17ObjCClassStubAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17ObjCClassStubAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17ObjCClassStubAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 402, ptr %4, align 8
@@ -161420,7 +161420,7 @@ _ZN5clang29ObjCDesignatedInitializerAttr6CreateERNS_10ASTContextERKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang29ObjCDesignatedInitializerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang29ObjCDesignatedInitializerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 403, ptr %4, align 8
@@ -161936,7 +161936,7 @@ _ZN5clang14ObjCDirectAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14ObjCDirectAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14ObjCDirectAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 404, ptr %4, align 8
@@ -162452,7 +162452,7 @@ _ZN5clang21ObjCDirectMembersAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21ObjCDirectMembersAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21ObjCDirectMembersAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 405, ptr %4, align 8
@@ -162968,7 +162968,7 @@ _ZN5clang17ObjCExceptionAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17ObjCExceptionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17ObjCExceptionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 284, ptr %4, align 8
@@ -163484,7 +163484,7 @@ _ZN5clang28ObjCExplicitProtocolImplAttr6CreateERNS_10ASTContextERKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang28ObjCExplicitProtocolImplAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang28ObjCExplicitProtocolImplAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 285, ptr %4, align 8
@@ -164000,7 +164000,7 @@ _ZN5clang26ObjCExternallyRetainedAttr6CreateERNS_10ASTContextERKNS_19AttributeCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang26ObjCExternallyRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang26ObjCExternallyRetainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 286, ptr %4, align 8
@@ -164516,7 +164516,7 @@ _ZN5clang10ObjCGCAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoERKNS_19Attrib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10ObjCGCAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10ObjCGCAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 17, ptr %5, align 8
@@ -165261,7 +165261,7 @@ _ZN5clang24ObjCIndependentClassAttr6CreateERNS_10ASTContextERKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang24ObjCIndependentClassAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang24ObjCIndependentClassAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 287, ptr %4, align 8
@@ -165771,7 +165771,7 @@ _ZN5clang29ObjCInertUnsafeUnretainedAttr6CreateERNS_10ASTContextERKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang29ObjCInertUnsafeUnretainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang29ObjCInertUnsafeUnretainedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 18, ptr %4, align 8
@@ -166172,7 +166172,7 @@ _ZN5clang14ObjCKindOfAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14ObjCKindOfAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14ObjCKindOfAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 19, ptr %4, align 8
@@ -166579,7 +166579,7 @@ _ZN5clang20ObjCMethodFamilyAttr6CreateERNS_10ASTContextENS0_10FamilyKindERKNS_19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20ObjCMethodFamilyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_10FamilyKindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20ObjCMethodFamilyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_10FamilyKindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 288, ptr %5, align 8
@@ -167481,7 +167481,7 @@ _ZN5clang16ObjCNSObjectAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16ObjCNSObjectAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16ObjCNSObjectAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 289, ptr %4, align 8
@@ -167997,7 +167997,7 @@ _ZN5clang20ObjCNonLazyClassAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20ObjCNonLazyClassAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20ObjCNonLazyClassAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 406, ptr %4, align 8
@@ -168513,7 +168513,7 @@ _ZN5clang26ObjCNonRuntimeProtocolAttr6CreateERNS_10ASTContextERKNS_19AttributeCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang26ObjCNonRuntimeProtocolAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang26ObjCNonRuntimeProtocolAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 407, ptr %4, align 8
@@ -169029,7 +169029,7 @@ _ZN5clang17ObjCOwnershipAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoERKNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17ObjCOwnershipAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17ObjCOwnershipAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 61, ptr %5, align 8
@@ -169774,7 +169774,7 @@ _ZN5clang23ObjCPreciseLifetimeAttr6CreateERNS_10ASTContextERKNS_19AttributeCommo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang23ObjCPreciseLifetimeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang23ObjCPreciseLifetimeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 290, ptr %4, align 8
@@ -170290,7 +170290,7 @@ _ZN5clang28ObjCRequiresPropertyDefsAttr6CreateERNS_10ASTContextERKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang28ObjCRequiresPropertyDefsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang28ObjCRequiresPropertyDefsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 291, ptr %4, align 8
@@ -170806,7 +170806,7 @@ _ZN5clang21ObjCRequiresSuperAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21ObjCRequiresSuperAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21ObjCRequiresSuperAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 292, ptr %4, align 8
@@ -171322,7 +171322,7 @@ _ZN5clang27ObjCReturnsInnerPointerAttr6CreateERNS_10ASTContextERKNS_19AttributeC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang27ObjCReturnsInnerPointerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang27ObjCReturnsInnerPointerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 293, ptr %4, align 8
@@ -171838,7 +171838,7 @@ _ZN5clang17ObjCRootClassAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17ObjCRootClassAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17ObjCRootClassAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 294, ptr %4, align 8
@@ -172354,7 +172354,7 @@ _ZN5clang19ObjCRuntimeNameAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19A
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19ObjCRuntimeNameAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang19ObjCRuntimeNameAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 408, ptr %6, align 8
@@ -173245,7 +173245,7 @@ _ZN5clang22ObjCRuntimeVisibleAttr6CreateERNS_10ASTContextERKNS_19AttributeCommon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang22ObjCRuntimeVisibleAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang22ObjCRuntimeVisibleAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 409, ptr %4, align 8
@@ -173761,7 +173761,7 @@ _ZN5clang29ObjCSubclassingRestrictedAttr6CreateERNS_10ASTContextERKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang29ObjCSubclassingRestrictedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang29ObjCSubclassingRestrictedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 295, ptr %4, align 8
@@ -174255,7 +174255,7 @@ _ZN5clang16OpenCLAccessAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16OpenCLAccessAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16OpenCLAccessAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 410, ptr %4, align 8
@@ -174768,7 +174768,7 @@ _ZN5clang30OpenCLConstantAddressSpaceAttr6CreateERNS_10ASTContextERKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang30OpenCLConstantAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang30OpenCLConstantAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 20, ptr %4, align 8
@@ -175328,7 +175328,7 @@ _ZN5clang29OpenCLGenericAddressSpaceAttr6CreateERNS_10ASTContextERKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang29OpenCLGenericAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang29OpenCLGenericAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 21, ptr %4, align 8
@@ -175888,7 +175888,7 @@ _ZN5clang28OpenCLGlobalAddressSpaceAttr6CreateERNS_10ASTContextERKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang28OpenCLGlobalAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang28OpenCLGlobalAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 22, ptr %4, align 8
@@ -176470,7 +176470,7 @@ _ZN5clang34OpenCLGlobalDeviceAddressSpaceAttr6CreateERNS_10ASTContextERKNS_19Att
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang34OpenCLGlobalDeviceAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang34OpenCLGlobalDeviceAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 23, ptr %4, align 8
@@ -176986,7 +176986,7 @@ _ZN5clang32OpenCLGlobalHostAddressSpaceAttr6CreateERNS_10ASTContextERKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang32OpenCLGlobalHostAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang32OpenCLGlobalHostAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 24, ptr %4, align 8
@@ -177496,7 +177496,7 @@ _ZN5clang31OpenCLIntelReqdSubGroupSizeAttr6CreateERNS_10ASTContextEjRKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang31OpenCLIntelReqdSubGroupSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang31OpenCLIntelReqdSubGroupSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 296, ptr %5, align 8
@@ -177961,7 +177961,7 @@ _ZN5clang16OpenCLKernelAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16OpenCLKernelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16OpenCLKernelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 297, ptr %4, align 8
@@ -178379,7 +178379,7 @@ _ZN5clang27OpenCLLocalAddressSpaceAttr6CreateERNS_10ASTContextERKNS_19AttributeC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang27OpenCLLocalAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang27OpenCLLocalAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 25, ptr %4, align 8
@@ -178939,7 +178939,7 @@ _ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextERKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang29OpenCLPrivateAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang29OpenCLPrivateAddressSpaceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 26, ptr %4, align 8
@@ -179515,7 +179515,7 @@ _ZN5clang20OpenCLUnrollHintAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20OpenCLUnrollHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20OpenCLUnrollHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 41, ptr %5, align 8
@@ -179529,7 +179529,7 @@ define dso_local void @_ZN5clang20OpenCLUnrollHintAttrC2ERNS_10ASTContextERKNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20OpenCLUnrollHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20OpenCLUnrollHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 41, ptr %4, align 8
@@ -180000,7 +180000,7 @@ _ZN5clang16OptimizeNoneAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16OptimizeNoneAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16OptimizeNoneAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 298, ptr %4, align 8
@@ -180516,7 +180516,7 @@ _ZN5clang16OverloadableAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16OverloadableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16OverloadableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 411, ptr %4, align 8
@@ -181026,7 +181026,7 @@ _ZN5clang12OverrideAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12OverrideAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12OverrideAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 299, ptr %4, align 8
@@ -181427,7 +181427,7 @@ _ZN5clang9OwnerAttr6CreateERNS_10ASTContextEPNS_14TypeSourceInfoERKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9OwnerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14TypeSourceInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang9OwnerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14TypeSourceInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 300, ptr %5, align 8
@@ -181441,7 +181441,7 @@ define dso_local void @_ZN5clang9OwnerAttrC2ERNS_10ASTContextERKNS_19AttributeCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9OwnerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang9OwnerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 300, ptr %4, align 8
@@ -181902,7 +181902,7 @@ _ZN5clang13OwnershipAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoEPNS_8Param
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13OwnershipAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoEPNS_8ParamIdxEj(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13OwnershipAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoEPNS_8ParamIdxEj(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 52), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 301, ptr %7, align 8
@@ -181971,7 +181971,7 @@ _ZSt4copyIPN5clang8ParamIdxES2_ET0_T_S4_S3_.exit: ; preds = %.loopexit, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13OwnershipAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13OwnershipAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 52), (56, 64)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 301, ptr %5, align 8
@@ -183742,7 +183742,7 @@ _ZN5clang10PackedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10PackedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10PackedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 302, ptr %4, align 8
@@ -184256,7 +184256,7 @@ _ZN5clang18ParamTypestateAttr6CreateERNS_10ASTContextENS0_13ConsumedStateERKNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18ParamTypestateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13ConsumedStateE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18ParamTypestateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13ConsumedStateE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 303, ptr %5, align 8
@@ -184994,7 +184994,7 @@ _ZN5clang10PascalAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10PascalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10PascalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 62, ptr %4, align 8
@@ -185529,7 +185529,7 @@ _ZN5clang18PassObjectSizeAttr6CreateERNS_10ASTContextEiRKNS_19AttributeCommonInf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18PassObjectSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEi(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18PassObjectSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEi(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 89, ptr %5, align 8
@@ -186424,7 +186424,7 @@ _ZN5clang26PatchableFunctionEntryAttr6CreateERNS_10ASTContextEjiRKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang26PatchableFunctionEntryAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEji(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang26PatchableFunctionEntryAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEji(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 34), (36, 44)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 304, ptr %6, align 8
@@ -186440,7 +186440,7 @@ define dso_local void @_ZN5clang26PatchableFunctionEntryAttrC2ERNS_10ASTContextE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang26PatchableFunctionEntryAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang26PatchableFunctionEntryAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 34), (36, 44)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 304, ptr %5, align 8
@@ -187153,7 +187153,7 @@ _ZN5clang7PcsAttr6CreateERNS_10ASTContextENS0_7PCSTypeERKNS_19AttributeCommonInf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang7PcsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_7PCSTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang7PcsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_7PCSTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 63, ptr %5, align 8
@@ -188016,7 +188016,7 @@ _ZN5clang11PointerAttr6CreateERNS_10ASTContextEPNS_14TypeSourceInfoERKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11PointerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14TypeSourceInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11PointerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14TypeSourceInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 305, ptr %5, align 8
@@ -188030,7 +188030,7 @@ define dso_local void @_ZN5clang11PointerAttrC2ERNS_10ASTContextERKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11PointerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11PointerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 305, ptr %4, align 8
@@ -188507,7 +188507,7 @@ _ZN5clang25PragmaClangBSSSectionAttr6CreateERNS_10ASTContextEN4llvm9StringRefERK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang25PragmaClangBSSSectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang25PragmaClangBSSSectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 306, ptr %6, align 8
@@ -188912,7 +188912,7 @@ _ZN5clang26PragmaClangDataSectionAttr6CreateERNS_10ASTContextEN4llvm9StringRefER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang26PragmaClangDataSectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang26PragmaClangDataSectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 307, ptr %6, align 8
@@ -189317,7 +189317,7 @@ _ZN5clang27PragmaClangRelroSectionAttr6CreateERNS_10ASTContextEN4llvm9StringRefE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang27PragmaClangRelroSectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang27PragmaClangRelroSectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 308, ptr %6, align 8
@@ -189722,7 +189722,7 @@ _ZN5clang28PragmaClangRodataSectionAttr6CreateERNS_10ASTContextEN4llvm9StringRef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang28PragmaClangRodataSectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang28PragmaClangRodataSectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 309, ptr %6, align 8
@@ -190127,7 +190127,7 @@ _ZN5clang26PragmaClangTextSectionAttr6CreateERNS_10ASTContextEN4llvm9StringRefER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang26PragmaClangTextSectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang26PragmaClangTextSectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 310, ptr %6, align 8
@@ -190536,7 +190536,7 @@ _ZN5clang17PreferredNameAttr6CreateERNS_10ASTContextEPNS_14TypeSourceInfoERKNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17PreferredNameAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14TypeSourceInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17PreferredNameAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14TypeSourceInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 311, ptr %5, align 8
@@ -191107,7 +191107,7 @@ _ZN5clang17PreferredTypeAttr6CreateERNS_10ASTContextEPNS_14TypeSourceInfoERKNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17PreferredTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14TypeSourceInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17PreferredTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14TypeSourceInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 312, ptr %5, align 8
@@ -191121,7 +191121,7 @@ define dso_local void @_ZN5clang17PreferredTypeAttrC2ERNS_10ASTContextERKNS_19At
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17PreferredTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17PreferredTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 312, ptr %4, align 8
@@ -191794,7 +191794,7 @@ _ZN5clang15PreserveAllAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15PreserveAllAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15PreserveAllAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 64, ptr %4, align 8
@@ -192310,7 +192310,7 @@ _ZN5clang16PreserveMostAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16PreserveMostAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16PreserveMostAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 65, ptr %4, align 8
@@ -192826,7 +192826,7 @@ _ZN5clang16PreserveNoneAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16PreserveNoneAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16PreserveNoneAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 66, ptr %4, align 8
@@ -193336,7 +193336,7 @@ _ZN5clang15PtGuardedByAttr6CreateERNS_10ASTContextEPNS_4ExprERKNS_19AttributeCom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15PtGuardedByAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15PtGuardedByAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 313, ptr %5, align 8
@@ -193809,7 +193809,7 @@ _ZN5clang16PtGuardedVarAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16PtGuardedVarAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16PtGuardedVarAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 314, ptr %4, align 8
@@ -194277,7 +194277,7 @@ _ZN5clang9Ptr32Attr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9Ptr32AttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang9Ptr32AttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 27, ptr %4, align 8
@@ -194678,7 +194678,7 @@ _ZN5clang9Ptr64Attr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9Ptr64AttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang9Ptr64AttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 28, ptr %4, align 8
@@ -195085,7 +195085,7 @@ _ZN5clang8PureAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8PureAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang8PureAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 315, ptr %4, align 8
@@ -195601,7 +195601,7 @@ _ZN5clang18RISCVInterruptAttr6CreateERNS_10ASTContextENS0_13InterruptTypeERKNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18RISCVInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13InterruptTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18RISCVInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13InterruptTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 316, ptr %5, align 8
@@ -195615,7 +195615,7 @@ define dso_local void @_ZN5clang18RISCVInterruptAttrC2ERNS_10ASTContextERKNS_19A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18RISCVInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18RISCVInterruptAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 316, ptr %4, align 8
@@ -196462,7 +196462,7 @@ _ZN5clang17RISCVVectorCCAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17RISCVVectorCCAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17RISCVVectorCCAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 67, ptr %4, align 8
@@ -197082,7 +197082,7 @@ _ZN5clang19RandomizeLayoutAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19RandomizeLayoutAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19RandomizeLayoutAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 317, ptr %4, align 8
@@ -197598,7 +197598,7 @@ _ZN5clang21ReadOnlyPlacementAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21ReadOnlyPlacementAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21ReadOnlyPlacementAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 318, ptr %4, align 8
@@ -198116,7 +198116,7 @@ _ZN5clang11RegCallAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11RegCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11RegCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 68, ptr %4, align 8
@@ -198654,7 +198654,7 @@ _ZN5clang17ReinitializesAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17ReinitializesAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17ReinitializesAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 319, ptr %4, align 8
@@ -199106,7 +199106,7 @@ _ZN5clang21ReleaseCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjRKNS_19Attr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21ReleaseCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang21ReleaseCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 320, ptr %6, align 8
@@ -199166,7 +199166,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21ReleaseCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21ReleaseCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 320, ptr %4, align 8
@@ -200579,7 +200579,7 @@ _ZN5clang17ReleaseHandleAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Att
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17ReleaseHandleAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang17ReleaseHandleAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 90, ptr %6, align 8
@@ -201464,7 +201464,7 @@ _ZN5clang22RenderScriptKernelAttr6CreateERNS_10ASTContextERKNS_19AttributeCommon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang22RenderScriptKernelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang22RenderScriptKernelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 412, ptr %4, align 8
@@ -201886,7 +201886,7 @@ _ZN5clang21ReqdWorkGroupSizeAttr6CreateERNS_10ASTContextEjjjRKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21ReqdWorkGroupSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEjjj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21ReqdWorkGroupSizeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEjjj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 321, ptr %7, align 8
@@ -202391,7 +202391,7 @@ _ZN5clang22RequiresCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjRKNS_19Att
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang22RequiresCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang22RequiresCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPPNS_4ExprEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 322, ptr %6, align 8
@@ -202451,7 +202451,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang22RequiresCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang22RequiresCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 322, ptr %4, align 8
@@ -203842,7 +203842,7 @@ _ZN5clang12RestrictAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12RestrictAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12RestrictAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 323, ptr %4, align 8
@@ -204422,7 +204422,7 @@ _ZN5clang10RetainAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10RetainAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10RetainAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 324, ptr %4, align 8
@@ -204936,7 +204936,7 @@ _ZN5clang19ReturnTypestateAttr6CreateERNS_10ASTContextENS0_13ConsumedStateERKNS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19ReturnTypestateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13ConsumedStateE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19ReturnTypestateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13ConsumedStateE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 325, ptr %5, align 8
@@ -205672,7 +205672,7 @@ _ZN5clang18ReturnsNonNullAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18ReturnsNonNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18ReturnsNonNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 326, ptr %4, align 8
@@ -206188,7 +206188,7 @@ _ZN5clang16ReturnsTwiceAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16ReturnsTwiceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16ReturnsTwiceAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 327, ptr %4, align 8
@@ -206698,7 +206698,7 @@ _ZN5clang8SPtrAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8SPtrAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang8SPtrAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 29, ptr %4, align 8
@@ -207105,7 +207105,7 @@ _ZN5clang14SYCLKernelAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14SYCLKernelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14SYCLKernelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 328, ptr %4, align 8
@@ -207621,7 +207621,7 @@ _ZN5clang20SYCLSpecialClassAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20SYCLSpecialClassAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20SYCLSpecialClassAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 329, ptr %4, align 8
@@ -208135,7 +208135,7 @@ _ZN5clang18ScopedLockableAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18ScopedLockableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18ScopedLockableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 330, ptr %4, align 8
@@ -208585,7 +208585,7 @@ _ZN5clang11SectionAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang11SectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11SectionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 331, ptr %6, align 8
@@ -209651,7 +209651,7 @@ _ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13SelectAnyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13SelectAnyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 332, ptr %4, align 8
@@ -210201,7 +210201,7 @@ _ZN5clang12SentinelAttr6CreateERNS_10ASTContextEiiRKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12SentinelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEii(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12SentinelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEii(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 34), (36, 44)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 333, ptr %6, align 8
@@ -210217,7 +210217,7 @@ define dso_local void @_ZN5clang12SentinelAttrC2ERNS_10ASTContextERKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12SentinelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12SentinelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 34), (36, 44)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 333, ptr %4, align 8
@@ -210928,7 +210928,7 @@ _ZN5clang16SetTypestateAttr6CreateERNS_10ASTContextENS0_13ConsumedStateERKNS_19A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16SetTypestateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13ConsumedStateE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16SetTypestateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13ConsumedStateE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 334, ptr %5, align 8
@@ -211658,7 +211658,7 @@ _ZN5clang25SharedTrylockFunctionAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jRKNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang25SharedTrylockFunctionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPS7_j(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang25SharedTrylockFunctionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPS7_j(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 52), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 335, ptr %7, align 8
@@ -211720,7 +211720,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang25SharedTrylockFunctionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang25SharedTrylockFunctionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 52), (56, 64)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 335, ptr %5, align 8
@@ -212241,7 +212241,7 @@ _ZN5clang11SizedByAttr6CreateERNS_10ASTContextEPNS_4ExprEiRKNS_19AttributeCommon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11SizedByAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11SizedByAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (40, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 69, ptr %6, align 8
@@ -212258,7 +212258,7 @@ define dso_local void @_ZN5clang11SizedByAttrC2ERNS_10ASTContextERKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11SizedByAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11SizedByAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (40, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 69, ptr %5, align 8
@@ -212981,7 +212981,7 @@ _ZN5clang17SizedByOrNullAttr6CreateERNS_10ASTContextEPNS_4ExprEiRKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17SizedByOrNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17SizedByOrNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (40, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 70, ptr %6, align 8
@@ -212998,7 +212998,7 @@ define dso_local void @_ZN5clang17SizedByOrNullAttrC2ERNS_10ASTContextERKNS_19At
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17SizedByOrNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17SizedByOrNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (40, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 70, ptr %5, align 8
@@ -213721,7 +213721,7 @@ _ZN5clang28SpeculativeLoadHardeningAttr6CreateERNS_10ASTContextERKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang28SpeculativeLoadHardeningAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang28SpeculativeLoadHardeningAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 336, ptr %4, align 8
@@ -214235,7 +214235,7 @@ _ZN5clang19StandaloneDebugAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19StandaloneDebugAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19StandaloneDebugAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 337, ptr %4, align 8
@@ -214711,7 +214711,7 @@ _ZN5clang11StdCallAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11StdCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11StdCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 71, ptr %4, align 8
@@ -215262,7 +215262,7 @@ _ZN5clang12StrictFPAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12StrictFPAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12StrictFPAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 338, ptr %4, align 8
@@ -215619,7 +215619,7 @@ _ZN5clang25StrictGuardStackCheckAttr6CreateERNS_10ASTContextERKNS_19AttributeCom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang25StrictGuardStackCheckAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang25StrictGuardStackCheckAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 339, ptr %4, align 8
@@ -216046,7 +216046,7 @@ _ZN5clang12SuppressAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjRKNS_19Attrib
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12SuppressAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12SuppressAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 46, ptr %6, align 8
@@ -216155,7 +216155,7 @@ _ZnamRKN5clang10ASTContextEm.exit19:              ; preds = %43, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12SuppressAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12SuppressAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 46, ptr %4, align 8
@@ -217328,7 +217328,7 @@ _ZN5clang14SwiftAsyncAttr6CreateERNS_10ASTContextENS0_4KindENS_8ParamIdxERKNS_19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14SwiftAsyncAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_4KindENS_8ParamIdxE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14SwiftAsyncAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_4KindENS_8ParamIdxE(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 34), (36, 44)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 340, ptr %6, align 8
@@ -217344,7 +217344,7 @@ define dso_local void @_ZN5clang14SwiftAsyncAttrC2ERNS_10ASTContextERKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14SwiftAsyncAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_4KindE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14SwiftAsyncAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_4KindE(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 34), (36, 44)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 340, ptr %5, align 8
@@ -218333,7 +218333,7 @@ _ZN5clang18SwiftAsyncCallAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18SwiftAsyncCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18SwiftAsyncCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 72, ptr %4, align 8
@@ -218849,7 +218849,7 @@ _ZN5clang21SwiftAsyncContextAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21SwiftAsyncContextAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21SwiftAsyncContextAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 79, ptr %4, align 8
@@ -219365,7 +219365,7 @@ _ZN5clang19SwiftAsyncErrorAttr6CreateERNS_10ASTContextENS0_14ConventionKindEjRKN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19SwiftAsyncErrorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_14ConventionKindEj(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19SwiftAsyncErrorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_14ConventionKindEj(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 34), (36, 44)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 341, ptr %6, align 8
@@ -219381,7 +219381,7 @@ define dso_local void @_ZN5clang19SwiftAsyncErrorAttrC2ERNS_10ASTContextERKNS_19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang19SwiftAsyncErrorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_14ConventionKindE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19SwiftAsyncErrorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_14ConventionKindE(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 34), (36, 44)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 341, ptr %5, align 8
@@ -220342,7 +220342,7 @@ _ZN5clang18SwiftAsyncNameAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19At
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18SwiftAsyncNameAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang18SwiftAsyncNameAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 342, ptr %6, align 8
@@ -220921,7 +220921,7 @@ _ZN5clang13SwiftAttrAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13SwiftAttrAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13SwiftAttrAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 343, ptr %6, align 8
@@ -221500,7 +221500,7 @@ _ZN5clang15SwiftBridgeAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15SwiftBridgeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15SwiftBridgeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 344, ptr %6, align 8
@@ -222079,7 +222079,7 @@ _ZN5clang23SwiftBridgedTypedefAttr6CreateERNS_10ASTContextERKNS_19AttributeCommo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang23SwiftBridgedTypedefAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang23SwiftBridgedTypedefAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 345, ptr %4, align 8
@@ -222507,7 +222507,7 @@ _ZN5clang13SwiftCallAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13SwiftCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13SwiftCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 73, ptr %4, align 8
@@ -223023,7 +223023,7 @@ _ZN5clang16SwiftContextAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16SwiftContextAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16SwiftContextAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 80, ptr %4, align 8
@@ -223533,7 +223533,7 @@ _ZN5clang14SwiftErrorAttr6CreateERNS_10ASTContextENS0_14ConventionKindERKNS_19At
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14SwiftErrorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_14ConventionKindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14SwiftErrorAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_14ConventionKindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 346, ptr %5, align 8
@@ -224126,7 +224126,7 @@ _ZN5clang20SwiftErrorResultAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20SwiftErrorResultAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20SwiftErrorResultAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 81, ptr %4, align 8
@@ -224636,7 +224636,7 @@ _ZN5clang27SwiftImportAsNonGenericAttr6CreateERNS_10ASTContextERKNS_19AttributeC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang27SwiftImportAsNonGenericAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang27SwiftImportAsNonGenericAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 347, ptr %4, align 8
@@ -224993,7 +224993,7 @@ _ZN5clang34SwiftImportPropertyAsAccessorsAttr6CreateERNS_10ASTContextERKNS_19Att
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang34SwiftImportPropertyAsAccessorsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang34SwiftImportPropertyAsAccessorsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 348, ptr %4, align 8
@@ -225356,7 +225356,7 @@ _ZN5clang23SwiftIndirectResultAttr6CreateERNS_10ASTContextERKNS_19AttributeCommo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang23SwiftIndirectResultAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang23SwiftIndirectResultAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 82, ptr %4, align 8
@@ -225866,7 +225866,7 @@ _ZN5clang13SwiftNameAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13SwiftNameAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13SwiftNameAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 349, ptr %6, align 8
@@ -226425,7 +226425,7 @@ _ZN5clang16SwiftNewTypeAttr6CreateERNS_10ASTContextENS0_11NewtypeKindERKNS_19Att
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16SwiftNewTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_11NewtypeKindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16SwiftNewTypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_11NewtypeKindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 350, ptr %5, align 8
@@ -227170,7 +227170,7 @@ _ZN5clang20SwiftObjCMembersAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20SwiftObjCMembersAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20SwiftObjCMembersAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 413, ptr %4, align 8
@@ -227592,7 +227592,7 @@ _ZN5clang16SwiftPrivateAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16SwiftPrivateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16SwiftPrivateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 351, ptr %4, align 8
@@ -228014,7 +228014,7 @@ _ZN5clang26SwiftVersionedAdditionAttr6CreateERNS_10ASTContextEN4llvm12VersionTup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang26SwiftVersionedAdditionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm12VersionTupleEPNS_4AttrEb(ptr nocapture noundef nonnull align 8 dereferenceable(65) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i64 %3, i64 %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang26SwiftVersionedAdditionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm12VersionTupleEPNS_4AttrEb(ptr nocapture noundef nonnull align 8 dereferenceable(65) initializes((0, 34), (36, 52), (56, 65)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i64 %3, i64 %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #5 align 2 {
   %8 = zext i1 %6 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -228389,7 +228389,7 @@ _ZN5clang25SwiftVersionedRemovalAttr6CreateERNS_10ASTContextEN4llvm12VersionTupl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang25SwiftVersionedRemovalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm12VersionTupleEjb(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i64 %3, i64 %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang25SwiftVersionedRemovalAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm12VersionTupleEjb(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 34), (36, 57)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i64 %3, i64 %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #5 align 2 {
   %8 = zext i1 %6 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -228770,7 +228770,7 @@ _ZN5clang11SysVABIAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11SysVABIAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11SysVABIAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 74, ptr %4, align 8
@@ -229286,7 +229286,7 @@ _ZN5clang12TLSModelAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attribut
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12TLSModelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12TLSModelAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 352, ptr %6, align 8
@@ -230177,7 +230177,7 @@ _ZN5clang10TargetAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19AttributeC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10TargetAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10TargetAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 353, ptr %6, align 8
@@ -231068,7 +231068,7 @@ _ZN5clang16TargetClonesAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjRKNS_19At
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16TargetClonesAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16TargetClonesAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPN4llvm9StringRefEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 354, ptr %6, align 8
@@ -231177,7 +231177,7 @@ _ZnamRKN5clang10ASTContextEm.exit19:              ; preds = %43, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16TargetClonesAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16TargetClonesAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 354, ptr %4, align 8
@@ -232160,7 +232160,7 @@ _ZN5clang17TargetVersionAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Att
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17TargetVersionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang17TargetVersionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 355, ptr %6, align 8
@@ -233049,7 +233049,7 @@ _ZN5clang17TestTypestateAttr6CreateERNS_10ASTContextENS0_13ConsumedStateERKNS_19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17TestTypestateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13ConsumedStateE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17TestTypestateAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_13ConsumedStateE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 356, ptr %5, align 8
@@ -233773,7 +233773,7 @@ _ZN5clang12ThisCallAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12ThisCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12ThisCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 75, ptr %4, align 8
@@ -234324,7 +234324,7 @@ _ZN5clang10ThreadAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10ThreadAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10ThreadAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 416, ptr %4, align 8
@@ -234749,7 +234749,7 @@ _ZN5clang20TransparentUnionAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20TransparentUnionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20TransparentUnionAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 357, ptr %4, align 8
@@ -235263,7 +235263,7 @@ _ZN5clang14TrivialABIAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14TrivialABIAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14TrivialABIAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 358, ptr %4, align 8
@@ -235715,7 +235715,7 @@ _ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jRKNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang24TryAcquireCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPS7_j(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang24TryAcquireCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprEPS7_j(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 52), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 359, ptr %7, align 8
@@ -235777,7 +235777,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit:    ; preds = %_ZnamRKN5clang10AST
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang24TryAcquireCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang24TryAcquireCapabilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 34), (40, 52), (56, 64)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 359, ptr %5, align 8
@@ -236687,7 +236687,7 @@ _ZN5clang15TypeNonNullAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15TypeNonNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15TypeNonNullAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 30, ptr %4, align 8
@@ -237088,7 +237088,7 @@ _ZN5clang23TypeNullUnspecifiedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang23TypeNullUnspecifiedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang23TypeNullUnspecifiedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 31, ptr %4, align 8
@@ -237489,7 +237489,7 @@ _ZN5clang16TypeNullableAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang16TypeNullableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang16TypeNullableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 76, ptr %4, align 8
@@ -237890,7 +237890,7 @@ _ZN5clang22TypeNullableResultAttr6CreateERNS_10ASTContextERKNS_19AttributeCommon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang22TypeNullableResultAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang22TypeNullableResultAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 32, ptr %4, align 8
@@ -238297,7 +238297,7 @@ _ZN5clang22TypeTagForDatatypeAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoEP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang22TypeTagForDatatypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoEPNS_14TypeSourceInfoEbb(ptr nocapture noundef nonnull align 8 dereferenceable(58) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang22TypeTagForDatatypeAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14IdentifierInfoEPNS_14TypeSourceInfoEbb(ptr nocapture noundef nonnull align 8 dereferenceable(58) initializes((0, 34), (40, 58)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #5 align 2 {
   %8 = zext i1 %5 to i8
   %9 = zext i1 %6 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
@@ -239301,7 +239301,7 @@ _ZN5clang18TypeVisibilityAttr6CreateERNS_10ASTContextENS0_14VisibilityTypeERKNS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18TypeVisibilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_14VisibilityTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18TypeVisibilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_14VisibilityTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 361, ptr %5, align 8
@@ -240187,7 +240187,7 @@ _ZN5clang8UPtrAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8UPtrAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang8UPtrAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 33, ptr %4, align 8
@@ -240872,7 +240872,7 @@ _ZN5clang15UnavailableAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15UnavailableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefENS0_14ImplicitReasonE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15UnavailableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefENS0_14ImplicitReasonE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (36, 52)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, i32 noundef %5) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 362, ptr %7, align 8
@@ -240929,7 +240929,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %25, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15UnavailableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15UnavailableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (36, 52)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 362, ptr %6, align 8
@@ -240986,7 +240986,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %24, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15UnavailableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15UnavailableAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (36, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 362, ptr %4, align 8
@@ -241836,7 +241836,7 @@ _ZN5clang17UninitializedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17UninitializedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17UninitializedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 363, ptr %4, align 8
@@ -242308,7 +242308,7 @@ _ZN5clang12UnlikelyAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang12UnlikelyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12UnlikelyAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 42, ptr %4, align 8
@@ -242782,7 +242782,7 @@ _ZN5clang21UnsafeBufferUsageAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21UnsafeBufferUsageAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21UnsafeBufferUsageAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 364, ptr %4, align 8
@@ -243276,7 +243276,7 @@ _ZN5clang10UnusedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang10UnusedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang10UnusedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 365, ptr %4, align 8
@@ -243897,7 +243897,7 @@ _ZN5clang13UseHandleAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attribu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13UseHandleAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13UseHandleAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 91, ptr %6, align 8
@@ -244788,7 +244788,7 @@ _ZN5clang8UsedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8UsedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang8UsedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 366, ptr %4, align 8
@@ -245302,7 +245302,7 @@ _ZN5clang17UsingIfExistsAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang17UsingIfExistsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17UsingIfExistsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 367, ptr %4, align 8
@@ -246050,7 +246050,7 @@ _ZN5clang8UuidAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8UuidAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefEPNS_10MSGuidDeclE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8UuidAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefEPNS_10MSGuidDeclE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 34), (36, 56)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4, ptr noundef %5) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 368, ptr %7, align 8
@@ -246107,7 +246107,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %25, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8UuidAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8UuidAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 34), (36, 56)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 368, ptr %6, align 8
@@ -246845,7 +246845,7 @@ _ZN5clang31VTablePointerAuthenticationAttr6CreateERNS_10ASTContextENS0_15VPtrAut
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang31VTablePointerAuthenticationAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_15VPtrAuthKeyTypeENS0_25AddressDiscriminationModeENS0_19ExtraDiscriminationEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang31VTablePointerAuthenticationAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_15VPtrAuthKeyTypeENS0_25AddressDiscriminationModeENS0_19ExtraDiscriminationEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (36, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 369, ptr %8, align 8
@@ -246865,7 +246865,7 @@ define dso_local void @_ZN5clang31VTablePointerAuthenticationAttrC2ERNS_10ASTCon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang31VTablePointerAuthenticationAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_15VPtrAuthKeyTypeENS0_25AddressDiscriminationModeENS0_19ExtraDiscriminationE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang31VTablePointerAuthenticationAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_15VPtrAuthKeyTypeENS0_25AddressDiscriminationModeENS0_19ExtraDiscriminationE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 34), (36, 52)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 369, ptr %7, align 8
@@ -248486,7 +248486,7 @@ _ZN5clang13VecReturnAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang13VecReturnAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang13VecReturnAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 370, ptr %4, align 8
@@ -248954,7 +248954,7 @@ _ZN5clang15VecTypeHintAttr6CreateERNS_10ASTContextEPNS_14TypeSourceInfoERKNS_19A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15VecTypeHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14TypeSourceInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15VecTypeHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEPNS_14TypeSourceInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (40, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 371, ptr %5, align 8
@@ -249434,7 +249434,7 @@ _ZN5clang14VectorCallAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14VectorCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14VectorCallAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 77, ptr %4, align 8
@@ -249991,7 +249991,7 @@ _ZN5clang14VisibilityAttr6CreateERNS_10ASTContextENS0_14VisibilityTypeERKNS_19At
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14VisibilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_14VisibilityTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14VisibilityAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_14VisibilityTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 372, ptr %5, align 8
@@ -250883,7 +250883,7 @@ _ZN5clang14WarnUnusedAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14WarnUnusedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14WarnUnusedAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 373, ptr %4, align 8
@@ -251377,7 +251377,7 @@ _ZN5clang20WarnUnusedResultAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20WarnUnusedResultAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang20WarnUnusedResultAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 374, ptr %6, align 8
@@ -251432,7 +251432,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %24, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20WarnUnusedResultAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20WarnUnusedResultAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 374, ptr %4, align 8
@@ -252752,7 +252752,7 @@ _ZN5clang8WeakAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8WeakAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang8WeakAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 375, ptr %4, align 8
@@ -253268,7 +253268,7 @@ _ZN5clang14WeakImportAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfoE.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang14WeakImportAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang14WeakImportAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 376, ptr %4, align 8
@@ -253784,7 +253784,7 @@ _ZN5clang11WeakRefAttr6CreateERNS_10ASTContextEN4llvm9StringRefERKNS_19Attribute
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang11WeakRefAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11WeakRefAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 377, ptr %6, align 8
@@ -253839,7 +253839,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %24, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11WeakRefAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang11WeakRefAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 377, ptr %4, align 8
@@ -254691,7 +254691,7 @@ _ZN5clang25WebAssemblyExportNameAttr6CreateERNS_10ASTContextEN4llvm9StringRefERK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang25WebAssemblyExportNameAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang25WebAssemblyExportNameAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 378, ptr %6, align 8
@@ -255576,7 +255576,7 @@ _ZN5clang22WebAssemblyFuncrefAttr6CreateERNS_10ASTContextERKNS_19AttributeCommon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang22WebAssemblyFuncrefAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang22WebAssemblyFuncrefAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 34, ptr %4, align 8
@@ -255983,7 +255983,7 @@ _ZN5clang27WebAssemblyImportModuleAttr6CreateERNS_10ASTContextEN4llvm9StringRefE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang27WebAssemblyImportModuleAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang27WebAssemblyImportModuleAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 379, ptr %6, align 8
@@ -256874,7 +256874,7 @@ _ZN5clang25WebAssemblyImportNameAttr6CreateERNS_10ASTContextEN4llvm9StringRefERK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang25WebAssemblyImportNameAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang25WebAssemblyImportNameAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 380, ptr %6, align 8
@@ -257759,7 +257759,7 @@ _ZN5clang21WorkGroupSizeHintAttr6CreateERNS_10ASTContextEjjjRKNS_19AttributeComm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang21WorkGroupSizeHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEjjj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang21WorkGroupSizeHintAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEjjj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 381, ptr %7, align 8
@@ -258286,7 +258286,7 @@ _ZN5clang27X86ForceAlignArgPointerAttr6CreateERNS_10ASTContextERKNS_19AttributeC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang27X86ForceAlignArgPointerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang27X86ForceAlignArgPointerAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 382, ptr %4, align 8
@@ -258780,7 +258780,7 @@ _ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextERKNS_19AttributeCommonInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18XRayInstrumentAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang18XRayInstrumentAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(35) initializes((0, 34)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 383, ptr %4, align 8
@@ -259437,7 +259437,7 @@ _ZN5clang15XRayLogArgsAttr6CreateERNS_10ASTContextEjRKNS_19AttributeCommonInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang15XRayLogArgsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang15XRayLogArgsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 384, ptr %5, align 8
@@ -260074,7 +260074,7 @@ _ZN5clang20ZeroCallUsedRegsAttr6CreateERNS_10ASTContextENS0_20ZeroCallUsedRegsKi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20ZeroCallUsedRegsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_20ZeroCallUsedRegsKindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang20ZeroCallUsedRegsAttrC2ERNS_10ASTContextERKNS_19AttributeCommonInfoENS0_20ZeroCallUsedRegsKindE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 385, ptr %5, align 8

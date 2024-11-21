@@ -30909,7 +30909,7 @@ define internal fastcc void @timestamp(ptr noundef %0, ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @XConvertCase(i32 noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #5 {
+define internal fastcc void @XConvertCase(i32 noundef %0, ptr nocapture noundef nonnull initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #5 {
   store i32 %0, ptr %1, align 4
   store i32 %0, ptr %2, align 4
   %4 = ashr i32 %0, 8

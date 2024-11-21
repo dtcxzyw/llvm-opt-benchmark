@@ -5865,7 +5865,7 @@ declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @git_config_get_bool(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_replay_opts(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %opts) unnamed_addr #0 {
+define internal fastcc void @get_replay_opts(ptr noalias nonnull align 8 initializes((0, 224)) %agg.result, ptr nocapture noundef nonnull readonly %opts) unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) @__const.get_replay_opts.replay, i64 224, i1 false)
   store i32 2, ptr %agg.result, align 8

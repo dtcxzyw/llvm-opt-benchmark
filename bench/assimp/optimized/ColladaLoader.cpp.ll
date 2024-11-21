@@ -578,7 +578,7 @@ declare noundef zeroext i1 @_ZN6Assimp12BaseImporter24SearchFileHeaderForTokenEP
 declare void @_ZN6Assimp18ZipArchiveIOSystemD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(380) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp13ColladaLoader15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(380) initializes((368, 373)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.2, i32 noundef 0)
   %cmp = icmp ne i32 %call, 0
@@ -2576,7 +2576,7 @@ return:                                           ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader16StoreSceneMeshesEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(380) %this, ptr nocapture noundef writeonly %pScene) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader16StoreSceneMeshesEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(380) %this, ptr nocapture noundef writeonly initializes((16, 20)) %pScene) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mMeshes = getelementptr inbounds i8, ptr %this, i64 200
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -2620,7 +2620,7 @@ return:                                           ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader19StoreSceneMaterialsEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(380) %this, ptr nocapture noundef %pScene) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader19StoreSceneMaterialsEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(380) %this, ptr nocapture noundef initializes((32, 36)) %pScene) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newMats = getelementptr inbounds i8, ptr %this, i64 248
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 256
@@ -2688,7 +2688,7 @@ return:                                           ; preds = %invoke.cont.i.i, %f
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader18StoreSceneTexturesEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(380) %this, ptr nocapture noundef writeonly %pScene) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader18StoreSceneTexturesEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(380) %this, ptr nocapture noundef writeonly initializes((64, 68)) %pScene) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mTextures = getelementptr inbounds i8, ptr %this, i64 320
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 328
@@ -2732,7 +2732,7 @@ return:                                           ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader16StoreSceneLightsEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(380) %this, ptr nocapture noundef writeonly %pScene) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader16StoreSceneLightsEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(380) %this, ptr nocapture noundef writeonly initializes((80, 84)) %pScene) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mLights = getelementptr inbounds i8, ptr %this, i64 296
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 304
@@ -2776,7 +2776,7 @@ return:                                           ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader17StoreSceneCamerasEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(380) %this, ptr nocapture noundef writeonly %pScene) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader17StoreSceneCamerasEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(380) %this, ptr nocapture noundef writeonly initializes((96, 100)) %pScene) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mCameras = getelementptr inbounds i8, ptr %this, i64 272
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 280
@@ -13460,7 +13460,7 @@ if.end39:                                         ; preds = %if.end39.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader28FindFilenameForEffectTextureERKNS_13ColladaParserERKNS_7Collada6EffectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%struct.aiString) align 4 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(380) %this, ptr noundef nonnull align 8 dereferenceable(772) %pParser, ptr noundef nonnull align 8 dereferenceable(963) %pEffect, ptr noundef nonnull align 8 dereferenceable(32) %pName) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader28FindFilenameForEffectTextureERKNS_13ColladaParserERKNS_7Collada6EffectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%struct.aiString) align 4 initializes((0, 5)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(380) %this, ptr noundef nonnull align 8 dereferenceable(772) %pParser, ptr noundef nonnull align 8 dereferenceable(963) %pEffect, ptr noundef nonnull align 8 dereferenceable(32) %pName) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp21 = alloca %"class.std::__cxx11::basic_string", align 8

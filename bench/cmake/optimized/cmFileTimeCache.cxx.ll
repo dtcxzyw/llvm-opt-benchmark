@@ -113,7 +113,7 @@ define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache6RemoveERKNSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache7CompareERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_Pi(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache7CompareERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_Pi(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %class.cmFileTime, align 8
   %6 = alloca %class.cmFileTime, align 8
   store i64 0, ptr %5, align 8

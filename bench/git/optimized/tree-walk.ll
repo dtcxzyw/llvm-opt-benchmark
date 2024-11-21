@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.21 = private unnamed_addr constant [21 x i8] c"unsupported magic %x\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @init_tree_desc(ptr nocapture noundef %desc, ptr noundef %buffer, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local void @init_tree_desc(ptr nocapture noundef initializes((0, 8), (64, 72)) %desc, ptr noundef %buffer, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %err = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_tree_entry_follow_symlinks.namebuf, i64 24, i1 false)
@@ -87,7 +87,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #2
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @init_tree_desc_gently(ptr nocapture noundef %desc, ptr noundef %buffer, i64 noundef %size, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @init_tree_desc_gently(ptr nocapture noundef initializes((0, 8), (64, 72)) %desc, ptr noundef %buffer, i64 noundef %size, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %err = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_tree_entry_follow_symlinks.namebuf, i64 24, i1 false)
@@ -344,7 +344,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setup_traverse_info(ptr nocapture noundef writeonly %info, ptr noundef %base) local_unnamed_addr #0 {
+define dso_local void @setup_traverse_info(ptr nocapture noundef writeonly initializes((0, 88)) %info, ptr noundef %base) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %base) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %info, i8 0, i64 88, i1 false)

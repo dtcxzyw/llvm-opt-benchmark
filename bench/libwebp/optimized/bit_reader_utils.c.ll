@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @kBitMask = internal unnamed_addr constant [25 x i32] [i32 0, i32 1, i32 3, i32 7, i32 15, i32 31, i32 63, i32 127, i32 255, i32 511, i32 1023, i32 2047, i32 4095, i32 8191, i32 16383, i32 32767, i32 65535, i32 131071, i32 262143, i32 524287, i32 1048575, i32 2097151, i32 4194303, i32 8388607, i32 16777215], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @VP8BitReaderSetBuffer(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden void @VP8BitReaderSetBuffer(ptr nocapture noundef writeonly initializes((16, 40)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -23,7 +23,7 @@ define hidden void @VP8BitReaderSetBuffer(ptr nocapture noundef writeonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @VP8InitBitReader(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden void @VP8InitBitReader(ptr nocapture noundef writeonly initializes((0, 44)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 254, ptr %4, align 8
   store i64 0, ptr %0, align 8
@@ -493,7 +493,7 @@ VP8GetBit.exit.i11:                               ; preds = %108, %102
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @VP8LInitBitReader(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden void @VP8LInitBitReader(ptr nocapture noundef writeonly initializes((0, 8), (16, 24), (32, 40)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %4, align 8
   store i64 0, ptr %0, align 8
@@ -529,7 +529,7 @@ define hidden void @VP8LInitBitReader(ptr nocapture noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @VP8LBitReaderSetBuffer(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @VP8LBitReaderSetBuffer(ptr nocapture noundef initializes((8, 24)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

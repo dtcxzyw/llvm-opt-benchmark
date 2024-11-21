@@ -859,7 +859,7 @@ Cudd_ApaShortDivision.exit.us:                    ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Cudd_ApaCountMinterm(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #11 {
+define noalias noundef ptr @Cudd_ApaCountMinterm(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #11 {
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr @background, align 8

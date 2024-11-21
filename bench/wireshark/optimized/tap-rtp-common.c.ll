@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @rtpstream_info_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @rtpstream_info_init(ptr nocapture noundef writeonly initializes((0, 7304)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %0, i8 0, i64 7304, i1 false)
   ret void
 }
@@ -34,7 +34,7 @@ define hidden noalias noundef ptr @rtpstream_info_malloc_and_init() local_unname
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_info_copy_deep(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden void @rtpstream_info_copy_deep(ptr nocapture noundef writeonly initializes((0, 7304)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7304) %0, ptr noundef nonnull align 8 dereferenceable(7304) %1, i64 7304, i1 false)
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 4
@@ -847,7 +847,7 @@ rtpstream_to_hash.exit:                           ; preds = %2, %3
 declare void @rtpstream_id_copy_pinfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_info_analyse_init(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define hidden void @rtpstream_info_analyse_init(ptr nocapture noundef writeonly initializes((64, 65), (72, 80), (2156, 2168), (2176, 2192), (2208, 2224), (2240, 2244), (7276, 7280)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -1058,7 +1058,7 @@ update_payload_names.exit:                        ; preds = %32, %35
 declare double @nstime_to_msec(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_info_calculate(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden void @rtpstream_info_calculate(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 10), (16, 26), (28, 124), (128, 164), (168, 184)) %1) local_unnamed_addr #2 {
   %3 = tail call ptr @address_to_display(ptr noundef null, ptr noundef %0) #16
   store ptr %3, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

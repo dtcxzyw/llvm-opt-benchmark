@@ -67,7 +67,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [31 x i8] c"maximum key length is %d bytes\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @PyBlake2_blake2b_init_param(ptr nocapture noundef %S, ptr nocapture noundef readonly %P) local_unnamed_addr #0 {
+define hidden noundef i32 @PyBlake2_blake2b_init_param(ptr nocapture noundef initializes((0, 358)) %S, ptr nocapture noundef readonly %P) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %S, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(294) %0, i8 0, i64 294, i1 false)

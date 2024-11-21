@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN12ZNMethodDataC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN12ZNMethodDataC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12ZNMethodDataC2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12ZNMethodDataC2Ev(ptr noundef nonnull align 8 dereferenceable(153) initializes((8, 48)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 40, i1 false)
   tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #7

@@ -3452,7 +3452,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel11leduc_poker10LeducState13ResolveWinnerEv(ptr nocapture noundef nonnull align 8 dereferenceable(330) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel11leduc_poker10LeducState13ResolveWinnerEv(ptr nocapture noundef nonnull align 8 dereferenceable(330) initializes((80, 84)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4086,7 +4086,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 declare void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker10LeducState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.26") align 8 %0, ptr noundef nonnull align 8 dereferenceable(330) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker10LeducState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.26") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(330) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -6704,7 +6704,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker10LeducState23padded_betting_sequenceEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.13") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker10LeducState23padded_betting_sequenceEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.13") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(330) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -9685,7 +9685,7 @@ define noundef i32 @_ZNK10open_spiel11leduc_poker9LeducGame17MaxChanceOutcomesEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker9LeducGame27InformationStateTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.13") align 8 %0, ptr noundef nonnull align 8 dereferenceable(322) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker9LeducGame27InformationStateTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.13") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(322) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 321
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -9726,7 +9726,7 @@ define void @_ZNK10open_spiel11leduc_poker9LeducGame27InformationStateTensorShap
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11leduc_poker9LeducGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.13") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(322) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11leduc_poker9LeducGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.13") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(322) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 321
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1

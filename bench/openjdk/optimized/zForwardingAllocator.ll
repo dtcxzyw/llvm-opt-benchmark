@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN20ZForwardingAllocatorD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20ZForwardingAllocatorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20ZForwardingAllocatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ZForwardingAllocatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -24,7 +24,7 @@ define hidden void @_ZN20ZForwardingAllocatorD2Ev(ptr nocapture noundef nonnull 
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ZForwardingAllocator5resetEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20ZForwardingAllocator5resetEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %3, i64 noundef %1, i8 noundef zeroext 5, i32 noundef 0) #4
   %5 = getelementptr inbounds i8, ptr %0, i64 16

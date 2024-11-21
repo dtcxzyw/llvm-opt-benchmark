@@ -258,7 +258,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i64 @FSE_buildDTable_rle(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef i64 @FSE_buildDTable_rle(ptr nocapture noundef writeonly initializes((0, 8)) %0, i8 noundef zeroext %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 4
   store i16 0, ptr %0, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 2
@@ -3268,7 +3268,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #10 align 16 {
+define internal fastcc noundef range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef writeonly initializes((0, 12), (16, 40)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #10 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -3409,7 +3409,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @BIT_initDStream(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @FSE_initDState(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #11 align 16 {
+define internal fastcc void @FSE_initDState(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #11 align 16 {
   %4 = load i16, ptr %2, align 2
   %5 = zext i16 %4 to i32
   %6 = load i64, ptr %1, align 8

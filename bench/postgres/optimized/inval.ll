@@ -596,7 +596,7 @@ ProcessInvalidationMessages.exit:                 ; preds = %.lr.ph4.i, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @xactGetCommittedInvalidationMessages(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @xactGetCommittedInvalidationMessages(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @transInvalInfo, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6

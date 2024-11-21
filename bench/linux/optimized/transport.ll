@@ -459,7 +459,7 @@ define dso_local range(i32 0, 5) i32 @usb_stor_bulk_transfer_buf(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 5) i32 @usb_stor_bulk_srb(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local range(i32 0, 5) i32 @usb_stor_bulk_srb(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((240, 244)) %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
   store i32 0, ptr %4, align 4, !annotation !5
@@ -602,7 +602,7 @@ define dso_local range(i32 0, 5) i32 @usb_stor_bulk_transfer_sg(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @usb_stor_invoke_transport(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @usb_stor_invoke_transport(ptr noundef initializes((240, 244)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.scsi_eh_save, align 8
   %4 = alloca %struct.scsi_sense_hdr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 240

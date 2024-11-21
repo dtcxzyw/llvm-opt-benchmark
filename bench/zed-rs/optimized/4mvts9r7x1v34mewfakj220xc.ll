@@ -512,7 +512,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hc0f23ca4c7061805E.llvm.2345482801186077863"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #1 {
+define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hc0f23ca4c7061805E.llvm.2345482801186077863"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
@@ -3116,7 +3116,7 @@ _ZN4core3fmt8builders9DebugList7entries17hf9cf28b72dda5fdcE.exit: ; preds = %.lr
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h333df6f5898f40faE.llvm.2345482801186077863"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h333df6f5898f40faE.llvm.2345482801186077863"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -3580,7 +3580,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hf30b6fb1f005600
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17he79daa2fa46e5b28E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #11 {
+define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17he79daa2fa46e5b28E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #11 {
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 12
@@ -9189,7 +9189,7 @@ define hidden { ptr, i64 } @"_ZN74_$LT$alloc..string..String$u20$as$u20$core..op
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN74_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2058bfdbfaf150efE.llvm.2345482801186077863"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #20 personality ptr @rust_eh_personality {
+define hidden void @"_ZN74_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2058bfdbfaf150efE.llvm.2345482801186077863"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 37)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #20 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !alias.scope !1539, !noundef !4
@@ -9375,7 +9375,7 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$core..ops..range..Range$LT$Idx$GT$$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN76_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$util..RangeExt$LT$T$GT$$GT$12to_inclusive17h5d5c57a12541e9e1E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
+define hidden void @"_ZN76_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$util..RangeExt$LT$T$GT$$GT$12to_inclusive17h5d5c57a12541e9e1E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 17)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !alias.scope !1569, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !1572, !noundef !4
@@ -9672,7 +9672,7 @@ define hidden void @"_ZN90_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN95_$LT$core..str..pattern..MultiCharEqPattern$LT$C$GT$$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h575b9982269ddffaE.llvm.2345482801186077863"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @"_ZN95_$LT$core..str..pattern..MultiCharEqPattern$LT$C$GT$$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h575b9982269ddffaE.llvm.2345482801186077863"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9687,7 +9687,7 @@ define hidden void @"_ZN95_$LT$core..str..pattern..MultiCharEqPattern$LT$C$GT$$u
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hce67d89c9e1d249dE.llvm.2345482801186077863"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #1 {
+define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hce67d89c9e1d249dE.llvm.2345482801186077863"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
@@ -18252,7 +18252,7 @@ define hidden void @_ZN3vim6normal10substitute8register17h0743f73e3dced593E(ptr 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN3vim6normal10substitute26_$LT$impl$u20$vim..Vim$GT$10substitute28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h92cfbf34c8f4f18bE.llvm.2345482801186077863"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #20 {
+define hidden void @"_ZN3vim6normal10substitute26_$LT$impl$u20$vim..Vim$GT$10substitute28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h92cfbf34c8f4f18bE.llvm.2345482801186077863"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #20 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8, !noundef !4
   %6 = getelementptr inbounds i8, ptr %2, i64 12
@@ -21965,7 +21965,7 @@ define internal fastcc void @_ZN3vim6object28expand_to_include_whitespace17hbe8b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3vim6object9paragraph17h500707234d727eeaE.llvm.2345482801186077863(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([20 x i8]) align 4 dereferenceable(20) %0, ptr noalias noundef readonly align 8 dereferenceable(632) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #5 {
+define hidden void @_ZN3vim6object9paragraph17h500707234d727eeaE.llvm.2345482801186077863(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([20 x i8]) align 4 dereferenceable(20) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 dereferenceable(632) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #5 {
   %6 = alloca [8 x i8], align 4
   %7 = alloca [8 x i8], align 4
   %8 = tail call fastcc { i32, i32 } @_ZN3vim6object18start_of_paragraph17h3c95bf92d8db3626E(ptr noalias noundef readonly align 8 dereferenceable(632) %1, i32 noundef %2, i32 noundef %3)
@@ -23359,7 +23359,7 @@ define { ptr, i64 } @"_ZN60_$LT$vim..indent..Indent$u20$as$u20$gpui..action..Act
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN60_$LT$vim..indent..Indent$u20$as$u20$gpui..action..Action$GT$5build17hbfbce4686a12d648E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN60_$LT$vim..indent..Indent$u20$as$u20$gpui..action..Action$GT$5build17hbfbce4686a12d648E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.123, ptr %3, align 8
@@ -23437,7 +23437,7 @@ define { ptr, ptr } @"_ZN60_$LT$vim..indent..Indent$u20$as$u20$gpui..action..Act
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6indent6Indent15__autogenerated29__gpui_actions_builder_indent17h6fb212fd55999eefE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6indent6Indent15__autogenerated29__gpui_actions_builder_indent17h6fb212fd55999eefE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.122, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 11, ptr %2, align 8
@@ -23467,7 +23467,7 @@ define { ptr, i64 } @"_ZN61_$LT$vim..indent..Outdent$u20$as$u20$gpui..action..Ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN61_$LT$vim..indent..Outdent$u20$as$u20$gpui..action..Action$GT$5build17h3167c819e7646c48E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN61_$LT$vim..indent..Outdent$u20$as$u20$gpui..action..Action$GT$5build17h3167c819e7646c48E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.127, ptr %3, align 8
@@ -23545,7 +23545,7 @@ define { ptr, ptr } @"_ZN61_$LT$vim..indent..Outdent$u20$as$u20$gpui..action..Ac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6indent7Outdent15__autogenerated30__gpui_actions_builder_outdent17h9116aeef8f056340E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6indent7Outdent15__autogenerated30__gpui_actions_builder_outdent17h9116aeef8f056340E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.126, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 12, ptr %2, align 8
@@ -23981,7 +23981,7 @@ define { ptr, ptr } @"_ZN65_$LT$vim..motion..StartOfLine$u20$as$u20$gpui..action
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion11StartOfLine15__autogenerated34__gpui_actions_builder_startofline17h78843a20cb10e39eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion11StartOfLine15__autogenerated34__gpui_actions_builder_startofline17h78843a20cb10e39eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.202, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 16, ptr %2, align 8
@@ -24105,7 +24105,7 @@ define { ptr, ptr } @"_ZN63_$LT$vim..motion..EndOfLine$u20$as$u20$gpui..action..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion9EndOfLine15__autogenerated32__gpui_actions_builder_endofline17h9d3856f1304cf5edE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion9EndOfLine15__autogenerated32__gpui_actions_builder_endofline17h9d3856f1304cf5edE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.207, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 14, ptr %2, align 8
@@ -24229,7 +24229,7 @@ define { ptr, ptr } @"_ZN72_$LT$vim..motion..FirstNonWhitespace$u20$as$u20$gpui.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion18FirstNonWhitespace15__autogenerated41__gpui_actions_builder_firstnonwhitespace17h8e55528c5eee3218E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion18FirstNonWhitespace15__autogenerated41__gpui_actions_builder_firstnonwhitespace17h8e55528c5eee3218E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.210, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 23, ptr %2, align 8
@@ -24353,7 +24353,7 @@ define { ptr, ptr } @"_ZN58_$LT$vim..motion..Down$u20$as$u20$gpui..action..Actio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion4Down15__autogenerated27__gpui_actions_builder_down17h50c2916c2c8d0800E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion4Down15__autogenerated27__gpui_actions_builder_down17h50c2916c2c8d0800E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.213, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 9, ptr %2, align 8
@@ -24477,7 +24477,7 @@ define { ptr, ptr } @"_ZN56_$LT$vim..motion..Up$u20$as$u20$gpui..action..Action$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion2Up15__autogenerated25__gpui_actions_builder_up17hfd0264f5bc8a13a4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion2Up15__autogenerated25__gpui_actions_builder_up17hfd0264f5bc8a13a4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.216, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 7, ptr %2, align 8
@@ -24601,7 +24601,7 @@ define { ptr, ptr } @"_ZN67_$LT$vim..motion..NextWordStart$u20$as$u20$gpui..acti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion13NextWordStart15__autogenerated36__gpui_actions_builder_nextwordstart17h1cf1a20081aa9331E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion13NextWordStart15__autogenerated36__gpui_actions_builder_nextwordstart17h1cf1a20081aa9331E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.219, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 18, ptr %2, align 8
@@ -24725,7 +24725,7 @@ define { ptr, ptr } @"_ZN65_$LT$vim..motion..NextWordEnd$u20$as$u20$gpui..action
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion11NextWordEnd15__autogenerated34__gpui_actions_builder_nextwordend17h05412a5200e96bf4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion11NextWordEnd15__autogenerated34__gpui_actions_builder_nextwordend17h05412a5200e96bf4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.224, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 16, ptr %2, align 8
@@ -24849,7 +24849,7 @@ define { ptr, ptr } @"_ZN71_$LT$vim..motion..PreviousWordStart$u20$as$u20$gpui..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion17PreviousWordStart15__autogenerated40__gpui_actions_builder_previouswordstart17heb1304ff3e93872dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion17PreviousWordStart15__autogenerated40__gpui_actions_builder_previouswordstart17heb1304ff3e93872dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.227, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 22, ptr %2, align 8
@@ -24973,7 +24973,7 @@ define { ptr, ptr } @"_ZN69_$LT$vim..motion..PreviousWordEnd$u20$as$u20$gpui..ac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion15PreviousWordEnd15__autogenerated38__gpui_actions_builder_previouswordend17h420e66c02d8c8eaeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion15PreviousWordEnd15__autogenerated38__gpui_actions_builder_previouswordend17h420e66c02d8c8eaeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.230, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 20, ptr %2, align 8
@@ -25097,7 +25097,7 @@ define { ptr, ptr } @"_ZN70_$LT$vim..motion..NextSubwordStart$u20$as$u20$gpui..a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion16NextSubwordStart15__autogenerated39__gpui_actions_builder_nextsubwordstart17hea655db2ee2f53d2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion16NextSubwordStart15__autogenerated39__gpui_actions_builder_nextsubwordstart17hea655db2ee2f53d2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.233, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 21, ptr %2, align 8
@@ -25221,7 +25221,7 @@ define { ptr, ptr } @"_ZN68_$LT$vim..motion..NextSubwordEnd$u20$as$u20$gpui..act
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion14NextSubwordEnd15__autogenerated37__gpui_actions_builder_nextsubwordend17hcda34f64d36f6304E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion14NextSubwordEnd15__autogenerated37__gpui_actions_builder_nextsubwordend17hcda34f64d36f6304E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.236, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 19, ptr %2, align 8
@@ -25345,7 +25345,7 @@ define { ptr, ptr } @"_ZN74_$LT$vim..motion..PreviousSubwordStart$u20$as$u20$gpu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion20PreviousSubwordStart15__autogenerated43__gpui_actions_builder_previoussubwordstart17h0c1d56a07c5aea25E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion20PreviousSubwordStart15__autogenerated43__gpui_actions_builder_previoussubwordstart17h0c1d56a07c5aea25E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.239, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 25, ptr %2, align 8
@@ -25469,7 +25469,7 @@ define { ptr, ptr } @"_ZN72_$LT$vim..motion..PreviousSubwordEnd$u20$as$u20$gpui.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion18PreviousSubwordEnd15__autogenerated41__gpui_actions_builder_previoussubwordend17hebb0b3114c2a9badE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion18PreviousSubwordEnd15__autogenerated41__gpui_actions_builder_previoussubwordend17hebb0b3114c2a9badE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.242, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 23, ptr %2, align 8
@@ -25499,7 +25499,7 @@ define { ptr, i64 } @"_ZN58_$LT$vim..motion..Left$u20$as$u20$gpui..action..Actio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN58_$LT$vim..motion..Left$u20$as$u20$gpui..action..Action$GT$5build17h5b9f96a44863f300E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN58_$LT$vim..motion..Left$u20$as$u20$gpui..action..Action$GT$5build17h5b9f96a44863f300E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.247, ptr %3, align 8
@@ -25577,7 +25577,7 @@ define { ptr, ptr } @"_ZN58_$LT$vim..motion..Left$u20$as$u20$gpui..action..Actio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion4Left15__autogenerated27__gpui_actions_builder_left17hafd98ac784d3da45E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion4Left15__autogenerated27__gpui_actions_builder_left17hafd98ac784d3da45E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.246, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 9, ptr %2, align 8
@@ -25607,7 +25607,7 @@ define { ptr, i64 } @"_ZN63_$LT$vim..motion..Backspace$u20$as$u20$gpui..action..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN63_$LT$vim..motion..Backspace$u20$as$u20$gpui..action..Action$GT$5build17hcedd67ec0117672cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN63_$LT$vim..motion..Backspace$u20$as$u20$gpui..action..Action$GT$5build17hcedd67ec0117672cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.251, ptr %3, align 8
@@ -25685,7 +25685,7 @@ define { ptr, ptr } @"_ZN63_$LT$vim..motion..Backspace$u20$as$u20$gpui..action..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion9Backspace15__autogenerated32__gpui_actions_builder_backspace17hdaf3a7599fce398dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion9Backspace15__autogenerated32__gpui_actions_builder_backspace17hdaf3a7599fce398dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.250, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 14, ptr %2, align 8
@@ -25715,7 +25715,7 @@ define { ptr, i64 } @"_ZN59_$LT$vim..motion..Right$u20$as$u20$gpui..action..Acti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN59_$LT$vim..motion..Right$u20$as$u20$gpui..action..Action$GT$5build17hdf98eebdd2483397E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN59_$LT$vim..motion..Right$u20$as$u20$gpui..action..Action$GT$5build17hdf98eebdd2483397E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.255, ptr %3, align 8
@@ -25793,7 +25793,7 @@ define { ptr, ptr } @"_ZN59_$LT$vim..motion..Right$u20$as$u20$gpui..action..Acti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion5Right15__autogenerated28__gpui_actions_builder_right17h27909b1a220ace86E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion5Right15__autogenerated28__gpui_actions_builder_right17h27909b1a220ace86E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.254, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 10, ptr %2, align 8
@@ -25823,7 +25823,7 @@ define { ptr, i64 } @"_ZN59_$LT$vim..motion..Space$u20$as$u20$gpui..action..Acti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN59_$LT$vim..motion..Space$u20$as$u20$gpui..action..Action$GT$5build17h934a72a74f13cdc9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN59_$LT$vim..motion..Space$u20$as$u20$gpui..action..Action$GT$5build17h934a72a74f13cdc9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.259, ptr %3, align 8
@@ -25901,7 +25901,7 @@ define { ptr, ptr } @"_ZN59_$LT$vim..motion..Space$u20$as$u20$gpui..action..Acti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion5Space15__autogenerated28__gpui_actions_builder_space17hfde72fbda613532fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion5Space15__autogenerated28__gpui_actions_builder_space17hfde72fbda613532fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.258, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 10, ptr %2, align 8
@@ -25931,7 +25931,7 @@ define { ptr, i64 } @"_ZN65_$LT$vim..motion..CurrentLine$u20$as$u20$gpui..action
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN65_$LT$vim..motion..CurrentLine$u20$as$u20$gpui..action..Action$GT$5build17h09033bf37241bd09E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN65_$LT$vim..motion..CurrentLine$u20$as$u20$gpui..action..Action$GT$5build17h09033bf37241bd09E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.263, ptr %3, align 8
@@ -26009,7 +26009,7 @@ define { ptr, ptr } @"_ZN65_$LT$vim..motion..CurrentLine$u20$as$u20$gpui..action
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion11CurrentLine15__autogenerated34__gpui_actions_builder_currentline17h31ef4e65e6e57ae7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion11CurrentLine15__autogenerated34__gpui_actions_builder_currentline17h31ef4e65e6e57ae7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.262, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 16, ptr %2, align 8
@@ -26039,7 +26039,7 @@ define { ptr, i64 } @"_ZN69_$LT$vim..motion..SentenceForward$u20$as$u20$gpui..ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN69_$LT$vim..motion..SentenceForward$u20$as$u20$gpui..action..Action$GT$5build17h3477afd699c3f5eaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN69_$LT$vim..motion..SentenceForward$u20$as$u20$gpui..action..Action$GT$5build17h3477afd699c3f5eaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.267, ptr %3, align 8
@@ -26117,7 +26117,7 @@ define { ptr, ptr } @"_ZN69_$LT$vim..motion..SentenceForward$u20$as$u20$gpui..ac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion15SentenceForward15__autogenerated38__gpui_actions_builder_sentenceforward17h28428e450257a2b9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion15SentenceForward15__autogenerated38__gpui_actions_builder_sentenceforward17h28428e450257a2b9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.266, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 20, ptr %2, align 8
@@ -26147,7 +26147,7 @@ define { ptr, i64 } @"_ZN70_$LT$vim..motion..SentenceBackward$u20$as$u20$gpui..a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$vim..motion..SentenceBackward$u20$as$u20$gpui..action..Action$GT$5build17h609f025e98049304E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$vim..motion..SentenceBackward$u20$as$u20$gpui..action..Action$GT$5build17h609f025e98049304E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.271, ptr %3, align 8
@@ -26225,7 +26225,7 @@ define { ptr, ptr } @"_ZN70_$LT$vim..motion..SentenceBackward$u20$as$u20$gpui..a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion16SentenceBackward15__autogenerated39__gpui_actions_builder_sentencebackward17h3b715acf0fdcffcdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion16SentenceBackward15__autogenerated39__gpui_actions_builder_sentencebackward17h3b715acf0fdcffcdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.270, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 21, ptr %2, align 8
@@ -26255,7 +26255,7 @@ define { ptr, i64 } @"_ZN70_$LT$vim..motion..StartOfParagraph$u20$as$u20$gpui..a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$vim..motion..StartOfParagraph$u20$as$u20$gpui..action..Action$GT$5build17hcada6151044f02f5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$vim..motion..StartOfParagraph$u20$as$u20$gpui..action..Action$GT$5build17hcada6151044f02f5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.275, ptr %3, align 8
@@ -26333,7 +26333,7 @@ define { ptr, ptr } @"_ZN70_$LT$vim..motion..StartOfParagraph$u20$as$u20$gpui..a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion16StartOfParagraph15__autogenerated39__gpui_actions_builder_startofparagraph17h89c9fe298847c7a0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion16StartOfParagraph15__autogenerated39__gpui_actions_builder_startofparagraph17h89c9fe298847c7a0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.274, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 21, ptr %2, align 8
@@ -26363,7 +26363,7 @@ define { ptr, i64 } @"_ZN68_$LT$vim..motion..EndOfParagraph$u20$as$u20$gpui..act
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN68_$LT$vim..motion..EndOfParagraph$u20$as$u20$gpui..action..Action$GT$5build17h5f69704ba16b083cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN68_$LT$vim..motion..EndOfParagraph$u20$as$u20$gpui..action..Action$GT$5build17h5f69704ba16b083cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.279, ptr %3, align 8
@@ -26441,7 +26441,7 @@ define { ptr, ptr } @"_ZN68_$LT$vim..motion..EndOfParagraph$u20$as$u20$gpui..act
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion14EndOfParagraph15__autogenerated37__gpui_actions_builder_endofparagraph17h4b5cfad3b6cc02beE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion14EndOfParagraph15__autogenerated37__gpui_actions_builder_endofparagraph17h4b5cfad3b6cc02beE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.278, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 19, ptr %2, align 8
@@ -26471,7 +26471,7 @@ define { ptr, i64 } @"_ZN69_$LT$vim..motion..StartOfDocument$u20$as$u20$gpui..ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN69_$LT$vim..motion..StartOfDocument$u20$as$u20$gpui..action..Action$GT$5build17hffa8e3b352f2b2ecE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN69_$LT$vim..motion..StartOfDocument$u20$as$u20$gpui..action..Action$GT$5build17hffa8e3b352f2b2ecE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.283.llvm.2345482801186077863, ptr %3, align 8
@@ -26549,7 +26549,7 @@ define { ptr, ptr } @"_ZN69_$LT$vim..motion..StartOfDocument$u20$as$u20$gpui..ac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion15StartOfDocument15__autogenerated38__gpui_actions_builder_startofdocument17h349aa7ff2891313bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion15StartOfDocument15__autogenerated38__gpui_actions_builder_startofdocument17h349aa7ff2891313bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.282, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 20, ptr %2, align 8
@@ -26579,7 +26579,7 @@ define { ptr, i64 } @"_ZN67_$LT$vim..motion..EndOfDocument$u20$as$u20$gpui..acti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN67_$LT$vim..motion..EndOfDocument$u20$as$u20$gpui..action..Action$GT$5build17hb2698d24a959c60fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN67_$LT$vim..motion..EndOfDocument$u20$as$u20$gpui..action..Action$GT$5build17hb2698d24a959c60fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.287.llvm.2345482801186077863, ptr %3, align 8
@@ -26657,7 +26657,7 @@ define { ptr, ptr } @"_ZN67_$LT$vim..motion..EndOfDocument$u20$as$u20$gpui..acti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion13EndOfDocument15__autogenerated36__gpui_actions_builder_endofdocument17hacdf07a79b82fceaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion13EndOfDocument15__autogenerated36__gpui_actions_builder_endofdocument17hacdf07a79b82fceaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.286, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 18, ptr %2, align 8
@@ -26687,7 +26687,7 @@ define { ptr, i64 } @"_ZN62_$LT$vim..motion..Matching$u20$as$u20$gpui..action..A
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN62_$LT$vim..motion..Matching$u20$as$u20$gpui..action..Action$GT$5build17h17e30ad40fe20384E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN62_$LT$vim..motion..Matching$u20$as$u20$gpui..action..Action$GT$5build17h17e30ad40fe20384E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.291, ptr %3, align 8
@@ -26765,7 +26765,7 @@ define { ptr, ptr } @"_ZN62_$LT$vim..motion..Matching$u20$as$u20$gpui..action..A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion8Matching15__autogenerated31__gpui_actions_builder_matching17hf3d6258c2ff94423E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion8Matching15__autogenerated31__gpui_actions_builder_matching17hf3d6258c2ff94423E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.290, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 13, ptr %2, align 8
@@ -26795,7 +26795,7 @@ define { ptr, i64 } @"_ZN67_$LT$vim..motion..NextLineStart$u20$as$u20$gpui..acti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN67_$LT$vim..motion..NextLineStart$u20$as$u20$gpui..action..Action$GT$5build17h9b818bfcf6ecc50cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN67_$LT$vim..motion..NextLineStart$u20$as$u20$gpui..action..Action$GT$5build17h9b818bfcf6ecc50cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.295, ptr %3, align 8
@@ -26873,7 +26873,7 @@ define { ptr, ptr } @"_ZN67_$LT$vim..motion..NextLineStart$u20$as$u20$gpui..acti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion13NextLineStart15__autogenerated36__gpui_actions_builder_nextlinestart17h625db2f3874c0618E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion13NextLineStart15__autogenerated36__gpui_actions_builder_nextlinestart17h625db2f3874c0618E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.294, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 18, ptr %2, align 8
@@ -26903,7 +26903,7 @@ define { ptr, i64 } @"_ZN71_$LT$vim..motion..PreviousLineStart$u20$as$u20$gpui..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN71_$LT$vim..motion..PreviousLineStart$u20$as$u20$gpui..action..Action$GT$5build17hb2619cdc5f172b31E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN71_$LT$vim..motion..PreviousLineStart$u20$as$u20$gpui..action..Action$GT$5build17hb2619cdc5f172b31E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.299, ptr %3, align 8
@@ -26981,7 +26981,7 @@ define { ptr, ptr } @"_ZN71_$LT$vim..motion..PreviousLineStart$u20$as$u20$gpui..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion17PreviousLineStart15__autogenerated40__gpui_actions_builder_previouslinestart17h0cc9aaefaadeec29E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion17PreviousLineStart15__autogenerated40__gpui_actions_builder_previouslinestart17h0cc9aaefaadeec29E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.298, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 22, ptr %2, align 8
@@ -27011,7 +27011,7 @@ define { ptr, i64 } @"_ZN73_$LT$vim..motion..StartOfLineDownward$u20$as$u20$gpui
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN73_$LT$vim..motion..StartOfLineDownward$u20$as$u20$gpui..action..Action$GT$5build17h09b5382d0c931074E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN73_$LT$vim..motion..StartOfLineDownward$u20$as$u20$gpui..action..Action$GT$5build17h09b5382d0c931074E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.303, ptr %3, align 8
@@ -27089,7 +27089,7 @@ define { ptr, ptr } @"_ZN73_$LT$vim..motion..StartOfLineDownward$u20$as$u20$gpui
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion19StartOfLineDownward15__autogenerated42__gpui_actions_builder_startoflinedownward17hca71573b0b3de985E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion19StartOfLineDownward15__autogenerated42__gpui_actions_builder_startoflinedownward17hca71573b0b3de985E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.302, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 24, ptr %2, align 8
@@ -27119,7 +27119,7 @@ define { ptr, i64 } @"_ZN71_$LT$vim..motion..EndOfLineDownward$u20$as$u20$gpui..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN71_$LT$vim..motion..EndOfLineDownward$u20$as$u20$gpui..action..Action$GT$5build17hadb0a1183dfc0975E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN71_$LT$vim..motion..EndOfLineDownward$u20$as$u20$gpui..action..Action$GT$5build17hadb0a1183dfc0975E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.307, ptr %3, align 8
@@ -27197,7 +27197,7 @@ define { ptr, ptr } @"_ZN71_$LT$vim..motion..EndOfLineDownward$u20$as$u20$gpui..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion17EndOfLineDownward15__autogenerated40__gpui_actions_builder_endoflinedownward17h38457a311a7931bdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion17EndOfLineDownward15__autogenerated40__gpui_actions_builder_endoflinedownward17h38457a311a7931bdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.306, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 22, ptr %2, align 8
@@ -27227,7 +27227,7 @@ define { ptr, i64 } @"_ZN64_$LT$vim..motion..GoToColumn$u20$as$u20$gpui..action.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN64_$LT$vim..motion..GoToColumn$u20$as$u20$gpui..action..Action$GT$5build17h5006b6c6b279ed56E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN64_$LT$vim..motion..GoToColumn$u20$as$u20$gpui..action..Action$GT$5build17h5006b6c6b279ed56E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.311, ptr %3, align 8
@@ -27305,7 +27305,7 @@ define { ptr, ptr } @"_ZN64_$LT$vim..motion..GoToColumn$u20$as$u20$gpui..action.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion10GoToColumn15__autogenerated33__gpui_actions_builder_gotocolumn17h117da2559d7f22cfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion10GoToColumn15__autogenerated33__gpui_actions_builder_gotocolumn17h117da2559d7f22cfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.310, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 15, ptr %2, align 8
@@ -27335,7 +27335,7 @@ define { ptr, i64 } @"_ZN64_$LT$vim..motion..RepeatFind$u20$as$u20$gpui..action.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN64_$LT$vim..motion..RepeatFind$u20$as$u20$gpui..action..Action$GT$5build17hf7953bf741a47879E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN64_$LT$vim..motion..RepeatFind$u20$as$u20$gpui..action..Action$GT$5build17hf7953bf741a47879E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.315, ptr %3, align 8
@@ -27413,7 +27413,7 @@ define { ptr, ptr } @"_ZN64_$LT$vim..motion..RepeatFind$u20$as$u20$gpui..action.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion10RepeatFind15__autogenerated33__gpui_actions_builder_repeatfind17ha728c1fb90999b81E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion10RepeatFind15__autogenerated33__gpui_actions_builder_repeatfind17ha728c1fb90999b81E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.314, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 15, ptr %2, align 8
@@ -27443,7 +27443,7 @@ define { ptr, i64 } @"_ZN72_$LT$vim..motion..RepeatFindReversed$u20$as$u20$gpui.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN72_$LT$vim..motion..RepeatFindReversed$u20$as$u20$gpui..action..Action$GT$5build17hf3b3751a68d1ed48E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN72_$LT$vim..motion..RepeatFindReversed$u20$as$u20$gpui..action..Action$GT$5build17hf3b3751a68d1ed48E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.319, ptr %3, align 8
@@ -27521,7 +27521,7 @@ define { ptr, ptr } @"_ZN72_$LT$vim..motion..RepeatFindReversed$u20$as$u20$gpui.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion18RepeatFindReversed15__autogenerated41__gpui_actions_builder_repeatfindreversed17h61cc1e4d811bd792E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion18RepeatFindReversed15__autogenerated41__gpui_actions_builder_repeatfindreversed17h61cc1e4d811bd792E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.318, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 23, ptr %2, align 8
@@ -27551,7 +27551,7 @@ define { ptr, i64 } @"_ZN63_$LT$vim..motion..WindowTop$u20$as$u20$gpui..action..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN63_$LT$vim..motion..WindowTop$u20$as$u20$gpui..action..Action$GT$5build17h2dc6ea296f713a51E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN63_$LT$vim..motion..WindowTop$u20$as$u20$gpui..action..Action$GT$5build17h2dc6ea296f713a51E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.323, ptr %3, align 8
@@ -27629,7 +27629,7 @@ define { ptr, ptr } @"_ZN63_$LT$vim..motion..WindowTop$u20$as$u20$gpui..action..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion9WindowTop15__autogenerated32__gpui_actions_builder_windowtop17h5442c9421b25a4bbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion9WindowTop15__autogenerated32__gpui_actions_builder_windowtop17h5442c9421b25a4bbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.322, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 14, ptr %2, align 8
@@ -27659,7 +27659,7 @@ define { ptr, i64 } @"_ZN66_$LT$vim..motion..WindowMiddle$u20$as$u20$gpui..actio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN66_$LT$vim..motion..WindowMiddle$u20$as$u20$gpui..action..Action$GT$5build17h62a8a136be397aeeE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN66_$LT$vim..motion..WindowMiddle$u20$as$u20$gpui..action..Action$GT$5build17h62a8a136be397aeeE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.327, ptr %3, align 8
@@ -27737,7 +27737,7 @@ define { ptr, ptr } @"_ZN66_$LT$vim..motion..WindowMiddle$u20$as$u20$gpui..actio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion12WindowMiddle15__autogenerated35__gpui_actions_builder_windowmiddle17h4ca2d40d26a77e71E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion12WindowMiddle15__autogenerated35__gpui_actions_builder_windowmiddle17h4ca2d40d26a77e71E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.326, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 17, ptr %2, align 8
@@ -27767,7 +27767,7 @@ define { ptr, i64 } @"_ZN66_$LT$vim..motion..WindowBottom$u20$as$u20$gpui..actio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN66_$LT$vim..motion..WindowBottom$u20$as$u20$gpui..action..Action$GT$5build17h24f79ec9ad9c5f97E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN66_$LT$vim..motion..WindowBottom$u20$as$u20$gpui..action..Action$GT$5build17h24f79ec9ad9c5f97E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.331, ptr %3, align 8
@@ -27845,7 +27845,7 @@ define { ptr, ptr } @"_ZN66_$LT$vim..motion..WindowBottom$u20$as$u20$gpui..actio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6motion12WindowBottom15__autogenerated35__gpui_actions_builder_windowbottom17hd4ee177dc04d4c8bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6motion12WindowBottom15__autogenerated35__gpui_actions_builder_windowbottom17hd4ee177dc04d4c8bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.330, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 17, ptr %2, align 8
@@ -27865,7 +27865,7 @@ define noundef zeroext i1 @"_ZN180_$LT$vim..normal..increment.._..$LT$impl$u20$s
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN180_$LT$vim..normal..increment.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$vim..normal..increment..Increment$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h695fc451e9596531E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #25 {
+define hidden void @"_ZN180_$LT$vim..normal..increment.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$vim..normal..increment..Increment$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h695fc451e9596531E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 2)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #25 {
   %.not.i = icmp eq i64 %2, 4
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit.thread"
 
@@ -27908,7 +27908,7 @@ define noundef zeroext i1 @"_ZN180_$LT$vim..normal..increment.._..$LT$impl$u20$s
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN180_$LT$vim..normal..increment.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$vim..normal..increment..Decrement$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h6f743db57702e58fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #25 {
+define hidden void @"_ZN180_$LT$vim..normal..increment.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$vim..normal..increment..Decrement$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h6f743db57702e58fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 2)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #25 {
   %.not.i = icmp eq i64 %2, 4
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit.thread"
 
@@ -28055,7 +28055,7 @@ define { ptr, ptr } @"_ZN74_$LT$vim..normal..increment..Increment$u20$as$u20$gpu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6normal9increment9Increment15__autogenerated32__gpui_actions_builder_increment17hac785efbcda2cbe0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6normal9increment9Increment15__autogenerated32__gpui_actions_builder_increment17hac785efbcda2cbe0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.336, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 14, ptr %2, align 8
@@ -28179,7 +28179,7 @@ define { ptr, ptr } @"_ZN74_$LT$vim..normal..increment..Decrement$u20$as$u20$gpu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6normal9increment9Decrement15__autogenerated32__gpui_actions_builder_decrement17h37cd33503e67126aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6normal9increment9Decrement15__autogenerated32__gpui_actions_builder_decrement17h37cd33503e67126aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.341, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 14, ptr %2, align 8
@@ -28343,7 +28343,7 @@ define { ptr, ptr } @"_ZN66_$LT$vim..normal..paste..Paste$u20$as$u20$gpui..actio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6normal5paste5Paste15__autogenerated28__gpui_actions_builder_paste17h38a9308e056bebcbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6normal5paste5Paste15__autogenerated28__gpui_actions_builder_paste17h38a9308e056bebcbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.346, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 10, ptr %2, align 8
@@ -28373,7 +28373,7 @@ define { ptr, i64 } @"_ZN68_$LT$vim..normal..scroll..LineUp$u20$as$u20$gpui..act
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN68_$LT$vim..normal..scroll..LineUp$u20$as$u20$gpui..action..Action$GT$5build17h5a067102f86ebeebE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN68_$LT$vim..normal..scroll..LineUp$u20$as$u20$gpui..action..Action$GT$5build17h5a067102f86ebeebE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.354, ptr %3, align 8
@@ -28451,7 +28451,7 @@ define { ptr, ptr } @"_ZN68_$LT$vim..normal..scroll..LineUp$u20$as$u20$gpui..act
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6normal6scroll6LineUp15__autogenerated29__gpui_actions_builder_lineup17hb363251aad46fe26E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6normal6scroll6LineUp15__autogenerated29__gpui_actions_builder_lineup17hb363251aad46fe26E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.353, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 11, ptr %2, align 8
@@ -28481,7 +28481,7 @@ define { ptr, i64 } @"_ZN70_$LT$vim..normal..scroll..LineDown$u20$as$u20$gpui..a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$vim..normal..scroll..LineDown$u20$as$u20$gpui..action..Action$GT$5build17hde48d1ac8c9e2fc2E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$vim..normal..scroll..LineDown$u20$as$u20$gpui..action..Action$GT$5build17hde48d1ac8c9e2fc2E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.358, ptr %3, align 8
@@ -28559,7 +28559,7 @@ define { ptr, ptr } @"_ZN70_$LT$vim..normal..scroll..LineDown$u20$as$u20$gpui..a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6normal6scroll8LineDown15__autogenerated31__gpui_actions_builder_linedown17ha1f01e402a239686E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6normal6scroll8LineDown15__autogenerated31__gpui_actions_builder_linedown17ha1f01e402a239686E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.357, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 13, ptr %2, align 8
@@ -28589,7 +28589,7 @@ define { ptr, i64 } @"_ZN70_$LT$vim..normal..scroll..ScrollUp$u20$as$u20$gpui..a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$vim..normal..scroll..ScrollUp$u20$as$u20$gpui..action..Action$GT$5build17h866b5a26bb0d123fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$vim..normal..scroll..ScrollUp$u20$as$u20$gpui..action..Action$GT$5build17h866b5a26bb0d123fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.362, ptr %3, align 8
@@ -28667,7 +28667,7 @@ define { ptr, ptr } @"_ZN70_$LT$vim..normal..scroll..ScrollUp$u20$as$u20$gpui..a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6normal6scroll8ScrollUp15__autogenerated31__gpui_actions_builder_scrollup17h98fcb598b4c77578E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6normal6scroll8ScrollUp15__autogenerated31__gpui_actions_builder_scrollup17h98fcb598b4c77578E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.361, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 13, ptr %2, align 8
@@ -28697,7 +28697,7 @@ define { ptr, i64 } @"_ZN72_$LT$vim..normal..scroll..ScrollDown$u20$as$u20$gpui.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN72_$LT$vim..normal..scroll..ScrollDown$u20$as$u20$gpui..action..Action$GT$5build17ha00dc7b25ccfa0e7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN72_$LT$vim..normal..scroll..ScrollDown$u20$as$u20$gpui..action..Action$GT$5build17ha00dc7b25ccfa0e7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.366, ptr %3, align 8
@@ -28775,7 +28775,7 @@ define { ptr, ptr } @"_ZN72_$LT$vim..normal..scroll..ScrollDown$u20$as$u20$gpui.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6normal6scroll10ScrollDown15__autogenerated33__gpui_actions_builder_scrolldown17h9a5787832b714f54E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6normal6scroll10ScrollDown15__autogenerated33__gpui_actions_builder_scrolldown17h9a5787832b714f54E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.365, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 15, ptr %2, align 8
@@ -28805,7 +28805,7 @@ define { ptr, i64 } @"_ZN68_$LT$vim..normal..scroll..PageUp$u20$as$u20$gpui..act
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN68_$LT$vim..normal..scroll..PageUp$u20$as$u20$gpui..action..Action$GT$5build17h55bf274336cac46fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN68_$LT$vim..normal..scroll..PageUp$u20$as$u20$gpui..action..Action$GT$5build17h55bf274336cac46fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.370, ptr %3, align 8
@@ -28883,7 +28883,7 @@ define { ptr, ptr } @"_ZN68_$LT$vim..normal..scroll..PageUp$u20$as$u20$gpui..act
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6normal6scroll6PageUp15__autogenerated29__gpui_actions_builder_pageup17h5b8eebc0d7453182E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6normal6scroll6PageUp15__autogenerated29__gpui_actions_builder_pageup17h5b8eebc0d7453182E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.369, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 11, ptr %2, align 8
@@ -28913,7 +28913,7 @@ define { ptr, i64 } @"_ZN70_$LT$vim..normal..scroll..PageDown$u20$as$u20$gpui..a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$vim..normal..scroll..PageDown$u20$as$u20$gpui..action..Action$GT$5build17he7dd600c95d8d93fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN70_$LT$vim..normal..scroll..PageDown$u20$as$u20$gpui..action..Action$GT$5build17he7dd600c95d8d93fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.374, ptr %3, align 8
@@ -28991,7 +28991,7 @@ define { ptr, ptr } @"_ZN70_$LT$vim..normal..scroll..PageDown$u20$as$u20$gpui..a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6normal6scroll8PageDown15__autogenerated31__gpui_actions_builder_pagedown17h0ae9fb5ae8cc0188E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6normal6scroll8PageDown15__autogenerated31__gpui_actions_builder_pagedown17h0ae9fb5ae8cc0188E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.373, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 13, ptr %2, align 8
@@ -29021,7 +29021,7 @@ define { ptr, i64 } @"_ZN76_$LT$vim..normal..substitute..Substitute$u20$as$u20$g
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN76_$LT$vim..normal..substitute..Substitute$u20$as$u20$gpui..action..Action$GT$5build17h76733f4779a94407E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN76_$LT$vim..normal..substitute..Substitute$u20$as$u20$gpui..action..Action$GT$5build17h76733f4779a94407E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.378, ptr %3, align 8
@@ -29099,7 +29099,7 @@ define { ptr, ptr } @"_ZN76_$LT$vim..normal..substitute..Substitute$u20$as$u20$g
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6normal10substitute10Substitute15__autogenerated33__gpui_actions_builder_substitute17h1373458d2838c0a4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6normal10substitute10Substitute15__autogenerated33__gpui_actions_builder_substitute17h1373458d2838c0a4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.377, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 15, ptr %2, align 8
@@ -29129,7 +29129,7 @@ define { ptr, i64 } @"_ZN80_$LT$vim..normal..substitute..SubstituteLine$u20$as$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN80_$LT$vim..normal..substitute..SubstituteLine$u20$as$u20$gpui..action..Action$GT$5build17h4d3349009f4a6757E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN80_$LT$vim..normal..substitute..SubstituteLine$u20$as$u20$gpui..action..Action$GT$5build17h4d3349009f4a6757E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.382, ptr %3, align 8
@@ -29207,7 +29207,7 @@ define { ptr, ptr } @"_ZN80_$LT$vim..normal..substitute..SubstituteLine$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6normal10substitute14SubstituteLine15__autogenerated37__gpui_actions_builder_substituteline17h17852310ae9ec3aeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6normal10substitute14SubstituteLine15__autogenerated37__gpui_actions_builder_substituteline17h17852310ae9ec3aeE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.381, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 19, ptr %2, align 8
@@ -29233,7 +29233,7 @@ define noundef zeroext i1 @"_ZN155_$LT$vim..object.._..$LT$impl$u20$serde..de..D
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN155_$LT$vim..object.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$vim..object..Object$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17hab499d7ed802fb39E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 {
+define hidden void @"_ZN155_$LT$vim..object.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$vim..object..Object$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17hab499d7ed802fb39E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 {
   switch i64 %2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit48.thread" [
     i64 4, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit"
     i64 8, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit4"
@@ -29402,7 +29402,7 @@ define noundef zeroext i1 @"_ZN216_$LT$$LT$vim..object.._..$LT$impl$u20$serde..d
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN216_$LT$$LT$vim..object.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$vim..object..Object$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_enum..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h7280cf0f7ce8571cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #25 {
+define hidden void @"_ZN216_$LT$$LT$vim..object.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$vim..object..Object$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_enum..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h7280cf0f7ce8571cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 2)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #25 {
   %.not.i = icmp eq i64 %2, 18
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit.thread"
 
@@ -29433,7 +29433,7 @@ define noundef zeroext i1 @"_ZN153_$LT$vim..object.._..$LT$impl$u20$serde..de..D
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN153_$LT$vim..object.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$vim..object..Word$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h76c17e4d0ba99f24E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #25 {
+define hidden void @"_ZN153_$LT$vim..object.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$vim..object..Word$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h76c17e4d0ba99f24E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 2)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #25 {
   %.not.i = icmp eq i64 %2, 17
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4c2e77f6752d87c3E.exit.thread"
 
@@ -29580,7 +29580,7 @@ define { ptr, ptr } @"_ZN58_$LT$vim..object..Word$u20$as$u20$gpui..action..Actio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object4Word15__autogenerated27__gpui_actions_builder_word17he24960ba7e54d06aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object4Word15__autogenerated27__gpui_actions_builder_word17he24960ba7e54d06aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.404, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 9, ptr %2, align 8
@@ -29610,7 +29610,7 @@ define { ptr, i64 } @"_ZN62_$LT$vim..object..Sentence$u20$as$u20$gpui..action..A
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN62_$LT$vim..object..Sentence$u20$as$u20$gpui..action..Action$GT$5build17h525eb291b37e1729E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN62_$LT$vim..object..Sentence$u20$as$u20$gpui..action..Action$GT$5build17h525eb291b37e1729E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.409, ptr %3, align 8
@@ -29688,7 +29688,7 @@ define { ptr, ptr } @"_ZN62_$LT$vim..object..Sentence$u20$as$u20$gpui..action..A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object8Sentence15__autogenerated31__gpui_actions_builder_sentence17hcb558a9e37453a4dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object8Sentence15__autogenerated31__gpui_actions_builder_sentence17hcb558a9e37453a4dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.408, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 13, ptr %2, align 8
@@ -29718,7 +29718,7 @@ define { ptr, i64 } @"_ZN63_$LT$vim..object..Paragraph$u20$as$u20$gpui..action..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN63_$LT$vim..object..Paragraph$u20$as$u20$gpui..action..Action$GT$5build17h83a66c3787ae9120E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN63_$LT$vim..object..Paragraph$u20$as$u20$gpui..action..Action$GT$5build17h83a66c3787ae9120E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.413, ptr %3, align 8
@@ -29796,7 +29796,7 @@ define { ptr, ptr } @"_ZN63_$LT$vim..object..Paragraph$u20$as$u20$gpui..action..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object9Paragraph15__autogenerated32__gpui_actions_builder_paragraph17h65d22f00a607cf75E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object9Paragraph15__autogenerated32__gpui_actions_builder_paragraph17h65d22f00a607cf75E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.412, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 14, ptr %2, align 8
@@ -29826,7 +29826,7 @@ define { ptr, i64 } @"_ZN60_$LT$vim..object..Quotes$u20$as$u20$gpui..action..Act
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN60_$LT$vim..object..Quotes$u20$as$u20$gpui..action..Action$GT$5build17h8ac942a3dadff43bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN60_$LT$vim..object..Quotes$u20$as$u20$gpui..action..Action$GT$5build17h8ac942a3dadff43bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.417, ptr %3, align 8
@@ -29904,7 +29904,7 @@ define { ptr, ptr } @"_ZN60_$LT$vim..object..Quotes$u20$as$u20$gpui..action..Act
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object6Quotes15__autogenerated29__gpui_actions_builder_quotes17h46dcf6f28d365262E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object6Quotes15__autogenerated29__gpui_actions_builder_quotes17h46dcf6f28d365262E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.416, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 11, ptr %2, align 8
@@ -29934,7 +29934,7 @@ define { ptr, i64 } @"_ZN64_$LT$vim..object..BackQuotes$u20$as$u20$gpui..action.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN64_$LT$vim..object..BackQuotes$u20$as$u20$gpui..action..Action$GT$5build17h3e40138d859b1248E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN64_$LT$vim..object..BackQuotes$u20$as$u20$gpui..action..Action$GT$5build17h3e40138d859b1248E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.421, ptr %3, align 8
@@ -30012,7 +30012,7 @@ define { ptr, ptr } @"_ZN64_$LT$vim..object..BackQuotes$u20$as$u20$gpui..action.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object10BackQuotes15__autogenerated33__gpui_actions_builder_backquotes17h2e2e0c83bc5caf41E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object10BackQuotes15__autogenerated33__gpui_actions_builder_backquotes17h2e2e0c83bc5caf41E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.420, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 15, ptr %2, align 8
@@ -30042,7 +30042,7 @@ define { ptr, i64 } @"_ZN66_$LT$vim..object..DoubleQuotes$u20$as$u20$gpui..actio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN66_$LT$vim..object..DoubleQuotes$u20$as$u20$gpui..action..Action$GT$5build17h81284ccd582e1f47E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN66_$LT$vim..object..DoubleQuotes$u20$as$u20$gpui..action..Action$GT$5build17h81284ccd582e1f47E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.425, ptr %3, align 8
@@ -30120,7 +30120,7 @@ define { ptr, ptr } @"_ZN66_$LT$vim..object..DoubleQuotes$u20$as$u20$gpui..actio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object12DoubleQuotes15__autogenerated35__gpui_actions_builder_doublequotes17h8186e05a6495aeb5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object12DoubleQuotes15__autogenerated35__gpui_actions_builder_doublequotes17h8186e05a6495aeb5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.424, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 17, ptr %2, align 8
@@ -30150,7 +30150,7 @@ define { ptr, i64 } @"_ZN66_$LT$vim..object..VerticalBars$u20$as$u20$gpui..actio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN66_$LT$vim..object..VerticalBars$u20$as$u20$gpui..action..Action$GT$5build17hc151090aac8dec02E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN66_$LT$vim..object..VerticalBars$u20$as$u20$gpui..action..Action$GT$5build17hc151090aac8dec02E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.429, ptr %3, align 8
@@ -30228,7 +30228,7 @@ define { ptr, ptr } @"_ZN66_$LT$vim..object..VerticalBars$u20$as$u20$gpui..actio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object12VerticalBars15__autogenerated35__gpui_actions_builder_verticalbars17h3d08e26f9034b36fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object12VerticalBars15__autogenerated35__gpui_actions_builder_verticalbars17h3d08e26f9034b36fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.428, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 17, ptr %2, align 8
@@ -30258,7 +30258,7 @@ define { ptr, i64 } @"_ZN65_$LT$vim..object..Parentheses$u20$as$u20$gpui..action
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN65_$LT$vim..object..Parentheses$u20$as$u20$gpui..action..Action$GT$5build17hf48003a0658adb39E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN65_$LT$vim..object..Parentheses$u20$as$u20$gpui..action..Action$GT$5build17hf48003a0658adb39E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.433, ptr %3, align 8
@@ -30336,7 +30336,7 @@ define { ptr, ptr } @"_ZN65_$LT$vim..object..Parentheses$u20$as$u20$gpui..action
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object11Parentheses15__autogenerated34__gpui_actions_builder_parentheses17hb6e78b9eb2e649e8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object11Parentheses15__autogenerated34__gpui_actions_builder_parentheses17hb6e78b9eb2e649e8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.432, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 16, ptr %2, align 8
@@ -30366,7 +30366,7 @@ define { ptr, i64 } @"_ZN68_$LT$vim..object..SquareBrackets$u20$as$u20$gpui..act
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN68_$LT$vim..object..SquareBrackets$u20$as$u20$gpui..action..Action$GT$5build17hf0d258fddb8a0457E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN68_$LT$vim..object..SquareBrackets$u20$as$u20$gpui..action..Action$GT$5build17hf0d258fddb8a0457E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.437, ptr %3, align 8
@@ -30444,7 +30444,7 @@ define { ptr, ptr } @"_ZN68_$LT$vim..object..SquareBrackets$u20$as$u20$gpui..act
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object14SquareBrackets15__autogenerated37__gpui_actions_builder_squarebrackets17h22ec69e0c9315a7aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object14SquareBrackets15__autogenerated37__gpui_actions_builder_squarebrackets17h22ec69e0c9315a7aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.436, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 19, ptr %2, align 8
@@ -30474,7 +30474,7 @@ define { ptr, i64 } @"_ZN67_$LT$vim..object..CurlyBrackets$u20$as$u20$gpui..acti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN67_$LT$vim..object..CurlyBrackets$u20$as$u20$gpui..action..Action$GT$5build17h34fb59ffb1bf246dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN67_$LT$vim..object..CurlyBrackets$u20$as$u20$gpui..action..Action$GT$5build17h34fb59ffb1bf246dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.441, ptr %3, align 8
@@ -30552,7 +30552,7 @@ define { ptr, ptr } @"_ZN67_$LT$vim..object..CurlyBrackets$u20$as$u20$gpui..acti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object13CurlyBrackets15__autogenerated36__gpui_actions_builder_curlybrackets17h5cdbea27886ec4cbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object13CurlyBrackets15__autogenerated36__gpui_actions_builder_curlybrackets17h5cdbea27886ec4cbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.440, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 18, ptr %2, align 8
@@ -30582,7 +30582,7 @@ define { ptr, i64 } @"_ZN67_$LT$vim..object..AngleBrackets$u20$as$u20$gpui..acti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN67_$LT$vim..object..AngleBrackets$u20$as$u20$gpui..action..Action$GT$5build17h72f74281b723f96aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN67_$LT$vim..object..AngleBrackets$u20$as$u20$gpui..action..Action$GT$5build17h72f74281b723f96aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.445, ptr %3, align 8
@@ -30660,7 +30660,7 @@ define { ptr, ptr } @"_ZN67_$LT$vim..object..AngleBrackets$u20$as$u20$gpui..acti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object13AngleBrackets15__autogenerated36__gpui_actions_builder_anglebrackets17hde108a15297e0a2bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object13AngleBrackets15__autogenerated36__gpui_actions_builder_anglebrackets17hde108a15297e0a2bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.444, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 18, ptr %2, align 8
@@ -30690,7 +30690,7 @@ define { ptr, i64 } @"_ZN62_$LT$vim..object..Argument$u20$as$u20$gpui..action..A
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN62_$LT$vim..object..Argument$u20$as$u20$gpui..action..Action$GT$5build17h643b075baa1091e3E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN62_$LT$vim..object..Argument$u20$as$u20$gpui..action..Action$GT$5build17h643b075baa1091e3E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.449, ptr %3, align 8
@@ -30768,7 +30768,7 @@ define { ptr, ptr } @"_ZN62_$LT$vim..object..Argument$u20$as$u20$gpui..action..A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object8Argument15__autogenerated31__gpui_actions_builder_argument17hdb78bb764ab45c5aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object8Argument15__autogenerated31__gpui_actions_builder_argument17hdb78bb764ab45c5aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.448, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 13, ptr %2, align 8
@@ -30798,7 +30798,7 @@ define { ptr, i64 } @"_ZN57_$LT$vim..object..Tag$u20$as$u20$gpui..action..Action
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN57_$LT$vim..object..Tag$u20$as$u20$gpui..action..Action$GT$5build17h09900945a54aee2bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN57_$LT$vim..object..Tag$u20$as$u20$gpui..action..Action$GT$5build17h09900945a54aee2bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.453, ptr %3, align 8
@@ -30876,7 +30876,7 @@ define { ptr, ptr } @"_ZN57_$LT$vim..object..Tag$u20$as$u20$gpui..action..Action
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim6object3Tag15__autogenerated26__gpui_actions_builder_tag17h7b4b8732977c1f80E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim6object3Tag15__autogenerated26__gpui_actions_builder_tag17h7b4b8732977c1f80E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.452, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 8, ptr %2, align 8
@@ -30906,7 +30906,7 @@ define { ptr, i64 } @"_ZN68_$LT$vim..replace..ToggleReplace$u20$as$u20$gpui..act
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN68_$LT$vim..replace..ToggleReplace$u20$as$u20$gpui..action..Action$GT$5build17h6f83bf038b6e9adeE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN68_$LT$vim..replace..ToggleReplace$u20$as$u20$gpui..action..Action$GT$5build17h6f83bf038b6e9adeE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.457.llvm.2345482801186077863, ptr %3, align 8
@@ -30990,7 +30990,7 @@ define { ptr, ptr } @"_ZN68_$LT$vim..replace..ToggleReplace$u20$as$u20$gpui..act
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim7replace13ToggleReplace15__autogenerated36__gpui_actions_builder_togglereplace17hdd47e958edcaa921E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim7replace13ToggleReplace15__autogenerated36__gpui_actions_builder_togglereplace17hdd47e958edcaa921E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.456, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 18, ptr %2, align 8
@@ -31020,7 +31020,7 @@ define { ptr, i64 } @"_ZN66_$LT$vim..replace..UndoReplace$u20$as$u20$gpui..actio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN66_$LT$vim..replace..UndoReplace$u20$as$u20$gpui..action..Action$GT$5build17ha34c7289369ca110E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN66_$LT$vim..replace..UndoReplace$u20$as$u20$gpui..action..Action$GT$5build17ha34c7289369ca110E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.461, ptr %3, align 8
@@ -31098,7 +31098,7 @@ define { ptr, ptr } @"_ZN66_$LT$vim..replace..UndoReplace$u20$as$u20$gpui..actio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3vim7replace11UndoReplace15__autogenerated34__gpui_actions_builder_undoreplace17h627d62f743f1348eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #24 {
+define void @_ZN3vim7replace11UndoReplace15__autogenerated34__gpui_actions_builder_undoreplace17h627d62f743f1348eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #24 {
   store ptr @anon.b1d0e48aed5f85bdc873dedaf629f3eb.460, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 16, ptr %2, align 8

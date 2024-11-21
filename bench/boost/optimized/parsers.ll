@@ -2042,7 +2042,7 @@ _ZNSt6vectorIN5boost15program_options12basic_optionIwEESaIS3_EED2Ev.exit: ; pred
 declare void @_ZNSt14basic_ifstreamIwSt11char_traitsIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #6 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost15program_options20basic_parsed_optionsIwEC2ERKNS1_IcEE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost15program_options20basic_parsed_optionsIwEC2ERKNS1_IcEE(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::_bi::bind_t", align 8
   %4 = alloca %"class.boost::_bi::bind_t", align 8
   %5 = alloca %"class.boost::program_options::basic_option.46", align 8
@@ -2521,7 +2521,7 @@ _ZNSt12_Vector_baseIN5boost15program_options12basic_optionIwEESaIS3_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost15program_options17parse_environmentERKNS0_19options_descriptionERKNS_10function_nINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSA_EEE(ptr dead_on_unwind noalias writable sret(%"class.boost::program_options::basic_parsed_options") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost15program_options17parse_environmentERKNS0_19options_descriptionERKNS_10function_nINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSA_EEE(ptr dead_on_unwind noalias writable sret(%"class.boost::program_options::basic_parsed_options") align 8 initializes((0, 36)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.boost::environment_iterator", align 8

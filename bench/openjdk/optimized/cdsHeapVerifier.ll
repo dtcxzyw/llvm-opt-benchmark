@@ -289,7 +289,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN15CDSHeapVerifierD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15CDSHeapVerifierD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15CDSHeapVerifierC2Ev(ptr noundef nonnull align 8 dereferenceable(127160) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15CDSHeapVerifierC2Ev(ptr noundef nonnull align 8 dereferenceable(127160) initializes((0, 127132), (127136, 127160)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CDSHeapVerifier, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 127136
@@ -634,7 +634,7 @@ _ZN15CDSHeapVerifier13add_exclusionEPPKc.exit44:  ; preds = %_ZN15CDSHeapVerifie
 declare void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15CDSHeapVerifierD2Ev(ptr noundef nonnull align 8 dereferenceable(127160) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15CDSHeapVerifierD2Ev(ptr noundef nonnull align 8 dereferenceable(127160) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CDSHeapVerifier, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4

@@ -869,7 +869,7 @@ define { <2 x float>, float } @_ZNK17RichParameterList10getPoint3mERK7QString(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17RichParameterList8getShotfERK7QString(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Shot") align 4 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17RichParameterList8getShotfERK7QString(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Shot") align 4 initializes((0, 132)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::Shot", align 4
   %5 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK17RichParameterList18getParameterByNameERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %5)

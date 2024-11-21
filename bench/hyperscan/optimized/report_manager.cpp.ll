@@ -113,7 +113,7 @@ $_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt
 @_ZN3ue213ReportManagerC1ERKNS_4GreyE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN3ue213ReportManagerC2ERKNS_4GreyE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ue213ReportManagerC2ERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(505) %this, ptr noundef nonnull align 8 dereferenceable(292) %g) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213ReportManagerC2ERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(505) initializes((0, 24), (32, 36), (40, 48)) %this, ptr noundef nonnull align 8 dereferenceable(292) %g) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %0 = getelementptr inbounds i8, ptr %this, i64 32
@@ -1796,7 +1796,7 @@ _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE2atERS5_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214reportsToEkeysERKSt3setIjSt4lessIjESaIjEERKNS_13ReportManagerE(ptr noalias sret(%"class.std::set") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %reports, ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %rm) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214reportsToEkeysERKSt3setIjSt4lessIjESaIjEERKNS_13ReportManagerE(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %reports, ptr nocapture noundef nonnull readonly align 8 dereferenceable(505) %rm) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8

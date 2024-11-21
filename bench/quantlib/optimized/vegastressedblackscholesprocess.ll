@@ -646,7 +646,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31VegaStressedBlackScholesProcess31setLowerTimeBorderForStressTestEd(ptr noundef nonnull align 8 dereferenceable(296) %this, double noundef %LTB) local_unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib31VegaStressedBlackScholesProcess31setLowerTimeBorderForStressTestEd(ptr noundef nonnull align 8 dereferenceable(296) initializes((256, 264)) %this, double noundef %LTB) local_unnamed_addr #6 align 2 {
 entry:
   %lowerTimeBorderForStressTest_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   store double %LTB, ptr %lowerTimeBorderForStressTest_, align 8, !tbaa !38
@@ -658,7 +658,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31VegaStressedBlackScholesProcess31setUpperTimeBorderForStressTestEd(ptr noundef nonnull align 8 dereferenceable(296) %this, double noundef %UTB) local_unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib31VegaStressedBlackScholesProcess31setUpperTimeBorderForStressTestEd(ptr noundef nonnull align 8 dereferenceable(296) initializes((264, 272)) %this, double noundef %UTB) local_unnamed_addr #6 align 2 {
 entry:
   %upperTimeBorderForStressTest_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   store double %UTB, ptr %upperTimeBorderForStressTest_, align 8, !tbaa !59
@@ -670,7 +670,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31VegaStressedBlackScholesProcess32setLowerAssetBorderForStressTestEd(ptr noundef nonnull align 8 dereferenceable(296) %this, double noundef %LAB) local_unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib31VegaStressedBlackScholesProcess32setLowerAssetBorderForStressTestEd(ptr noundef nonnull align 8 dereferenceable(296) initializes((272, 280)) %this, double noundef %LAB) local_unnamed_addr #6 align 2 {
 entry:
   %lowerAssetBorderForStressTest_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   store double %LAB, ptr %lowerAssetBorderForStressTest_, align 8, !tbaa !60
@@ -682,7 +682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31VegaStressedBlackScholesProcess32setUpperAssetBorderForStressTestEd(ptr noundef nonnull align 8 dereferenceable(296) %this, double noundef %UBA) local_unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib31VegaStressedBlackScholesProcess32setUpperAssetBorderForStressTestEd(ptr noundef nonnull align 8 dereferenceable(296) initializes((280, 288)) %this, double noundef %UBA) local_unnamed_addr #6 align 2 {
 entry:
   %upperAssetBorderForStressTest_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   store double %UBA, ptr %upperAssetBorderForStressTest_, align 8, !tbaa !61
@@ -694,7 +694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31VegaStressedBlackScholesProcess14setStressLevelEd(ptr noundef nonnull align 8 dereferenceable(296) %this, double noundef %SL) local_unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib31VegaStressedBlackScholesProcess14setStressLevelEd(ptr noundef nonnull align 8 dereferenceable(296) initializes((288, 296)) %this, double noundef %SL) local_unnamed_addr #6 align 2 {
 entry:
   %stressLevel_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   store double %SL, ptr %stressLevel_, align 8, !tbaa !62

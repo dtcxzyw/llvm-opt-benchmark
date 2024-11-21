@@ -20623,7 +20623,7 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit100:       ; preds = %433, %437, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo15parseTargetAttrEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.clang::ParsedTargetAttr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %1, ptr %2, i64 %3) unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo15parseTargetAttrEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.clang::ParsedTargetAttr") align 8 initializes((0, 88)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %1, ptr %2, i64 %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.llvm::StringRef", align 8

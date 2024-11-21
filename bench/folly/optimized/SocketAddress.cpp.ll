@@ -382,7 +382,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly13SocketAddress17setFromIpAddrPortERKNS_9IPAddressEt(ptr nocapture noundef nonnull align 8 dereferenceable(27) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(22) %ipAddr, i16 noundef zeroext %port) local_unnamed_addr #8 align 2 {
+define void @_ZN5folly13SocketAddress17setFromIpAddrPortERKNS_9IPAddressEt(ptr nocapture noundef nonnull align 8 dereferenceable(27) initializes((8, 22), (24, 26)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(22) %ipAddr, i16 noundef zeroext %port) local_unnamed_addr #8 align 2 {
 entry:
   %external_ = getelementptr inbounds i8, ptr %this, i64 26
   %0 = load i8, ptr %external_, align 2, !tbaa !7, !range !13, !noundef !14
@@ -712,7 +712,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111HostAndPortC2EPKcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111HostAndPortC2EPKcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %port = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)

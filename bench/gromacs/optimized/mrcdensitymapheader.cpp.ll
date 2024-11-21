@@ -647,7 +647,7 @@ define void @_ZN3gmx36getCoordinateTransformationToLatticeERKNS_19MrcDensityMapH
 declare void @_ZN3gmx17TranslateAndScaleC1ERKNS_11BasicVectorIfEES4_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(12)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx19getDynamicExtents3DERKNS_19MrcDensityMapHeaderE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::extents") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %1) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx19getDynamicExtents3DERKNS_19MrcDensityMapHeaderE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::extents") align 8 initializes((8, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %1) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 912
   %4 = getelementptr inbounds i8, ptr %1, i64 920
   %5 = load i32, ptr %4, align 8

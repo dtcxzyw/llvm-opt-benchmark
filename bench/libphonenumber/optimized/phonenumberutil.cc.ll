@@ -627,7 +627,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers6LoggerEE5resetEPS3_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberUtilC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberUtilC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::tuple.196", align 8
   %3 = alloca %"class.std::tuple.180", align 8
   %4 = alloca %"struct.std::pair.175", align 8
@@ -3911,7 +3911,7 @@ _ZN5boost14checked_deleteIN4i18n12phonenumbers29PhoneNumberRegExpsAndMappingsEEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberUtilD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberUtilD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberUtilE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -4161,7 +4161,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers6LoggerEED2Ev.exit: ; preds = %_ZN5boo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberUtilD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberUtilD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #10 align 2 {
   tail call void @_ZN4i18n12phonenumbers15PhoneNumberUtilD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
   ret void

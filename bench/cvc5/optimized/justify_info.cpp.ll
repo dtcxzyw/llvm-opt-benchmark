@@ -253,7 +253,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal8decision11JustifyInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal8decision11JustifyInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((96, 104)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_childIndex = getelementptr inbounds i8, ptr %this, i64 96
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context3CDOImEE, i64 16), ptr %d_childIndex, align 8
@@ -315,7 +315,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK4cvc58internal8decision11JustifyInfo7getNodeEv(ptr noalias nocapture writeonly sret(%"struct.std::pair") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK4cvc58internal8decision11JustifyInfo7getNodeEv(ptr noalias nocapture writeonly sret(%"struct.std::pair") align 8 initializes((0, 12)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_data.i = getelementptr inbounds i8, ptr %this, i64 40
   %d_data.i1 = getelementptr inbounds i8, ptr %this, i64 88

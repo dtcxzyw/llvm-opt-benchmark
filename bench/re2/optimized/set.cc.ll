@@ -65,7 +65,7 @@ $_ZNSt6vectorIiSaIiEE13_M_assign_auxIPiEEvT_S4_St20forward_iterator_tag = comdat
 @_ZN3re23RE23SetC1EOS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN3re23RE23SetC2EOS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3re23RE23SetC2ERKNS0_7OptionsENS0_6AnchorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23) %options, i32 noundef %anchor) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re23RE23SetC2ERKNS0_7OptionsENS0_6AnchorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 28), (32, 57), (60, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23) %options, i32 noundef %anchor) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %options, i64 24, i1 false)
   %anchor_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -183,7 +183,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3re23RE23SetC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re23RE23SetC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 28), (32, 57), (60, 72)) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other, i64 24, i1 false)
   %anchor_ = getelementptr inbounds i8, ptr %this, i64 24

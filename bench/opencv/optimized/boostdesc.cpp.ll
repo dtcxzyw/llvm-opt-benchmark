@@ -651,7 +651,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit:     ; preds = %1, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11xfeatures2d14BoostDesc_ImplC2Eibf(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, float noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11xfeatures2d14BoostDesc_ImplC2Eibf(ptr noundef nonnull align 8 dereferenceable(920) initializes((0, 8), (20, 24), (44, 49)) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, float noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.0", align 1
   %8 = zext i1 %3 to i8

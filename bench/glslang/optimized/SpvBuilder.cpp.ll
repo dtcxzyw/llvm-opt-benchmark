@@ -239,7 +239,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7BuilderC2EjjPNS_14SpvBuildLoggerE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
+define void @_ZN3spv7BuilderC2EjjPNS_14SpvBuildLoggerE(ptr noundef nonnull align 8 dereferenceable(1416) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv7BuilderE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -513,7 +513,7 @@ _ZN3spv7Builder16clearAccessChainEv.exit:         ; preds = %_ZNSt6vectorIjSaIjE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3spv7Builder16clearAccessChainEv(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN3spv7Builder16clearAccessChainEv(ptr nocapture noundef nonnull align 8 dereferenceable(1416) initializes((488, 492), (520, 524), (552, 561), (564, 568)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 488
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 496
@@ -554,7 +554,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit2:               ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7BuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(1416) %0) unnamed_addr #3 align 2 {
+define void @_ZN3spv7BuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(1416) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3spv7BuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1352
   %3 = getelementptr inbounds i8, ptr %0, i64 1368
@@ -20162,7 +20162,7 @@ _ZNSt5stackIjSt5dequeIjSaIjEEE4pushERKj.exit:     ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder17leaveLexicalBlockEv(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder17leaveLexicalBlockEv(ptr nocapture noundef nonnull align 8 dereferenceable(1416) initializes((144, 145)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 208
@@ -20197,7 +20197,7 @@ _ZNSt5stackIjSt5dequeIjSaIjEEE3popEv.exit:        ; preds = %6, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder13enterFunctionEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder13enterFunctionEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1416) initializes((235, 236)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 234
@@ -29090,7 +29090,7 @@ _ZNK3spv7Builder20getNumTypeComponentsEj.exit:    ; preds = %_ZNK3spv7Builder18g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder2IfC2EjjRS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(1416) %3) unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder2IfC2EjjRS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(1416) %3) unnamed_addr #3 align 2 {
   store ptr %3, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8
@@ -29211,7 +29211,7 @@ _ZN3spv8Function8addBlockEPNS_5BlockE.exit:       ; preds = %37, %_ZNSt6vectorIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder2If13makeBeginElseEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder2If13makeBeginElseEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((40, 48)) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %"class.std::unique_ptr", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48

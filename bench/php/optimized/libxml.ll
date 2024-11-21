@@ -697,7 +697,7 @@ define internal void @zm_info_libxml(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @zm_globals_ctor_libxml(ptr nocapture noundef writeonly %0) #1 {
+define internal void @zm_globals_ctor_libxml(ptr nocapture noundef writeonly initializes((8, 12), (16, 24), (32, 80)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

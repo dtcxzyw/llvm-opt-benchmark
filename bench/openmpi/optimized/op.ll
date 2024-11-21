@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_op_construct(ptr noundef %0) #0 {
+define internal void @ompi_op_construct(ptr noundef initializes((16, 17), (80, 88)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 14, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 84
@@ -633,7 +633,7 @@ add_intrinsic.exit.thread53:                      ; preds = %opal_obj_run_constr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_intrinsic(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 81, 114) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @add_intrinsic(ptr noundef initializes((0, 8)) %0, i32 noundef %1, i32 noundef range(i32 81, 114) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @opal_class_init_epoch, align 4
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_op_t_class, i64 32), align 8
   %.not = icmp eq i32 %5, %6
@@ -1110,7 +1110,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare void @opal_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ompi_op_set_java_callback(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @ompi_op_set_java_callback(ptr nocapture noundef initializes((104, 124)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 84
   %6 = load i32, ptr %5, align 4
   %7 = or i32 %6, 8

@@ -11776,7 +11776,7 @@ define dso_local void @_ZN5clang4DeclD0Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang4Decl14setDeclContextEPNS_11DeclContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %0, ptr noundef %1) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN5clang4Decl14setDeclContextEPNS_11DeclContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -5
@@ -12022,7 +12022,7 @@ _ZNK5clang4Decl15getOwningModuleEv.exit:          ; preds = %76, %_ZNK5clang4Dec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Decl19setDeclContextsImplEPNS_11DeclContextES2_RNS_10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(23096) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Decl19setDeclContextsImplEPNS_11DeclContextES2_RNS_10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((16, 24)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(23096) %3) local_unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %1, %2
   br i1 %5, label %6, label %10
 
@@ -16003,7 +16003,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZN4llvmneENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang4Decl17canBeWeakImportedERb(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang4Decl17canBeWeakImportedERb(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) local_unnamed_addr #0 align 2 {
   store i8 0, ptr %1, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
@@ -18600,7 +18600,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread: ; preds = %_ZNK5clang13CXXReco
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang11DeclContextC2ENS_4Decl4KindE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang11DeclContextC2ENS_4Decl4KindE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 32)) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -50,7 +50,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib14GaussianCopulaC1Ed = unnamed_addr alias void (ptr, double), ptr @_ZN8QuantLib14GaussianCopulaC2Ed
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14GaussianCopulaC2Ed(ptr noundef nonnull align 8 dereferenceable(96) %this, double noundef %rho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14GaussianCopulaC2Ed(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this, double noundef %rho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

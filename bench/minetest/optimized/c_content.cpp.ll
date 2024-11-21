@@ -1032,7 +1032,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z20read_item_definitionP9lua_StateiRK14ItemDefinitionRS1_(ptr noundef %L, i32 noundef %index, ptr nocapture noundef nonnull readnone align 8 dereferenceable(918) %default_def, ptr noundef nonnull align 8 dereferenceable(918) %def) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z20read_item_definitionP9lua_StateiRK14ItemDefinitionRS1_(ptr noundef %L, i32 noundef %index, ptr nocapture noundef nonnull readnone align 8 dereferenceable(918) %default_def, ptr noundef nonnull align 8 dereferenceable(918) initializes((0, 1)) %def) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %__alloc_node_gen.i.i3.i = alloca %"struct.std::__detail::_AllocNode.369", align 8
   %__alloc_node_gen.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
@@ -2782,7 +2782,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16Point
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: uwtable
-define dso_local void @_Z22read_tool_capabilitiesP9lua_Statei(ptr dead_on_unwind noalias writable sret(%struct.ToolCapabilities) align 8 %agg.result, ptr noundef %L, i32 noundef %table) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z22read_tool_capabilitiesP9lua_Statei(ptr dead_on_unwind noalias writable sret(%struct.ToolCapabilities) align 8 initializes((0, 64)) %agg.result, ptr noundef %L, i32 noundef %table) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i307 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -8779,7 +8779,7 @@ return:                                           ; preds = %_Z11getintfieldIiEb
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_Z21read_content_featuresP9lua_StateR15ContentFeaturesi(ptr noundef %L, ptr noundef nonnull align 8 dereferenceable(3706) %f, i32 noundef %index) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z21read_content_featuresP9lua_StateR15ContentFeaturesi(ptr noundef %L, ptr noundef nonnull align 8 dereferenceable(3706) initializes((3048, 3049)) %f, i32 noundef %index) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i980 = alloca i64, align 8
   %__dnew.i.i888 = alloca i64, align 8
@@ -11369,7 +11369,7 @@ cleanup:                                          ; preds = %if.end, %if.then, %
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z12read_nodeboxP9lua_Statei(ptr dead_on_unwind noalias nonnull writable sret(%struct.NodeBox) align 8 %agg.result, ptr noundef %L, i32 noundef %index) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z12read_nodeboxP9lua_Statei(ptr dead_on_unwind noalias nonnull writable sret(%struct.NodeBox) align 8 initializes((8, 120)) %agg.result, ptr noundef %L, i32 noundef %index) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.174", align 16
   %ref.tmp19 = alloca %"class.irr::core::aabbox3d", align 4
@@ -14498,7 +14498,7 @@ eh.resume:                                        ; preds = %ehcleanup42, %ehcle
 declare noundef zeroext i1 @_ZN9Inventory10deleteListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z10read_itemsP9lua_StateiP8IGameDef(ptr dead_on_unwind noalias writable sret(%"class.std::vector.225") align 8 %agg.result, ptr noundef %L, i32 noundef %index, ptr noundef %gdef) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z10read_itemsP9lua_StateiP8IGameDef(ptr dead_on_unwind noalias writable sret(%"class.std::vector.225") align 8 initializes((0, 24)) %agg.result, ptr noundef %L, i32 noundef %index, ptr noundef %gdef) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator", align 1

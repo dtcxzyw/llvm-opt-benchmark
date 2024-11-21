@@ -170,7 +170,7 @@ return:                                           ; preds = %if.else, %return.si
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lj_alloc_setprng(ptr nocapture noundef writeonly %msp, ptr noundef %rs) local_unnamed_addr #2 {
+define hidden void @lj_alloc_setprng(ptr nocapture noundef writeonly initializes((864, 872)) %msp, ptr noundef %rs) local_unnamed_addr #2 {
 entry:
   %prng = getelementptr inbounds i8, ptr %msp, i64 864
   store ptr %rs, ptr %prng, align 8

@@ -3559,7 +3559,7 @@ declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr nocapture noundef writeonly %presult, i32 noundef range(i32 0, 2) %exc, i32 noundef range(i32 0, 2) %closing) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr nocapture noundef writeonly initializes((0, 8)) %presult, i32 noundef range(i32 0, 2) %exc, i32 noundef range(i32 0, 2) %closing) unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3766,7 +3766,7 @@ declare i32 @PyObject_CallFinalizerFromDealloc(ptr noundef) local_unnamed_addr #
 declare void @_PyFrame_ClearExceptCode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @PyGen_am_send(ptr noundef %gen, ptr noundef %arg, ptr nocapture noundef writeonly %result) #1 {
+define internal range(i32 -1, 2) i32 @PyGen_am_send(ptr noundef %gen, ptr noundef %arg, ptr nocapture noundef writeonly initializes((0, 8)) %result) #1 {
 entry:
   %call = tail call fastcc i32 @gen_send_ex2(ptr noundef %gen, ptr noundef %arg, ptr noundef %result, i32 noundef 0, i32 noundef 0)
   ret i32 %call
@@ -5510,7 +5510,7 @@ return:                                           ; preds = %gen_throw.exit, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef nonnull ptr @async_gen_asend_close(ptr nocapture noundef writeonly %o, ptr nocapture readnone %args) #5 {
+define internal noundef nonnull ptr @async_gen_asend_close(ptr nocapture noundef writeonly initializes((32, 36)) %o, ptr nocapture readnone %args) #5 {
 entry:
   %ags_state = getelementptr inbounds i8, ptr %o, i64 32
   store i32 2, ptr %ags_state, align 8
@@ -5862,7 +5862,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef nonnull ptr @async_gen_athrow_close(ptr nocapture noundef writeonly %o, ptr nocapture readnone %args) #5 {
+define internal noundef nonnull ptr @async_gen_athrow_close(ptr nocapture noundef writeonly initializes((32, 36)) %o, ptr nocapture readnone %args) #5 {
 entry:
   %agt_state = getelementptr inbounds i8, ptr %o, i64 32
   store i32 2, ptr %agt_state, align 8

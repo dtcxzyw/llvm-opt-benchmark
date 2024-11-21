@@ -1090,7 +1090,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17hde567e983332fc5cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nonnull %.8.val, i64 %.16.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12check_memarg17hde567e983332fc5cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1)) %0, ptr nonnull %.8.val, i64 %.16.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
@@ -2206,7 +2206,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15struct_field_at17hc99ab03f34569356E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nonnull %.8.val, i64 %.16.val, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$15struct_field_at17hc99ab03f34569356E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1)) %0, ptr nonnull %.8.val, i64 %.16.val, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca [2 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -5772,7 +5772,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$7pop_ref17h0ea805a8aafe9244E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$7pop_ref17h0ea805a8aafe9244E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

@@ -97,7 +97,7 @@ define dso_local noundef range(i32 -16, 1) i32 @register_mem_pfn_is_ram(ptr noun
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid optsize
-define dso_local void @kclist_add(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 section ".init.text" align 16 {
+define dso_local void @kclist_add(ptr noundef initializes((16, 36)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 section ".init.text" align 16 {
   %5 = ptrtoint ptr %1 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %5, ptr %6, align 8

@@ -255,7 +255,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef range(i32 0, 2) i32 @ossl_quic_rxfc_init_standalone(ptr nocapture noundef writeonly %rxfc, i64 noundef %initial_window_size, ptr noundef %now, ptr noundef %now_arg) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @ossl_quic_rxfc_init_standalone(ptr nocapture noundef writeonly initializes((0, 92)) %rxfc, i64 noundef %initial_window_size, ptr noundef %now, ptr noundef %now_arg) local_unnamed_addr #4 {
 return:
   %swm.i = getelementptr inbounds i8, ptr %rxfc, i64 8
   store i64 0, ptr %swm.i, align 8
@@ -294,7 +294,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_rxfc_set_max_window_size(ptr nocapture noundef writeonly %rxfc, i64 noundef %max_window_size) local_unnamed_addr #4 {
+define void @ossl_quic_rxfc_set_max_window_size(ptr nocapture noundef writeonly initializes((48, 56)) %rxfc, i64 noundef %max_window_size) local_unnamed_addr #4 {
 entry:
   %max_window_size1 = getelementptr inbounds i8, ptr %rxfc, i64 48
   store i64 %max_window_size, ptr %max_window_size1, align 8

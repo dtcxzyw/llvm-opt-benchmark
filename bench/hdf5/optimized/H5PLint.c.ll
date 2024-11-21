@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.22 = private unnamed_addr constant [41 x i8] c"unable to add new plugin to plugin cache\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define noundef i32 @H5PL__get_plugin_control_mask(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define noundef i32 @H5PL__get_plugin_control_mask(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @H5PL_plugin_control_mask_g, align 4
   store i32 %2, ptr %0, align 4
   ret i32 0
@@ -280,7 +280,7 @@ declare i32 @H5PL__find_plugin_in_cache(ptr noundef, ptr noundef, ptr noundef) l
 declare i32 @H5PL__find_plugin_in_path_table(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef initializes((0, 1)) %3, ptr noundef writeonly %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #2 {
   %7 = alloca %union.H5PL_key_t, align 8
   store i8 0, ptr %3, align 1
   store ptr null, ptr %5, align 8

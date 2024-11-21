@@ -3944,7 +3944,7 @@ _ZNSt3mapImS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_ImdSt4lessIm
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %time_stats, i64 noundef %time_unit) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116adjust_time_unitERKSt3mapImmSt4lessImESaISt4pairIKmmEEEm(ptr noalias nonnull align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %time_stats, i64 noundef %time_unit) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, unsigned long>, std::_Select1st<std::pair<const unsigned long, unsigned long>>, std::less<unsigned long>>::_Alloc_node", align 8
   %ref.tmp = alloca i64, align 8
@@ -13500,7 +13500,7 @@ ehcleanup29:                                      ; preds = %if.then.i.i48, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23BlockCacheTraceAnalyzerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_bbbOSt10unique_ptrINS_24BlockCacheTraceSimulatorESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(1049040) %this, ptr noundef nonnull align 8 dereferenceable(32) %trace_file_path, ptr noundef nonnull align 8 dereferenceable(32) %output_dir, ptr noundef nonnull align 8 dereferenceable(32) %human_readable_trace_file_path, i1 noundef zeroext %compute_reuse_distance, i1 noundef zeroext %mrc_only, i1 noundef zeroext %is_human_readable_trace_file, ptr nocapture noundef nonnull align 8 dereferenceable(8) %cache_simulator) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23BlockCacheTraceAnalyzerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_bbbOSt10unique_ptrINS_24BlockCacheTraceSimulatorESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(1049040) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %trace_file_path, ptr noundef nonnull align 8 dereferenceable(32) %output_dir, ptr noundef nonnull align 8 dereferenceable(32) %human_readable_trace_file_path, i1 noundef zeroext %compute_reuse_distance, i1 noundef zeroext %mrc_only, i1 noundef zeroext %is_human_readable_trace_file, ptr nocapture noundef nonnull align 8 dereferenceable(8) %cache_simulator) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN7rocksdb3Env7DefaultEv()
   store ptr %call, ptr %this, align 8
@@ -15160,7 +15160,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit34:        ; preds = %if.then.i4, %_ZNSt6
 declare void @_ZN7rocksdb34BlockCacheHumanReadableTraceWriter29WriteHumanReadableTraceRecordERKNS_21BlockCacheTraceRecordEmm(ptr sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 8 dereferenceable(1048584), ptr noundef nonnull align 8 dereferenceable(185), i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23BlockCacheTraceAnalyzer7AnalyzeEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1049040) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23BlockCacheTraceAnalyzer7AnalyzeEv(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1049040) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %trace_reader = alloca %"class.std::unique_ptr.336", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -21191,7 +21191,7 @@ _ZNSt12_Vector_baseIN7rocksdb18CacheConfigurationESaIS1_EED2Ev.exit: ; preds = %
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13parse_bucketsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::vector.68") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %bucket_str) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13parse_bucketsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::vector.68") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %bucket_str) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %bucket = alloca %"class.std::__cxx11::basic_string", align 8

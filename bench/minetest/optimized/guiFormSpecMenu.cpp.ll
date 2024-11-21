@@ -2802,7 +2802,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 declare void @_ZN12GUIModalMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(384), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenuC1EP18JoystickControllerPN3irr3gui11IGUIElementEiP12IMenuManagerP6ClientPNS3_15IGUIEnvironmentEP20ISimpleTextureSourceP13ISoundManagerP11IFormSourceP8TextDestRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef %joystick, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, ptr noundef %client, ptr noundef %guienv, ptr noundef %tsrc, ptr noundef %sound_manager, ptr noundef %fsrc, ptr noundef %tdst, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %formspecPrepend, i1 noundef zeroext %remap_dbl_click) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenuC1EP18JoystickControllerPN3irr3gui11IGUIElementEiP12IMenuManagerP6ClientPNS3_15IGUIEnvironmentEP20ISimpleTextureSourceP13ISoundManagerP11IFormSourceP8TextDestRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(2228) initializes((2232, 2252)) %this, ptr noundef %joystick, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, ptr noundef %client, ptr noundef %guienv, ptr noundef %tsrc, ptr noundef %sound_manager, ptr noundef %fsrc, ptr noundef %tdst, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %formspecPrepend, i1 noundef zeroext %remap_dbl_click) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i161 = alloca i64, align 8
   %__dnew.i.i147 = alloca i64, align 8
@@ -3416,7 +3416,7 @@ ehcleanup75:                                      ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15GUIFormSpecMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef %vtt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(2228) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !12
@@ -4590,7 +4590,7 @@ _ZN17InventoryLocationD2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15GUIFormSpecMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(2228) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN15GUIFormSpecMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(2228) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN15GUIFormSpecMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef nonnull @_ZTT15GUIFormSpecMenu) #33
   ret void
@@ -4608,7 +4608,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15GUIFormSpecMenuD0Ev(ptr noundef nonnull align 8 dereferenceable(2228) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN15GUIFormSpecMenuD0Ev(ptr noundef nonnull align 8 dereferenceable(2228) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN15GUIFormSpecMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef nonnull @_ZTT15GUIFormSpecMenu) #33
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -5224,7 +5224,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu15precheckElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_mmRSt6vectorIS5_SaIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %element, i64 noundef %args_min, i64 noundef %args_max, ptr nocapture noundef nonnull align 8 dereferenceable(24) %parts) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu15precheckElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_mmRSt6vectorIS5_SaIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %element, i64 noundef %args_min, i64 noundef %args_max, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %parts) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.165", align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #33
@@ -10602,7 +10602,7 @@ _ZN11StreamProxylsIRA45_KcEERS_OT_.exit:          ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu25getDefaultStyleForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_(ptr dead_on_unwind noalias writable sret(%class.StyleSpec) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef nonnull align 8 dereferenceable(32) %type, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %parent_type) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu25getDefaultStyleForElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_(ptr dead_on_unwind noalias writable sret(%class.StyleSpec) align 8 initializes((0, 25)) %agg.result, ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef nonnull align 8 dereferenceable(32) %type, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %parent_type) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"struct.std::array.365", align 8

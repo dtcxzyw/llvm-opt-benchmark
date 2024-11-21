@@ -1285,7 +1285,7 @@ pack16.exit:                                      ; preds = %47, %52, %57, %59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unpack16_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpack16_array(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1496,7 +1496,7 @@ pack32.exit10:                                    ; preds = %47, %52, %57, %59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unpack32_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpack32_array(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1660,7 +1660,7 @@ try_grow_buf_remaining.exit.thread:               ; preds = %32, %17, %24, %30, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unpackmem_ptr(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpackmem_ptr(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1720,7 +1720,7 @@ unpack32.exit:                                    ; preds = %3, %23, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unpackmem_xmalloc(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpackmem_xmalloc(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1790,7 +1790,7 @@ unpack32.exit:                                    ; preds = %3, %27, %23, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1870,7 +1870,7 @@ unpack32.exit:                                    ; preds = %3, %34, %27, %23, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_escaped(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_escaped(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef %2) #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1972,7 +1972,7 @@ unpack32.exit:                                    ; preds = %3, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_chooser(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_chooser(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef %2) #0 {
   %4 = load ptr, ptr @slurmdbd_conf, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -2077,7 +2077,7 @@ try_grow_buf_remaining.exit.thread:               ; preds = %43, %try_grow_buf_r
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef %2) #0 {
   %4 = alloca i32, align 4
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
@@ -2621,7 +2621,7 @@ pack64.exit:                                      ; preds = %47, %52, %57, %59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unpack64_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @unpack64_array(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -2834,7 +2834,7 @@ packdouble.exit:                                  ; preds = %47, %52, %57, %59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unpackdouble_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @unpackdouble_array(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -2997,7 +2997,7 @@ pack32.exit:                                      ; preds = %11, %17, %23, %25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unpacklongdouble_array(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @unpacklongdouble_array(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca x86_fp80, align 16
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16

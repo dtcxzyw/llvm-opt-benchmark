@@ -569,7 +569,7 @@ return:                                           ; preds = %if.end7, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @connSocketConnect(ptr noundef %conn, ptr noundef %addr, i32 noundef %port, ptr noundef %src_addr, ptr noundef %connect_handler) #0 {
+define internal range(i32 -1, 1) i32 @connSocketConnect(ptr noundef initializes((8, 12)) %conn, ptr noundef %addr, i32 noundef %port, ptr noundef %src_addr, ptr noundef %connect_handler) #0 {
 entry:
   %call = tail call i32 @anetTcpNonBlockBestEffortBindConnect(ptr noundef null, ptr noundef %addr, i32 noundef %port, ptr noundef %src_addr) #9
   %cmp = icmp eq i32 %call, -1
@@ -604,7 +604,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @connSocketBlockingConnect(ptr nocapture noundef writeonly %conn, ptr noundef %addr, i32 noundef %port, i64 noundef %timeout) #0 {
+define internal range(i32 -1, 1) i32 @connSocketBlockingConnect(ptr nocapture noundef writeonly initializes((8, 12)) %conn, ptr noundef %addr, i32 noundef %port, i64 noundef %timeout) #0 {
 entry:
   %call = tail call i32 @anetTcpNonBlockConnect(ptr noundef null, ptr noundef %addr, i32 noundef %port) #9
   %cmp = icmp eq i32 %call, -1

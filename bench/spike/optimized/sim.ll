@@ -3326,7 +3326,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5sim_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2888) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5sim_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2888) initializes((0, 8), (696, 704)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV5sim_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 696
   store ptr getelementptr inbounds (i8, ptr @_ZTV5sim_t, i64 216), ptr %2, align 8
@@ -3985,7 +3985,7 @@ define void @_ZN5sim_t4stepEm(ptr nocapture noundef nonnull align 8 dereferencea
 declare void @_ZN11processor_t4stepEm(ptr noundef nonnull align 8 dereferenceable(659880), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5sim_t9set_debugEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2888) %0, i1 noundef zeroext %1) local_unnamed_addr #15 align 2 {
+define void @_ZN5sim_t9set_debugEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2888) initializes((1456, 1457)) %0, i1 noundef zeroext %1) local_unnamed_addr #15 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 1456
   store i8 %3, ptr %4, align 8
@@ -3993,7 +3993,7 @@ define void @_ZN5sim_t9set_debugEb(ptr nocapture noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5sim_t13set_histogramEb(ptr nocapture noundef nonnull align 8 dereferenceable(2888) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define void @_ZN5sim_t13set_histogramEb(ptr nocapture noundef nonnull align 8 dereferenceable(2888) initializes((1457, 1458)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 1457
   store i8 %3, ptr %4, align 1
@@ -4029,7 +4029,7 @@ define void @_ZN5sim_t13set_histogramEb(ptr nocapture noundef nonnull align 8 de
 declare void @_ZN11processor_t13set_histogramEb(ptr noundef nonnull align 8 dereferenceable(659880), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5sim_t13configure_logEbb(ptr nocapture noundef nonnull align 8 dereferenceable(2888) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #7 align 2 {
+define void @_ZN5sim_t13configure_logEbb(ptr nocapture noundef nonnull align 8 dereferenceable(2888) initializes((1458, 1459)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = zext i1 %1 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 1458
   store i8 %4, ptr %5, align 2
@@ -5119,7 +5119,7 @@ declare void @_ZN5sim_t11interactiveEv(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN16remote_bitbang_t4tickEv(ptr noundef nonnull align 8 dereferenceable(131104)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5sim_t10read_chunkEmmPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2888) %0, i64 noundef %1, i64 %2, ptr nocapture noundef writeonly %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5sim_t10read_chunkEmmPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2888) %0, i64 noundef %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK13xlate_flags_t17is_special_accessEv.exit:
   %4 = alloca %class.target_endian, align 8
   %5 = alloca %"class.std::tuple.311", align 8

@@ -27,7 +27,7 @@ define void @Init_utf8_mac() local_unnamed_addr #0 {
 declare void @rb_register_transcoder(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @from_utf8_mac_init(ptr nocapture noundef writeonly %0) #2 {
+define internal noundef i32 @from_utf8_mac_init(ptr nocapture noundef writeonly initializes((16, 24)) %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 16

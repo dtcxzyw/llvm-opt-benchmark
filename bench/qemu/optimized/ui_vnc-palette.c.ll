@@ -23,7 +23,7 @@ entry:
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @palette_init(ptr nocapture noundef writeonly %palette, i64 noundef %max, i32 noundef %bpp) local_unnamed_addr #2 {
+define dso_local void @palette_init(ptr nocapture noundef writeonly initializes((0, 8216)) %palette, i64 noundef %max, i32 noundef %bpp) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8216) %palette, i8 0, i64 8216, i1 false)
   %max1 = getelementptr inbounds i8, ptr %palette, i64 6152

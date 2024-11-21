@@ -30,7 +30,7 @@ declare ptr @Cudd_Support(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_zddSymmPairsCompute(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -516,7 +516,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @Extra_zddGetSymmetricVars(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 448
   br label %6
 
@@ -861,7 +861,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddGetSingletons(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Extra_zddGetSingletons(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 
@@ -955,7 +955,7 @@ define ptr @extraZddGetSingletons(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_bddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_bddReduceVarSet(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -1282,7 +1282,7 @@ define void @Extra_SymmPairsPrint(ptr nocapture noundef readonly %0) local_unnam
 declare i32 @Extra_bddSuppSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddSelectOneSubset(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Extra_zddSelectOneSubset(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 

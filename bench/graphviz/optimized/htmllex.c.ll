@@ -1882,7 +1882,7 @@ define internal range(i32 0, 2) i32 @halignfn(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @bgcolorfn(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @bgcolorfn(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr nocapture noundef readonly %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %3, ptr %4, align 8
@@ -2082,7 +2082,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @pencolorfn(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @pencolorfn(ptr nocapture noundef writeonly initializes((48, 56)) %0, ptr nocapture noundef readonly %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %3, ptr %4, align 8
@@ -2229,14 +2229,14 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @hreffn(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @hreffn(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   store ptr %3, ptr %0, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @idfn(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @idfn(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr nocapture noundef readonly %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %3, ptr %4, align 8
@@ -2244,7 +2244,7 @@ define internal noundef i32 @idfn(ptr nocapture noundef writeonly %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @portfn(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @portfn(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
@@ -2454,7 +2454,7 @@ tok_next.exit:                                    ; preds = %41
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @targetfn(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @targetfn(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr nocapture noundef readonly %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %4, align 8
@@ -2462,7 +2462,7 @@ define internal noundef i32 @targetfn(ptr nocapture noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @titlefn(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @titlefn(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr nocapture noundef readonly %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %3, ptr %4, align 8
@@ -2768,14 +2768,14 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fontcolorfn(ptr nocapture noundef writeonly %0, ptr noundef %1) #16 {
+define internal noundef i32 @fontcolorfn(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr noundef %1) #16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @facefn(ptr nocapture noundef writeonly %0, ptr noundef %1) #16 {
+define internal noundef i32 @facefn(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) #16 {
   store ptr %1, ptr %0, align 8
   ret i32 0
 }
@@ -2863,7 +2863,7 @@ define internal range(i32 0, 2) i32 @alignfn(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @scalefn(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @scalefn(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr nocapture noundef readonly %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %3, ptr %4, align 8
@@ -2871,7 +2871,7 @@ define internal noundef i32 @scalefn(ptr nocapture noundef writeonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @srcfn(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef i32 @srcfn(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr nocapture noundef readonly %1) #13 {
   %3 = tail call noalias ptr @strdup(ptr noundef %1) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %3, ptr %4, align 8

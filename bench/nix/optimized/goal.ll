@@ -783,7 +783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3nix4Goal14getBuildResultERKNS_11DerivedPathE(ptr dead_on_unwind noalias writable sret(%"struct.nix::BuildResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(720) %1, ptr noundef nonnull align 8 dereferenceable(73) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3nix4Goal14getBuildResultERKNS_11DerivedPathE(ptr dead_on_unwind noalias writable sret(%"struct.nix::BuildResult") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(720) %1, ptr noundef nonnull align 8 dereferenceable(73) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, nix::Realisation>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, nix::Realisation>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 192
   %6 = load i32, ptr %5, align 8

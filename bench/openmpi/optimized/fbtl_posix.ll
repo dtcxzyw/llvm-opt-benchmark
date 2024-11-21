@@ -24,7 +24,7 @@ define noundef i32 @mca_fbtl_posix_component_init_query(i1 noundef zeroext %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @mca_fbtl_posix_component_file_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define noundef nonnull ptr @mca_fbtl_posix_component_file_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @mca_fbtl_posix_priority, align 4
   store i32 %3, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 148

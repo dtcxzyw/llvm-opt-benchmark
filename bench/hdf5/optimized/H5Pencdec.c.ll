@@ -742,7 +742,7 @@ define range(i32 -1, 1) i32 @H5P__decode_unsigned(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5P__decode_uint8_t(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define noundef i32 @H5P__decode_uint8_t(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -752,7 +752,7 @@ define noundef i32 @H5P__decode_uint8_t(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5P__decode_bool(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define noundef i32 @H5P__decode_bool(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8

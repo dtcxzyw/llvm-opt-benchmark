@@ -617,7 +617,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto14ManagedEVPPKeyC2EOSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pkey) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto14ManagedEVPPKeyC2EOSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pkey) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %this, align 8
   %pkey_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -650,7 +650,7 @@ _ZSt11make_sharedIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEJEESt10shared_ptrINS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto14ManagedEVPPKeyC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %that) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto14ManagedEVPPKeyC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %that) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %this, align 8
   %pkey_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -660,7 +660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %that) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4node6crypto14ManagedEVPPKeyaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((16, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %that) local_unnamed_addr #3 align 2 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %that, i64 16
   %0 = load ptr, ptr %mutex_, align 8
@@ -5669,7 +5669,7 @@ declare void @_ZN4node6crypto16ThrowCryptoErrorEPNS_11EnvironmentEmPKc(ptr nound
 declare i64 @ERR_get_error() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto13KeyObjectDataC2ENS0_10ByteSourceE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %symmetric_key) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto13KeyObjectDataC2ENS0_10ByteSourceE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 12)) %this, ptr noundef nonnull %symmetric_key) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto13KeyObjectDataE, i64 16), ptr %this, align 8
   %key_type_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -5709,7 +5709,7 @@ _ZN4node6crypto14ManagedEVPPKeyC2Ev.exit:         ; preds = %entry
 declare void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto13KeyObjectDataC2ENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %pkey) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto13KeyObjectDataC2ENS0_7KeyTypeERKNS0_14ManagedEVPPKeyE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 12), (16, 72)) %this, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %pkey) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto13KeyObjectDataE, i64 16), ptr %this, align 8
   %key_type_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -13230,7 +13230,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node6crypto15NativeKeyObject17CloneForMessagingEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.347") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node6crypto15NativeKeyObject17CloneForMessagingEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.347") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   %handle_data_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22, !noalias !141

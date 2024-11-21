@@ -655,7 +655,7 @@ if.end3:                                          ; preds = %entry, %if.then2, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @alloc_init(ptr nocapture noundef %s, i32 noundef %opts, i64 noundef %start, i64 noundef %end, i64 noundef %page_size) local_unnamed_addr #0 {
+define dso_local void @alloc_init(ptr nocapture noundef initializes((0, 4), (8, 28), (32, 48)) %s, i32 noundef %opts, i64 noundef %start, i64 noundef %end, i64 noundef %page_size) local_unnamed_addr #0 {
 entry:
   store i32 %opts, ptr %s, align 8
   %start2 = getelementptr inbounds i8, ptr %s, i64 8

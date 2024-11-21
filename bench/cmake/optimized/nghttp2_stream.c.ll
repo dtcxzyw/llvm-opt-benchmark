@@ -246,7 +246,7 @@ define dso_local range(i32 1, -2147483648) i32 @nghttp2_stream_dep_distributed_w
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_stream_attach_item(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @nghttp2_stream_attach_item(ptr noundef initializes((152, 160)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 216
@@ -317,7 +317,7 @@ stream_update_dep_on_attach_item.exit.thread:     ; preds = %.lr.ph.i.i, %36, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_stream_detach_item(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @nghttp2_stream_detach_item(ptr noundef initializes((152, 160)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 216
@@ -605,7 +605,7 @@ update_initial_window_size.exit:                  ; preds = %3, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nghttp2_stream_promise_fulfilled(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define dso_local void @nghttp2_stream_promise_fulfilled(ptr nocapture noundef initializes((204, 208)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 204
   store i32 2, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 216
@@ -637,7 +637,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_stream_dep_find_ancestor(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_stream_dep_insert(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @nghttp2_stream_dep_insert(ptr noundef %0, ptr noundef initializes((200, 204)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 200

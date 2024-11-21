@@ -223,7 +223,7 @@ declare void @png_read_data(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @png_sig_cmp(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, -2147483648) i32 @png_read_chunk_header(ptr noalias noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, -2147483648) i32 @png_read_chunk_header(ptr noalias noundef initializes((1028, 1032)) %0) local_unnamed_addr #0 {
   %2 = alloca [8 x i8], align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 1028
   store i32 33, ptr %3, align 4
@@ -569,7 +569,7 @@ png_crc_error.exit:                               ; preds = %14, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @png_crc_error(ptr noalias noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @png_crc_error(ptr noalias noundef initializes((1028, 1032)) %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i8], align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 456
   %4 = load i32, ptr %3, align 8
@@ -4595,7 +4595,7 @@ define hidden void @png_read_filter_row(ptr noalias nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_read_IDAT_data(ptr noalias noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden void @png_read_IDAT_data(ptr noalias noundef initializes((336, 348)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [1024 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 312

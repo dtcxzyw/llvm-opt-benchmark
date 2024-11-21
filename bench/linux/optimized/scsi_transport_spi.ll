@@ -1068,7 +1068,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @spi_populate_width_msg(ptr nocapture noundef writeonly %0, i32 noundef %1) #5 align 16 {
+define dso_local noundef i32 @spi_populate_width_msg(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) #5 align 16 {
   store i8 1, ptr %0, align 1
   %3 = getelementptr i8, ptr %0, i64 1
   store i8 2, ptr %3, align 1
@@ -1081,7 +1081,7 @@ define dso_local noundef i32 @spi_populate_width_msg(ptr nocapture noundef write
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @spi_populate_sync_msg(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) #5 align 16 {
+define dso_local noundef i32 @spi_populate_sync_msg(ptr nocapture noundef writeonly initializes((0, 5)) %0, i32 noundef %1, i32 noundef %2) #5 align 16 {
   store i8 1, ptr %0, align 1
   %4 = getelementptr i8, ptr %0, i64 1
   store i8 3, ptr %4, align 1
@@ -1097,7 +1097,7 @@ define dso_local noundef i32 @spi_populate_sync_msg(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @spi_populate_ppr_msg(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 align 16 {
+define dso_local noundef i32 @spi_populate_ppr_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 align 16 {
   store i8 1, ptr %0, align 1
   %6 = getelementptr i8, ptr %0, i64 1
   store i8 6, ptr %6, align 1
@@ -2254,7 +2254,7 @@ declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr nounde
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @spi_setup_transport_attrs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef i32 @spi_setup_transport_attrs(ptr nocapture readnone %0, ptr noundef initializes((776, 792)) %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 776
   store i32 -1, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 780

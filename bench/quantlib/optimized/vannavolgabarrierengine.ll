@@ -1680,7 +1680,7 @@ entry:
 declare i64 @_ZN8QuantLib4Date7maxDateEv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23VannaVolgaBarrierEngineC2ENS_6HandleINS_13DeltaVolQuoteEEES3_S3_NS1_INS_5QuoteEEENS1_INS_18YieldTermStructureEEES7_bd(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr nocapture noundef %atmVol, ptr nocapture noundef %vol25Put, ptr nocapture noundef %vol25Call, ptr nocapture noundef %spotFX, ptr nocapture noundef %domesticTS, ptr nocapture noundef %foreignTS, i1 noundef zeroext %adaptVanDelta, double noundef %bsPriceWithSmile) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23VannaVolgaBarrierEngineC2ENS_6HandleINS_13DeltaVolQuoteEEES3_S3_NS1_INS_5QuoteEEENS1_INS_18YieldTermStructureEEES7_bd(ptr noundef nonnull align 8 dereferenceable(480) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %atmVol, ptr nocapture noundef %vol25Put, ptr nocapture noundef %vol25Call, ptr nocapture noundef %spotFX, ptr nocapture noundef %domesticTS, ptr nocapture noundef %foreignTS, i1 noundef zeroext %adaptVanDelta, double noundef %bsPriceWithSmile) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

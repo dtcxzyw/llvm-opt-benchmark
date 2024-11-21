@@ -291,7 +291,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %9
 declare ptr @wtap_open_offline(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cf_close(ptr noundef %0) local_unnamed_addr #1 {
+define hidden void @cf_close(ptr noundef initializes((40, 44)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -506,7 +506,7 @@ declare void @free_frame_data_sequence(ptr noundef) local_unnamed_addr #3
 declare void @g_tree_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cf_unselect_packet(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden void @cf_unselect_packet(ptr nocapture noundef initializes((376, 384)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 376
@@ -2002,21 +2002,21 @@ define hidden i32 @cf_is_tempfile(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cf_set_tempfile(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define hidden void @cf_set_tempfile(ptr nocapture noundef writeonly initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cf_set_drops_known(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define hidden void @cf_set_drops_known(ptr nocapture noundef writeonly initializes((112, 116)) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cf_set_drops(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define hidden void @cf_set_drops(ptr nocapture noundef writeonly initializes((116, 120)) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 116
   store i32 %1, ptr %3, align 4
   ret void
@@ -2037,7 +2037,7 @@ define hidden i32 @cf_get_drops(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cf_set_rfcode(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #10 {
+define hidden void @cf_set_rfcode(ptr nocapture noundef writeonly initializes((144, 152)) %0, ptr noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %1, ptr %3, align 8
   ret void
@@ -2519,7 +2519,7 @@ cf_read_record.exit:                              ; preds = %1, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cf_reftime_packets(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden void @cf_reftime_packets(ptr nocapture noundef initializes((256, 272), (728, 732)) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.nstime_t, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = getelementptr inbounds i8, ptr %0, i64 264
@@ -4395,7 +4395,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %13, %proto_item_is_
 declare i32 @packet_list_select_finfo(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @find_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @find_packet(ptr noundef initializes((40, 44)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca %struct.wtap_rec, align 8
   %6 = alloca %struct.Buffer, align 8
   %7 = alloca [100 x i8], align 16
@@ -4666,7 +4666,7 @@ define hidden ptr @cf_find_string_protocol_tree(ptr noundef %0, ptr noundef %1) 
 declare ptr @convert_string_case(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cf_find_packet_summary_line(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_find_packet_summary_line(ptr noundef initializes((40, 44)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.match_data, align 8
   store ptr %1, ptr %4, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
@@ -6857,7 +6857,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 declare ptr @proto_find_field_from_offset(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cf_find_packet_dfilter(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_find_packet_dfilter(ptr noundef initializes((40, 44)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_dfilter, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
@@ -6931,7 +6931,7 @@ define hidden range(i32 0, 2) i32 @cf_find_packet_dfilter_string(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cf_find_packet_marked(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_find_packet_marked(ptr noundef initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_marked, ptr noundef null, i32 noundef %1)
   ret i32 %3
 }
@@ -6947,7 +6947,7 @@ define internal range(i32 0, 2) i32 @match_marked(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cf_find_packet_time_reference(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @cf_find_packet_time_reference(ptr noundef initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_time_reference, ptr noundef null, i32 noundef %1)
   ret i32 %3
 }

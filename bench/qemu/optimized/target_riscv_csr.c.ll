@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.read_vtype = private unnamed_addr constant [11 x i8] c"read_vtype\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @riscv_get_csr_ops(i32 noundef %csrno, ptr nocapture noundef writeonly %ops) local_unnamed_addr #0 {
+define dso_local void @riscv_get_csr_ops(i32 noundef %csrno, ptr nocapture noundef writeonly initializes((0, 64)) %ops) local_unnamed_addr #0 {
 entry:
   %and = and i32 %csrno, 4095
   %idxprom = zext nneg i32 %and to i64
@@ -345,7 +345,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @read_fflags(ptr noundef %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
+define internal noundef i32 @read_fflags(ptr noundef %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #2 {
 entry:
   %call = tail call i64 @riscv_cpu_get_fflags(ptr noundef %env) #11
   store i64 %call, ptr %val, align 8
@@ -361,7 +361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @read_frm(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
+define internal noundef i32 @read_frm(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
   %frm = getelementptr inbounds i8, ptr %env, i64 4936
   %0 = load i64, ptr %frm, align 8
@@ -370,7 +370,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @write_frm(ptr nocapture noundef writeonly %env, i32 %csrno, i64 noundef %val) #5 {
+define internal noundef i32 @write_frm(ptr nocapture noundef writeonly initializes((4936, 4944)) %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
   %and = and i64 %val, 7
   %frm = getelementptr inbounds i8, ptr %env, i64 4936
@@ -379,7 +379,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @read_fcsr(ptr noundef %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
+define internal noundef i32 @read_fcsr(ptr noundef %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #2 {
 entry:
   %call = tail call i64 @riscv_cpu_get_fflags(ptr noundef %env) #11
   %frm = getelementptr inbounds i8, ptr %env, i64 4936
@@ -391,7 +391,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @write_fcsr(ptr noundef %env, i32 %csrno, i64 noundef %val) #2 {
+define internal noundef i32 @write_fcsr(ptr noundef initializes((4936, 4944)) %env, i32 %csrno, i64 noundef %val) #2 {
 entry:
   %and = lshr i64 %val, 5
   %shr = and i64 %and, 7
@@ -413,7 +413,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @read_vstart(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
+define internal noundef i32 @read_vstart(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
   %vstart = getelementptr inbounds i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
@@ -422,7 +422,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @write_vstart(ptr nocapture noundef %env, i32 %csrno, i64 noundef %val) #4 {
+define internal noundef i32 @write_vstart(ptr nocapture noundef initializes((4632, 4640)) %env, i32 %csrno, i64 noundef %val) #4 {
 entry:
   %vlen = getelementptr i8, ptr %env, i64 5288
   %0 = load i16, ptr %vlen, align 8
@@ -437,7 +437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @read_vxsat(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
+define internal noundef i32 @read_vxsat(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
   %vxsat = getelementptr inbounds i8, ptr %env, i64 4616
   %0 = load i64, ptr %vxsat, align 8
@@ -446,7 +446,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @write_vxsat(ptr nocapture noundef writeonly %env, i32 %csrno, i64 noundef %val) #5 {
+define internal noundef i32 @write_vxsat(ptr nocapture noundef writeonly initializes((4616, 4624)) %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
   %vxsat = getelementptr inbounds i8, ptr %env, i64 4616
   store i64 %val, ptr %vxsat, align 8
@@ -454,7 +454,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @read_vxrm(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
+define internal noundef i32 @read_vxrm(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
   %vxrm = getelementptr inbounds i8, ptr %env, i64 4608
   %0 = load i64, ptr %vxrm, align 16
@@ -463,7 +463,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @write_vxrm(ptr nocapture noundef writeonly %env, i32 %csrno, i64 noundef %val) #5 {
+define internal noundef i32 @write_vxrm(ptr nocapture noundef writeonly initializes((4608, 4616)) %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
   %vxrm = getelementptr inbounds i8, ptr %env, i64 4608
   store i64 %val, ptr %vxrm, align 16
@@ -471,7 +471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @read_vcsr(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
+define internal noundef i32 @read_vcsr(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
   %vxrm = getelementptr inbounds i8, ptr %env, i64 4608
   %0 = load i64, ptr %vxrm, align 16
@@ -484,7 +484,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @write_vcsr(ptr nocapture noundef writeonly %env, i32 %csrno, i64 noundef %val) #5 {
+define internal noundef i32 @write_vcsr(ptr nocapture noundef writeonly initializes((4608, 4624)) %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
   %and = lshr i64 %val, 1
   %shr = and i64 %and, 3
@@ -563,7 +563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @read_jvt(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
+define internal noundef i32 @read_jvt(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
   %jvt = getelementptr inbounds i8, ptr %env, i64 5040
   %0 = load i64, ptr %jvt, align 16
@@ -572,7 +572,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @write_jvt(ptr nocapture noundef writeonly %env, i32 %csrno, i64 noundef %val) #5 {
+define internal noundef i32 @write_jvt(ptr nocapture noundef writeonly initializes((5040, 5048)) %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
   %jvt = getelementptr inbounds i8, ptr %env, i64 5040
   store i64 %val, ptr %jvt, align 16
@@ -586,7 +586,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @read_hpmcounter(ptr nocapture readnone %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
+define internal noundef i32 @read_hpmcounter(ptr nocapture readnone %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #2 {
 entry:
   %0 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %asmresult.i.i = extractvalue { i32, i32 } %0, 0
@@ -600,7 +600,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @read_time(ptr nocapture readnone %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
+define internal noundef i32 @read_time(ptr nocapture readnone %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #2 {
 entry:
   %0 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %asmresult.i = extractvalue { i32, i32 } %0, 0
@@ -614,7 +614,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @read_vl(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
+define internal noundef i32 @read_vl(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
   %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl, align 16
@@ -654,7 +654,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @read_vlenb(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #4 {
+define internal noundef i32 @read_vlenb(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
   %vlen = getelementptr i8, ptr %env, i64 5288
   %0 = load i16, ptr %vlen, align 8
@@ -675,7 +675,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @read_hpmcounterh(ptr nocapture readnone %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
+define internal noundef i32 @read_hpmcounterh(ptr nocapture readnone %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #2 {
 entry:
   %0 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %asmresult1.i.i = extractvalue { i32, i32 } %0, 1
@@ -685,7 +685,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @read_timeh(ptr nocapture readnone %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
+define internal noundef i32 @read_timeh(ptr nocapture readnone %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #2 {
 entry:
   %0 = tail call { i32, i32 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %asmresult1.i = extractvalue { i32, i32 } %0, 1

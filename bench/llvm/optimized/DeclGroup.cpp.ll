@@ -55,7 +55,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %20, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9DeclGroupC2EjPPNS_4DeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang9DeclGroupC2EjPPNS_4DeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 4)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
   store i32 %1, ptr %0, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt18uninitialized_copyIPPN5clang4DeclES3_ET0_T_S5_S4_.exit, label %4

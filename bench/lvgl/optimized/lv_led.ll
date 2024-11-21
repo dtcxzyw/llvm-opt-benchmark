@@ -165,7 +165,7 @@ declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_led_set_color(ptr noundef %0, i24 %1) local_unnamed_addr #0 {
+define void @lv_led_set_color(ptr noundef initializes((64, 67)) %0, i24 %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i24 %1, ptr %3, align 8
   tail call void @lv_obj_invalidate(ptr noundef %0) #5

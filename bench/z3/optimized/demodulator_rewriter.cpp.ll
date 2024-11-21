@@ -1459,7 +1459,7 @@ for.end:                                          ; preds = %entry, %for.end.loo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN25demodulator_rewriter_utilC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN25demodulator_rewriter_utilC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.params_ref, align 8
   store ptr %m, ptr %this, align 8
@@ -3752,7 +3752,7 @@ _ZN8optionalIN9array_mapIP4exprSt4pairIS2_bEN25demodulator_rewriter_util6pluginE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN20demodulator_rewriterC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN20demodulator_rewriterC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.params_ref, align 8
   %p = alloca %class.params_ref, align 8

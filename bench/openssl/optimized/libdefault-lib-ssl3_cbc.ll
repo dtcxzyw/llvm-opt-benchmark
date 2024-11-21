@@ -454,7 +454,7 @@ declare i32 @EVP_MD_is_a(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @MD5_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @tls1_md5_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %md_out) unnamed_addr #2 {
+define internal void @tls1_md5_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly initializes((0, 16)) %md_out) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   %conv = trunc i32 %0 to i8
@@ -542,7 +542,7 @@ declare void @MD5_Transform(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @SHA1_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @tls1_sha1_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %md_out) unnamed_addr #2 {
+define internal void @tls1_sha1_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly initializes((0, 20)) %md_out) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   %shr = lshr i32 %0, 24

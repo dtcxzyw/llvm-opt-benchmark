@@ -43,7 +43,7 @@ declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #
 declare hidden ptr @lj_mem_grow(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_snap_grow_map_(ptr nocapture noundef %J, i32 noundef %need) local_unnamed_addr #0 {
+define hidden void @lj_snap_grow_map_(ptr nocapture noundef initializes((56, 64)) %J, i32 noundef %need) local_unnamed_addr #0 {
 entry:
   %sizesnapmap = getelementptr inbounds i8, ptr %J, i64 368
   %0 = load i32, ptr %sizesnapmap, align 8
@@ -1434,7 +1434,7 @@ for.end43:                                        ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_snap_replay(ptr noundef %J, ptr nocapture noundef readonly %T) local_unnamed_addr #0 {
+define hidden void @lj_snap_replay(ptr noundef initializes((252, 256)) %J, ptr nocapture noundef readonly %T) local_unnamed_addr #0 {
 entry:
   %snap1 = getelementptr inbounds i8, ptr %T, i64 48
   %0 = load ptr, ptr %snap1, align 8

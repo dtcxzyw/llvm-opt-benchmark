@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [12 x i8] c"Parse Error\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ProtobufLangParserInit(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @ProtobufLangParserInit(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -469,7 +469,7 @@ declare void @protobuf_lang_restart(ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @protobuf_lang_lex(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ProtobufLangParser(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #3 {
+define internal fastcc void @ProtobufLangParser(ptr noundef initializes((16, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %5, align 8
   %6 = icmp eq i32 %1, 0

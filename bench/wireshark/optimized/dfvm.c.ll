@@ -210,7 +210,7 @@ define hidden noalias noundef ptr @dfvm_insn_new(i32 noundef %0) local_unnamed_a
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dfvm_insn_replace_no_op(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define hidden void @dfvm_insn_replace_no_op(ptr nocapture noundef initializes((4, 8)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

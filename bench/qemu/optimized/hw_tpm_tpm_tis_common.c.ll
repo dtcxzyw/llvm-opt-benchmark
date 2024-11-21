@@ -158,7 +158,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @tpm_util_show_buffer(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tpm_tis_abort(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc void @tpm_tis_abort(ptr nocapture noundef initializes((4368, 4370)) %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %rw_offset = getelementptr inbounds i8, ptr %s, i64 4368
@@ -1447,7 +1447,7 @@ declare zeroext i1 @tpm_backend_had_startup_error(ptr noundef) local_unnamed_add
 declare i32 @tpm_backend_get_tpm_version(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tpm_tis_reset(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local void @tpm_tis_reset(ptr noundef initializes((4560, 4564), (4568, 4576)) %s) local_unnamed_addr #0 {
 entry:
   %be_driver = getelementptr inbounds i8, ptr %s, i64 4552
   %0 = load ptr, ptr %be_driver, align 8

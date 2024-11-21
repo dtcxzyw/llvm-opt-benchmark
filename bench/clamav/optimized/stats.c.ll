@@ -1228,70 +1228,70 @@ define ptr @clamav_stats_get_hostid(ptr nocapture noundef readnone %0) local_unn
 declare ptr @internal_get_host_id() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_submit(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_submit(ptr nocapture noundef writeonly initializes((1112, 1120)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1112
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_stats_set_cbdata(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_stats_set_cbdata(ptr nocapture noundef writeonly initializes((1080, 1088)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1080
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_add_sample(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_add_sample(ptr nocapture noundef writeonly initializes((1088, 1096)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1088
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_remove_sample(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_remove_sample(ptr nocapture noundef writeonly initializes((1096, 1104)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1096
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_decrement_count(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_decrement_count(ptr nocapture noundef writeonly initializes((1104, 1112)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1104
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_flush(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_flush(ptr nocapture noundef writeonly initializes((1120, 1128)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1120
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_get_num(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_get_num(ptr nocapture noundef writeonly initializes((1128, 1136)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1128
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_get_size(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_get_size(ptr nocapture noundef writeonly initializes((1136, 1144)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1136
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_stats_get_hostid(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cl_engine_set_clcb_stats_get_hostid(ptr nocapture noundef writeonly initializes((1144, 1152)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1144
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_stats_enable(ptr nocapture noundef writeonly %0) local_unnamed_addr #11 {
+define void @cl_engine_stats_enable(ptr nocapture noundef writeonly initializes((1088, 1096), (1112, 1120)) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1088
   store ptr @clamav_stats_add_sample, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1112

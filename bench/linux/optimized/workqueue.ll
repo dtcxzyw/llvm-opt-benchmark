@@ -2111,7 +2111,7 @@ define dso_local noundef zeroext i1 @mod_delayed_work_on(i32 noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -11, 2) i32 @try_to_grab_pending(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -11, 2) i32 @try_to_grab_pending(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef initializes((0, 8)) %2) unnamed_addr #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   store i64 0, ptr %4, align 8, !annotation !14
@@ -7096,7 +7096,7 @@ define dso_local i64 @work_on_cpu_key(i32 noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @work_for_cpu_fn(ptr nocapture noundef %0) #1 align 16 {
+define internal void @work_for_cpu_fn(ptr nocapture noundef initializes((48, 56)) %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -8261,7 +8261,7 @@ declare dso_local ptr @housekeeping_cpumask(i32 noundef) local_unnamed_addr #0
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @init_worker_pool(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @init_worker_pool(ptr noundef initializes((0, 16), (24, 32)) %0) unnamed_addr #1 align 16 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 -1, ptr %2, align 4
@@ -8611,7 +8611,7 @@ define dso_local void @workqueue_init_topology() local_unnamed_addr #12 section 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @init_pod_type(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #12 section ".init.text" align 16 {
+define internal fastcc void @init_pod_type(ptr nocapture noundef initializes((0, 4), (24, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #12 section ".init.text" align 16 {
   store i32 0, ptr %0, align 8
   %3 = load i32, ptr @nr_cpu_ids, align 4
   %4 = zext i32 %3 to i64

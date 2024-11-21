@@ -5717,7 +5717,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @state_init(ptr noundef nonnull %state, ptr nocapture noundef readonly %pattern, ptr noundef %string, i64 noundef %start, i64 noundef %end) unnamed_addr #0 {
+define internal fastcc noundef ptr @state_init(ptr noundef nonnull initializes((0, 216)) %state, ptr nocapture noundef readonly %pattern, ptr noundef %string, i64 noundef %start, i64 noundef %end) unnamed_addr #0 {
 entry:
   %length = alloca i64, align 8
   %isbytes = alloca i32, align 4

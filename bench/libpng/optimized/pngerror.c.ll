@@ -95,7 +95,7 @@ define i64 @png_safecat(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define nonnull ptr @png_format_number(ptr noundef readnone %0, ptr noundef writeonly %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
+define nonnull ptr @png_format_number(ptr noundef readnone %0, ptr noundef writeonly initializes((-1, 0)) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -1
   store i8 0, ptr %5, align 1
   %6 = icmp ugt ptr %5, %0

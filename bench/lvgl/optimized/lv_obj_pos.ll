@@ -1267,7 +1267,7 @@ define void @lv_obj_invalidate(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_obj_get_coords(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define void @lv_obj_get_coords(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 4, !tbaa !31
   store i32 %4, ptr %1, align 4, !tbaa !31
@@ -1287,7 +1287,7 @@ define void @lv_obj_get_coords(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_get_content_coords(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @lv_obj_get_content_coords(ptr noundef %0, ptr nocapture noundef initializes((0, 16)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 4, !tbaa !31
   store i32 %4, ptr %1, align 4, !tbaa !31
@@ -3905,7 +3905,7 @@ define void @lv_obj_set_ext_click_area(ptr noundef %0, i32 noundef %1) local_unn
 declare void @lv_obj_allocate_spec_attr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_get_click_area(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_obj_get_click_area(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 16)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 4, !tbaa !31
   store i32 %4, ptr %1, align 4, !tbaa !31

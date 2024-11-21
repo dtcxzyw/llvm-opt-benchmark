@@ -628,7 +628,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12MeshMakeDataC2EPK14NodeDefManagertb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) %this, ptr noundef %ndef, i16 noundef zeroext %side_length, i1 noundef zeroext %use_shaders) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12MeshMakeDataC2EPK14NodeDefManagertb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) initializes((0, 26), (32, 61), (62, 73)) %this, ptr noundef %ndef, i16 noundef zeroext %side_length, i1 noundef zeroext %use_shaders) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %use_shaders to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTV16VoxelManipulator, i64 16), ptr %this, align 8, !tbaa !15
@@ -660,7 +660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12MeshMakeData18fillBlockDataBeginERKN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %blockpos) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN12MeshMakeData18fillBlockDataBeginERKN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(73) initializes((48, 54)) %this, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %blockpos) local_unnamed_addr #4 align 2 {
 entry:
   %voxel_area = alloca %class.VoxelArea, align 8
   %m_blockpos = getelementptr inbounds i8, ptr %this, i64 48
@@ -805,7 +805,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12MeshMakeData17setSmoothLightingEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) %this, i1 noundef zeroext %smooth_lighting) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN12MeshMakeData17setSmoothLightingEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) initializes((60, 61)) %this, i1 noundef zeroext %smooth_lighting) local_unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %smooth_lighting to i8
   %m_smooth_lighting = getelementptr inbounds i8, ptr %this, i64 60
@@ -1451,7 +1451,7 @@ _ZL22getSmoothLightCombinedRKN3irr4core8vector3dIsEERKSt5arrayIS2_Lm8EEP12MeshMa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z18get_sunlight_colorPN3irr5video7SColorfEj(ptr nocapture noundef writeonly %sunlight, i32 noundef %daynight_ratio) local_unnamed_addr #6 {
+define dso_local void @_Z18get_sunlight_colorPN3irr5video7SColorfEj(ptr nocapture noundef writeonly initializes((0, 12)) %sunlight, i32 noundef %daynight_ratio) local_unnamed_addr #6 {
 entry:
   %conv = uitofp i32 %daynight_ratio to float
   %mul = fmul nsz float %conv, 0x3FEF5C2900000000
@@ -1658,7 +1658,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z12getNodeTileN7MapNodeRKN3irr4core8vector3dIsEEhP12MeshMakeDataR8TileSpec(i32 %mn.coerce, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %p, i8 noundef zeroext %tileindex, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(120) %tile) local_unnamed_addr #4 {
+define dso_local void @_Z12getNodeTileN7MapNodeRKN3irr4core8vector3dIsEEhP12MeshMakeDataR8TileSpec(i32 %mn.coerce, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %p, i8 noundef zeroext %tileindex, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 120)) %tile) local_unnamed_addr #4 {
 entry:
   %mn = alloca %struct.MapNode, align 4
   store i32 %mn.coerce, ptr %mn, align 4
@@ -1800,7 +1800,7 @@ if.then4.1:                                       ; preds = %cleanup
 declare void @_ZNK7MapNode8getColorERK15ContentFeaturesPN3irr5video6SColorE(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(3706), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z11getNodeTile7MapNodeRKN3irr4core8vector3dIsEES5_P12MeshMakeDataR8TileSpec(i32 %mn.coerce, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %p, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %dir, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(120) %tile) local_unnamed_addr #4 {
+define dso_local void @_Z11getNodeTile7MapNodeRKN3irr4core8vector3dIsEES5_P12MeshMakeDataR8TileSpec(i32 %mn.coerce, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %p, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %dir, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 120)) %tile) local_unnamed_addr #4 {
 entry:
   %mn = alloca %struct.MapNode, align 4
   store i32 %mn.coerce, ptr %mn, align 4
@@ -1844,7 +1844,7 @@ cond.end:                                         ; preds = %cond.false, %entry
 declare noundef zeroext i8 @_ZNK7MapNode10getFaceDirEPK14NodeDefManagerb(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15MapBlockBspTree9buildTreeEPKSt6vectorI12MeshTriangleSaIS1_EEt(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %triangles, i16 noundef zeroext %side_length) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15MapBlockBspTree9buildTreeEPKSt6vectorI12MeshTriangleSaIS1_EEt(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 8)) %this, ptr noundef %triangles, i16 noundef zeroext %side_length) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %indexes = alloca %"class.std::vector.86", align 8
   store ptr %triangles, ptr %this, align 8, !tbaa !66
@@ -3322,7 +3322,7 @@ _ZN3irr4core5arrayItEaSEOSt6vectorItSaItEE.exit:  ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK17PartialMeshBuffer9afterDrawEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK17PartialMeshBuffer9afterDrawEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 32)) %this) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !104
   %Indices = getelementptr inbounds i8, ptr %0, i64 248
@@ -3349,7 +3349,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12MapBlockMeshC2EP6ClientP12MeshMakeDataN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef nonnull %client, ptr noundef %data, i48 %camera_offset.coerce) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12MapBlockMeshC2EP6ClientP12MeshMakeDataN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(328) initializes((16, 40)) %this, ptr noundef nonnull %client, ptr noundef %data, i48 %camera_offset.coerce) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i1204 = alloca %"struct.std::_Rb_tree<std::pair<unsigned char, unsigned int>, std::pair<const std::pair<unsigned char, unsigned int>, std::map<unsigned int, irr::video::SColor>>, std::_Select1st<std::pair<const std::pair<unsigned char, unsigned int>, std::map<unsigned int, irr::video::SColor>>>, std::less<std::pair<unsigned char, unsigned int>>>::_Auto_node", align 8
   %__z.i = alloca %"struct.std::_Rb_tree<std::pair<unsigned char, unsigned int>, std::pair<const std::pair<unsigned char, unsigned int>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::pair<unsigned char, unsigned int>, std::__cxx11::basic_string<char>>>, std::less<std::pair<unsigned char, unsigned int>>>::_Auto_node", align 8
@@ -7154,7 +7154,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN12MapBlockMesh7animateEbfij(ptr noundef nonnull align 8 dereferenceable(328) %this, i1 noundef zeroext %faraway, float noundef %time, i32 noundef %crack, i32 noundef %daynight_ratio) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN12MapBlockMesh7animateEbfij(ptr noundef nonnull align 8 dereferenceable(328) initializes((76, 80)) %this, i1 noundef zeroext %faraway, float noundef %time, i32 noundef %crack, i32 noundef %daynight_ratio) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -5386,7 +5386,7 @@ default.unreachable6:                             ; preds = %5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9typst_svg11SVGRenderer13push_gradient17h32f2859240db2d6fE(ptr noalias nocapture noundef nonnull writeonly align 16 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, double noundef %3, double noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9typst_svg11SVGRenderer13push_gradient17h32f2859240db2d6fE(ptr noalias nocapture noundef nonnull writeonly align 16 dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, double noundef %3, double noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5) unnamed_addr #4 personality ptr @rust_eh_personality {
   %7 = alloca { i128, [4 x i64] }, align 16
   %8 = alloca { ptr, ptr, ptr, { ptr, ptr, ptr } }, align 8
   %9 = alloca { i128, [4 x i64] }, align 16
@@ -10898,7 +10898,7 @@ define noundef zeroext i1 @"_ZN59_$LT$typst_svg..SvgMatrix$u20$as$u20$core..fmt.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9typst_svg14SvgPathBuilder10with_scale17hf2311c3cff1cdfc7E(ptr noalias nocapture noundef writeonly sret({ { { { [2 x i64] } } }, double }) align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #6 {
+define hidden void @_ZN9typst_svg14SvgPathBuilder10with_scale17hf2311c3cff1cdfc7E(ptr noalias nocapture noundef writeonly sret({ { { { [2 x i64] } } }, double }) align 8 dereferenceable(24) initializes((0, 24)) %0, double noundef %1) unnamed_addr #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %0, i8 0, i64 15, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 15
   store i8 -128, ptr %.sroa.0.sroa.4.0..sroa_idx, align 1
@@ -11133,7 +11133,7 @@ define hidden void @_ZN9typst_svg14SvgPathBuilder4rect17h4c07331f58bc74a6E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN68_$LT$typst_svg..SvgPathBuilder$u20$as$u20$core..default..Default$GT$7default17h0348e2c9ed65e433E"(ptr noalias nocapture noundef writeonly sret({ { { { [2 x i64] } } }, double }) align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define void @"_ZN68_$LT$typst_svg..SvgPathBuilder$u20$as$u20$core..default..Default$GT$7default17h0348e2c9ed65e433E"(ptr noalias nocapture noundef writeonly sret({ { { { [2 x i64] } } }, double }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %.sroa.0 = alloca [15 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0, i8 0, i64 15, i1 false)

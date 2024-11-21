@@ -5734,7 +5734,7 @@ return:                                           ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @FutureIter_am_send(ptr nocapture noundef %it, ptr nocapture readnone %_unused_arg, ptr nocapture noundef writeonly %result) #0 {
+define internal range(i32 -1, 2) i32 @FutureIter_am_send(ptr nocapture noundef %it, ptr nocapture readnone %_unused_arg, ptr nocapture noundef writeonly initializes((0, 8)) %result) #0 {
 entry:
   %future = getelementptr inbounds i8, ptr %it, i64 16
   %0 = load ptr, ptr %future, align 8
@@ -8389,7 +8389,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @future_init(ptr nocapture noundef %fut, ptr noundef %loop) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @future_init(ptr nocapture noundef initializes((96, 100)) %fut, ptr noundef %loop) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %fut_loop = getelementptr inbounds i8, ptr %fut, i64 16

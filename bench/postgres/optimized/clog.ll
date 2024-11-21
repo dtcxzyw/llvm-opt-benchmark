@@ -514,7 +514,7 @@ TransactionGroupUpdateXidStatus.exit.thread:      ; preds = %.lr.ph.i, %130, %Tr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = lshr i32 %0, 15
   %4 = zext nneg i32 %3 to i64
   %5 = and i32 %0, 32767

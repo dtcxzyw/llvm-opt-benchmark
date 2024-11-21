@@ -239,7 +239,7 @@ declare void @trace2_data_string_fl(ptr noundef, i32 noundef, ptr noundef, ptr n
 declare void @trace_printf_key_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fill_fsmonitor_bitmap(ptr nocapture noundef %istate) local_unnamed_addr #0 {
+define dso_local void @fill_fsmonitor_bitmap(ptr nocapture noundef initializes((216, 224)) %istate) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ewah_new() #7
   %fsmonitor_dirty = getelementptr inbounds i8, ptr %istate, i64 216

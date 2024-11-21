@@ -4751,7 +4751,7 @@ _ZN4llvm4json5ValueC2EPKc.exit15:                 ; preds = %18, %40
 declare noundef ptr @_ZNK5clang4Stmt16getStmtClassNameEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper14createQualTypeENS_8QualTypeEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper14createQualTypeENS_8QualTypeEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7163,7 +7163,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper5VisitERKNS_16TemplateArgumentEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper17createBareDeclRefEPKNS_4DeclE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper17createBareDeclRefEPKNS_4DeclE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
 .lr.ph.i:
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -8722,7 +8722,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %17, %18
 declare void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper14createCastPathEPKNS_8CastExprE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Array") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper14createCastPathEPKNS_8CastExprE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Array") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::json::Object", align 8
   %6 = alloca [1 x %"struct.llvm::json::Object::KV"], align 8
@@ -8950,7 +8950,7 @@ _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit:  ; preds = %92, %95
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper29createCXXRecordDefinitionDataEPKNS_13CXXRecordDeclE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper29createCXXRecordDefinitionDataEPKNS_13CXXRecordDeclE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::ObjectKey", align 8
   %6 = alloca %"class.llvm::json::Value", align 8
@@ -12050,7 +12050,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper22createCXXBaseSpecifierERKNS_16CXXBaseSpecifierE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper22createCXXBaseSpecifierERKNS_16CXXBaseSpecifierE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Object", align 8
   %6 = alloca %"class.llvm::json::ObjectKey", align 8
@@ -23523,7 +23523,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper24visitVerbatimLineCommentEPKNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper15createFPOptionsENS_17FPOptionsOverrideE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper15createFPOptionsENS_17FPOptionsOverrideE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

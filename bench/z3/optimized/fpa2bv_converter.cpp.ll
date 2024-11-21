@@ -292,7 +292,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16fpa2bv_converterC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN16fpa2bv_converterC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(760) initializes((0, 30), (44, 48), (56, 88)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %class.symbol, align 8
   %ref.tmp.i.i = alloca %class.symbol, align 8
@@ -820,7 +820,7 @@ _ZN10ptr_vectorI4exprED2Ev.exit14:                ; preds = %_ZN10ptr_vectorI4ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16fpa2bv_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(760) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN16fpa2bv_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(760) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16fpa2bv_converter, i64 16), ptr %this, align 8
   invoke void @_ZN16fpa2bv_converter5resetEv(ptr noundef nonnull align 8 dereferenceable(760) %this)
@@ -1410,7 +1410,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16fpa2bv_converterD0Ev(ptr noundef nonnull align 8 dereferenceable(760) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN16fpa2bv_converterD0Ev(ptr noundef nonnull align 8 dereferenceable(760) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN16fpa2bv_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(760) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
@@ -37834,7 +37834,7 @@ ehcleanup134:                                     ; preds = %ehcleanup129, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16fpa2bv_converter22mk_min_max_unspecifiedEP9func_declP4exprS3_(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %f, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %y) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN16fpa2bv_converter22mk_min_max_unspecifiedEP9func_declP4exprS3_(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %f, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %y) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %ref.tmp.i = alloca %"struct.obj_map<func_decl, std::pair<app *, app *>>::key_data", align 8
@@ -78915,7 +78915,7 @@ lpad6:                                            ; preds = %if.then2.i.i.i, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16fpa2bv_converter8nan_wrapEP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN16fpa2bv_converter8nan_wrapEP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_bv = alloca %class.obj_ref, align 8
   %arg_is_nan = alloca %class.obj_ref, align 8
@@ -85268,7 +85268,7 @@ if.end:                                           ; preds = %if.then2.i.i.i109, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24fpa2bv_converter_wrapped4wrapEP4expr(ptr noalias sret(%class.obj_ref.79) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(768) %this, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24fpa2bv_converter_wrapped4wrapEP4expr(ptr noalias sret(%class.obj_ref.79) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(768) %this, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arg.addr.i = alloca ptr, align 8
   %cargs = alloca [3 x ptr], align 16
@@ -85572,7 +85572,7 @@ declare void @_ZN11th_rewriterclER7obj_refI4expr11ast_managerE(ptr noundef nonnu
 declare noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976), i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24fpa2bv_converter_wrapped6unwrapEP4exprP4sort(ptr noalias sret(%class.obj_ref.79) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(768) %this, ptr noundef nonnull %e, ptr noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24fpa2bv_converter_wrapped6unwrapEP4exprP4sort(ptr noalias sret(%class.obj_ref.79) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(768) %this, ptr noundef nonnull %e, ptr noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n.addr.i64 = alloca ptr, align 8
   %params.i65 = alloca [2 x %class.parameter], align 16

@@ -35,7 +35,7 @@ $_ZN15b2DistanceJointD0Ev = comdat any
 @_ZN15b2DistanceJointC1EPK18b2DistanceJointDef = unnamed_addr alias void (ptr, ptr), ptr @_ZN15b2DistanceJointC2EPK18b2DistanceJointDef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18b2DistanceJointDef10InitializeEP6b2BodyS1_RK6b2Vec2S4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr noundef %b1, ptr noundef %b2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor2) local_unnamed_addr #0 align 2 {
+define void @_ZN18b2DistanceJointDef10InitializeEP6b2BodyS1_RK6b2Vec2S4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((16, 32), (36, 64)) %this, ptr noundef %b1, ptr noundef %b2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor2) local_unnamed_addr #0 align 2 {
 entry:
   %bodyA = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %b1, ptr %bodyA, align 8
@@ -158,7 +158,7 @@ declare void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferen
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN15b2DistanceJoint23InitVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(260) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
+define void @_ZN15b2DistanceJoint23InitVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(260) initializes((136, 140), (168, 172), (184, 260)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
   %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
@@ -1040,7 +1040,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef float @_ZN15b2DistanceJoint9SetLengthEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(260) %this, float noundef %length) local_unnamed_addr #9 align 2 {
+define noundef float @_ZN15b2DistanceJoint9SetLengthEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(260) initializes((140, 144), (172, 176)) %this, float noundef %length) local_unnamed_addr #9 align 2 {
 entry:
   %m_impulse = getelementptr inbounds i8, ptr %this, i64 172
   store float 0.000000e+00, ptr %m_impulse, align 4
@@ -1052,7 +1052,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef float @_ZN15b2DistanceJoint12SetMinLengthEf(ptr nocapture noundef nonnull align 8 dereferenceable(260) %this, float noundef %minLength) local_unnamed_addr #10 align 2 {
+define noundef float @_ZN15b2DistanceJoint12SetMinLengthEf(ptr nocapture noundef nonnull align 8 dereferenceable(260) initializes((144, 148), (176, 180)) %this, float noundef %minLength) local_unnamed_addr #10 align 2 {
 entry:
   %m_lowerImpulse = getelementptr inbounds i8, ptr %this, i64 176
   store float 0.000000e+00, ptr %m_lowerImpulse, align 8
@@ -1068,7 +1068,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef float @_ZN15b2DistanceJoint12SetMaxLengthEf(ptr nocapture noundef nonnull align 8 dereferenceable(260) %this, float noundef %maxLength) local_unnamed_addr #10 align 2 {
+define noundef float @_ZN15b2DistanceJoint12SetMaxLengthEf(ptr nocapture noundef nonnull align 8 dereferenceable(260) initializes((148, 152), (180, 184)) %this, float noundef %maxLength) local_unnamed_addr #10 align 2 {
 entry:
   %m_upperImpulse = getelementptr inbounds i8, ptr %this, i64 180
   store float 0.000000e+00, ptr %m_upperImpulse, align 4

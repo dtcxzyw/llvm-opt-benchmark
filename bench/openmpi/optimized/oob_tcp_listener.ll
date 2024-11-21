@@ -973,7 +973,7 @@ define internal void @connection_event_handler(i32 noundef %0, i16 signext %1, p
 declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @tcp_ev_cons(ptr nocapture noundef writeonly %0) #3 {
+define internal void @tcp_ev_cons(ptr nocapture noundef writeonly initializes((144, 145), (280, 281), (284, 290)) %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 280

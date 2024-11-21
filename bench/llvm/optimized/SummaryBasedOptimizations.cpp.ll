@@ -2466,7 +2466,7 @@ declare void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull al
 declare void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFSt8optionalINS_12ScaledNumberImEEENS_9ValueInfoERSt4pairIS5_NS_10CalleeInfoEEEE11callback_fnIZNS_22computeSyntheticCountsERNS_18ModuleSummaryIndexEE3$_0EES4_lS5_S9_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, i64 %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %3) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFSt8optionalINS_12ScaledNumberImEEENS_9ValueInfoERSt4pairIS5_NS_10CalleeInfoEEEE11callback_fnIZNS_22computeSyntheticCountsERNS_18ModuleSummaryIndexEE3$_0EES4_lS5_S9_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((0, 10), (16, 17)) %0, i64 %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %3) #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %.val = load i32, ptr %5, align 8
   %6 = lshr i32 %.val, 4

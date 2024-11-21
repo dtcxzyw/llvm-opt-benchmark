@@ -103,7 +103,7 @@ declare void @_ZN3g2o15LaserParametersC1Eiiddddid(ptr noundef nonnull align 16 d
 declare void @_ZN3g2o9RobotDataD2Ev(ptr noundef nonnull align 8 dereferenceable(104)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o8RawLaserD2Ev(ptr noundef nonnull align 16 dereferenceable(256) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o8RawLaserD2Ev(ptr noundef nonnull align 16 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o8RawLaserE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 16
@@ -155,7 +155,7 @@ define noundef zeroext i1 @_ZNK3g2o8RawLaser5writeERSo(ptr nocapture nonnull rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3g2o8RawLaser4readERSi(ptr noundef nonnull align 16 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3g2o8RawLaser4readERSi(ptr noundef nonnull align 16 dereferenceable(256) initializes((160, 168), (176, 256)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca double, align 8
   %5 = alloca double, align 8
@@ -429,7 +429,7 @@ define void @_ZN3g2o8RawLaser13setRemissionsERKSt6vectorIdSaIdEE(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3g2o8RawLaser14setLaserParamsERKNS_15LaserParametersE(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o8RawLaser14setLaserParamsERKNS_15LaserParametersE(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(256) initializes((160, 168), (176, 256)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i64, ptr %1, align 16
   store i64 %4, ptr %3, align 16
@@ -444,7 +444,7 @@ define void @_ZN3g2o8RawLaser14setLaserParamsERKNS_15LaserParametersE(ptr nocapt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o8RawLaser9cartesianEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.6") align 8 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(256) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o8RawLaser9cartesianEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.6") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(256) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112

@@ -238,7 +238,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_rar_options(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 2) i32 @archive_read_format_rar_read_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -30, 2) i32 @archive_read_format_rar_read_header(ptr noundef initializes((16, 20)) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 851968, ptr %4, align 8
@@ -592,7 +592,7 @@ skip_sfx.exit:                                    ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 2) i32 @archive_read_format_rar_read_data(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -30, 2) i32 @archive_read_format_rar_read_data(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -6508,7 +6508,7 @@ define internal zeroext i8 @ppmd_read(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 17, 300) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr nocapture noundef initializes((8, 16)) %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 17, 300) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 12

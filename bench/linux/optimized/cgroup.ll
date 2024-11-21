@@ -4687,7 +4687,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare dso_local i32 @percpu_ref_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @css_release(ptr noundef %0) #1 align 16 {
+define internal void @css_release(ptr noundef initializes((88, 96)) %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 88
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 96
@@ -5537,7 +5537,7 @@ declare dso_local void @percpu_up_write(ptr noundef) local_unnamed_addr #0
 declare dso_local void @cpus_read_unlock() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local ptr @cgroup_taskset_first(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 align 16 {
+define dso_local ptr @cgroup_taskset_first(ptr nocapture noundef initializes((48, 64)) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -8087,7 +8087,7 @@ define dso_local noundef zeroext i1 @css_has_online_children(ptr noundef %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @css_task_iter_start(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local void @css_task_iter_start(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef initializes((0, 104)) %2) local_unnamed_addr #1 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(104) %2, i8 0, i64 104, i1 false)
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @css_set_lock) #30
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9930,7 +9930,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #0
 declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @cgroup_init_subsys(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #14 section ".init.text" align 16 {
+define internal fastcc void @cgroup_init_subsys(ptr noundef initializes((184, 208)) %0, i1 noundef zeroext %1) unnamed_addr #14 section ".init.text" align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @cgroup_mutex) #30
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 0, ptr %3, align 8
@@ -14966,7 +14966,7 @@ declare dso_local ptr @kernfs_create_dir_ns(ptr noundef, ptr noundef, i16 nounde
 declare dso_local void @kernfs_remove(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @init_and_link_css(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @init_and_link_css(ptr noundef initializes((0, 200)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 84
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 2
@@ -18729,7 +18729,7 @@ define internal i64 @delegate_show(ptr nocapture readnone %0, ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @features_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #27 align 16 {
+define internal noundef i64 @features_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 91)) %2) #27 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(91) %2, ptr noundef nonnull align 1 dereferenceable(91) @.str.96, i64 91, i1 false)
   ret i64 90
 }

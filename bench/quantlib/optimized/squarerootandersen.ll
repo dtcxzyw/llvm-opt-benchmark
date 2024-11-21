@@ -52,7 +52,7 @@ $_ZTIN8QuantLib21MarketModelVolProcessE = comdat any
 @_ZN8QuantLib18SquareRootAndersenC1EddddRKSt6vectorIdSaIdEEmddd = unnamed_addr alias void (ptr, double, double, double, double, ptr, i64, double, double, double), ptr @_ZN8QuantLib18SquareRootAndersenC2EddddRKSt6vectorIdSaIdEEmddd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18SquareRootAndersenC2EddddRKSt6vectorIdSaIdEEmddd(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this, double noundef %meanLevel, double noundef %reversionSpeed, double noundef %volVar, double noundef %v0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %evolutionTimes, i64 noundef %numberSubSteps, double noundef %w1, double noundef %w2, double noundef %cutPoint) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18SquareRootAndersenC2EddddRKSt6vectorIdSaIdEEmddd(ptr nocapture noundef nonnull align 8 dereferenceable(192) initializes((0, 48)) %this, double noundef %meanLevel, double noundef %reversionSpeed, double noundef %volVar, double noundef %v0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %evolutionTimes, i64 noundef %numberSubSteps, double noundef %w1, double noundef %w2, double noundef %cutPoint) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp39 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -732,7 +732,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib18SquareRootAndersen8nextPathEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib18SquareRootAndersen8nextPathEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) initializes((120, 144)) %this) unnamed_addr #8 align 2 {
 entry:
   %v0_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load double, ptr %v0_, align 8, !tbaa !19

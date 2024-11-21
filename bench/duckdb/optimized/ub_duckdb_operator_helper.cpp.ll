@@ -1845,7 +1845,7 @@ _ZNSt10unique_ptrIN6duckdb25BatchCollectorGlobalStateESt14default_deleteIS1_EED2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb22PhysicalBatchCollector9GetResultERNS_15GlobalSinkStateE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.191") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 8 dereferenceable(9) %state) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb22PhysicalBatchCollector9GetResultERNS_15GlobalSinkStateE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.191") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 8 dereferenceable(9) %state) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = getelementptr inbounds i8, ptr %state, i64 248
   %0 = load ptr, ptr %result, align 8, !tbaa !83
@@ -1855,7 +1855,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb15PhysicalExecuteC2ERNS_16PhysicalOperatorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(128) %plan) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb15PhysicalExecuteC2ERNS_16PhysicalOperatorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 9), (16, 160)) %this, ptr noundef nonnull align 8 dereferenceable(128) %plan) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
   %agg.tmp = alloca %"class.duckdb::vector.0", align 16
   %types = getelementptr inbounds i8, ptr %plan, i64 40
@@ -1917,7 +1917,7 @@ _ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb15PhysicalExecute11GetChildrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.235") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb15PhysicalExecute11GetChildrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.235") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %plan = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %plan, align 8, !tbaa !132
@@ -2072,7 +2072,7 @@ declare noundef nonnull align 8 dereferenceable(296) ptr @_ZN6duckdb13QueryProfi
 declare void @_ZNK6duckdb13QueryProfiler8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(296)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb22PhysicalExplainAnalyze18GetGlobalSinkStateERNS_13ClientContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb22PhysicalExplainAnalyze18GetGlobalSinkStateERNS_13ClientContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb30ExplainAnalyzeStateGlobalStateESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28, !noalias !141
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %call.i, i8 0, i64 48, i1 false), !noalias !141
@@ -2300,7 +2300,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr 
 declare void @_ZN6duckdb5ValueC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb13PhysicalLimitC2ENS_6vectorINS_11LogicalTypeELb1EEEmmNS_10unique_ptrINS_10ExpressionESt14default_deleteIS5_ELb1EEES8_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, ptr nocapture noundef %types, i64 noundef %limit, i64 noundef %offset, ptr nocapture noundef %limit_expression, ptr nocapture noundef %offset_expression, i64 noundef %estimated_cardinality) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13PhysicalLimitC2ENS_6vectorINS_11LogicalTypeELb1EEEmmNS_10unique_ptrINS_10ExpressionESt14default_deleteIS5_ELb1EEES8_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 9), (16, 160)) %this, ptr nocapture noundef %types, i64 noundef %limit, i64 noundef %offset, ptr nocapture noundef %limit_expression, ptr nocapture noundef %offset_expression, i64 noundef %estimated_cardinality) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %types, i64 16
   %0 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8, !tbaa !40
@@ -3136,7 +3136,7 @@ lpad:                                             ; preds = %_ZNSt10lock_guardIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb13PhysicalLimit20GetGlobalSourceStateERNS_13ClientContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.386") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb13PhysicalLimit20GetGlobalSourceStateERNS_13ClientContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.386") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb16LimitSourceStateESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #28, !noalias !220
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb16LimitSourceStateE, i64 16), ptr %call.i, align 8, !tbaa !3, !noalias !220
@@ -6610,7 +6610,7 @@ declare noundef zeroext i1 @_ZN6duckdb21PhysicalPlanGenerator22PreserveInsertion
 declare noundef zeroext i1 @_ZN6duckdb21PhysicalPlanGenerator13UseBatchIndexERNS_13ClientContextERNS_16PhysicalOperatorE(ptr noundef nonnull align 8 dereferenceable(592), ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb23PhysicalResultCollector11GetChildrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.235") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb23PhysicalResultCollector11GetChildrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.235") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %plan = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %plan, align 8, !tbaa !367
@@ -7924,7 +7924,7 @@ unreachable:                                      ; preds = %invoke.cont78, %inv
 declare void @_ZN6duckdb8DBConfig11ResetOptionEPNS_16DatabaseInstanceERKNS_19ConfigurationOptionE(ptr noundef nonnull align 8 dereferenceable(896), ptr noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb22PhysicalStreamingLimitC2ENS_6vectorINS_11LogicalTypeELb1EEEmmNS_10unique_ptrINS_10ExpressionESt14default_deleteIS5_ELb1EEES8_mb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) %this, ptr nocapture noundef %types, i64 noundef %limit, i64 noundef %offset, ptr nocapture noundef %limit_expression, ptr nocapture noundef %offset_expression, i64 noundef %estimated_cardinality, i1 noundef zeroext %parallel) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb22PhysicalStreamingLimitC2ENS_6vectorINS_11LogicalTypeELb1EEEmmNS_10unique_ptrINS_10ExpressionESt14default_deleteIS5_ELb1EEES8_mb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) initializes((0, 9), (16, 161)) %this, ptr nocapture noundef %types, i64 noundef %limit, i64 noundef %offset, ptr nocapture noundef %limit_expression, ptr nocapture noundef %offset_expression, i64 noundef %estimated_cardinality, i1 noundef zeroext %parallel) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
   %frombool = zext i1 %parallel to i8
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %types, i64 16
@@ -7962,7 +7962,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb22PhysicalStreamingLimit16GetOperatorStateERNS_16ExecutionContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.872") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(161) %this, ptr nocapture nonnull readnone align 8 %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb22PhysicalStreamingLimit16GetOperatorStateERNS_16ExecutionContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.872") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(161) %this, ptr nocapture nonnull readnone align 8 %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb27StreamingLimitOperatorStateESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28, !noalias !392
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb27StreamingLimitOperatorStateE, i64 16), ptr %call.i, align 8, !tbaa !3, !noalias !392
@@ -7979,7 +7979,7 @@ _ZNSt10unique_ptrIN6duckdb27StreamingLimitOperatorStateESt14default_deleteIS1_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb22PhysicalStreamingLimit22GetGlobalOperatorStateERNS_13ClientContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.8") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb22PhysicalStreamingLimit22GetGlobalOperatorStateERNS_13ClientContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.8") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb25StreamingLimitGlobalStateESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !397
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb25StreamingLimitGlobalStateE, i64 16), ptr %call.i, align 8, !tbaa !3, !noalias !397
@@ -8043,7 +8043,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb23PhysicalStreamingSampleC2ENS_6vectorINS_11LogicalTypeELb1EEENS_12SampleMethodEdlm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %this, ptr nocapture noundef %types, i8 noundef zeroext %method, double noundef %percentage, i64 noundef %seed, i64 noundef %estimated_cardinality) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb23PhysicalStreamingSampleC2ENS_6vectorINS_11LogicalTypeELb1EEENS_12SampleMethodEdlm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((0, 9), (16, 129), (136, 152)) %this, ptr nocapture noundef %types, i8 noundef zeroext %method, double noundef %percentage, i64 noundef %seed, i64 noundef %estimated_cardinality) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %types, i64 16
   %0 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8, !tbaa !40

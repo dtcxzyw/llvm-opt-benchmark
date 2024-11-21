@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7512DateIntervalC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, double noundef %from, double noundef %to) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512DateIntervalC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, double noundef %from, double noundef %to) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512DateIntervalE, i64 16), ptr %this, align 8
   %fromDate = getelementptr inbounds i8, ptr %this, i64 8
@@ -59,7 +59,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7512DateIntervalC2ERKS0_(ptr noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %other) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512DateIntervalC2ERKS0_(ptr noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %other) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512DateIntervalE, i64 16), ptr %this, align 8
   %cmp.not.i = icmp eq ptr %this, %other

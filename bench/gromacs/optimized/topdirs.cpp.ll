@@ -2211,7 +2211,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7DS_InitPP8DirStack(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
+define void @_Z7DS_InitPP8DirStack(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @_ZL9necessary, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5

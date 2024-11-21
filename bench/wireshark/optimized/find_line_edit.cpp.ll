@@ -194,7 +194,7 @@ declare void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN7QAction9triggeredEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12FindLineEdit13setUseTextualEv(ptr noundef nonnull align 8 dereferenceable(41) %0) #0 align 2 {
+define void @_ZN12FindLineEdit13setUseTextualEv(ptr noundef nonnull align 8 dereferenceable(41) initializes((40, 41)) %0) #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %2, align 8
   tail call void @_ZN12FindLineEdit12validateTextEv(ptr noundef nonnull align 8 dereferenceable(41) %0)
@@ -208,7 +208,7 @@ define void @_ZN12FindLineEdit13setUseTextualEv(ptr noundef nonnull align 8 dere
 declare void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12FindLineEdit11setUseRegexEv(ptr noundef nonnull align 8 dereferenceable(41) %0) #0 align 2 {
+define void @_ZN12FindLineEdit11setUseRegexEv(ptr noundef nonnull align 8 dereferenceable(41) initializes((40, 41)) %0) #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 1, ptr %2, align 8
   tail call void @_ZN12FindLineEdit12validateTextEv(ptr noundef nonnull align 8 dereferenceable(41) %0)

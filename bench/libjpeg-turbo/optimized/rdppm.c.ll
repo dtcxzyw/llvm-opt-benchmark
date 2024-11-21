@@ -43,7 +43,7 @@ define dso_local noundef ptr @j12init_read_ppm(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @start_input_ppm(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @start_input_ppm(ptr noundef %0, ptr nocapture noundef initializes((40, 48), (56, 60), (88, 100)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @getc(ptr noundef %4)

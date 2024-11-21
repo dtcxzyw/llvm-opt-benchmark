@@ -1280,7 +1280,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25ListColumnFamiliesHandler16ApplyVersionEditERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr nocapture readnone %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25ListColumnFamiliesHandler16ApplyVersionEditERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr nocapture readnone %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp12 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp13 = alloca %"class.rocksdb::Slice", align 8
@@ -1801,7 +1801,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb18VersionEditHandlerC2EbSt6vectorINS_22ColumnFamilyDescriptorESaIS2_EEPNS_10VersionSetEbbRKSt10shared_ptrINS_8IOTracerEERKNS_11ReadOptionsEbNS_22EpochNumberRequirementE(ptr noundef nonnull align 8 dereferenceable(1008) %this, i1 noundef zeroext %read_only, ptr nocapture noundef %column_families, ptr noundef %version_set, i1 noundef zeroext %track_missing_files, i1 noundef zeroext %no_error_if_files_missing, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %io_tracer, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i1 noundef zeroext %skip_load_table_files, i32 noundef %epoch_number_requirement) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18VersionEditHandlerC2EbSt6vectorINS_22ColumnFamilyDescriptorESaIS2_EEPNS_10VersionSetEbbRKSt10shared_ptrINS_8IOTracerEERKNS_11ReadOptionsEbNS_22EpochNumberRequirementE(ptr noundef nonnull align 8 dereferenceable(1008) initializes((0, 14), (16, 73), (80, 112)) %this, i1 noundef zeroext %read_only, ptr nocapture noundef %column_families, ptr noundef %version_set, i1 noundef zeroext %track_missing_files, i1 noundef zeroext %no_error_if_files_missing, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %io_tracer, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i1 noundef zeroext %skip_load_table_files, i32 noundef %epoch_number_requirement) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %frombool = zext i1 %read_only to i8
   %status_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1980,7 +1980,7 @@ _ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit: ; preds = %invoke.cont, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18VersionEditHandler10InitializeEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18VersionEditHandler10InitializeEv(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp19 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp20 = alloca %"class.rocksdb::Slice", align 8
@@ -2310,7 +2310,7 @@ eh.resume:                                        ; preds = %lpad8, %lpad4, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18VersionEditHandler16ApplyVersionEditERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr noundef %cfd) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18VersionEditHandler16ApplyVersionEditERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr noundef %cfd) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %ref.tmp7 = alloca %"class.rocksdb::Status", align 8
@@ -2767,7 +2767,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18VersionEditHandler18OnColumnFamilyDropERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr nocapture noundef writeonly %cfd) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18VersionEditHandler18OnColumnFamilyDropERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr nocapture noundef writeonly initializes((0, 8)) %cfd) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cf_in_not_found = alloca i8, align 1
   %cf_in_builders = alloca i8, align 1
@@ -2903,7 +2903,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18VersionEditHandler16OnNonCfOperationERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr nocapture noundef writeonly %cfd) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18VersionEditHandler16OnNonCfOperationERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr nocapture noundef writeonly initializes((0, 8)) %cfd) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cf_in_not_found = alloca i8, align 1
   %cf_in_builders = alloca i8, align 1
@@ -3298,7 +3298,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont26, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18VersionEditHandler26ExtractInfoFromVersionEditEPNS_16ColumnFamilyDataERKNS_11VersionEditE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr noundef %cfd, ptr noundef nonnull align 8 dereferenceable(504) %edit) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18VersionEditHandler26ExtractInfoFromVersionEditEPNS_16ColumnFamilyDataERKNS_11VersionEditE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr noundef %cfd, ptr noundef nonnull align 8 dereferenceable(504) %edit) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %mark_sst_files_has_no_udt = alloca i8, align 1
@@ -3619,7 +3619,7 @@ _ZN7rocksdb6StatusD2Ev.exit76:                    ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18VersionEditHandler17OnColumnFamilyAddERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr nocapture noundef writeonly %cfd) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18VersionEditHandler17OnColumnFamilyAddERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr nocapture noundef writeonly initializes((0, 8)) %cfd) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cf_in_not_found = alloca i8, align 1
   %cf_in_builders = alloca i8, align 1
@@ -6082,7 +6082,7 @@ declare void @_ZN7rocksdb16ColumnFamilyData10SetDroppedEv(ptr noundef nonnull al
 declare noundef zeroext i1 @_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv(ptr noundef nonnull align 8 dereferenceable(2656)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18VersionEditHandler18MaybeCreateVersionERKNS_11VersionEditEPNS_16ColumnFamilyDataEb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef %cfd, i1 noundef zeroext %force_create_version) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18VersionEditHandler18MaybeCreateVersionERKNS_11VersionEditEPNS_16ColumnFamilyDataEb(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef %cfd, i1 noundef zeroext %force_create_version) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.rocksdb::MutableCFOptions", align 8
   %ref.tmp19 = alloca %"class.rocksdb::Status", align 8
@@ -7022,7 +7022,7 @@ _ZNSt6vectorIN7rocksdb22ColumnFamilyDescriptorESaIS1_EED2Ev.exit: ; preds = %inv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb29VersionEditHandlerPointInTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb29VersionEditHandlerPointInTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb29VersionEditHandlerPointInTimeE, i64 16), ptr %this, align 8
   %versions_ = getelementptr inbounds i8, ptr %this, i64 1008
@@ -8638,7 +8638,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb29VersionEditHandlerPointInTime10LoadTablesEPNS_16ColumnFamilyDataEbb(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i1 zeroext %1, i1 zeroext %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb29VersionEditHandlerPointInTime10LoadTablesEPNS_16ColumnFamilyDataEbb(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i1 zeroext %1, i1 zeroext %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !60
@@ -8647,7 +8647,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ManifestTailer10InitializeEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1128) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ManifestTailer10InitializeEv(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1128) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mode_ = getelementptr inbounds i8, ptr %this, i64 1064
   %0 = load i8, ptr %mode_, align 8
@@ -8795,7 +8795,7 @@ declare void @_ZN7rocksdb7Version3RefEv(ptr noundef nonnull align 16 dereference
 declare void @_ZN7rocksdb28BaseReferencedVersionBuilderC1EPNS_16ColumnFamilyDataEPNS_7VersionE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ManifestTailer16ApplyVersionEditERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr noundef %cfd) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ManifestTailer16ApplyVersionEditERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr noundef %cfd) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.713", align 8
   tail call void @_ZN7rocksdb18VersionEditHandler16ApplyVersionEditERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1008) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr noundef %cfd)
@@ -8840,7 +8840,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt13unordered_se
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ManifestTailer17OnColumnFamilyAddERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr nocapture noundef writeonly %cfd) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ManifestTailer17OnColumnFamilyAddERNS_11VersionEditEPPNS_16ColumnFamilyDataE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef nonnull align 8 dereferenceable(504) %edit, ptr nocapture noundef writeonly initializes((0, 8)) %cfd) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mode_ = getelementptr inbounds i8, ptr %this, i64 1064
   %0 = load i8, ptr %mode_, align 8

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Curl_crealloc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_dyn_init(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @Curl_dyn_init(ptr nocapture noundef writeonly initializes((0, 32)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i64 %1, ptr %3, align 8
@@ -17,7 +17,7 @@ define dso_local void @Curl_dyn_init(ptr nocapture noundef writeonly %0, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_dyn_free(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define dso_local void @Curl_dyn_free(ptr nocapture noundef initializes((8, 24)) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @Curl_cfree, align 8
   %3 = load ptr, ptr %0, align 8
   tail call void %2(ptr noundef %3) #11

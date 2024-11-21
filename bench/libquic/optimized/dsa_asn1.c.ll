@@ -64,7 +64,7 @@ declare ptr @DSA_SIG_new() local_unnamed_addr #1
 declare i32 @CBS_get_asn1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_integer(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
+define internal fastcc i32 @parse_integer(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %out) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_new() #2
   store ptr %call, ptr %out, align 8

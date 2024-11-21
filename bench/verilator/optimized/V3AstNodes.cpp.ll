@@ -84549,7 +84549,7 @@ declare noundef zeroext i1 @_ZNK8V3Number9isNeqZeroEv(ptr noundef nonnull align 
 declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8opAssignERKS_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13AstBasicDType4initE14VBasicDTypeKwd8VSigningiiP8AstRange(ptr noundef nonnull align 8 dereferenceable(184) %0, i8 %1, i8 %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN13AstBasicDType4initE14VBasicDTypeKwd8VSigningiiP8AstRange(ptr noundef nonnull align 8 dereferenceable(184) initializes((152, 161), (164, 165)) %0, i8 %1, i8 %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
   %7 = alloca %class.VBasicDTypeKwd, align 1
   %8 = getelementptr inbounds i8, ptr %0, i64 164
   store i8 %1, ptr %8, align 4
@@ -86877,7 +86877,7 @@ _ZNK7AstNode5widthEv.exit.thread:                 ; preds = %8, %_ZNK7AstNode5wi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN6AstVar11combineTypeE8VVarType(ptr nocapture noundef nonnull align 8 dereferenceable(280) %0, i8 %1) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN6AstVar11combineTypeE8VVarType(ptr nocapture noundef nonnull align 8 dereferenceable(280) initializes((248, 249)) %0, i8 %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   store i8 %1, ptr %3, align 8
   %switch.tableidx = add i8 %1, -9
@@ -94219,7 +94219,7 @@ define dso_local void @_ZN12AstTypeTableC2EP8FileLine(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12AstTypeTable10clearCacheEv(ptr noundef nonnull align 8 dereferenceable(448) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12AstTypeTable10clearCacheEv(ptr noundef nonnull align 8 dereferenceable(448) initializes((152, 360)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %scevgep = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %scevgep, i8 0, i64 208, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 360
@@ -94289,7 +94289,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode11privateCastI13AstBasicDT
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12AstTypeTable11repairCacheEv(ptr noundef nonnull align 8 dereferenceable(448) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12AstTypeTable11repairCacheEv(ptr noundef nonnull align 8 dereferenceable(448) initializes((152, 360)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.VBasicTypeKey, align 4
   %scevgep.i = getelementptr inbounds i8, ptr %0, i64 152
@@ -103481,7 +103481,7 @@ _ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i3.i30: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19AstUnpackArrayDType16unpackDimensionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.118") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19AstUnpackArrayDType16unpackDimensionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.118") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(184) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

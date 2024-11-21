@@ -291,7 +291,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt15dyn_ack_managerC2ERNS_7contextER14dyn_ack_params(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, ptr noundef nonnull align 8 dereferenceable(32) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt15dyn_ack_managerC2ERNS_7contextER14dyn_ack_params(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 44), (48, 64)) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, ptr noundef nonnull align 8 dereferenceable(32) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %ctx, ptr %this, align 8
   %m = getelementptr inbounds i8, ptr %this, i64 8
@@ -1779,7 +1779,7 @@ if.end29:                                         ; preds = %if.end, %entry, %lo
 declare noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt15dyn_ack_manager2gcEv(ptr noundef nonnull align 8 dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt15dyn_ack_manager2gcEv(ptr noundef nonnull align 8 dereferenceable(232) initializes((64, 68)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i45 = alloca %"class.obj_pair_map<app, app, unsigned int>::key_data", align 8
   %ref.tmp.i = alloca %"class.obj_pair_map<app, app, unsigned int>::key_data", align 8
@@ -3673,7 +3673,7 @@ _ZN7obj_mapIN3smt6clauseE6tripleIP3appS4_S4_EE5resetEv.exit: ; preds = %_ZN14cor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt15dyn_ack_manager10gc_triplesEv(ptr noundef nonnull align 8 dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt15dyn_ack_manager10gc_triplesEv(ptr noundef nonnull align 8 dereferenceable(232) initializes((168, 172)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i63 = alloca %"class.obj_triple_map<app, app, app, unsigned int>::key_data", align 8
   %ref.tmp.i = alloca %"class.obj_triple_map<app, app, app, unsigned int>::key_data", align 8

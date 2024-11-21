@@ -2894,7 +2894,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg6existsENS_8FileTypeE(i32 noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg11FilePointerC2ERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5vcpkg11FilePointerC2ERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -2902,7 +2902,7 @@ define dso_local void @_ZN5vcpkg11FilePointerC2ERKNS_4PathE(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg11FilePointerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5vcpkg11FilePointerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -2910,7 +2910,7 @@ define dso_local void @_ZN5vcpkg11FilePointerC2Ev(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg11FilePointerC2EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5vcpkg11FilePointerC2EOS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
   %3 = alloca %"struct.vcpkg::Path", align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
@@ -3137,7 +3137,7 @@ _ZN5vcpkg11FilePointer5closeEv.exit:              ; preds = %1, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg15ReadFilePointerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5vcpkg15ReadFilePointerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -3145,7 +3145,7 @@ define dso_local void @_ZN5vcpkg15ReadFilePointerC2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg15ReadFilePointerC2EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5vcpkg15ReadFilePointerC2EOS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
   %3 = alloca %"struct.vcpkg::Path", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8
@@ -3163,7 +3163,7 @@ define dso_local void @_ZN5vcpkg15ReadFilePointerC2EOS0_(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg15ReadFilePointerC2ERKNS_4PathERSt10error_code(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg15ReadFilePointerC2ERKNS_4PathERSt10error_code(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -3641,7 +3641,7 @@ define dso_local void @_ZN5vcpkg15ReadFilePointer18read_to_end_suffixERNSt7__cxx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg16WriteFilePointerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5vcpkg16WriteFilePointerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -3649,7 +3649,7 @@ define dso_local void @_ZN5vcpkg16WriteFilePointerC2Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg16WriteFilePointerC2EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5vcpkg16WriteFilePointerC2EOS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
   %3 = alloca %"struct.vcpkg::Path", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8
@@ -3667,7 +3667,7 @@ define dso_local void @_ZN5vcpkg16WriteFilePointerC2EOS0_(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg16WriteFilePointerC2ERKNS_4PathENS_6AppendERSt10error_code(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg16WriteFilePointerC2ERKNS_4PathENS_6AppendERSt10error_code(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -12420,7 +12420,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #20
 declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg14RealFilesystem28get_files_non_recursive_implERSt6vectorINS_4PathESaIS2_EERKS2_RSt10error_codePFbN12_GLOBAL__N_110PosixDTypeES7_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg14RealFilesystem28get_files_non_recursive_implERSt6vectorINS_4PathESaIS2_EERKS2_RSt10error_codePFbN12_GLOBAL__N_110PosixDTypeES7_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::LineInfo", align 8
   %6 = alloca %"struct.vcpkg::Path", align 8
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #27
@@ -13215,7 +13215,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116vcpkg_remove_allERKN5vcpkg4PathE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126vcpkg_remove_all_directoryERKN5vcpkg4PathERSt10error_codeRS1_R4stat(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %.24.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_126vcpkg_remove_all_directoryERKN5vcpkg4PathERSt10error_codeRS1_R4stat(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %.24.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::LineInfo", align 8
   %5 = alloca %"struct.vcpkg::Path", align 8
   %6 = and i32 %.24.val, 448
@@ -13673,7 +13673,7 @@ _ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit:             ; preds = %81, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_17PosixFd9ftruncateElRSt10error_code(i32 %.0.val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_17PosixFd9ftruncateElRSt10error_code(i32 %.0.val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0) unnamed_addr #5 align 2 {
   %2 = tail call i32 @ftruncate64(i32 noundef %.0.val, i64 noundef 0) #27
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
@@ -13698,7 +13698,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_17PosixFd9ftruncateElRSt10error_co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_17PosixFd6fchmodEjRSt10error_code(i32 %.0.val, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %1) unnamed_addr #5 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_17PosixFd6fchmodEjRSt10error_code(i32 %.0.val, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %1) unnamed_addr #5 align 2 {
   %3 = tail call i32 @fchmod(i32 noundef %.0.val, i32 noundef %0) #27
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7

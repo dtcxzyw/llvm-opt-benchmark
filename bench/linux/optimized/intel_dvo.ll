@@ -365,7 +365,7 @@ define internal void @intel_enable_dvo(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @intel_dvo_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal zeroext i1 @intel_dvo_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4
@@ -383,7 +383,7 @@ define internal zeroext i1 @intel_dvo_get_hw_state(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_dvo_get_config(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal void @intel_dvo_get_config(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((636, 640)) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4

@@ -129,7 +129,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19btGenericMemoryPool9init_poolEmm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %element_size, i64 noundef %element_count) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN19btGenericMemoryPool9init_poolEmm(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, i64 noundef %element_size, i64 noundef %element_count) local_unnamed_addr #2 align 2 {
 entry:
   %m_allocated_count = getelementptr inbounds i8, ptr %this, i64 24
   %m_element_size = getelementptr inbounds i8, ptr %this, i64 40
@@ -171,7 +171,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19btGenericMemoryPool8end_poolEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN19btGenericMemoryPool8end_poolEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((24, 40)) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
@@ -341,7 +341,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22btGenericPoolAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22btGenericPoolAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
   %m_pool_count = getelementptr inbounds i8, ptr %this, i64 152
@@ -412,7 +412,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22btGenericPoolAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22btGenericPoolAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
   %m_pool_count.i = getelementptr inbounds i8, ptr %this, i64 152

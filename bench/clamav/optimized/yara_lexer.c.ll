@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.33 = private unnamed_addr constant [49 x i8] c"out of dynamic memory in yyensure_buffer_stack()\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes((144, 152)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 144
@@ -2060,7 +2060,7 @@ define noundef ptr @yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr nocaptu
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @yara_yyerror(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @yara_yyerror(ptr nocapture noundef readonly %0, ptr noundef initializes((12, 16)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [512 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %5 = load i32, ptr %1, align 8
@@ -3154,7 +3154,7 @@ define ptr @yyget_text(ptr nocapture noundef readonly %0) local_unnamed_addr #4 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
+define void @yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #15 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -3222,14 +3222,14 @@ define void @yyset_column(i32 noundef %0, ptr nocapture noundef readonly %1) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @yyset_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
+define void @yyset_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @yyset_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
+define void @yyset_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -3243,7 +3243,7 @@ define i32 @yyget_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
+define void @yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -3257,7 +3257,7 @@ define ptr @yyget_lval(ptr nocapture noundef readonly %0) local_unnamed_addr #4 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
+define void @yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly initializes((144, 152)) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   ret void
@@ -3507,7 +3507,7 @@ define noundef i32 @yr_lex_parse_rules_string(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @yr_lex_parse_rules_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @yr_lex_parse_rules_file(ptr noundef %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = call i32 @_setjmp(ptr noundef nonnull %3) #35

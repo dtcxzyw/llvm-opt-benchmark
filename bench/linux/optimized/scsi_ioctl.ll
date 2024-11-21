@@ -1609,7 +1609,7 @@ declare dso_local zeroext i8 @blk_execute_rq(ptr noundef, i1 noundef zeroext) lo
 declare dso_local i32 @jiffies_to_msecs(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @scsi_complete_sghdr_rq(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @scsi_complete_sghdr_rq(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((64, 76), (80, 84)) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 536
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8

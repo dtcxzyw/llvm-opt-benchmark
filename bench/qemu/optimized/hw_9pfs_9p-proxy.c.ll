@@ -504,7 +504,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @proxy_opendir(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr nocapture noundef writeonly %fs) #0 {
+define internal range(i32 -1, 1) i32 @proxy_opendir(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr nocapture noundef writeonly initializes((0, 8)) %fs) #0 {
 entry:
   store ptr null, ptr %fs, align 8
   %private = getelementptr inbounds i8, ptr %ctx, i64 48
@@ -538,7 +538,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, -2147483648) i32 @proxy_open(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, i32 noundef %flags, ptr nocapture noundef writeonly %fs) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_open(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, i32 noundef %flags, ptr nocapture noundef writeonly initializes((0, 4)) %fs) #0 {
 entry:
   %private = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -560,7 +560,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, -2147483648) i32 @proxy_open2(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, i32 noundef %flags, ptr nocapture noundef readonly %credp, ptr nocapture noundef %fs) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_open2(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, i32 noundef %flags, ptr nocapture noundef readonly %credp, ptr nocapture noundef initializes((0, 4)) %fs) #0 {
 entry:
   %fullname = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds i8, ptr %fullname, i64 8
@@ -2604,7 +2604,7 @@ return:                                           ; preds = %land.rhs, %return.s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_status(ptr nocapture noundef readonly %proxy, ptr noundef %reply, ptr noundef nonnull %status) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_status(ptr nocapture noundef readonly %proxy, ptr noundef initializes((8, 16)) %reply, ptr noundef nonnull initializes((0, 4)) %status) unnamed_addr #0 {
 entry:
   %header = alloca %struct.ProxyHeader, align 4
   store i32 0, ptr %status, align 4
@@ -2741,7 +2741,7 @@ return:                                           ; preds = %while.cond.i, %whil
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_response(ptr noundef %proxy, i32 noundef range(i32 2, 22) %type, ptr noundef nonnull %status, ptr noundef %response) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_response(ptr noundef initializes((64, 72)) %proxy, i32 noundef range(i32 2, 22) %type, ptr noundef nonnull initializes((0, 4)) %status, ptr noundef %response) unnamed_addr #0 {
 entry:
   %header = alloca %struct.ProxyHeader, align 4
   %prstat = alloca %struct.ProxyStat, align 8
@@ -3105,7 +3105,7 @@ declare i64 @v9fs_iov_unmarshal(ptr noundef, i32 noundef, i64 noundef, i32 nound
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @prstat_to_stat(ptr nocapture noundef writeonly %stbuf, ptr nocapture noundef nonnull readonly %prstat) unnamed_addr #14 {
+define internal fastcc void @prstat_to_stat(ptr nocapture noundef writeonly initializes((0, 144)) %stbuf, ptr nocapture noundef nonnull readonly %prstat) unnamed_addr #14 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %stbuf, i8 0, i64 144, i1 false)
   %0 = load i64, ptr %prstat, align 8

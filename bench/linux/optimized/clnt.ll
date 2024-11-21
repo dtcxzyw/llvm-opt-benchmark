@@ -1091,7 +1091,7 @@ define dso_local ptr @rpc_clone_client_set_auth(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rpc_switch_client_transport(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @rpc_switch_client_transport(ptr noundef %0, ptr noundef initializes((68, 80)) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 68
   %5 = getelementptr inbounds i8, ptr %0, i64 108
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(12) %4, ptr noundef align 4 dereferenceable(12) %5, i64 12, i1 false)
@@ -2302,7 +2302,7 @@ define dso_local ptr @rpc_run_task(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @rpc_new_task(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @rpc_call_start(ptr nocapture noundef writeonly %0) #6 align 16 {
+define dso_local void @rpc_call_start(ptr nocapture noundef writeonly initializes((32, 40)) %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @call_start, ptr %2, align 8
   ret void
@@ -2881,7 +2881,7 @@ define dso_local void @rpc_force_rebind(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @rpc_restart_call(ptr nocapture noundef writeonly %0) #6 align 16 {
+define dso_local noundef i32 @rpc_restart_call(ptr nocapture noundef writeonly initializes((4, 8), (32, 40), (212, 216)) %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 212
@@ -2892,7 +2892,7 @@ define dso_local noundef i32 @rpc_restart_call(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @rpc_restart_call_prepare(ptr nocapture noundef %0) #8 align 16 {
+define dso_local noundef i32 @rpc_restart_call_prepare(ptr nocapture noundef initializes((4, 8), (32, 40), (212, 216)) %0) #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -4246,7 +4246,7 @@ define internal void @rpcproc_encode_null(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @rpc_null_call_prepare(ptr nocapture noundef %0, ptr nocapture readnone %1) #16 align 16 {
+define internal void @rpc_null_call_prepare(ptr nocapture noundef initializes((32, 40)) %0, ptr nocapture readnone %1) #16 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 216
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, -16385
@@ -4507,7 +4507,7 @@ declare dso_local void @sock_release(ptr noundef) local_unnamed_addr #1
 declare dso_local void @__put_net(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @call_reserve(ptr noundef %0) #0 align 16 {
+define internal void @call_reserve(ptr noundef initializes((4, 8), (32, 40)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4707,7 +4707,7 @@ __rpc_call_rpcerror.exit1:                        ; preds = %37, %38, %51, %55
 declare dso_local void @xprt_reserve(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @call_refresh(ptr noundef %0) #0 align 16 {
+define internal void @call_refresh(ptr noundef initializes((4, 8), (32, 40)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @call_refreshresult, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -4728,7 +4728,7 @@ define internal void @call_refresh(ptr noundef %0) #0 align 16 {
 declare dso_local void @rpc_delay(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @call_retry_reserve(ptr noundef %0) #0 align 16 {
+define internal void @call_retry_reserve(ptr noundef initializes((4, 8), (32, 40)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4738,7 +4738,7 @@ define internal void @call_retry_reserve(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @call_refreshresult(ptr noundef %0) #0 align 16 {
+define internal void @call_refreshresult(ptr noundef initializes((32, 40)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   store i32 0, ptr %2, align 4
@@ -4922,7 +4922,7 @@ declare dso_local i32 @rpcauth_refreshcred(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @rpcauth_uptodatecred(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @call_allocate(ptr noundef %0) #0 align 16 {
+define internal void @call_allocate(ptr noundef initializes((4, 8), (32, 40)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 160
@@ -5773,7 +5773,7 @@ declare dso_local i32 @rpcauth_marshcred(ptr noundef, ptr noundef) local_unnamed
 declare dso_local i32 @__SCT__tp_func_rpc_bad_callhdr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @call_transmit_status(ptr noundef %0) #0 align 16 {
+define internal void @call_transmit_status(ptr noundef initializes((32, 40)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @call_status, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48

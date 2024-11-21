@@ -1200,7 +1200,7 @@ _ZNSt10_HashtableIN4cvc58internal4kind6Kind_tES3_SaIS3_ENSt8__detail9_IdentityES
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11TheoryModelD2Ev(ptr noundef nonnull align 8 dereferenceable(904) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11TheoryModelD2Ev(ptr noundef nonnull align 8 dereferenceable(904) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11TheoryModelE, i64 16), ptr %this, align 8
   %d_uf_models = getelementptr inbounds i8, ptr %this, i64 856
@@ -1593,7 +1593,7 @@ _ZNSt13unordered_setIN4cvc58internal4kind6Kind_tENS2_16KindHashFunctionESt8equal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11TheoryModelD0Ev(ptr noundef nonnull align 8 dereferenceable(904) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory11TheoryModelD0Ev(ptr noundef nonnull align 8 dereferenceable(904) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11TheoryModelD2Ev(ptr noundef nonnull align 8 dereferenceable(904) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -1604,7 +1604,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11TheoryModel10finishInitEPNS1_2eq14EqualityEngineE(ptr noundef nonnull align 8 dereferenceable(904) %this, ptr noundef %ee) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11TheoryModel10finishInitEPNS1_2eq14EqualityEngineE(ptr noundef nonnull align 8 dereferenceable(904) initializes((48, 56)) %this, ptr noundef %ee) local_unnamed_addr #3 align 2 {
 entry:
   %__node_gen.i.i.i = alloca %"struct.std::__detail::_AllocNode.714", align 8
   %k.addr.i = alloca i32, align 4
@@ -12723,7 +12723,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11TheoryModel17setUsingModelCoreEv(ptr nocapture noundef nonnull align 8 dereferenceable(904) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11TheoryModel17setUsingModelCoreEv(ptr nocapture noundef nonnull align 8 dereferenceable(904) initializes((616, 617)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_using_model_core = getelementptr inbounds i8, ptr %this, i64 616
   store i8 1, ptr %d_using_model_core, align 8
@@ -13899,7 +13899,7 @@ _ZNKSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11TheoryModel20getFunctionsToAssignEv(ptr noalias sret(%"class.std::vector.445") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(904) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11TheoryModel20getFunctionsToAssignEv(ptr noalias sret(%"class.std::vector.445") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(904) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i487 = alloca %"class.std::tuple.703", align 8
   %ref.tmp10.i488 = alloca %"class.std::tuple.697", align 1

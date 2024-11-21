@@ -2431,7 +2431,7 @@ define internal fastcc void @_ZL10print_gridP8_IO_FILES0_PKcS2_PK11pme_setup_td(
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL16switch_to_stage1P20pme_load_balancing_t(ptr nocapture noundef %0) unnamed_addr #14 {
+define internal fastcc void @_ZL16switch_to_stage1P20pme_load_balancing_t(ptr nocapture noundef initializes((132, 136)) %0) unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 132

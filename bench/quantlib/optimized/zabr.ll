@@ -1015,7 +1015,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9ZabrModelC2Eddddddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, double noundef %expiryTime, double noundef %forward, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho, double noundef %gamma) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9ZabrModelC2Eddddddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, double noundef %expiryTime, double noundef %forward, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho, double noundef %gamma) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

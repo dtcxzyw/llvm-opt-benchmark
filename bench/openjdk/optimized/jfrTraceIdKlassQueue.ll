@@ -86,7 +86,7 @@ $_Z28mspace_allocate_to_live_listI14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuf
 @_ZN20JfrTraceIdKlassQueueD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20JfrTraceIdKlassQueueD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20JfrTraceIdKlassQueueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20JfrTraceIdKlassQueueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -128,7 +128,7 @@ _ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyED2Ev.exit: ; preds = %4, %_ZN19Jfr
 declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN20JfrTraceIdKlassQueue10initializeEmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN20JfrTraceIdKlassQueue10initializeEmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 8) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7

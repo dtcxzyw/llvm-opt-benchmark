@@ -3550,7 +3550,7 @@ define dso_local i32 @snd_hda_codec_amp_init_stereo(ptr noundef %0, i16 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_hda_mixer_amp_volume_info(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hda_mixer_amp_volume_info(ptr noundef %0, ptr nocapture noundef writeonly initializes((64, 68), (72, 76), (80, 96)) %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
@@ -3944,7 +3944,7 @@ define dso_local range(i32 -14, 1) i32 @snd_hda_mixer_amp_tlv(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hda_set_vmaster_tlv(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define dso_local void @snd_hda_set_vmaster_tlv(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 16)) %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = zext i16 %1 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 828
@@ -4918,7 +4918,7 @@ define dso_local void @snd_hda_sync_vmaster_hook(ptr nocapture noundef readonly 
 declare dso_local void @snd_ctl_sync_vmaster(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @snd_hda_mixer_amp_switch_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #10 align 16 {
+define dso_local noundef i32 @snd_hda_mixer_amp_switch_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((64, 68), (72, 76), (80, 96)) %1) #10 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 64
@@ -6193,7 +6193,7 @@ define internal void @hda_codec_pm_complete(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hda_codec_pm_suspend(ptr noundef %0) #0 align 16 {
+define internal i32 @hda_codec_pm_suspend(ptr noundef initializes((216, 220)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   store i32 2, ptr %2, align 8
   %3 = tail call i32 @pm_runtime_force_suspend(ptr noundef %0) #24
@@ -6201,7 +6201,7 @@ define internal i32 @hda_codec_pm_suspend(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hda_codec_pm_resume(ptr noundef %0) #0 align 16 {
+define internal i32 @hda_codec_pm_resume(ptr noundef initializes((216, 220)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   store i32 16, ptr %2, align 8
   %3 = tail call i32 @pm_runtime_force_resume(ptr noundef %0) #24
@@ -6219,7 +6219,7 @@ define internal i32 @hda_codec_pm_freeze(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hda_codec_pm_thaw(ptr noundef %0) #0 align 16 {
+define internal i32 @hda_codec_pm_thaw(ptr noundef initializes((216, 220)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   store i32 32, ptr %2, align 8
   %3 = tail call i32 @pm_runtime_force_resume(ptr noundef %0) #24
@@ -6227,7 +6227,7 @@ define internal i32 @hda_codec_pm_thaw(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hda_codec_pm_restore(ptr noundef %0) #0 align 16 {
+define internal i32 @hda_codec_pm_restore(ptr noundef initializes((216, 220)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   store i32 64, ptr %2, align 8
   %3 = tail call i32 @pm_runtime_force_resume(ptr noundef %0) #24
@@ -7367,7 +7367,7 @@ declare dso_local i32 @snd_hdac_power_up_pm(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @snd_hdac_power_down_pm(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @snd_hda_input_mux_info(ptr nocapture noundef readonly %0, ptr noundef %1) #12 align 16 {
+define dso_local noundef i32 @snd_hda_input_mux_info(ptr nocapture noundef readonly %0, ptr noundef initializes((64, 68), (72, 76), (80, 84)) %1) #12 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 3, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 72
@@ -7671,7 +7671,7 @@ define dso_local noundef i32 @snd_hda_multi_out_dig_cleanup(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hda_multi_out_dig_close(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef i32 @snd_hda_multi_out_dig_close(ptr noundef %0, ptr nocapture noundef writeonly initializes((52, 56)) %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1216
   tail call void @mutex_lock(ptr noundef %3) #24
   %4 = getelementptr inbounds i8, ptr %1, i64 52
@@ -8914,7 +8914,7 @@ declare dso_local i32 @_snd_ctl_add_follower(ptr noundef, ptr noundef, i32 nound
 declare dso_local i32 @snd_hdac_regmap_read_raw(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @snd_hda_spdif_mask_info(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #17 align 16 {
+define internal noundef i32 @snd_hda_spdif_mask_info(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((64, 68), (72, 76)) %1) #17 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 5, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 72
@@ -8923,7 +8923,7 @@ define internal noundef i32 @snd_hda_spdif_mask_info(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @snd_hda_spdif_cmask_get(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #17 align 16 {
+define internal noundef i32 @snd_hda_spdif_cmask_get(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((72, 74)) %1) #17 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   store i8 15, ptr %3, align 8
   %4 = getelementptr i8, ptr %1, i64 73
@@ -8932,7 +8932,7 @@ define internal noundef i32 @snd_hda_spdif_cmask_get(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @snd_hda_spdif_pmask_get(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #17 align 16 {
+define internal noundef i32 @snd_hda_spdif_pmask_get(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((72, 73)) %1) #17 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   store i8 15, ptr %3, align 8
   ret i32 0
@@ -9224,7 +9224,7 @@ define internal range(i32 -22, 2) i32 @snd_hda_spdif_out_switch_put(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @spdif_share_sw_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #18 align 16 {
+define internal noundef i32 @spdif_share_sw_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((72, 80)) %1) #18 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 60
@@ -9249,7 +9249,7 @@ define internal noundef i32 @spdif_share_sw_put(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @snd_hda_spdif_in_switch_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #18 align 16 {
+define internal noundef i32 @snd_hda_spdif_in_switch_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((72, 80)) %1) #18 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1304
@@ -9292,7 +9292,7 @@ define internal noundef range(i32 0, 2) i32 @snd_hda_spdif_in_switch_put(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_hda_spdif_in_status_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef i32 @snd_hda_spdif_in_status_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((72, 76)) %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8

@@ -395,7 +395,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ShadowRendererC2EPN3irr14IrrlichtDeviceEP6Client(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %device, ptr noundef %client) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ShadowRendererC2EPN3irr14IrrlichtDeviceEP6Client(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 112), (128, 132), (137, 139), (142, 143), (144, 216)) %this, ptr noundef %device, ptr noundef %client) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.irr::core::vector3d", align 8
   %ref.tmp2.i = alloca %"class.irr::video::SColor", align 4
@@ -1053,7 +1053,7 @@ _ZNSt6vectorI16DirectionalLightSaIS0_EE12emplace_backIJRfN3irr4core8vector3dIfEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14ShadowRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ShadowRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((137, 138)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN14ShadowRenderer7disableEv(ptr noundef nonnull align 8 dereferenceable(216) %this)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1164,7 +1164,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ShadowRenderer7disableEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN14ShadowRenderer7disableEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((137, 138)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_shadows_enabled = getelementptr inbounds i8, ptr %this, i64 137
   store i8 0, ptr %m_shadows_enabled, align 1, !tbaa !36
@@ -4705,7 +4705,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ShadowRenderer18setShadowIntensityEf(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this, float noundef %shadow_intensity) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN14ShadowRenderer18setShadowIntensityEf(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((112, 116), (137, 138)) %this, float noundef %shadow_intensity) local_unnamed_addr #7 align 2 {
 entry:
   %m_shadow_strength_gamma = getelementptr inbounds i8, ptr %this, i64 116
   %0 = load float, ptr %m_shadow_strength_gamma, align 4, !tbaa !41

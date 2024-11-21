@@ -43,7 +43,7 @@ $_ZNSt6vectorIN5vcpkg12ControlGroupESaIS1_EE17_M_realloc_insertIJRlRNS0_10String
 @_ZN5vcpkg12ControlGroupC1ElNS_10StringViewES1_ = dso_local unnamed_addr alias void (ptr, i64, ptr, i64, ptr, i64), ptr @_ZN5vcpkg12ControlGroupC2ElNS_10StringViewES1_
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg12ControlGroupC2ElNS_10StringViewES1_(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg12ControlGroupC2ElNS_10StringViewES1_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, i64 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::allocator", align 1
   store i64 %1, ptr %0, align 8

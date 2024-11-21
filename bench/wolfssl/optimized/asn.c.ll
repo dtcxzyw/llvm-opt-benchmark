@@ -242,7 +242,7 @@ if.end:                                           ; preds = %for.inc.i20, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -140, -2147483648) i32 @GetLength(ptr nocapture noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx) local_unnamed_addr #1 {
+define range(i32 -140, -2147483648) i32 @GetLength(ptr nocapture noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly initializes((0, 4)) %len, i32 noundef %maxIdx) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %inOutIdx, align 4
   store i32 0, ptr %len, align 4
@@ -343,7 +343,7 @@ GetLength_ex.exit:                                ; preds = %entry, %if.else12.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -140, -2147483648) i32 @GetLength_ex(ptr nocapture noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly %len, i32 noundef %maxIdx, i32 noundef %check) local_unnamed_addr #1 {
+define range(i32 -140, -2147483648) i32 @GetLength_ex(ptr nocapture noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef writeonly initializes((0, 4)) %len, i32 noundef %maxIdx, i32 noundef %check) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %inOutIdx, align 4
   store i32 0, ptr %len, align 4
@@ -1515,7 +1515,7 @@ return:                                           ; preds = %if.then5.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @GetShortInt(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef %number, i32 noundef %maxIdx) local_unnamed_addr #1 {
+define i32 @GetShortInt(ptr noundef readonly %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef initializes((0, 4)) %number, i32 noundef %maxIdx) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %inOutIdx, align 4
   store i32 0, ptr %number, align 4
@@ -1955,7 +1955,7 @@ if.end8:                                          ; preds = %if.end, %for.body.u
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OidFromId(i32 noundef %id, i32 noundef %type, ptr noundef %oidSz) local_unnamed_addr #5 {
+define ptr @OidFromId(i32 noundef %id, i32 noundef %type, ptr noundef initializes((0, 4)) %oidSz) local_unnamed_addr #5 {
 entry:
   %oid = alloca ptr, align 8
   store ptr null, ptr %oid, align 8
@@ -2796,7 +2796,7 @@ return:                                           ; preds = %GetASNTag.exit.i.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -146, 1) i32 @GetAlgoId(ptr noundef %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef %oid, i32 noundef %oidType, i32 noundef %maxIdx) local_unnamed_addr #5 {
+define range(i32 -146, 1) i32 @GetAlgoId(ptr noundef %input, ptr nocapture noundef %inOutIdx, ptr nocapture noundef initializes((0, 4)) %oid, i32 noundef %oidType, i32 noundef %maxIdx) local_unnamed_addr #5 {
 entry:
   %idx = alloca i32, align 4
   %0 = load i32, ptr %inOutIdx, align 4
@@ -10173,7 +10173,7 @@ return:                                           ; preds = %if.then170.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ExtractDate(ptr nocapture noundef readonly %date, i8 noundef zeroext %format, ptr nocapture noundef %certTime, ptr nocapture noundef %idx) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ExtractDate(ptr nocapture noundef readonly %date, i8 noundef zeroext %format, ptr nocapture noundef initializes((0, 56)) %certTime, ptr nocapture noundef %idx) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %certTime, i8 0, i64 56, i1 false)
   %cmp = icmp eq i8 %format, 23
@@ -10990,7 +10990,7 @@ GetDateInfo.exit:                                 ; preds = %if.end30.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -153, 1) i32 @wc_GetDateAsCalendarTime(ptr nocapture noundef readonly %date, i32 noundef %length, i8 noundef zeroext %format, ptr nocapture noundef %timearg) local_unnamed_addr #2 {
+define range(i32 -153, 1) i32 @wc_GetDateAsCalendarTime(ptr nocapture noundef readonly %date, i32 noundef %length, i8 noundef zeroext %format, ptr nocapture noundef initializes((0, 56)) %timearg) local_unnamed_addr #2 {
 entry:
   %idx = alloca i32, align 4
   store i32 0, ptr %idx, align 4

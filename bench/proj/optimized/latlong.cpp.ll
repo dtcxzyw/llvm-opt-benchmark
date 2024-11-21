@@ -72,7 +72,7 @@ define hidden noundef ptr @pj_latlong(ptr noundef writeonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z36pj_projection_specific_setup_latlongP8PJconsts(ptr noundef returned writeonly %0) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z36pj_projection_specific_setup_latlongP8PJconsts(ptr noundef returned writeonly initializes((104, 152), (352, 356), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 456
@@ -151,7 +151,7 @@ define hidden noundef ptr @pj_longlat(ptr noundef writeonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z36pj_projection_specific_setup_longlatP8PJconsts(ptr noundef returned writeonly %0) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z36pj_projection_specific_setup_longlatP8PJconsts(ptr noundef returned writeonly initializes((104, 152), (352, 356), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 456
@@ -228,7 +228,7 @@ define hidden noundef ptr @pj_latlon(ptr noundef writeonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z35pj_projection_specific_setup_latlonP8PJconsts(ptr noundef returned writeonly %0) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z35pj_projection_specific_setup_latlonP8PJconsts(ptr noundef returned writeonly initializes((104, 152), (352, 356), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 456
@@ -305,7 +305,7 @@ define hidden noundef ptr @pj_lonlat(ptr noundef writeonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z35pj_projection_specific_setup_lonlatP8PJconsts(ptr noundef returned writeonly %0) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z35pj_projection_specific_setup_lonlatP8PJconsts(ptr noundef returned writeonly initializes((104, 152), (352, 356), (380, 388), (456, 472)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 456
@@ -344,7 +344,7 @@ define internal { double, double } @_ZL15latlong_forward5PJ_LPP8PJconsts(double 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL18latlong_inverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr nocapture readnone %2) #4 {
+define internal void @_ZL18latlong_inverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr nocapture readnone %2) #4 {
   %4 = load double, ptr %1, align 8
   store double %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -359,7 +359,7 @@ define internal void @_ZL18latlong_inverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL18latlong_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture readnone %2) #4 {
+define internal void @_ZL18latlong_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture readnone %2) #4 {
   %4 = load double, ptr %1, align 8
   store double %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

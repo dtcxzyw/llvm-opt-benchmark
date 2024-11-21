@@ -1475,7 +1475,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_indev_scroll_get_snap_dist(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define void @lv_indev_scroll_get_snap_dist(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48

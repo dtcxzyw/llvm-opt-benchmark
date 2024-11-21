@@ -15786,7 +15786,7 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGH
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN3ue216undirected_graphIN5boost14filtered_graphINS_8NGHolderENS_12_GLOBAL__N_111ReachFilterIS3_EES6_EERKS7_E17adj_edge_iteratorILb0EEC2ENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEES9_b(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this, ptr %u_in.coerce0, i64 %u_in.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %g_in, i1 noundef zeroext %end_iter) unnamed_addr #13 align 2 {
+define internal fastcc void @_ZN3ue216undirected_graphIN5boost14filtered_graphINS_8NGHolderENS_12_GLOBAL__N_111ReachFilterIS3_EES6_EERKS7_E17adj_edge_iteratorILb0EEC2ENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEES9_b(ptr nocapture noundef nonnull align 8 dereferenceable(105) initializes((0, 48), (56, 88), (96, 105)) %this, ptr %u_in.coerce0, i64 %u_in.coerce1, ptr noundef nonnull align 8 dereferenceable(24) %g_in, i1 noundef zeroext %end_iter) unnamed_addr #13 align 2 {
 entry:
   store ptr %u_in.coerce0, ptr %this, align 8
   %u_in.sroa.2.0.u.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
@@ -28826,7 +28826,7 @@ return:                                           ; preds = %if.then.i.i.i145, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17getRepeatTriggersERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %sink.coerce0) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L17getRepeatTriggersERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %sink.coerce0) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.782", align 8
   %__tmp.sroa.0.i.i.i.i.i = alloca [4 x i64], align 8

@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.b2ManifoldPoint = type { %struct.b2Vec2, float, float, %union.b2ContactID }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z22b2CollideEdgeAndCircleP10b2ManifoldPK11b2EdgeShapeRK11b2TransformPK13b2CircleShapeS6_(ptr nocapture noundef writeonly %manifold, ptr nocapture noundef readonly %edgeA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %circleB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #0 {
+define void @_Z22b2CollideEdgeAndCircleP10b2ManifoldPK11b2EdgeShapeRK11b2TransformPK13b2CircleShapeS6_(ptr nocapture noundef writeonly initializes((60, 64)) %manifold, ptr nocapture noundef readonly %edgeA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %circleB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #0 {
 entry:
   %pointCount = getelementptr inbounds i8, ptr %manifold, i64 60
   store i32 0, ptr %pointCount, align 4
@@ -204,7 +204,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23b2CollideEdgeAndPolygonP10b2ManifoldPK11b2EdgeShapeRK11b2TransformPK14b2PolygonShapeS6_(ptr nocapture noundef writeonly %manifold, ptr nocapture noundef readonly %edgeA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %polygonB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #1 {
+define void @_Z23b2CollideEdgeAndPolygonP10b2ManifoldPK11b2EdgeShapeRK11b2TransformPK14b2PolygonShapeS6_(ptr nocapture noundef writeonly initializes((60, 64)) %manifold, ptr nocapture noundef readonly %edgeA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %polygonB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #1 {
 entry:
   %axes.i = alloca [2 x %struct.b2Vec2], align 16
   %tempPolygonB = alloca %struct.b2TempPolygon, align 4

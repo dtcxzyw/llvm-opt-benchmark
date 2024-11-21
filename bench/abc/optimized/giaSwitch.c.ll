@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [112 x i8] c"Conflict of options: Can either compute probability of 1, or probability of switching by observing transitions.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Gia_ManSetDefaultParamsSwi(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Gia_ManSetDefaultParamsSwi(ptr nocapture noundef writeonly initializes((0, 28)) %0) local_unnamed_addr #0 {
   store i32 10, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 48, ptr %2, align 4

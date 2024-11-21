@@ -4682,7 +4682,7 @@ declare void @PyWideStringList_Insert(ptr sret(%struct.PyStatus) align 8, ptr no
 declare void @PyWideStringList_Append(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @configure_init_main(ptr noundef nonnull %config) unnamed_addr #0 {
+define internal fastcc void @configure_init_main(ptr noundef nonnull initializes((104, 108)) %config) unnamed_addr #0 {
 entry:
   %status.i4 = alloca %struct.PyStatus, align 8
   %status.i = alloca %struct.PyStatus, align 8

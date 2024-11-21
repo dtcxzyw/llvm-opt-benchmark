@@ -257,7 +257,7 @@ define dso_local i64 @fault_in_iov_iter_writeable(ptr nocapture noundef readonly
 declare dso_local i64 @fault_in_safe_writeable(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iov_iter_init(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local void @iov_iter_init(ptr nocapture noundef writeonly initializes((0, 4), (8, 40)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = icmp ult i32 %1, 2
   br i1 %6, label %8, label %7, !prof !11
 
@@ -4528,7 +4528,7 @@ define dso_local i64 @iov_iter_single_seg_count(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iov_iter_kvec(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local void @iov_iter_kvec(ptr nocapture noundef writeonly initializes((0, 4), (8, 40)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = icmp ult i32 %1, 2
   br i1 %6, label %8, label %7, !prof !11
 
@@ -4560,7 +4560,7 @@ define dso_local void @iov_iter_kvec(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iov_iter_bvec(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local void @iov_iter_bvec(ptr nocapture noundef writeonly initializes((0, 4), (8, 40)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = icmp ult i32 %1, 2
   br i1 %6, label %8, label %7, !prof !11
 
@@ -5401,7 +5401,7 @@ define internal fastcc range(i64 -2147483648, 2147479553) i64 @__iov_iter_get_pa
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147479553) i64 @iov_iter_get_pages_alloc2(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147479553) i64 @iov_iter_get_pages_alloc2(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   store ptr null, ptr %1, align 8
   %5 = tail call fastcc i64 @__iov_iter_get_pages_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef -1, ptr noundef %3)
   %6 = icmp slt i64 %5, 1
@@ -5587,7 +5587,7 @@ define internal fastcc i32 @bvec_npages(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @dup_iter(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local ptr @dup_iter(ptr nocapture noundef initializes((0, 40)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(40) %0, ptr noundef align 8 dereferenceable(40) %1, i64 40, i1 false)
   %4 = load i8, ptr %0, align 8
   %.off = add i8 %4, -1
@@ -6714,7 +6714,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_bvec_pag
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_pages(ptr noundef %0, ptr nocapture noundef %1, i64 noundef range(i64 0, 2147479553) %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_pages(ptr noundef %0, ptr nocapture noundef %1, i64 noundef range(i64 0, 2147479553) %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.xa_state, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
@@ -7242,7 +7242,7 @@ define internal fastcc void @get_page(ptr noundef %0) unnamed_addr #9 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -12, 2147479553) i64 @iter_xarray_get_pages(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef range(i64 1, 2147479553) %2, i32 noundef range(i32 1, 0) %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -12, 2147479553) i64 @iter_xarray_get_pages(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef range(i64 1, 2147479553) %2, i32 noundef range(i32 1, 0) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.xa_state, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8

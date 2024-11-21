@@ -983,7 +983,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11HttpRequestC2ENS_3URIERK10grpc_sliceP18grpc_http_responseNS_9TimestampEPK17grpc_channel_argsP12grpc_closureP19grpc_polling_entityPKcSt8optionalISt8functionIFvvEEENS_13RefCountedPtrI24grpc_channel_credentialsEE(ptr noundef nonnull align 8 dereferenceable(5288) %this, ptr noundef nonnull %uri, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %request_text, ptr noundef %response, i64 %deadline.coerce, ptr noundef %channel_args, ptr noundef %on_done, ptr noundef %pollent, ptr noundef %name, ptr nocapture noundef %test_only_generate_response, ptr nocapture noundef %channel_creds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11HttpRequestC2ENS_3URIERK10grpc_sliceP18grpc_http_responseNS_9TimestampEPK17grpc_channel_argsP12grpc_closureP19grpc_polling_entityPKcSt8optionalISt8functionIFvvEEENS_13RefCountedPtrI24grpc_channel_credentialsEE(ptr noundef nonnull align 8 dereferenceable(5288) initializes((0, 16)) %this, ptr noundef nonnull %uri, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %request_text, ptr noundef %response, i64 %deadline.coerce, ptr noundef %channel_args, ptr noundef %on_done, ptr noundef %pollent, ptr noundef %name, ptr nocapture noundef %test_only_generate_response, ptr nocapture noundef %channel_creds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.30", align 8
   %ref.tmp2 = alloca %"class.grpc_core::ChannelArgs", align 8
@@ -1881,7 +1881,7 @@ _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4lessIS3_ESaISt4pairIKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core11HttpRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(5288) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11HttpRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(5288) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11HttpRequestE, i64 16), ptr %this, align 8
   %channel_args_ = getelementptr inbounds i8, ptr %this, i64 256

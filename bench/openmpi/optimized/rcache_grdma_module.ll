@@ -229,7 +229,7 @@ opal_obj_run_destructors.exit21:                  ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_rcache_grdma_module_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @mca_rcache_grdma_module_init(ptr noundef initializes((160, 168)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr @opal_uses_threads, align 1
   %5 = trunc i8 %4 to i1
@@ -305,7 +305,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %23
 declare void @mca_rcache_base_module_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mca_rcache_grdma_register(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal i32 @mca_rcache_grdma_register(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
   %7 = alloca ptr, align 8
   %.sroa.22.i.i.i = alloca i64, align 8
   %8 = alloca ptr, align 8

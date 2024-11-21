@@ -4509,7 +4509,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_state_file(ptr noundef nonnull %sb, ptr nocapture noundef nonnull readonly %state, ptr noundef %file, i32 noundef range(i32 0, 2) %trim) unnamed_addr #0 {
+define internal fastcc i32 @read_state_file(ptr noundef nonnull initializes((8, 16)) %sb, ptr nocapture noundef nonnull readonly %state, ptr noundef %file, i32 noundef range(i32 0, 2) %trim) unnamed_addr #0 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 0, ptr %len2.i, align 8
@@ -5853,7 +5853,7 @@ if.end53:                                         ; preds = %if.then45, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @am_next(ptr nocapture noundef nonnull %state) unnamed_addr #0 {
+define internal fastcc void @am_next(ptr nocapture noundef nonnull initializes((48, 92)) %state) unnamed_addr #0 {
 entry:
   %head = alloca %struct.object_id, align 4
   %author_name = getelementptr inbounds i8, ptr %state, i64 16

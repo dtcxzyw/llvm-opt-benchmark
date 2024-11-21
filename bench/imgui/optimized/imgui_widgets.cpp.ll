@@ -23614,7 +23614,7 @@ _ZN5ImStbL16stb_textedit_keyEP19ImGuiInputTextStatePNS_17STB_TexteditStateEi.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN26ImGuiInputTextCallbackDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this) unnamed_addr #16 align 2 {
+define void @_ZN26ImGuiInputTextCallbackDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %this) unnamed_addr #16 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 64, i1 false)
   ret void
@@ -24479,7 +24479,7 @@ _ZN5ImStbL27stb_textedit_paste_internalEP19ImGuiInputTextStatePNS_17STB_Textedit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti(ptr nocapture noundef %str, ptr noundef %state, ptr noundef %text, i32 noundef range(i32 -2147483648, 2147483647) %text_len) unnamed_addr #5 {
+define internal fastcc void @_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti(ptr nocapture noundef %str, ptr noundef initializes((3616, 3618), (3624, 3628)) %state, ptr noundef %text, i32 noundef range(i32 -2147483648, 2147483647) %text_len) unnamed_addr #5 {
 entry:
   %CurLenW = getelementptr inbounds i8, ptr %str, i64 12
   %0 = load i32, ptr %CurLenW, align 4
@@ -31365,7 +31365,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN16ImGuiMenuColumns6UpdateEfb(ptr nocapture noundef nonnull align 4 dereferenceable(26) %this, float noundef %spacing, i1 noundef zeroext %window_reappearing) local_unnamed_addr #14 align 2 {
+define void @_ZN16ImGuiMenuColumns6UpdateEfb(ptr nocapture noundef nonnull align 4 dereferenceable(26) initializes((8, 10)) %this, float noundef %spacing, i1 noundef zeroext %window_reappearing) local_unnamed_addr #14 align 2 {
 entry:
   br i1 %window_reappearing, label %if.then, label %if.end
 
@@ -33270,7 +33270,7 @@ return:                                           ; preds = %cond.end.thread, %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11ImGuiTabBarC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11ImGuiTabBarC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 160)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %PrevFrameVisible = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %this, i8 0, i64 160, i1 false)
@@ -33845,7 +33845,7 @@ return:                                           ; preds = %if.end, %entry, %co
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ImGuiL12TabBarLayoutEP11ImGuiTabBar(ptr noundef %tab_bar) unnamed_addr #0 {
+define internal fastcc void @_ZN5ImGuiL12TabBarLayoutEP11ImGuiTabBar(ptr noundef initializes((115, 116)) %tab_bar) unnamed_addr #0 {
 entry:
   %arrow_col.i316 = alloca %struct.ImVec4, align 4
   %ref.tmp.i = alloca %struct.ImVec4, align 4
@@ -35486,7 +35486,7 @@ if.end12:                                         ; preds = %if.else, %if.then10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5ImGui16TabBarQueueFocusEP11ImGuiTabBarP12ImGuiTabItem(ptr nocapture noundef writeonly %tab_bar, ptr nocapture noundef readonly %tab) local_unnamed_addr #12 {
+define void @_ZN5ImGui16TabBarQueueFocusEP11ImGuiTabBarP12ImGuiTabItem(ptr nocapture noundef writeonly initializes((28, 32)) %tab_bar, ptr nocapture noundef readonly %tab) local_unnamed_addr #12 {
 entry:
   %0 = load i32, ptr %tab, align 4
   %NextSelectedTabId = getelementptr inbounds i8, ptr %tab_bar, i64 28
@@ -35495,7 +35495,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5ImGui18TabBarQueueReorderEP11ImGuiTabBarP12ImGuiTabItemi(ptr nocapture noundef writeonly %tab_bar, ptr nocapture noundef readonly %tab, i32 noundef %offset) local_unnamed_addr #12 {
+define void @_ZN5ImGui18TabBarQueueReorderEP11ImGuiTabBarP12ImGuiTabItemi(ptr nocapture noundef writeonly initializes((108, 114)) %tab_bar, ptr nocapture noundef readonly %tab, i32 noundef %offset) local_unnamed_addr #12 {
 entry:
   %0 = load i32, ptr %tab, align 4
   %ReorderRequestTabId = getelementptr inbounds i8, ptr %tab_bar, i64 108
@@ -37144,7 +37144,7 @@ declare noundef ptr @_ZN5ImGui10GetKeyDataEP12ImGuiContext8ImGuiKey(ptr noundef,
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ImStbL24STB_TEXTEDIT_DELETECHARSEP19ImGuiInputTextStateii(ptr nocapture noundef %obj, i32 noundef %pos, i32 noundef %n) unnamed_addr #5 {
+define internal fastcc void @_ZN5ImStbL24STB_TEXTEDIT_DELETECHARSEP19ImGuiInputTextStateii(ptr nocapture noundef initializes((3718, 3719)) %obj, i32 noundef %pos, i32 noundef %n) unnamed_addr #5 {
 entry:
   %Data = getelementptr inbounds i8, ptr %obj, i64 32
   %0 = load ptr, ptr %Data, align 8
@@ -37895,7 +37895,7 @@ for.end39:                                        ; preds = %_ZN5ImStbL21STB_TEX
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii(ptr nocapture noundef %str, ptr noundef %state, i32 noundef %where, i32 noundef %len) unnamed_addr #5 {
+define internal fastcc void @_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii(ptr nocapture noundef %str, ptr noundef initializes((3616, 3618), (3624, 3628)) %state, i32 noundef %where, i32 noundef %len) unnamed_addr #5 {
 entry:
   %undostate.i = getelementptr inbounds i8, ptr %state, i64 32
   %call.i = tail call fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef nonnull %undostate.i, i32 noundef %where, i32 noundef %len, i32 noundef 0)
@@ -37971,7 +37971,7 @@ _ZN5ImStbL24STB_TEXTEDIT_DELETECHARSEP19ImGuiInputTextStateii.exit: ; preds = %w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef %state, i32 noundef %pos, i32 noundef %insert_len, i32 noundef %delete_len) unnamed_addr #28 {
+define internal fastcc noundef ptr @_ZN5ImStbL19stb_text_createundoEPNS_12StbUndoStateEiii(ptr noundef initializes((3584, 3586), (3592, 3596)) %state, i32 noundef %pos, i32 noundef %insert_len, i32 noundef %delete_len) unnamed_addr #28 {
 entry:
   %redo_point.i.i = getelementptr inbounds i8, ptr %state, i64 3584
   store i16 99, ptr %redo_point.i.i, align 4

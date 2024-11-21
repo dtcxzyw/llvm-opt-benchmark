@@ -790,7 +790,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @zmalloc_get_allocator_info(ptr noundef %allocated, ptr noundef %active, ptr noundef %resident) local_unnamed_addr #3 {
+define dso_local noundef i32 @zmalloc_get_allocator_info(ptr noundef initializes((0, 8)) %allocated, ptr noundef initializes((0, 8)) %active, ptr noundef initializes((0, 8)) %resident) local_unnamed_addr #3 {
 entry:
   %epoch = alloca i64, align 8
   %sz = alloca i64, align 8

@@ -1792,7 +1792,7 @@ define noundef i64 @_ZN7xgboost4data6detail15NFeaturesDeviceEPNS0_12DMatrixProxy
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost4data17SparsePageDMatrixC2EPvS2_PFvS2_EPFiS2_EfiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, float noundef %5, i32 noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost4data17SparsePageDMatrixC2EPvS2_PFvS2_EPFiS2_EfiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(592) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, float noundef %5, i32 noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"union.std::any::_Arg", align 8
   %11 = alloca %"union.std::any::_Arg", align 8
   %12 = alloca %"union.std::any::_Arg", align 8
@@ -4750,7 +4750,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit11: ; preds = %.noexc10, %_ZN4dmlc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost4data17SparsePageDMatrix17GetRowBatchesImplEPKNS_7ContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::BatchSet") align 8 %0, ptr noundef nonnull align 8 dereferenceable(592) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost4data17SparsePageDMatrix17GetRowBatchesImplEPKNS_7ContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::BatchSet") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(592) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7xgboost4data17SparsePageDMatrix20InitializeSparsePageEPKNS_7ContextE(ptr noundef nonnull align 8 dereferenceable(592) %1, ptr noundef %2)
   %4 = getelementptr inbounds i8, ptr %1, i64 504
   %5 = load ptr, ptr %4, align 8
@@ -6011,7 +6011,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorINSt7__
 declare void @_ZN7xgboost7DMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7xgboost4data17SparsePageDMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost4data17SparsePageDMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(592) initializes((0, 8), (504, 512), (520, 528), (544, 552), (560, 568), (576, 584)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon.200, align 1
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7952,7 +7952,7 @@ _ZNSt12__shared_ptrIN7xgboost17BatchIteratorImplINS0_10SparsePageEEELN9__gnu_cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost4data17SparsePageDMatrix13GetRowBatchesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::BatchSet") align 8 %0, ptr noundef nonnull align 8 dereferenceable(592) %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost4data17SparsePageDMatrix13GetRowBatchesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::BatchSet") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(592) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 376
   tail call void @_ZN7xgboost4data17SparsePageDMatrix17GetRowBatchesImplEPKNS_7ContextE(ptr dead_on_unwind writable sret(%"class.xgboost::BatchSet") align 8 %0, ptr noundef nonnull align 8 dereferenceable(592) %1, ptr noundef nonnull %3)
   ret void

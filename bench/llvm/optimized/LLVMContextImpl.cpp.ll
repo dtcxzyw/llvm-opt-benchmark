@@ -10235,7 +10235,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm15LLVM
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm17getGlobalPassGateEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15LLVMContextImpl14setOptPassGateERNS_11OptPassGateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3040) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm15LLVMContextImpl14setOptPassGateERNS_11OptPassGateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3040) initializes((2896, 2904)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   store ptr %1, ptr %3, align 8
   ret void

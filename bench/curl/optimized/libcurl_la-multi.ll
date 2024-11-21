@@ -1879,7 +1879,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare void @Curl_conn_ev_data_detach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_attach_connection(ptr noundef %data, ptr noundef %conn) local_unnamed_addr #0 {
+define hidden void @Curl_attach_connection(ptr noundef initializes((32, 40)) %data, ptr noundef %conn) local_unnamed_addr #0 {
 entry:
   %conn3 = getelementptr inbounds i8, ptr %data, i64 32
   store ptr %conn, ptr %conn3, align 8
@@ -5195,7 +5195,7 @@ declare void @Curl_psl_destroy(ptr noundef) local_unnamed_addr #1
 declare void @Curl_free_multi_ssl_backend_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @curl_multi_info_read(ptr noundef %multi, ptr nocapture noundef writeonly %msgs_in_queue) local_unnamed_addr #0 {
+define ptr @curl_multi_info_read(ptr noundef %multi, ptr nocapture noundef writeonly initializes((0, 4)) %msgs_in_queue) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %msgs_in_queue, align 4
   %tobool.not = icmp eq ptr %multi, null

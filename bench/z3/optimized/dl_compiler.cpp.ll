@@ -5704,7 +5704,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 declare void @_ZN11var_counter10count_varsEPK3appi(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog8compiler27compile_rule_evaluation_runEPNS_4ruleEjPKjjbRNS_17instruction_blockE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %r, i32 noundef %head_reg, ptr nocapture noundef readonly %tail_regs, i32 noundef %delta_reg, i1 noundef zeroext %use_widening, ptr noundef nonnull align 8 dereferenceable(16) %acc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog8compiler27compile_rule_evaluation_runEPNS_4ruleEjPKjjbRNS_17instruction_blockE(ptr noundef nonnull align 8 dereferenceable(192) initializes((144, 152)) %this, ptr noundef %r, i32 noundef %head_reg, ptr nocapture noundef readonly %tail_regs, i32 noundef %delta_reg, i1 noundef zeroext %use_widening, ptr noundef nonnull align 8 dereferenceable(16) %acc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i1238 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i1239 = alloca %"class.std::allocator", align 1

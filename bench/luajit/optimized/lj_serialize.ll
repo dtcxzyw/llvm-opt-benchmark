@@ -172,7 +172,7 @@ if.end29:                                         ; preds = %land.rhs, %for.inc,
 declare hidden ptr @lj_tab_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_serialize_put(ptr noundef returned %sbx, ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_serialize_put(ptr noundef returned initializes((64, 68)) %sbx, ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
 entry:
   %depth = getelementptr inbounds i8, ptr %sbx, i64 64
   store i32 100, ptr %depth, align 8
@@ -1055,7 +1055,7 @@ if.end365:                                        ; preds = %serialize_more.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @lj_serialize_get(ptr noundef %sbx, ptr nocapture noundef writeonly %o) local_unnamed_addr #0 {
+define hidden nonnull ptr @lj_serialize_get(ptr noundef initializes((64, 68)) %sbx, ptr nocapture noundef writeonly %o) local_unnamed_addr #0 {
 entry:
   %depth = getelementptr inbounds i8, ptr %sbx, i64 64
   store i32 100, ptr %depth, align 8

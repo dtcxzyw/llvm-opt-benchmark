@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ccm_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_ccm_init(ptr nocapture noundef writeonly initializes((0, 168)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 0, i64 168, i1 false)
   ret void
 }

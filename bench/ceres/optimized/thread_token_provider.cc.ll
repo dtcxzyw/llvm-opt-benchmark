@@ -30,7 +30,7 @@ $_ZNSt5dequeIiSaIiEE17_M_reallocate_mapEmb = comdat any
 @_ZN5ceres8internal19ThreadTokenProviderC1Ei = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN5ceres8internal19ThreadTokenProviderC2Ei
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal19ThreadTokenProviderC2Ei(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal19ThreadTokenProviderC2Ei(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 40)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(169) %0, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 40

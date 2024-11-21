@@ -462,7 +462,7 @@ return:                                           ; preds = %trace_vfio_region_r
 declare i64 @pread64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -12, 1) i32 @vfio_bitmap_alloc(ptr nocapture noundef writeonly %vbmap, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -12, 1) i32 @vfio_bitmap_alloc(ptr nocapture noundef writeonly initializes((0, 24)) %vbmap, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @getpagesize() #13
   %conv.i = sext i32 %call.i to i64
@@ -858,7 +858,7 @@ return:                                           ; preds = %entry, %trace_vfio_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vfio_get_region_info(ptr nocapture noundef readonly %vbasedev, i32 noundef %index, ptr nocapture noundef %info) local_unnamed_addr #0 {
+define dso_local i32 @vfio_get_region_info(ptr nocapture noundef readonly %vbasedev, i32 noundef %index, ptr nocapture noundef initializes((0, 8)) %info) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #12
   store ptr %call, ptr %info, align 8
@@ -1521,7 +1521,7 @@ declare void @memory_region_set_enabled(ptr noundef, i1 noundef zeroext) local_u
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -19, 1) i32 @vfio_get_dev_region_info(ptr nocapture noundef readonly %vbasedev, i32 noundef %type, i32 noundef %subtype, ptr nocapture noundef %info) local_unnamed_addr #0 {
+define dso_local range(i32 -19, 1) i32 @vfio_get_dev_region_info(ptr nocapture noundef readonly %vbasedev, i32 noundef %type, i32 noundef %subtype, ptr nocapture noundef initializes((0, 8)) %info) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %num_regions = getelementptr inbounds i8, ptr %vbasedev, i64 116

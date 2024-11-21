@@ -1926,7 +1926,7 @@ JSON_parse_integer.exit:                          ; preds = %JSON_parse_float.ex
 declare void @rb_enc_raise(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @JSON_parse_string(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc ptr @JSON_parse_string(ptr nocapture noundef initializes((24, 32)) %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %5, align 8
   %6 = icmp eq ptr %1, %2

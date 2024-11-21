@@ -14336,7 +14336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN5eastl14ref_count_sp_tIDnNS_9allocatorEZL15Test_shared_ptrvE3$_0E10free_valueEv"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5eastl14ref_count_sp_tIDnNS_9allocatorEZL15Test_shared_ptrvE3$_0E10free_valueEv"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((16, 24)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mValue2 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %mValue2, align 8

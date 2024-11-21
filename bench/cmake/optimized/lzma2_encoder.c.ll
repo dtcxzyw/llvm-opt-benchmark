@@ -100,7 +100,7 @@ define dso_local range(i64 65704, 65703) i64 @lzma_lzma2_encoder_memusage(ptr no
 declare i64 @lzma_lzma_encoder_memusage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @lzma_lzma2_props_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define dso_local noundef i32 @lzma_lzma2_props_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp ugt i32 %3, 4096
   %5 = add i32 %3, -1

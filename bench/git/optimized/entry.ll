@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.30 = private unnamed_addr constant [32 x i8] c"cannot create directory at '%s'\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @read_blob_entry(ptr noundef %ce, ptr nocapture noundef writeonly %size) local_unnamed_addr #0 {
+define dso_local ptr @read_blob_entry(ptr noundef %ce, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #0 {
 entry:
   %type = alloca i32, align 4
   %ul = alloca i64, align 8

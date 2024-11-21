@@ -140,7 +140,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16cached_var_substC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef nonnull align 8 dereferenceable(976) %_m) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN16cached_var_substC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(656) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(976) %_m) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr %_m, ptr %this, align 8
   %m_proc = getelementptr inbounds i8, ptr %this, i64 8
@@ -543,7 +543,7 @@ if.end:                                           ; preds = %if.then, %_ZN6vecto
 declare noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16cached_var_substclEv(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN16cached_var_substclEv(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %struct._key_data, align 8
   %temp.i.i.i = alloca %struct._key_data, align 8

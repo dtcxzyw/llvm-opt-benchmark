@@ -8887,7 +8887,7 @@ declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare i32 @for_each_reflog_ent_reverse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @peek_reflog(ptr nocapture readnone %o_oid, ptr nocapture readnone %n_oid, ptr nocapture readnone %ident, i64 noundef %timestamp, i32 %tz, ptr nocapture readnone %message, ptr nocapture noundef writeonly %cb_data) #15 {
+define internal noundef i32 @peek_reflog(ptr nocapture readnone %o_oid, ptr nocapture readnone %n_oid, ptr nocapture readnone %ident, i64 noundef %timestamp, i32 %tz, ptr nocapture readnone %message, ptr nocapture noundef writeonly initializes((0, 8)) %cb_data) #15 {
 entry:
   store i64 %timestamp, ptr %cb_data, align 8
   ret i32 1

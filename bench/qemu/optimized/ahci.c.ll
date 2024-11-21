@@ -2319,7 +2319,7 @@ command_table_init.exit:                          ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_adjust(ptr nocapture noundef %cmd, i64 noundef %offset, i64 noundef %buffer, i64 noundef %xbytes, i32 noundef %prd_size) local_unnamed_addr #0 {
+define dso_local void @ahci_command_adjust(ptr nocapture noundef initializes((8, 16)) %cmd, i64 noundef %offset, i64 noundef %buffer, i64 noundef %xbytes, i32 noundef %prd_size) local_unnamed_addr #0 {
 entry:
   tail call void @ahci_command_set_sizes(ptr noundef %cmd, i64 noundef %xbytes, i32 noundef %prd_size)
   %buffer1.i = getelementptr inbounds i8, ptr %cmd, i64 24
@@ -2329,7 +2329,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_commit(ptr nocapture noundef %ahci, ptr nocapture noundef %cmd, i8 noundef zeroext %port) local_unnamed_addr #0 {
+define dso_local void @ahci_command_commit(ptr nocapture noundef %ahci, ptr nocapture noundef initializes((1, 2)) %cmd, i8 noundef zeroext %port) local_unnamed_addr #0 {
 entry:
   %tmp.i55 = alloca %struct.RegH2DFIS, align 1
   %tmp.i = alloca %struct.AHCICommandHeader, align 2
@@ -2943,7 +2943,7 @@ ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @ahci_command_set_buffer(ptr nocapture noundef writeonly %cmd, i64 noundef %buffer) local_unnamed_addr #6 {
+define dso_local void @ahci_command_set_buffer(ptr nocapture noundef writeonly initializes((24, 32)) %cmd, i64 noundef %buffer) local_unnamed_addr #6 {
 entry:
   %buffer1 = getelementptr inbounds i8, ptr %cmd, i64 24
   store i64 %buffer, ptr %buffer1, align 8
@@ -2951,7 +2951,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_set_size(ptr nocapture noundef %cmd, i64 noundef %xbytes) local_unnamed_addr #0 {
+define dso_local void @ahci_command_set_size(ptr nocapture noundef initializes((8, 16)) %cmd, i64 noundef %xbytes) local_unnamed_addr #0 {
 entry:
   %prd_size = getelementptr inbounds i8, ptr %cmd, i64 16
   %0 = load i32, ptr %prd_size, align 8
@@ -3386,7 +3386,7 @@ ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_atapi_get_sense(ptr noundef %ahci, i8 noundef zeroext %port, ptr nocapture noundef writeonly %sense, ptr nocapture noundef writeonly %asc) local_unnamed_addr #0 {
+define dso_local void @ahci_atapi_get_sense(ptr noundef %ahci, i8 noundef zeroext %port, ptr nocapture noundef writeonly initializes((0, 1)) %sense, ptr nocapture noundef writeonly initializes((0, 1)) %asc) local_unnamed_addr #0 {
 entry:
   %opts = alloca %struct.AHCIOpts, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %opts, ptr noundef nonnull align 8 dereferenceable(80) @__const.ahci_atapi_get_sense.opts, i64 72, i1 false)
@@ -3565,7 +3565,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_command_set_sizes(ptr nocapture noundef %cmd, i64 noundef %xbytes, i32 noundef %prd_size) local_unnamed_addr #0 {
+define dso_local void @ahci_command_set_sizes(ptr nocapture noundef initializes((8, 16)) %cmd, i64 noundef %xbytes, i32 noundef %prd_size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %prd_size, 4194305
   br i1 %cmp, label %do.body4, label %if.else

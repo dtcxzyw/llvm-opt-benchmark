@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN20btPersistentManifoldC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN20btPersistentManifoldC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @_ZN20btPersistentManifoldC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN20btPersistentManifoldC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((0, 4)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 1025, ptr %this, align 8
   %invariant.gep = getelementptr inbounds i8, ptr %this, i64 120
@@ -1136,7 +1136,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK20btPersistentManifold9serializeEPKS_PvP12btSerializer(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this, ptr nocapture noundef readonly %manifold, ptr noundef writeonly %dataBuffer, ptr noundef %serializer) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK20btPersistentManifold9serializeEPKS_PvP12btSerializer(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this, ptr nocapture noundef readonly %manifold, ptr noundef writeonly initializes((0, 848)) %dataBuffer, ptr noundef %serializer) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(848) %dataBuffer, i8 0, i64 848, i1 false)
   %m_body0.i = getelementptr inbounds i8, ptr %manifold, i64 840
@@ -1426,7 +1426,7 @@ for.end:                                          ; preds = %_ZNK9btVector39seri
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN20btPersistentManifold11deSerializeEPK30btPersistentManifoldDoubleData(ptr nocapture noundef nonnull align 8 dereferenceable(880) %this, ptr noundef readonly %manifoldDataPtr) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN20btPersistentManifold11deSerializeEPK30btPersistentManifoldDoubleData(ptr nocapture noundef nonnull align 8 dereferenceable(880) initializes((0, 4), (856, 876)) %this, ptr noundef readonly %manifoldDataPtr) local_unnamed_addr #9 align 2 {
 entry:
   %m_contactBreakingThreshold = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1528
   %0 = load double, ptr %m_contactBreakingThreshold, align 8
@@ -1715,7 +1715,7 @@ for.end:                                          ; preds = %_ZN9btVector317deSe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN20btPersistentManifold11deSerializeEPK29btPersistentManifoldFloatData(ptr nocapture noundef nonnull align 8 dereferenceable(880) %this, ptr noundef readonly %manifoldDataPtr) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN20btPersistentManifold11deSerializeEPK29btPersistentManifoldFloatData(ptr nocapture noundef nonnull align 8 dereferenceable(880) initializes((0, 4), (856, 876)) %this, ptr noundef readonly %manifoldDataPtr) local_unnamed_addr #9 align 2 {
 entry:
   %m_contactBreakingThreshold = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 820
   %0 = load float, ptr %m_contactBreakingThreshold, align 4

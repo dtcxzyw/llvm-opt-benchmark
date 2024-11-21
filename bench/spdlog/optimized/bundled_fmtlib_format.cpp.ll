@@ -673,7 +673,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3fmt2v96detail17format_error_codeERNS1_6bufferIcEEiNS0_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(32) %out, i32 noundef %error_code, ptr %message.coerce0, i64 %message.coerce1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3fmt2v96detail17format_error_codeERNS1_6bufferIcEEiNS0_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 24)) %out, i32 noundef %error_code, ptr %message.coerce0, i64 %message.coerce1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   %ref.tmp.i15 = alloca %"class.fmt::v9::detail::format_string_checker.30", align 8
   %ref.tmp.i10 = alloca %"class.fmt::v9::detail::format_string_checker.24", align 8
@@ -1154,7 +1154,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad4
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3fmt2v96detail13utf8_to_utf16C2ENS0_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(2040) %this, ptr %s.coerce0, i64 %s.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3fmt2v96detail13utf8_to_utf16C2ENS0_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(2040) initializes((0, 32)) %this, ptr %s.coerce0, i64 %s.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf.i = alloca [7 x i8], align 1
   %ref.tmp = alloca %"class.std::allocator.8", align 1

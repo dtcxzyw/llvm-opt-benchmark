@@ -2096,14 +2096,14 @@ ehcleanup54:                                      ; preds = %ehcleanup52, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_125PropagateOnAll_Empty_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_125PropagateOnAll_Empty_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_125PropagateOnAll_Empty_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_125PropagateOnAll_Empty_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -2598,7 +2598,7 @@ terminate.lpad:                                   ; preds = %_ZN4absl18container
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 112
@@ -4706,14 +4706,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll_InsertAllocates_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll_InsertAllocates_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll_InsertAllocates_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll_InsertAllocates_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -5322,7 +5322,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE16transfer_slot_fnEPvSC_SC_(ptr nocapture readnone %set, ptr nocapture noundef %dst, ptr noundef nonnull %src) #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEE16transfer_slot_fnEPvSC_SC_(ptr nocapture readnone %set, ptr nocapture noundef initializes((0, 4), (8, 40)) %dst, ptr noundef nonnull %src) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %src, align 4
   store i32 %0, ptr %dst, align 8
@@ -5467,14 +5467,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_136PropagateOnAll_InsertDecomposes_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_136PropagateOnAll_InsertDecomposes_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_136PropagateOnAll_InsertDecomposes_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_136PropagateOnAll_InsertDecomposes_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -6440,14 +6440,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_131PropagateOnAll_RehashMoves_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_131PropagateOnAll_RehashMoves_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_131PropagateOnAll_RehashMoves_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_131PropagateOnAll_RehashMoves_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -7116,14 +7116,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll_CopyConstructor_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll_CopyConstructor_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll_CopyConstructor_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll_CopyConstructor_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -8808,14 +8808,14 @@ ehcleanup52:                                      ; preds = %ehcleanup50, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_138NoPropagateOnCopy_CopyConstructor_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_138NoPropagateOnCopy_CopyConstructor_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_138NoPropagateOnCopy_CopyConstructor_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_138NoPropagateOnCopy_CopyConstructor_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -9845,7 +9845,7 @@ terminate.lpad:                                   ; preds = %_ZN4absl18container
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 112
@@ -11418,7 +11418,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE16transfer_slot_fnEPvSC_SC_(ptr nocapture readnone %set, ptr nocapture noundef %dst, ptr noundef nonnull %src) #7 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE16transfer_slot_fnEPvSC_SC_(ptr nocapture readnone %set, ptr nocapture noundef initializes((0, 4), (8, 40)) %dst, ptr noundef nonnull %src) #7 align 2 {
 entry:
   %0 = load i32, ptr %src, align 4
   store i32 %0, ptr %dst, align 8
@@ -11505,14 +11505,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_148PropagateOnAll_CopyConstructorWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_148PropagateOnAll_CopyConstructorWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_148PropagateOnAll_CopyConstructorWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_148PropagateOnAll_CopyConstructorWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -11954,7 +11954,7 @@ ehcleanup67:                                      ; preds = %ehcleanup66, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2ERKSB_RKSA_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %that, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %a) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2ERKSB_RKSA_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %that, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %a) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -12230,14 +12230,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_151NoPropagateOnCopy_CopyConstructorWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_151NoPropagateOnCopy_CopyConstructorWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_151NoPropagateOnCopy_CopyConstructorWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_151NoPropagateOnCopy_CopyConstructorWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -12621,7 +12621,7 @@ ehcleanup67:                                      ; preds = %ehcleanup66, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEEC2ERKSB_RKSA_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %that, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %a) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEEC2ERKSB_RKSA_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %that, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %a) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -12897,14 +12897,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_153PropagateOnAll_CopyConstructorWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_153PropagateOnAll_CopyConstructorWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_153PropagateOnAll_CopyConstructorWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_153PropagateOnAll_CopyConstructorWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -13709,14 +13709,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_156NoPropagateOnCopy_CopyConstructorWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_156NoPropagateOnCopy_CopyConstructorWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_156NoPropagateOnCopy_CopyConstructorWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_156NoPropagateOnCopy_CopyConstructorWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -14463,14 +14463,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll_MoveConstructor_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll_MoveConstructor_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll_MoveConstructor_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_135PropagateOnAll_MoveConstructor_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -17919,14 +17919,14 @@ ehcleanup52:                                      ; preds = %ehcleanup50, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_138NoPropagateOnMove_MoveConstructor_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_138NoPropagateOnMove_MoveConstructor_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_138NoPropagateOnMove_MoveConstructor_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_138NoPropagateOnMove_MoveConstructor_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -18731,7 +18731,7 @@ terminate.lpad:                                   ; preds = %_ZN4absl18container
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 112
@@ -20330,7 +20330,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE16transfer_slot_fnEPvSC_SC_(ptr nocapture readnone %set, ptr nocapture noundef %dst, ptr noundef nonnull %src) #7 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi5EEEE16transfer_slot_fnEPvSC_SC_(ptr nocapture readnone %set, ptr nocapture noundef initializes((0, 4), (8, 40)) %dst, ptr noundef nonnull %src) #7 align 2 {
 entry:
   %0 = load i32, ptr %src, align 4
   store i32 %0, ptr %dst, align 8
@@ -20417,14 +20417,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_148PropagateOnAll_MoveConstructorWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_148PropagateOnAll_MoveConstructorWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_148PropagateOnAll_MoveConstructorWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_148PropagateOnAll_MoveConstructorWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -20872,7 +20872,7 @@ ehcleanup77:                                      ; preds = %ehcleanup76, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EOSB_RKSA_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %that, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %a) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi7EEEEC2EOSB_RKSA_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %that, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %a) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i = alloca %"class.absl::container_internal::CommonFields", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
@@ -21134,14 +21134,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_151NoPropagateOnMove_MoveConstructorWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_151NoPropagateOnMove_MoveConstructorWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_151NoPropagateOnMove_MoveConstructorWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_151NoPropagateOnMove_MoveConstructorWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -21842,14 +21842,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_153PropagateOnAll_MoveConstructorWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_153PropagateOnAll_MoveConstructorWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_153PropagateOnAll_MoveConstructorWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_153PropagateOnAll_MoveConstructorWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -22691,14 +22691,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_156NoPropagateOnMove_MoveConstructorWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_156NoPropagateOnMove_MoveConstructorWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_156NoPropagateOnMove_MoveConstructorWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_156NoPropagateOnMove_MoveConstructorWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -23595,14 +23595,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_147PropagateOnAll_CopyAssignmentWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_147PropagateOnAll_CopyAssignmentWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_147PropagateOnAll_CopyAssignmentWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_147PropagateOnAll_CopyAssignmentWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -24290,14 +24290,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_150NoPropagateOnCopy_CopyAssignmentWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_150NoPropagateOnCopy_CopyAssignmentWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_150NoPropagateOnCopy_CopyAssignmentWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_150NoPropagateOnCopy_CopyAssignmentWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -24804,14 +24804,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_152PropagateOnAll_CopyAssignmentWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_152PropagateOnAll_CopyAssignmentWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_152PropagateOnAll_CopyAssignmentWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_152PropagateOnAll_CopyAssignmentWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -25656,14 +25656,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_155NoPropagateOnCopy_CopyAssignmentWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_155NoPropagateOnCopy_CopyAssignmentWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_155NoPropagateOnCopy_CopyAssignmentWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_155NoPropagateOnCopy_CopyAssignmentWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -26427,14 +26427,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_147PropagateOnAll_MoveAssignmentWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_147PropagateOnAll_MoveAssignmentWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_147PropagateOnAll_MoveAssignmentWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_147PropagateOnAll_MoveAssignmentWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -27160,14 +27160,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_150NoPropagateOnMove_MoveAssignmentWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_150NoPropagateOnMove_MoveAssignmentWithSameAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_150NoPropagateOnMove_MoveAssignmentWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_150NoPropagateOnMove_MoveAssignmentWithSameAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -28005,14 +28005,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_152PropagateOnAll_MoveAssignmentWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_152PropagateOnAll_MoveAssignmentWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_152PropagateOnAll_MoveAssignmentWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_152PropagateOnAll_MoveAssignmentWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -28856,14 +28856,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_155NoPropagateOnMove_MoveAssignmentWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_155NoPropagateOnMove_MoveAssignmentWithDifferentAlloc_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_155NoPropagateOnMove_MoveAssignmentWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_155NoPropagateOnMove_MoveAssignmentWithDifferentAlloc_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -29737,14 +29737,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_124PropagateOnAll_Swap_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_124PropagateOnAll_Swap_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_124PropagateOnAll_Swap_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_124PropagateOnAll_Swap_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4absl18container_internal12_GLOBAL__N_113PropagateTestILi7EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -31792,7 +31792,7 @@ ehcleanup46:                                      ; preds = %ehcleanup45, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_6PAllocIcEEEC2ERKS9_RKS8_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %that, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_6PAllocIcEEEC2ERKS9_RKS8_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %that, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 8

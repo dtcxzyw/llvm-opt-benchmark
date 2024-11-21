@@ -1497,7 +1497,7 @@ define dso_local void @serial8250_do_set_mctrl(ptr noundef %0, i32 noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @serial8250_do_startup(ptr noundef %0) #0 align 16 {
+define dso_local i32 @serial8250_do_startup(ptr noundef initializes((600, 601)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 188
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -3476,7 +3476,7 @@ define dso_local void @serial8250_do_pm(ptr noundef %0, i32 noundef %1, i32 %2) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @serial8250_init_port(ptr nocapture noundef writeonly %0) #5 align 16 {
+define dso_local void @serial8250_init_port(ptr nocapture noundef writeonly initializes((0, 4), (128, 136), (160, 164), (304, 312), (369, 370), (601, 602)) %0) #5 align 16 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 0, ptr %2, align 8
@@ -3492,7 +3492,7 @@ define dso_local void @serial8250_init_port(ptr nocapture noundef writeonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @serial8250_set_defaults(ptr nocapture noundef %0) #6 align 16 {
+define dso_local void @serial8250_set_defaults(ptr nocapture noundef initializes((24, 40), (120, 128), (601, 602), (648, 664)) %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 134217728

@@ -1463,7 +1463,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_set_proxy_pathlen(ptr nocapture noundef writeonly %x, i64 noundef %l) local_unnamed_addr #5 {
+define void @X509_set_proxy_pathlen(ptr nocapture noundef writeonly initializes((224, 232)) %x, i64 noundef %l) local_unnamed_addr #5 {
 entry:
   %ex_pcpathlen = getelementptr inbounds i8, ptr %x, i64 224
   store i64 %l, ptr %ex_pcpathlen, align 8

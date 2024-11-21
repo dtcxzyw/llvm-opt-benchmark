@@ -486,7 +486,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6driver13SanitizerArgs8needsLTOEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver13SanitizerArgsC2ERKNS0_9ToolChainERKN4llvm3opt7ArgListEb(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(2168) %1, ptr noundef nonnull align 8 dereferenceable(176) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang6driver13SanitizerArgsC2ERKNS0_9ToolChainERKN4llvm3opt7ArgListEb(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 190), (192, 205), (208, 212)) %0, ptr noundef nonnull align 8 dereferenceable(2168) %1, ptr noundef nonnull align 8 dereferenceable(176) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
 _ZN5clang13SanitizerMaskoRERKS0_.exit51.i:
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

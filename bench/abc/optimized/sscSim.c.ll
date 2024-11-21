@@ -72,7 +72,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Ssc_GiaResetPiPattern(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Ssc_GiaResetPiPattern(ptr nocapture noundef initializes((812, 816)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 812
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 848
@@ -285,7 +285,7 @@ Vec_WrdDoubleSimInfo.exit:                        ; preds = %._crit_edge.i, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssc_GiaRandomPiPattern(ptr nocapture noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @Ssc_GiaRandomPiPattern(ptr nocapture noundef initializes((812, 816)) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 812
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 848
@@ -1666,7 +1666,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Ssc_GiaFindPivotSim(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Ssc_GiaFindPivotSim(ptr nocapture noundef initializes((812, 816)) %0) local_unnamed_addr #0 {
   tail call void @Ssc_GiaRandomPiPattern(ptr noundef %0, i32 noundef 1, ptr noundef null)
   tail call void @Ssc_GiaSimRound(ptr noundef %0)
   %2 = tail call ptr @Ssc_GiaGetOneSim(ptr noundef %0)
@@ -1797,7 +1797,7 @@ Ssc_SimCountBits.exit.thread:                     ; preds = %.lr.ph.i7, %Ssc_Sim
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssc_GiaEstimateCare(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @Ssc_GiaEstimateCare(ptr nocapture noundef initializes((812, 816)) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @Ssc_GiaRandomPiPattern(ptr noundef %0, i32 noundef %1, ptr noundef null)
   tail call void @Ssc_GiaSimRound(ptr noundef %0)
   %3 = tail call i32 @Ssc_GiaCountCaresSim(ptr noundef %0)

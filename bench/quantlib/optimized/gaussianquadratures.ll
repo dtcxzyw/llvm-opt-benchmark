@@ -1196,7 +1196,7 @@ _ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_28GaussChebyshev2ndIntegr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18GaussianQuadratureC2EmRKNS_28GaussianOrthogonalPolynomialE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(8) %orthPoly) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18GaussianQuadratureC2EmRKNS_28GaussianOrthogonalPolynomialE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(8) %orthPoly) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %e = alloca %"class.QuantLib::Array", align 8
   %tqr = alloca %"class.QuantLib::TqrEigenDecomposition", align 8

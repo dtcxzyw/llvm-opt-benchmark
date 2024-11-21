@@ -386,14 +386,14 @@ _ZN9grpc_core23CompressionAlgorithmSet10FromUint32Ej.exit: ; preds = %for.body.i
 declare i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core23CompressionAlgorithmSetC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %this) unnamed_addr #8 align 2 {
+define void @_ZN9grpc_core23CompressionAlgorithmSetC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this) unnamed_addr #8 align 2 {
 entry:
   store i8 0, ptr %this, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core23CompressionAlgorithmSetC2ESt16initializer_listI26grpc_compression_algorithmE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %this, ptr readonly %algorithms.coerce0, i64 %algorithms.coerce1) unnamed_addr #9 align 2 {
+define void @_ZN9grpc_core23CompressionAlgorithmSetC2ESt16initializer_listI26grpc_compression_algorithmE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this, ptr readonly %algorithms.coerce0, i64 %algorithms.coerce1) unnamed_addr #9 align 2 {
 entry:
   store i8 0, ptr %this, align 1
   %add.ptr.i = getelementptr inbounds i32, ptr %algorithms.coerce0, i64 %algorithms.coerce1

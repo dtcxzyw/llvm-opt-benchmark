@@ -68,7 +68,7 @@ define dso_local noundef i64 @intel_guc_ct_max_queue_time_jiffies() local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_ct_init_early(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_guc_ct_init_early(ptr noundef initializes((16, 20), (64, 68), (180, 184)) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 64
@@ -289,7 +289,7 @@ declare dso_local void @i915_vma_unpin_and_release(ptr noundef, i32 noundef) loc
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_guc_ct_enable(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local i32 @intel_guc_ct_enable(ptr noundef initializes((48, 56), (60, 61)) %0) local_unnamed_addr #1 align 16 {
   %2 = alloca [2 x i32], align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -505,7 +505,7 @@ define dso_local i32 @intel_guc_ct_enable(ptr noundef %0) local_unnamed_addr #1 
 declare dso_local ptr @__px_vaddr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_ct_disable(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_guc_ct_disable(ptr noundef initializes((8, 9)) %0) local_unnamed_addr #1 align 16 {
   %2 = alloca [2 x i32], align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8

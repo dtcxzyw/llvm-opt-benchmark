@@ -574,7 +574,7 @@ $_ZTV17DeadlyImportError = comdat any
 @_ZN6Assimp11XFileParserD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp11XFileParserD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XFileParserC2ERKSt6vectorIcSaIcEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pBuffer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XFileParserC2ERKSt6vectorIcSaIcEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 9), (16, 20), (24, 44), (48, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pBuffer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %uncompressed = alloca %"class.std::vector", align 8
   %compression = alloca %"class.Assimp::Compression", align 8
@@ -4808,7 +4808,7 @@ eh.resume:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XFileParser35ParseDataObjectTransformationMatrixER12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) %pMatrix) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XFileParser35ParseDataObjectTransformationMatrixER12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) initializes((0, 64)) %pMatrix) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8401,7 +8401,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XFileParser7ReadRGBEv(ptr noalias nocapture writeonly sret(%struct.aiColor3D) align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11XFileParser7ReadRGBEv(ptr noalias nocapture writeonly sret(%struct.aiColor3D) align 4 initializes((0, 12)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
   store float 0.000000e+00, ptr %agg.result, align 4
   %g.i = getelementptr inbounds i8, ptr %agg.result, i64 4

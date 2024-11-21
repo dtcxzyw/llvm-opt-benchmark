@@ -805,7 +805,7 @@ declare i32 @ompi_comm_dup_with_info(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @ompi_comm_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_topo_base_comm_dist_graph_2_2_0_construct(ptr nocapture noundef writeonly %0) #5 {
+define internal void @mca_topo_base_comm_dist_graph_2_2_0_construct(ptr nocapture noundef writeonly initializes((16, 57)) %0) #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %2, i8 0, i64 41, i1 false)
   ret void

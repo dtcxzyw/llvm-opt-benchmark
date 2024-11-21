@@ -759,7 +759,7 @@ declare ptr @zslNthInRange(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @sdsdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @scoresOfGeoHashBox(i64 %hash.coerce0, i8 %hash.coerce1, ptr nocapture noundef writeonly %min, ptr nocapture noundef writeonly %max) local_unnamed_addr #0 {
+define dso_local void @scoresOfGeoHashBox(i64 %hash.coerce0, i8 %hash.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %min, ptr nocapture noundef writeonly initializes((0, 8)) %max) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @geohashAlign52Bits(i64 %hash.coerce0, i8 %hash.coerce1) #14
   store i64 %call, ptr %min, align 8

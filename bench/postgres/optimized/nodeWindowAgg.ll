@@ -2974,7 +2974,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanWindowAgg(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanWindowAgg(ptr nocapture noundef initializes((352, 356), (578, 579)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 128
@@ -5439,7 +5439,7 @@ declare i32 @exprType(ptr noundef) local_unnamed_addr #1
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @begin_partition(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @begin_partition(ptr nocapture noundef initializes((296, 328), (496, 536), (579, 580), (581, 584)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72

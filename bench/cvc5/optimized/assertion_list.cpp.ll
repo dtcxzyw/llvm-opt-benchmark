@@ -175,7 +175,7 @@ _ZN4cvc58internal8decision8toStringENS1_14DecisionStatusE.exit: ; preds = %entry
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal8decision13AssertionListC2EPNS_7context7ContextES5_b(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %ac, ptr noundef %ic, i1 noundef zeroext %useDyn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal8decision13AssertionListC2EPNS_7context7ContextES5_b(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8)) %this, ptr noundef %ac, ptr noundef %ic, i1 noundef zeroext %useDyn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal8decision13AssertionListE, i64 16), ptr %this, align 8
   %d_assertions = getelementptr inbounds i8, ptr %this, i64 8
@@ -627,7 +627,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal8decision13AssertionList16getNextAssertionEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal8decision13AssertionList16getNextAssertionEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_usingDynamic = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load i8, ptr %d_usingDynamic, align 8

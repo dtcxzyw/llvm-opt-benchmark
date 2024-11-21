@@ -30,7 +30,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinementD0Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinement26allocateParentChildIndicesEv(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14QuadRefinement26allocateParentChildIndicesEv(ptr noundef nonnull align 8 dereferenceable(504) initializes((88, 100), (104, 116)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8

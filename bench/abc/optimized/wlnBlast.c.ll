@@ -2433,7 +2433,7 @@ declare void @Wlc_BlastMinus(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 declare i32 @Wlc_BlastReduction(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntFill(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFill(ptr nocapture noundef initializes((4, 8)) %0, i32 noundef %1) unnamed_addr #2 {
 .critedge:
   %2 = load i32, ptr %0, align 8
   %.not.i = icmp slt i32 %2, 1

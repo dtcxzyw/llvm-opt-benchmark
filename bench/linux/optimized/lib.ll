@@ -78,7 +78,7 @@ define dso_local i32 @rtc_year_days(i32 noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @rtc_time64_to_tm(i64 noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define dso_local void @rtc_time64_to_tm(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 36)) %1) #1 align 16 {
   %3 = sdiv i64 %0, 86400
   %4 = srem i64 %0, 86400
   %5 = trunc i64 %3 to i32
@@ -271,7 +271,7 @@ define dso_local i64 @rtc_tm_to_ktime(ptr nocapture noundef readonly byval(%stru
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rtc_ktime_to_tm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rtc_time) align 4 %0, i64 noundef %1) #3 align 16 {
+define dso_local void @rtc_ktime_to_tm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rtc_time) align 4 initializes((0, 36)) %0, i64 noundef %1) #3 align 16 {
   %3 = tail call { i64, i64 } @ns_to_timespec64(i64 noundef %1) #5
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1

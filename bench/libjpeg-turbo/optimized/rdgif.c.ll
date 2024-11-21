@@ -39,7 +39,7 @@ define dso_local noundef ptr @j12init_read_gif(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @start_input_gif(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @start_input_gif(ptr noundef %0, ptr nocapture noundef initializes((72, 80)) %1) #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca [10 x i8], align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 24

@@ -645,7 +645,7 @@ declare void @eventHandler_unlock() local_unnamed_addr #1
 declare void @unblockCommandLoop() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @threadControl_suspendCount(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden noundef i32 @threadControl_suspendCount(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %4) #6
@@ -3262,7 +3262,7 @@ doPendingTasks.exit.thread:                       ; preds = %69, %76, %removeThr
 declare void @tossGlobalRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @threadControl_applicationThreadStatus(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden i32 @threadControl_applicationThreadStatus(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   tail call void @log_debugee_location(ptr noundef nonnull @.str.29, ptr noundef %0, ptr noundef null, i64 noundef 0) #6
   %5 = load ptr, ptr @threadLock, align 8
@@ -3955,7 +3955,7 @@ define hidden i64 @threadControl_getFrameGeneration(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @threadControl_allVThreads(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden ptr @threadControl_allVThreads(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @getEnv() #6
   %3 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %3) #6

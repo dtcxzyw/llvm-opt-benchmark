@@ -1113,7 +1113,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @SaveTransactionCharacteristics(ptr nocapture noundef writeonly %0) local_unnamed_addr #12 {
+define dso_local void @SaveTransactionCharacteristics(ptr nocapture noundef writeonly initializes((0, 6)) %0) local_unnamed_addr #12 {
   %2 = load i32, ptr @XactIsoLevel, align 4
   store i32 %2, ptr %0, align 4
   %3 = load i8, ptr @XactReadOnly, align 1
@@ -4699,7 +4699,7 @@ declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #9
 declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SerializeTransactionState(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define dso_local void @SerializeTransactionState(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 5), (8, 28)) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @XactIsoLevel, align 4
   store i32 %3, ptr %1, align 8
   %4 = load i8, ptr @XactDeferrable, align 1
@@ -4859,7 +4859,7 @@ define dso_local void @EndParallelWorkerTransaction() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @xactGetCommittedChildren(ptr nocapture noundef writeonly %0) local_unnamed_addr #15 {
+define dso_local i32 @xactGetCommittedChildren(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #15 {
   %2 = load ptr, ptr @CurrentTransactionState, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 72
   %4 = load i32, ptr %3, align 8

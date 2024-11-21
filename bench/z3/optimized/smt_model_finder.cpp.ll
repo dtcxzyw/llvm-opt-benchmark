@@ -1159,7 +1159,7 @@ _ZN6bufferIPN3smt5enodeELb0ELj16EED2Ev.exit:      ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt12model_finderC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt12model_finderC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt12model_finderE, i64 16), ptr %this, align 8
   %m2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1614,7 +1614,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt12model_finderD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt12model_finderD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt12model_finderE, i64 16), ptr %this, align 8
   invoke void @_ZN3smt12model_finder5resetEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
@@ -1974,7 +1974,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt12model_finderD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN3smt12model_finderD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN3smt12model_finderD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -2303,7 +2303,7 @@ _ZN6vectorIP10quantifierLb0EjE9push_backERKS1_.exit: ; preds = %lor.lhs.false.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3smt12model_finder11set_contextEPNS_7contextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this, ptr noundef %ctx) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN3smt12model_finder11set_contextEPNS_7contextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((16, 24)) %this, ptr noundef %ctx) local_unnamed_addr #9 align 2 {
 entry:
   %m_context = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %ctx, ptr %m_context, align 8

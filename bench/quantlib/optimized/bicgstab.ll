@@ -62,7 +62,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib8BiCGstabC1ESt8functionIFNS_5ArrayERKS2_EEmdS6_ = unnamed_addr alias void (ptr, ptr, i64, double, ptr), ptr @_ZN8QuantLib8BiCGstabC2ESt8functionIFNS_5ArrayERKS2_EEmdS6_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib8BiCGstabC2ESt8functionIFNS_5ArrayERKS2_EEmdS6_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, ptr nocapture noundef %A, i64 noundef %maxIter, double noundef %relTol, ptr nocapture noundef %preConditioner) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib8BiCGstabC2ESt8functionIFNS_5ArrayERKS2_EEmdS6_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %this, ptr nocapture noundef %A, i64 noundef %maxIter, double noundef %relTol, ptr nocapture noundef %preConditioner) unnamed_addr #0 align 2 {
 entry:
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_invoker2.i = getelementptr inbounds nuw i8, ptr %A, i64 24

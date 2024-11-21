@@ -2862,7 +2862,7 @@ default.unreachable35:                            ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dis_field_dcs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5) unnamed_addr #0 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
   %7 = load i32, ptr @hf_gsm_sms_tp_dcs, align 4

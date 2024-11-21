@@ -51,7 +51,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy4DictC2EPNS_2VME(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN4pkpy4DictC2EPNS_2VME(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 8, ptr %3, align 8
@@ -95,7 +95,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4pkpy4DictC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 {
+define void @_ZN4pkpy4DictC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -135,7 +135,7 @@ define void @_ZN4pkpy4DictC2EOS0_(ptr nocapture noundef nonnull writeonly align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy4DictC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 {
+define void @_ZN4pkpy4DictC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -259,7 +259,7 @@ define void @_ZN4pkpy4Dict3setEPNS_8PyObjectES2_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy4Dict7_rehashEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
+define void @_ZN4pkpy4Dict7_rehashEv(ptr noundef nonnull align 8 dereferenceable(48) initializes((12, 24), (28, 32)) %0) local_unnamed_addr #7 align 2 {
   %2 = alloca i8, align 1
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1136,7 +1136,7 @@ define void @_ZNK4pkpy4Dict6valuesEv(ptr dead_on_unwind noalias nonnull writable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4pkpy4Dict5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN4pkpy4Dict5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((16, 20), (24, 32)) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24

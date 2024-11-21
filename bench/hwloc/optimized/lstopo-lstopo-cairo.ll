@@ -1939,7 +1939,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @topo_cairo_textsize(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, i32 %3, ptr nocapture noundef writeonly %4) #0 {
+define internal void @topo_cairo_textsize(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, i32 %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #0 {
   %6 = alloca %struct.cairo_text_extents_t, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1584
   %8 = load ptr, ptr %7, align 8

@@ -82,7 +82,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.13 = private unnamed_addr constant [64 x i8] c"This tester does not support functions with more than 8 inputs.\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @Maj3_ManTruthTables(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef ptr @Maj3_ManTruthTables(ptr nocapture noundef initializes((24, 32)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -240,7 +240,7 @@ Maj3_ManValue.exit:                               ; preds = %.lr.ph.i22, %.prehe
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Maj3_ManFirstAndLevel(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 %4) local_unnamed_addr #1 {
+define void @Maj3_ManFirstAndLevel(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 %4) local_unnamed_addr #1 {
   store i32 0, ptr %1, align 4
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
@@ -2800,7 +2800,7 @@ define void @Zyx_PrintClause(ptr nocapture noundef readonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Zyx_ManTruthTables(ptr nocapture noundef %0, ptr nocapture readnone %1) local_unnamed_addr #2 {
+define noundef ptr @Zyx_ManTruthTables(ptr nocapture noundef initializes((40, 48)) %0, ptr nocapture readnone %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3932,7 +3932,7 @@ Vec_IntFree.exit17:                               ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Zyx_ManCollectFanins(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define i32 @Zyx_ManCollectFanins(ptr nocapture noundef initializes((4704, 4712)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4704
   %4 = getelementptr inbounds i8, ptr %0, i64 4708
   store i32 0, ptr %4, align 4

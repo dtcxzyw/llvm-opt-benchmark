@@ -7975,7 +7975,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_IsDefaultInputERKSt13unord
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderProperty22_SetUsdEncodingVersionEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderProperty22_SetUsdEncodingVersionEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) initializes((288, 292)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 %1, ptr %3, align 8
   ret void

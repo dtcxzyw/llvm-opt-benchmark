@@ -250,7 +250,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen10QPACKCodecC2Ev(ptr noundef nonnull align 8 dereferenceable(1024) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen10QPACKCodecC2Ev(ptr noundef nonnull align 8 dereferenceable(1024) initializes((0, 40)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %encodedSize_.i = getelementptr inbounds i8, ptr %this, i64 8
   %maxUncompressed_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -530,7 +530,7 @@ _ZN8proxygen16HPACKEncoderBaseD2Ev.exit:          ; preds = %_ZN8proxygen12QPACK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen10QPACKCodec20recordCompressedSizeEPKN5folly5IOBufEm(ptr noundef nonnull align 8 dereferenceable(1024) %this, ptr noundef %stream, i64 noundef %controlSize) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen10QPACKCodec20recordCompressedSizeEPKN5folly5IOBufEm(ptr noundef nonnull align 8 dereferenceable(1024) initializes((8, 12), (16, 20)) %this, ptr noundef %stream, i64 noundef %controlSize) local_unnamed_addr #3 align 2 {
 entry:
   %encodedSize_ = getelementptr inbounds i8, ptr %this, i64 8
   %compressedBlock = getelementptr inbounds i8, ptr %this, i64 16

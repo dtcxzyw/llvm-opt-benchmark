@@ -89,7 +89,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @icmpv6stat_reset(ptr nocapture noundef %0) #0 {
+define internal void @icmpv6stat_reset(ptr nocapture noundef initializes((0, 8), (16, 56)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_slist_free(ptr noundef %3) #12

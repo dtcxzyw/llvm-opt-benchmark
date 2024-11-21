@@ -1157,7 +1157,7 @@ declare void @_ZN6PlayerC2EPKcP15IItemDefManager(ptr noundef nonnull align 8 der
 declare void @_ZN6PlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(432)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11LocalPlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(812) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11LocalPlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(812) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV11LocalPlayer, i64 16), ptr %this, align 8, !tbaa !26
   %m_player_settings = getelementptr inbounds i8, ptr %this, i64 768
@@ -1243,7 +1243,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11LocalPlayerD0Ev(ptr noundef nonnull align 8 dereferenceable(812) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11LocalPlayerD0Ev(ptr noundef nonnull align 8 dereferenceable(812) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV11LocalPlayer, i64 16), ptr %this, align 8, !tbaa !26
   %m_player_settings.i = getelementptr inbounds i8, ptr %this, i64 768
@@ -5930,7 +5930,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11LocalPlayer12applyControlEfP11Environment(ptr noundef nonnull align 8 dereferenceable(812) %this, float noundef %dtime, ptr noundef %env) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11LocalPlayer12applyControlEfP11Environment(ptr noundef nonnull align 8 dereferenceable(812) initializes((439, 441), (688, 696)) %this, float noundef %dtime, ptr noundef %env) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %speedH = alloca %"class.irr::core::vector3d", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

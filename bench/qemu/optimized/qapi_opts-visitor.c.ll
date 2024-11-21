@@ -733,7 +733,7 @@ return:                                           ; preds = %if.then.i, %if.end9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @opts_type_str(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @opts_type_str(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %obj, ptr noundef %errp) #0 {
 entry:
   %call1 = tail call fastcc ptr @lookup_scalar(ptr noundef %v, ptr noundef %name, ptr noundef %errp)
   %tobool.not = icmp ne ptr %call1, null

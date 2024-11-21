@@ -190,7 +190,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %text) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %text) unnamed_addr #3 align 2 {
 entry:
   store ptr %text, ptr %this, align 8
   ret void
@@ -541,7 +541,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderTextC2ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) %this, i32 noundef %lang) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderTextC2ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) initializes((0, 4)) %this, i32 noundef %lang) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %lang, ptr %this, align 8
   %m_ossText = getelementptr inbounds i8, ptr %this, i64 8
@@ -580,7 +580,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(p
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderText9setIndentEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(764) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderText9setIndentEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(764) initializes((760, 764)) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   %m_indent = getelementptr inbounds i8, ptr %this, i64 760
   store i32 %i, ptr %m_indent, align 8
@@ -608,7 +608,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderText7newLineEv(ptr noalias nocapture writeonly sret(%"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(764) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev13GpuShaderText7newLineEv(ptr noalias nocapture writeonly sret(%"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(764) %this) local_unnamed_addr #3 align 2 {
 entry:
   store ptr %this, ptr %agg.result, align 8
   ret void

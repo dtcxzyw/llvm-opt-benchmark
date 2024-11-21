@@ -188,7 +188,7 @@ entry:
 declare void @ngtcp2_path_storage_zero(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4node4quic11PathStoragecv11ngtcp2_pathEv(ptr noalias nocapture writeonly sret(%struct.ngtcp2_path) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node4quic11PathStoragecv11ngtcp2_pathEv(ptr noalias nocapture writeonly sret(%struct.ngtcp2_path) align 8 initializes((0, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, i64 40, i1 false)
   ret void
@@ -198,7 +198,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic5StoreC2ESt10shared_ptrIN2v812BackingStoreEEmm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef %store, i64 noundef %length, i64 noundef %offset) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic5StoreC2ESt10shared_ptrIN2v812BackingStoreEEmm(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef %store, i64 noundef %length, i64 noundef %offset) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %this, align 8
   %store_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -251,7 +251,7 @@ declare void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 
 declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic5StoreC2ESt10unique_ptrIN2v812BackingStoreESt14default_deleteIS4_EEmm(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %store, i64 noundef %length, i64 noundef %offset) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic5StoreC2ESt10unique_ptrIN2v812BackingStoreESt14default_deleteIS4_EEmm(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef nonnull %store, i64 noundef %length, i64 noundef %offset) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %this, align 8
   %store_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -289,7 +289,7 @@ do.end23:                                         ; preds = %do.body9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic5StoreC2EN2v85LocalINS2_11ArrayBufferEEENS1_6OptionE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nonnull %buffer.coerce, i32 noundef %option) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic5StoreC2EN2v85LocalINS2_11ArrayBufferEEENS1_6OptionE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nonnull %buffer.coerce, i32 noundef %option) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   call void @_ZN2v811ArrayBuffer15GetBackingStoreEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %agg.tmp, ptr noundef nonnull align 1 dereferenceable(1) %buffer.coerce) #16
@@ -417,7 +417,7 @@ declare i16 @_ZN2v811ArrayBuffer6DetachENS_5LocalINS_5ValueEEE(ptr noundef nonnu
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic5StoreC2EN2v85LocalINS2_15ArrayBufferViewEEENS1_6OptionE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nonnull %view.coerce, i32 noundef %option) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic5StoreC2EN2v85LocalINS2_15ArrayBufferViewEEENS1_6OptionE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nonnull %view.coerce, i32 noundef %option) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %call4 = tail call ptr @_ZN2v815ArrayBufferView6BufferEv(ptr noundef nonnull align 1 dereferenceable(1) %view.coerce) #16
@@ -790,7 +790,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v812BackingStoreEEEvPKcRKSt10shared_ptrIT_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9QuicErrorC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 %reason.coerce0, ptr %reason.coerce1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9QuicErrorC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this, i64 %reason.coerce0, ptr %reason.coerce1) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::allocator.95", align 1
@@ -822,7 +822,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9QuicErrorC2EPK29ngtcp2_connection_close_error(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %ptr) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9QuicErrorC2EPK29ngtcp2_connection_close_error(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this, ptr noundef %ptr) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.95", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr %this, align 8
@@ -844,7 +844,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9QuicErrorC2ERK29ngtcp2_connection_close_error(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %error) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9QuicErrorC2ERK29ngtcp2_connection_close_error(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %error) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.95", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr %this, align 8
@@ -1388,7 +1388,7 @@ _ZN4node13MemoryTracker10TrackFieldImbbEEvPKcRKT_S3_.exit: ; preds = %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9QuicError12ForTransportEmSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.node::quic::QuicError") align 8 %agg.result, i64 noundef %code, i64 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9QuicError12ForTransportEmSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.node::quic::QuicError") align 8 initializes((0, 8)) %agg.result, i64 noundef %code, i64 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator.95", align 1
@@ -1428,7 +1428,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9QuicError14ForApplicationEmSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.node::quic::QuicError") align 8 %agg.result, i64 noundef %code, i64 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9QuicError14ForApplicationEmSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.node::quic::QuicError") align 8 initializes((0, 8)) %agg.result, i64 noundef %code, i64 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator.95", align 1
@@ -1460,7 +1460,7 @@ entry:
 declare void @ngtcp2_connection_close_error_set_application_error(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9QuicError21ForVersionNegotiationESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.node::quic::QuicError") align 8 %agg.result, i64 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9QuicError21ForVersionNegotiationESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.node::quic::QuicError") align 8 initializes((0, 8)) %agg.result, i64 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i.i = alloca %"class.std::allocator.95", align 1
@@ -1491,7 +1491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9QuicError14ForNgtcp2ErrorEiSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.node::quic::QuicError") align 8 %agg.result, i32 noundef %code, i64 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9QuicError14ForNgtcp2ErrorEiSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.node::quic::QuicError") align 8 initializes((0, 8)) %agg.result, i32 noundef %code, i64 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator.95", align 1
@@ -1521,7 +1521,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9QuicError12ForIdleCloseESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.node::quic::QuicError") align 8 %agg.result, i64 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9QuicError12ForIdleCloseESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.node::quic::QuicError") align 8 initializes((0, 8)) %agg.result, i64 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i.i = alloca %"class.std::allocator.95", align 1
@@ -1554,7 +1554,7 @@ entry:
 declare void @ngtcp2_connection_close_error_set_transport_error_liberr(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9QuicError11ForTlsAlertEiSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.node::quic::QuicError") align 8 %agg.result, i32 noundef %code, i64 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9QuicError11ForTlsAlertEiSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.node::quic::QuicError") align 8 initializes((0, 8)) %agg.result, i32 noundef %code, i64 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator.95", align 1
@@ -1587,7 +1587,7 @@ entry:
 declare void @ngtcp2_connection_close_error_set_transport_error_tls_alert(ptr noundef, i8 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic9QuicError19FromConnectionCloseEP11ngtcp2_conn(ptr noalias sret(%"class.node::quic::QuicError") align 8 %agg.result, ptr noundef %session) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic9QuicError19FromConnectionCloseEP11ngtcp2_conn(ptr noalias sret(%"class.node::quic::QuicError") align 8 initializes((0, 8)) %agg.result, ptr noundef %session) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator.95", align 1

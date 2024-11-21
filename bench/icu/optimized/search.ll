@@ -15,7 +15,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7514SearchIteratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7514SearchIteratorD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514SearchIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514SearchIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 34)) %this, ptr noundef nonnull align 8 dereferenceable(88) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514SearchIteratorE, i64 16), ptr %this, align 8
   %m_text_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -93,7 +93,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514SearchIteratorE, i64 16), ptr %this, align 8
   %m_search_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -973,7 +973,7 @@ _ZN6icu_7514SearchIterator16setMatchNotFoundEv.exit: ; preds = %entry, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514SearchIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514SearchIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (24, 34)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514SearchIteratorE, i64 16), ptr %this, align 8
   %m_text_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -1018,7 +1018,7 @@ lpad2:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef %breakiter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef %breakiter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514SearchIteratorE, i64 16), ptr %this, align 8
   %m_breakiterator_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1105,7 +1105,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %text, ptr noundef %breakiter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 34)) %this, ptr noundef nonnull align 8 dereferenceable(24) %text, ptr noundef %breakiter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514SearchIteratorE, i64 16), ptr %this, align 8
   %m_breakiterator_ = getelementptr inbounds i8, ptr %this, i64 16

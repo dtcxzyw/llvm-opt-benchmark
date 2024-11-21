@@ -69,7 +69,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ide_atapi_cmd_read_dma_cb = private unnamed_addr constant [4 x i32] [i32 40, i32 8, i32 136, i32 32], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_atapi_cmd_ok(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local void @ide_atapi_cmd_ok(ptr noundef initializes((649, 650), (665, 666)) %s) local_unnamed_addr #0 {
 entry:
   %error = getelementptr inbounds i8, ptr %s, i64 649
   store i8 0, ptr %error, align 1
@@ -670,7 +670,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare zeroext i1 @ide_transfer_start_norecurse(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_atapi_dma_restart(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local void @ide_atapi_dma_restart(ptr noundef initializes((8, 9)) %s) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %retry_unit = getelementptr inbounds i8, ptr %0, i64 2148
@@ -1109,7 +1109,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare i32 @blk_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cmd_test_unit_ready(ptr noundef %s, ptr nocapture readnone %buf) #0 {
+define internal void @cmd_test_unit_ready(ptr noundef initializes((649, 650), (665, 666)) %s, ptr nocapture readnone %buf) #0 {
 entry:
   %error.i = getelementptr inbounds i8, ptr %s, i64 649
   store i8 0, ptr %error.i, align 1
@@ -1127,7 +1127,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cmd_request_sense(ptr noundef %s, ptr nocapture noundef %buf) #0 {
+define internal void @cmd_request_sense(ptr noundef initializes((696, 704), (708, 712), (808, 812)) %s, ptr nocapture noundef initializes((0, 4), (5, 18)) %buf) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %buf, i64 4
   %0 = load i8, ptr %arrayidx, align 1
@@ -1193,7 +1193,7 @@ ide_atapi_cmd_reply.exit:                         ; preds = %if.then1.i, %if.els
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cmd_inquiry(ptr noundef %s, ptr nocapture noundef %buf) #0 {
+define internal void @cmd_inquiry(ptr noundef %s, ptr nocapture noundef initializes((0, 1)) %buf) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %buf, i64 2
   %arrayidx1 = getelementptr i8, ptr %buf, i64 4
@@ -1551,7 +1551,7 @@ return:                                           ; preds = %if.end36, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cmd_prevent_allow_medium_removal(ptr noundef %s, ptr nocapture noundef readonly %buf) #0 {
+define internal void @cmd_prevent_allow_medium_removal(ptr noundef initializes((649, 650), (665, 666), (694, 695)) %s, ptr nocapture noundef readonly %buf) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %buf, i64 4
   %0 = load i8, ptr %arrayidx, align 1
@@ -1580,7 +1580,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cmd_read_cdvd_capacity(ptr noundef %s, ptr nocapture noundef writeonly %buf) #0 {
+define internal void @cmd_read_cdvd_capacity(ptr noundef initializes((696, 704), (708, 712), (808, 812)) %s, ptr nocapture noundef writeonly initializes((0, 8)) %buf) #0 {
 entry:
   %nb_sectors = getelementptr inbounds i8, ptr %s, i64 40
   %0 = load i64, ptr %nb_sectors, align 8
@@ -2594,7 +2594,7 @@ sw.epilog:                                        ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cmd_set_speed(ptr noundef %s, ptr nocapture readnone %buf) #0 {
+define internal void @cmd_set_speed(ptr noundef initializes((649, 650), (665, 666)) %s, ptr nocapture readnone %buf) #0 {
 entry:
   %error.i = getelementptr inbounds i8, ptr %s, i64 649
   store i8 0, ptr %error.i, align 1
@@ -2612,7 +2612,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cmd_mechanism_status(ptr noundef %s, ptr nocapture noundef %buf) #0 {
+define internal void @cmd_mechanism_status(ptr noundef initializes((696, 704), (708, 712), (808, 812)) %s, ptr nocapture noundef initializes((0, 8)) %buf) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %buf, i64 8
   %add.ptr.val = load i16, ptr %add.ptr, align 1

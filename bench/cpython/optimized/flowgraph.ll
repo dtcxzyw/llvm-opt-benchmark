@@ -141,7 +141,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyCfgBuilder_UseLabel(ptr nocapture noundef %g, i32 %lbl.coerce) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyCfgBuilder_UseLabel(ptr nocapture noundef initializes((24, 28)) %g, i32 %lbl.coerce) local_unnamed_addr #0 {
 entry:
   %g_current_label = getelementptr inbounds i8, ptr %g, i64 24
   store i32 %lbl.coerce, ptr %g_current_label, align 8

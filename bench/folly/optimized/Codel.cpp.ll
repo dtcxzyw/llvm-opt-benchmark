@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 declare void @_ZN6google14FlagRegistererC1IiEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly5CodelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) %this) unnamed_addr #1 align 2 {
+define void @_ZN5folly5CodelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) initializes((0, 34)) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr @_ZN3fLI20FLAGS_codel_intervalE, align 4, !tbaa !7
   %conv.i = sext i32 %0 to i64
@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly5CodelC2ERKNS0_7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %options) unnamed_addr #1 align 2 {
+define void @_ZN5folly5CodelC2ERKNS0_7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) initializes((0, 34)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %options) unnamed_addr #1 align 2 {
 entry:
   store i64 0, ptr %this, align 8, !tbaa !11
   %codelIntervalTimeNs_ = getelementptr inbounds i8, ptr %this, i64 8

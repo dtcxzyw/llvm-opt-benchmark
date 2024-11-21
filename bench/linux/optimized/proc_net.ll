@@ -54,7 +54,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_proc_create_
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_proc_create_net_data439, ptr @__UNIQUE_ID___addressable_proc_create_net_data_write440, ptr @__UNIQUE_ID___addressable_proc_create_net_single441, ptr @__UNIQUE_ID___addressable_proc_create_net_single_write442], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bpf_iter_init_seq_net(ptr nocapture noundef writeonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @bpf_iter_init_seq_net(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 1872

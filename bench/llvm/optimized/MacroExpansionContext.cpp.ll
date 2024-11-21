@@ -210,7 +210,7 @@ $_ZTVN5clang6detail27MacroExpansionRangeRecorderE = comdat any
 @_ZN5clang21MacroExpansionContextC1ERKNS_11LangOptionsE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang21MacroExpansionContextC2ERKNS_11LangOptionsE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang21MacroExpansionContextC2ERKNS_11LangOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(841) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang21MacroExpansionContextC2ERKNS_11LangOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 20), (24, 44), (48, 72)) %0, ptr noundef nonnull align 8 dereferenceable(841) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
@@ -222,7 +222,7 @@ define dso_local void @_ZN5clang21MacroExpansionContextC2ERKNS_11LangOptionsE(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21MacroExpansionContext23registerForPreprocessorERNS_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang21MacroExpansionContext23registerForPreprocessorERNS_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(72) initializes((48, 64)) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::unique_function", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %4, align 8

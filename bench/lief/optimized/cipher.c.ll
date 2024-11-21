@@ -145,7 +145,7 @@ define hidden ptr @mbedtls_cipher_info_from_values(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_cipher_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
+define hidden void @mbedtls_cipher_init(ptr nocapture noundef writeonly initializes((0, 96)) %0) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   ret void
 }

@@ -230,13 +230,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test19resu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost9unit_test12test_resultsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(107) %0) unnamed_addr #4 align 2 {
+define void @_ZN5boost9unit_test12test_resultsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(107) initializes((0, 107)) %0) unnamed_addr #4 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(107) %0, i8 0, i64 107, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost9unit_test12test_results5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(107) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN5boost9unit_test12test_results5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(107) initializes((0, 107)) %0) local_unnamed_addr #4 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(107) %0, i8 0, i64 107, i1 false)
   ret void
 }

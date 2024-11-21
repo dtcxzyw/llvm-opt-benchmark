@@ -337,7 +337,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16PointLockManagerC2EPNS_24PessimisticTransactionDBERKNS_20TransactionDBOptionsE(ptr noundef nonnull align 8 dereferenceable(32032) %this, ptr noundef %txn_db, ptr nocapture noundef nonnull readonly align 8 dereferenceable(145) %opt) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16PointLockManagerC2EPNS_24PessimisticTransactionDBERKNS_20TransactionDBOptionsE(ptr noundef nonnull align 8 dereferenceable(32032) initializes((0, 32)) %this, ptr noundef %txn_db, ptr nocapture noundef nonnull readonly align 8 dereferenceable(145) %opt) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16PointLockManagerE, i64 16), ptr %this, align 8
   %txn_db_impl_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2087,7 +2087,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i.i.i25
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb16PointLockManager18AcquireWithTimeoutEPNS_22PessimisticTransactionEPNS_7LockMapEPNS_13LockMapStripeEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3EnvElRKNS_8LockInfoE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32032) %this, ptr noundef %txn, ptr nocapture noundef %lock_map, ptr noundef %stripe, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef %env, i64 noundef %timeout, ptr noundef nonnull align 8 dereferenceable(120) %lock_info) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16PointLockManager18AcquireWithTimeoutEPNS_22PessimisticTransactionEPNS_7LockMapEPNS_13LockMapStripeEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3EnvElRKNS_8LockInfoE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32032) %this, ptr noundef %txn, ptr nocapture noundef %lock_map, ptr noundef %stripe, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef %env, i64 noundef %timeout, ptr noundef nonnull align 8 dereferenceable(120) %lock_info) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %column_family_id.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -3357,7 +3357,7 @@ _ZN7rocksdb6StatusD2Ev.exit354:                   ; preds = %ehcleanup145, %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16PointLockManager13AcquireLockedEPNS_7LockMapEPNS_13LockMapStripeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3EnvERKNS_8LockInfoEPmPNS_10autovectorImLm8EEE(ptr noalias nocapture sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32032) %this, ptr nocapture noundef %lock_map, ptr noundef %stripe, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(120) %txn_lock_info, ptr nocapture noundef writeonly %expire_time, ptr noundef %txn_ids) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16PointLockManager13AcquireLockedEPNS_7LockMapEPNS_13LockMapStripeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3EnvERKNS_8LockInfoEPmPNS_10autovectorImLm8EEE(ptr noalias nocapture sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32032) %this, ptr nocapture noundef %lock_map, ptr noundef %stripe, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(120) %txn_lock_info, ptr nocapture noundef writeonly %expire_time, ptr noundef %txn_ids) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i, align 8
@@ -8404,7 +8404,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb16PointLockManager18GetRangeLockStatusEv(ptr noalias sret(%"class.std::unordered_multimap.278") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define void @_ZN7rocksdb16PointLockManager18GetRangeLockStatusEv(ptr noalias sret(%"class.std::unordered_multimap.278") align 8 initializes((32, 40)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 0, ptr %0, align 8

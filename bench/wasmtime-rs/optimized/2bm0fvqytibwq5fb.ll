@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a4ace3d538bf6ccd9b54f76f6cf34f21.11 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.a4ace3d538bf6ccd9b54f76f6cf34f21.9, [8 x i8] c"\09\00\00\00\00\00\00\00", ptr @anon.a4ace3d538bf6ccd9b54f76f6cf34f21.10, [8 x i8] c"\03\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN22cranelift_codegen_meta13isa_from_arch17h5622c80582f40225E(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @_ZN22cranelift_codegen_meta13isa_from_arch17h5622c80582f40225E(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 9)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8

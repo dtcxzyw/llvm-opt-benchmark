@@ -1105,7 +1105,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_psr_init_dpcd(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_psr_init_dpcd(ptr noundef initializes((3335, 3336)) %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1

@@ -53,7 +53,7 @@ $_ZTV36G1RegionsSmallerThanCommitSizeMapper = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21G1RegionToSpaceMapperC2E13ReservedSpacemmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(129) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i8 noundef zeroext %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN21G1RegionToSpaceMapperC2E13ReservedSpacemmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(129) initializes((0, 16)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i8 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = alloca %class.ThreadCritical, align 1
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21G1RegionToSpaceMapper, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8

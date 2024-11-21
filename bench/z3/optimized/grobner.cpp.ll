@@ -145,7 +145,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7grobnerC2ER11ast_managerR25scoped_dependency_managerIPvE(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(72) %d) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7grobnerC2ER11ast_managerR25scoped_dependency_managerIPvE(ptr noundef nonnull align 8 dereferenceable(228) initializes((0, 48)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(72) %d) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   %m_manager = getelementptr inbounds i8, ptr %this, i64 32
@@ -3246,7 +3246,7 @@ return:                                           ; preds = %_ZN7grobner7add_var
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7grobner13init_equationEPNS_8equationEPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef %eq, ptr noundef %d) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7grobner13init_equationEPNS_8equationEPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef initializes((0, 8), (16, 24)) %eq, ptr noundef %d) local_unnamed_addr #3 align 2 {
 entry:
   %m_scopes.i = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %m_scopes.i, align 8
@@ -9876,7 +9876,7 @@ for.end:                                          ; preds = %while.body.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7grobner18compute_basis_initEv(ptr nocapture noundef nonnull align 8 dereferenceable(228) %this) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7grobner18compute_basis_initEv(ptr nocapture noundef nonnull align 8 dereferenceable(228) initializes((224, 228)) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_compute_basis = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %m_compute_basis, align 8
@@ -10082,7 +10082,7 @@ return:                                           ; preds = %if.end9, %if.end6, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN7grobner13compute_basisEj(ptr noundef nonnull align 8 dereferenceable(228) %this, i32 noundef %threshold) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN7grobner13compute_basisEj(ptr noundef nonnull align 8 dereferenceable(228) initializes((224, 228)) %this, i32 noundef %threshold) local_unnamed_addr #3 align 2 {
 entry:
   %m_compute_basis.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %m_compute_basis.i, align 8

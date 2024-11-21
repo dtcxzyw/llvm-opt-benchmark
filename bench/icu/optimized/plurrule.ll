@@ -688,7 +688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7511PluralRulesC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7511PluralRulesC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511PluralRulesE, i64 16), ptr %this, align 8
   %mRules = getelementptr inbounds i8, ptr %this, i64 8
@@ -700,7 +700,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7511PluralRulesC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(28) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511PluralRulesC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %this, ptr noundef nonnull align 8 dereferenceable(28) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511PluralRulesE, i64 16), ptr %this, align 8
   %mRules = getelementptr inbounds i8, ptr %this, i64 8
@@ -852,7 +852,7 @@ return:                                           ; preds = %if.then.i.i.i13, %_
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7511PluralRulesD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511PluralRulesD2Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511PluralRulesE, i64 16), ptr %this, align 8
   %mRules = getelementptr inbounds i8, ptr %this, i64 8
@@ -912,7 +912,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7517SharedPluralRulesD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7517SharedPluralRulesD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517SharedPluralRulesE, i64 16), ptr %this, align 8
   %ptr = getelementptr inbounds i8, ptr %this, i64 24
@@ -3431,7 +3431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZN6icu_7511PluralRules19getAllKeywordValuesERKNS_13UnicodeStringEPdiR10UErrorCode(ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %error) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZN6icu_7511PluralRules19getAllKeywordValuesERKNS_13UnicodeStringEPdiR10UErrorCode(ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %error) local_unnamed_addr #8 align 2 {
 entry:
   store i32 16, ptr %error, align 4
   ret i32 0
@@ -5341,7 +5341,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7511PluralRules8getRulesEv(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7511PluralRules8getRulesEv(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6305,7 +6305,7 @@ eh.resume:                                        ; preds = %ehcleanup257, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513AndConstraintC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513AndConstraintC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 20), (24, 34), (36, 52)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513AndConstraintE, i64 16), ptr %this, align 8
   %op = getelementptr inbounds i8, ptr %this, i64 8
@@ -6438,7 +6438,7 @@ eh.resume:                                        ; preds = %lpad46, %lpad
 declare void @_ZN6icu_759UVector326assignERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7513AndConstraintD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7513AndConstraintD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513AndConstraintE, i64 16), ptr %this, align 8
   %rangeList = getelementptr inbounds i8, ptr %this, i64 24
@@ -6638,7 +6638,7 @@ switch.lookup:                                    ; preds = %entry
 declare double @uprv_floor_75(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512OrConstraintC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512OrConstraintC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512OrConstraintE, i64 16), ptr %this, align 8
   %childNode = getelementptr inbounds i8, ptr %this, i64 8
@@ -6728,7 +6728,7 @@ eh.resume:                                        ; preds = %lpad25, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7512OrConstraintD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7512OrConstraintD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512OrConstraintE, i64 16), ptr %this, align 8
   %childNode = getelementptr inbounds i8, ptr %this, i64 8
@@ -6936,7 +6936,7 @@ while.end9:                                       ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759RuleChainC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(224) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_759RuleChainC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(224) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759RuleChainE, i64 16), ptr %this, align 8
   %fKeyword = getelementptr inbounds i8, ptr %this, i64 8
@@ -7076,7 +7076,7 @@ ehcleanup70:                                      ; preds = %ehcleanup69, %lpad
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_759RuleChainD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_759RuleChainD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759RuleChainE, i64 16), ptr %this, align 8
   %fNext = getelementptr inbounds i8, ptr %this, i64 72
@@ -7123,7 +7123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_75L11tokenStringENS_9tokenTypeE(ptr noalias nonnull align 8 %agg.result, i32 noundef %tok) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_75L11tokenStringENS_9tokenTypeE(ptr noalias nonnull align 8 initializes((0, 10)) %agg.result, i32 noundef %tok) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i20 = alloca i16, align 2
   %srcChar.addr.i17 = alloca i16, align 2
@@ -7331,7 +7331,7 @@ return:                                           ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7516PluralRuleParserC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7516PluralRuleParserC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 8), (16, 20), (24, 34), (88, 120)) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516PluralRuleParserE, i64 16), ptr %this, align 8
   %ruleIndex = getelementptr inbounds i8, ptr %this, i64 16
@@ -7350,7 +7350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7516PluralRuleParserD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516PluralRuleParserD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516PluralRuleParserE, i64 16), ptr %this, align 8
   %token = getelementptr inbounds i8, ptr %this, i64 24
@@ -7971,7 +7971,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524PluralKeywordEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7524PluralKeywordEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((116, 120)) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #8 align 2 {
 entry:
   %pos = getelementptr inbounds i8, ptr %this, i64 116
   store i32 0, ptr %pos, align 4
@@ -7987,7 +7987,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7524PluralKeywordEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7524PluralKeywordEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7524PluralKeywordEnumerationE, i64 16), ptr %this, align 8
   %fKeywordNames = getelementptr inbounds i8, ptr %this, i64 120
@@ -8008,7 +8008,7 @@ entry:
 declare void @abort() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512FixedDecimalC2Edilii(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %n, i32 noundef %v, i64 noundef %f, i32 noundef %e, i32 noundef %c) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512FixedDecimalC2Edilii(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 24), (61, 62)) %this, double noundef %n, i32 noundef %v, i64 noundef %f, i32 noundef %e, i32 noundef %c) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512FixedDecimalE, i64 16), ptr %this, align 8
@@ -8098,7 +8098,7 @@ lpad:                                             ; preds = %call.i.noexc, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512FixedDecimal4initEdilii(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, double noundef %n, i32 noundef %v, i64 noundef %f, i32 noundef %e, i32 noundef %c) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512FixedDecimal4initEdilii(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 28), (32, 40), (48, 64)) %this, double noundef %n, i32 noundef %v, i64 noundef %f, i32 noundef %e, i32 noundef %c) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = fcmp olt double %n, 0.000000e+00
   %conv = zext i1 %cmp to i8
@@ -8175,7 +8175,7 @@ if.end27:                                         ; preds = %while.body, %while.
 declare void @_ZN6icu_7513IFixedDecimalD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512FixedDecimalC2Edili(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %n, i32 noundef %v, i64 noundef %f, i32 noundef %e) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512FixedDecimalC2Edili(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 24), (61, 62)) %this, double noundef %n, i32 noundef %v, i64 noundef %f, i32 noundef %e) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512FixedDecimalE, i64 16), ptr %this, align 8
@@ -8263,7 +8263,7 @@ lpad:                                             ; preds = %call.i.i.noexc, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512FixedDecimal4initEdili(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, double noundef %n, i32 noundef %v, i64 noundef %f, i32 noundef %e) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512FixedDecimal4initEdili(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 28), (32, 40), (48, 64)) %this, double noundef %n, i32 noundef %v, i64 noundef %f, i32 noundef %e) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i = fcmp olt double %n, 0.000000e+00
   %conv.i = zext i1 %cmp.i to i8
@@ -8335,7 +8335,7 @@ _ZN6icu_7512FixedDecimal4initEdilii.exit:         ; preds = %while.body.i, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512FixedDecimalC2Edil(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %n, i32 noundef %v, i64 noundef %f) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512FixedDecimalC2Edil(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 24), (61, 62)) %this, double noundef %n, i32 noundef %v, i64 noundef %f) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512FixedDecimalE, i64 16), ptr %this, align 8
@@ -8423,7 +8423,7 @@ lpad:                                             ; preds = %call.i.i.i.noexc, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512FixedDecimal4initEdil(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, double noundef %n, i32 noundef %v, i64 noundef %f) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512FixedDecimal4initEdil(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 28), (32, 40), (48, 64)) %this, double noundef %n, i32 noundef %v, i64 noundef %f) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i.i = fcmp olt double %n, 0.000000e+00
   %conv.i.i = zext i1 %cmp.i.i to i8
@@ -8495,7 +8495,7 @@ _ZN6icu_7512FixedDecimal4initEdili.exit:          ; preds = %while.body.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512FixedDecimalC2Edi(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %n, i32 noundef %v) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512FixedDecimalC2Edi(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %this, double noundef %n, i32 noundef %v) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512FixedDecimalE, i64 16), ptr %this, align 8
@@ -8705,7 +8705,7 @@ return:                                           ; preds = %sw.default, %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512FixedDecimalC2Ed(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %n) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512FixedDecimalC2Ed(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %this, double noundef %n) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512FixedDecimalE, i64 16), ptr %this, align 8
@@ -8902,7 +8902,7 @@ _ZN6icu_7512FixedDecimal4initEdil.exit:           ; preds = %while.body.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512FixedDecimalC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512FixedDecimalC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 24), (61, 62)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512FixedDecimalE, i64 16), ptr %this, align 8
@@ -8962,7 +8962,7 @@ lpad:                                             ; preds = %call.i.i.i.noexc, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512FixedDecimalC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %num, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512FixedDecimalC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(64) %num, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cs = alloca %"class.icu_75::CharString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -9413,7 +9413,7 @@ declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl1
 declare noundef double @_ZNK6icu_756number4impl15DecimalQuantity8toDoubleEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7512FixedDecimalC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %other) unnamed_addr #15 align 2 {
+define void @_ZN6icu_7512FixedDecimalC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 28), (32, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %other) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512FixedDecimalE, i64 16), ptr %this, align 8
@@ -10123,7 +10123,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7533PluralAvailableLocalesEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7533PluralAvailableLocalesEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7533PluralAvailableLocalesEnumerationE, i64 16), ptr %this, align 8
   %fLocales = getelementptr inbounds i8, ptr %this, i64 120

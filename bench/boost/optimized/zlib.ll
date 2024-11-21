@@ -261,7 +261,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_9iostreams10zlib_
 declare void @_ZNSt8ios_base7failureB5cxx11D2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail9zlib_baseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0) unnamed_addr #0 align 2 {
+define void @_ZN5boost9iostreams6detail9zlib_baseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 9), (12, 28)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #22
   store ptr %2, ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -315,7 +315,7 @@ define void @_ZN5boost9iostreams6detail9zlib_base6beforeERPKcS4_RPcS6_(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail9zlib_base5afterERPKcRPcb(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define void @_ZN5boost9iostreams6detail9zlib_base5afterERPKcRPcb(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((20, 28)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !23
   %6 = load ptr, ptr %5, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -384,7 +384,7 @@ define noundef i32 @_ZN5boost9iostreams6detail9zlib_base8xinflateEi(ptr nocaptur
 declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail9zlib_base5resetEbb(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define void @_ZN5boost9iostreams6detail9zlib_base5resetEbb(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 20)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !23
   br i1 %2, label %5, label %10
 
@@ -425,7 +425,7 @@ declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #2
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail9zlib_base7do_initERKNS0_11zlib_paramsEbPFPvS6_jjEPFvS6_S6_ES6_(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(22) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams6detail9zlib_base7do_initERKNS0_11zlib_paramsEbPFPvS6_jjEPFvS6_S6_ES6_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((8, 9)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(22) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::bad_alloc", align 8
   %8 = alloca %"class.boost::iostreams::zlib_error", align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 21

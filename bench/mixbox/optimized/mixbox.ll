@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZL11zdist_extra = internal unnamed_addr constant [32 x i32] [i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7, i32 8, i32 8, i32 9, i32 9, i32 10, i32 10, i32 11, i32 11, i32 12, i32 12, i32 13, i32 13, i32 0, i32 0], align 16
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @mixbox_rgb_to_latent(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @mixbox_rgb_to_latent(i8 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr nocapture noundef writeonly initializes((0, 28)) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = load atomic i8, ptr @_ZGVZL10mixbox_lutvE12decompressed acquire, align 8
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %10, !prof !5
@@ -330,7 +330,7 @@ define dso_local void @mixbox_rgb_to_latent(i8 noundef zeroext %0, i8 noundef ze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @mixbox_latent_to_rgb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define dso_local void @mixbox_latent_to_rgb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #1 {
   %5 = load float, ptr %0, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
@@ -462,7 +462,7 @@ define dso_local void @mixbox_latent_to_rgb(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @mixbox_float_rgb_to_latent(float noundef %0, float noundef %1, float noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @mixbox_float_rgb_to_latent(float noundef %0, float noundef %1, float noundef %2, ptr nocapture noundef writeonly initializes((0, 28)) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = load atomic i8, ptr @_ZGVZL10mixbox_lutvE12decompressed acquire, align 8
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %10, !prof !5
@@ -734,7 +734,7 @@ define dso_local void @mixbox_float_rgb_to_latent(float noundef %0, float nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @mixbox_linear_float_rgb_to_latent(float noundef %0, float noundef %1, float noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @mixbox_linear_float_rgb_to_latent(float noundef %0, float noundef %1, float noundef %2, ptr nocapture noundef writeonly initializes((0, 28)) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = fcmp ult float %0, 0x3F69A5C380000000
   br i1 %5, label %9, label %6
 
@@ -1048,7 +1048,7 @@ define dso_local void @mixbox_linear_float_rgb_to_latent(float noundef %0, float
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @mixbox_latent_to_float_rgb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define dso_local void @mixbox_latent_to_float_rgb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #1 {
   %5 = load float, ptr %0, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
@@ -1171,7 +1171,7 @@ define dso_local void @mixbox_latent_to_float_rgb(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @mixbox_latent_to_linear_float_rgb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
+define dso_local void @mixbox_latent_to_linear_float_rgb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #2 {
   %5 = load float, ptr %0, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
@@ -4605,7 +4605,7 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef nonnull %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 289) %2) unnamed_addr #7 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL14zbuild_huffmanP8zhuffmanPKhi(ptr nocapture noundef nonnull initializes((0, 1024)) %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 289) %2) unnamed_addr #7 {
 .preheader85.preheader:
   %3 = alloca [16 x i32], align 16
   %4 = alloca [17 x i32], align 16

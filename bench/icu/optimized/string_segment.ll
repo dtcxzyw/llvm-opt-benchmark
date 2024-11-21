@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7513StringSegmentC1ERKNS_13UnicodeStringEb = unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN6icu_7513StringSegmentC2ERKNS_13UnicodeStringEb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7513StringSegmentC2ERKNS_13UnicodeStringEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(64) %str, i1 noundef zeroext %ignoreCase) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7513StringSegmentC2ERKNS_13UnicodeStringEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr noundef nonnull align 8 dereferenceable(64) %str, i1 noundef zeroext %ignoreCase) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %ignoreCase to i8
   store ptr %str, ptr %this, align 8
@@ -43,7 +43,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7513StringSegment9setOffsetEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, i32 noundef %start) local_unnamed_addr #2 align 2 {
+define void @_ZN6icu_7513StringSegment9setOffsetEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((8, 12)) %this, i32 noundef %start) local_unnamed_addr #2 align 2 {
 entry:
   %fStart = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %start, ptr %fStart, align 8
@@ -177,7 +177,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7513StringSegment9setLengthEi(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this, i32 noundef %length) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7513StringSegment9setLengthEi(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((12, 16)) %this, i32 noundef %length) local_unnamed_addr #0 align 2 {
 entry:
   %fStart = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fStart, align 8
@@ -188,7 +188,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7513StringSegment11resetLengthEv(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN6icu_7513StringSegment11resetLengthEv(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((12, 16)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %fUnion.i.i = getelementptr inbounds i8, ptr %0, i64 8

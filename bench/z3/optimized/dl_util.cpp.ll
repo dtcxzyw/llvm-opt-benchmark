@@ -255,7 +255,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog14verbose_actionC2EPKcj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %msg, i32 noundef %lvl) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog14verbose_actionC2EPKcj(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %this, ptr noundef %msg, i32 noundef %lvl) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %lvl, ptr %this, align 8
   %m_sw = getelementptr inbounds i8, ptr %this, i64 8
@@ -4756,7 +4756,7 @@ return:                                           ; preds = %for.inc, %_ZN6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog23collect_sub_permutationERK7svectorIjjES3_RS1_Rb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %permutation, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %translation, ptr noundef nonnull align 8 dereferenceable(8) %res, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %identity) local_unnamed_addr #3 {
+define hidden void @_ZN7datalog23collect_sub_permutationERK7svectorIjjES3_RS1_Rb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %permutation, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %translation, ptr noundef nonnull align 8 dereferenceable(8) %res, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %identity) local_unnamed_addr #3 {
 entry:
   store i8 1, ptr %identity, align 1
   %0 = load ptr, ptr %permutation, align 8

@@ -1337,7 +1337,7 @@ define hidden noundef zeroext i1 @_ZN10VectorNode13is_vshift_cntEP4Node(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10VectorNode15vector_operandsEP4NodePjS2_(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10VectorNode15vector_operandsEP4NodePjS2_(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(52) %0) #8

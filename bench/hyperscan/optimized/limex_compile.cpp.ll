@@ -7530,7 +7530,7 @@ return:                                           ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_110build_infoC2ERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEERKSt6vectorINS_17BoundedRepeatDataESaISO_EERKS4_ISB_N5boost14dynamic_bitsetImSaImEEESD_SF_SaISG_ISH_SW_EEES11_RKSt3mapIjSt3setISB_St4lessISB_ESaISB_EES14_IjESaISG_IKjS17_EEERKS17_bbRKNS_14CompileContextEj(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef nonnull align 8 dereferenceable(136) %hi, ptr noundef nonnull align 8 dereferenceable(56) %states_in, ptr noundef nonnull align 8 dereferenceable(24) %ri, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %rsmi, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %smi, ptr noundef nonnull align 8 dereferenceable(48) %ti, ptr noundef nonnull align 8 dereferenceable(48) %zi, i1 noundef zeroext %dai, i1 noundef zeroext %sci, ptr noundef nonnull align 8 dereferenceable(320) %cci, i32 noundef %nsi) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_110build_infoC2ERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEERKSt6vectorINS_17BoundedRepeatDataESaISO_EERKS4_ISB_N5boost14dynamic_bitsetImSaImEEESD_SF_SaISG_ISH_SW_EEES11_RKSt3mapIjSt3setISB_St4lessISB_ESaISB_EES14_IjESaISG_IKjS17_EEERKS17_bbRKNS_14CompileContextEj(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(136) %hi, ptr noundef nonnull align 8 dereferenceable(56) %states_in, ptr noundef nonnull align 8 dereferenceable(24) %ri, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %rsmi, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %smi, ptr noundef nonnull align 8 dereferenceable(48) %ti, ptr noundef nonnull align 8 dereferenceable(48) %zi, i1 noundef zeroext %dai, i1 noundef zeroext %sci, ptr noundef nonnull align 8 dereferenceable(320) %cci, i32 noundef %nsi) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.113", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.116", align 1
@@ -34213,7 +34213,7 @@ if.end:                                           ; preds = %_ZNSt8_Rb_treeIN3ue
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_114ExceptionProtoC2ERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(84) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_114ExceptionProtoC2ERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(84) initializes((0, 4), (8, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load i32, ptr %0, align 8
   store i32 %1, ptr %this, align 8

@@ -300,7 +300,7 @@ define dso_local noundef double @_ZNK4llvm13RegAllocScore8getScoreEv(ptr nocaptu
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::RegAllocScore") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionERKNS_25MachineBlockFrequencyInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::RegAllocScore") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 {
   %4 = alloca %class.anon, align 8
   %5 = alloca %class.anon.80, align 8
   store ptr %2, ptr %4, align 8
@@ -312,7 +312,7 @@ define dso_local void @_ZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionENS_12function_refIFdRKNS_17MachineBasicBlockEEEENS3_IFbRKNS_12MachineInstrEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::RegAllocScore") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(1041) %1, ptr nocapture readonly %2, i64 %3, ptr nocapture readonly %4, i64 %5) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm22calculateRegAllocScoreERKNS_15MachineFunctionENS_12function_refIFdRKNS_17MachineBasicBlockEEEENS3_IFbRKNS_12MachineInstrEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::RegAllocScore") align 8 initializes((0, 48)) %0, ptr noundef nonnull readonly align 8 dereferenceable(1041) %1, ptr nocapture readonly %2, i64 %3, ptr nocapture readonly %4, i64 %5) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 320

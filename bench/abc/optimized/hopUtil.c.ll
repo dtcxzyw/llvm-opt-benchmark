@@ -140,7 +140,7 @@ Hop_ManCleanData.exit:                            ; preds = %.critedge2.i, %.cri
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Hop_ManCleanData(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Hop_ManCleanData(ptr nocapture noundef initializes((128, 132)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 1, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 24
@@ -228,7 +228,7 @@ define void @Hop_ManCleanData(ptr nocapture noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Hop_ObjCleanData_rec(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @Hop_ObjCleanData_rec(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val = load i32, ptr %2, align 8
   %3 = and i32 %.val, 7
@@ -388,7 +388,7 @@ Vec_PtrPushUnique.exit:                           ; preds = %20, %Vec_PtrPush.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Hop_ObjCollectMulti(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @Hop_ObjCollectMulti(ptr noundef %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   tail call void @Hop_ObjCollectMulti_rec(ptr noundef %0, ptr noundef %0, ptr noundef %1)

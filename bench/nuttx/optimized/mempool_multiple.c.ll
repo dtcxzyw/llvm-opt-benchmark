@@ -1114,7 +1114,7 @@ define void @mempool_multiple_foreach(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mempool_multiple_mallinfo(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.mallinfo) align 4 %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @mempool_multiple_mallinfo(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.mallinfo) align 4 initializes((0, 28)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.mempoolinfo_s, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, i8 0, i64 24, i1 false)

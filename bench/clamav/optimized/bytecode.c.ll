@@ -496,14 +496,14 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @cli_bytecode_context_destroy(ptr noundef %0) local_unnamed_addr #0 {
+define void @cli_bytecode_context_destroy(ptr noundef initializes((2, 8), (64, 72), (1096, 1100), (1244, 1248)) %0) local_unnamed_addr #0 {
   tail call fastcc void @bytecode_context_reset(ptr noundef %0)
   tail call void @free(ptr noundef %0) #25
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bytecode_context_reset(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @bytecode_context_reset(ptr noundef initializes((2, 8), (64, 72), (1096, 1100), (1244, 1248)) %0) unnamed_addr #0 {
   %2 = alloca [1025 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -797,7 +797,7 @@ define internal fastcc void @bytecode_context_reset(ptr noundef %0) unnamed_addr
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @cli_bytecode_context_getresult_file(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define i32 @cli_bytecode_context_getresult_file(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1080
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8
@@ -1313,7 +1313,7 @@ define void @cli_sigperf_events_destroy() local_unnamed_addr #0 {
 declare void @cli_events_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @cli_bytecode_load(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @cli_bytecode_load(ptr noundef initializes((0, 200)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   %.sroa.36.i = alloca [3 x i8], align 1
@@ -8243,7 +8243,7 @@ declare i32 @cli_bytecode_prepare_jit(ptr noundef) local_unnamed_addr #2
 declare i32 @cli_bytecode_done_jit(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 29) i32 @cli_bytecode_prepare_interpreter(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 29) i32 @cli_bytecode_prepare_interpreter(ptr noundef initializes((172, 176)) %0) unnamed_addr #0 {
   %2 = load i32, ptr @cli_apicall_maxglobal, align 4
   %3 = add i32 %2, -32766
   %4 = getelementptr inbounds i8, ptr %0, i64 172
@@ -10196,7 +10196,7 @@ get_geptypesize.exit:                             ; preds = %627
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bytecode_init(ptr noundef %0) local_unnamed_addr #0 {
+define i32 @cli_bytecode_init(ptr noundef initializes((0, 520)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %0, i8 0, i64 520, i1 false)
   %2 = tail call i32 @cli_bytecode_init_jit(ptr noundef %0, i32 noundef 0) #25
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10218,7 +10218,7 @@ define i32 @cli_bytecode_done(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @cli_bytecode_context_setfile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef i32 @cli_bytecode_context_setfile(ptr noundef initializes((56, 60), (72, 80)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 88
@@ -10400,7 +10400,7 @@ define i32 @cli_bytecode_runlsig(ptr noundef %0, ptr noundef readonly %1, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @cli_bytecode_context_setctx(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @cli_bytecode_context_setctx(ptr nocapture noundef writeonly initializes((24, 28), (1088, 1096)) %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1088
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
@@ -10703,7 +10703,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @cli_bytecode_context_setpe(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #14 {
+define noundef i32 @cli_bytecode_context_setpe(ptr nocapture noundef writeonly initializes((128, 136), (1064, 1072)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #14 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1064
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -10712,7 +10712,7 @@ define noundef i32 @cli_bytecode_context_setpe(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @cli_bytecode_context_setpdf(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #14 {
+define noundef i32 @cli_bytecode_context_setpdf(ptr nocapture noundef writeonly initializes((1024, 1028), (1032, 1060)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #14 {
   %8 = getelementptr inbounds i8, ptr %0, i64 1024
   store i32 %2, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 1032

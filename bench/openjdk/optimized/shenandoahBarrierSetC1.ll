@@ -142,7 +142,7 @@ define hidden void @_ZN34ShenandoahLoadReferenceBarrierStub9emit_codeEP13LIR_Ass
 declare void @_ZN29ShenandoahBarrierSetAssembler31gen_load_reference_barrier_stubEP13LIR_AssemblerP34ShenandoahLoadReferenceBarrierStub(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22ShenandoahBarrierSetC1C2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN22ShenandoahBarrierSetC1C2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV22ShenandoahBarrierSetC1, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
@@ -1881,7 +1881,7 @@ declare noundef zeroext i1 @_ZN20ShenandoahBarrierSet27need_load_reference_barri
 declare noundef zeroext i1 @_ZN20ShenandoahBarrierSet23need_keep_alive_barrierEm9BasicType(i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ShenandoahBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN22ShenandoahBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.C1ShenandoahPreBarrierCodeGenClosure, align 8
   %4 = alloca %class.C1ShenandoahLoadReferenceBarrierCodeGenClosure, align 8
   %5 = alloca %class.C1ShenandoahLoadReferenceBarrierCodeGenClosure, align 8

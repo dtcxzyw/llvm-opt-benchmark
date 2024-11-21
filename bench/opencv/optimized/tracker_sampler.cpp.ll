@@ -39,7 +39,7 @@ $_ZNSt6vectorIN2cv3PtrINS0_6detail8tracking23TrackerSamplerAlgorithmEEESaIS5_EE1
 @_ZN2cv6detail8tracking14TrackerSamplerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv6detail8tracking14TrackerSamplerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv6detail8tracking14TrackerSamplerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv6detail8tracking14TrackerSamplerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 49)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 49, i1 false)
   ret void
 }

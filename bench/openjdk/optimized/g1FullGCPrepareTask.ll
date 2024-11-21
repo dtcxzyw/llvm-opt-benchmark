@@ -429,7 +429,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN19G1FullGCPrepareTask27G1PrepareCompactLiveClosureC1EP23G1FullGCCompactionPoint = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN19G1FullGCPrepareTask27G1PrepareCompactLiveClosureC2EP23G1FullGCCompactionPoint
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN33G1DetermineCompactionQueueClosureC2EP15G1FullCollector(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN33G1DetermineCompactionQueueClosureC2EP15G1FullCollector(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 9), (16, 36)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV33G1DetermineCompactionQueueClosure, i64 16), ptr %0, align 8
@@ -502,7 +502,7 @@ define hidden void @_ZN19G1FullGCPrepareTask26G1CalculatePointersClosure22prepar
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1FullGCPrepareTaskC2EP15G1FullCollector(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN19G1FullGCPrepareTaskC2EP15G1FullCollector(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20), (24, 32)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str, ptr %3, align 8
@@ -655,7 +655,7 @@ declare noundef ptr @_ZN23G1FullGCCompactionPoint14current_regionEv(ptr noundef 
 declare void @_ZN12G1FullGCTask8log_taskEPKcjRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceES7_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1FullGCPrepareTask26G1CalculatePointersClosureC2EP15G1FullCollectorP23G1FullGCCompactionPoint(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN19G1FullGCPrepareTask26G1CalculatePointersClosureC2EP15G1FullCollectorP23G1FullGCCompactionPoint(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 9), (16, 48)) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN19G1FullGCPrepareTask26G1CalculatePointersClosureE, i64 16), ptr %0, align 8
@@ -675,7 +675,7 @@ define hidden void @_ZN19G1FullGCPrepareTask26G1CalculatePointersClosureC2EP15G1
 declare noundef ptr @_ZN15G1FullCollector11mark_bitmapEv(ptr noundef nonnull align 8 dereferenceable(824)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19G1FullGCPrepareTask27G1PrepareCompactLiveClosureC2EP23G1FullGCCompactionPoint(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN19G1FullGCPrepareTask27G1PrepareCompactLiveClosureC2EP23G1FullGCCompactionPoint(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

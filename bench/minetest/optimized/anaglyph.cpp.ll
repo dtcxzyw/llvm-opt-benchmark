@@ -424,7 +424,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN16SetColorMaskStepC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr nocapture noundef readonly %vtt, i32 noundef %_color_mask) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16SetColorMaskStepC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture noundef readonly %vtt, i32 noundef %_color_mask) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -458,7 +458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16SetColorMaskStepC1Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %_color_mask) unnamed_addr #6 align 2 {
+define dso_local void @_ZN16SetColorMaskStepC1Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, i32 noundef %_color_mask) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16SetColorMaskStep, i64 40), ptr %this, align 8, !tbaa !12
   %color_mask = getelementptr inbounds i8, ptr %this, i64 8
@@ -518,7 +518,7 @@ _ZN3irr5video17SOverrideMaterial5resetEv.exit:    ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN22ClearDepthBufferTargetC2EP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_target) unnamed_addr #5 align 2 {
+define dso_local void @_ZN22ClearDepthBufferTargetC2EP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 9), (16, 24)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_target) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -545,7 +545,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22ClearDepthBufferTargetC1EP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %_target) unnamed_addr #6 align 2 {
+define dso_local void @_ZN22ClearDepthBufferTargetC1EP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 9), (16, 24)) %this, ptr noundef %_target) unnamed_addr #6 align 2 {
 entry:
   %m_clear.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %m_clear.i, align 8, !tbaa !41
@@ -577,7 +577,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN31ConfigureOverrideMaterialTargetC2EP12RenderTargetb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_upstream, i1 noundef zeroext %_enable) unnamed_addr #5 align 2 {
+define dso_local void @_ZN31ConfigureOverrideMaterialTargetC2EP12RenderTargetb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 9), (16, 25)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_upstream, i1 noundef zeroext %_enable) unnamed_addr #5 align 2 {
 entry:
   %frombool = zext i1 %_enable to i8
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -607,7 +607,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN31ConfigureOverrideMaterialTargetC1EP12RenderTargetb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr noundef %_upstream, i1 noundef zeroext %_enable) unnamed_addr #6 align 2 {
+define dso_local void @_ZN31ConfigureOverrideMaterialTargetC1EP12RenderTargetb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 9), (16, 25)) %this, ptr noundef %_upstream, i1 noundef zeroext %_enable) unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %_enable to i8
   %m_clear.i = getelementptr inbounds i8, ptr %this, i64 8

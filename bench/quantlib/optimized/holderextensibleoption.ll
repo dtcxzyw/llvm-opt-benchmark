@@ -1005,7 +1005,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22HolderExtensibleOptionC1ENS_6Option4TypeEdNS_4DateEdRKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS5_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(248) %this, i32 noundef %type, double noundef %premium, i64 %secondExpiryDate.coerce, double noundef %secondStrike, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22HolderExtensibleOptionC1ENS_6Option4TypeEdNS_4DateEdRKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS5_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(248) initializes((248, 256), (264, 268), (272, 280)) %this, i32 noundef %type, double noundef %premium, i64 %secondExpiryDate.coerce, double noundef %secondStrike, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 248

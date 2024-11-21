@@ -7852,7 +7852,7 @@ declare i32 @FLAC__MD5Accumulate(ptr noundef, ptr noundef, i32 noundef, i32 noun
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @process_frame_thread_inner_(ptr nocapture noundef readonly %encoder, ptr noundef %task) local_unnamed_addr #0 {
+define hidden noundef i32 @process_frame_thread_inner_(ptr nocapture noundef readonly %encoder, ptr noundef initializes((14968, 14972)) %task) local_unnamed_addr #0 {
 entry:
   %crc = alloca i16, align 2
   %call = tail call fastcc i32 @process_subframes_(ptr noundef %encoder, ptr noundef %task)
@@ -7896,7 +7896,7 @@ if.end19:                                         ; preds = %if.end19.sink.split
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @process_subframes_(ptr nocapture noundef readonly %encoder, ptr noundef %threadtask) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_subframes_(ptr nocapture noundef readonly %encoder, ptr noundef initializes((14968, 14972)) %threadtask) unnamed_addr #0 {
 entry:
   %frame_header = alloca %struct.FLAC__FrameHeader, align 8
   %bits = alloca [4 x i32], align 16
@@ -9336,7 +9336,7 @@ declare i32 @sem_trywait(ptr noundef) local_unnamed_addr #4
 declare i32 @FLAC__format_get_max_rice_partition_order_from_blocksize(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @process_subframe_(ptr nocapture noundef readonly %encoder, ptr noundef %threadtask, i32 noundef %min_partition_order, i32 noundef %max_partition_order, ptr nocapture noundef nonnull readonly %frame_header, i32 noundef %subframe_bps, ptr noundef %integer_signal, ptr nocapture noundef readonly %subframe, ptr nocapture noundef readonly %partitioned_rice_contents, ptr nocapture noundef readonly %residual, ptr nocapture noundef writeonly %best_subframe, ptr nocapture noundef writeonly %best_bits) unnamed_addr #0 {
+define internal fastcc void @process_subframe_(ptr nocapture noundef readonly %encoder, ptr noundef %threadtask, i32 noundef %min_partition_order, i32 noundef %max_partition_order, ptr nocapture noundef nonnull readonly %frame_header, i32 noundef %subframe_bps, ptr noundef %integer_signal, ptr nocapture noundef readonly %subframe, ptr nocapture noundef readonly %partitioned_rice_contents, ptr nocapture noundef readonly %residual, ptr nocapture noundef writeonly %best_subframe, ptr nocapture noundef writeonly initializes((0, 4)) %best_bits) unnamed_addr #0 {
 entry:
   %qlp_coeff.i = alloca [32 x i32], align 16
   %quantization.i = alloca i32, align 4

@@ -1775,7 +1775,7 @@ define dso_local i64 @hash_get_num_entries(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hash_seq_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @hash_seq_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %0, ptr noundef %1) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8

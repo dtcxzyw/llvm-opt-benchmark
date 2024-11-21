@@ -228,7 +228,7 @@ declare ptr @current_accel() local_unnamed_addr #3
 declare zeroext i1 @object_property_get_bool(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_vmstop_requested(ptr nocapture noundef %r) local_unnamed_addr #1 {
+define dso_local zeroext i1 @qemu_vmstop_requested(ptr nocapture noundef initializes((0, 4)) %r) local_unnamed_addr #1 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr

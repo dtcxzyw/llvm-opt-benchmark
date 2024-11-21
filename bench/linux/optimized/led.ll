@@ -64,7 +64,7 @@ define dso_local void @ieee80211_led_radio(ptr noundef %0, i1 noundef zeroext %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_alloc_led_names(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_alloc_led_names(ptr nocapture noundef initializes((4912, 4920), (4992, 5000), (5072, 5080), (5152, 5160)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 456

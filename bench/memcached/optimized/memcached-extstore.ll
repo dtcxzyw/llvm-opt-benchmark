@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.extstore_err = private unnamed_addr constant [7 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @extstore_get_stats(ptr noundef %ptr, ptr nocapture noundef %st) local_unnamed_addr #0 {
+define dso_local void @extstore_get_stats(ptr noundef %ptr, ptr nocapture noundef initializes((0, 144)) %st) local_unnamed_addr #0 {
 entry:
   %stats_mutex = getelementptr inbounds i8, ptr %ptr, i64 144
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %stats_mutex) #12
@@ -1646,7 +1646,7 @@ if.end11:                                         ; preds = %if.end.thread, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @extstore_write(ptr noundef %ptr, ptr nocapture noundef %io) local_unnamed_addr #0 {
+define dso_local void @extstore_write(ptr noundef %ptr, ptr nocapture noundef initializes((36, 40), (44, 48)) %io) local_unnamed_addr #0 {
 entry:
   %pages = getelementptr inbounds i8, ptr %ptr, i64 40
   %0 = load ptr, ptr %pages, align 8
@@ -1928,7 +1928,7 @@ declare i32 @pthread_setname_np(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal void @_wbuf_cb(ptr noundef %ep, ptr noundef %io, i32 %ret) #0 {
+define internal void @_wbuf_cb(ptr noundef %ep, ptr noundef initializes((8, 16)) %io, i32 %ret) #0 {
 entry:
   %pages = getelementptr inbounds i8, ptr %ep, i64 40
   %0 = load ptr, ptr %pages, align 8

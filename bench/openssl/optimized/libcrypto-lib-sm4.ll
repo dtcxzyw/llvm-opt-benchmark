@@ -268,7 +268,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_sm4_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %ks) local_unnamed_addr #1 {
+define void @ossl_sm4_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly initializes((0, 16)) %out, ptr nocapture noundef readonly %ks) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %in, align 1
   %conv.i = zext i8 %0 to i32
@@ -1379,7 +1379,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_sm4_decrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %ks) local_unnamed_addr #1 {
+define void @ossl_sm4_decrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly initializes((0, 16)) %out, ptr nocapture noundef readonly %ks) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %in, align 1
   %conv.i = zext i8 %0 to i32

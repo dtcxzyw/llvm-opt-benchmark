@@ -189,7 +189,7 @@ _ZNK9VectorSet4testEj.exit:                       ; preds = %2, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13PhaseRegAlloc15alloc_node_regsEi(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13PhaseRegAlloc15alloc_node_regsEi(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((24, 36)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = ashr i32 %1, 1
   %4 = add i32 %1, 200
   %5 = add i32 %4, %3

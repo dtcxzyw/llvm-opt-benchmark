@@ -1128,7 +1128,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24DumpTimeSharedClassTable13update_countsEv(ptr noundef nonnull align 8 dereferenceable(127124) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24DumpTimeSharedClassTable13update_countsEv(ptr noundef nonnull align 8 dereferenceable(127124) initializes((127116, 127124)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.11, align 8
   %3 = alloca %class.anon, align 8
   %4 = alloca ptr, align 8

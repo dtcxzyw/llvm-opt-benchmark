@@ -9292,7 +9292,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test38SepFilterPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test38SepFilterPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -10936,7 +10936,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test37Filter2DPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test37Filter2DPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -12298,7 +12298,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test38BoxFilterPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test38BoxFilterPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -13561,7 +13561,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test33BlurPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test33BlurPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -14817,7 +14817,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test41GaussianBlurPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test41GaussianBlurPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -16109,7 +16109,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test39MedianBlurPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test39MedianBlurPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -17345,7 +17345,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test34ErodePerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test34ErodePerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -18634,7 +18634,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test37Erode3x3PerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test37Erode3x3PerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -19944,7 +19944,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test35DilatePerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test35DilatePerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -21231,7 +21231,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test38Dilate3x3PerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test38Dilate3x3PerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -22505,7 +22505,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test41MorphologyExPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test41MorphologyExPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -23821,7 +23821,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test34SobelPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test34SobelPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -25114,7 +25114,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test36SobelXYPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test36SobelXYPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -27417,7 +27417,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test38LaplacianPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test38LaplacianPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -28660,7 +28660,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test44BilateralFilterPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test44BilateralFilterPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -29949,7 +29949,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test34CannyPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test34CannyPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -31241,7 +31241,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test41GoodFeaturesPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test41GoodFeaturesPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -32810,7 +32810,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test41FindContoursPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test41FindContoursPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -34833,7 +34833,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test42FindContoursHPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test42FindContoursHPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -36382,7 +36382,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test44BoundingRectMatPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test44BoundingRectMatPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -38022,7 +38022,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test50BoundingRectVector32SPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test50BoundingRectVector32SPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -39713,7 +39713,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test50BoundingRectVector32FPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test50BoundingRectVector32FPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -41373,7 +41373,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test47FitLine2DMatVectorPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test47FitLine2DMatVectorPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -42735,7 +42735,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test47FitLine2DVector32SPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test47FitLine2DVector32SPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -43952,7 +43952,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test47FitLine2DVector32FPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test47FitLine2DVector32FPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -45133,7 +45133,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test47FitLine2DVector64FPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test47FitLine2DVector64FPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -46796,7 +46796,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test47FitLine3DMatVectorPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test47FitLine3DMatVectorPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -48213,7 +48213,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test47FitLine3DVector32SPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test47FitLine3DVector32SPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -49918,7 +49918,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test47FitLine3DVector32FPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test47FitLine3DVector32FPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -51593,7 +51593,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test47FitLine3DVector64FPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test47FitLine3DVector64FPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -53268,7 +53268,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test35EqHistPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test35EqHistPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -54670,7 +54670,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test36BGR2RGBPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test36BGR2RGBPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -55895,7 +55895,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test37RGB2GrayPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test37RGB2GrayPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -57163,7 +57163,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test37BGR2GrayPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test37BGR2GrayPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -58431,7 +58431,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test36RGB2YUVPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test36RGB2YUVPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -59699,7 +59699,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test36YUV2RGBPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test36YUV2RGBPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -60967,7 +60967,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test37BGR2I420PerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test37BGR2I420PerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -62196,7 +62196,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test37RGB2I420PerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test37RGB2I420PerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -63425,7 +63425,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test37I4202BGRPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test37I4202BGRPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -64654,7 +64654,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test37I4202RGBPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test37I4202RGBPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -65883,7 +65883,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test36RGB2LabPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test36RGB2LabPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -67151,7 +67151,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test36BGR2LUVPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test36BGR2LUVPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -68419,7 +68419,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test36LUV2BGRPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test36LUV2BGRPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -69687,7 +69687,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test36BGR2YUVPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test36BGR2YUVPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -70955,7 +70955,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test36YUV2BGRPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test36YUV2BGRPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -72223,7 +72223,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test40BayerGR2RGBPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test40BayerGR2RGBPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -73491,7 +73491,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test36RGB2HSVPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test36RGB2HSVPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -74782,7 +74782,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test39RGB2YUV422PerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test39RGB2YUV422PerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -76220,7 +76220,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test35ResizePerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test35ResizePerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -77930,7 +77930,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test39ResizeFxFyPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test39ResizeFxFyPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -79523,7 +79523,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test48ResizeInSimpleGraphPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test48ResizeInSimpleGraphPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -82127,7 +82127,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test56BottleneckKernelsConstInputPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test56BottleneckKernelsConstInputPerfTest_TestPerformance_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(673) initializes((672, 673)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -89304,7 +89304,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38SepFilterPer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38SepFilterPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38SepFilterPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38SepFilterPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -89312,7 +89312,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38SepFilterPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38SepFilterPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38SepFilterPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -92609,7 +92609,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Filter2DPerf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Filter2DPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Filter2DPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Filter2DPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -92617,7 +92617,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Filter2DPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Filter2DPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Filter2DPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -95665,7 +95665,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38BoxFilterPer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38BoxFilterPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38BoxFilterPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38BoxFilterPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -95673,7 +95673,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38BoxFilterPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38BoxFilterPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38BoxFilterPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -98590,7 +98590,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test33BlurPerfTest
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test33BlurPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test33BlurPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test33BlurPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -98598,7 +98598,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test33BlurPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test33BlurPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test33BlurPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -101652,7 +101652,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GaussianBlur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GaussianBlurPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GaussianBlurPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GaussianBlurPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #30
@@ -101660,7 +101660,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GaussianBlurPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GaussianBlurPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GaussianBlurPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #30
@@ -104552,7 +104552,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39MedianBlurPe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39MedianBlurPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39MedianBlurPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39MedianBlurPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #30
@@ -104560,7 +104560,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39MedianBlurPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39MedianBlurPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39MedianBlurPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #30
@@ -107477,7 +107477,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34ErodePerfTes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34ErodePerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34ErodePerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34ErodePerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -107485,7 +107485,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34ErodePerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34ErodePerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34ErodePerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -110539,7 +110539,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Erode3x3Perf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Erode3x3PerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Erode3x3PerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Erode3x3PerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeENS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #30
@@ -110547,7 +110547,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Erode3x3PerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Erode3x3PerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Erode3x3PerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeENS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #30
@@ -113509,7 +113509,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35DilatePerfTe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35DilatePerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35DilatePerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35DilatePerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -113517,7 +113517,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35DilatePerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35DilatePerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35DilatePerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -116364,7 +116364,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38Dilate3x3Per
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38Dilate3x3PerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38Dilate3x3PerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38Dilate3x3PerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeENS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #30
@@ -116372,7 +116372,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38Dilate3x3PerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38Dilate3x3PerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38Dilate3x3PerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeENS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #30
@@ -119472,7 +119472,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41MorphologyEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41MorphologyExPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41MorphologyExPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41MorphologyExPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeENS1_5Size_IiEENS1_10MorphTypesESt6vectorINS1_11GCompileArgESaISD_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #30
@@ -119480,7 +119480,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41MorphologyExPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41MorphologyExPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41MorphologyExPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeENS1_5Size_IiEENS1_10MorphTypesESt6vectorINS1_11GCompileArgESaISD_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #30
@@ -122739,7 +122739,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34SobelPerfTes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34SobelPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34SobelPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34SobelPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiiiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #30
@@ -122747,7 +122747,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34SobelPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34SobelPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34SobelPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiiiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #30
@@ -125795,7 +125795,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36SobelXYPerfT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36SobelXYPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36SobelXYPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36SobelXYPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -125803,7 +125803,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36SobelXYPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36SobelXYPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36SobelXYPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -128873,7 +128873,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38LaplacianPer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38LaplacianPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38LaplacianPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38LaplacianPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -128881,7 +128881,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38LaplacianPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38LaplacianPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test38LaplacianPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -132097,7 +132097,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BilateralFil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BilateralFilterPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BilateralFilterPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BilateralFilterPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiddSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
@@ -132105,7 +132105,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BilateralFilterPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BilateralFilterPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BilateralFilterPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEiddSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
@@ -135366,7 +135366,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34CannyPerfTes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34CannyPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34CannyPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34CannyPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeENS1_5Size_IiEEddibSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
@@ -135374,7 +135374,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34CannyPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34CannyPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test34CannyPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeENS1_5Size_IiEEddibSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
@@ -138700,7 +138700,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GoodFeatures
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GoodFeaturesPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GoodFeaturesPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GoodFeaturesPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKSt6vectorIN2cv6Point_IfEESaIS4_EES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiddibS1_INS2_11GCompileArgESaISH_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #30
@@ -138708,7 +138708,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GoodFeaturesPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GoodFeaturesPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41GoodFeaturesPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKSt6vectorIN2cv6Point_IfEESaIS4_EES8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiddibS1_INS2_11GCompileArgESaISH_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #30
@@ -142082,7 +142082,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41FindContours
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41FindContoursPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41FindContoursPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41FindContoursPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3MatES3_EEN4perf7MatTypeENS2_5Size_IiEENS2_14RetrievalModesENS2_25ContourApproximationModesESt6vectorINS2_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #30
@@ -142090,7 +142090,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41FindContoursPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41FindContoursPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test41FindContoursPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3MatES3_EEN4perf7MatTypeENS2_5Size_IiEENS2_14RetrievalModesENS2_25ContourApproximationModesESt6vectorINS2_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #30
@@ -145100,7 +145100,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test42FindContours
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test42FindContoursHPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test42FindContoursHPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test42FindContoursHPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3MatES3_EEN4perf7MatTypeENS2_5Size_IiEENS2_14RetrievalModesENS2_25ContourApproximationModesESt6vectorINS2_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #30
@@ -145108,7 +145108,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test42FindContoursHPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test42FindContoursHPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test42FindContoursHPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3MatES3_EEN4perf7MatTypeENS2_5Size_IiEENS2_14RetrievalModesENS2_25ContourApproximationModesESt6vectorINS2_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #30
@@ -148302,7 +148302,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BoundingRect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BoundingRectMatPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BoundingRectMatPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BoundingRectMatPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv5Rect_IiEES4_EEN4perf7MatTypeENS2_5Size_IiEEbSt6vectorINS2_11GCompileArgESaISB_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -148310,7 +148310,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BoundingRectMatPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BoundingRectMatPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test44BoundingRectMatPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv5Rect_IiEES4_EEN4perf7MatTypeENS2_5Size_IiEEbSt6vectorINS2_11GCompileArgESaISB_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -151746,7 +151746,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRectVector32SPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRectVector32SPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRectVector32SPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv5Rect_IiEES4_EENS2_5Size_IiEESt6vectorINS2_11GCompileArgESaIS9_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
@@ -151754,7 +151754,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRectVector32SPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRectVector32SPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRectVector32SPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv5Rect_IiEES4_EENS2_5Size_IiEESt6vectorINS2_11GCompileArgESaIS9_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
@@ -154765,7 +154765,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRectVector32FPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRectVector32FPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRectVector32FPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv5Rect_IiEES4_EENS2_5Size_IiEESt6vectorINS2_11GCompileArgESaIS9_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
@@ -154773,7 +154773,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRectVector32FPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRectVector32FPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test50BoundingRectVector32FPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv5Rect_IiEES4_EENS2_5Size_IiEESt6vectorINS2_11GCompileArgESaIS9_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
@@ -158015,7 +158015,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DMat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DMatVectorPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DMatVectorPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DMatVectorPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi4EEES4_EEN4perf7MatTypeENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -158023,7 +158023,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DMatVectorPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DMatVectorPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DMatVectorPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi4EEES4_EEN4perf7MatTypeENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -161372,7 +161372,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector32SPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector32SPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector32SPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi4EEES4_EENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -161380,7 +161380,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector32SPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector32SPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector32SPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi4EEES4_EENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -164457,7 +164457,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector32FPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector32FPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector32FPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi4EEES4_EENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -164465,7 +164465,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector32FPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector32FPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector32FPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi4EEES4_EENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -167497,7 +167497,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector64FPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector64FPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector64FPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi4EEES4_EENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -167505,7 +167505,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector64FPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector64FPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine2DVector64FPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi4EEES4_EENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -170633,7 +170633,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DMat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DMatVectorPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DMatVectorPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DMatVectorPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi6EEES4_EEN4perf7MatTypeENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -170641,7 +170641,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DMatVectorPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DMatVectorPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DMatVectorPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi6EEES4_EEN4perf7MatTypeENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -173926,7 +173926,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector32SPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector32SPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector32SPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi6EEES4_EENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -173934,7 +173934,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector32SPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector32SPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector32SPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi6EEES4_EENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -177011,7 +177011,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector32FPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector32FPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector32FPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi6EEES4_EENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -177019,7 +177019,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector32FPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector32FPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector32FPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi6EEES4_EENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -180051,7 +180051,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector64FPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector64FPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector64FPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi6EEES4_EENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -180059,7 +180059,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector64FPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector64FPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test47FitLine3DVector64FPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJN11opencv_test8CompareFIN2cv3VecIfLi6EEES4_EENS2_5Size_IiEENS2_13DistanceTypesESt6vectorINS2_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #30
@@ -183085,7 +183085,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35EqHistPerfTe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35EqHistPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35EqHistPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35EqHistPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -183093,7 +183093,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35EqHistPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35EqHistPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35EqHistPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -186042,7 +186042,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2RGBPerfT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2RGBPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2RGBPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2RGBPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -186050,7 +186050,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2RGBPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2RGBPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2RGBPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -188954,7 +188954,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2GrayPerf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2GrayPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2GrayPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2GrayPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -188962,7 +188962,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2GrayPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2GrayPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2GrayPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -191866,7 +191866,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2GrayPerf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2GrayPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2GrayPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2GrayPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -191874,7 +191874,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2GrayPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2GrayPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2GrayPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -194778,7 +194778,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2YUVPerfT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2YUVPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2YUVPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2YUVPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -194786,7 +194786,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2YUVPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2YUVPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2YUVPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -197690,7 +197690,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2RGBPerfT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2RGBPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2RGBPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2RGBPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -197698,7 +197698,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2RGBPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2RGBPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2RGBPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -200602,7 +200602,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2I420Perf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2I420PerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2I420PerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2I420PerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -200610,7 +200610,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2I420PerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2I420PerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37BGR2I420PerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -203514,7 +203514,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2I420Perf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2I420PerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2I420PerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2I420PerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -203522,7 +203522,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2I420PerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2I420PerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37RGB2I420PerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -206426,7 +206426,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202BGRPerf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202BGRPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202BGRPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202BGRPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -206434,7 +206434,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202BGRPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202BGRPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202BGRPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -209338,7 +209338,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202RGBPerf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202RGBPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202RGBPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202RGBPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -209346,7 +209346,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202RGBPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202RGBPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37I4202RGBPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -212250,7 +212250,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2LabPerfT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2LabPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2LabPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2LabPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -212258,7 +212258,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2LabPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2LabPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2LabPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -215162,7 +215162,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2LUVPerfT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2LUVPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2LUVPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2LUVPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -215170,7 +215170,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2LUVPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2LUVPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2LUVPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -218074,7 +218074,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36LUV2BGRPerfT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36LUV2BGRPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36LUV2BGRPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36LUV2BGRPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -218082,7 +218082,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36LUV2BGRPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36LUV2BGRPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36LUV2BGRPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -220986,7 +220986,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2YUVPerfT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2YUVPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2YUVPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2YUVPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -220994,7 +220994,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2YUVPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2YUVPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36BGR2YUVPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -223898,7 +223898,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2BGRPerfT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2BGRPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2BGRPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2BGRPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -223906,7 +223906,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2BGRPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2BGRPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36YUV2BGRPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -226810,7 +226810,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test40BayerGR2RGBP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test40BayerGR2RGBPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test40BayerGR2RGBPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test40BayerGR2RGBPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -226818,7 +226818,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test40BayerGR2RGBPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test40BayerGR2RGBPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test40BayerGR2RGBPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -229722,7 +229722,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2HSVPerfT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2HSVPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2HSVPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2HSVPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -229730,7 +229730,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2HSVPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2HSVPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test36RGB2HSVPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -232634,7 +232634,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39RGB2YUV422Pe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39RGB2YUV422PerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39RGB2YUV422PerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39RGB2YUV422PerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -232642,7 +232642,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39RGB2YUV422PerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39RGB2YUV422PerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39RGB2YUV422PerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENS1_5Size_IiEESt6vectorINS1_11GCompileArgESaISA_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #30
@@ -235749,7 +235749,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35ResizePerfTe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35ResizePerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35ResizePerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35ResizePerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEESA_St6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -235757,7 +235757,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35ResizePerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35ResizePerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test35ResizePerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEESA_St6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #30
@@ -238991,7 +238991,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39ResizeFxFyPe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39ResizeFxFyPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39ResizeFxFyPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39ResizeFxFyPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEddSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #30
@@ -238999,7 +238999,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39ResizeFxFyPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39ResizeFxFyPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test39ResizeFxFyPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeEiNS1_5Size_IiEEddSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #30
@@ -242147,7 +242147,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test48ResizeInSimp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test48ResizeInSimpleGraphPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test48ResizeInSimpleGraphPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test48ResizeInSimpleGraphPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeENS1_5Size_IiEEddSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #30
@@ -242155,7 +242155,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test48ResizeInSimpleGraphPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test48ResizeInSimpleGraphPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test48ResizeInSimpleGraphPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EEN4perf7MatTypeENS1_5Size_IiEEddSt6vectorINS1_11GCompileArgESaISC_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #30
@@ -245281,7 +245281,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56BottleneckKe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56BottleneckKernelsConstInputPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56BottleneckKernelsConstInputPerfTest_TestPerformance_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56BottleneckKernelsConstInputPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_11GCompileArgESaISE_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #30
@@ -245289,7 +245289,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56BottleneckKernelsConstInputPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56BottleneckKernelsConstInputPerfTest_TestPerformance_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test56BottleneckKernelsConstInputPerfTest_TestPerformance_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11_Tuple_implILm0EJSt8functionIFbRKN2cv3MatES4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS1_11GCompileArgESaISE_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #30

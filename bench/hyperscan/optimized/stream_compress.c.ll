@@ -1995,7 +1995,7 @@ sc_expand.exit:                                   ; preds = %if.then19.i596.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @compress_stream(ptr nocapture noundef writeonly %buf, i64 noundef %buf_size, ptr nocapture noundef readonly %rose, ptr noundef readonly %stream) local_unnamed_addr #0 {
+define hidden i64 @compress_stream(ptr nocapture noundef writeonly initializes((0, 9)) %buf, i64 noundef %buf_size, ptr nocapture noundef readonly %rose, ptr noundef readonly %stream) local_unnamed_addr #0 {
 entry:
   %stateOffsets.i = getelementptr inbounds i8, ptr %rose, i64 284
   %add.ptr.i = getelementptr inbounds i8, ptr %stream, i64 16

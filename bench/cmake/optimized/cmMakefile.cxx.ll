@@ -1180,7 +1180,7 @@ define dso_local void @_ZN13cmDirectoryIdC2ENSt7__cxx1112basic_stringIcSt11char_
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmMakefileC2EP17cmGlobalGeneratorRK15cmStateSnapshot(ptr noundef nonnull align 8 dereferenceable(3520) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmMakefileC2EP17cmGlobalGeneratorRK15cmStateSnapshot(ptr noundef nonnull align 8 dereferenceable(3520) initializes((0, 80)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.64", align 8
   %5 = alloca %"class.std::vector.64", align 8
   %6 = alloca %"class.std::vector.64", align 8
@@ -4822,7 +4822,7 @@ define dso_local { ptr, ptr } @_ZNK10cmMakefile25GetLinkDirectoriesEntriesB5cxx1
 declare { ptr, ptr } @_ZNK16cmStateDirectory25GetLinkDirectoriesEntriesB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZNK10cmMakefile12GetBacktraceEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.cmListFileBacktrace) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3520) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK10cmMakefile12GetBacktraceEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.cmListFileBacktrace) align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3520) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 744
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -4854,7 +4854,7 @@ _ZN19cmListFileBacktraceC2ERKS_.exit:             ; preds = %2, %11, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZNK10cmMakefile19GetFindPackageStackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.cmFindPackageStack) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3520) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK10cmMakefile19GetFindPackageStackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.cmFindPackageStack) align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3520) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 3392
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -7648,7 +7648,7 @@ define dso_local noundef zeroext i1 @_ZNK10cmMakefile27IsImportedTargetGlobalSco
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmMakefile12IncludeScopeC2EPS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(11) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmMakefile12IncludeScopeC2EPS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(11) initializes((0, 11)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.cmListFileBacktrace, align 8
   %6 = alloca %class.cmListFileContext, align 8
   %7 = alloca %class.cmStateSnapshot, align 8
@@ -16903,7 +16903,7 @@ _ZN10cmMakefile26GetOrCreateGeneratedSourceERKNSt7__cxx1112basic_stringIcSt11cha
 declare void @_ZN15cmCustomCommand18RecordPolicyValuesERK15cmStateSnapshot(ptr noundef nonnull align 8 dereferenceable(316), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK10cmMakefile16GetStateSnapshotEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.cmStateSnapshot) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3520) %1) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZNK10cmMakefile16GetStateSnapshotEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.cmStateSnapshot) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3520) %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 720
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
@@ -26202,7 +26202,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10cmMakefi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK10cmMakefile18GetImportedTargetsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3520) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK10cmMakefile18GetImportedTargetsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3520) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 3328
   %4 = load i64, ptr %3, align 8
@@ -32745,7 +32745,7 @@ define dso_local noundef i64 @_ZNK10cmMakefile17GetRecursionDepthEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10cmMakefile17SetRecursionDepthEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3520) %0, i64 noundef %1) local_unnamed_addr #16 align 2 {
+define dso_local void @_ZN10cmMakefile17SetRecursionDepthEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3520) initializes((760, 768)) %0, i64 noundef %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 760
   store i64 %1, ptr %3, align 8
   ret void
@@ -33028,7 +33028,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK10cmMakefile15DeferGetCallIdsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::optional.394") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3520) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK10cmMakefile15DeferGetCallIdsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::optional.394") align 8 initializes((32, 33)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3520) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -33224,7 +33224,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK10cmMakefile12DeferGetCallERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.394") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3520) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK10cmMakefile12DeferGetCallERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.394") align 8 initializes((32, 33)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3520) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x %"struct.std::pair.963"], align 8
   %5 = alloca %class.cmAlphaNum, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -34892,7 +34892,7 @@ _ZNSt5stackISt10unique_ptrI17cmFunctionBlockerSt14default_deleteIS1_EESt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmMakefile21RemoveFunctionBlockerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.837") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(3520) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmMakefile21RemoveFunctionBlockerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.837") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(3520) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 824
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -8
@@ -36401,7 +36401,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare void @_Z6cmJoinRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESt17basic_string_viewIcS3_ESB_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(24), i64, ptr, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10cmMakefile10TryCompileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_biPKSt6vectorIS5_SaIS5_EERS5_(ptr noundef nonnull align 8 dereferenceable(3520) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %8) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN10cmMakefile10TryCompileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_biPKSt6vectorIS5_SaIS5_EERS5_(ptr noundef nonnull align 8 dereferenceable(3520) initializes((3512, 3513)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %8) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca [4 x %"struct.std::pair.963"], align 8
   %11 = alloca %class.cmWorkingDirectory, align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -41620,7 +41620,7 @@ declare void @_ZN10cmPolicies26GetPolicyDeprecatedWarningB5cxx11ENS_8PolicyIDE(p
 declare void @_ZN15cmStateSnapshot9SetPolicyEN10cmPolicies8PolicyIDENS0_12PolicyStatusE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmMakefile13PolicyPushPopC2EPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmMakefile13PolicyPushPopC2EPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   %3 = alloca %"struct.cmPolicies::PolicyMap", align 8
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 720
@@ -41663,7 +41663,7 @@ define dso_local noundef zeroext i1 @_ZN10cmMakefile16SetPolicyVersionERKNSt7__c
 declare noundef zeroext i1 @_ZN10cmPolicies18ApplyPolicyVersionEP10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS_10WarnCompatE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmMakefile15VariablePushPopC2EPS_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmMakefile15VariablePushPopC2EPS_(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   %3 = alloca %class.cmStateSnapshot, align 8
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 712
@@ -41736,7 +41736,7 @@ define dso_local noundef zeroext i1 @_ZNK10cmMakefile19IgnoreErrorsCMP0061Ev(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmMakefile15FunctionPushPopC2EPS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN10cmPolicies9PolicyMapE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmMakefile15FunctionPushPopC2EPS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN10cmPolicies9PolicyMapE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %5, align 8
@@ -41808,7 +41808,7 @@ define dso_local void @_ZN10cmMakefile15FunctionPushPopD2Ev(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmMakefile12MacroPushPopC2EPS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN10cmPolicies9PolicyMapE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmMakefile12MacroPushPopC2EPS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN10cmPolicies9PolicyMapE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %5, align 8
@@ -41845,7 +41845,7 @@ _ZN10cmMakefile13PopMacroScopeEb.exit:            ; preds = %.noexc1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmMakefile20FindPackageStackRAIIC2EPS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmMakefile20FindPackageStackRAIIC2EPS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.cmFindPackageStack, align 8
   %5 = alloca %class.cmFindPackageCall, align 8
   store ptr %1, ptr %0, align 8
@@ -42592,7 +42592,7 @@ declare void @_ZNK12cmConstStackI17cmFindPackageCall18cmFindPackageStackE3PopEv(
 declare noundef zeroext i1 @_ZNK12cmConstStackI17cmFindPackageCall18cmFindPackageStackE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmMakefile16DebugFindPkgRAIIC2EPS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmMakefile16DebugFindPkgRAIIC2EPS_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(9) initializes((0, 9)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 3412

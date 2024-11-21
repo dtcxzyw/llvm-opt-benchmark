@@ -1870,7 +1870,7 @@ declare void @streamIteratorGetField(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare void @streamIteratorStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @computeDatasetDigest(ptr noundef %final) local_unnamed_addr #0 {
+define dso_local void @computeDatasetDigest(ptr noundef initializes((0, 20)) %final) local_unnamed_addr #0 {
 entry:
   %ctx.i44 = alloca %struct.SHA1_CTX, align 4
   %hash.i = alloca [20 x i8], align 16

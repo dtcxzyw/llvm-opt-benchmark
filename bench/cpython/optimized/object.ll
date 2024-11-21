@@ -2430,7 +2430,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyObject_GetOptionalAttr(ptr noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyObject_GetOptionalAttr(ptr noundef %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #0 {
 entry:
   %supress_missing_attribute_exception = alloca i32, align 4
   %0 = getelementptr i8, ptr %v, i64 8
@@ -3215,7 +3215,7 @@ Py_XDECREF.exit:                                  ; preds = %if.then.i, %PyObjec
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyObject_GetOptionalAttrString(ptr noundef %obj, ptr noundef %name, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyObject_GetOptionalAttrString(ptr noundef %obj, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val12 = load ptr, ptr %0, align 8
@@ -5536,7 +5536,7 @@ return:                                           ; preds = %lor.lhs.false, %lan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_PyObject_InitState(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr nocapture noundef readnone %interp) local_unnamed_addr #9 {
+define hidden void @_PyObject_InitState(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef readnone %interp) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   ret void

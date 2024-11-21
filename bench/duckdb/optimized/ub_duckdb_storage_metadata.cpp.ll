@@ -160,7 +160,7 @@ $_ZTIN6duckdb11WriteStreamE = comdat any
 @_ZN6duckdb14MetadataWriterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6duckdb14MetadataWriterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb15MetadataManagerC2ERNS_12BlockManagerERNS_13BufferManagerE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, ptr noundef nonnull align 8 dereferenceable(8) %buffer_manager) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb15MetadataManagerC2ERNS_12BlockManagerERNS_13BufferManagerE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, ptr noundef nonnull align 8 dereferenceable(8) %buffer_manager) unnamed_addr #0 align 2 {
 entry:
   store ptr %block_manager, ptr %this, align 8, !tbaa !3
   %buffer_manager3 = getelementptr inbounds i8, ptr %this, i64 8
@@ -3089,7 +3089,7 @@ _ZN6duckdb13MetadataBlockD2Ev.exit52:             ; preds = %if.then7.i.i.i.i44,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb13MetadataBlock4ReadERNS_10ReadStreamE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::MetadataBlock") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %source) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13MetadataBlock4ReadERNS_10ReadStreamE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::MetadataBlock") align 8 initializes((0, 16), (24, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %source) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.i8 = alloca i64, align 8
   %value.i = alloca i64, align 8
@@ -3881,7 +3881,7 @@ unreachable:                                      ; preds = %invoke.cont20
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb15MetadataManager15GetMetadataInfoEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.60") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb15MetadataManager15GetMetadataInfoEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.60") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %block_info = alloca %"struct.duckdb::MetadataBlockInfo", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -4227,7 +4227,7 @@ _ZNSt12_Vector_baseIN6duckdb17MetadataBlockInfoESaIS1_EED2Ev.exit: ; preds = %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14MetadataReaderC2ERNS_15MetadataManagerENS_16MetaBlockPointerENS_12optional_ptrINS_6vectorIS3_Lb1EEEEENS_15BlockReaderTypeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(128) %manager, i64 %pointer.coerce0, i32 %pointer.coerce1, ptr %read_pointers_p.coerce, i32 noundef %type) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14MetadataReaderC2ERNS_15MetadataManagerENS_16MetaBlockPointerENS_12optional_ptrINS_6vectorIS3_Lb1EEEEENS_15BlockReaderTypeE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 20)) %this, ptr noundef nonnull align 8 dereferenceable(128) %manager, i64 %pointer.coerce0, i32 %pointer.coerce1, ptr %read_pointers_p.coerce, i32 noundef %type) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14MetadataReaderE, i64 16), ptr %this, align 8, !tbaa !65
   %manager2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -4385,7 +4385,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14MetadataReaderC2ERNS_15MetadataManagerENS_12BlockPointerE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(128) %manager, i64 %pointer.coerce0, i32 %pointer.coerce1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14MetadataReaderC2ERNS_15MetadataManagerENS_12BlockPointerE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 20)) %this, ptr noundef nonnull align 8 dereferenceable(128) %manager, i64 %pointer.coerce0, i32 %pointer.coerce1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.not.i = icmp eq i64 %pointer.coerce0, -1
   br i1 %cmp.i.not.i, label %_ZN6duckdb15MetadataManager16FromBlockPointerENS_12BlockPointerE.exit, label %if.end.i
@@ -4443,7 +4443,7 @@ _ZN6duckdb14MetadataReaderC2ERNS_15MetadataManagerENS_16MetaBlockPointerENS_12op
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb14MetadataReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb14MetadataReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14MetadataReaderE, i64 16), ptr %this, align 8, !tbaa !65
   %handle.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -4901,7 +4901,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14MetadataWriterC2ERNS_15MetadataManagerENS_12optional_ptrINS_6vectorINS_16MetaBlockPointerELb1EEEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(128) %manager, ptr %written_pointers_p.coerce) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14MetadataWriterC2ERNS_15MetadataManagerENS_12optional_ptrINS_6vectorINS_16MetaBlockPointerELb1EEEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(128) %manager, ptr %written_pointers_p.coerce) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14MetadataWriterE, i64 16), ptr %this, align 8, !tbaa !65
   %manager2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -4916,7 +4916,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb14MetadataWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb14MetadataWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14MetadataWriterE, i64 16), ptr %this, align 8, !tbaa !65
   %handle.i = getelementptr inbounds i8, ptr %this, i64 24

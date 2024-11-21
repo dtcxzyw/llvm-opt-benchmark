@@ -5907,7 +5907,7 @@ define void @Rtl_NtkPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Rtl_LibPrint(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @Rtl_LibPrint(ptr noundef %0, ptr nocapture noundef initializes((72, 80)) %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -11997,7 +11997,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Rtl_NtkBlastConnect(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define void @Rtl_NtkBlastConnect(ptr nocapture noundef readnone %0, ptr nocapture noundef initializes((156, 160)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 156
   store i32 0, ptr %4, align 4
   %5 = load i32, ptr %2, align 4

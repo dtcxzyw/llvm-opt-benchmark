@@ -138,7 +138,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9ns16550_tC2EP31abstract_interrupt_controller_tjjj(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9ns16550_tC2EP31abstract_interrupt_controller_tjjj(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 28), (32, 112)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt5queueIhSt5dequeIhSaIhEEEC2IS2_vEEv.exit:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9ns16550_t, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

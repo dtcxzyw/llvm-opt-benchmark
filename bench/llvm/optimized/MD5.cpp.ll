@@ -24,7 +24,7 @@ $_ZZN4llvm8hexdigitEjbE3LUT = comdat any
 @_ZN4llvm3MD5C1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3MD5C2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nocapture noundef nonnull align 4 dereferenceable(152) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr nocapture noundef nonnull align 4 dereferenceable(152) initializes((88, 152)) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -793,7 +793,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3MD5C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(152) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3MD5C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(152) initializes((0, 24)) %0) unnamed_addr #1 align 2 {
   store i32 1732584193, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %2, align 4

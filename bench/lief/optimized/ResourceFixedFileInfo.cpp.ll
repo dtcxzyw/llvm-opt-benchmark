@@ -251,91 +251,91 @@ define noundef i32 @_ZNK4LIEF2PE21ResourceFixedFileInfo12file_date_LSEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo9signatureEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo9signatureEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo14struct_versionEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo14struct_versionEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo15file_version_MSEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo15file_version_MSEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo15file_version_LSEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo15file_version_LSEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo18product_version_MSEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo18product_version_MSEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((24, 28)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo18product_version_LSEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo18product_version_LSEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((28, 32)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo15file_flags_maskEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo15file_flags_maskEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo10file_flagsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo10file_flagsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((36, 40)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo7file_osENS0_16FIXED_VERSION_OSE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo7file_osENS0_16FIXED_VERSION_OSE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((40, 48)) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo9file_typeENS0_24FIXED_VERSION_FILE_TYPESE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo9file_typeENS0_24FIXED_VERSION_FILE_TYPESE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo12file_subtypeENS0_28FIXED_VERSION_FILE_SUB_TYPESE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo12file_subtypeENS0_28FIXED_VERSION_FILE_SUB_TYPESE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((56, 64)) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo12file_date_MSEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo12file_date_MSEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE21ResourceFixedFileInfo12file_date_LSEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE21ResourceFixedFileInfo12file_date_LSEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((68, 72)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 %1, ptr %3, align 4
   ret void

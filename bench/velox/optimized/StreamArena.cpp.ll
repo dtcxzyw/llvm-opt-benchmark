@@ -38,7 +38,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_r
 @_ZN8facebook5velox11StreamArenaC1EPNS0_6memory10MemoryPoolE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8facebook5velox11StreamArenaC2EPNS0_6memory10MemoryPoolE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox11StreamArenaC2EPNS0_6memory10MemoryPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %this, ptr noundef %pool) unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox11StreamArenaC2EPNS0_6memory10MemoryPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((0, 84), (88, 152)) %this, ptr noundef %pool) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox11StreamArenaE, i64 16), ptr %this, align 8
   %pool_ = getelementptr inbounds i8, ptr %this, i64 8

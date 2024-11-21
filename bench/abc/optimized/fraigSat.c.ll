@@ -869,7 +869,7 @@ declare i32 @Msat_SolverReadVarNum(ptr noundef) local_unnamed_addr #1
 declare i32 @Msat_SolverAddVar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fraig_OrderVariables(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @Fraig_OrderVariables(ptr nocapture noundef %0, ptr nocapture noundef initializes((16, 20)) %1, ptr nocapture noundef initializes((16, 20)) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 128

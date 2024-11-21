@@ -16361,7 +16361,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrimvarSourceTypeVisitorcl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelperC2ERKNS_7TfTokenERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7SdfPathERKS5_INS_21HdContainerDataSourceEESG_(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %0, i64 %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   store i64 %.0.val, ptr %0, align 8
   %6 = and i64 %.0.val, 7
   %.not.i.i = icmp eq i64 %6, 0

@@ -1168,7 +1168,7 @@ declare ptr @ecpg_auto_alloc(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @ecpg_get_data(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define noundef zeroext i1 @ecpg_store_input(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 8)) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   store ptr @.str.5, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 48
   %7 = load i32, ptr %6, align 8
@@ -4077,7 +4077,7 @@ declare zeroext i1 @ecpg_check_PQresult(ptr noundef, i32 noundef, ptr noundef, i
 declare void @PQclear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @ecpg_execute(ptr noundef %0) local_unnamed_addr #0 {
+define zeroext i1 @ecpg_execute(ptr noundef initializes((104, 112)) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -4662,7 +4662,7 @@ declare i32 @PQconsumeInput(ptr noundef) local_unnamed_addr #1
 declare ptr @PQnotifies(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
+define noundef zeroext i1 @ecpg_do_prologue(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly initializes((0, 8)) %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = zext i1 %4 to i8
   store ptr null, ptr %8, align 8

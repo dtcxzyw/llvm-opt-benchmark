@@ -131,7 +131,7 @@ gv_alloc.exit14:                                  ; preds = %17
 declare ptr @gvplugin_load(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @gvjobs_first(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define ptr @gvjobs_first(ptr nocapture noundef initializes((296, 304)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 296
@@ -193,7 +193,7 @@ define void @gv_argvlist_set_item(ptr nocapture noundef %0, i32 noundef %1, ptr 
 declare ptr @grealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @gv_argvlist_reset(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @gv_argvlist_reset(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %2) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

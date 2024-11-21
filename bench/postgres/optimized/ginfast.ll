@@ -1289,7 +1289,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare void @ginInitBA(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @processPendingPage(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i16 noundef zeroext range(i16 1, 16379) %3) unnamed_addr #0 {
+define internal fastcc void @processPendingPage(ptr noundef nonnull %0, ptr nocapture noundef nonnull initializes((16, 20)) %1, ptr noundef %2, i16 noundef zeroext range(i16 1, 16379) %3) unnamed_addr #0 {
   %5 = alloca %struct.ItemPointerData, align 2
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds i8, ptr %1, i64 16

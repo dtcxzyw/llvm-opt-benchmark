@@ -565,7 +565,7 @@ return:                                           ; preds = %if.end, %entry, %sw
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes7tracing10SynthTraceC2EmRKN6hermes2vm13RuntimeConfigESt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %globalObjID, ptr noundef nonnull align 8 dereferenceable(373) %conf, ptr nocapture noundef %traceStream) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes7tracing10SynthTraceC2EmRKN6hermes2vm13RuntimeConfigESt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteISA_EE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this, i64 noundef %globalObjID, ptr noundef nonnull align 8 dereferenceable(373) %conf, ptr nocapture noundef %traceStream) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp45 = alloca %"class.hermes::vm::GCConfig", align 8
   %ref.tmp56 = alloca %"class.hermes::vm::GCConfig", align 8

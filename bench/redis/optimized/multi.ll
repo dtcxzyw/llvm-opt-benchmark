@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [34 x i8] c"WATCH inside MULTI is not allowed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @initClientMultiState(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
+define dso_local void @initClientMultiState(ptr nocapture noundef writeonly initializes((424, 444), (448, 460)) %c) local_unnamed_addr #0 {
 entry:
   %mstate = getelementptr inbounds i8, ptr %c, i64 424
   %argv_len_sums = getelementptr inbounds i8, ptr %c, i64 448

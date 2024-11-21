@@ -149,7 +149,7 @@ define dso_local void @eventfd_ctx_put(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @eventfd_ctx_do_read(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define dso_local void @eventfd_ctx_do_read(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #3 align 16 {
 ._crit_edge:
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
@@ -169,7 +169,7 @@ define dso_local void @eventfd_ctx_do_read(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -11, 1) i32 @eventfd_ctx_remove_wait_queue(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local range(i32 -11, 1) i32 @eventfd_ctx_remove_wait_queue(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef initializes((0, 8)) %2) #0 align 16 {
 ._crit_edge:
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #6

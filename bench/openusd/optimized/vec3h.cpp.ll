@@ -2149,13 +2149,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3h9GetLengthEv.exit190: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3h21BuildOrthonormalFrameEPS0_S1_NS_8pxr_half4halfE(ptr noundef nonnull align 2 dereferenceable(6) %0, ptr noundef %1, ptr noundef %2, i16 %3) local_unnamed_addr #0 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3h21BuildOrthonormalFrameEPS0_S1_NS_8pxr_half4halfE(ptr noundef nonnull align 2 dereferenceable(6) %0, ptr noundef initializes((0, 6)) %1, ptr noundef initializes((0, 6)) %2, i16 %3) local_unnamed_addr #0 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3hEPS0_S3_NS_8pxr_half4halfE(ptr noundef nonnull align 2 dereferenceable(6) %0, ptr noundef %1, ptr noundef %2, i16 %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3hEPS0_S3_NS_8pxr_half4halfE(ptr noundef nonnull align 2 dereferenceable(6) %0, ptr noundef %1, ptr noundef %2, i16 %3) local_unnamed_addr #0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3hEPS0_S3_NS_8pxr_half4halfE(ptr noundef nonnull align 2 dereferenceable(6) %0, ptr noundef initializes((0, 6)) %1, ptr noundef initializes((0, 6)) %2, i16 %3) local_unnamed_addr #0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", align 2
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", align 8

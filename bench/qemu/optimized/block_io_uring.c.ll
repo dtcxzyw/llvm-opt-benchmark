@@ -380,7 +380,7 @@ declare void @aio_set_fd_handler(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare void @qemu_bh_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @luring_attach_aio_context(ptr noundef %s, ptr noundef %new_context) local_unnamed_addr #0 {
+define dso_local void @luring_attach_aio_context(ptr noundef initializes((0, 8)) %s, ptr noundef %new_context) local_unnamed_addr #0 {
 entry:
   store ptr %new_context, ptr %s, align 8
   %call = tail call ptr @aio_bh_new_full(ptr noundef %new_context, ptr noundef nonnull @qemu_luring_completion_bh, ptr noundef nonnull %s, ptr noundef nonnull @.str, ptr noundef null) #11

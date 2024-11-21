@@ -1868,7 +1868,7 @@ define dso_local i64 @__ia32_compat_sys_msgrcv(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @msg_init_ns(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @msg_init_ns(ptr noundef initializes((668, 680)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 668
   store i32 8192, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 672
@@ -2137,7 +2137,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 sect
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @msgctl_stat(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @msgctl_stat(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 120)) %3) unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(120) %3, i8 0, i64 120, i1 false)
   tail call void @__rcu_read_lock() #10
   %5 = icmp eq i32 %2, 13

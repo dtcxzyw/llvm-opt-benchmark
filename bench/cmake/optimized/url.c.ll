@@ -744,7 +744,7 @@ declare void @Curl_wildcard_dtor(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_headers_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_init_userdefined(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_init_userdefined(ptr noundef initializes((408, 416), (432, 448), (464, 488), (496, 512), (520, 528), (544, 552), (648, 656), (736, 744), (1265, 1266), (1648, 1652), (1656, 1668), (1672, 1676), (1720, 1721)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 408
   %3 = load ptr, ptr @stdout, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 432
@@ -1406,7 +1406,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_setup_conn(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @Curl_setup_conn(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call { i64, i32 } @Curl_pgrsTime(ptr noundef %0, i32 noundef 4) #12
@@ -1457,7 +1457,7 @@ declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 declare i32 @Curl_conn_setup(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_connect(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local i32 @Curl_connect(ptr noundef %0, ptr nocapture noundef initializes((0, 1)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca i8, align 1
@@ -3578,7 +3578,7 @@ priority_remove_child.exit:                       ; preds = %8, %.critedge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_data_priority_clear_state(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
+define dso_local void @Curl_data_priority_clear_state(ptr nocapture noundef writeonly initializes((4480, 4504)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
@@ -4288,7 +4288,7 @@ declare void @Curl_persistconninfo(ptr noundef, ptr noundef, ptr noundef, i32 no
 declare i32 @Curl_conncache_add_conn(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @setup_range(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @setup_range(ptr nocapture noundef initializes((4464, 4472)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 776
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4464
@@ -4450,7 +4450,7 @@ define internal fastcc void @prune_dead_connections(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ConnectionExists(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ConnectionExists(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 3072
   %7 = getelementptr inbounds i8, ptr %0, i64 3488
   %8 = load i64, ptr %7, align 8

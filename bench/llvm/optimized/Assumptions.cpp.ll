@@ -162,7 +162,7 @@ _ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit: ; preds = %_ZNK4llvm8CallBase1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14getAssumptionsERKNS_8FunctionE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseSet") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm14getAssumptionsERKNS_8FunctionE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseSet") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::Attribute", align 8
   %4 = tail call ptr @_ZNK4llvm8Function14getFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.5, i64 11) #11
   store ptr %4, ptr %3, align 8
@@ -171,7 +171,7 @@ define dso_local void @_ZN4llvm14getAssumptionsERKNS_8FunctionE(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114getAssumptionsERKN4llvm9AttributeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114getAssumptionsERKN4llvm9AttributeE(ptr dead_on_unwind noalias writable align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::SmallVector", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -235,7 +235,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit: ; preds = %26, %._crit_edge,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14getAssumptionsERKNS_8CallBaseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseSet") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm14getAssumptionsERKNS_8CallBaseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseSet") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::AttributeList", align 8
   %4 = alloca %"class.llvm::Attribute", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)

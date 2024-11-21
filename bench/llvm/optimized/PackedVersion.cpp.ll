@@ -45,7 +45,7 @@ $_ZTVN4llvm13format_objectIJjEEE = comdat any
 @_ZTVN4llvm13format_objectIJjEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm18format_object_base4homeEv, ptr @_ZNK4llvm13format_objectIJjEE7snprintEPcj] }, comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm5MachO13PackedVersion7parse32ENS_9StringRefE(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm5MachO13PackedVersion7parse32ENS_9StringRefE(ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector", align 8
   %5 = alloca i64, align 8
   store i32 0, ptr %0, align 4
@@ -141,7 +141,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 declare noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr, i64, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS_9StringRefE(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i16 0, 512) i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS_9StringRefE(ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.0", align 8
   %5 = alloca i64, align 8
   store i32 0, ptr %0, align 4

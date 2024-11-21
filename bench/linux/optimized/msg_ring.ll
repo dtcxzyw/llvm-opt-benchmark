@@ -412,7 +412,7 @@ select.unfold11:                                  ; preds = %178, %170
 declare dso_local zeroext i1 @io_is_uring_fops(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @io_msg_tw_complete(ptr noundef %0) #0 align 16 {
+define internal void @io_msg_tw_complete(ptr noundef initializes((64, 72), (128, 136)) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 200
@@ -537,7 +537,7 @@ declare dso_local void @__io_req_task_work_add(ptr noundef, i32 noundef) local_u
 declare dso_local i32 @mutex_trylock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @io_msg_tw_fd_complete(ptr noundef %0) #0 align 16 {
+define internal void @io_msg_tw_fd_complete(ptr noundef initializes((64, 72), (128, 136)) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -16
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !10
   %4 = inttoptr i64 %3 to ptr

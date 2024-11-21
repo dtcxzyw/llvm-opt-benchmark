@@ -66,7 +66,7 @@ define void @group_free_child(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @group_add_child(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @group_add_child(ptr nocapture noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8

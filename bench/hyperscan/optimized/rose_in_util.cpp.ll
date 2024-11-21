@@ -509,7 +509,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue210topo_orderERKNS_11RoseInGraphE(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %g) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue210topo_orderERKNS_11RoseInGraphE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %g) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__tmp.i.i.i.i = alloca %"class.ue2::graph_detail::vertex_descriptor.70", align 8
   %ref.tmp.i.i.i.i = alloca %"struct.boost::graph::detail::depth_first_search_impl", align 1
@@ -606,7 +606,7 @@ nrvo.skipdtor:                                    ; preds = %while.body.i.i, %in
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214cloneRoseGraphERKNS_11RoseInGraphE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(56) %ig) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214cloneRoseGraphERKNS_11RoseInGraphE(ptr noalias sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(56) %ig) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__node5.i210 = alloca %"struct.std::_Hashtable<const ue2::raw_som_dfa *, std::pair<const ue2::raw_som_dfa *const, std::shared_ptr<ue2::raw_som_dfa>>, std::allocator<std::pair<const ue2::raw_som_dfa *const, std::shared_ptr<ue2::raw_som_dfa>>>, std::__detail::_Select1st, std::equal_to<const ue2::raw_som_dfa *>, std::hash<const ue2::raw_som_dfa *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %__node5.i = alloca %"struct.std::_Hashtable<const ue2::NGHolder *, std::pair<const ue2::NGHolder *const, std::shared_ptr<ue2::NGHolder>>, std::allocator<std::pair<const ue2::NGHolder *const, std::shared_ptr<ue2::NGHolder>>>, std::__detail::_Select1st, std::equal_to<const ue2::NGHolder *>, std::hash<const ue2::NGHolder *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8

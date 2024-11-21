@@ -647,7 +647,7 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_RecipientInfo_kari_init(ptr nocapture noundef %ri, ptr noundef %recip, ptr noundef %recipPubKey, ptr noundef %originator, ptr noundef %originatorPrivKey, i32 noundef %flags, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_RecipientInfo_kari_init(ptr nocapture noundef initializes((8, 16)) %ri, ptr noundef %recip, ptr noundef %recipPubKey, ptr noundef %originator, ptr noundef %originatorPrivKey, i32 noundef %flags, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %ekey.i = alloca ptr, align 8
   %call = tail call ptr @CMS_KeyAgreeRecipientInfo_it() #5

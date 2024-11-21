@@ -430,7 +430,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto15AESCipherConfigC2EOS1_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(104) %other) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto15AESCipherConfigC2EOS1_(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(104) %other) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto15AESCipherConfigE, i64 16), ptr %this, align 8
   %mode = getelementptr inbounds i8, ptr %this, i64 8
@@ -780,7 +780,7 @@ if.end:                                           ; preds = %_ZN4node13MemoryTra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 258) i16 @_ZN4node6crypto15AESCipherTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjNS0_19WebCryptoCipherModeEPNS0_15AESCipherConfigE(i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, i32 noundef %cipher_mode, ptr noundef %params) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6crypto15AESCipherTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjNS0_19WebCryptoCipherModeEPNS0_15AESCipherConfigE(i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, i32 noundef %cipher_mode, ptr noundef initializes((8, 12)) %params) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i216 = alloca %"class.node::crypto::ByteSource", align 8
   %ref.tmp.i213 = alloca %"class.node::crypto::ByteSource", align 8
@@ -3566,7 +3566,7 @@ _ZNSt10unique_ptrI17evp_cipher_ctx_stN4node15FunctionDeleterIS0_XadL_Z19EVP_CIPH
 declare i64 @BN_get_word(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node6crypto12_GLOBAL__N_122BlockWithZeroedCounterERKNS0_15AESCipherConfigE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %params) unnamed_addr #3 {
+define internal fastcc void @_ZN4node6crypto12_GLOBAL__N_122BlockWithZeroedCounterERKNS0_15AESCipherConfigE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %params) unnamed_addr #3 {
 entry:
   %length = getelementptr inbounds i8, ptr %params, i64 24
   %0 = load i64, ptr %length, align 8

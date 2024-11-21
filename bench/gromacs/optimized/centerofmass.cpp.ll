@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @"__PRETTY_FUNCTION__._ZZ20gmx_calc_cog_f_blockPK10gmx_mtop_tPA3_fPK7t_blockPKiS3_ENK3$_0clEv" = private unnamed_addr constant [131 x i8] c"auto gmx_calc_cog_f_block(const gmx_mtop_t *, rvec *, const t_block *, const int *, rvec *)::(anonymous class)::operator()() const\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z12gmx_calc_cogPK10gmx_mtop_tPA3_fiPKiPf(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define void @_Z12gmx_calc_cogPK10gmx_mtop_tPA3_fiPKiPf(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 12)) %4) local_unnamed_addr #0 {
   store float 0.000000e+00, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   store float 0.000000e+00, ptr %6, align 4
@@ -340,7 +340,7 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z14gmx_calc_com_fPK10gmx_mtop_tPA3_fiPKiPf(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define void @_Z14gmx_calc_com_fPK10gmx_mtop_tPA3_fiPKiPf(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 12)) %4) local_unnamed_addr #0 {
   store float 0.000000e+00, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   store float 0.000000e+00, ptr %6, align 4
@@ -495,7 +495,7 @@ _Z14gmx_calc_com_fPK10gmx_mtop_tPA3_fiPKiPf.exit: ; preds = %11, %7, %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z16gmx_calc_cog_pbcPK10gmx_mtop_tPA3_fPK5t_pbciPKiPf(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) local_unnamed_addr #1 {
+define void @_Z16gmx_calc_cog_pbcPK10gmx_mtop_tPA3_fPK5t_pbciPKiPf(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef initializes((0, 12)) %5) local_unnamed_addr #1 {
   %7 = alloca [3 x float], align 4
   %8 = alloca [3 x float], align 4
   store float 0.000000e+00, ptr %5, align 4

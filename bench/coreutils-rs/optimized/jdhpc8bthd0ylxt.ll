@@ -54,7 +54,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.4d24509ba2bb005ad408e69ea276a3d2.65 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.4d24509ba2bb005ad408e69ea276a3d2.17, [16 x i8] c"`\00\00\00\00\00\00\00+\06\00\00?\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17h23ffce962d0713aeE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef align 1 %2, ptr readonly %3, ptr %.32.val) unnamed_addr #0 {
+define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17h23ffce962d0713aeE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 16)) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef align 1 %2, ptr readonly %3, ptr %.32.val) unnamed_addr #0 {
   %.sroa.230 = alloca [4 x i64], align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [4 x i64] }, align 8
@@ -174,7 +174,7 @@ define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_nu
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17hadb958d444d6ee32E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef align 1 %2, ptr readonly %3, ptr %.32.val) unnamed_addr #0 {
+define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17hadb958d444d6ee32E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 16)) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef align 1 %2, ptr readonly %3, ptr %.32.val) unnamed_addr #0 {
   %.sroa.230 = alloca [4 x i64], align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [4 x i64] }, align 8
@@ -294,7 +294,7 @@ define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_nu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_number_delimiter17h4a5a72e94dd0a0a0E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_number_delimiter17h4a5a72e94dd0a0a0E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 9)) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2) unnamed_addr #1 {
   %.sroa.212 = alloca [4 x i64], align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -351,7 +351,7 @@ define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_nu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_number_delimiter17hc44ddac5b3e7a775E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate22parse_number_delimiter17hc44ddac5b3e7a775E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 9)) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2) unnamed_addr #1 {
   %.sroa.212 = alloca [4 x i64], align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -4342,7 +4342,7 @@ switch.early.test:                                ; preds = %228
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$22parse_number_time_unit17ha8f8290d0001b103E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #0 {
+define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$22parse_number_time_unit17ha8f8290d0001b103E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 9)) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #0 {
   %7 = alloca { i64, [4 x i64] }, align 8
   %.sroa.7.sroa.7 = alloca [7 x i8], align 1
   %.sroa.7.sroa.10 = alloca [6 x i8], align 2
@@ -4736,7 +4736,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit61:  ; preds = %93
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h7bc6281b6353ca4aE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(112) %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %3) unnamed_addr #0 {
+define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h7bc6281b6353ca4aE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 48)) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(112) %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %3) unnamed_addr #0 {
   %5 = alloca { i64, [4 x i64] }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8, !noundef !4

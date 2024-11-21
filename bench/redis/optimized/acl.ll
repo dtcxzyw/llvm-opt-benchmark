@@ -1314,7 +1314,7 @@ declare ptr @listNext(ptr noundef) local_unnamed_addr #1
 declare void @freeClientAsync(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ACLCopyUser(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local void @ACLCopyUser(ptr nocapture noundef initializes((8, 12)) %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %passwords = getelementptr inbounds i8, ptr %dst, i64 16
   %0 = load ptr, ptr %passwords, align 8
@@ -4483,7 +4483,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @raxFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @initACLKeyResultCache(ptr nocapture noundef writeonly %cache) local_unnamed_addr #13 {
+define dso_local void @initACLKeyResultCache(ptr nocapture noundef writeonly initializes((0, 4)) %cache) local_unnamed_addr #13 {
 entry:
   store i32 0, ptr %cache, align 8
   ret void
@@ -5790,7 +5790,7 @@ declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #1
 declare void @freeClient(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ACLMergeSelectorArguments(ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef %merged_argc, ptr noundef writeonly %invalid_idx) local_unnamed_addr #0 {
+define dso_local ptr @ACLMergeSelectorArguments(ptr nocapture noundef readonly %argv, i32 noundef %argc, ptr nocapture noundef initializes((0, 4)) %merged_argc, ptr noundef writeonly %invalid_idx) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %merged_argc, align 4
   %conv = sext i32 %argc to i64

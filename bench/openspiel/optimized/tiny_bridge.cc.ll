@@ -5953,7 +5953,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK10open_spiel11tiny_bridge22TinyBridgeAuctionState11CardHoldersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array.24") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %1) local_unnamed_addr #10 align 2 {
+define void @_ZNK10open_spiel11tiny_bridge22TinyBridgeAuctionState11CardHoldersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array.24") align 4 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %1) local_unnamed_addr #10 align 2 {
 _ZSt4fillIPN10open_spiel11tiny_bridge4SeatES2_EvT_S4_RKT0_.exit.preheader:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 -1, i64 32, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -8923,7 +8923,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10open_spiel11tiny_bridge22TinyBridgeAuctionState10UndoActionEil(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, i32 %1, i64 %2) unnamed_addr #14 align 2 {
+define void @_ZN10open_spiel11tiny_bridge22TinyBridgeAuctionState10UndoActionEil(ptr nocapture noundef nonnull align 8 dereferenceable(97) initializes((60, 61)) %0, i32 %1, i64 %2) unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -4

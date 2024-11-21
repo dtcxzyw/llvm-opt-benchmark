@@ -1108,7 +1108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_CIPHER_CTX_set_app_data(ptr nocapture noundef writeonly %ctx, ptr noundef %data) local_unnamed_addr #6 {
+define void @EVP_CIPHER_CTX_set_app_data(ptr nocapture noundef writeonly initializes((96, 104)) %ctx, ptr noundef %data) local_unnamed_addr #6 {
 entry:
   %app_data = getelementptr inbounds i8, ptr %ctx, i64 96
   store ptr %data, ptr %app_data, align 8
@@ -2123,7 +2123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_MD_CTX_set_update_fn(ptr nocapture noundef writeonly %ctx, ptr noundef %update) local_unnamed_addr #6 {
+define void @EVP_MD_CTX_set_update_fn(ptr nocapture noundef writeonly initializes((48, 56)) %ctx, ptr noundef %update) local_unnamed_addr #6 {
 entry:
   %update1 = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %update, ptr %update1, align 8

@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Curl_getinfo = private unnamed_addr constant [5 x ptr] [ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.3, ptr @.str.1], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_initinfo(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_initinfo(ptr noundef initializes((2728, 2736), (2760, 2808), (4952, 4964), (4968, 5008), (5024, 5037), (5084, 5088), (5092, 5093), (5140, 5156)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4952
   %3 = getelementptr inbounds i8, ptr %0, i64 2760
   %4 = getelementptr inbounds i8, ptr %0, i64 2728

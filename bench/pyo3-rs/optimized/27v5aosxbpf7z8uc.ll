@@ -36,7 +36,7 @@ define range(i64 0, 288230376151711744) i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend6pyimpl12impl_methods28_$u7b$$u7b$closure$u7d$$u7d$17ha5bad7fb4c4babbfE"(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
+define hidden void @"_ZN19pyo3_macros_backend6pyimpl12impl_methods28_$u7b$$u7b$closure$u7d$$u7d$17ha5bad7fb4c4babbfE"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca [56 x i8], align 8
   %4 = load i64, ptr %1, align 8
   %5 = icmp eq i64 %4, -9223372036854775808

@@ -491,7 +491,7 @@ define internal noundef zeroext i1 @H5D__virtual_is_data_cached(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5D__virtual_io_init(ptr nocapture noundef %0, ptr nocapture readnone %1) #2 {
+define internal noundef i32 @H5D__virtual_io_init(ptr nocapture noundef initializes((168, 172)) %0, ptr nocapture readnone %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 236
@@ -2466,7 +2466,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare i32 @H5I_dec_ref(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__virtual_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__virtual_copy(ptr noundef %0, ptr noundef initializes((1920, 1936)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 1920
   store i64 -1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 1928

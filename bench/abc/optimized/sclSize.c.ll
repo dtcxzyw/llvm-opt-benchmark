@@ -216,7 +216,7 @@ define ptr @Abc_SclFindMostCriticalFanin2(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @Abc_SclFindMostCriticalFanin(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @Abc_SclFindMostCriticalFanin(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %4 = getelementptr i8, ptr %2, i64 28
   %.val25 = load i32, ptr %4, align 4

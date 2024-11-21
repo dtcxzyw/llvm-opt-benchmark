@@ -1743,7 +1743,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23LookbackFixedPathPricerC2ENS_6Option4TypeEdd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %type, double noundef %strike, double noundef %discount) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23LookbackFixedPathPricerC2ENS_6Option4TypeEdd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 40)) %this, i32 noundef %type, double noundef %strike, double noundef %discount) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2346,7 +2346,7 @@ unreachable:                                      ; preds = %invoke.cont53, %inv
 declare noundef double @_ZNK8QuantLib18PlainVanillaPayoffclEd(ptr noundef nonnull align 8 dereferenceable(24), double noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30LookbackPartialFixedPathPricerC2EdNS_6Option4TypeEdd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, double noundef %lookbackStart, i32 noundef %type, double noundef %strike, double noundef %discount) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30LookbackPartialFixedPathPricerC2EdNS_6Option4TypeEdd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 28), (32, 48)) %this, double noundef %lookbackStart, i32 noundef %type, double noundef %strike, double noundef %discount) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2956,7 +2956,7 @@ unreachable:                                      ; preds = %invoke.cont57, %inv
 declare noundef i64 @_ZNK8QuantLib8TimeGrid12closestIndexEd(ptr noundef nonnull align 8 dereferenceable(72), double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib26LookbackFloatingPathPricerC2ENS_6Option4TypeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %type, double noundef %discount) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26LookbackFloatingPathPricerC2ENS_6Option4TypeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %this, i32 noundef %type, double noundef %discount) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib26LookbackFloatingPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3386,7 +3386,7 @@ unreachable:                                      ; preds = %invoke.cont54, %inv
 declare noundef double @_ZNK8QuantLib18FloatingTypePayoffclEdd(ptr noundef nonnull align 8 dereferenceable(12), double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib33LookbackPartialFloatingPathPricerC2EdNS_6Option4TypeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, double noundef %lookbackEnd, i32 noundef %type, double noundef %discount) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib33LookbackPartialFloatingPathPricerC2EdNS_6Option4TypeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this, double noundef %lookbackEnd, i32 noundef %type, double noundef %discount) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib33LookbackPartialFloatingPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %lookbackEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 8

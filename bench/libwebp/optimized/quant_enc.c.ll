@@ -862,7 +862,7 @@ define hidden void @VP8MakeChroma8Preds(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8Decimate(ptr noalias noundef %0, ptr noalias noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @VP8Decimate(ptr noalias noundef %0, ptr noalias noundef initializes((0, 40), (864, 868)) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i16], align 16
   %5 = alloca i32, align 4
   %6 = alloca [16 x i16], align 16

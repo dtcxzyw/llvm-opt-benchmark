@@ -319,7 +319,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_rsa_set0_libctx(ptr nocapture noundef writeonly %r, ptr noundef %libctx) local_unnamed_addr #4 {
+define void @ossl_rsa_set0_libctx(ptr nocapture noundef writeonly initializes((8, 16)) %r, ptr noundef %libctx) local_unnamed_addr #4 {
 entry:
   %libctx1 = getelementptr inbounds i8, ptr %r, i64 8
   store ptr %libctx, ptr %libctx1, align 8

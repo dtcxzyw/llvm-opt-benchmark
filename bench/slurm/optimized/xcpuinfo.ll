@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [10 x i8] c"IntelCore\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @get_procs(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @get_procs(ptr nocapture noundef writeonly initializes((0, 2)) %0) local_unnamed_addr #0 {
   store i16 1, ptr %0, align 2
   %2 = tail call i64 @sysconf(i32 noundef 84) #11
   %3 = trunc i64 %2 to i32
@@ -1462,7 +1462,7 @@ thread-pre-split.thread:                          ; preds = %32, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 2)) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i16, ptr @block_map_size, align 2
   store i16 %5, ptr %2, align 2

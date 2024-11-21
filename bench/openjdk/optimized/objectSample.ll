@@ -306,7 +306,7 @@ define hidden noundef ptr @_ZNK12ObjectSample11object_addrEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12ObjectSample10set_objectEP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(117) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12ObjectSample10set_objectEP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(117) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.WeakHandle, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %5

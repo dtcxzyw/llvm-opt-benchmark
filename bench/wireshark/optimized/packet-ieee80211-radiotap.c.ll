@@ -1990,7 +1990,7 @@ define hidden void @proto_register_radiotap() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @not_captured_custom(ptr nocapture noundef writeonly %0, i32 %1) #1 {
+define internal void @not_captured_custom(ptr nocapture noundef writeonly initializes((0, 33)) %0, i32 %1) #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %0, ptr noundef nonnull align 1 dereferenceable(33) @.str.1207, i64 33, i1 false)
   ret void
 }

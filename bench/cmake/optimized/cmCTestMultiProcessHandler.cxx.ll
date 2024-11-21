@@ -545,7 +545,7 @@ declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN26cmCTestMultiProcessHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(870) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN26cmCTestMultiProcessHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(870) initializes((0, 9), (24, 28), (32, 40)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::set", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV26cmCTestMultiProcessHandler, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1195,7 +1195,7 @@ _ZN19cmCTestResourceSpec6SocketD2Ev.exit:         ; preds = %_ZN11cmJSONStateD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN26cmCTestMultiProcessHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(870) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN26cmCTestMultiProcessHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(870) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV26cmCTestMultiProcessHandler, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 824
   tail call void @_ZN2cm19uv_handle_ptr_base_I10uv_timer_sED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
@@ -1475,7 +1475,7 @@ _ZN26cmCTestMultiProcessHandler7TestMapD2Ev.exit: ; preds = %_ZNSt7__cxx114listI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN26cmCTestMultiProcessHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(870) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN26cmCTestMultiProcessHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(870) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN26cmCTestMultiProcessHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(870) %0) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #28
   ret void
@@ -3050,7 +3050,7 @@ define dso_local void @_ZN26cmCTestMultiProcessHandler18CreateTestCostListEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN26cmCTestMultiProcessHandler16SetParallelLevelEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(870) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN26cmCTestMultiProcessHandler16SetParallelLevelEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(870) initializes((728, 736)) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
   %4 = getelementptr inbounds i8, ptr %0, i64 728
   store i64 %3, ptr %4, align 8
@@ -3058,7 +3058,7 @@ define dso_local void @_ZN26cmCTestMultiProcessHandler16SetParallelLevelEm(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN26cmCTestMultiProcessHandler11SetTestLoadEm(ptr noundef nonnull align 8 dereferenceable(870) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN26cmCTestMultiProcessHandler11SetTestLoadEm(ptr noundef nonnull align 8 dereferenceable(870) initializes((776, 784)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 776

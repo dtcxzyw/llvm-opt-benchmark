@@ -31352,7 +31352,7 @@ _ZN12_GLOBAL__N_110AllocaInfoD2Ev.exit:           ; preds = %_ZN4llvm12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(33) ptr @_ZN12_GLOBAL__N_110AllocaInfoaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(33) %0, ptr nocapture noundef nonnull align 8 dereferenceable(33) %1) unnamed_addr #1 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(33) ptr @_ZN12_GLOBAL__N_110AllocaInfoaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(33) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(33) %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

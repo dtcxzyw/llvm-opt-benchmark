@@ -6468,7 +6468,7 @@ define void @CVodeFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
 declare i32 @cvProjFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @cvRescale(ptr noundef %0) local_unnamed_addr #0 {
+define void @cvRescale(ptr noundef initializes((1624, 1632)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 344
   %3 = load double, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1624
@@ -6513,7 +6513,7 @@ define void @cvRescale(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @N_VScaleVectorArray(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @cvRestore(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #0 {
+define void @cvRestore(ptr nocapture noundef initializes((360, 368)) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   store double %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 288

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [77 x i8] c"Time interval for measuring conserved energy has length 0, time %g to %g ps\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx18EnergyDriftTracker8addPointEdd(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx18EnergyDriftTracker8addPointEdd(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((24, 40)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load i8, ptr %0, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %9, label %6

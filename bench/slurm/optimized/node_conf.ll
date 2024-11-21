@@ -1115,7 +1115,7 @@ declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #1
 declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @node_record_count, align 4
   %5 = sext i32 %4 to i64
   %6 = tail call ptr @bit_alloc(i64 noundef %5) #15
@@ -1499,7 +1499,7 @@ rehash_node.exit:                                 ; preds = %.lr.ph.i, %32, %21,
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2170) i32 @create_node_record(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2170) i32 @create_node_record(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @node_record_count, align 4
   %5 = load i32, ptr @node_record_table_size, align 4
   %.not = icmp slt i32 %4, %5
@@ -1856,7 +1856,7 @@ _init_node_record.exit:                           ; preds = %89, %_convert_cpu_s
 declare ptr @xhash_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2170) i32 @add_node_record(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2170) i32 @add_node_record(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @_find_node_record(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false)
   store ptr %4, ptr %2, align 8
   %.not = icmp eq ptr %4, null
@@ -2525,7 +2525,7 @@ declare i32 @select_g_select_nodeinfo_free(ptr noundef) local_unnamed_addr #1
 declare ptr @xhash_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_node_record_hash_identity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #9 {
+define internal void @_node_record_hash_identity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8

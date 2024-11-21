@@ -283,7 +283,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN6Assimp4Ogre17TransformKeyFrameC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp4Ogre17TransformKeyFrameC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp4Ogre13VertexElementC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp4Ogre13VertexElementC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 6), (8, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store i16 0, ptr %this, align 4
   %source = getelementptr inbounds i8, ptr %this, i64 2
@@ -1444,7 +1444,7 @@ eh.resume:                                        ; preds = %lpad34, %lpad.i69, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp4Ogre11IVertexDataC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre11IVertexDataC2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 4), (8, 32), (40, 44), (48, 56)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %boneAssignments = getelementptr inbounds i8, ptr %this, i64 8
@@ -1768,7 +1768,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre11IVertexData17AssimpBoneWeightsEm(ptr noalias sret(%"class.std::map.21") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %vertices) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre11IVertexData17AssimpBoneWeightsEm(ptr noalias sret(%"class.std::map.21") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %vertices) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i = alloca %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, std::vector<aiVertexWeight>>, std::_Select1st<std::pair<const unsigned short, std::vector<aiVertexWeight>>>, std::less<unsigned short>>::_Auto_node", align 8
   %ref.tmp9.i = alloca %"class.std::tuple.167", align 8
@@ -2090,7 +2090,7 @@ _ZNSt8_Rb_treeItSt4pairIKtSt6vectorI14aiVertexWeightSaIS3_EEESt10_Select1stIS6_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp4Ogre11IVertexData24ReferencedBonesByWeightsEv(ptr noalias sret(%"class.std::set") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp4Ogre11IVertexData24ReferencedBonesByWeightsEv(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
@@ -2209,7 +2209,7 @@ _ZNSt8_Rb_treeIttSt9_IdentityItESt4lessItESaItEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp4Ogre10VertexDataC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre10VertexDataC2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 4), (8, 32), (40, 44), (48, 56)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %boneAssignments.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2559,7 +2559,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp4Ogre13VertexDataXmlC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre13VertexDataXmlC2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 4), (8, 32), (40, 44), (48, 56)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %boneAssignments.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2646,7 +2646,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp4Ogre9IndexDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp4Ogre9IndexDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 9), (16, 32)) %this) unnamed_addr #0 align 2 {
 entry:
   %buffer = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer, i8 0, i64 16, i1 false)
@@ -2655,7 +2655,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp4Ogre9IndexDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre9IndexDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 24)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %buffer.i, align 8
@@ -2811,7 +2811,7 @@ _ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit: ; preds = %entry, %_ZN6As
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp4Ogre9IndexData5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre9IndexData5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 24)) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %buffer, align 8
@@ -2914,7 +2914,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp4Ogre4MeshC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp4Ogre4MeshC2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 1)) %this) unnamed_addr #6 align 2 {
 entry:
   store i8 0, ptr %this, align 8
   %skeletonRef = getelementptr inbounds i8, ptr %this, i64 8
@@ -5023,7 +5023,7 @@ eh.resume:                                        ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp4Ogre8Skeleton9RootBonesEv(ptr noalias nocapture sret(%"class.std::vector.76") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp4Ogre8Skeleton9RootBonesEv(ptr noalias nocapture sret(%"class.std::vector.76") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %this, align 8
@@ -5335,7 +5335,7 @@ if.end:                                           ; preds = %for.body, %_ZN8aiSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp4Ogre8ISubMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(148) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp4Ogre8ISubMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 4)) %this) unnamed_addr #6 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %name = getelementptr inbounds i8, ptr %this, i64 8
@@ -5356,7 +5356,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre7SubMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre7SubMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 4)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -5942,7 +5942,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre7MeshXml20ConvertToAssimpSceneEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef %dest) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre7MeshXml20ConvertToAssimpSceneEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef initializes((16, 20), (24, 32)) %dest) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rootBones = alloca %"class.std::vector.76", align 8
   %subMeshes.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -6722,7 +6722,7 @@ if.end139:                                        ; preds = %_ZNSt3setItSt4lessI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre10SubMeshXmlC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre10SubMeshXmlC2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 4)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -6900,7 +6900,7 @@ delete.end5:                                      ; preds = %delete.notnull4, %d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp4Ogre9AnimationC2EPNS0_8SkeletonE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %parent) unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp4Ogre9AnimationC2EPNS0_8SkeletonE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16)) %this, ptr noundef %parent) unnamed_addr #6 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %parentSkeleton = getelementptr inbounds i8, ptr %this, i64 8
@@ -6919,7 +6919,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp4Ogre9AnimationC2EPNS0_4MeshE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %parent) unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp4Ogre9AnimationC2EPNS0_4MeshE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16)) %this, ptr noundef %parent) unnamed_addr #6 align 2 {
 entry:
   store ptr %parent, ptr %this, align 8
   %parentSkeleton = getelementptr inbounds i8, ptr %this, i64 8
@@ -7381,7 +7381,7 @@ eh.resume:                                        ; preds = %lpad10, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp4Ogre8SkeletonC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp4Ogre8SkeletonC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 52)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %this, i8 0, i64 52, i1 false)
   ret void
@@ -7769,7 +7769,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp4Ogre4BoneC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre4BoneC2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 2)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i16 0, ptr %this, align 8
   %name = getelementptr inbounds i8, ptr %this, i64 8
@@ -7968,7 +7968,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre4Bone34CalculateWorldMatrixAndDefaultPoseEPNS0_8SkeletonE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef readonly %skeleton) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre4Bone34CalculateWorldMatrixAndDefaultPoseEPNS0_8SkeletonE(ptr noundef nonnull align 8 dereferenceable(248) initializes((120, 248)) %this, ptr nocapture noundef readonly %skeleton) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.aiMatrix4x4t, align 4
   %ref.tmp4 = alloca %class.aiMatrix4x4t, align 4
@@ -8731,7 +8731,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp4Ogre20VertexAnimationTrackC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp4Ogre20VertexAnimationTrackC2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 6)) %this) unnamed_addr #6 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %target = getelementptr inbounds i8, ptr %this, i64 4
@@ -8764,7 +8764,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6Assimp4Ogre17TransformKeyFrame9TransformEv(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(44) %this) local_unnamed_addr #17 align 2 {
+define hidden void @_ZN6Assimp4Ogre17TransformKeyFrame9TransformEv(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 4 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(44) %this) local_unnamed_addr #17 align 2 {
 entry:
   %scale = getelementptr inbounds i8, ptr %this, i64 32
   %rotation = getelementptr inbounds i8, ptr %this, i64 4
@@ -9123,7 +9123,7 @@ _ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit: ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp4Ogre17TransformKeyFrameC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(44) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp4Ogre17TransformKeyFrameC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(44) initializes((0, 44)) %this) unnamed_addr #0 align 2 {
 entry:
   store float 0.000000e+00, ptr %this, align 4
   %rotation = getelementptr inbounds i8, ptr %this, i64 4

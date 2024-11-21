@@ -4766,7 +4766,7 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @MRIStepCoupling_Space(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #6 {
+define void @MRIStepCoupling_Space(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #6 {
   store i64 0, ptr %1, align 8
   store i64 0, ptr %2, align 8
   %.not = icmp eq ptr %0, null

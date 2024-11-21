@@ -3234,7 +3234,7 @@ _ZN4llvm4json5ArrayD2Ev.exit23:                   ; preds = %_ZSt8_DestroyIPN4ll
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14createLocationON4llvm4json6ObjectENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL14createLocationON4llvm4json6ObjectENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 20)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3) unnamed_addr #0 {
 .lr.ph.i:
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3377,7 +3377,7 @@ _ZN4llvm4json6Object2KVD2Ev.exit6:                ; preds = %_ZN4llvm4json6Objec
 declare void @_ZN4llvm4json5ArrayC1ESt16initializer_listINS0_5ValueEE(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19SarifDocumentWriter14createCodeFlowEN4llvm8ArrayRefINS_10ThreadFlowEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4720) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang19SarifDocumentWriter14createCodeFlowEN4llvm8ArrayRefINS_10ThreadFlowEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(4720) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
 .lr.ph.i:
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4251,7 +4251,7 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit41: ; preds = %180,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13createMessageN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL13createMessageN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 20)) %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::allocator.87", align 1
@@ -4311,7 +4311,7 @@ _ZN4llvm4json6Object2KVD2Ev.exit:                 ; preds = %_ZN4llvm4json6Objec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19SarifDocumentWriter14createDocumentEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4720) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang19SarifDocumentWriter14createDocumentEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(4720) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [2 x %"struct.llvm::json::Object::KV"], align 8

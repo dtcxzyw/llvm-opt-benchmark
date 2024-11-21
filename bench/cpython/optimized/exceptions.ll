@@ -1446,7 +1446,7 @@ _Py_XNewRef.exit:                                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyException_SetCause(ptr nocapture noundef %self, ptr noundef %cause) local_unnamed_addr #1 {
+define dso_local void @PyException_SetCause(ptr nocapture noundef initializes((64, 65)) %self, ptr noundef %cause) local_unnamed_addr #1 {
 entry:
   %suppress_context = getelementptr inbounds i8, ptr %self, i64 64
   store i8 1, ptr %suppress_context, align 8
@@ -2538,7 +2538,7 @@ PyUnicodeEncodeError_GetStart.exit:               ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @PyUnicodeEncodeError_SetStart(ptr nocapture noundef writeonly %exc, i64 noundef %start) local_unnamed_addr #4 {
+define dso_local noundef i32 @PyUnicodeEncodeError_SetStart(ptr nocapture noundef writeonly initializes((88, 96)) %exc, i64 noundef %start) local_unnamed_addr #4 {
 entry:
   %start1 = getelementptr inbounds i8, ptr %exc, i64 88
   store i64 %start, ptr %start1, align 8
@@ -2546,7 +2546,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @PyUnicodeDecodeError_SetStart(ptr nocapture noundef writeonly %exc, i64 noundef %start) local_unnamed_addr #4 {
+define dso_local noundef i32 @PyUnicodeDecodeError_SetStart(ptr nocapture noundef writeonly initializes((88, 96)) %exc, i64 noundef %start) local_unnamed_addr #4 {
 entry:
   %start1 = getelementptr inbounds i8, ptr %exc, i64 88
   store i64 %start, ptr %start1, align 8
@@ -2554,7 +2554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @PyUnicodeTranslateError_SetStart(ptr nocapture noundef writeonly %exc, i64 noundef %start) local_unnamed_addr #4 {
+define dso_local noundef i32 @PyUnicodeTranslateError_SetStart(ptr nocapture noundef writeonly initializes((88, 96)) %exc, i64 noundef %start) local_unnamed_addr #4 {
 entry:
   %start1 = getelementptr inbounds i8, ptr %exc, i64 88
   store i64 %start, ptr %start1, align 8
@@ -2759,7 +2759,7 @@ PyUnicodeEncodeError_GetEnd.exit:                 ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @PyUnicodeEncodeError_SetEnd(ptr nocapture noundef writeonly %exc, i64 noundef %end) local_unnamed_addr #4 {
+define dso_local noundef i32 @PyUnicodeEncodeError_SetEnd(ptr nocapture noundef writeonly initializes((96, 104)) %exc, i64 noundef %end) local_unnamed_addr #4 {
 entry:
   %end1 = getelementptr inbounds i8, ptr %exc, i64 96
   store i64 %end, ptr %end1, align 8
@@ -2767,7 +2767,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @PyUnicodeDecodeError_SetEnd(ptr nocapture noundef writeonly %exc, i64 noundef %end) local_unnamed_addr #4 {
+define dso_local noundef i32 @PyUnicodeDecodeError_SetEnd(ptr nocapture noundef writeonly initializes((96, 104)) %exc, i64 noundef %end) local_unnamed_addr #4 {
 entry:
   %end1 = getelementptr inbounds i8, ptr %exc, i64 96
   store i64 %end, ptr %end1, align 8
@@ -2775,7 +2775,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @PyUnicodeTranslateError_SetEnd(ptr nocapture noundef writeonly %exc, i64 noundef %end) local_unnamed_addr #4 {
+define dso_local noundef i32 @PyUnicodeTranslateError_SetEnd(ptr nocapture noundef writeonly initializes((96, 104)) %exc, i64 noundef %end) local_unnamed_addr #4 {
 entry:
   %end1 = getelementptr inbounds i8, ptr %exc, i64 96
   store i64 %end, ptr %end1, align 8
@@ -3740,7 +3740,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyExc_InitState(ptr noalias writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr nocapture noundef %interp) local_unnamed_addr #1 {
+define hidden void @_PyExc_InitState(ptr noalias writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr nocapture noundef initializes((306584, 306592)) %interp) local_unnamed_addr #1 {
 entry:
   %exc_state = getelementptr inbounds i8, ptr %interp, i64 306584
   %call = tail call ptr @PyDict_New() #10
@@ -6353,7 +6353,7 @@ return:                                           ; preds = %_Py_EnterRecursiveC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @exceptiongroup_split_recursive(ptr noundef %exc, i32 noundef %matcher_type, ptr noundef %matcher_value, i1 noundef zeroext %construct_rest, ptr nocapture noundef nonnull %result) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @exceptiongroup_split_recursive(ptr noundef %exc, i32 noundef %matcher_type, ptr noundef %matcher_value, i1 noundef zeroext %construct_rest, ptr nocapture noundef nonnull initializes((0, 16)) %result) unnamed_addr #1 {
 entry:
   %rec_result = alloca %struct._exceptiongroup_split_result, align 8
   %rest = getelementptr inbounds i8, ptr %result, i64 8
@@ -6760,7 +6760,7 @@ declare i32 @_Py_CheckRecursiveCall(ptr noundef, ptr noundef) local_unnamed_addr
 declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @exceptiongroup_subset(ptr noundef %_orig, ptr noundef %excs, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @exceptiongroup_subset(ptr noundef %_orig, ptr noundef %excs, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %result) unnamed_addr #1 {
 entry:
   %notes = alloca ptr, align 8
   store ptr null, ptr %result, align 8

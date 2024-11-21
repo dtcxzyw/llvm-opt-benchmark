@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.29 = private unnamed_addr constant [9 x i8] c"IPv4: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_printable_address(ptr nocapture noundef readonly %ai, ptr noundef %buf, i64 noundef %bufsize) local_unnamed_addr #0 {
+define hidden void @Curl_printable_address(ptr nocapture noundef readonly %ai, ptr noundef initializes((0, 1)) %buf, i64 noundef %bufsize) local_unnamed_addr #0 {
 entry:
   store i8 0, ptr %buf, align 1
   %ai_family = getelementptr inbounds i8, ptr %ai, i64 4
@@ -1224,7 +1224,7 @@ return:                                           ; preds = %Curl_host_is_ipnum.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 2) i32 @Curl_resolv_timeout(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, ptr nocapture noundef writeonly %entry1, i64 noundef %timeoutms) local_unnamed_addr #0 {
+define hidden range(i32 -2, 2) i32 @Curl_resolv_timeout(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, ptr nocapture noundef writeonly initializes((0, 8)) %entry1, i64 noundef %timeoutms) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %entry1, align 8
   %cmp = icmp slt i64 %timeoutms, 0

@@ -761,7 +761,7 @@ nrvo.skipdtor:                                    ; preds = %if.then7, %do.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNO6icu_7520StandardPluralRanges9toPointerER10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::LocalPointer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNO6icu_7520StandardPluralRanges9toPointerER10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::LocalPointer") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #12
   %new.isnull = icmp eq ptr %call, null

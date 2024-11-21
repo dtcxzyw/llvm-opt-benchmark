@@ -65,7 +65,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z21grpc_http_parser_initP16grpc_http_parser14grpc_http_typePv(ptr nocapture noundef writeonly %parser, i32 noundef %type, ptr noundef %request_or_response) local_unnamed_addr #3 {
+define void @_Z21grpc_http_parser_initP16grpc_http_parser14grpc_http_typePv(ptr nocapture noundef writeonly initializes((0, 4144)) %parser, i32 noundef %type, ptr noundef %request_or_response) local_unnamed_addr #3 {
 entry:
   %type1 = getelementptr inbounds i8, ptr %parser, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4136) %parser, i8 0, i64 4136, i1 false)

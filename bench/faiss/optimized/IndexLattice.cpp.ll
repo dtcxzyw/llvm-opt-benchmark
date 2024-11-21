@@ -516,7 +516,7 @@ declare void @_ZN5faiss5Index10merge_fromERS0_l(ptr noundef nonnull align 8 dere
 declare void @_ZNK5faiss5Index26check_compatible_for_mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss12IndexLatticeC2Eliii(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss12IndexLatticeC2Eliii(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 12), (16, 26), (28, 48)) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = trunc i64 %1 to i32

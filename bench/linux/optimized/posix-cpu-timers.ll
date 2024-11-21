@@ -63,7 +63,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @trace_itimer_expire.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace487, ptr @trace_itimer_expire.__UNIQUE_ID___addressable___SCK__tp_func_itimer_expire486], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @posix_cputimers_group_init(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @posix_cputimers_group_init(ptr nocapture noundef writeonly initializes((0, 80)) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(80) %3, i8 0, i64 72, i1 false)
   store i64 -1, ptr %0, align 8
@@ -189,7 +189,7 @@ define dso_local void @set_process_cpu_timer(ptr noundef %0, i32 noundef %1, ptr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @thread_group_sample_cputime(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 align 16 {
+define dso_local void @thread_group_sample_cputime(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1880
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 352
@@ -328,7 +328,7 @@ define dso_local void @posix_cpu_timers_exit_group(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @clear_posix_cputimers_work(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local void @clear_posix_cputimers_work(ptr noundef initializes((1712, 1728)) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1712
   tail call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 1720
@@ -2493,7 +2493,7 @@ define internal noundef range(i32 -22, 1) i32 @process_cpu_clock_get(i32 %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @process_cpu_timer_create(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @process_cpu_timer_create(ptr noundef initializes((48, 52)) %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 -6, ptr %2, align 8
   %3 = tail call i32 @posix_cpu_timer_create(ptr noundef %0), !range !37
@@ -2584,7 +2584,7 @@ posix_cpu_clock_get.exit:                         ; preds = %9, %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @thread_cpu_timer_create(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @thread_cpu_timer_create(ptr noundef initializes((48, 52)) %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 -2, ptr %2, align 8
   %3 = tail call i32 @posix_cpu_timer_create(ptr noundef %0), !range !37

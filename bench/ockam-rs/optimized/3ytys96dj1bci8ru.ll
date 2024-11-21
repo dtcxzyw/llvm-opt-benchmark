@@ -5553,7 +5553,7 @@ define internal fastcc void @"_ZN10ockam_node7delayed21DelayedEvent$LT$M$GT$8sch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN12futures_util9abortable18Abortable$LT$T$GT$3new17h68adf467fd8e60fcE"(ptr noalias nocapture noundef writeonly sret({ { { i64, i32 }, ptr, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { ptr, i64 }, i64 }, i8, [1295 x i8] }, ptr }) align 8 dereferenceable(1384) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1376) %1, ptr noundef nonnull %2) unnamed_addr #1 {
+define hidden void @"_ZN12futures_util9abortable18Abortable$LT$T$GT$3new17h68adf467fd8e60fcE"(ptr noalias nocapture noundef writeonly sret({ { { i64, i32 }, ptr, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { ptr, i64 }, i64 }, i8, [1295 x i8] }, ptr }) align 8 dereferenceable(1384) initializes((0, 1384)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1376) %1, ptr noundef nonnull %2) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef nonnull align 8 dereferenceable(1376) %1, i64 1376, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 1376
   store ptr %2, ptr %4, align 8

@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [6 x ptr] [ptr @trace_ext4_fsmap_high_key.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1784, ptr @trace_ext4_fsmap_high_key.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fsmap_high_key1783, ptr @trace_ext4_fsmap_low_key.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1770, ptr @trace_ext4_fsmap_low_key.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fsmap_low_key1769, ptr @trace_ext4_fsmap_mapping.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1798, ptr @trace_ext4_fsmap_mapping.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fsmap_mapping1797], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ext4_fsmap_from_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @ext4_fsmap_from_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 64)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %1, align 8
@@ -72,7 +72,7 @@ define dso_local void @ext4_fsmap_from_internal(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ext4_fsmap_to_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @ext4_fsmap_to_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((16, 48)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = load i32, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 %4, ptr %5, align 8
@@ -959,7 +959,7 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ext4_getfsmap_logdev(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #1 align 16 {
+define internal i32 @ext4_getfsmap_logdev(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((40, 136)) %2) #1 align 16 {
   %4 = alloca %struct.ext4_fsmap, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 872
   %6 = load ptr, ptr %5, align 8

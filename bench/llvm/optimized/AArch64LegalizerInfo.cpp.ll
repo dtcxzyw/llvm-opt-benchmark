@@ -275,7 +275,7 @@ $_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup = comdat any
 @_ZN4llvm20AArch64LegalizerInfoC1ERKNS_16AArch64SubtargetE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm20AArch64LegalizerInfoC2ERKNS_16AArch64SubtargetE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20AArch64LegalizerInfoC2ERKNS_16AArch64SubtargetE(ptr noundef nonnull align 8 dereferenceable(121048) %0, ptr noundef nonnull align 8 dereferenceable(409552) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20AArch64LegalizerInfoC2ERKNS_16AArch64SubtargetE(ptr noundef nonnull align 8 dereferenceable(121048) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(409552) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::function", align 8
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = alloca %"class.std::function.192", align 8

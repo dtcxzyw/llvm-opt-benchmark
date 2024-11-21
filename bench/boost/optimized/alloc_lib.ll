@@ -7041,7 +7041,7 @@ define hidden i64 @mspace_footprint_limit(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden i64 @mspace_set_footprint_limit(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #12 {
+define hidden i64 @mspace_set_footprint_limit(ptr nocapture noundef writeonly initializes((872, 880)) %0, i64 noundef %1) local_unnamed_addr #12 {
   %3 = icmp eq i64 %1, -1
   br i1 %3, label %10, label %4
 
@@ -9202,7 +9202,7 @@ define hidden range(i32 0, 2) i32 @boost_cont_all_deallocated() local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @boost_cont_malloc_stats(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.boost_cont_malloc_stats_impl) align 8 %0) local_unnamed_addr #0 {
+define hidden void @boost_cont_malloc_stats(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.boost_cont_malloc_stats_impl) align 8 initializes((0, 24)) %0) local_unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !97
   %2 = load i64, ptr @mparams, align 8, !tbaa !3, !noalias !97
@@ -10383,7 +10383,7 @@ define hidden noundef i32 @boost_cont_malloc_check() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @internal_grow_both_sides(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef %4, i64 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc ptr @internal_grow_both_sides(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef initializes((0, 8)) %4, i64 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %1, i64 -16
   %9 = getelementptr inbounds i8, ptr %1, i64 -8
   %10 = load i64, ptr %9, align 8, !tbaa !23

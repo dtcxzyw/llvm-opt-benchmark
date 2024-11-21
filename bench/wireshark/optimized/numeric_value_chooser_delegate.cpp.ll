@@ -69,7 +69,7 @@ define void @_ZN27NumericValueChooserDelegateC2EiiP7QObject(ptr noundef nonnull 
 declare void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN27NumericValueChooserDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 {
+define void @_ZN27NumericValueChooserDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV27NumericValueChooserDelegate, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
@@ -94,7 +94,7 @@ define void @_ZN27NumericValueChooserDelegateD0Ev(ptr noundef nonnull align 8 de
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN27NumericValueChooserDelegate14setMinMaxRangeEii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN27NumericValueChooserDelegate14setMinMaxRangeEii(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 24)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.QVariant::Private", align 8
   %5 = alloca %class.QVariant, align 8
   %6 = alloca %class.QVariant, align 8
@@ -128,7 +128,7 @@ define void @_ZN27NumericValueChooserDelegate14setMinMaxRangeEii(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN27NumericValueChooserDelegate15setDefaultValueEi8QVariant(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
+define void @_ZN27NumericValueChooserDelegate15setDefaultValueEi8QVariant(ptr noundef nonnull align 8 dereferenceable(64) initializes((24, 28)) %0, i32 noundef %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8

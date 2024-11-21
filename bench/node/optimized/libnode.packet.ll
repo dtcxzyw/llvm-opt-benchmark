@@ -1287,7 +1287,7 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 declare i32 @uv_udp_send(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic6Packet4DoneEi(ptr noundef nonnull align 8 dereferenceable(576) %this, i32 noundef %status) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4node4quic6Packet4DoneEi(ptr noundef nonnull align 8 dereferenceable(576) initializes((80, 96), (552, 560)) %this, i32 noundef %status) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp = alloca ptr, align 8
   %listener_ = getelementptr inbounds i8, ptr %this, i64 408

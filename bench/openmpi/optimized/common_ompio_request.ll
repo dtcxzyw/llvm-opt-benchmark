@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_mutex_t_class = external global %struct.opal_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_common_ompio_request_construct(ptr noundef %0) #0 {
+define internal void @mca_common_ompio_request_construct(ptr noundef initializes((88, 96)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96

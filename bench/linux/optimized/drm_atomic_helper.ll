@@ -2080,7 +2080,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_check_wb_conne
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -34, 1) i32 @drm_atomic_helper_check_plane_state(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #0 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @drm_atomic_helper_check_plane_state(ptr noundef initializes((108, 140)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #0 align 16 {
   %7 = alloca %struct.drm_rect, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -8687,7 +8687,7 @@ define dso_local ptr @drm_atomic_helper_suspend(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_atomic_helper_commit_duplicated_state(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @drm_atomic_helper_commit_duplicated_state(ptr noundef initializes((72, 80)) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9201,7 +9201,7 @@ define dso_local i32 @drm_atomic_helper_page_flip_target(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias noundef ptr @drm_atomic_helper_bridge_propagate_bus_fmt(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
+define dso_local noalias noundef ptr @drm_atomic_helper_bridge_propagate_bus_fmt(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #0 align 16 {
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 4) #11
   %9 = icmp eq ptr %8, null

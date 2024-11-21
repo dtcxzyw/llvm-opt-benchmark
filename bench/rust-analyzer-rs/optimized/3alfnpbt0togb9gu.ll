@@ -3736,7 +3736,7 @@ select.unfold.us.i.i:                             ; preds = %.split.us.preheader
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN10test_utils7fixture8MiniCore15available_flags17h41b927992abf6890E(ptr noalias nocapture noundef writeonly sret({ { i64, { { { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } }, {} }, i8, {}, [7 x i8] } }, {} }) align 8 dereferenceable(88) %0) unnamed_addr #4 {
+define void @_ZN10test_utils7fixture8MiniCore15available_flags17h41b927992abf6890E(ptr noalias nocapture noundef writeonly sret({ { i64, { { { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } }, {} }, i8, {}, [7 x i8] } }, {} }) align 8 dereferenceable(88) initializes((0, 74), (80, 81)) %0) unnamed_addr #4 {
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8

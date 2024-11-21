@@ -1554,21 +1554,21 @@ quantize_float.exit:                              ; preds = %40, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_pos_find_algo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_pos_find_algo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr nocapture noundef initializes((0, 16)) %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   %8 = tail call ptr @tng_compress_pos(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_pos_float_find_algo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_pos_float_find_algo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr nocapture noundef initializes((0, 16)) %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   %8 = tail call ptr @tng_compress_pos_float(ptr noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_pos_int_find_algo(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_pos_int_find_algo(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr nocapture noundef initializes((0, 16)) %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 -1, i64 16, i1 false)
   %9 = tail call ptr @tng_compress_pos_int(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef %7)
   ret ptr %9
@@ -2942,21 +2942,21 @@ quantize_float.exit:                              ; preds = %40, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_vel_find_algo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_vel_find_algo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr nocapture noundef initializes((0, 16)) %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   %8 = tail call ptr @tng_compress_vel(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_vel_float_find_algo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_vel_float_find_algo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr nocapture noundef initializes((0, 16)) %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   %8 = tail call ptr @tng_compress_vel_float(ptr noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tng_compress_vel_int_find_algo(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define noundef ptr @tng_compress_vel_int_find_algo(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr nocapture noundef initializes((0, 16)) %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 -1, i64 16, i1 false)
   %9 = tail call ptr @tng_compress_vel_int(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef %7)
   ret ptr %9

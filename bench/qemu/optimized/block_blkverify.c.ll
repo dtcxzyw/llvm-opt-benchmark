@@ -325,7 +325,7 @@ declare void @qemu_iovec_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @qemu_iovec_clone(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @blkverify_co_prwv(ptr noundef %bs, ptr noundef %r, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, ptr noundef %raw_qiov, i32 noundef %flags, i1 noundef zeroext %is_write) #0 {
+define internal i32 @blkverify_co_prwv(ptr noundef %bs, ptr noundef initializes((0, 17), (24, 44), (48, 68), (72, 88)) %r, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, ptr noundef %raw_qiov, i32 noundef %flags, i1 noundef zeroext %is_write) #0 {
 entry:
   %frombool = zext i1 %is_write to i8
   %call = tail call ptr @qemu_coroutine_self() #9
@@ -420,7 +420,7 @@ declare i32 @bdrv_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, 
 declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blkverify_do_test_req(ptr nocapture noundef %opaque) #0 {
+define internal void @blkverify_do_test_req(ptr nocapture noundef initializes((56, 60)) %opaque) #0 {
 entry:
   %bs = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %bs, align 8
@@ -452,7 +452,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blkverify_do_raw_req(ptr nocapture noundef %opaque) #0 {
+define internal void @blkverify_do_raw_req(ptr nocapture noundef initializes((60, 64)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #9
   %request_fn = getelementptr inbounds i8, ptr %opaque, i64 48

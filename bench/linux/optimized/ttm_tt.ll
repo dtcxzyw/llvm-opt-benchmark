@@ -134,7 +134,7 @@ define dso_local void @ttm_tt_destroy(ptr noundef %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @ttm_tt_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ttm_tt_init(ptr nocapture noundef writeonly initializes((0, 44)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %1, i64 216
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 4095
@@ -220,7 +220,7 @@ declare dso_local void @fput(ptr noundef) local_unnamed_addr #3
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @ttm_sg_tt_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ttm_sg_tt_init(ptr nocapture noundef initializes((8, 44)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 216
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 4095
@@ -816,7 +816,7 @@ define dso_local void @ttm_tt_mgr_init(i64 noundef %0, i64 noundef %1) local_unn
 declare dso_local ptr @debugfs_create_file(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @ttm_kmap_iter_tt_init(ptr noundef returned writeonly %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef ptr @ttm_kmap_iter_tt_init(ptr noundef returned writeonly initializes((0, 24)) %0, ptr noundef %1) #0 align 16 {
   store ptr @ttm_kmap_iter_tt_ops, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -902,7 +902,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @ttm_kmap_iter_tt_map_local(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #8 align 16 {
+define internal void @ttm_kmap_iter_tt_map_local(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9)) %1, i64 noundef %2) #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

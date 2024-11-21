@@ -325,7 +325,7 @@ declare dso_local ptr @v9fs_session_init(ptr noundef, ptr noundef, ptr noundef) 
 declare dso_local ptr @sget(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_set_super(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal i32 @v9fs_set_super(ptr noundef initializes((872, 880)) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 872
   store ptr %1, ptr %3, align 8
   %4 = tail call i32 @set_anon_super(ptr noundef %0, ptr noundef %1) #6

@@ -5437,7 +5437,7 @@ return:                                           ; preds = %entry, %LZ4HC_init_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @LZ4_setCompressionLevel(ptr nocapture noundef writeonly %LZ4_streamHCPtr, i32 noundef %compressionLevel) local_unnamed_addr #4 {
+define void @LZ4_setCompressionLevel(ptr nocapture noundef writeonly initializes((262180, 262182)) %LZ4_streamHCPtr, i32 noundef %compressionLevel) local_unnamed_addr #4 {
 entry:
   %cmp = icmp slt i32 %compressionLevel, 1
   %0 = tail call i32 @llvm.umin.i32(i32 %compressionLevel, i32 12)
@@ -5509,7 +5509,7 @@ LZ4_initStreamHC.exit:                            ; preds = %entry, %if.end6.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @LZ4_favorDecompressionSpeed(ptr nocapture noundef writeonly %LZ4_streamHCPtr, i32 noundef %favor) local_unnamed_addr #4 {
+define void @LZ4_favorDecompressionSpeed(ptr nocapture noundef writeonly initializes((262182, 262183)) %LZ4_streamHCPtr, i32 noundef %favor) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ne i32 %favor, 0
   %conv1 = zext i1 %cmp to i8
@@ -5639,7 +5639,7 @@ if.end8:                                          ; preds = %LZ4HC_Insert.exit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @LZ4_attach_HC_dictionary(ptr nocapture noundef writeonly %working_stream, ptr noundef %dictionary_stream) local_unnamed_addr #4 {
+define void @LZ4_attach_HC_dictionary(ptr nocapture noundef writeonly initializes((262184, 262192)) %working_stream, ptr noundef %dictionary_stream) local_unnamed_addr #4 {
 entry:
   %dictCtx = getelementptr inbounds i8, ptr %working_stream, i64 262184
   store ptr %dictionary_stream, ptr %dictCtx, align 8
@@ -5929,7 +5929,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 65537) i32 @LZ4_saveDictHC(ptr nocapture noundef %LZ4_streamHCPtr, ptr noundef %safeBuffer, i32 noundef %dictSize) local_unnamed_addr #12 {
+define range(i32 -2147483648, 65537) i32 @LZ4_saveDictHC(ptr nocapture noundef initializes((262160, 262168), (262172, 262176)) %LZ4_streamHCPtr, ptr noundef %safeBuffer, i32 noundef %dictSize) local_unnamed_addr #12 {
 entry:
   %end = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 262144
   %0 = load ptr, ptr %end, align 8

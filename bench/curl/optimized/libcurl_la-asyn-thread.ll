@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_resolver_init(ptr nocapture noundef readnone %easy, ptr nocapture noundef writeonly %resolver) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_resolver_init(ptr nocapture noundef readnone %easy, ptr nocapture noundef writeonly initializes((0, 8)) %resolver) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 16) #8
@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_resolver_duphandle(ptr nocapture noundef readnone %easy, ptr nocapture noundef writeonly %to, ptr nocapture noundef readnone %from) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_resolver_duphandle(ptr nocapture noundef readnone %easy, ptr nocapture noundef writeonly initializes((0, 8)) %to, ptr nocapture noundef readnone %from) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i = tail call ptr %0(i64 noundef 1, i64 noundef 16) #8
@@ -262,7 +262,7 @@ thread_wait_resolv.exit:                          ; preds = %if.end26.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_resolver_is_resolved(ptr noundef %data, ptr nocapture noundef writeonly %entry1) local_unnamed_addr #1 {
+define hidden i32 @Curl_resolver_is_resolved(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 8)) %entry1) local_unnamed_addr #1 {
 entry:
   %async = getelementptr inbounds i8, ptr %data, i64 3624
   %tdata = getelementptr inbounds i8, ptr %data, i64 3640
@@ -420,7 +420,7 @@ if.end17:                                         ; preds = %if.end16, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @Curl_resolver_getaddrinfo(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, ptr nocapture noundef writeonly %waitp) local_unnamed_addr #1 {
+define hidden noundef ptr @Curl_resolver_getaddrinfo(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, ptr nocapture noundef writeonly initializes((0, 4)) %waitp) local_unnamed_addr #1 {
 entry:
   %resolver = getelementptr inbounds i8, ptr %data, i64 3648
   %0 = load ptr, ptr %resolver, align 8

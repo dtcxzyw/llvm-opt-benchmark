@@ -918,7 +918,7 @@ define noundef zeroext i1 @_ZNK4ofbx8DataVieweqEPKc(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
+define void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (144, 161), (168, 176)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx6ObjectE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %2, ptr %4, align 8
@@ -995,7 +995,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4ofbx4MeshC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
+define void @_ZN4ofbx4MeshC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (144, 161), (168, 176)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx6ObjectE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %2, ptr %4, align 8
@@ -1068,7 +1068,7 @@ define linkonce_odr void @_ZN4ofbx4MeshD0Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4ofbx8MaterialC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
+define void @_ZN4ofbx8MaterialC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (144, 161), (168, 176)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx6ObjectE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %2, ptr %4, align 8
@@ -1141,7 +1141,7 @@ define linkonce_odr void @_ZN4ofbx8MaterialD0Ev(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4ofbx13NodeAttributeC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
+define void @_ZN4ofbx13NodeAttributeC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (144, 161), (168, 176)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx6ObjectE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %2, ptr %4, align 8
@@ -1214,7 +1214,7 @@ define linkonce_odr void @_ZN4ofbx13NodeAttributeD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4ofbx8GeometryC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
+define void @_ZN4ofbx8GeometryC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (144, 161), (168, 176)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx6ObjectE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %2, ptr %4, align 8
@@ -1287,7 +1287,7 @@ define linkonce_odr void @_ZN4ofbx8GeometryD0Ev(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4ofbx7ClusterC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
+define void @_ZN4ofbx7ClusterC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (144, 161), (168, 176)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx6ObjectE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %2, ptr %4, align 8
@@ -1360,7 +1360,7 @@ define linkonce_odr void @_ZN4ofbx7ClusterD0Ev(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4ofbx14AnimationStackC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
+define void @_ZN4ofbx14AnimationStackC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (144, 161), (168, 176)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx6ObjectE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %2, ptr %4, align 8
@@ -1433,7 +1433,7 @@ define linkonce_odr void @_ZN4ofbx14AnimationStackD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4ofbx14AnimationLayerC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
+define void @_ZN4ofbx14AnimationLayerC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (144, 161), (168, 176)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx6ObjectE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %2, ptr %4, align 8
@@ -1506,7 +1506,7 @@ define linkonce_odr void @_ZN4ofbx14AnimationLayerD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4ofbx14AnimationCurveC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
+define void @_ZN4ofbx14AnimationCurveC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (144, 161), (168, 176)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx6ObjectE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %2, ptr %4, align 8
@@ -1579,7 +1579,7 @@ define linkonce_odr void @_ZN4ofbx14AnimationCurveD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4ofbx18AnimationCurveNodeC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
+define void @_ZN4ofbx18AnimationCurveNodeC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (144, 161), (168, 176)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx6ObjectE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %2, ptr %4, align 8
@@ -1652,7 +1652,7 @@ define linkonce_odr void @_ZN4ofbx18AnimationCurveNodeD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4ofbx4SkinC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
+define void @_ZN4ofbx4SkinC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (144, 161), (168, 176)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx6ObjectE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %2, ptr %4, align 8
@@ -1725,7 +1725,7 @@ define linkonce_odr void @_ZN4ofbx4SkinD0Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4ofbx7TextureC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
+define void @_ZN4ofbx7TextureC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (144, 161), (168, 176)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4ofbx6ObjectE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %2, ptr %4, align 8
@@ -2084,7 +2084,7 @@ define linkonce_odr void @_ZNK4ofbx11TextureImpl19getRelativeFileNameEv(ptr dead
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #12 {
   %4 = tail call i32 @atoi(ptr nocapture noundef %0) #30
   store i32 %4, ptr %2, align 4
   %5 = icmp ult ptr %0, %1
@@ -2116,7 +2116,7 @@ define noundef ptr @_ZN4ofbx10fromStringIiEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_ZN4ofbx10fromStringIyEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #13 {
+define noundef ptr @_ZN4ofbx10fromStringIyEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #13 {
   %4 = tail call i64 @strtoull(ptr nocapture noundef %0, ptr noundef null, i32 noundef 10) #29
   store i64 %4, ptr %2, align 8
   %5 = icmp ult ptr %0, %1
@@ -2148,7 +2148,7 @@ define noundef ptr @_ZN4ofbx10fromStringIyEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringIxEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringIxEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #12 {
   %4 = tail call i64 @atoll(ptr nocapture noundef %0) #30
   store i64 %4, ptr %2, align 8
   %5 = icmp ult ptr %0, %1
@@ -2180,7 +2180,7 @@ define noundef ptr @_ZN4ofbx10fromStringIxEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringIdEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringIdEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #12 {
   %4 = tail call double @atof(ptr noundef %0) #30
   store double %4, ptr %2, align 8
   %5 = icmp ult ptr %0, %1
@@ -2212,7 +2212,7 @@ define noundef ptr @_ZN4ofbx10fromStringIdEEPKcS2_S2_PT_(ptr noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef ptr @_ZN4ofbx10fromStringIfEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define noundef ptr @_ZN4ofbx10fromStringIfEEPKcS2_S2_PT_(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #12 {
   %4 = tail call double @atof(ptr noundef %0) #30
   %5 = fptrunc double %4 to float
   store float %5, ptr %2, align 4

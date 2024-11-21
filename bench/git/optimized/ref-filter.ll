@@ -339,7 +339,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @verify_ref_format(ptr noundef %format) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @verify_ref_format(ptr noundef initializes((24, 28)) %format) local_unnamed_addr #0 {
 entry:
   %err = alloca %struct.strbuf, align 8
   %need_color_reset_at_eol = getelementptr inbounds i8, ptr %format, i64 24
@@ -1382,7 +1382,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_filter_refs(ptr nocapture noundef %filter, i32 noundef %type, ptr noundef %fn, ptr noundef nonnull %cb_data) unnamed_addr #0 {
+define internal fastcc i32 @do_filter_refs(ptr nocapture noundef initializes((100, 104), (120, 132), (136, 156), (160, 168)) %filter, i32 noundef %type, ptr noundef %fn, ptr noundef nonnull %cb_data) unnamed_addr #0 {
 entry:
   %and = and i32 %type, 62
   %kind = getelementptr inbounds i8, ptr %filter, i64 100
@@ -3713,7 +3713,7 @@ declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @commit_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ref_filter_init(ptr nocapture noundef writeonly %filter) local_unnamed_addr #9 {
+define dso_local void @ref_filter_init(ptr nocapture noundef writeonly initializes((0, 168)) %filter) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %filter, ptr noundef nonnull align 8 dereferenceable(168) @__const.ref_filter_init.blank, i64 168, i1 false)
   ret void
@@ -4728,7 +4728,7 @@ return:                                           ; preds = %if.end, %err_no_arg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @trailers_atom_parser(ptr nocapture readnone %format, ptr noundef %atom, ptr noundef %arg, ptr noundef %err) #0 {
+define internal range(i32 -1, 1) i32 @trailers_atom_parser(ptr nocapture readnone %format, ptr noundef initializes((52, 56)) %atom, ptr noundef %arg, ptr noundef %err) #0 {
 entry:
   %argbuf = alloca ptr, align 8
   %invalid_arg = alloca ptr, align 8
@@ -9186,7 +9186,7 @@ declare i32 @read_mailmap(ptr noundef) local_unnamed_addr #3
 declare void @apply_mailmap_to_header(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @grab_date(ptr noundef nonnull %buf, ptr nocapture noundef writeonly %v, ptr noundef %atomname) unnamed_addr #0 {
+define internal fastcc void @grab_date(ptr noundef nonnull %buf, ptr nocapture noundef writeonly initializes((0, 8), (24, 32)) %v, ptr noundef %atomname) unnamed_addr #0 {
 entry:
   %zone = alloca ptr, align 8
   %date_mode = alloca %struct.date_mode, align 8

@@ -1623,7 +1623,7 @@ entry:
 declare void @_PyThreadState_Detach(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyEval_ReInitThreads(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %tstate) local_unnamed_addr #3 {
+define hidden void @_PyEval_ReInitThreads(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 32)) %agg.result, ptr noundef %tstate) local_unnamed_addr #3 {
 entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
@@ -2153,7 +2153,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_PyEval_InitState(ptr nocapture noundef writeonly %interp) local_unnamed_addr #8 {
+define hidden void @_PyEval_InitState(ptr nocapture noundef writeonly initializes((1352, 1360), (1368, 1372)) %interp) local_unnamed_addr #8 {
 entry:
   %_gil = getelementptr inbounds i8, ptr %interp, i64 1352
   %locked.i = getelementptr inbounds i8, ptr %interp, i64 1368

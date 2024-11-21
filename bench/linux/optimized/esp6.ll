@@ -2052,7 +2052,7 @@ declare dso_local void @ip6_update_pmtu(ptr noundef, ptr noundef, i32 noundef, i
 declare dso_local void @__xfrm_state_destroy(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @esp6_init_state(ptr nocapture noundef %0, ptr noundef writeonly %1) #0 align 16 {
+define internal i32 @esp6_init_state(ptr nocapture noundef initializes((736, 744)) %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca [128 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 736

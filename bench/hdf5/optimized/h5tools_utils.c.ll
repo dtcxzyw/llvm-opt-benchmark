@@ -784,7 +784,7 @@ define ptr @search_obj(ptr nocapture noundef readonly %0, ptr noundef %1) local_
 declare i32 @H5Otoken_cmp(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @init_objs(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define range(i32 -1, -2147483648) i32 @init_objs(i64 noundef %0, ptr noundef initializes((0, 32)) %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef initializes((0, 8)) %4) local_unnamed_addr #4 {
   %6 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #28
   store i64 %0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1269,7 +1269,7 @@ add_obj.exit47:                                   ; preds = %._crit_edge.i43, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 3) i32 @H5tools_get_symlink_info(i64 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
+define range(i32 -1, 3) i32 @H5tools_get_symlink_info(i64 noundef %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
 sub_0:
   %4 = alloca %struct.H5O_info2_t, align 8
   store i32 -1, ptr %2, align 8

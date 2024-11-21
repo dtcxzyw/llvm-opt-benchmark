@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [26 x i8] c"Unreleased developer copy\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 117) i32 @ompi_fill_in_type_info(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 117) i32 @ompi_fill_in_type_info(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -430,7 +430,7 @@ define i64 @ompi_fetch_size_t(ptr noundef %0, i64 noundef %1, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_fetch_opal_pointer_array_info(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define noundef i32 @ompi_fetch_opal_pointer_array_info(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = alloca [8 x i8], align 1
   %8 = alloca i64, align 8
   %9 = alloca [8 x i8], align 1

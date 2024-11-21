@@ -306,7 +306,7 @@ lpad:                                             ; preds = %new.notnull
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @_ZN6icu_7522UCharCharacterIterator5firstEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
+define noundef zeroext i16 @_ZN6icu_7522UCharCharacterIterator5firstEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((12, 16)) %this) unnamed_addr #6 align 2 {
 entry:
   %begin = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %begin, align 8
@@ -331,7 +331,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @_ZN6icu_7522UCharCharacterIterator12firstPostIncEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
+define noundef zeroext i16 @_ZN6icu_7522UCharCharacterIterator12firstPostIncEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((12, 16)) %this) unnamed_addr #6 align 2 {
 entry:
   %begin = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %begin, align 8
@@ -358,7 +358,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @_ZN6icu_7522UCharCharacterIterator4lastEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
+define noundef zeroext i16 @_ZN6icu_7522UCharCharacterIterator4lastEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((12, 16)) %this) unnamed_addr #6 align 2 {
 entry:
   %end = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %end, align 4
@@ -385,7 +385,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @_ZN6icu_7522UCharCharacterIterator8setIndexEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %position) unnamed_addr #6 align 2 {
+define noundef zeroext i16 @_ZN6icu_7522UCharCharacterIterator8setIndexEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((12, 16)) %this, i32 noundef %position) unnamed_addr #6 align 2 {
 entry:
   %begin = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %begin, align 8
@@ -564,7 +564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 10559488) i32 @_ZN6icu_7522UCharCharacterIterator7first32Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
+define noundef range(i32 0, 10559488) i32 @_ZN6icu_7522UCharCharacterIterator7first32Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((12, 16)) %this) unnamed_addr #6 align 2 {
 entry:
   %begin = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %begin, align 8
@@ -610,7 +610,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 10559488) i32 @_ZN6icu_7522UCharCharacterIterator14first32PostIncEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
+define noundef range(i32 0, 10559488) i32 @_ZN6icu_7522UCharCharacterIterator14first32PostIncEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((12, 16)) %this) unnamed_addr #6 align 2 {
 entry:
   %begin = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %begin, align 8
@@ -659,7 +659,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 10559488) i32 @_ZN6icu_7522UCharCharacterIterator6last32Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
+define noundef range(i32 0, 10559488) i32 @_ZN6icu_7522UCharCharacterIterator6last32Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((12, 16)) %this) unnamed_addr #6 align 2 {
 entry:
   %end = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %end, align 4
@@ -709,7 +709,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 10559488) i32 @_ZN6icu_7522UCharCharacterIterator10setIndex32Ei(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %position) unnamed_addr #6 align 2 {
+define noundef range(i32 0, 10559488) i32 @_ZN6icu_7522UCharCharacterIterator10setIndex32Ei(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((12, 16)) %this, i32 noundef %position) unnamed_addr #6 align 2 {
 entry:
   %begin = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %begin, align 8
@@ -1406,7 +1406,7 @@ sw.epilog:                                        ; preds = %do.end171, %land.rh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7522UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %newText, i32 noundef %newTextLength) local_unnamed_addr #9 align 2 {
+define void @_ZN6icu_7522UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 32)) %this, ptr nocapture noundef readonly %newText, i32 noundef %newTextLength) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %newText, align 8
   %text = getelementptr inbounds i8, ptr %this, i64 24

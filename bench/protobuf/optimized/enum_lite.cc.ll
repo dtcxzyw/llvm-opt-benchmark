@@ -236,7 +236,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler4java17EnumLiteGeneratorC2EPKNS0_14EnumDescriptorEbPNS2_7ContextE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %descriptor, i1 noundef zeroext %immutable_api, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java17EnumLiteGeneratorC2EPKNS0_14EnumDescriptorEbPNS2_7ContextE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 57), (64, 72)) %this, ptr noundef %descriptor, i1 noundef zeroext %immutable_api, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %immutable_api to i8
   store ptr %descriptor, ptr %this, align 8

@@ -54,7 +54,7 @@ $_ZTIN5zxing18ReaderErrorHandlerE = comdat any
 @_ZN5zxing6qrcode20ErrorCorrectionLevelC1EiiPKc = hidden unnamed_addr alias void (ptr, i32, i32, ptr), ptr @_ZN5zxing6qrcode20ErrorCorrectionLevelC2EiiPKc
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode20ErrorCorrectionLevelC2EiiPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode20ErrorCorrectionLevelC2EiiPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator", align 1
   store i32 %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4

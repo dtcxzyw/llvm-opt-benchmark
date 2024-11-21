@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8QuantLib10LatticeRsgC1EmSt6vectorIdSaIdEEm = unnamed_addr alias void (ptr, i64, ptr, i64), ptr @_ZN8QuantLib10LatticeRsgC2EmSt6vectorIdSaIdEEm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib10LatticeRsgC2EmSt6vectorIdSaIdEEm(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %dimensionality, ptr nocapture noundef %z, i64 noundef %N) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib10LatticeRsgC2EmSt6vectorIdSaIdEEm(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 48)) %this, i64 noundef %dimensionality, ptr nocapture noundef %z, i64 noundef %N) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 %dimensionality, ptr %this, align 8, !tbaa !3
   %N_ = getelementptr inbounds nuw i8, ptr %this, i64 8

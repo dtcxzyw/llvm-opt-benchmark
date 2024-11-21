@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [64 x i8] c"Linux\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @cli_detect_environment(ptr noundef %0) local_unnamed_addr #0 {
+define void @cli_detect_environment(ptr noundef initializes((0, 492)) %0) local_unnamed_addr #0 {
   %2 = alloca [128 x i8], align 16
   %3 = alloca i32, align 4
   %4 = alloca [128 x i8], align 16

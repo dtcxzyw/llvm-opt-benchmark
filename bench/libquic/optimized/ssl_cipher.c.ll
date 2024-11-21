@@ -147,7 +147,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr nocapture noundef writeonly %out_aead, ptr nocapture noundef writeonly %out_mac_secret_len, ptr nocapture noundef writeonly %out_fixed_iv_len, ptr nocapture noundef readonly %cipher, i16 noundef zeroext %version) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr nocapture noundef writeonly initializes((0, 8)) %out_aead, ptr nocapture noundef writeonly initializes((0, 8)) %out_mac_secret_len, ptr nocapture noundef writeonly initializes((0, 8)) %out_fixed_iv_len, ptr nocapture noundef readonly %cipher, i16 noundef zeroext %version) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %out_aead, align 8
   store i64 0, ptr %out_mac_secret_len, align 8

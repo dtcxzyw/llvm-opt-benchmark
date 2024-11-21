@@ -1049,7 +1049,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28HaganIrregularSwaptionEngine6BasketC2EN5boost10shared_ptrINS_13IrregularSwapEEENS_6HandleINS_18YieldTermStructureEEENS6_INS_27SwaptionVolatilityStructureEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef %swap, ptr nocapture noundef %termStructure, ptr nocapture noundef %volatilityStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28HaganIrregularSwaptionEngine6BasketC2EN5boost10shared_ptrINS_13IrregularSwapEEENS_6HandleINS_18YieldTermStructureEEENS6_INS_27SwaptionVolatilityStructureEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 152)) %this, ptr nocapture noundef %swap, ptr nocapture noundef %termStructure, ptr nocapture noundef %volatilityStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i410 = alloca %"class.boost::shared_ptr.166", align 8
   %pt.i = alloca %"class.boost::shared_ptr.71", align 8
@@ -5538,7 +5538,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib28HaganIrregularSwaptionEngine6Basket7computeEd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(152) %this, double noundef %lambda) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib28HaganIrregularSwaptionEngine6Basket7computeEd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((144, 152)) %this, double noundef %lambda) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arr = alloca %"class.QuantLib::Matrix", align 8
   %rhs = alloca %"class.QuantLib::Array", align 8
@@ -6394,7 +6394,7 @@ _ZN8QuantLib6MatrixD2Ev.exit5:                    ; preds = %_ZN8QuantLib6Matrix
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib28HaganIrregularSwaptionEngine6BasketclEd(ptr nocapture noundef nonnull align 8 dereferenceable(152) %this, double noundef %lambda) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib28HaganIrregularSwaptionEngine6BasketclEd(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((144, 152)) %this, double noundef %lambda) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %weights = alloca %"class.QuantLib::Array", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %weights) #26
@@ -7567,7 +7567,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28HaganIrregularSwaptionEngineC2ENS_6HandleINS_27SwaptionVolatilityStructureEEENS1_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr nocapture noundef %volatilityStructure, ptr nocapture noundef %termStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28HaganIrregularSwaptionEngineC2ENS_6HandleINS_27SwaptionVolatilityStructureEEENS1_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(616) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %volatilityStructure, ptr nocapture noundef %termStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp7 = alloca %"class.boost::shared_ptr", align 8

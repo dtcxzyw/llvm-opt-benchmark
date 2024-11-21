@@ -321,7 +321,7 @@ define hidden void @_ZN15JvmtiRawMonitorC2EPKc(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15JvmtiRawMonitorD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN15JvmtiRawMonitorD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 36)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
   ret void
@@ -891,7 +891,7 @@ define hidden void @_ZN15JvmtiRawMonitor13simple_notifyEP6Threadb(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15JvmtiRawMonitor13ExitOnSuspendclEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN15JvmtiRawMonitor13ExitOnSuspendclEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(9) initializes((8, 9)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
   tail call void @_ZN15JvmtiRawMonitor11simple_exitEP6Thread(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 8

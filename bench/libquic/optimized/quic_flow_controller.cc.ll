@@ -39,7 +39,7 @@ $__clang_call_terminate = comdat any
 @_ZN3net18QuicFlowControllerC1EPNS_14QuicConnectionEjNS_11PerspectiveEmmb = dso_local unnamed_addr alias void (ptr, ptr, i32, i32, i64, i64, i1), ptr @_ZN3net18QuicFlowControllerC2EPNS_14QuicConnectionEjNS_11PerspectiveEmmb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net18QuicFlowControllerC2EPNS_14QuicConnectionEjNS_11PerspectiveEmmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, ptr noundef %connection, i32 noundef %id, i32 noundef %perspective, i64 noundef %send_window_offset, i64 noundef %receive_window_offset, i1 noundef zeroext %should_auto_tune_receive_window) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net18QuicFlowControllerC2EPNS_14QuicConnectionEjNS_11PerspectiveEmmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 73), (80, 96)) %this, ptr noundef %connection, i32 noundef %id, i32 noundef %perspective, i64 noundef %send_window_offset, i64 noundef %receive_window_offset, i1 noundef zeroext %should_auto_tune_receive_window) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %should_auto_tune_receive_window to i8
   store ptr %connection, ptr %this, align 8

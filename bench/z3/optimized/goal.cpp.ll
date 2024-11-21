@@ -205,7 +205,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4goalC2ER11ast_managerbb(ptr noundef nonnull align 8 dereferenceable(124) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %models_enabled, i1 noundef zeroext %core_enabled) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4goalC2ER11ast_managerbb(ptr noundef nonnull align 8 dereferenceable(124) initializes((0, 36)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %models_enabled, i1 noundef zeroext %core_enabled) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_mc = getelementptr inbounds i8, ptr %this, i64 8
@@ -349,7 +349,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4goalC2ER11ast_managerbbb(ptr noundef nonnull align 8 dereferenceable(124) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %proofs_enabled, i1 noundef zeroext %models_enabled, i1 noundef zeroext %core_enabled) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4goalC2ER11ast_managerbbb(ptr noundef nonnull align 8 dereferenceable(124) initializes((0, 36)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %proofs_enabled, i1 noundef zeroext %models_enabled, i1 noundef zeroext %core_enabled) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_mc = getelementptr inbounds i8, ptr %this, i64 8
@@ -379,7 +379,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4goalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(124) %this, ptr noundef nonnull align 8 dereferenceable(124) %src) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4goalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(124) initializes((0, 36)) %this, ptr noundef nonnull align 8 dereferenceable(124) %src) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
@@ -438,7 +438,7 @@ lpad4:                                            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4goalC2ERKS_b(ptr noundef nonnull align 8 dereferenceable(124) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(124) %src, i1 zeroext %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4goalC2ERKS_b(ptr noundef nonnull align 8 dereferenceable(124) initializes((0, 36)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(124) %src, i1 zeroext %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %src, align 8
   store ptr %1, ptr %this, align 8
@@ -603,7 +603,7 @@ lpad4:                                            ; preds = %if.then.i.i.i38, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4goalD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4goalD2Ev(ptr noundef nonnull align 8 dereferenceable(124) initializes((80, 84), (96, 100), (112, 116)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN4goal10reset_coreEv(ptr noundef nonnull align 8 dereferenceable(124) %this)
           to label %invoke.cont unwind label %terminate.lpad
@@ -706,7 +706,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4goal10reset_coreEv(ptr nocapture noundef nonnull align 8 dereferenceable(124) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4goal10reset_coreEv(ptr nocapture noundef nonnull align 8 dereferenceable(124) initializes((80, 84), (96, 100), (112, 116)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_forms = getelementptr inbounds i8, ptr %this, i64 72
@@ -3480,7 +3480,7 @@ eh.resume:                                        ; preds = %lpad50, %lpad9
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4goal9reset_allEv(ptr nocapture noundef nonnull align 8 dereferenceable(124) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4goal9reset_allEv(ptr nocapture noundef nonnull align 8 dereferenceable(124) initializes((80, 84), (96, 100), (112, 116)) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4goal10reset_coreEv(ptr noundef nonnull align 8 dereferenceable(124) %this)
   %m_depth = getelementptr inbounds i8, ptr %this, i64 120
@@ -3491,7 +3491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4goal5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(124) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4goal5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(124) initializes((80, 84), (96, 100), (112, 116)) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4goal10reset_coreEv(ptr noundef nonnull align 8 dereferenceable(124) %this)
   %m_inconsistent = getelementptr inbounds i8, ptr %this, i64 120

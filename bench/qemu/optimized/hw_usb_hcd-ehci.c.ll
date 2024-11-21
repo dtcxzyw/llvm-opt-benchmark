@@ -1332,7 +1332,7 @@ declare void @usb_bus_release(ptr noundef) local_unnamed_addr #1
 declare void @qemu_del_vm_change_state_handler(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_ehci_init(ptr noundef %s, ptr noundef %dev) local_unnamed_addr #0 {
+define dso_local void @usb_ehci_init(ptr noundef initializes((1332, 1341), (1342, 1344), (1960, 1968)) %s, ptr noundef %dev) local_unnamed_addr #0 {
 entry:
   %opregbase = getelementptr inbounds i8, ptr %s, i64 1320
   %0 = load i16, ptr %opregbase, align 8

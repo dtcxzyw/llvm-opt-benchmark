@@ -518,7 +518,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12bv2real_utilC2ER11ast_managerRK8rationalS4_j(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(32) %default_root, ptr noundef nonnull align 8 dereferenceable(32) %default_divisor, i32 noundef %max_num_bits) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12bv2real_utilC2ER11ast_managerRK8rationalS4_j(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(32) %default_root, ptr noundef nonnull align 8 dereferenceable(32) %default_divisor, i32 noundef %max_num_bits) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %ref.tmp.i69 = alloca %class.symbol, align 8
   %ref.tmp2.i70 = alloca %class.symbol, align 8
@@ -6939,7 +6939,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16bv2real_rewriterC2ER11ast_managerR12bv2real_util(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(272) %util) unnamed_addr #3 align 2 {
+define hidden void @_ZN16bv2real_rewriterC2ER11ast_managerR12bv2real_util(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(272) %util) unnamed_addr #3 align 2 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_util = getelementptr inbounds i8, ptr %this, i64 8

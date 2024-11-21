@@ -195,7 +195,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.169 = private unnamed_addr constant [29 x i8] c"%s thread failed to join: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @transport_helper_init(ptr nocapture noundef writeonly %transport, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local noundef i32 @transport_helper_init(ptr nocapture noundef writeonly initializes((0, 8), (24, 32), (128, 136)) %transport, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 240) #18
   store ptr %name, ptr %call, align 8

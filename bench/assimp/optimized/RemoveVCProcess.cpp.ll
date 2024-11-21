@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp15RemoveVCProcess7ExecuteEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %pScene) unnamed_addr #3 align 2 {
+define void @_ZN6Assimp15RemoveVCProcess7ExecuteEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((32, 40)) %this, ptr noundef %pScene) unnamed_addr #3 align 2 {
 entry:
   %clr = alloca %struct.aiColor3D, align 4
   %s = alloca %struct.aiString, align 4
@@ -803,7 +803,7 @@ if.end129:                                        ; preds = %_Z11ArrayDeleteI6ai
 declare void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp15RemoveVCProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
+define void @_ZN6Assimp15RemoveVCProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 28)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.8, i32 noundef 0)
   %configDeleteFlags = getelementptr inbounds i8, ptr %this, i64 24

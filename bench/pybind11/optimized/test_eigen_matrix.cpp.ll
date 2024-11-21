@@ -19894,7 +19894,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZZ27test_submo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester3refEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Ref.69") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester3refEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Ref.69") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -19911,7 +19911,7 @@ define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12Re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester8refConstEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Ref") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester8refConstEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Ref") align 8 initializes((0, 32), (40, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -20318,7 +20318,7 @@ _ZN8pybind1112cpp_functionD2Ev.exit:              ; preds = %53, %55, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester5blockEiiii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Block") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester5blockEiiii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Block") align 8 initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #12 align 2 personality ptr @__gxx_personality_v0 {
   %7 = sext i32 %2 to i64
   %8 = sext i32 %3 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1113)
@@ -20541,7 +20541,7 @@ _ZN8pybind1112cpp_functionD2Ev.exit:              ; preds = %53, %55, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EENK12ReturnTester10blockConstEiiii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Block.87") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EENK12ReturnTester10blockConstEiiii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Block.87") align 8 initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #12 align 2 personality ptr @__gxx_personality_v0 {
   %7 = sext i32 %2 to i64
   %8 = sext i32 %3 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1129)
@@ -20570,7 +20570,7 @@ define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EENK12R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester7cornersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Map") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester7cornersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Map") align 8 initializes((0, 8), (16, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -20588,7 +20588,7 @@ define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12Re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EENK12ReturnTester12cornersConstEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Map.108") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EENK12ReturnTester12cornersConstEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Map.108") align 8 initializes((0, 8), (16, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8

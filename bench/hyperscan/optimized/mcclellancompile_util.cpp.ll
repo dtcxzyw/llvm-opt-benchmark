@@ -853,7 +853,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit24:                  ; preds = %cleanup, %if.then.i
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211all_reportsERKNS_7raw_dfaE(ptr noalias sret(%"class.std::set") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %rdfa) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211all_reportsERKNS_7raw_dfaE(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %rdfa) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i3 = alloca %"class.ue2::flat_detail::iter_wrapper", align 8
   %agg.tmp1.i4 = alloca %"class.ue2::flat_detail::iter_wrapper", align 8

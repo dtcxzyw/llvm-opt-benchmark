@@ -70,7 +70,7 @@ $_ZZNSt8__detail18__to_chars_10_implIyEEvPcjT_E8__digits = comdat any
 @_ZN4Luau4Json11JsonEmitterC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4Luau4Json11JsonEmitterC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json13ObjectEmitterC2ENS_7NotNullINS0_11JsonEmitterEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(10) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau4Json13ObjectEmitterC2ENS_7NotNullINS0_11JsonEmitterEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(10) initializes((0, 10)) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %.cast = ptrtoint ptr %1 to i64
   store i64 %.cast, ptr %0, align 8
@@ -181,14 +181,14 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau4Json11JsonEmitter8popCommaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4Luau4Json11JsonEmitter8popCommaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json12ArrayEmitterC2ENS_7NotNullINS0_11JsonEmitterEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(10) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau4Json12ArrayEmitterC2ENS_7NotNullINS0_11JsonEmitterEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(10) initializes((0, 10)) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %.cast = ptrtoint ptr %1 to i64
   store i64 %.cast, ptr %0, align 8
@@ -269,7 +269,7 @@ define dso_local void @_ZN4Luau4Json12ArrayEmitter6finishEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json11JsonEmitterC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau4Json11JsonEmitterC2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 1), (8, 32)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -1679,7 +1679,7 @@ define dso_local void @_ZN4Luau4Json11JsonEmitter10writeCommaEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json11JsonEmitter11writeObjectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Json::ObjectEmitter") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau4Json11JsonEmitter11writeObjectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Json::ObjectEmitter") align 8 initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %.cast.i = ptrtoint ptr %1 to i64
   store i64 %.cast.i, ptr %0, align 8
@@ -1698,7 +1698,7 @@ define dso_local void @_ZN4Luau4Json11JsonEmitter11writeObjectEv(ptr dead_on_unw
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau4Json11JsonEmitter10writeArrayEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Json::ArrayEmitter") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau4Json11JsonEmitter10writeArrayEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Json::ArrayEmitter") align 8 initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %.cast.i = ptrtoint ptr %1 to i64
   store i64 %.cast.i, ptr %0, align 8

@@ -14698,7 +14698,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull %0, ptr %.0.val, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17jni_invoke_staticP7JNIEnv_P9JavaValueP8_jobject11JNICallTypeP10_jmethodIDP18JNI_ArgumentPusherP10JavaThread(ptr noundef nonnull initializes((0, 1)) %0, ptr %.0.val, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %class.methodHandle, align 8
   %5 = alloca %class.JavaCallArguments, align 8
   store ptr %.0.val, ptr %4, align 8

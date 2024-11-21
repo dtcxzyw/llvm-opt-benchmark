@@ -514,7 +514,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18GUIScrollContainerC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle, ptr noundef nonnull align 8 dereferenceable(32) %orientation, float noundef %scrollfactor) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18GUIScrollContainerC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(328) initializes((328, 348)) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle, ptr noundef nonnull align 8 dereferenceable(32) %orientation, float noundef %scrollfactor) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 328
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
@@ -749,7 +749,7 @@ if.end14:                                         ; preds = %if.end, %if.then, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18GUIScrollContainer15updateScrollingEv(ptr noundef nonnull align 8 dereferenceable(328) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN18GUIScrollContainer15updateScrollingEv(ptr noundef nonnull align 8 dereferenceable(328) initializes((96, 112)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_scrollbar = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %m_scrollbar, align 8, !tbaa !7

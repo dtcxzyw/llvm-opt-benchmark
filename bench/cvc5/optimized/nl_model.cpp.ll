@@ -1466,7 +1466,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESt10_Select1s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl7NlModelD2Ev(ptr noundef nonnull align 8 dereferenceable(369) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl7NlModelD2Ev(ptr noundef nonnull align 8 dereferenceable(369) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith2nl7NlModelE, i64 16), ptr %this, align 8
   %d_check_model_solved = getelementptr inbounds i8, ptr %this, i64 312
@@ -1739,7 +1739,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl7NlModelD0Ev(ptr noundef nonnull align 8 dereferenceable(369) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl7NlModelD0Ev(ptr noundef nonnull align 8 dereferenceable(369) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory5arith2nl7NlModelD2Ev(ptr noundef nonnull align 8 dereferenceable(369) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -1802,7 +1802,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl7NlModel10resetCheckEv(ptr noundef nonnull align 8 dereferenceable(369) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl7NlModel10resetCheckEv(ptr noundef nonnull align 8 dereferenceable(369) initializes((368, 369)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_used_approx = getelementptr inbounds i8, ptr %this, i64 368
   store i8 0, ptr %d_used_approx, align 8
@@ -13923,7 +13923,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl7NlModel18setUsedApproximateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(369) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl7NlModel18setUsedApproximateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(369) initializes((368, 369)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_used_approx = getelementptr inbounds i8, ptr %this, i64 368
   store i8 1, ptr %d_used_approx, align 8

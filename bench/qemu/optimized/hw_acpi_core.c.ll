@@ -582,7 +582,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_pm1_evt_reset(ptr nocapture noundef writeonly %ar) local_unnamed_addr #0 {
+define dso_local void @acpi_pm1_evt_reset(ptr nocapture noundef writeonly initializes((608, 612)) %ar) local_unnamed_addr #0 {
 entry:
   %sts = getelementptr inbounds i8, ptr %ar, i64 608
   store i16 0, ptr %sts, align 16
@@ -596,7 +596,7 @@ entry:
 declare void @qemu_system_wakeup_enable(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_pm1_evt_init(ptr noundef %ar, ptr noundef %update_sci, ptr noundef %parent) local_unnamed_addr #0 {
+define dso_local void @acpi_pm1_evt_init(ptr noundef initializes((616, 624)) %ar, ptr noundef %update_sci, ptr noundef %parent) local_unnamed_addr #0 {
 entry:
   %pm1 = getelementptr inbounds i8, ptr %ar, i64 336
   %update_sci1 = getelementptr inbounds i8, ptr %ar, i64 616
@@ -643,7 +643,7 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @timer_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_pm_tmr_calc_overflow_time(ptr nocapture noundef writeonly %ar) local_unnamed_addr #0 {
+define dso_local void @acpi_pm_tmr_calc_overflow_time(ptr nocapture noundef writeonly initializes((288, 296)) %ar) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #21
   %conv.i.i = zext i64 %call.i to i128
@@ -658,7 +658,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_pm_tmr_init(ptr noundef %ar, ptr noundef %update_sci, ptr noundef %parent) local_unnamed_addr #0 {
+define dso_local void @acpi_pm_tmr_init(ptr noundef initializes((296, 304)) %ar, ptr noundef %update_sci, ptr noundef %parent) local_unnamed_addr #0 {
 entry:
   %update_sci1 = getelementptr inbounds i8, ptr %ar, i64 296
   store ptr %update_sci, ptr %update_sci1, align 8
@@ -683,7 +683,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_pm_tmr_reset(ptr nocapture noundef %ar) local_unnamed_addr #0 {
+define dso_local void @acpi_pm_tmr_reset(ptr nocapture noundef initializes((288, 296)) %ar) local_unnamed_addr #0 {
 entry:
   %overflow_time = getelementptr inbounds i8, ptr %ar, i64 288
   store i64 0, ptr %overflow_time, align 16
@@ -725,7 +725,7 @@ if.end16:                                         ; preds = %if.else, %if.then9,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_pm1_cnt_init(ptr noundef %ar, ptr noundef %parent, i1 noundef zeroext %disable_s3, i1 noundef zeroext %disable_s4, i8 noundef zeroext %s4_val, i1 noundef zeroext %acpi_only) local_unnamed_addr #0 {
+define dso_local void @acpi_pm1_cnt_init(ptr noundef initializes((898, 900), (912, 920)) %ar, ptr noundef %parent, i1 noundef zeroext %disable_s3, i1 noundef zeroext %disable_s4, i8 noundef zeroext %s4_val, i1 noundef zeroext %acpi_only) local_unnamed_addr #0 {
 entry:
   %suspend = alloca [6 x i8], align 1
   %frombool2 = zext i1 %acpi_only to i8
@@ -797,7 +797,7 @@ declare void @fw_cfg_add_file(ptr noundef, ptr noundef, ptr noundef, i64 noundef
 declare ptr @g_memdup(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @acpi_pm1_cnt_reset(ptr nocapture noundef %ar) local_unnamed_addr #9 {
+define dso_local void @acpi_pm1_cnt_reset(ptr nocapture noundef initializes((896, 898)) %ar) local_unnamed_addr #9 {
 entry:
   %cnt1 = getelementptr inbounds i8, ptr %ar, i64 896
   %acpi_only = getelementptr inbounds i8, ptr %ar, i64 899
@@ -809,7 +809,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_gpe_init(ptr nocapture noundef writeonly %ar, i8 noundef zeroext %len) local_unnamed_addr #0 {
+define dso_local void @acpi_gpe_init(ptr nocapture noundef writeonly initializes((304, 305), (312, 328)) %ar, i8 noundef zeroext %len) local_unnamed_addr #0 {
 entry:
   %gpe = getelementptr inbounds i8, ptr %ar, i64 304
   store i8 %len, ptr %gpe, align 16

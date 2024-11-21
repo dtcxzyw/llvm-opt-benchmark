@@ -1759,7 +1759,7 @@ _ZNSt10_HashtableIN4cvc58internal4kind6Kind_tES3_SaIS3_ENSt8__detail9_IdentityES
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory18PartitionGenerator15collectLiteralsENS2_15LiteralListTypeE(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(456) %this, i32 noundef %litType) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory18PartitionGenerator15collectLiteralsENS2_15LiteralListTypeE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(456) %this, i32 noundef %litType) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %unfilteredLiterals = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %"class.std::vector", align 8
@@ -3209,7 +3209,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory18PartitionGenerator16stopPartitioningEv(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(456) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory18PartitionGenerator16stopPartitioningEv(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(456) initializes((297, 298)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca i8, align 1
   %d_emittedAllPartitions = getelementptr inbounds i8, ptr %this, i64 297

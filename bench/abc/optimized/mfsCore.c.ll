@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [56 x i8] c"Performing optimization with %d external care clauses.\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Abc_NtkMfsParsDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Abc_NtkMfsParsDefault(ptr nocapture noundef writeonly initializes((0, 68)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %2, i8 0, i64 12, i1 false)
   store i32 2, ptr %0, align 4

@@ -1160,7 +1160,7 @@ _ZNK6google8protobuf8internal12MapFieldBase7payloadEv.exit: ; preds = %_ZNK6goog
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf8internal12MapFieldBase8MapBeginEPNS0_11MapIteratorE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %map_iter) local_unnamed_addr #3 align 2 {
+define void @_ZNK6google8protobuf8internal12MapFieldBase8MapBeginEPNS0_11MapIteratorE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef initializes((0, 20)) %map_iter) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
@@ -1220,7 +1220,7 @@ _ZNK6google8protobuf8internal14UntypedMapBase5beginEv.exit: ; preds = %entry, %c
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK6google8protobuf8internal12MapFieldBase6MapEndEPNS0_11MapIteratorE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly %map_iter) local_unnamed_addr #9 align 2 {
+define void @_ZNK6google8protobuf8internal12MapFieldBase6MapEndEPNS0_11MapIteratorE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 20)) %map_iter) local_unnamed_addr #9 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %map_iter, i8 0, i64 20, i1 false)
   ret void
@@ -1313,7 +1313,7 @@ _ZN6google8protobuf8internal18UntypedMapIterator8PlusPlusEv.exit: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf8internal12MapFieldBase12CopyIteratorEPNS0_11MapIteratorERKS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %this_iter, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %that_iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf8internal12MapFieldBase12CopyIteratorEPNS0_11MapIteratorERKS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef initializes((0, 20)) %this_iter, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %that_iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this_iter, ptr noundef nonnull align 8 dereferenceable(20) %that_iter, i64 20, i1 false)
@@ -5290,7 +5290,7 @@ _ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv.exit: ; preds = %_ZNK6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf8internal15DynamicMapFieldC2EPKNS0_7MessageE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %default_entry) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15DynamicMapFieldC2EPKNS0_7MessageE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, ptr noundef %default_entry) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @_ZN6google8protobuf8internal15DynamicMapField7kVTableE, ptr %this, align 8
   %payload_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -5313,7 +5313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf8internal15DynamicMapFieldC2EPKNS0_7MessageEPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %default_entry, ptr noundef %arena) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15DynamicMapFieldC2EPKNS0_7MessageEPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, ptr noundef %default_entry, ptr noundef %arena) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @_ZN6google8protobuf8internal15DynamicMapField7kVTableE, ptr %this, align 8
   %payload_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -5449,7 +5449,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal15DynamicMapField32InsertOrLookupMapValueNoSyncImplERNS1_12MapFieldBaseERKNS0_6MapKeyEPNS0_11MapValueRefE(ptr noundef nonnull align 8 dereferenceable(16) %base, ptr noundef nonnull align 8 dereferenceable(36) %map_key, ptr nocapture noundef writeonly %val) #3 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal15DynamicMapField32InsertOrLookupMapValueNoSyncImplERNS1_12MapFieldBaseERKNS0_6MapKeyEPNS0_11MapValueRefE(ptr noundef nonnull align 8 dereferenceable(16) %base, ptr noundef nonnull align 8 dereferenceable(36) %map_key, ptr nocapture noundef writeonly initializes((0, 12)) %val) #3 align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.51", align 8
   %0 = getelementptr inbounds i8, ptr %base, i64 16
@@ -6523,7 +6523,7 @@ _ZN6google8protobuf8internal12MapFieldBaseD2Ev.exit: ; preds = %_ZN6google8proto
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal15DynamicMapField16AllocateMapValueEPNS0_11MapValueRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %map_val) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15DynamicMapField16AllocateMapValueEPNS0_11MapValueRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly initializes((8, 12)) %map_val) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %default_entry_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %default_entry_, align 8

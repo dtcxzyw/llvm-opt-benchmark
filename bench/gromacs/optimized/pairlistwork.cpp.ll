@@ -25,7 +25,7 @@ $_ZN20NbnxnPairlistGpuWork17ISuperClusterDataD2Ev = comdat any
 @_ZN20NbnxnPairlistGpuWorkC1Ev = unnamed_addr alias void (ptr), ptr @_ZN20NbnxnPairlistGpuWorkC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20NbnxnPairlistGpuWork17ISuperClusterDataC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20NbnxnPairlistGpuWork17ISuperClusterDataC2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = tail call noundef ptr @_ZN3gmx23AlignedAllocationPolicy6mallocEm(i64 noundef 256)
   %3 = icmp eq ptr %2, null

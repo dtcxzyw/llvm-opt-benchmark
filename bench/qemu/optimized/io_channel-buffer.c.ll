@@ -44,7 +44,7 @@ declare ptr @object_new(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 6) i32 @qio_channel_buffer_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly %timeout) #3 {
+define internal range(i32 0, 6) i32 @qio_channel_buffer_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly initializes((0, 4)) %timeout) #3 {
 entry:
   store i32 -1, ptr %timeout, align 4
   %condition = getelementptr inbounds i8, ptr %source, i64 104

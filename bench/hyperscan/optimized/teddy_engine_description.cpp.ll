@@ -39,7 +39,7 @@ $_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EE17_M_realloc_insertIJRKNS0_1
 @_ZN3ue222TeddyEngineDescriptionC1ERKNS_14TeddyEngineDefE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN3ue222TeddyEngineDescriptionC2ERKNS_14TeddyEngineDefE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue222TeddyEngineDescriptionC2ERKNS_14TeddyEngineDefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %def) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue222TeddyEngineDescriptionC2ERKNS_14TeddyEngineDefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 12), (16, 20), (24, 41)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %def) unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %def, align 8
   %cpu_features = getelementptr inbounds i8, ptr %def, i64 8

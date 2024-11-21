@@ -416,7 +416,7 @@ return:                                           ; preds = %sw.bb30, %sw.bb26, 
 declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core7Timeout6EncodeEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 2 dereferenceable(3) %this) local_unnamed_addr #4 align 2 {
+define void @_ZNK9grpc_core7Timeout6EncodeEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 2 dereferenceable(3) %this) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i = alloca %struct.grpc_slice, align 8
   %buf = alloca [10 x i8], align 1

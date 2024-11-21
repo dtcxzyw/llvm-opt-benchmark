@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [67 x i8] c"cannot insert the filter in this object. Maximum capacity exceeded\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @init_packobject(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local void @init_packobject(ptr nocapture noundef writeonly initializes((0, 1)) %0) local_unnamed_addr #0 {
   store i8 0, ptr %0, align 1
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %invariant.gep = getelementptr i8, ptr %0, i64 264

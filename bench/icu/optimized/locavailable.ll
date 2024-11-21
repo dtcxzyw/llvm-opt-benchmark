@@ -309,7 +309,7 @@ if.end:                                           ; preds = %arraydestroy.done1,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_756Locale19getAvailableLocalesERi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN6icu_756Locale19getAvailableLocalesERi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load atomic i32, ptr @_ZN6icu_75L15gInitOnceLocaleE acquire, align 4
   %cmp.i = icmp eq i32 %0, 2
@@ -772,7 +772,7 @@ declare noundef ptr @_ZN6icu_7517StringEnumeration5unextEPiR10UErrorCode(ptr nou
 declare noundef ptr @_ZN6icu_7517StringEnumeration5snextER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(116), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(124) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #11 align 2 {
+define internal void @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(124) initializes((120, 124)) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #11 align 2 {
 entry:
   %fIndex = getelementptr inbounds i8, ptr %this, i64 120
   store i32 0, ptr %fIndex, align 8

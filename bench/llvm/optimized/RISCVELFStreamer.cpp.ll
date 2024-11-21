@@ -338,7 +338,7 @@ declare void @_ZN4llvm19RISCVTargetStreamer6finishEv(ptr noundef nonnull align 8
 declare noundef nonnull align 8 dereferenceable(208) ptr @_ZN4llvm13MCELFStreamer9getWriterEv(ptr noundef nonnull align 8 dereferenceable(6601)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm22RISCVTargetELFStreamer5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm22RISCVTargetELFStreamer5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((40, 48)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   ret void
@@ -360,7 +360,7 @@ declare noundef zeroext i1 @_ZN4llvm11MCAssembler14registerSymbolERKNS_8MCSymbol
 declare void @_ZN4llvm11MCSymbolELF8setOtherEj(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16RISCVELFStreamer5resetEv(ptr noundef nonnull align 8 dereferenceable(6636) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16RISCVELFStreamer5resetEv(ptr noundef nonnull align 8 dereferenceable(6636) initializes((6600, 6601)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8

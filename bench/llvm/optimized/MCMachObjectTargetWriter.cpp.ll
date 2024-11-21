@@ -14,7 +14,7 @@ $_ZN4llvm24MCMachObjectTargetWriter5resetEv = comdat any
 @_ZN4llvm24MCMachObjectTargetWriterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm24MCMachObjectTargetWriterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm24MCMachObjectTargetWriterC2Ebjj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm24MCMachObjectTargetWriterC2Ebjj(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (12, 24)) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm24MCMachObjectTargetWriterE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext i1 %1 to i8

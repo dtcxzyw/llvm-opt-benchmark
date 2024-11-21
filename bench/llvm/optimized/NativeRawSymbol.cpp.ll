@@ -88,7 +88,7 @@ $_ZTVN4llvm3pdb14NullEnumeratorINS0_14IPDBLineNumberEEE = comdat any
 @_ZN4llvm3pdb15NativeRawSymbolC1ERNS0_13NativeSessionENS0_11PDB_SymTypeEj = unnamed_addr alias void (ptr, ptr, i32, i32), ptr @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 1448) (i8, ptr @_ZTVN4llvm3pdb15NativeRawSymbolE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -193,7 +193,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %37, %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol12findChildrenENS0_11PDB_SymTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol12findChildrenENS0_11PDB_SymTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_deleteIS4_EED2Ev.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb14NullEnumeratorINS0_9PDBSymbolEEE, i64 16), ptr %3, align 8, !noalias !4
@@ -202,7 +202,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol12findChildrenENS0_11PDB_SymTypeENS_9StringRefENS0_19PDB_NameSearchFlagsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, ptr nocapture readnone %3, i64 %4, i32 %5) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol12findChildrenENS0_11PDB_SymTypeENS_9StringRefENS0_19PDB_NameSearchFlagsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, ptr nocapture readnone %3, i64 %4, i32 %5) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_deleteIS4_EED2Ev.exit:
   %6 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11, !noalias !7
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb14NullEnumeratorINS0_9PDBSymbolEEE, i64 16), ptr %6, align 8, !noalias !7
@@ -211,7 +211,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol18findChildrenByAddrENS0_11PDB_SymTypeENS_9StringRefENS0_19PDB_NameSearchFlagsEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, ptr nocapture readnone %3, i64 %4, i32 %5, i32 %6, i32 %7) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol18findChildrenByAddrENS0_11PDB_SymTypeENS_9StringRefENS0_19PDB_NameSearchFlagsEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, ptr nocapture readnone %3, i64 %4, i32 %5, i32 %6, i32 %7) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_deleteIS4_EED2Ev.exit:
   %8 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11, !noalias !10
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb14NullEnumeratorINS0_9PDBSymbolEEE, i64 16), ptr %8, align 8, !noalias !10
@@ -220,7 +220,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol16findChildrenByVAENS0_11PDB_SymTypeENS_9StringRefENS0_19PDB_NameSearchFlagsEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, ptr nocapture readnone %3, i64 %4, i32 %5, i64 %6) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol16findChildrenByVAENS0_11PDB_SymTypeENS_9StringRefENS0_19PDB_NameSearchFlagsEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, ptr nocapture readnone %3, i64 %4, i32 %5, i64 %6) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_deleteIS4_EED2Ev.exit:
   %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11, !noalias !13
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb14NullEnumeratorINS0_9PDBSymbolEEE, i64 16), ptr %7, align 8, !noalias !13
@@ -229,7 +229,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol17findChildrenByRVAENS0_11PDB_SymTypeENS_9StringRefENS0_19PDB_NameSearchFlagsEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, ptr nocapture readnone %3, i64 %4, i32 %5, i32 %6) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol17findChildrenByRVAENS0_11PDB_SymTypeENS_9StringRefENS0_19PDB_NameSearchFlagsEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, ptr nocapture readnone %3, i64 %4, i32 %5, i32 %6) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_deleteIS4_EED2Ev.exit:
   %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11, !noalias !16
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb14NullEnumeratorINS0_9PDBSymbolEEE, i64 16), ptr %7, align 8, !noalias !16
@@ -238,7 +238,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol22findInlineFramesByAddrEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i32 %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol22findInlineFramesByAddrEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i32 %3) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_deleteIS4_EED2Ev.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11, !noalias !19
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb14NullEnumeratorINS0_9PDBSymbolEEE, i64 16), ptr %4, align 8, !noalias !19
@@ -247,7 +247,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol21findInlineFramesByRVAEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol21findInlineFramesByRVAEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_deleteIS4_EED2Ev.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11, !noalias !22
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb14NullEnumeratorINS0_9PDBSymbolEEE, i64 16), ptr %3, align 8, !noalias !22
@@ -256,7 +256,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol20findInlineFramesByVAEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol20findInlineFramesByVAEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_deleteIS4_EED2Ev.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11, !noalias !25
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb14NullEnumeratorINS0_9PDBSymbolEEE, i64 16), ptr %3, align 8, !noalias !25
@@ -265,7 +265,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol16findInlineeLinesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.58") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol16findInlineeLinesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.58") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11, !noalias !28
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb14NullEnumeratorINS0_14IPDBLineNumberEEE, i64 16), ptr %2, align 8, !noalias !28
@@ -274,7 +274,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_14IPDBLineNumberEEESt14default_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol22findInlineeLinesByAddrEjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.58") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i32 %3, i32 %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol22findInlineeLinesByAddrEjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.58") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i32 %3, i32 %4) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit:
   %5 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11, !noalias !31
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb14NullEnumeratorINS0_14IPDBLineNumberEEE, i64 16), ptr %5, align 8, !noalias !31
@@ -283,7 +283,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_14IPDBLineNumberEEESt14default_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol21findInlineeLinesByRVAEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.58") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i32 %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol21findInlineeLinesByRVAEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.58") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i32 %3) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11, !noalias !34
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb14NullEnumeratorINS0_14IPDBLineNumberEEE, i64 16), ptr %4, align 8, !noalias !34
@@ -292,7 +292,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_14IPDBLineNumberEEESt14default_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol20findInlineeLinesByVAEmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.58") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2, i32 %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol20findInlineeLinesByVAEmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.58") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i64 %2, i32 %3) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11, !noalias !37
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb14NullEnumeratorINS0_14IPDBLineNumberEEE, i64 16), ptr %4, align 8, !noalias !37
@@ -334,7 +334,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb15NativeRawSymbol19getArrayIndexTypeI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol17getBackEndVersionERNS0_11VersionInfoE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol17getBackEndVersionERNS0_11VersionInfoE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   ret void
 }
@@ -394,7 +394,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb15NativeRawSymbol18getCountLiveRanges
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol18getFrontEndVersionERNS0_11VersionInfoE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol18getFrontEndVersionERNS0_11VersionInfoE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   ret void
 }
@@ -549,7 +549,7 @@ define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol17getSourceFileNameB5cxx11E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol20getSrcLineOnTypeDefnEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.84") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol20getSrcLineOnTypeDefnEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.84") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -645,7 +645,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb15NativeRawSymbol15getUpperBoundIdEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol8getValueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::pdb::Variant") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol8getValueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::pdb::Variant") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -669,7 +669,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb15NativeRawSymbol22getVirtualTableSha
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol23getVirtualBaseTableTypeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.93") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb15NativeRawSymbol23getVirtualBaseTableTypeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.93") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }

@@ -1880,7 +1880,7 @@ define dso_local void @SS_compute_initplan_cost(ptr noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @SS_attach_initplans(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define dso_local void @SS_attach_initplans(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((80, 88)) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 80

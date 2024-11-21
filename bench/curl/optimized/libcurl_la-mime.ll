@@ -153,7 +153,7 @@ if.end10:                                         ; preds = %do.body, %entry
 declare void @curl_slist_free_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_mime_initpart(ptr nocapture noundef writeonly %part) local_unnamed_addr #2 {
+define hidden void @Curl_mime_initpart(ptr nocapture noundef writeonly initializes((0, 440)) %part) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(440) %part, i8 0, i64 432, i1 false)
   %lastreadstatus = getelementptr inbounds i8, ptr %part, i64 432
@@ -2154,7 +2154,7 @@ return:                                           ; preds = %while.body, %sw.epi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 66) i32 @Curl_mime_rewind(ptr nocapture noundef %part) local_unnamed_addr #0 {
+define hidden range(i32 0, 66) i32 @Curl_mime_rewind(ptr nocapture noundef initializes((152, 176), (432, 440)) %part) local_unnamed_addr #0 {
 entry:
   %flags.i = getelementptr inbounds i8, ptr %part, i64 20
   %0 = load i32, ptr %flags.i, align 4

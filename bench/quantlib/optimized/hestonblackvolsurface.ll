@@ -2315,7 +2315,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_11HestonModelEE4LinkEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21HestonBlackVolSurfaceC1ERKNS_6HandleINS_11HestonModelEEENS_20AnalyticHestonEngine17ComplexLogFormulaENS6_11IntegrationE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %hestonModel, i32 noundef %cpxLogFormula, ptr nocapture noundef readonly %integration) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21HestonBlackVolSurfaceC1ERKNS_6HandleINS_11HestonModelEEENS_20AnalyticHestonEngine17ComplexLogFormulaENS6_11IntegrationE(ptr noundef nonnull align 8 dereferenceable(136) initializes((136, 144), (152, 156), (160, 168)) %this, ptr noundef nonnull align 8 dereferenceable(16) %hestonModel, i32 noundef %cpxLogFormula, ptr nocapture noundef readonly %integration) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.33", align 8
   %ref.tmp16 = alloca %"class.QuantLib::NullCalendar", align 8

@@ -400,7 +400,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local i32 @nf_nat_setup_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i16 @nf_nat_exp_find_port(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local zeroext i16 @nf_nat_exp_find_port(ptr noundef initializes((68, 70)) %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = xor i16 %1, -1
   %4 = zext i16 %3 to i32
   %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 128)

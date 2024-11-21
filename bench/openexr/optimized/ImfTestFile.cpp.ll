@@ -25,7 +25,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileEPKcRbS2_S2_(ptr noundef %fileName, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %tiled, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %deep, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %multiPart) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileEPKcRbS2_S2_(ptr noundef %fileName, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %tiled, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %deep, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %multiPart) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %b.i3 = alloca [4 x i8], align 4
   %b.i = alloca [4 x i8], align 4
@@ -106,7 +106,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileEPKcRbS2_(ptr noundef %fileName, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %tiled, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %deep) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileEPKcRbS2_(ptr noundef %fileName, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %tiled, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %deep) local_unnamed_addr #3 {
 entry:
   %multiPart = alloca i8, align 1
   %call = call noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileEPKcRbS2_S2_(ptr noundef %fileName, ptr noundef nonnull align 1 dereferenceable(1) %tiled, ptr noundef nonnull align 1 dereferenceable(1) %deep, ptr noundef nonnull align 1 dereferenceable(1) %multiPart)
@@ -114,7 +114,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileEPKcRb(ptr noundef %fileName, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %tiled) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN7Imf_3_213isOpenExrFileEPKcRb(ptr noundef %fileName, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %tiled) local_unnamed_addr #3 {
 entry:
   %deep = alloca i8, align 1
   %multiPart = alloca i8, align 1

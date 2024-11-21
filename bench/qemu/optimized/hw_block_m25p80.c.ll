@@ -2494,7 +2494,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @complete_collecting_data(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @complete_collecting_data(ptr noundef initializes((232, 236)) %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %pi.i = getelementptr inbounds i8, ptr %s, i64 280
@@ -3160,7 +3160,7 @@ return:                                           ; preds = %if.end4.i, %lor.lhs
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decode_fast_read_cmd(ptr nocapture noundef %s) unnamed_addr #9 {
+define internal fastcc void @decode_fast_read_cmd(ptr nocapture noundef initializes((200, 201), (220, 228), (229, 230)) %s) unnamed_addr #9 {
 entry:
   %pi.i = getelementptr inbounds i8, ptr %s, i64 280
   %0 = load ptr, ptr %pi.i, align 8
@@ -3374,7 +3374,7 @@ _nocheck__trace_m25p80_chip_erase.exit:           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @reset_memory(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @reset_memory(ptr noundef initializes((200, 201), (220, 228), (229, 231), (232, 236), (257, 262), (268, 269)) %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmd_in_progress = getelementptr inbounds i8, ptr %s, i64 230
@@ -3513,7 +3513,7 @@ trace_m25p80_reset_done.exit:                     ; preds = %sw.epilog, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @m25p80_pre_load(ptr nocapture noundef writeonly %opaque) #10 {
+define internal noundef i32 @m25p80_pre_load(ptr nocapture noundef writeonly initializes((228, 229)) %opaque) #10 {
 entry:
   %data_read_loop = getelementptr inbounds i8, ptr %opaque, i64 228
   store i8 0, ptr %data_read_loop, align 4

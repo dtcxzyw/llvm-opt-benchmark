@@ -542,7 +542,7 @@ define hidden range(i32 0, 2) i32 @getAudioDeviceDescriptionByIndex(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @getFormatFromAlsaFormat(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @getFormatFromAlsaFormat(i32 noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = tail call i32 @snd_pcm_format_physical_width(i32 noundef %0) #5
   %8 = add nsw i32 %7, 7
   %9 = sdiv i32 %8, 8
@@ -608,7 +608,7 @@ declare i32 @snd_pcm_format_big_endian(i32 noundef) local_unnamed_addr #1
 declare i32 @snd_pcm_format_linear(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @getAlsaFormatFromFormat(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @getAlsaFormatFromFormat(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   store i32 -1, ptr %0, align 4
   %7 = icmp eq i32 %5, 0
   br i1 %7, label %8, label %15

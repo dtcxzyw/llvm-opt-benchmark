@@ -116,7 +116,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls12ipv6_addressC2ERKSt5arrayIhLm16EE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define void @_ZN5boost4urls12ipv6_addressC2ERKSt5arrayIhLm16EE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %1) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, i8 0, i64 16, i1 false), !tbaa !3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   ret void
@@ -126,7 +126,7 @@ define void @_ZN5boost4urls12ipv6_addressC2ERKSt5arrayIhLm16EE(ptr nocapture nou
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost4urls12ipv6_addressC2ERKNS0_12ipv4_addressE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls12ipv6_addressC2ERKNS0_12ipv4_addressE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, i8 0, i64 16, i1 false), !tbaa !3
   %3 = tail call i32 @_ZNK5boost4urls12ipv4_address8to_bytesEv(ptr noundef nonnull align 4 dereferenceable(4) %1) #23
   %.sroa.03.0.extract.trunc = trunc i32 %3 to i8
@@ -246,7 +246,7 @@ _ZNO5boost6system6resultINS_4urls12ipv6_addressENS0_10error_codeEE5valueIS3_EENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost4urls18parse_ipv6_addressENS_4core17basic_string_viewIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::system::result") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls18parse_ipv6_addressENS_4core17basic_string_viewIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::system::result") align 8 initializes((0, 28)) %0, ptr %1, i64 %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.boost::system::result", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)

@@ -278,7 +278,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN3g2o9Parameter5setIdEi(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3g2o15ParameterCamera7setKcamEdddd(ptr nocapture noundef nonnull align 16 dereferenceable(488) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o15ParameterCamera7setKcamEdddd(ptr nocapture noundef nonnull align 16 dereferenceable(488) initializes((272, 416)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Eigen::Matrix.3", align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %7, i8 0, i64 48, i1 false)

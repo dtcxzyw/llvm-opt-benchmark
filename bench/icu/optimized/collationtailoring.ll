@@ -22,7 +22,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7519CollationCacheEntryD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7519CollationCacheEntryD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518CollationTailoringC2EPKNS_17CollationSettingsE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef %baseSettings) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518CollationTailoringC2EPKNS_17CollationSettingsE(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 50)) %this, ptr noundef %baseSettings) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %softRefCount.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i, i8 0, i64 16, i1 false)
@@ -138,7 +138,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7518CollationTailoringD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518CollationTailoringD2Ev(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518CollationTailoringE, i64 16), ptr %this, align 8
   %settings = getelementptr inbounds i8, ptr %this, i64 32
@@ -319,7 +319,7 @@ return:                                           ; preds = %if.then2, %entry, %
 declare noundef ptr @_ZN6icu_7518Normalizer2Factory10getNFCImplER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7518CollationTailoring15makeBaseVersionEPKhPh(ptr nocapture noundef readonly %ucaVersion, ptr nocapture noundef writeonly %version) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7518CollationTailoring15makeBaseVersionEPKhPh(ptr nocapture noundef readonly %ucaVersion, ptr nocapture noundef writeonly initializes((0, 4)) %version) local_unnamed_addr #6 align 2 {
 entry:
   store i8 9, ptr %version, align 1
   %0 = load i8, ptr %ucaVersion, align 1
@@ -340,7 +340,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7518CollationTailoring10setVersionEPKhS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) %this, ptr nocapture noundef readonly %baseVersion, ptr nocapture noundef readonly %rulesVersion) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7518CollationTailoring10setVersionEPKhS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((328, 332)) %this, ptr nocapture noundef readonly %baseVersion, ptr nocapture noundef readonly %rulesVersion) local_unnamed_addr #6 align 2 {
 entry:
   %version = getelementptr inbounds i8, ptr %this, i64 328
   store i8 9, ptr %version, align 8
@@ -391,7 +391,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7519CollationCacheEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7519CollationCacheEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519CollationCacheEntryE, i64 16), ptr %this, align 8
   %tailoring = getelementptr inbounds i8, ptr %this, i64 248

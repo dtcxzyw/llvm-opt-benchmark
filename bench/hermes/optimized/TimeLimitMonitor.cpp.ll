@@ -298,7 +298,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm16TimeLimitMonitorC2Ev(ptr noundef nonnull align 8 dereferenceable(121) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm16TimeLimitMonitorC2Ev(ptr noundef nonnull align 8 dereferenceable(121) initializes((0, 48)) %this) unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.162", align 8
   %ref.tmp = alloca %"class.std::thread", align 8

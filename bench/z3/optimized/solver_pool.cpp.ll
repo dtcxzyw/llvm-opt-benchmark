@@ -303,7 +303,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11solver_poolC2EP6solverj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr noundef %base_solver, i32 noundef %num_pools) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11solver_poolC2EP6solverj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 36), (40, 57), (64, 81), (88, 105), (112, 129)) %this, ptr noundef %base_solver, i32 noundef %num_pools) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %base_solver, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %base_solver, null
@@ -368,7 +368,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK11solver_pool16get_base_solversEv(ptr noalias sret(%class.ptr_vector) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK11solver_pool16get_base_solversEv(ptr noalias sret(%class.ptr_vector) align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr null, ptr %agg.result, align 8
   %m_solvers = getelementptr inbounds i8, ptr %this, i64 16
@@ -731,7 +731,7 @@ declare void @_ZN10statistics6updateEPKcd(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11solver_pool16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11solver_pool16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((24, 36), (48, 56), (72, 80), (96, 104), (120, 128)) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_stats = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %m_stats, i8 0, i64 12, i1 false)

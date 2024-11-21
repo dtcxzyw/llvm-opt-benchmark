@@ -3396,7 +3396,7 @@ declare i32 @fill_directory(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @dir_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @grep_source_name(ptr nocapture noundef nonnull readonly %opt, ptr noundef %filename, i32 noundef %tree_name_len, ptr noundef nonnull %out) unnamed_addr #0 {
+define internal fastcc void @grep_source_name(ptr nocapture noundef nonnull readonly %opt, ptr noundef %filename, i32 noundef %tree_name_len, ptr noundef nonnull initializes((8, 16)) %out) unnamed_addr #0 {
 entry:
   %rel_buf = alloca %struct.strbuf, align 8
   %len2.i = getelementptr inbounds i8, ptr %out, i64 8

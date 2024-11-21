@@ -764,7 +764,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal4prop23OptimizedClausesManager16trackNodeHashSetEPNS_7context9CDHashSetINS0_12NodeTemplateILb1EEESt4hashIS6_EEEPSt3mapIiSt6vectorIS6_SaIS6_EESt4lessIiESaISt4pairIKiSE_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr noundef %nodeHashSet, ptr noundef %nodeLevels) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal4prop23OptimizedClausesManager16trackNodeHashSetEPNS_7context9CDHashSetINS0_12NodeTemplateILb1EEESt4hashIS6_EEEPSt3mapIiSt6vectorIS6_SaIS6_EESt4lessIiESaISt4pairIKiSE_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((48, 64)) %this, ptr noundef %nodeHashSet, ptr noundef %nodeLevels) local_unnamed_addr #5 align 2 {
 entry:
   %d_nodeHashSet = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %nodeHashSet, ptr %d_nodeHashSet, align 8

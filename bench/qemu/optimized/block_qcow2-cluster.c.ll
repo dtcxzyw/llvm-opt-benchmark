@@ -569,7 +569,7 @@ cleanup:                                          ; preds = %do.end, %for.end, %
 declare noalias ptr @g_try_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_get_host_offset(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef %bytes, ptr nocapture noundef writeonly %host_offset, ptr nocapture noundef writeonly %subcluster_type) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_get_host_offset(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %host_offset, ptr nocapture noundef writeonly %subcluster_type) local_unnamed_addr #0 {
 entry:
   %l2_slice = alloca ptr, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -2510,7 +2510,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_alloc_host_offset(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef %bytes, ptr nocapture noundef %host_offset, ptr nocapture noundef %m) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_alloc_host_offset(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef %bytes, ptr nocapture noundef initializes((0, 8)) %host_offset, ptr nocapture noundef initializes((0, 8)) %m) #0 {
 entry:
   %.compoundliteral.i = alloca %struct.QemuLockable, align 8
   %_now.i.i = alloca %struct.timeval, align 8

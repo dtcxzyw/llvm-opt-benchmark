@@ -173,7 +173,7 @@ declare i32 @finish_command(ptr noundef) local_unnamed_addr #3
 declare ptr @hashmap_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @subprocess_start(ptr noundef %hashmap, ptr noundef %entry1, ptr noundef %cmd, ptr nocapture noundef readonly %startfn) local_unnamed_addr #2 {
+define dso_local i32 @subprocess_start(ptr noundef %hashmap, ptr noundef initializes((16, 24)) %entry1, ptr noundef %cmd, ptr nocapture noundef readonly %startfn) local_unnamed_addr #2 {
 entry:
   %cmd2 = getelementptr inbounds i8, ptr %entry1, i64 16
   store ptr %cmd, ptr %cmd2, align 8

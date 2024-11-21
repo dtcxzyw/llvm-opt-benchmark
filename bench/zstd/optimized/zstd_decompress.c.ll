@@ -460,7 +460,7 @@ return:                                           ; preds = %if.else.i24, %if.th
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ZSTD_copyDCtx(ptr nocapture noundef writeonly %dstDCtx, ptr nocapture noundef readonly %srcDCtx) local_unnamed_addr #6 {
+define void @ZSTD_copyDCtx(ptr nocapture noundef writeonly initializes((0, 30240)) %dstDCtx, ptr nocapture noundef readonly %srcDCtx) local_unnamed_addr #6 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(30240) %dstDCtx, ptr noundef nonnull align 8 dereferenceable(30240) %srcDCtx, i64 30240, i1 false)
   ret void
@@ -3555,7 +3555,7 @@ ZSTD_DCtx_refPrefix_advanced.exit:                ; preds = %entry, %if.then10.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr noundef %zds, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
+define range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr noundef initializes((30176, 30180), (30192, 30200), (30208, 30212), (30236, 30240), (30332, 30336)) %zds, ptr noundef %dict, i64 noundef %dictSize) local_unnamed_addr #0 {
 do.end8.i.i:
   %streamStage.i = getelementptr inbounds i8, ptr %zds, i64 30236
   store i32 0, ptr %streamStage.i, align 4
@@ -3655,7 +3655,7 @@ return:                                           ; preds = %do.end17, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 1, 6) i64 @ZSTD_initDStream(ptr nocapture noundef %zds) local_unnamed_addr #0 {
+define range(i64 1, 6) i64 @ZSTD_initDStream(ptr nocapture noundef initializes((30176, 30180), (30192, 30200), (30208, 30212), (30236, 30240), (30332, 30336)) %zds) local_unnamed_addr #0 {
 ZSTD_DCtx_refDDict.exit:
   %streamStage.i = getelementptr inbounds i8, ptr %zds, i64 30236
   store i32 0, ptr %streamStage.i, align 4
@@ -3952,7 +3952,7 @@ return:                                           ; preds = %do.body17.i.i, %do.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -64, 6) i64 @ZSTD_initDStream_usingDDict(ptr nocapture noundef %dctx, ptr noundef %ddict) local_unnamed_addr #0 {
+define range(i64 -64, 6) i64 @ZSTD_initDStream_usingDDict(ptr nocapture noundef initializes((30176, 30180), (30236, 30240), (30332, 30336)) %dctx, ptr noundef %ddict) local_unnamed_addr #0 {
 do.body12:
   %streamStage.i = getelementptr inbounds i8, ptr %dctx, i64 30236
   store i32 0, ptr %streamStage.i, align 4
@@ -3977,7 +3977,7 @@ return:                                           ; preds = %do.body12, %do.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 1, 6) i64 @ZSTD_resetDStream(ptr nocapture noundef %dctx) local_unnamed_addr #6 {
+define range(i64 1, 6) i64 @ZSTD_resetDStream(ptr nocapture noundef initializes((30176, 30180), (30236, 30240), (30332, 30336)) %dctx) local_unnamed_addr #6 {
 return:
   %streamStage.i = getelementptr inbounds i8, ptr %dctx, i64 30236
   store i32 0, ptr %streamStage.i, align 4

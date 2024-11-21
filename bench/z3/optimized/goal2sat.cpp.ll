@@ -337,7 +337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8goal2satC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN8goal2satC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %m_scopes = getelementptr inbounds i8, ptr %this, i64 8

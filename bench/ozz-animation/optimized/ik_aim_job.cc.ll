@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3ozz9animation8IKAimJobC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3ozz9animation8IKAimJobC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation8IKAimJobC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(112) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3ozz9animation8IKAimJobC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(112) initializes((0, 112)) %0) unnamed_addr #0 align 2 {
   store <4 x float> zeroinitializer, ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %2, align 16

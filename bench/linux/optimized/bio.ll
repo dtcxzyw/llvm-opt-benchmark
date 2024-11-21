@@ -452,7 +452,7 @@ define dso_local void @bio_uninit(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4) #0 align 16 {
+define dso_local void @bio_init(ptr noundef initializes((0, 25), (32, 52), (56, 88)) %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4) #0 align 16 {
   store ptr null, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
@@ -499,7 +499,7 @@ define dso_local void @bio_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 declare dso_local void @bio_associate_blkg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_reset(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local void @bio_reset(ptr noundef initializes((0, 72), (80, 98)) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1909,7 +1909,7 @@ define dso_local ptr @bio_alloc_clone(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bio_init_clone(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 align 16 {
+define dso_local noundef i32 @bio_init_clone(ptr noundef %0, ptr noundef initializes((0, 25), (32, 52), (56, 88)) %1, ptr noundef %2, i32 %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 16
@@ -2740,7 +2740,7 @@ declare dso_local zeroext i1 @folio_mark_dirty(ptr noundef) local_unnamed_addr #
 declare dso_local void @folio_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @bio_next_folio(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #7 align 16 {
+define internal fastcc void @bio_next_folio(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2924,7 +2924,7 @@ define internal fastcc void @bio_next_folio(ptr nocapture noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_iov_bvec_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @bio_iov_bvec_set(ptr nocapture noundef initializes((40, 44), (48, 52), (96, 98), (104, 112)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 98
@@ -3446,7 +3446,7 @@ define dso_local i32 @bio_iov_iter_get_pages(ptr nocapture noundef %0, ptr nound
 declare dso_local void @iov_iter_advance(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @submit_bio_wait(ptr noundef %0) #0 align 16 {
+define dso_local i32 @submit_bio_wait(ptr noundef initializes((56, 72)) %0) #0 align 16 {
   %2 = alloca %struct.completion, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #17
   %3 = getelementptr inbounds i8, ptr %2, i64 16
@@ -4666,7 +4666,7 @@ declare dso_local void @destroy_workqueue(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mempool_exit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @bioset_init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @bioset_init(ptr noundef initializes((8, 12), (168, 200)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %5, align 8
   %6 = and i32 %3, 1

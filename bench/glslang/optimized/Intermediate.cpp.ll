@@ -2107,7 +2107,7 @@ _ZNK7glslang13TIntermediate16addConstantUnionERKNS_16TConstUnionArrayERKNS_5TTyp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TIntermediate17addPairConversionENS_9TOperatorEPNS_12TIntermTypedES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2024) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TIntermediate17addPairConversionENS_9TOperatorEPNS_12TIntermTypedES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(2024) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::tuple.109", align 4
   %7 = tail call noundef zeroext i1 @_ZNK7glslang13TIntermediate19isConversionAllowedENS_9TOperatorEPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(2024) %1, i32 noundef %2, ptr noundef %3)
   br i1 %7, label %8, label %10
@@ -4931,7 +4931,7 @@ _ZNK7glslang5TTypeeqERKS0_.exit:                  ; preds = %.lr.ph.i.i.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.109") align 4 %0, ptr noundef nonnull align 8 dereferenceable(2024) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define void @_ZNK7glslang13TIntermediate28getConversionDestinationTypeENS_10TBasicTypeES1_NS_9TOperatorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.109") align 4 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2024) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 96
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 8
@@ -12486,7 +12486,7 @@ define noundef ptr @_ZN7glslang13TIntermediate7addLoopEP11TIntermNodePNS_12TInte
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7glslang13TIntermediate10addForLoopEP11TIntermNodeS2_PNS_12TIntermTypedES4_bRKNS_10TSourceLocERPNS_11TIntermLoopE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2024) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nocapture noundef nonnull align 8 dereferenceable(8) %7) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN7glslang13TIntermediate10addForLoopEP11TIntermNodeS2_PNS_12TIntermTypedES4_bRKNS_10TSourceLocERPNS_11TIntermLoopE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2024) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %7) local_unnamed_addr #0 align 2 {
   %9 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #17
   %10 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %9, i64 noundef 88) #17
   %11 = zext i1 %5 to i8
@@ -16364,7 +16364,7 @@ _ZNSt12_Vector_baseIP11TIntermNodeN7glslang14pool_allocatorIS1_EEEC2EmRKS4_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang16TIntermAggregate14setPragmaTableERKNS_12TPragmaTableE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(364) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang16TIntermAggregate14setPragmaTableERKNS_12TPragmaTableE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(364) initializes((304, 312)) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::pair<const std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>, glslang::pool_allocator<std::pair<const std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>>>::_Reuse_or_alloc_node", align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #17
   %5 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %4, i64 noundef 56) #17

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.packet_range_process_packet_include_depends = private unnamed_addr constant [44 x i8] c"packet_range_process_packet_include_depends\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @packet_range_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %0, i8 0, i64 240, i1 false)
@@ -337,7 +337,7 @@ declare i32 @g_direct_hash(ptr noundef) #3
 declare i32 @g_direct_equal(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @packet_range_calc_user(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @packet_range_calc_user(ptr nocapture noundef initializes((60, 64), (96, 100), (120, 124), (132, 136), (156, 160)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 96
@@ -453,7 +453,7 @@ define internal fastcc void @packet_range_calc_user(ptr nocapture noundef %0) un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @packet_range_calc_selection(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @packet_range_calc_selection(ptr nocapture noundef initializes((64, 68), (100, 104), (136, 140), (160, 164)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 100
@@ -638,7 +638,7 @@ define hidden i32 @packet_range_check(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @packet_range_process_init(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden void @packet_range_process_init(ptr nocapture noundef initializes((232, 236)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -921,7 +921,7 @@ declare i32 @value_is_in_range(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @packet_range_convert_str(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @packet_range_convert_str(ptr nocapture noundef initializes((60, 64), (96, 100), (120, 124), (132, 136), (156, 160)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -980,7 +980,7 @@ declare i32 @range_convert_str(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 declare void @g_hash_table_remove_all(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @packet_range_convert_selection_str(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @packet_range_convert_selection_str(ptr nocapture noundef initializes((64, 68), (100, 104), (136, 140), (160, 164)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8

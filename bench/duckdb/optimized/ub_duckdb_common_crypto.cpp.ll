@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6duckdb10MD5ContextC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6duckdb10MD5ContextC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb10MD5ContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(88) %this) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb10MD5ContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(88) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
 entry:
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %this, align 4, !tbaa !3
   %bits = getelementptr inbounds i8, ptr %this, i64 16
@@ -650,7 +650,7 @@ entry:
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb10MD5Context6FinishEPh(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef writeonly %out_digest) local_unnamed_addr #4 align 2 {
+define void @_ZN6duckdb10MD5Context6FinishEPh(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef writeonly initializes((0, 16)) %out_digest) local_unnamed_addr #4 align 2 {
 entry:
   %bits = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %bits, align 4, !tbaa !3

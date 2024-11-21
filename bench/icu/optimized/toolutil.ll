@@ -39,7 +39,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7516IcuToolErrorCodeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7516IcuToolErrorCodeD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7516IcuToolErrorCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516IcuToolErrorCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %this, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %this, i64 8

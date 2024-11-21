@@ -737,7 +737,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare i64 @llvm.bswap.i64(i64) #7
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @sha512_base_init(ptr nocapture noundef writeonly %0) #8 align 16 {
+define internal noundef i32 @sha512_base_init(ptr nocapture noundef writeonly initializes((8, 88)) %0) #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 7640891576956012808, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 16
@@ -760,7 +760,7 @@ define internal noundef i32 @sha512_base_init(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @sha384_base_init(ptr nocapture noundef writeonly %0) #8 align 16 {
+define internal noundef i32 @sha384_base_init(ptr nocapture noundef writeonly initializes((8, 88)) %0) #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -3766243637369397544, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 16

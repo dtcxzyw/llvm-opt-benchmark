@@ -51,7 +51,7 @@ define dso_local noundef i32 @_ZN3ozz3log8GetLevelEv() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3ozz3log4LogVC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN3ozz3log4LogVC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0) unnamed_addr #5 align 2 {
   %2 = load i32, ptr @_ZN3ozz3log12_GLOBAL__N_19log_levelE, align 4
   %.not.i = icmp slt i32 %2, 2
   br i1 %.not.i, label %3, label %_ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit
@@ -76,7 +76,7 @@ _ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit:         ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3ozz3log6LoggerC2ERSoNS0_5LevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZN3ozz3log6LoggerC2ERSoNS0_5LevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #5 align 2 {
   %4 = load i32, ptr @_ZN3ozz3log12_GLOBAL__N_19log_levelE, align 4
   %.not = icmp sgt i32 %2, %4
   br i1 %.not, label %5, label %11
@@ -101,7 +101,7 @@ define dso_local void @_ZN3ozz3log6LoggerC2ERSoNS0_5LevelE(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3ozz3log3LogC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN3ozz3log3LogC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0) unnamed_addr #5 align 2 {
   %2 = load i32, ptr @_ZN3ozz3log12_GLOBAL__N_19log_levelE, align 4
   %.not.i = icmp slt i32 %2, 1
   br i1 %.not.i, label %3, label %_ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit
@@ -126,7 +126,7 @@ _ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit:         ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3ozz3log3OutC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN3ozz3log3OutC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0) unnamed_addr #5 align 2 {
   %2 = load i32, ptr @_ZN3ozz3log12_GLOBAL__N_19log_levelE, align 4
   %.not.i = icmp slt i32 %2, 1
   br i1 %.not.i, label %3, label %_ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit
@@ -151,7 +151,7 @@ _ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit:         ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3ozz3log3ErrC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN3ozz3log3ErrC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0) unnamed_addr #5 align 2 {
   %2 = load i32, ptr @_ZN3ozz3log12_GLOBAL__N_19log_levelE, align 4
   %.not.i = icmp slt i32 %2, 1
   br i1 %.not.i, label %3, label %_ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit
@@ -227,7 +227,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3ozz3log14FloatPrecisionC2ERKNS0_6LoggerEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1, i32 noundef %2) unnamed_addr #9 align 2 {
+define dso_local void @_ZN3ozz3log14FloatPrecisionC2ERKNS0_6LoggerEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1, i32 noundef %2) unnamed_addr #9 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -24

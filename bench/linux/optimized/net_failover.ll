@@ -616,7 +616,7 @@ define internal i32 @net_failover_change_mtu(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @net_failover_get_stats(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal void @net_failover_get_stats(ptr noundef %0, ptr nocapture noundef initializes((0, 200)) %1) #0 align 16 {
   %3 = alloca %struct.rtnl_link_stats64, align 8
   %4 = getelementptr i8, ptr %0, i64 2304
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #11

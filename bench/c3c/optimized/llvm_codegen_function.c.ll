@@ -152,7 +152,7 @@ llvm_emit_check_block_branch.exit:                ; preds = %12, %2, %14
 declare ptr @LLVMBuildBr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_block(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_block(ptr nocapture noundef initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   tail call void @LLVMAppendExistingBasicBlock(ptr noundef %4, ptr noundef %1) #7

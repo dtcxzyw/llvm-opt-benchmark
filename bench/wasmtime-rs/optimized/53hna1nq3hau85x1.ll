@@ -35798,7 +35798,7 @@ _ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit229: ; preds = %139
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN9regalloc23ion7process63_$LT$impl$u20$regalloc2..ion..data_structures..Env$LT$F$GT$$GT$29try_to_allocate_bundle_to_reg17hd9529ec8cbeeb145E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(1448) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i32 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN9regalloc23ion7process63_$LT$impl$u20$regalloc2..ion..data_structures..Env$LT$F$GT$$GT$29try_to_allocate_bundle_to_reg17hd9529ec8cbeeb145E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(1448) initializes((672, 688)) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i32 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca {}, align 1
   %8 = alloca { { { ptr, i64, {} }, i64, {} } }, align 8
   %9 = alloca { { { ptr, i64, {} }, i64, {} }, { ptr, [1 x i64] } }, align 8

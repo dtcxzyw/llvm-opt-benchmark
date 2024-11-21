@@ -378,7 +378,7 @@ define i32 @cli_bcapi_debug_print_uint(ptr nocapture noundef readonly %0, i32 no
 declare i64 @cli_eprintf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @cli_bcapi_setvirusname(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef i32 @cli_bcapi_setvirusname(ptr nocapture noundef writeonly initializes((88, 96)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %1, ptr %4, align 8
   ret i32 0
@@ -576,7 +576,7 @@ declare i32 @cli_checklimits(ptr noundef, ptr noundef, i64 noundef, i64 noundef,
 declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cli_bytecode_context_set_trace(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define void @cli_bytecode_context_set_trace(ptr nocapture noundef writeonly initializes((1120, 1152), (1176, 1180)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 1120
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 1128
@@ -6628,7 +6628,7 @@ define i32 @cli_bcapi_pdf_get_dumpedobjid(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @cli_bcapi_running_on_jit(ptr nocapture noundef %0) local_unnamed_addr #8 {
+define i32 @cli_bcapi_running_on_jit(ptr nocapture noundef initializes((1324, 1328)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1324
   store i32 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 1320

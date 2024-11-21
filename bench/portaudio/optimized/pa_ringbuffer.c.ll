@@ -71,7 +71,7 @@ define i64 @PaUtil_GetRingBufferWriteAvailable(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define i64 @PaUtil_GetRingBufferWriteRegions(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #2 {
+define i64 @PaUtil_GetRingBufferWriteRegions(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #2 {
   %7 = load i64, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load volatile i64, ptr %8, align 8
@@ -146,7 +146,7 @@ define i64 @PaUtil_AdvanceRingBufferWriteIndex(ptr noundef %0, i64 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define i64 @PaUtil_GetRingBufferReadRegions(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #2 {
+define i64 @PaUtil_GetRingBufferReadRegions(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load volatile i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16

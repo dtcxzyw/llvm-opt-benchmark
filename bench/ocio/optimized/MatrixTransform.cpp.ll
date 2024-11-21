@@ -507,7 +507,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19MatrixTransformImpl20setFileInputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %this, i32 noundef %bitDepth) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19MatrixTransformImpl20setFileInputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) initializes((256, 260)) %this, i32 noundef %bitDepth) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fileInBitDepth.i = getelementptr inbounds i8, ptr %this, i64 256
   store i32 %bitDepth, ptr %m_fileInBitDepth.i, align 8
@@ -515,7 +515,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19MatrixTransformImpl21setFileOutputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %this, i32 noundef %bitDepth) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19MatrixTransformImpl21setFileOutputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) initializes((260, 264)) %this, i32 noundef %bitDepth) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fileOutBitDepth.i = getelementptr inbounds i8, ptr %this, i64 260
   store i32 %bitDepth, ptr %m_fileOutBitDepth.i, align 4

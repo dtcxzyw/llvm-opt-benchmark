@@ -81,7 +81,7 @@ define dso_local void @block_sigwinch() local_unnamed_addr #0 {
 declare i32 @xsignal_block(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pty_thread_create(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @pty_thread_create(ptr noundef initializes((256, 260)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sockaddr_storage, align 8
   %3 = alloca i64, align 8
   %4 = alloca %union.pthread_attr_t, align 8

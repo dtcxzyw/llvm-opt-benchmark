@@ -31,7 +31,7 @@ $_ZN5folly6detail14ScopeGuardImplIZNS_10IOBufQueue11updateGuardEvEUlvE_Lb1EED2Ev
 @_ZN5folly10IOBufQueueC1EOS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN5folly10IOBufQueueC2EOS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly10IOBufQueueC2ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10IOBufQueueC2ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 1), (8, 32)) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = load i8, ptr %options, align 1, !tbaa !7
   store i8 %0, ptr %this, align 8, !tbaa !7
@@ -151,7 +151,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10IOBufQueueC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10IOBufQueueC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 1), (8, 32)) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = load i8, ptr %other, align 8, !tbaa !7
   store i8 %0, ptr %this, align 8, !tbaa !7
@@ -2058,7 +2058,7 @@ while.end:                                        ; preds = %_ZNSt10unique_ptrIN
 declare void @_ZN5folly5IOBuf10wrapBufferEPKvm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_ZN5folly10IOBufQueue15preallocateSlowEmmm(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %min, i64 noundef %newAllocationSize, i64 noundef %max) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define { ptr, i64 } @_ZN5folly10IOBufQueue15preallocateSlowEmmm(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((64, 72)) %this, i64 noundef %min, i64 noundef %newAllocationSize, i64 noundef %max) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newBuf = alloca %"class.std::unique_ptr", align 8
   %tailStart_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2919,7 +2919,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_10IOBufQueue11updateGuardEvEUlvE_Lb1EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10IOBufQueue9pop_frontEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10IOBufQueue9pop_frontEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tailStart_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %tailStart_.i.i, align 8, !tbaa !27, !noalias !138

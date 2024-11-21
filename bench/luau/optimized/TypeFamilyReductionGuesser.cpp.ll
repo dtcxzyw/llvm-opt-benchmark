@@ -1880,7 +1880,7 @@ declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau26TypeFamilyReductionGuesserC2ENS_7NotNullINS_9TypeArenaEEENS1_INS_12BuiltinTypesEEENS1_INS_10NormalizerEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %0, ptr %1, ptr %2, ptr %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau26TypeFamilyReductionGuesserC2ENS_7NotNullINS_9TypeArenaEEENS1_INS_12BuiltinTypesEEENS1_INS_10NormalizerEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((0, 32), (40, 72), (80, 144), (152, 176)) %0, ptr %1, ptr %2, ptr %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   %7 = getelementptr inbounds i8, ptr %0, i64 152
@@ -5293,7 +5293,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau26TypeFamilyReductionGuesser4doneEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau26TypeFamilyReductionGuesser23inferNumericBinopFamilyEPKNS_22TypeFamilyInstanceTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypeFamilyInferenceResult") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1, ptr nocapture noundef readnone %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau26TypeFamilyReductionGuesser23inferNumericBinopFamilyEPKNS_22TypeFamilyInstanceTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypeFamilyInferenceResult") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1, ptr nocapture noundef readnone %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
@@ -6543,7 +6543,7 @@ _ZN4Luau25TypeFamilyInferenceResultD2Ev.exit158:  ; preds = %427, %112
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau26TypeFamilyReductionGuesser14inferNotFamilyEPKNS_22TypeFamilyInstanceTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypeFamilyInferenceResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau26TypeFamilyReductionGuesser14inferNotFamilyEPKNS_22TypeFamilyInstanceTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypeFamilyInferenceResult") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -6579,7 +6579,7 @@ define dso_local void @_ZN4Luau26TypeFamilyReductionGuesser14inferNotFamilyEPKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau26TypeFamilyReductionGuesser14inferLenFamilyEPKNS_22TypeFamilyInstanceTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypeFamilyInferenceResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau26TypeFamilyReductionGuesser14inferLenFamilyEPKNS_22TypeFamilyInstanceTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypeFamilyInferenceResult") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -6615,7 +6615,7 @@ define dso_local void @_ZN4Luau26TypeFamilyReductionGuesser14inferLenFamilyEPKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau26TypeFamilyReductionGuesser21inferUnaryMinusFamilyEPKNS_22TypeFamilyInstanceTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypeFamilyInferenceResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau26TypeFamilyReductionGuesser21inferUnaryMinusFamilyEPKNS_22TypeFamilyInstanceTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypeFamilyInferenceResult") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

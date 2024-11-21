@@ -570,7 +570,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN2cv
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterND2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterND2Ev(ptr noundef nonnull align 8 dereferenceable(592) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_123AdaptiveManifoldFilterNE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 480
   tail call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #24
@@ -725,7 +725,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit36:        ; preds = %_ZSt8_DestroyIPN2cv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterND0Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterND0Ev(ptr noundef nonnull align 8 dereferenceable(592) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterND2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
@@ -2353,7 +2353,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_123AdaptiveManifoldFilterN9getS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN9setSigmaSEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(592) %0, double noundef %1) unnamed_addr #9 align 2 {
+define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN9setSigmaSEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(592) initializes((16, 24)) %0, double noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store double %1, ptr %3, align 8
   ret void
@@ -2367,7 +2367,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_123AdaptiveManifoldFilterN9getS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN9setSigmaREd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(592) %0, double noundef %1) unnamed_addr #9 align 2 {
+define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN9setSigmaREd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(592) initializes((24, 32)) %0, double noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store double %1, ptr %3, align 8
   ret void
@@ -2381,7 +2381,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_123AdaptiveManifoldFilterN13getTre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN13setTreeHeightEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(592) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN13setTreeHeightEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(592) initializes((32, 36)) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void
@@ -2395,7 +2395,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_123AdaptiveManifoldFilterN16getPCA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN16setPCAIterationsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(592) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN16setPCAIterationsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(592) initializes((36, 40)) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %1, ptr %3, align 4
   ret void
@@ -2410,7 +2410,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123AdaptiveManifoldFilterN1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN17setAdjustOutliersEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(592) %0, i1 noundef zeroext %1) unnamed_addr #9 align 2 {
+define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN17setAdjustOutliersEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(592) initializes((8, 9)) %0, i1 noundef zeroext %1) unnamed_addr #9 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %3, ptr %4, align 8
@@ -2426,7 +2426,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123AdaptiveManifoldFilterN9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN9setUseRNGEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(592) %0, i1 noundef zeroext %1) unnamed_addr #9 align 2 {
+define internal void @_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN9setUseRNGEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(592) initializes((40, 41)) %0, i1 noundef zeroext %1) unnamed_addr #9 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %3, ptr %4, align 8

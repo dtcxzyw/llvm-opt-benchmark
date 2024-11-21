@@ -3468,7 +3468,7 @@ _ZN8QuantLib6HandleINS_5QuoteEED2Ev.exit:         ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24LognormalCmsSpreadPricerC1ERKN5boost10shared_ptrINS_15CmsCouponPricerEEERKNS_6HandleINS_5QuoteEEENS7_INS_18YieldTermStructureEEEmRKNS1_8optionalINS_14VolatilityTypeEEEdd(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cmsPricer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %correlation, ptr nocapture noundef %couponDiscountCurve, i64 noundef %integrationPoints, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %volatilityType, double noundef %shift1, double noundef %shift2) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24LognormalCmsSpreadPricerC1ERKN5boost10shared_ptrINS_15CmsCouponPricerEEERKNS_6HandleINS_5QuoteEEENS7_INS_18YieldTermStructureEEEmRKNS1_8optionalINS_14VolatilityTypeEEEdd(ptr noundef nonnull align 8 dereferenceable(424) initializes((424, 432), (440, 444), (448, 456)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cmsPricer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %correlation, ptr nocapture noundef %couponDiscountCurve, i64 noundef %integrationPoints, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %volatilityType, double noundef %shift1, double noundef %shift2) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %integrationPoints.addr = alloca i64, align 8
   %agg.tmp = alloca %"class.QuantLib::Handle.57", align 8
@@ -5317,7 +5317,7 @@ cond.end:                                         ; preds = %_ZNK5boost10shared_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24LognormalCmsSpreadPricer10initializeERKNS_18FloatingRateCouponE(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24LognormalCmsSpreadPricer10initializeERKNS_18FloatingRateCouponE(ptr noundef nonnull align 8 dereferenceable(424) initializes((56, 64)) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -9665,7 +9665,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib24LognormalCmsSpreadPricer14optionletPriceENS_6Option4TypeEd(ptr noundef nonnull align 8 dereferenceable(424) %this, i32 noundef %optionType, double noundef %strike) local_unnamed_addr #7 align 2 {
+define noundef double @_ZNK8QuantLib24LognormalCmsSpreadPricer14optionletPriceENS_6Option4TypeEd(ptr noundef nonnull align 8 dereferenceable(424) initializes((288, 296), (384, 388)) %this, i32 noundef %optionType, double noundef %strike) local_unnamed_addr #7 align 2 {
 entry:
   %optionType_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   store i32 %optionType, ptr %optionType_, align 8, !tbaa !248

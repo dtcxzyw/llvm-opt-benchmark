@@ -291,7 +291,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local range(i32 0, 4097) i32 @crypto_hash_walk_first(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define dso_local range(i32 0, 4097) i32 @crypto_hash_walk_first(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((24, 32)) %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 28
@@ -1048,7 +1048,7 @@ define dso_local i32 @crypto_ahash_import(ptr noundef %0, ptr noundef %1) #0 ali
 declare dso_local i32 @crypto_shash_import(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @crypto_grab_ahash(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local i32 @crypto_grab_ahash(ptr noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @crypto_ahash_type, ptr %6, align 8
   %7 = tail call i32 @crypto_grab_spawn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #9
@@ -1464,7 +1464,7 @@ define internal i32 @crypto_ahash_extsize(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crypto_ahash_init_tfm(ptr noundef %0) #0 align 16 {
+define internal i32 @crypto_ahash_init_tfm(ptr noundef initializes((-12, -8)) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -16
   %3 = getelementptr i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8

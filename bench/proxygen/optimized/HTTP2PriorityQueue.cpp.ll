@@ -300,7 +300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen18HTTP2PriorityQueue4NodeC2ERS0_PS1_mhPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(312) %queue, ptr noundef %inParent, i64 noundef %id, i8 noundef zeroext %weight, ptr noundef %txn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen18HTTP2PriorityQueue4NodeC2ERS0_PS1_mhPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(312) %queue, ptr noundef %inParent, i64 noundef %id, i8 noundef zeroext %weight, ptr noundef %txn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i = alloca %"struct.std::pair.42", align 8
   %ref.tmp = alloca ptr, align 8
@@ -442,7 +442,7 @@ _ZNSt7__cxx1110_List_baseISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt1
 declare void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen18HTTP2PriorityQueue4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen18HTTP2PriorityQueue4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 16)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueue4NodeE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
@@ -1835,7 +1835,7 @@ return:                                           ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen18HTTP2PriorityQueue4Node19signalPendingEgressEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN8proxygen18HTTP2PriorityQueue4Node19signalPendingEgressEv(ptr noundef nonnull align 8 dereferenceable(200) initializes((113, 114)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %enqueued_ = getelementptr inbounds i8, ptr %this, i64 113
   store i8 1, ptr %enqueued_, align 1
@@ -3983,7 +3983,7 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen18HTTP2PriorityQueue14updatePriorityEPNS_22HTTP2PriorityQueueBase8BaseNodeENS_5http214PriorityUpdateEPm(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef returned %handle, i64 %pri.coerce0, i64 %pri.coerce1, ptr noundef writeonly %depth) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8proxygen18HTTP2PriorityQueue14updatePriorityEPNS_22HTTP2PriorityQueueBase8BaseNodeENS_5http214PriorityUpdateEPm(ptr noundef nonnull align 8 dereferenceable(312) initializes((280, 281)) %this, ptr noundef returned %handle, i64 %pri.coerce0, i64 %pri.coerce1, ptr noundef writeonly %depth) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
@@ -4380,7 +4380,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen18HTTP2PriorityQueue17removeTransactionEPNS_22HTTP2PriorityQueueBase8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %handle) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen18HTTP2PriorityQueue17removeTransactionEPNS_22HTTP2PriorityQueueBase8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(312) initializes((280, 281)) %this, ptr noundef %handle) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp13 = alloca %"class.google::LogMessage", align 8
   %pendingWeightChange_ = getelementptr inbounds i8, ptr %this, i64 280

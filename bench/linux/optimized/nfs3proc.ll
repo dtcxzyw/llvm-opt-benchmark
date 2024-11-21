@@ -772,7 +772,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_remove(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @nfs3_proc_unlink_setup(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define internal void @nfs3_proc_unlink_setup(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 576), ptr %0, align 8
   ret void
 }
@@ -818,7 +818,7 @@ define internal noundef range(i32 0, 2) i32 @nfs3_proc_unlink_done(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @nfs3_proc_rename_setup(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define internal void @nfs3_proc_rename_setup(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 672), ptr %0, align 8
   ret void
 }
@@ -1746,7 +1746,7 @@ define internal noundef i32 @nfs3_proc_pgio_rpc_prepare(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @nfs3_proc_read_setup(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define internal void @nfs3_proc_read_setup(ptr nocapture noundef initializes((680, 684)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #3 align 16 {
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 288), ptr %1, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
@@ -1820,7 +1820,7 @@ define internal i32 @nfs3_read_done(ptr noundef %0, ptr noundef %1) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @nfs3_proc_write_setup(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #2 align 16 {
+define internal void @nfs3_proc_write_setup(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture readnone %2) #2 align 16 {
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 336), ptr %1, align 8
   ret void
 }
@@ -1871,7 +1871,7 @@ define internal i32 @nfs3_write_done(ptr noundef %0, ptr noundef %1) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @nfs3_proc_commit_setup(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #2 align 16 {
+define internal void @nfs3_proc_commit_setup(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture readnone %2) #2 align 16 {
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 1008), ptr %1, align 8
   ret void
 }

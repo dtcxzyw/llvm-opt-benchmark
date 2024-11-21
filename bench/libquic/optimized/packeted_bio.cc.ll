@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [28 x i8] c"Packeted BIO was truncated\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z17PacketedBioCreateP7timeval(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %out_timeout) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z17PacketedBioCreateP7timeval(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %out_timeout) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call ptr @BIO_new(ptr noundef nonnull @_ZN12_GLOBAL__N_121g_packeted_bio_methodE)
   %cmp.i.not = icmp eq ptr %call, null
@@ -331,7 +331,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_111PacketedNewEP6bio_st(ptr nocapture noundef writeonly %bio) #2 {
+define internal noundef i32 @_ZN12_GLOBAL__N_111PacketedNewEP6bio_st(ptr nocapture noundef writeonly initializes((24, 28)) %bio) #2 {
 entry:
   %init = getelementptr inbounds i8, ptr %bio, i64 24
   store i32 1, ptr %init, align 8

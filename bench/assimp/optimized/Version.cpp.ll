@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7aiSceneC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1168) %this) unnamed_addr #1 align 2 {
+define void @_ZN7aiSceneC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1168) initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 68), (72, 84), (88, 100), (104, 125), (1148, 1168)) %this) unnamed_addr #1 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %mRootNode = getelementptr inbounds i8, ptr %this, i64 8

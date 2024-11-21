@@ -203,7 +203,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @ggml_backend_buffer_init_tensor(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_tallocr_reset(ptr nocapture noundef %alloc) local_unnamed_addr #0 {
+define void @ggml_tallocr_reset(ptr nocapture noundef initializes((32, 36), (40, 56)) %alloc) local_unnamed_addr #0 {
 entry:
   %n_free_blocks = getelementptr inbounds i8, ptr %alloc, i64 32
   store i32 1, ptr %n_free_blocks, align 8
@@ -581,7 +581,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ggml_gallocr_alloc_graph(ptr nocapture noundef %galloc, ptr noundef %talloc, ptr nocapture noundef readonly %graph) local_unnamed_addr #0 {
+define i64 @ggml_gallocr_alloc_graph(ptr nocapture noundef initializes((0, 8)) %galloc, ptr noundef %talloc, ptr nocapture noundef readonly %graph) local_unnamed_addr #0 {
 entry:
   %visited_hash_table = getelementptr inbounds i8, ptr %graph, i64 40
   %0 = load i64, ptr %visited_hash_table, align 8

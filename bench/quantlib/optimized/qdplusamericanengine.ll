@@ -1060,7 +1060,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib6detail16QdPlusAddOnValueC2EdddddddN5boost10shared_ptrINS_13InterpolationEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, double noundef %T, double noundef %S, double noundef %K, double noundef %r, double noundef %q, double noundef %vol, double noundef %xmax, ptr nocapture noundef %q_z) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib6detail16QdPlusAddOnValueC2EdddddddN5boost10shared_ptrINS_13InterpolationEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 128)) %this, double noundef %T, double noundef %S, double noundef %K, double noundef %r, double noundef %q, double noundef %vol, double noundef %xmax, ptr nocapture noundef %q_z) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store double %T, ptr %this, align 8, !tbaa !39
   %S_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1319,7 +1319,7 @@ declare double @log(double noundef) local_unnamed_addr #12
 declare noundef double @_ZNK8QuantLib28CumulativeNormalDistributionclEd(ptr noundef nonnull align 8 dereferenceable(57), double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib6detail21QdPutCallParityEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr nocapture noundef %process) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib6detail21QdPutCallParityEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE(ptr noundef nonnull align 8 dereferenceable(352) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -4125,7 +4125,7 @@ unreachable:                                      ; preds = %invoke.cont48
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20QdPlusAmericanEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEEmNS0_10SolverTypeEdm(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr nocapture noundef %process, i64 noundef %interpolationPoints, i32 noundef %solverType, double noundef %eps, i64 noundef %maxIter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20QdPlusAmericanEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEEmNS0_10SolverTypeEdm(ptr noundef nonnull align 8 dereferenceable(384) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process, i64 noundef %interpolationPoints, i32 noundef %solverType, double noundef %eps, i64 noundef %maxIter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.25", align 8
   %0 = load ptr, ptr %process, align 8, !tbaa !65

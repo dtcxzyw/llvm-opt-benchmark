@@ -284,7 +284,7 @@ readPreferIPv6Addresses.exit:                     ; preds = %93, %78, %69, %read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @socketTransport_getCapabilities(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #1 {
+define internal noundef i32 @socketTransport_getCapabilities(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
   store i16 7, ptr %1, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 2
   store i16 0, ptr %.sroa.8.0..sroa_idx, align 2
@@ -2182,7 +2182,7 @@ define internal fastcc void @setLastError(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 203) i32 @parseAddress(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 203) i32 @parseAddress(ptr noundef %0, ptr noundef nonnull initializes((0, 8)) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.addrinfo, align 8

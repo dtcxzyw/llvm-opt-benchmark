@@ -2853,7 +2853,7 @@ declare void @check_stack_depth() local_unnamed_addr #3
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @FreePageBtreeSearch(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #5 {
+define internal fastcc void @FreePageBtreeSearch(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly initializes((20, 24)) %2) unnamed_addr #5 {
   %4 = load i64, ptr %0, align 8
   %5 = sub i64 1, %4
   %6 = getelementptr i8, ptr %0, i64 %5

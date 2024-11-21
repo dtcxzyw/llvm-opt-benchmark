@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @normal_url_char = internal unnamed_addr constant <{ [16 x i8], [16 x i8] }> <{ [16 x i8] c"\00\00\00\00\F6\FF\FF\7F\FF\FF\FF\FF\FF\FF\FF\7F", [16 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @http_parser_url_init(ptr nocapture noundef writeonly %u) local_unnamed_addr #0 {
+define void @http_parser_url_init(ptr nocapture noundef writeonly initializes((0, 32)) %u) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %u, i8 0, i64 32, i1 false)
   ret void

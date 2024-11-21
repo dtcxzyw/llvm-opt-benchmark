@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @zero_statbuf = internal global %struct.uv_stat_t zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uv_fs_poll_init(ptr noundef %loop, ptr noundef %handle) local_unnamed_addr #0 {
+define noundef i32 @uv_fs_poll_init(ptr noundef %loop, ptr noundef initializes((8, 20), (32, 48), (88, 92)) %handle) local_unnamed_addr #0 {
 entry:
   %loop1 = getelementptr inbounds i8, ptr %handle, i64 8
   store ptr %loop, ptr %loop1, align 8
@@ -577,7 +577,7 @@ declare void @uv_fs_req_cleanup(ptr noundef) local_unnamed_addr #2
 declare i32 @uv_timer_start(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @timer_cb(ptr noundef %timer) #1 {
+define internal void @timer_cb(ptr noundef initializes((-24, -16)) %timer) #1 {
 entry:
   %loop = getelementptr inbounds i8, ptr %timer, i64 -16
   %0 = load ptr, ptr %loop, align 8

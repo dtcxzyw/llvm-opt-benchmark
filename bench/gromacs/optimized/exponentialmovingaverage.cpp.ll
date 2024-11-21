@@ -1780,7 +1780,7 @@ declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #6
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx24ExponentialMovingAverageC2EfRKNS_29ExponentialMovingAverageStateE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, float noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx24ExponentialMovingAverageC2EfRKNS_29ExponentialMovingAverageStateE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 12)) %0, float noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::InconsistentInputError", align 8
   %5 = alloca %"class.gmx::ExceptionInitializer", align 8
   %6 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -2122,7 +2122,7 @@ declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 d
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx24ExponentialMovingAverage19updateWithDataPointEf(ptr nocapture noundef nonnull align 4 dereferenceable(16) %0, float noundef %1) local_unnamed_addr #13 align 2 {
+define void @_ZN3gmx24ExponentialMovingAverage19updateWithDataPointEf(ptr nocapture noundef nonnull align 4 dereferenceable(16) initializes((8, 9)) %0, float noundef %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load float, ptr %3, align 4
   %5 = fsub float 1.000000e+00, %4

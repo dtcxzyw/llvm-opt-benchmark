@@ -167,7 +167,7 @@ declare void @_ZN7GCTimer23register_gc_phase_startEPKcRK11TimeInstantI30Composit
 declare void @_ZN7GCTimer23register_gc_pause_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ShenandoahGCSessionC2EN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19ShenandoahGCSessionC2EN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.TimeInstant, align 8
   %4 = alloca %class.TimeInstant, align 8
   %5 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -297,7 +297,7 @@ declare void @_ZN8GCTracer13report_gc_endERK11TimeInstantI30CompositeCounterRepr
 declare void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ShenandoahGCPauseMarkC2EjPKcN11SvcGCMarker11reason_typeE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ShenandoahGCPauseMarkC2EjPKcN11SvcGCMarker11reason_typeE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -322,7 +322,7 @@ declare void @_ZN8GCIdMarkC1Ej(ptr noundef nonnull align 4 dereferenceable(4), i
 declare void @_ZN17IsSTWGCActiveMarkC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahPausePhaseC2EPKcN22ShenandoahPhaseTimings5PhaseEb(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ShenandoahPausePhaseC2EPKcN22ShenandoahPhaseTimings5PhaseEb(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 24), (32, 41), (48, 61), (64, 68), (72, 84), (88, 144)) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %class.TimeInstant, align 8
   %6 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1680
@@ -429,7 +429,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahTimingsTrackerC2EN22ShenandoahPhaseTimings5PhaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24ShenandoahTimingsTrackerC2EN22ShenandoahPhaseTimings5PhaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1680
   %5 = load ptr, ptr %4, align 8
@@ -546,7 +546,7 @@ define hidden void @_ZN24ShenandoahTimingsTrackerD2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25ShenandoahConcurrentPhaseC2EPKcN22ShenandoahPhaseTimings5PhaseEb(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN25ShenandoahConcurrentPhaseC2EPKcN22ShenandoahPhaseTimings5PhaseEb(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 24), (32, 41), (48, 61), (64, 68), (72, 84), (88, 144)) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %class.TimeInstant, align 8
   %6 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1680
@@ -749,7 +749,7 @@ define hidden noundef zeroext i1 @_ZN24ShenandoahTimingsTracker22is_current_phas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ShenandoahGCPhaseC2EN22ShenandoahPhaseTimings5PhaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN17ShenandoahGCPhaseC2EN22ShenandoahPhaseTimings5PhaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.TimeInstant, align 8
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1680
@@ -810,7 +810,7 @@ define hidden void @_ZN17ShenandoahGCPhaseD2Ev(ptr nocapture noundef nonnull rea
 declare void @_ZN7GCTimer21register_gc_phase_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ShenandoahGCWorkerPhaseC2EN22ShenandoahPhaseTimings5PhaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN23ShenandoahGCWorkerPhaseC2EN22ShenandoahPhaseTimings5PhaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1680
   %5 = load ptr, ptr %4, align 8

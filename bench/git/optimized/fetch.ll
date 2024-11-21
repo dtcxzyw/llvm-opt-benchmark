@@ -6861,7 +6861,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fetch_failed_to_start(ptr nocapture readnone %out, ptr nocapture noundef writeonly %cb, ptr noundef %task_cb) #0 {
+define internal noundef i32 @fetch_failed_to_start(ptr nocapture readnone %out, ptr nocapture noundef writeonly initializes((20, 24)) %cb, ptr noundef %task_cb) #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %0, 0

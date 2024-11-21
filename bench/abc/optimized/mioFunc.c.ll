@@ -155,7 +155,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Mio_GateParseFormula(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Mio_GateParseFormula(ptr noundef initializes((80, 88)) %0) local_unnamed_addr #0 {
   %2 = alloca [8 x [4 x i64]], align 16
   %3 = alloca [8 x ptr], align 16
   %4 = alloca [100 x ptr], align 16
@@ -934,7 +934,7 @@ declare ptr @Mio_LibDeriveSop(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Mio_LibraryParseFormulas(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Mio_LibraryParseFormulas(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = tail call ptr @Mio_LibraryReadGates(ptr noundef %0) #12

@@ -1499,7 +1499,7 @@ _ZN5folly4test16ThreadTimestamps4syncERKS1_.exit48: ; preds = %for.body.i35, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4test21DeterministicScheduleC2ESt8functionIFmmEE(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef %scheduler) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly4test21DeterministicScheduleC2ESt8functionIFmmEE(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 56)) %this, ptr nocapture noundef %scheduler) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_invoker2.i = getelementptr inbounds i8, ptr %scheduler, i64 24

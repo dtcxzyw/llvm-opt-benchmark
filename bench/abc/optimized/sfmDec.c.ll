@@ -81,7 +81,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.4 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Sfm_ParSetDefault3(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Sfm_ParSetDefault3(ptr nocapture noundef writeonly initializes((0, 124)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(124) %2, i8 0, i64 104, i1 false)
   store i32 100, ptr %0, align 4
@@ -2661,7 +2661,7 @@ define i32 @Sfm_DecMffcAreaReal(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Sfm_DecPrepareVec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
+define void @Sfm_DecPrepareVec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = icmp sgt i32 %2, 0
@@ -5048,7 +5048,7 @@ Abc_TtAndSharp.exit:                              ; preds = %.lr.ph.i459
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sfm_DecPeformDec2(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define i32 @Sfm_DecPeformDec2(ptr noundef initializes((276, 280)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %.sroa.0 = alloca i64, align 16
   %.sroa.4 = alloca i64, align 8
   %3 = alloca [4 x [4 x i64]], align 16
@@ -5809,7 +5809,7 @@ declare i32 @Sfm_LibFindAreaMatch(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare i32 @Sfm_LibImplementGatesArea(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sfm_DecPeformDec3(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @Sfm_DecPeformDec3(ptr noundef initializes((164, 168)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.sroa.0 = alloca i64, align 16
   %.sroa.4 = alloca i64, align 8
   %3 = alloca %struct.timespec, align 8
@@ -7374,7 +7374,7 @@ Vec_IntPush.exit19:                               ; preds = %.Vec_IntGrow.exit10
 declare void @Abc_ObjPrint(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Sfm_DecMarkMffc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #2 {
+define void @Sfm_DecMarkMffc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr nocapture noundef initializes((4, 8)) %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = getelementptr i8, ptr %0, i64 16
   %.val339 = load i32, ptr %9, align 8
   %10 = load i32, ptr %4, align 8
@@ -9631,7 +9631,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sfm_DecExtract(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #2 {
+define i32 @Sfm_DecExtract(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr noundef initializes((4, 8)) %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #2 {
   %14 = getelementptr inbounds i8, ptr %2, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = lshr i32 %15, 12
@@ -11448,7 +11448,7 @@ declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @Sfm_MitTimingGrow(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Sfm_DecPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Sfm_DecPrintStats(ptr nocapture noundef initializes((1096, 1104), (1112, 1120)) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1120
   %4 = load i32, ptr %3, align 8

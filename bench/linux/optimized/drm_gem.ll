@@ -1643,7 +1643,7 @@ define dso_local i32 @drm_gem_open_ioctl(ptr noundef %0, ptr nocapture noundef %
 declare dso_local ptr @idr_find(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @drm_gem_open(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 16 {
+define dso_local void @drm_gem_open(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((80, 108)) %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 84
@@ -2395,7 +2395,7 @@ define dso_local void @drm_gem_vunmap_unlocked(ptr noundef %0, ptr noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_gem_lock_reservations(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @drm_gem_lock_reservations(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef initializes((0, 24)) %2) #0 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !64
   %5 = inttoptr i64 %4 to ptr
   store ptr %5, ptr %2, align 8
@@ -2521,7 +2521,7 @@ define dso_local void @drm_gem_unlock_reservations(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @drm_gem_lru_init(ptr noundef %0, ptr noundef %1) #5 align 16 {
+define dso_local void @drm_gem_lru_init(ptr noundef initializes((0, 16)) %0, ptr noundef %1) #5 align 16 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8

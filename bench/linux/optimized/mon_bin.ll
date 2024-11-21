@@ -1054,7 +1054,7 @@ mon_bin_flush.exit:                               ; preds = %45, %68
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -1, 1) i32 @mon_bin_mmap(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @mon_bin_mmap(ptr nocapture noundef readonly %0, ptr noundef initializes((120, 128)) %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 120
   store ptr @mon_bin_vm_ops, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32

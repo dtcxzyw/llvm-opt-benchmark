@@ -1066,7 +1066,7 @@ $_ZTINSt13__future_base13_State_baseV27_SetterIN5cxx208expectedISt6vectorISt4pai
 @switch.table._ZN8WasmEdge8Executor8Executor6invokeEPKNS_7Runtime8Instance16FunctionInstanceEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS8_IKNS_7ValTypeELm18446744073709551615EEE = private unnamed_addr constant [3 x i64] [i64 1778384896, i64 1795162112, i64 1879048192], align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge8Executor8Executor20instantiateComponentERNS_7Runtime12StoreManagerERKNS_3AST9Component9ComponentE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(96) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge8Executor8Executor20instantiateComponentERNS_7Runtime12StoreManagerERKNS_3AST9Component9ComponentE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 8 initializes((0, 1), (8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(96) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cxx20::expected", align 8
   %6 = alloca %"class.std::optional", align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1101,7 +1101,7 @@ declare void @_ZN8WasmEdge8Executor8Executor11instantiateERNS_7Runtime12StoreMan
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge8Executor8Executor20instantiateComponentERNS_7Runtime12StoreManagerERKNS_3AST9Component9ComponentESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 %4, ptr %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge8Executor8Executor20instantiateComponentERNS_7Runtime12StoreManagerERKNS_3AST9Component9ComponentESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 8 initializes((0, 1), (8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 %4, ptr %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cxx20::expected", align 8
   %8 = alloca %"class.std::optional", align 8
   store i64 %4, ptr %8, align 8
@@ -1135,7 +1135,7 @@ _ZN5cxx208expectedISt10unique_ptrIN8WasmEdge7Runtime8Instance17ComponentInstance
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge8Executor8Executor17instantiateModuleERNS_7Runtime12StoreManagerERKNS_3AST6ModuleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.54") align 8 %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(705) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge8Executor8Executor17instantiateModuleERNS_7Runtime12StoreManagerERKNS_3AST6ModuleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.54") align 8 initializes((0, 1), (8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(705) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cxx20::expected.54", align 8
   %6 = alloca %"class.std::optional", align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1478,7 +1478,7 @@ _ZN6spdlog4infoIA55_cEEvRKT_.exit80:              ; preds = %.noexc78, %102
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge8Executor8Executor14registerModuleERNS_7Runtime12StoreManagerERKNS_3AST6ModuleESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.54") align 8 %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(705) %3, i64 %4, ptr %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge8Executor8Executor14registerModuleERNS_7Runtime12StoreManagerERKNS_3AST6ModuleESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.54") align 8 initializes((0, 1), (8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(705) %3, i64 %4, ptr %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cxx20::expected.54", align 8
   %8 = alloca %"class.std::optional", align 8
   store i64 %4, ptr %8, align 8
@@ -1544,7 +1544,7 @@ _ZN5cxx208expectedISt10unique_ptrIN8WasmEdge7Runtime8Instance14ModuleInstanceESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge8Executor8Executor14registerModuleERNS_7Runtime12StoreManagerERKNS2_8Instance14ModuleInstanceE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.165") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(920) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge8Executor8Executor14registerModuleERNS_7Runtime12StoreManagerERKNS2_8Instance14ModuleInstanceE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.165") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(920) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.spdlog::source_loc", align 8
   %7 = alloca %"class.cxx20::expected.165", align 4
@@ -1734,7 +1734,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5:   ; preds = %28, %53
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge8Executor8Executor17registerComponentERNS_7Runtime12StoreManagerERKNS2_8Instance17ComponentInstanceE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.165") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(488) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge8Executor8Executor17registerComponentERNS_7Runtime12StoreManagerERKNS2_8Instance17ComponentInstanceE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.165") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(488) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.spdlog::source_loc", align 8
   %7 = alloca %"class.cxx20::expected.165", align 4

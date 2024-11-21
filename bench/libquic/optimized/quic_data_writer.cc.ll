@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net14QuicDataWriterD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net14QuicDataWriterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net14QuicDataWriterC2EmPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i64 noundef %size, ptr noundef %buffer) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14QuicDataWriterC2EmPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i64 noundef %size, ptr noundef %buffer) unnamed_addr #0 align 2 {
 entry:
   store ptr %buffer, ptr %this, align 8
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 8

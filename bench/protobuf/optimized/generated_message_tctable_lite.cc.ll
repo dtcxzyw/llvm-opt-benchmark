@@ -974,7 +974,7 @@ if.then9.i:                                       ; preds = %if.end47.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal8TcParser13TestMiniParseEPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr noalias nocapture writeonly sret(%"struct.google::protobuf::internal::TcParser::TestMiniParseResult") align 8 %agg.result, ptr noundef %msg, ptr noundef %ptr, ptr noundef %ctx, i64 %data.coerce, ptr noundef %table, i64 noundef %hasbits) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8internal8TcParser13TestMiniParseEPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr noalias nocapture writeonly sret(%"struct.google::protobuf::internal::TcParser::TestMiniParseResult") align 8 initializes((0, 32)) %agg.result, ptr noundef %msg, ptr noundef %ptr, ptr noundef %ctx, i64 %data.coerce, ptr noundef %table, i64 noundef %hasbits) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %0 = load i8, ptr %ptr, align 1

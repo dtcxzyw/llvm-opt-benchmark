@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [47 x i8] c"drivers/gpu/drm/i915/gt/intel_gt_clock_utils.c\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_init_clock_frequency(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_init_clock_frequency(ptr nocapture noundef initializes((3584, 3588)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8

@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [8 x i8] c"testfs:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.stat, align 8
   %7 = alloca %struct.statfs, align 8
   %8 = alloca i32, align 4

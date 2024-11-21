@@ -300,7 +300,7 @@ jbd2_journal_init_revoke_table.exit7:             ; preds = %.preheader
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @jbd2_journal_destroy_revoke(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @jbd2_journal_destroy_revoke(ptr nocapture noundef initializes((1160, 1168)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1160
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1168

@@ -61,7 +61,7 @@ $_ZN14GrowableBitMapI11CHeapBitMapE8truncateEmm = comdat any
 @_ZN14GrowableBitMapI11CHeapBitMapEC1EPmm = weak_odr hidden unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN14GrowableBitMapI11CHeapBitMapEC2EPmm
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ArenaBitMapC2EP5Arenamb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ArenaBitMapC2EP5Arenamb(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
@@ -217,7 +217,7 @@ _ZL17pseudo_reallocateI11ArenaBitMapEPmRKT_S1_mm.exit: ; preds = %_ZNK11ArenaBit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i1 noundef zeroext %2)
   ret void
@@ -329,7 +329,7 @@ _ZL17pseudo_reallocateI14ResourceBitMapEPmRKT_S1_mm.exit: ; preds = %4, %.split1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11CHeapBitMapC2Em8MEMFLAGSb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, i64 noundef %1, i8 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN11CHeapBitMapC2Em8MEMFLAGSb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, i64 noundef %1, i8 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %2, ptr %5, align 8

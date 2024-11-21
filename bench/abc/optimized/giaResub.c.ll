@@ -2152,7 +2152,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntTwoFindCommon(i32 %.4.val, ptr readonly %.8.val, i32 %.4.val1, ptr readonly %.8.val3, ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Vec_IntTwoFindCommon(i32 %.4.val, ptr readonly %.8.val, i32 %.4.val1, ptr readonly %.8.val3, ptr nocapture noundef initializes((4, 8)) %0) unnamed_addr #0 {
   %2 = sext i32 %.4.val to i64
   %3 = getelementptr inbounds i32, ptr %.8.val, i64 %2
   %4 = sext i32 %.4.val1 to i64
@@ -2530,7 +2530,7 @@ Vec_WecAlloc.exit:                                ; preds = %1, %56
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ResbInit(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @Gia_ResbInit(ptr nocapture noundef initializes((4, 32)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %3, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3680,7 +3680,7 @@ Abc_TtIsConst0.exit:                              ; preds = %.lr.ph.i126, %37, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManConstructFromMap(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @Gia_ManConstructFromMap(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef initializes((4, 8)) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %1, i64 4
   %8 = getelementptr i8, ptr %1, i64 8
   %9 = getelementptr inbounds i8, ptr %4, i64 4
@@ -6130,7 +6130,7 @@ declare ptr @Gia_ManCleanup(ptr noundef) local_unnamed_addr #1
 declare void @Gia_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManFindOneUnateInt(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define void @Gia_ManFindOneUnateInt(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef initializes((4, 8)) %4, ptr nocapture noundef initializes((4, 8)) %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %5, i64 4
@@ -8464,7 +8464,7 @@ define range(i32 -1, -2147483648) i32 @Gia_ManFindGateGate(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManSortUnatesInt(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define void @Gia_ManSortUnatesInt(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef initializes((4, 8)) %6) local_unnamed_addr #0 {
   %8 = shl nsw i32 %3, 6
   %9 = load i32, ptr %6, align 8
   %.not.i.i = icmp slt i32 %9, %8
@@ -8947,7 +8947,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManSortUnates(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define void @Gia_ManSortUnates(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef initializes((4, 8)) %5) local_unnamed_addr #0 {
 .critedge:
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -8964,7 +8964,7 @@ define void @Gia_ManSortUnates(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManSortPairsInt(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define void @Gia_ManSortPairsInt(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef initializes((4, 8)) %6) local_unnamed_addr #0 {
   %8 = shl nsw i32 %3, 6
   %9 = load i32, ptr %6, align 8
   %.not.i.i = icmp slt i32 %9, %8
@@ -9535,7 +9535,7 @@ Vec_WecClear.exit:                                ; preds = %312, %.critedge, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManSortPairs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define void @Gia_ManSortPairs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef initializes((4, 8)) %5) local_unnamed_addr #0 {
 .critedge:
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -11287,7 +11287,7 @@ Abc_TtIsConst0.exit.thread:                       ; preds = %84, %88, %78, %376,
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManResubPerform(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @Gia_ManResubPerform(ptr noundef initializes((4, 32)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   tail call void @Gia_ResbInit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %8)
   %11 = tail call i32 @Gia_ManResubPerform_rec(ptr noundef %0, i32 noundef %3, i32 noundef %9)
   %12 = icmp sgt i32 %11, -1
@@ -11480,7 +11480,7 @@ define void @Abc_ResubPrepareManager(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_ResubComputeFunction(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef writeonly %9) local_unnamed_addr #0 {
+define i32 @Abc_ResubComputeFunction(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef writeonly initializes((0, 8)) %9) local_unnamed_addr #0 {
   %11 = alloca %struct.Vec_Ptr_t_, align 8
   store i32 %1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 4
@@ -14166,7 +14166,7 @@ Abc_TtIsConst0.exit.thread.us:                    ; preds = %37, %36, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManDeriveCounts(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Gia_ManDeriveCounts(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 4
   %.val10 = load i32, ptr %4, align 4
   %5 = sdiv i32 %.val10, %1

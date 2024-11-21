@@ -1149,7 +1149,7 @@ eh.resume:                                        ; preds = %lpad73, %lpad5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17pull_nested_quantC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 {
+define hidden void @_ZN17pull_nested_quantC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 576)
   tail call void @_ZN17pull_nested_quant3imp2rwC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(576) %call, ptr noundef nonnull align 8 dereferenceable(976) %m)

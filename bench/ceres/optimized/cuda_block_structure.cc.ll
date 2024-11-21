@@ -72,13 +72,13 @@ $_ZN5ceres8internal10CudaBufferINS0_5BlockEE7ReserveEm = comdat any
 @_ZN5ceres8internal24CudaBlockSparseStructureC1ERKNS0_27CompressedRowBlockStructureEiPNS0_11ContextImplE = hidden unnamed_addr alias void (ptr, ptr, i32, ptr), ptr @_ZN5ceres8internal24CudaBlockSparseStructureC2ERKNS0_27CompressedRowBlockStructureEiPNS0_11ContextImplE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal24CudaBlockSparseStructureC2ERKNS0_27CompressedRowBlockStructureEPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN5ceres8internal24CudaBlockSparseStructureC2ERKNS0_27CompressedRowBlockStructureEPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(160) initializes((16, 24), (28, 33), (40, 160)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   tail call void @_ZN5ceres8internal24CudaBlockSparseStructureC2ERKNS0_27CompressedRowBlockStructureEiPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 0, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal24CudaBlockSparseStructureC2ERKNS0_27CompressedRowBlockStructureEiPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal24CudaBlockSparseStructureC2ERKNS0_27CompressedRowBlockStructureEiPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(160) initializes((16, 24), (28, 33), (40, 160)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::vector.7", align 8

@@ -224,7 +224,7 @@ $_ZTI17cmELFInternalImplI12cmELFTypes64E = comdat any
 @_ZN5cmELFD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN5cmELFD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmELFC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5cmELFC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.2", align 8
   %4 = alloca [16 x i8], align 16
   %5 = alloca i32, align 4

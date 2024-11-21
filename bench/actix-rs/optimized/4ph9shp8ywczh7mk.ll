@@ -668,7 +668,7 @@ define internal void @_ZN5bytes5bytes11static_drop17h7b0cc40933e82eb8E(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5bytes5bytes12static_clone17h5d85fa132ab860c5E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #6 {
+define internal void @_ZN5bytes5bytes12static_clone17h5d85fa132ab860c5E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -773,7 +773,7 @@ define hidden { i1, i8 } @"_ZN94_$LT$bytes..buf..iter..IntoIter$LT$T$GT$$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN94_$LT$bytes..buf..iter..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha2f18fd471eb5197E"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 %1) unnamed_addr #9 {
+define hidden void @"_ZN94_$LT$bytes..buf..iter..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha2f18fd471eb5197E"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   store i64 %4, ptr %0, align 8
@@ -1261,7 +1261,7 @@ define hidden noundef i128 @_ZN9actix_web5error14response_error13ResponseError23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15actix_multipart4form6Limits3new17h30336e7511a3a1aaE(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, i64, i64 }) align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #6 {
+define void @_ZN15actix_multipart4form6Limits3new17h30336e7511a3a1aaE(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, i64, i64 }) align 8 dereferenceable(32) initializes((0, 8), (16, 32)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1271,7 +1271,7 @@ define void @_ZN15actix_multipart4form6Limits3new17h30336e7511a3a1aaE(ptr noalia
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15actix_multipart4form6Limits18try_consume_limits17h893d8f0c5ee52f61E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define void @_ZN15actix_multipart4form6Limits18try_consume_limits17h893d8f0c5ee52f61E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca { i64, [5 x i64] }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
   %7 = alloca { i64, [5 x i64] }, align 8
@@ -1364,7 +1364,7 @@ define void @_ZN15actix_multipart4form6Limits18try_consume_limits17h893d8f0c5ee5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN15actix_multipart4form19MultipartFormConfig11total_limit17h70b2d8be44f3a63bE(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i64, i64 }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #9 {
+define void @_ZN15actix_multipart4form19MultipartFormConfig11total_limit17h70b2d8be44f3a63bE(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i64, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) initializes((16, 24)) %1, i64 noundef %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
@@ -1372,7 +1372,7 @@ define void @_ZN15actix_multipart4form19MultipartFormConfig11total_limit17h70b2d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN15actix_multipart4form19MultipartFormConfig12memory_limit17hbccc6d3e28b49034E(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i64, i64 }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #9 {
+define void @_ZN15actix_multipart4form19MultipartFormConfig12memory_limit17hbccc6d3e28b49034E(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i64, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) initializes((24, 32)) %1, i64 noundef %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   store i64 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
@@ -1403,7 +1403,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN15actix_multipart4for
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN85_$LT$actix_multipart..form..MultipartFormConfig$u20$as$u20$core..default..Default$GT$7default17h809ee55f1fe7646fE"(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i64, i64 }) align 8 dereferenceable(32) %0) unnamed_addr #9 {
+define void @"_ZN85_$LT$actix_multipart..form..MultipartFormConfig$u20$as$u20$core..default..Default$GT$7default17h809ee55f1fe7646fE"(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i64, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #9 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.ea9b8b315f5513f9ed48acde4b9bbc9b.37, i64 32, i1 false)
   ret void
 }

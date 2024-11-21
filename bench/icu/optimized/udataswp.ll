@@ -402,14 +402,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL22uprv_writeDirectUInt16Ptt(ptr nocapture noundef writeonly %p, i16 noundef zeroext %x) #5 {
+define internal void @_ZL22uprv_writeDirectUInt16Ptt(ptr nocapture noundef writeonly initializes((0, 2)) %p, i16 noundef zeroext %x) #5 {
 entry:
   store i16 %x, ptr %p, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL20uprv_writeSwapUInt16Ptt(ptr nocapture noundef writeonly %p, i16 noundef zeroext %x) #5 {
+define internal void @_ZL20uprv_writeSwapUInt16Ptt(ptr nocapture noundef writeonly initializes((0, 2)) %p, i16 noundef zeroext %x) #5 {
 entry:
   %or = tail call i16 @llvm.bswap.i16(i16 %x)
   store i16 %or, ptr %p, align 2
@@ -417,14 +417,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL22uprv_writeDirectUInt32Pjj(ptr nocapture noundef writeonly %p, i32 noundef %x) #5 {
+define internal void @_ZL22uprv_writeDirectUInt32Pjj(ptr nocapture noundef writeonly initializes((0, 4)) %p, i32 noundef %x) #5 {
 entry:
   store i32 %x, ptr %p, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL20uprv_writeSwapUInt32Pjj(ptr nocapture noundef writeonly %p, i32 noundef %x) #5 {
+define internal void @_ZL20uprv_writeSwapUInt32Pjj(ptr nocapture noundef writeonly initializes((0, 4)) %p, i32 noundef %x) #5 {
 entry:
   %or5 = tail call i32 @llvm.bswap.i32(i32 %x)
   store i32 %or5, ptr %p, align 4

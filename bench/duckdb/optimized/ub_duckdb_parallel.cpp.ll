@@ -995,7 +995,7 @@ $_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN6duckdb13TaskSchedulerE
 @_ZN6duckdb13ThreadContextC1ERNS_13ClientContextE = unnamed_addr alias void (ptr, ptr), ptr @_ZN6duckdb13ThreadContextC2ERNS_13ClientContextE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6duckdb17BasePipelineEventC2ESt10shared_ptrINS_8PipelineEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr nocapture noundef %pipeline_p) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb17BasePipelineEventC2ESt10shared_ptrINS_8PipelineEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 113), (120, 136)) %this, ptr nocapture noundef %pipeline_p) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %pipeline_p, align 8, !tbaa !3
   %executor = getelementptr inbounds i8, ptr %0, i64 16
@@ -1019,7 +1019,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb5EventC2ERNS_8ExecutorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(113) %this, ptr noundef nonnull align 1 %executor_p) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb5EventC2ERNS_8ExecutorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(113) initializes((0, 113)) %this, ptr noundef nonnull align 1 %executor_p) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -1032,7 +1032,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb17BasePipelineEventC2ERNS_8PipelineE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %pipeline_p) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb17BasePipelineEventC2ERNS_8PipelineE(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 113), (128, 136)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %pipeline_p) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %executor = getelementptr inbounds i8, ptr %pipeline_p, i64 16
   %0 = load ptr, ptr %executor, align 8, !tbaa !9
@@ -1093,7 +1093,7 @@ lpad:                                             ; preds = %if.then.i.i.i.i
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12MetaPipelineC2ERNS_8ExecutorERNS_18PipelineBuildStateEPNS_16PhysicalOperatorE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor_p, ptr noundef nonnull align 8 dereferenceable(112) %state_p, ptr noundef %sink_p) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12MetaPipelineC2ERNS_8ExecutorERNS_18PipelineBuildStateEPNS_16PhysicalOperatorE(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 41), (48, 72)) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor_p, ptr noundef nonnull align 8 dereferenceable(112) %state_p, ptr noundef %sink_p) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %executor = getelementptr inbounds i8, ptr %this, i64 16
@@ -2052,7 +2052,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb12MetaPipeline15SetRecursiveCTEEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6duckdb12MetaPipeline15SetRecursiveCTEEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) initializes((40, 41)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %recursive_cte = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %recursive_cte, align 8, !tbaa !59
@@ -2060,7 +2060,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb12MetaPipeline20AssignNextBatchIndexEPNS_8PipelineE(ptr nocapture noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef writeonly %pipeline) local_unnamed_addr #9 align 2 {
+define void @_ZN6duckdb12MetaPipeline20AssignNextBatchIndexEPNS_8PipelineE(ptr nocapture noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef writeonly initializes((128, 136)) %pipeline) local_unnamed_addr #9 align 2 {
 entry:
   %next_batch_index = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load i64, ptr %next_batch_index, align 8, !tbaa !103
@@ -2874,7 +2874,7 @@ eh.resume:                                        ; preds = %_ZNSt10__weak_ptrIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb18PipelineBuildState15SetPipelineSinkERNS_8PipelineENS_12optional_ptrINS_16PhysicalOperatorEEEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %pipeline, ptr %op.coerce, i64 noundef %sink_pipeline_count) local_unnamed_addr #1 align 2 {
+define void @_ZN6duckdb18PipelineBuildState15SetPipelineSinkERNS_8PipelineENS_12optional_ptrINS_16PhysicalOperatorEEEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((64, 72), (128, 136)) %pipeline, ptr %op.coerce, i64 noundef %sink_pipeline_count) local_unnamed_addr #1 align 2 {
 entry:
   %sink = getelementptr inbounds i8, ptr %pipeline, i64 64
   store ptr %op.coerce, ptr %sink, align 8, !tbaa !47
@@ -3682,7 +3682,7 @@ if.end15:                                         ; preds = %_ZNSt6vectorIPN6duc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb18PipelineBuildState20SetPipelineOperatorsERNS_8PipelineENS_6vectorISt17reference_wrapperINS_16PhysicalOperatorEELb1EEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull align 8 dereferenceable(224) %pipeline, ptr nocapture noundef %operators) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18PipelineBuildState20SetPipelineOperatorsERNS_8PipelineENS_6vectorISt17reference_wrapperINS_16PhysicalOperatorEELb1EEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((48, 64)) %pipeline, ptr nocapture noundef %operators) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %operators2 = getelementptr inbounds i8, ptr %pipeline, i64 40
   %0 = load ptr, ptr %operators2, align 8, !tbaa !175
@@ -3705,7 +3705,7 @@ _ZN6duckdb6vectorISt17reference_wrapperINS_16PhysicalOperatorEELb1EEaSEOS4_.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18PipelineBuildState20GetPipelineOperatorsERNS_8PipelineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.11") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %pipeline) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18PipelineBuildState20GetPipelineOperatorsERNS_8PipelineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.11") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %pipeline) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %operators = getelementptr inbounds i8, ptr %pipeline, i64 40
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %pipeline, i64 48
@@ -4039,14 +4039,14 @@ lpad:                                             ; preds = %if.else.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18PipelineBuildState19CreateChildPipelineERNS_8ExecutorERNS_8PipelineERNS_16PhysicalOperatorE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %pipeline, ptr noundef nonnull align 8 dereferenceable(128) %op) local_unnamed_addr #2 align 2 {
+define void @_ZN6duckdb18PipelineBuildState19CreateChildPipelineERNS_8ExecutorERNS_8PipelineERNS_16PhysicalOperatorE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %pipeline, ptr noundef nonnull align 8 dereferenceable(128) %op) local_unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN6duckdb8Executor19CreateChildPipelineERNS_8PipelineERNS_16PhysicalOperatorE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %executor, ptr noundef nonnull align 8 dereferenceable(224) %pipeline, ptr noundef nonnull align 8 dereferenceable(128) %op)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb12ExecutorTaskC2ERNS_8ExecutorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor_p) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb12ExecutorTaskC2ERNS_8ExecutorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor_p) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -4057,7 +4057,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12ExecutorTaskC2ERNS_13ClientContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(592) %context) unnamed_addr #2 align 2 {
+define void @_ZN6duckdb12ExecutorTaskC2ERNS_13ClientContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(592) %context) unnamed_addr #2 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN6duckdb13ClientContext11GetExecutorEv(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -5510,7 +5510,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb8ExecutorC2ERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(592) %context) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb8ExecutorC2ERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 168), (176, 288), (312, 328)) %this, ptr noundef nonnull align 8 dereferenceable(592) %context) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %context, ptr %this, align 8, !tbaa !47
   %physical_plan = getelementptr inbounds i8, ptr %this, i64 8
@@ -10298,7 +10298,7 @@ _ZNSt6vectorISt17reference_wrapperIN6duckdb16PhysicalOperatorEESaIS3_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb8Pipeline12GetOperatorsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.11") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb8Pipeline12GetOperatorsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.11") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %source = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNK6duckdb12optional_ptrINS_16PhysicalOperatorEE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %source)
@@ -12162,7 +12162,7 @@ _ZNSt13unordered_mapISt17reference_wrapperIKN6duckdb16PhysicalOperatorEES0_INS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb8Executor11CancelTasksEv(ptr noundef nonnull align 8 dereferenceable(384) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb8Executor11CancelTasksEv(ptr noundef nonnull align 8 dereferenceable(384) initializes((312, 320)) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %weak_references = alloca %"class.duckdb::vector.19", align 8
   %task = getelementptr inbounds i8, ptr %this, i64 312
@@ -14085,7 +14085,7 @@ ehcleanup10.i:                                    ; preds = %ehcleanup.i, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb8Executor19CreateChildPipelineERNS_8PipelineERNS_16PhysicalOperatorE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %current, ptr noundef nonnull align 8 dereferenceable(128) %op) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb8Executor19CreateChildPipelineERNS_8PipelineERNS_16PhysicalOperatorE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %current, ptr noundef nonnull align 8 dereferenceable(128) %op) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !449)
   store ptr null, ptr %agg.result, align 8, !tbaa !3, !alias.scope !449
@@ -14851,7 +14851,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit127:                 ; preds = %if.then.i.i.i126, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb8Pipeline11GetProgressERdRm(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %current_percentage, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %source_cardinality) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN6duckdb8Pipeline11GetProgressERdRm(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %current_percentage, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %source_cardinality) local_unnamed_addr #2 align 2 {
 entry:
   %source = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNK6duckdb12optional_ptrINS_16PhysicalOperatorEE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %source)
@@ -16847,7 +16847,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb14InterruptStateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb14InterruptStateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 1), (8, 40)) %this) unnamed_addr #1 align 2 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !546
   %current_task = getelementptr inbounds i8, ptr %this, i64 8
@@ -16856,7 +16856,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb14InterruptStateC2ESt8weak_ptrINS_4TaskEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef %task) unnamed_addr #9 align 2 {
+define void @_ZN6duckdb14InterruptStateC2ESt8weak_ptrINS_4TaskEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 1), (8, 40)) %this, ptr nocapture noundef %task) unnamed_addr #9 align 2 {
 entry:
   store i8 1, ptr %this, align 8, !tbaa !546
   %current_task = getelementptr inbounds i8, ptr %this, i64 8
@@ -16869,7 +16869,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb14InterruptStateC2ESt8weak_ptrINS_24InterruptDoneSignalStateEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef %signal_state_p) unnamed_addr #9 align 2 {
+define void @_ZN6duckdb14InterruptStateC2ESt8weak_ptrINS_24InterruptDoneSignalStateEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 1), (8, 40)) %this, ptr nocapture noundef %signal_state_p) unnamed_addr #9 align 2 {
 entry:
   store i8 2, ptr %this, align 8, !tbaa !546
   %current_task = getelementptr inbounds i8, ptr %this, i64 8
@@ -17355,7 +17355,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit11:          ; preds = %if.then3.i.i9, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb8PipelineC2ERNS_8ExecutorE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor_p) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb8PipelineC2ERNS_8ExecutorE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 26), (32, 176), (184, 188), (192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor_p) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %executor = getelementptr inbounds i8, ptr %this, i64 16
@@ -19273,7 +19273,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb8Pipeline12GetOperatorsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.759") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb8Pipeline12GetOperatorsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.759") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %source = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNK6duckdb12optional_ptrINS_16PhysicalOperatorEE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %source)
@@ -20169,7 +20169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb18PipelineBuildState17SetPipelineSourceERNS_8PipelineERNS_16PhysicalOperatorE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %pipeline, ptr noundef nonnull align 8 dereferenceable(128) %op) local_unnamed_addr #1 align 2 {
+define void @_ZN6duckdb18PipelineBuildState17SetPipelineSourceERNS_8PipelineERNS_16PhysicalOperatorE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((32, 40)) %pipeline, ptr noundef nonnull align 8 dereferenceable(128) %op) local_unnamed_addr #1 align 2 {
 entry:
   %source = getelementptr inbounds i8, ptr %pipeline, i64 32
   %0 = ptrtoint ptr %op to i64
@@ -20332,7 +20332,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb21PipelineCompleteEventC2ERNS_8ExecutorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(114) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor, i1 noundef zeroext %complete_pipeline_p) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb21PipelineCompleteEventC2ERNS_8ExecutorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(114) initializes((0, 114)) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor, i1 noundef zeroext %complete_pipeline_p) unnamed_addr #1 align 2 {
 entry:
   %frombool = zext i1 %complete_pipeline_p to i8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -20373,7 +20373,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6duckdb13PipelineEventC2ESt10shared_ptrINS_8PipelineEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr nocapture noundef %pipeline_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13PipelineEventC2ESt10shared_ptrINS_8PipelineEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 113), (120, 136)) %this, ptr nocapture noundef %pipeline_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12__shared_ptrIN6duckdb8PipelineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   %0 = load ptr, ptr %pipeline_p, align 8, !tbaa !3
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %pipeline_p, i64 8
@@ -20702,7 +20702,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16PipelineExecutorC2ERNS_13ClientContextERNS_8PipelineE(ptr noundef nonnull align 8 dereferenceable(401) %this, ptr noundef nonnull align 8 dereferenceable(592) %context_p, ptr noundef nonnull align 8 dereferenceable(224) %pipeline_p) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16PipelineExecutorC2ERNS_13ClientContextERNS_8PipelineE(ptr noundef nonnull align 8 dereferenceable(401) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(592) %context_p, ptr noundef nonnull align 8 dereferenceable(224) %pipeline_p) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::unique_ptr.598", align 8
   %ref.tmp45 = alloca %"class.duckdb::optional_idx", align 8
@@ -21986,7 +21986,7 @@ _ZN6duckdb10unique_ptrINS_15GlobalSinkStateESt14default_deleteIS1_ELb1EE13Assert
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16PipelineExecutor16FinishProcessingEi(ptr nocapture noundef nonnull align 8 dereferenceable(401) %this, i32 noundef %operator_idx) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16PipelineExecutor16FinishProcessingEi(ptr nocapture noundef nonnull align 8 dereferenceable(401) initializes((380, 384)) %this, i32 noundef %operator_idx) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i.i.i = alloca { ptr, i64 }, align 8
   %ref.tmp = alloca %"class.std::stack", align 8
@@ -24361,7 +24361,7 @@ _ZN6duckdb10unique_ptrINS_13OperatorStateESt14default_deleteIS1_ELb1EE13AssertNo
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb16PipelineExecutor10GoToSourceERmm(ptr nocapture noundef nonnull align 8 dereferenceable(401) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %current_idx, i64 noundef %initial_idx) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16PipelineExecutor10GoToSourceERmm(ptr nocapture noundef nonnull align 8 dereferenceable(401) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %current_idx, i64 noundef %initial_idx) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 %initial_idx, ptr %current_idx, align 8, !tbaa !254
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 344
@@ -24755,7 +24755,7 @@ declare void @_ZN6duckdb16OperatorProfiler13StartOperatorENS_12optional_ptrIKNS_
 declare void @_ZN6duckdb16OperatorProfiler11EndOperatorENS_12optional_ptrINS_9DataChunkEEE(ptr noundef nonnull align 8 dereferenceable(96), ptr) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6duckdb19PipelineFinishEventC2ESt10shared_ptrINS_8PipelineEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr nocapture noundef %pipeline_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb19PipelineFinishEventC2ESt10shared_ptrINS_8PipelineEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 113), (120, 136)) %this, ptr nocapture noundef %pipeline_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12__shared_ptrIN6duckdb8PipelineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   %0 = load ptr, ptr %pipeline_p, align 8, !tbaa !3
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %pipeline_p, i64 8
@@ -25297,7 +25297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6duckdb23PipelineInitializeEventC2ESt10shared_ptrINS_8PipelineEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr nocapture noundef %pipeline_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb23PipelineInitializeEventC2ESt10shared_ptrINS_8PipelineEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 113), (120, 136)) %this, ptr nocapture noundef %pipeline_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12__shared_ptrIN6duckdb8PipelineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   %0 = load ptr, ptr %pipeline_p, align 8, !tbaa !3
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %pipeline_p, i64 8
@@ -26056,7 +26056,7 @@ lpad:                                             ; preds = %invoke.cont, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb13ProducerTokenC2ERNS_13TaskSchedulerENS_10unique_ptrINS_18QueueProducerTokenESt14default_deleteIS4_ELb1EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(112) %scheduler, ptr nocapture noundef %token) unnamed_addr #9 align 2 {
+define void @_ZN6duckdb13ProducerTokenC2ERNS_13TaskSchedulerENS_10unique_ptrINS_18QueueProducerTokenESt14default_deleteIS4_ELb1EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, ptr noundef nonnull align 8 dereferenceable(112) %scheduler, ptr nocapture noundef %token) unnamed_addr #9 align 2 {
 entry:
   store ptr %scheduler, ptr %this, align 8, !tbaa !47
   %token3 = getelementptr inbounds i8, ptr %this, i64 8
@@ -26098,7 +26098,7 @@ _ZNSt10unique_ptrIN6duckdb18QueueProducerTokenESt14default_deleteIS1_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb13TaskSchedulerC2ERNS_16DatabaseInstanceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(1088) %db) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13TaskSchedulerC2ERNS_16DatabaseInstanceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(1088) %db) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %db, ptr %this, align 8, !tbaa !47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !880)

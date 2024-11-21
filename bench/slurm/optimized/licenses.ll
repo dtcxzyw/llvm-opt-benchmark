@@ -212,7 +212,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr nocapture noundef initializes((0, 1)) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

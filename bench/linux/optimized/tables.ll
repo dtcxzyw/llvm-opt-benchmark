@@ -651,7 +651,7 @@ declare dso_local ptr @early_memremap(i64 noundef, i64 noundef) local_unnamed_ad
 declare dso_local void @early_memunmap(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_os_physical_table_override(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @acpi_os_physical_table_override(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   store i64 0, ptr %1, align 8
   %4 = load i64, ptr @acpi_tables_addr, align 8

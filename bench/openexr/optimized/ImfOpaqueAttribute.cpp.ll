@@ -194,7 +194,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_215OpaqueAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 align 2 {
+define void @_ZN7Imf_3_215OpaqueAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i64 16), ptr %this, align 8
   %_data.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -271,7 +271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_215OpaqueAttribute13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %size, i32 %version) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_215OpaqueAttribute13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((40, 56)) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %size, i32 %version) unnamed_addr #3 align 2 {
 entry:
   %conv = sext i32 %size to i64
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #19

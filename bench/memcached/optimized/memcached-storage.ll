@@ -704,7 +704,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @storage_finalize_cb(ptr nocapture noundef %pending) #0 {
+define internal void @storage_finalize_cb(ptr nocapture noundef initializes((72, 80)) %pending) #0 {
 entry:
   %c1.i = getelementptr inbounds i8, ptr %pending, i64 16
   %0 = load ptr, ptr %c1.i, align 8
@@ -2525,7 +2525,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write) uwtable
-define dso_local noalias noundef ptr @storage_init_config(ptr nocapture noundef writeonly %s) local_unnamed_addr #13 {
+define dso_local noalias noundef ptr @storage_init_config(ptr nocapture noundef writeonly initializes((256, 313)) %s) local_unnamed_addr #13 {
 entry:
   %call = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #23
   %ext_item_size = getelementptr inbounds i8, ptr %s, i64 264

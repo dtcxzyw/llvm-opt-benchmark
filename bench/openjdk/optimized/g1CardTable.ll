@@ -390,7 +390,7 @@ declare void @_ZN9CardTable15clear_MemRegionE9MemRegion(ptr noundef nonnull alig
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1CardTable10initializeEP21G1RegionToSpaceMapper(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11G1CardTable10initializeEP21G1RegionToSpaceMapper(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %3, ptr %4, align 8

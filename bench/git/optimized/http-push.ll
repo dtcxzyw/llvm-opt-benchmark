@@ -3361,7 +3361,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare ptr @new_http_object_request(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @process_response(ptr noundef %callback_data) #0 {
+define internal void @process_response(ptr noundef initializes((84, 88), (344, 352)) %callback_data) #0 {
 entry:
   %slot.i = getelementptr inbounds i8, ptr %callback_data, i64 360
   %0 = load ptr, ptr %slot.i, align 8

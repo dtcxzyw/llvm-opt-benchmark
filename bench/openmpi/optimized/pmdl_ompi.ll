@@ -5443,7 +5443,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @nscon(ptr nocapture noundef writeonly %0) #11 {
+define internal void @nscon(ptr nocapture noundef writeonly initializes((400, 416)) %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 -1, i64 16, i1 false)
   ret void

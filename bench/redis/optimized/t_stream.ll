@@ -299,7 +299,7 @@ if.end10:                                         ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamNextID(ptr nocapture noundef readonly %last_id, ptr nocapture noundef %new_id) local_unnamed_addr #0 {
+define dso_local void @streamNextID(ptr nocapture noundef readonly %last_id, ptr nocapture noundef initializes((0, 16)) %new_id) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @commandTimeSnapshot() #16
   %0 = load i64, ptr %last_id, align 8
@@ -962,7 +962,7 @@ declare ptr @lpGet(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamEncodeID(ptr nocapture noundef writeonly %buf, ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
+define dso_local void @streamEncodeID(ptr nocapture noundef writeonly initializes((0, 16)) %buf, ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %id, align 8
   %call = tail call i64 @intrev64(i64 noundef %0) #16
@@ -978,7 +978,7 @@ entry:
 declare i64 @intrev64(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamDecodeID(ptr nocapture noundef readonly %buf, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 {
+define dso_local void @streamDecodeID(ptr nocapture noundef readonly %buf, ptr nocapture noundef writeonly initializes((0, 16)) %id) local_unnamed_addr #0 {
 entry:
   %e.sroa.0.0.copyload = load i64, ptr %buf, align 1
   %e.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %buf, i64 8
@@ -1065,7 +1065,7 @@ if.end:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamIteratorStart(ptr noundef %si, ptr noundef %s, ptr noundef readonly %start, ptr noundef readonly %end, i32 noundef %rev) local_unnamed_addr #0 {
+define dso_local void @streamIteratorStart(ptr noundef initializes((64, 96)) %si, ptr noundef %s, ptr noundef readonly %start, ptr noundef readonly %end, i32 noundef %rev) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %start, null
   %start_key1 = getelementptr inbounds i8, ptr %si, i64 64
@@ -2979,7 +2979,7 @@ entry:
 declare i32 @raxPrev(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamIteratorGetField(ptr noundef %si, ptr nocapture noundef writeonly %fieldptr, ptr nocapture noundef writeonly %valueptr, ptr noundef %fieldlen, ptr noundef %valuelen) local_unnamed_addr #0 {
+define dso_local void @streamIteratorGetField(ptr noundef %si, ptr nocapture noundef writeonly initializes((0, 8)) %fieldptr, ptr nocapture noundef writeonly initializes((0, 8)) %valueptr, ptr noundef %fieldlen, ptr noundef %valuelen) local_unnamed_addr #0 {
 entry:
   %entry_flags = getelementptr inbounds i8, ptr %si, i64 48
   %0 = load i32, ptr %entry_flags, align 8
@@ -5439,7 +5439,7 @@ return:                                           ; preds = %if.end14, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %c, ptr noundef nonnull %args, i32 noundef range(i32 0, 2) %xadd) unnamed_addr #0 {
+define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %c, ptr noundef nonnull initializes((0, 72)) %args, i32 noundef range(i32 0, 2) %xadd) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %args, i8 0, i64 72, i1 false)
   %argc = getelementptr inbounds i8, ptr %c, i64 88

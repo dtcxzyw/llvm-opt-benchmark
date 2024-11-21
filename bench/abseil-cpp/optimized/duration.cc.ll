@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4absl11kuint128maxE = external local_unnamed_addr global %"class.absl::uint128", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext %satq, i64 %num.coerce0, i32 %num.coerce1, i64 %den.coerce0, i32 %den.coerce1, ptr nocapture noundef writeonly %rem) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext %satq, i64 %num.coerce0, i32 %num.coerce1, i64 %den.coerce0, i32 %den.coerce1, ptr nocapture noundef writeonly initializes((0, 12)) %rem) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp eq i32 %num.coerce1, -1
   %cmp.i83.i = icmp eq i32 %den.coerce1, -1

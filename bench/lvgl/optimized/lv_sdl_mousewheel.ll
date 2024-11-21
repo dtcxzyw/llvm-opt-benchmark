@@ -44,7 +44,7 @@ declare void @lv_indev_set_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @lv_indev_set_read_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @sdl_mousewheel_read(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @sdl_mousewheel_read(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 18), (20, 24)) %1) #0 {
   %3 = tail call ptr @lv_indev_get_driver_data(ptr noundef %0) #2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !3

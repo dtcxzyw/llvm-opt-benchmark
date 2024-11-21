@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.9 = private unnamed_addr constant [7 x i8] c"Const0\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Sec_MiterStatus(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Sec_MtrStatus_t_) align 4 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Sec_MiterStatus(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Sec_MtrStatus_t_) align 4 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, i8 0, i64 12, i1 false)
   %4 = getelementptr i8, ptr %1, i64 108
@@ -1126,7 +1126,7 @@ Aig_ObjChild1Copy.exit109:                        ; preds = %Aig_ObjChild0Copy.e
 declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Saig_AndDualRail(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
+define void @Saig_AndDualRail(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
   %6 = ptrtoint ptr %.val to i64
@@ -5162,7 +5162,7 @@ define noundef ptr @Saig_ManCreateMiterTwo(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssw_SecCexResimulate(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define i32 @Ssw_SecCexResimulate(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #2 {
   store i32 0, ptr %2, align 4
   %4 = getelementptr i8, ptr %0, i64 48
   %.val54 = load ptr, ptr %4, align 8

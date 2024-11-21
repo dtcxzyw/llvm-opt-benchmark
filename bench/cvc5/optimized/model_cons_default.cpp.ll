@@ -707,7 +707,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr
 declare void @_ZN4cvc58internal6theory9Valuation22getCandidateModelValueENS0_12NodeTemplateILb0EEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory7strings16ModelConsDefault13getNormalFormENS0_12NodeTemplateILb1EEE(ptr noalias nocapture writeonly sret(%"class.std::vector.253") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings16ModelConsDefault13getNormalFormENS0_12NodeTemplateILb1EEE(ptr noalias nocapture writeonly sret(%"class.std::vector.253") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_csolver = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_csolver, align 8

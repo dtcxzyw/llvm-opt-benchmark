@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [52 x i8] c"Abc_NtkFxchPerform(): The network check has failed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Fxch_CubesGruping(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Fxch_CubesGruping(ptr nocapture noundef initializes((88, 96)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4

@@ -1534,7 +1534,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau10ParseErrorC2ERKNS_8LocationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau10ParseErrorC2ERKNS_8LocationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau10ParseErrorE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -1652,7 +1652,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau11ParseErrorsC2ESt6vectorINS_10ParseErrorESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau11ParseErrorsC2ESt6vectorINS_10ParseErrorESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %0, ptr nocapture noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4Luau11ParseErrorsE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2585,7 +2585,7 @@ _ZN4Luau5LexerD2Ev.exit:                          ; preds = %_ZNSt6vectorIN4Luau
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6ParserC2EPKcmRNS_12AstNameTableERNS_9AllocatorERKNS_12ParseOptionsE(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6ParserC2EPKcmRNS_12AstNameTableERNS_9AllocatorERKNS_12ParseOptionsE(ptr noundef nonnull align 8 dereferenceable(840) initializes((0, 2)) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.Luau::Lexeme", align 8
   %8 = alloca %"struct.Luau::Location", align 4
   %9 = load i16, ptr %5, align 1
@@ -11500,7 +11500,7 @@ _ZN4Luau12DenseHashMapINS_7AstNameEPNS_8AstLocalESt4hashIS1_ESt8equal_toIS1_EE4f
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6Parser9parseNameEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Parser::Name") align 8 %0, ptr noundef nonnull align 8 dereferenceable(840) %1, ptr noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6Parser9parseNameEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Parser::Name") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(840) %1, ptr noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8, !noalias !164
   %.not.i = icmp eq i32 %5, 281
@@ -12443,7 +12443,7 @@ _ZN4Luau10TempVectorINS_6Parser7BindingEED2Ev.exit38: ; preds = %_ZN4Luau9Alloca
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6Parser12parseNameOptEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.147") align 8 %0, ptr noundef nonnull align 8 dereferenceable(840) %1, ptr noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6Parser12parseNameOptEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.147") align 8 initializes((24, 25)) %0, ptr noundef nonnull align 8 dereferenceable(840) %1, ptr noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 281
@@ -14073,7 +14073,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau6Parser21expectMatchAndConsumeEcRKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6Parser23parseOptionalReturnTypeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.138") align 8 %0, ptr noundef nonnull align 8 dereferenceable(840) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6Parser23parseOptionalReturnTypeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.138") align 8 initializes((24, 25)) %0, ptr noundef nonnull align 8 dereferenceable(840) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair.200", align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8
@@ -19141,7 +19141,7 @@ _ZN4Luau10TempVectorINS_8AstArrayIcEEED2Ev.exit63: ; preds = %_ZN4Luau10TempVect
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Parser::Name") align 8 %0, ptr noundef nonnull align 8 dereferenceable(840) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6Parser14parseIndexNameEPKcRKNS_8PositionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Parser::Name") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(840) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load i32, ptr %5, align 8, !noalias !279
   %.not.i = icmp eq i32 %6, 281

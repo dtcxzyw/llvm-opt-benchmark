@@ -2554,7 +2554,7 @@ _ZN17QArrayDataPointerIdED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15SCTPGraphDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15SCTPGraphDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15SCTPGraphDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV15SCTPGraphDialog, i64 488), ptr %2, align 8
@@ -7192,7 +7192,7 @@ declare void @_ZN11QCustomPlot15setInteractionsERK6QFlagsIN3QCP11InteractionEE(p
 declare void @_ZN11QCustomPlot14plottableClickEP20QCPAbstractPlottableiP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(513), ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15SCTPGraphDialog12graphClickedEP20QCPAbstractPlottableiP11QMouseEvent(ptr nocapture noundef nonnull align 8 dereferenceable(464) %0, ptr nocapture noundef readonly %1, i32 %2, ptr nocapture noundef readonly %3) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15SCTPGraphDialog12graphClickedEP20QCPAbstractPlottableiP11QMouseEvent(ptr nocapture noundef nonnull align 8 dereferenceable(464) initializes((64, 68)) %0, ptr nocapture noundef readonly %1, i32 %2, ptr nocapture noundef readonly %3) #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -8209,7 +8209,7 @@ declare void @_ZN7QCPAxis8setRangeERK8QCPRange(ptr noundef nonnull align 8 deref
 declare void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef nonnull align 8 dereferenceable(513), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15SCTPGraphDialog21on_pushButton_clickedEv(ptr noundef nonnull align 8 dereferenceable(464) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15SCTPGraphDialog21on_pushButton_clickedEv(ptr noundef nonnull align 8 dereferenceable(464) initializes((460, 464)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 1, ptr %2, align 4
   tail call void @_ZN15SCTPGraphDialog9drawGraphEPK16_sctp_assoc_info(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef null)
@@ -8217,7 +8217,7 @@ define void @_ZN15SCTPGraphDialog21on_pushButton_clickedEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15SCTPGraphDialog23on_pushButton_2_clickedEv(ptr noundef nonnull align 8 dereferenceable(464) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15SCTPGraphDialog23on_pushButton_2_clickedEv(ptr noundef nonnull align 8 dereferenceable(464) initializes((460, 464)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 2, ptr %2, align 4
   tail call void @_ZN15SCTPGraphDialog9drawGraphEPK16_sctp_assoc_info(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef null)
@@ -8225,7 +8225,7 @@ define void @_ZN15SCTPGraphDialog23on_pushButton_2_clickedEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15SCTPGraphDialog23on_pushButton_3_clickedEv(ptr noundef nonnull align 8 dereferenceable(464) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15SCTPGraphDialog23on_pushButton_3_clickedEv(ptr noundef nonnull align 8 dereferenceable(464) initializes((460, 464)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 3, ptr %2, align 4
   tail call void @_ZN15SCTPGraphDialog9drawGraphEPK16_sctp_assoc_info(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef null)
@@ -9295,7 +9295,7 @@ define void @_ZN15SCTPGraphDialog21on_saveButton_clickedEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15SCTPGraphDialog27on_relativeTsn_stateChangedEi(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15SCTPGraphDialog27on_relativeTsn_stateChangedEi(ptr noundef nonnull align 8 dereferenceable(464) initializes((456, 457)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 456
   %5 = zext i1 %3 to i8

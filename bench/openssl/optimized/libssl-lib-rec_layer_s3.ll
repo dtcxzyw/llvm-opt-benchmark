@@ -33,14 +33,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_get_max_early_data = private unnamed_addr constant [24 x i8] c"ossl_get_max_early_data\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @RECORD_LAYER_init(ptr nocapture noundef writeonly %rl, ptr noundef %s) local_unnamed_addr #0 {
+define void @RECORD_LAYER_init(ptr nocapture noundef writeonly initializes((0, 8)) %rl, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   store ptr %s, ptr %rl, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @RECORD_LAYER_clear(ptr noundef %rl) local_unnamed_addr #1 {
+define void @RECORD_LAYER_clear(ptr noundef initializes((80, 92), (96, 113), (120, 136)) %rl) local_unnamed_addr #1 {
 entry:
   %wnum = getelementptr inbounds i8, ptr %rl, i64 80
   store i64 0, ptr %wnum, align 8
@@ -257,7 +257,7 @@ declare ptr @pqueue_iterator(ptr noundef) local_unnamed_addr #3
 declare ptr @pqueue_next(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_default_read_buffer_len(ptr nocapture noundef writeonly %ctx, i64 noundef %len) local_unnamed_addr #0 {
+define void @SSL_CTX_set_default_read_buffer_len(ptr nocapture noundef writeonly initializes((512, 520)) %ctx, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %default_read_buf_len = getelementptr inbounds i8, ptr %ctx, i64 512
   store i64 %len, ptr %default_read_buf_len, align 8
@@ -865,7 +865,7 @@ declare i32 @SSL_in_init(ptr noundef) local_unnamed_addr #3
 declare i32 @ossl_statem_get_in_handshake(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @ossl_tls_handle_rlayer_return(ptr noundef %s, i32 noundef %writing, i32 noundef %ret, ptr noundef %file, i32 noundef %line) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @ossl_tls_handle_rlayer_return(ptr noundef initializes((96, 100)) %s, i32 noundef %writing, i32 noundef %ret, ptr noundef %file, i32 noundef %line) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq i32 %ret, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -2108,7 +2108,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ssl_set_custom_record_layer(ptr nocapture noundef writeonly %s, ptr noundef %meth, ptr noundef %rlarg) local_unnamed_addr #0 {
+define void @ossl_ssl_set_custom_record_layer(ptr nocapture noundef writeonly initializes((3008, 3024)) %s, ptr noundef %meth, ptr noundef %rlarg) local_unnamed_addr #0 {
 entry:
   %custom_rlmethod = getelementptr inbounds i8, ptr %s, i64 3008
   store ptr %meth, ptr %custom_rlmethod, align 8

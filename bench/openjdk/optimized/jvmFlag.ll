@@ -2660,7 +2660,7 @@ define hidden void @_ZN7JVMFlag11set_productEv(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZNK7JVMFlag18get_locked_messageEPci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, 4) i32 @_ZNK7JVMFlag18get_locked_messageEPci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef initializes((0, 1)) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   store i8 0, ptr %1, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8

@@ -1427,7 +1427,7 @@ f_complex_new2.exit44:                            ; preds = %rb_class_of.exit41,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @comp_mul(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc void @comp_mul(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %5) unnamed_addr #0 {
   %7 = and i64 %0, 3
   %8 = icmp eq i64 %7, 2
   br i1 %8, label %18, label %9

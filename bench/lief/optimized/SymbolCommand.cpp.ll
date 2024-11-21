@@ -177,28 +177,28 @@ define noundef i32 @_ZNK4LIEF5MachO13SymbolCommand12strings_sizeEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO13SymbolCommand13symbol_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO13SymbolCommand13symbol_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO13SymbolCommand16numberof_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO13SymbolCommand16numberof_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((60, 64)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO13SymbolCommand14strings_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO13SymbolCommand14strings_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO13SymbolCommand12strings_sizeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO13SymbolCommand12strings_sizeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((68, 72)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 %1, ptr %3, align 4
   ret void

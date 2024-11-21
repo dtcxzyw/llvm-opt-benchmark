@@ -511,7 +511,7 @@ declare i64 @POOL_sizeof(ptr noundef) local_unnamed_addr #2
 declare i64 @ZSTD_sizeof_CDict(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ZSTDMT_updateCParams_whileCompressing(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local void @ZSTDMT_updateCParams_whileCompressing(ptr nocapture noundef initializes((48, 72), (84, 88)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.ZSTD_compressionParameters, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -531,7 +531,7 @@ declare void @ZSTD_getCParamsFromCCtxParams(ptr dead_on_unwind writable sret(%st
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ZSTDMT_getFrameProgression(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ZSTD_frameProgression) align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define dso_local void @ZSTDMT_getFrameProgression(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ZSTD_frameProgression) align 8 initializes((32, 36)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 2864
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 304

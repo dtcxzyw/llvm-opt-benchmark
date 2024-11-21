@@ -1710,7 +1710,7 @@ define internal range(i32 0, 24) i32 @BDF_Size_Request(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @BDF_Size_Select(ptr nocapture noundef %0, i64 noundef %1) #0 {
+define internal noundef i32 @BDF_Size_Select(ptr nocapture noundef initializes((48, 64), (72, 80)) %0, i64 noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 264
   %5 = load ptr, ptr %4, align 8
@@ -1737,7 +1737,7 @@ define internal noundef i32 @BDF_Size_Select(ptr nocapture noundef %0, i64 nound
 declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @bdf_get_charset_id(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #2 {
+define internal noundef i32 @bdf_get_charset_id(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
@@ -2698,7 +2698,7 @@ declare i32 @ft_hash_str_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ft_hash_str_insert(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bdf_list_split_(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @bdf_list_split_(ptr nocapture noundef initializes((16, 24)) %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [32 x i8], align 16
@@ -3579,7 +3579,7 @@ define internal fastcc signext i16 @bdf_atos_(ptr noundef readonly %0) unnamed_a
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @bdf_list_join_(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #7 {
+define internal fastcc ptr @bdf_list_join_(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #7 {
   store i64 0, ptr %1, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %32, label %4
@@ -5469,7 +5469,7 @@ define internal noundef i32 @bdf_parse_end_(ptr nocapture readnone %0, i64 %1, i
 declare void @ft_hash_str_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @bdf_cmap_init(ptr nocapture noundef %0, ptr nocapture readnone %1) #12 {
+define internal noundef i32 @bdf_cmap_init(ptr nocapture noundef initializes((24, 40)) %0, ptr nocapture readnone %1) #12 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 264
   %5 = load ptr, ptr %4, align 8
@@ -5485,7 +5485,7 @@ define internal noundef i32 @bdf_cmap_init(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @bdf_cmap_done(ptr nocapture noundef writeonly %0) #13 {
+define internal void @bdf_cmap_done(ptr nocapture noundef writeonly initializes((24, 40)) %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void

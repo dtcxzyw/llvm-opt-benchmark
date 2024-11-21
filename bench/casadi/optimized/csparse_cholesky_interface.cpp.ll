@@ -183,7 +183,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @casadi_register_linsol_csparsecholesky(ptr nocapture noundef writeonly %0) #3 {
+define noundef i32 @casadi_register_linsol_csparsecholesky(ptr nocapture noundef writeonly initializes((0, 28), (32, 48)) %0) #3 {
   store ptr @_ZN6casadi24CSparseCholeskyInterface7creatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8SparsityE, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str, ptr %2, align 8
@@ -259,7 +259,7 @@ define void @_ZN6casadi24CSparseCholeskyInterfaceC2ERKNSt7__cxx1112basic_stringI
 declare void @_ZN6casadi14LinsolInternalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi24CSparseCholeskyInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi24CSparseCholeskyInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8), (168, 176)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi24CSparseCholeskyInterfaceE, i64 232), ptr %2, align 8
@@ -621,7 +621,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %122, %120, %118, %1
 declare noundef i32 @_ZNK6casadi14LinsolInternal8init_memEPv(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi24CSparseCholeskyInterface5sfactEPvPKd(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK6casadi24CSparseCholeskyInterface5sfactEPvPKd(ptr nocapture nonnull readnone align 8 %0, ptr noundef initializes((96, 104)) %1, ptr noundef %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = getelementptr inbounds i8, ptr %1, i64 96
   store ptr %2, ptr %5, align 8
@@ -634,7 +634,7 @@ define noundef i32 @_ZNK6casadi24CSparseCholeskyInterface5sfactEPvPKd(ptr nocapt
 declare ptr @cs_schol(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi24CSparseCholeskyInterface5nfactEPvPKd(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6casadi24CSparseCholeskyInterface5nfactEPvPKd(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef initializes((96, 104)) %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

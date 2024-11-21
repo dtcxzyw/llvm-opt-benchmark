@@ -36826,7 +36826,7 @@ declare void @_ZN11CaptureFileD1Ev(ptr noundef nonnull align 8 dereferenceable(4
 declare void @_ZN10MainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(272)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19WiresharkMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19WiresharkMainWindow, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV19WiresharkMainWindow, i64 472), ptr %2, align 8
@@ -40938,7 +40938,7 @@ declare void @_ZNK9QSplitter5sizesEv(ptr dead_on_unwind writable sret(%class.QLi
 declare void @_ZNK9QSplitter9saveStateEv(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow6freezeEv(ptr noundef nonnull align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow6freezeEv(ptr noundef nonnull align 8 dereferenceable(520) initializes((432, 440)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef ptr @_ZN12QApplication11focusWidgetEv()
   %3 = getelementptr inbounds i8, ptr %0, i64 424
   %.not.i.i.i = icmp eq ptr %2, null
@@ -46730,7 +46730,7 @@ define void @_ZN19WiresharkMainWindow21initFollowStreamMenusEv(ptr noundef nonnu
 declare void @follow_iterate_followers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow25setTitlebarForCaptureFileEv(ptr noundef nonnull align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN19WiresharkMainWindow25setTitlebarForCaptureFileEv(ptr noundef nonnull align 8 dereferenceable(520) initializes((490, 491)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 490
   store i8 0, ptr %2, align 2
   tail call void @_ZN19WiresharkMainWindow14updateTitlebarEv(ptr noundef nonnull align 8 dereferenceable(520) %0)
@@ -48355,7 +48355,7 @@ declare void @_ZN7QWidget14setWindowTitleERK7QString(ptr noundef nonnull align 8
 declare void @_ZN7QWidget17setWindowFilePathERK7QString(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow31setTitlebarForCaptureInProgressEv(ptr noundef nonnull align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN19WiresharkMainWindow31setTitlebarForCaptureInProgressEv(ptr noundef nonnull align 8 dereferenceable(520) initializes((490, 491)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 490
   store i8 1, ptr %2, align 2
   tail call void @_ZN19WiresharkMainWindow14updateTitlebarEv(ptr noundef nonnull align 8 dereferenceable(520) %0)
@@ -68540,7 +68540,7 @@ declare void @_ZN17AdditionalToolBar8menuNameEv(ptr dead_on_unwind writable sret
 declare ptr @g_list_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN19WiresharkMainWindow13getMwFileNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow13getMwFileNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 464
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8

@@ -321,7 +321,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN20G1EvacFailureRegionsD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20G1EvacFailureRegionsD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN20G1EvacFailureRegionsC2Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20G1EvacFailureRegionsC2Ev(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 17), (24, 41), (48, 65), (72, 80)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 5, ptr %2, align 8

@@ -284,7 +284,7 @@ declare ptr @umutablecptrie_open_75(i32 noundef, i32 noundef, ptr noundef) local
 declare ptr @utm_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN6icu_755Norms9allocNormEv(ptr nocapture noundef nonnull align 8 dereferenceable(424) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN6icu_755Norms9allocNormEv(ptr nocapture noundef nonnull align 8 dereferenceable(424) initializes((416, 424)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %normMem = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load ptr, ptr %normMem, align 8

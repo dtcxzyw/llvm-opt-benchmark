@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN16LRUMaxHeapPolicyC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16LRUMaxHeapPolicyC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20LRUCurrentHeapPolicyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20LRUCurrentHeapPolicyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20LRUCurrentHeapPolicy, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
@@ -31,7 +31,7 @@ define hidden void @_ZN20LRUCurrentHeapPolicyC2Ev(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20LRUCurrentHeapPolicy5setupEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20LRUCurrentHeapPolicy5setupEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
@@ -59,7 +59,7 @@ define hidden noundef zeroext i1 @_ZN20LRUCurrentHeapPolicy22should_clear_refere
 declare noundef i64 @_ZN27java_lang_ref_SoftReference9timestampEP7oopDesc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16LRUMaxHeapPolicyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16LRUMaxHeapPolicyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16LRUMaxHeapPolicy, i64 16), ptr %0, align 8
   %2 = load i64, ptr @MaxHeapSize, align 8
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -75,7 +75,7 @@ define hidden void @_ZN16LRUMaxHeapPolicyC2Ev(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16LRUMaxHeapPolicy5setupEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16LRUMaxHeapPolicy5setupEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @MaxHeapSize, align 8
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24

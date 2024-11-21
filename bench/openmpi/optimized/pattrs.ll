@@ -1269,7 +1269,7 @@ define internal void @notification_fn(i64 %0, i32 %1, ptr nocapture readnone %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr noundef initializes((224, 228)) %2) #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %8, label %4
 
@@ -1307,7 +1307,7 @@ declare void @PMIx_Query_qualifiers_create(ptr noundef, i64 noundef) local_unnam
 declare i32 @PMIx_Query_info_nb(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @querycbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @querycbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((224, 228)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 224
   store i32 %0, ptr %7, align 8
   %.not = icmp eq i64 %2, 0

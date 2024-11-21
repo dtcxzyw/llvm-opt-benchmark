@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [18 x i8] c"%s: out of memory\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @slash_yylex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @slash_yylex(ptr noundef %0, ptr noundef initializes((144, 152)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca [512 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 144
@@ -2478,7 +2478,7 @@ define dso_local ptr @slash_yyget_text(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @slash_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
+define dso_local void @slash_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #12 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -2534,14 +2534,14 @@ define dso_local void @slash_yyset_column(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @slash_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
+define dso_local void @slash_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @slash_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
+define dso_local void @slash_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -2555,7 +2555,7 @@ define dso_local i32 @slash_yyget_debug(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @slash_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
+define dso_local void @slash_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -2569,7 +2569,7 @@ define dso_local ptr @slash_yyget_lval(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @slash_yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
+define dso_local void @slash_yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly initializes((144, 152)) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   ret void
@@ -2775,7 +2775,7 @@ define dso_local noalias noundef ptr @slash_yyrealloc(ptr nocapture noundef %0, 
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @psql_scan_slash_command(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @psql_scan_slash_command(ptr noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.PQExpBufferData, align 8
   call void @initPQExpBuffer(ptr noundef nonnull %2) #29
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2802,7 +2802,7 @@ declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #1
 declare void @psql_scan_reselect_sql_lexer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local ptr @psql_scan_slash_option(ptr noundef initializes((8, 16)) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca i8, align 1
   %7 = icmp eq ptr %2, null
@@ -3079,7 +3079,7 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @psql_scan_slash_command_end(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @psql_scan_slash_command_end(ptr noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3106,7 +3106,7 @@ define dso_local i32 @psql_scan_get_paren_depth(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @psql_scan_set_paren_depth(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #12 {
+define dso_local void @psql_scan_set_paren_depth(ptr nocapture noundef writeonly initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   ret void

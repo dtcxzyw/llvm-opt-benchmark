@@ -75,7 +75,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7AddressC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN7AddressC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) initializes((0, 2), (4, 22)) %this) unnamed_addr #3 align 2 {
 entry:
   store i16 0, ptr %this, align 4, !tbaa !4
   %m_address2 = getelementptr inbounds i8, ptr %this, i64 4
@@ -87,7 +87,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7AddressC2Ejt(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) %this, i32 noundef %address, i16 noundef zeroext %port) unnamed_addr #3 align 2 {
+define dso_local void @_ZN7AddressC2Ejt(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) initializes((0, 2), (4, 22)) %this, i32 noundef %address, i16 noundef zeroext %port) unnamed_addr #3 align 2 {
 entry:
   %m_port = getelementptr inbounds i8, ptr %this, i64 20
   %m_address2 = getelementptr inbounds i8, ptr %this, i64 4
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7Address10setAddressEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) %this, i32 noundef %address) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN7Address10setAddressEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) initializes((0, 2), (4, 8)) %this, i32 noundef %address) local_unnamed_addr #3 align 2 {
 entry:
   store i16 2, ptr %this, align 4, !tbaa !4
   %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %address)
@@ -111,7 +111,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7Address7setPortEt(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) %this, i16 noundef zeroext %port) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN7Address7setPortEt(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) initializes((20, 22)) %this, i16 noundef zeroext %port) local_unnamed_addr #3 align 2 {
 entry:
   %m_port = getelementptr inbounds i8, ptr %this, i64 20
   store i16 %port, ptr %m_port, align 4, !tbaa !10
@@ -119,7 +119,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7AddressC2Ehhhht(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) %this, i8 noundef zeroext %a, i8 noundef zeroext %b, i8 noundef zeroext %c, i8 noundef zeroext %d, i16 noundef zeroext %port) unnamed_addr #3 align 2 {
+define dso_local void @_ZN7AddressC2Ehhhht(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) initializes((0, 2), (4, 22)) %this, i8 noundef zeroext %a, i8 noundef zeroext %b, i8 noundef zeroext %c, i8 noundef zeroext %d, i16 noundef zeroext %port) unnamed_addr #3 align 2 {
 entry:
   %m_port = getelementptr inbounds i8, ptr %this, i64 20
   %m_address2 = getelementptr inbounds i8, ptr %this, i64 4
@@ -143,7 +143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7Address10setAddressEhhhh(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) %this, i8 noundef zeroext %a, i8 noundef zeroext %b, i8 noundef zeroext %c, i8 noundef zeroext %d) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN7Address10setAddressEhhhh(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) initializes((0, 2), (4, 8)) %this, i8 noundef zeroext %a, i8 noundef zeroext %b, i8 noundef zeroext %c, i8 noundef zeroext %d) local_unnamed_addr #3 align 2 {
 entry:
   %conv = zext i8 %a to i32
   %shl = shl nuw i32 %conv, 24
@@ -163,7 +163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7AddressC2EPK16IPv6AddressBytest(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) %this, ptr noundef readonly %ipv6_bytes, i16 noundef zeroext %port) unnamed_addr #5 align 2 {
+define dso_local void @_ZN7AddressC2EPK16IPv6AddressBytest(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) initializes((0, 2), (4, 22)) %this, ptr noundef readonly %ipv6_bytes, i16 noundef zeroext %port) unnamed_addr #5 align 2 {
 entry:
   %m_address2 = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %m_address2, i8 0, i64 18, i1 false)
@@ -186,7 +186,7 @@ _ZN7Address10setAddressEPK16IPv6AddressBytes.exit: ; preds = %if.else.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7Address10setAddressEPK16IPv6AddressBytes(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) %this, ptr noundef readonly %ipv6_bytes) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN7Address10setAddressEPK16IPv6AddressBytes(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(22) initializes((0, 2), (4, 20)) %this, ptr noundef readonly %ipv6_bytes) local_unnamed_addr #5 align 2 {
 entry:
   store i16 10, ptr %this, align 4, !tbaa !4
   %tobool.not = icmp eq ptr %ipv6_bytes, null

@@ -353,7 +353,7 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_close(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__bt2_idx_is_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal noundef i32 @H5D__bt2_idx_is_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -992,7 +992,7 @@ H5D__bt2_idx_close.exit:                          ; preds = %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5D__bt2_idx_reset(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) #4 {
+define internal noundef i32 @H5D__bt2_idx_reset(ptr nocapture noundef writeonly initializes((32, 40)) %0, i1 noundef zeroext %1) #4 {
   br i1 %1, label %3, label %5
 
 3:                                                ; preds = %2
@@ -1181,7 +1181,7 @@ define internal noundef i32 @H5D__bt2_dst_context(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5D__bt2_store(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal noundef i32 @H5D__bt2_store(ptr nocapture noundef writeonly initializes((0, 280)) %0, ptr nocapture noundef readonly %1) #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 280, i1 false)
   ret i32 0
 }
@@ -1745,7 +1745,7 @@ declare i32 @H5B2_patch_file(ptr noundef, ptr noundef) local_unnamed_addr #8
 declare i32 @H5B2_update(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5D__bt2_mod_cb(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #6 {
+define internal noundef i32 @H5D__bt2_mod_cb(ptr nocapture noundef writeonly initializes((0, 280)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 280, i1 false)
   store i8 1, ptr %2, align 1
   ret i32 0
@@ -1754,7 +1754,7 @@ define internal noundef i32 @H5D__bt2_mod_cb(ptr nocapture noundef writeonly %0,
 declare i32 @H5B2_find(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5D__bt2_found_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define internal noundef i32 @H5D__bt2_found_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 280)) %1) #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(280) %0, i64 280, i1 false)
   ret i32 0
 }

@@ -71,7 +71,7 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope4miss17h04fb030c2b5cc05bE(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13logos_codegen5graph4rope4Rope4miss17hb10b074ea6c3bc20E(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr nocapture align 8 %1, i32 %2, i32 %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen5graph4rope4Rope4miss17hb10b074ea6c3bc20E(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 40)) %0, ptr nocapture align 8 initializes((24, 32)) %1, i32 %2, i32 %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 28
@@ -498,7 +498,7 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope5shake17hd5d4df5245d57fe4E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h028d462830e922e0E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
+define void @"_ZN98_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h028d462830e922e0E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds { i8, i8 }, ptr %1, i64 %2
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h6d903dc619dd1a2dE"(ptr nonnull sret([24 x i8]) align 8 %4, ptr %1, ptr %5)
@@ -507,7 +507,7 @@ define void @"_ZN98_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..con
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h584631ae625851e0E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
+define void @"_ZN98_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h584631ae625851e0E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds { i8, i8 }, ptr %1, i64 %2
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9beb7bdccf020ea8E"(ptr nonnull sret([24 x i8]) align 8 %4, ptr %1, ptr %5)
@@ -516,7 +516,7 @@ define void @"_ZN98_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..con
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17hdabc80447dd5cbd5E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
+define void @"_ZN98_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17hdabc80447dd5cbd5E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hbbf8cbfaa3d7b4bdE"(ptr nonnull sret([24 x i8]) align 8 %4, ptr %1, ptr %5)
@@ -525,7 +525,7 @@ define void @"_ZN98_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..con
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN107_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$T$GT$$GT$$GT$4from17h298309863cfa35f3E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN107_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$T$GT$$GT$$GT$4from17h298309863cfa35f3E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [24 x i8], align 8

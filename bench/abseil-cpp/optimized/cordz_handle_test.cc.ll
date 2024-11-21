@@ -3508,7 +3508,7 @@ declare noundef zeroext i1 @_ZNK4absl13cord_internal11CordzHandle12SafeToDeleteE
 declare void @_ZN4absl13cord_internal11CordzHandle6DeleteEPS1_(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerE, i64 16), ptr %this, align 8
   %deleted = getelementptr inbounds i8, ptr %this, i64 32
@@ -3519,7 +3519,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_124CordzHandleDeleteTrackerE, i64 16), ptr %this, align 8
   %deleted.i = getelementptr inbounds i8, ptr %this, i64 32

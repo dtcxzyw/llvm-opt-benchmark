@@ -82,7 +82,7 @@ $_ZTV37AdaptiveSizePolicySpaceOverheadTester = comdat any
 @_ZN18AdaptiveSizePolicyC1Emmmdj = hidden unnamed_addr alias void (ptr, i64, i64, i64, double, i32), ptr @_ZN18AdaptiveSizePolicyC2Emmmdj
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18AdaptiveSizePolicyC2Emmmdj(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, double noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN18AdaptiveSizePolicyC2Emmmdj(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, double noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV18AdaptiveSizePolicy, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = uitofp i32 %5 to double
@@ -320,7 +320,7 @@ define hidden noundef zeroext i1 @_ZNK18AdaptiveSizePolicy25tenuring_threshold_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18AdaptiveSizePolicy22minor_collection_beginEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18AdaptiveSizePolicy22minor_collection_beginEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((160, 168)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_minor_timerE) #10
   %2 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_minor_timerE) #10
   %3 = getelementptr inbounds i8, ptr %0, i64 160
@@ -670,7 +670,7 @@ _ZNK18AdaptiveSizePolicy22decaying_major_gc_costEv.exit: ; preds = %26, %41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18AdaptiveSizePolicy33clear_generation_free_space_flagsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN18AdaptiveSizePolicy33clear_generation_free_space_flagsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((188, 204), (208, 216)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 188
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   store i32 0, ptr %3, align 8

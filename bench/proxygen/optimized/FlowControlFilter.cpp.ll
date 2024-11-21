@@ -285,7 +285,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen17FlowControlFilterC2ERNS0_8CallbackERN5folly10IOBufQueueEPNS_9HTTPCodecEj(ptr noundef nonnull align 8 dereferenceable(101) %this, ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef %codec, i32 noundef %recvCapacity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen17FlowControlFilterC2ERNS0_8CallbackERN5folly10IOBufQueueEPNS_9HTTPCodecEj(ptr noundef nonnull align 8 dereferenceable(101) initializes((0, 18), (24, 80)) %this, ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef %codec, i32 noundef %recvCapacity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp24 = alloca %"class.google::LogMessage", align 8
   %ref.tmp64 = alloca %"class.google::LogMessage", align 8

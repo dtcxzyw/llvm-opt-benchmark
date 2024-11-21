@@ -2911,7 +2911,7 @@ define hidden void @rb_id_table_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @ruby_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_id_table_clear(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @rb_id_table_clear(ptr nocapture noundef initializes((4, 12)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8

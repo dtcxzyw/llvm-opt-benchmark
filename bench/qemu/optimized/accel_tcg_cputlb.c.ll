@@ -12289,7 +12289,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare void @bitmap_set_atomic(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef range(i32 0, 3) %type, ptr nocapture noundef nonnull %l) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @mmu_lookup(ptr noundef %cpu, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef range(i32 0, 3) %type, ptr nocapture noundef nonnull initializes((64, 72)) %l) unnamed_addr #0 {
 entry:
   %shr.i = lshr i32 %oi, 4
   %memop = getelementptr inbounds i8, ptr %l, i64 64

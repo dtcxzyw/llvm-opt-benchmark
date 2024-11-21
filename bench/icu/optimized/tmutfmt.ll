@@ -616,7 +616,7 @@ declare void @_ZN6icu_7513MeasureFormat17initMeasureFormatERKNS_6LocaleE19UMeasu
 declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514TimeUnitFormat6createE20UTimeUnitFormatStyleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(428) %this, i32 noundef %style, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7514TimeUnitFormat6createE20UTimeUnitFormatStyleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(428) initializes((368, 424)) %this, i32 noundef %style, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %fTimeUnitToCountToPatterns = getelementptr inbounds i8, ptr %this, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %fTimeUnitToCountToPatterns, i8 0, i64 56, i1 false)
@@ -986,7 +986,7 @@ if.end29:                                         ; preds = %while.cond, %entry,
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514TimeUnitFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(428) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514TimeUnitFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(428) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514TimeUnitFormatE, i64 16), ptr %this, align 8
   %fTimeUnitToCountToPatterns = getelementptr inbounds i8, ptr %this, i64 368

@@ -255,7 +255,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt13model_checkerC2ER11ast_managerRK9qi_paramsRNS_12model_finderE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(144) %p, ptr noundef nonnull align 8 dereferenceable(128) %mf) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt13model_checkerC2ER11ast_managerRK9qi_paramsRNS_12model_finderE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(144) %p, ptr noundef nonnull align 8 dereferenceable(128) %mf) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_params = getelementptr inbounds i8, ptr %this, i64 8
@@ -727,7 +727,7 @@ entry:
 declare noundef ptr @_ZN3smt12model_finder19get_flat_quantifierEP10quantifier(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt13model_checker6set_qmERNS_18quantifier_managerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(13) %qm) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt13model_checker6set_qmERNS_18quantifier_managerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((40, 56)) %this, ptr noundef nonnull align 8 dereferenceable(13) %qm) local_unnamed_addr #3 align 2 {
 entry:
   %m_qm = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %qm, ptr %m_qm, align 8
@@ -1505,7 +1505,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3smt13model_checker22replace_value_from_ctxEP4exprEN12beta_reducerD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %this) unnamed_addr #4 align 2 {
+define internal void @_ZZN3smt13model_checker22replace_value_from_ctxEP4exprEN12beta_reducerD2Ev(ptr noundef nonnull align 8 dereferenceable(544) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #21
   ret void
@@ -5853,7 +5853,7 @@ declare noundef ptr @_ZN3smt7context8mk_freshEPK6symbolP10smt_paramsRK10params_r
 declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt13model_checker5checkEP11proto_modelRK7obj_mapINS_5enodeEP3appE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %md, ptr noundef nonnull align 8 dereferenceable(24) %root2value) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt13model_checker5checkEP11proto_modelRK7obj_mapINS_5enodeEP3appE(ptr noundef nonnull align 8 dereferenceable(184) initializes((56, 64)) %this, ptr noundef %md, ptr noundef nonnull align 8 dereferenceable(24) %root2value) local_unnamed_addr #3 align 2 {
 entry:
   %found_relevant = alloca i8, align 1
   %num_failures = alloca i32, align 4
@@ -6360,7 +6360,7 @@ declare noundef zeroext i1 @_ZNK3smt18quantifier_manager12mbqi_enabledEP10quanti
 declare noundef i32 @_ZNK3smt7context14get_assignmentEP4expr(ptr noundef nonnull align 8 dereferenceable(11616), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3smt13model_checker14init_search_ehEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN3smt13model_checker14init_search_ehEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((80, 88)) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_params = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_params, align 8
@@ -7128,7 +7128,7 @@ declare noundef ptr @_ZN11ast_manager18mk_fresh_func_declERK6symbolS2_jPKP4sortS
 declare void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3smt13model_checker22replace_value_from_ctxEP4exprEN12beta_reducerD0Ev(ptr noundef nonnull align 8 dereferenceable(544) %this) unnamed_addr #4 align 2 {
+define internal void @_ZZN3smt13model_checker22replace_value_from_ctxEP4exprEN12beta_reducerD0Ev(ptr noundef nonnull align 8 dereferenceable(544) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(544) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -7173,7 +7173,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 declare void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgE, i64 16), ptr %this, align 8
   %m_shifts = getelementptr inbounds i8, ptr %this, i64 528
@@ -7302,7 +7302,7 @@ _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7obj_refI4expr11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgED0Ev(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN12rewriter_tplIZN3smt13model_checker22replace_value_from_ctxEP4exprE16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25

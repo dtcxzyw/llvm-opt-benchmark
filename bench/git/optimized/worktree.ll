@@ -844,7 +844,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @should_prune_worktree(ptr noundef %id, ptr noundef %reason, ptr nocapture noundef writeonly %wtpath, i64 noundef %expire) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @should_prune_worktree(ptr noundef %id, ptr noundef %reason, ptr nocapture noundef writeonly initializes((0, 8)) %wtpath, i64 noundef %expire) local_unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   store ptr null, ptr %wtpath, align 8

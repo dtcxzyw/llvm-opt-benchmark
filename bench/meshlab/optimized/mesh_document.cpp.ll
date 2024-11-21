@@ -1099,7 +1099,7 @@ declare void @_ZN12QMapDataBase8freeDataEPS_(ptr noundef) local_unnamed_addr #0
 declare void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12MeshDocumentD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12MeshDocumentD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12MeshDocument, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @_ZN21MeshDocumentStateDataD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
@@ -1952,7 +1952,7 @@ define void @_ZN12MeshDocument11setDocLabelERK7QString(ptr noundef nonnull align
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK12MeshDocument8docLabelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12MeshDocument8docLabelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -2027,7 +2027,7 @@ define noundef zeroext i1 @_ZN12MeshDocument6isBusyEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12MeshDocument7setBusyEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, i1 noundef zeroext %1) local_unnamed_addr #18 align 2 {
+define void @_ZN12MeshDocument7setBusyEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((168, 169)) %0, i1 noundef zeroext %1) local_unnamed_addr #18 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   store i8 %3, ptr %4, align 8
@@ -4421,7 +4421,7 @@ define noundef i32 @_ZNK12MeshDocument2fnEv(ptr noundef nonnull readonly align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12MeshDocument4bboxEv(ptr dead_on_unwind noalias writable sret(%"class.vcg::Box3") align 4 %0, ptr noundef nonnull readonly align 8 dereferenceable(192) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12MeshDocument4bboxEv(ptr dead_on_unwind noalias writable sret(%"class.vcg::Box3") align 4 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(192) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store float 1.000000e+00, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store float -1.000000e+00, ptr %3, align 4

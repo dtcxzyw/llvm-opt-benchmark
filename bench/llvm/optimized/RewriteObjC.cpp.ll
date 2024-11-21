@@ -742,7 +742,7 @@ $_ZN4llvm15SmallVectorImplIPN5clang14ObjCMethodDeclEE6appendINS1_11DeclContext22
 @.str.501 = private unnamed_addr constant [25 x i8] c"__OFFSETOFIVAR__(struct \00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18CreateObjCRewriterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteISA_EERNS_17DiagnosticsEngineERKNS_11LangOptionsEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef %2, ptr noundef nonnull align 8 dereferenceable(1304) %3, ptr noundef nonnull align 8 dereferenceable(841) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang18CreateObjCRewriterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteISA_EERNS_17DiagnosticsEngineERKNS_11LangOptionsEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef %2, ptr noundef nonnull align 8 dereferenceable(1304) %3, ptr noundef nonnull align 8 dereferenceable(841) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -977,20 +977,20 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121RewriteObjCFragileABID2Ev(ptr noundef nonnull align 8 dereferenceable(3092) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121RewriteObjCFragileABID2Ev(ptr noundef nonnull align 8 dereferenceable(3092) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_111RewriteObjCD2Ev(ptr noundef nonnull align 8 dereferenceable(3092) %0) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121RewriteObjCFragileABID0Ev(ptr noundef nonnull align 8 dereferenceable(3092) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121RewriteObjCFragileABID0Ev(ptr noundef nonnull align 8 dereferenceable(3092) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_111RewriteObjCD2Ev(ptr noundef nonnull align 8 dereferenceable(3092) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 3096) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121RewriteObjCFragileABI10InitializeERN5clang10ASTContextE(ptr noundef nonnull align 8 dereferenceable(3092) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121RewriteObjCFragileABI10InitializeERN5clang10ASTContextE(ptr noundef nonnull align 8 dereferenceable(3092) initializes((16, 32), (96, 124), (128, 160), (232, 248), (252, 276), (280, 408), (3090, 3092)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.std::optional.599", align 8
   %5 = alloca %"class.llvm::MemoryBufferRef", align 8
@@ -5578,7 +5578,7 @@ define internal void @_ZN12_GLOBAL__N_121RewriteObjCFragileABI28RewriteIvarOffse
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111RewriteObjCD2Ev(ptr noundef nonnull align 8 dereferenceable(3092) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_111RewriteObjCD2Ev(ptr noundef nonnull align 8 dereferenceable(3092) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTVN12_GLOBAL__N_111RewriteObjCE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3064
   %3 = load ptr, ptr %2, align 8

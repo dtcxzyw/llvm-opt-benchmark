@@ -103,7 +103,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18LfmCovarianceProxyC2EN5boost10shared_ptrINS_17LmVolatilityModelEEERKNS2_INS_18LmCorrelationModelEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %volaModel, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %corrModel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18LfmCovarianceProxyC2EN5boost10shared_ptrINS_17LmVolatilityModelEEERKNS2_INS_18LmCorrelationModelEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, ptr nocapture noundef %volaModel, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %corrModel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -665,7 +665,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib18LfmCovarianceProxy15volatilityModelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib18LfmCovarianceProxy15volatilityModelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.6") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %volaModel_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %volaModel_, align 8, !tbaa !16
@@ -687,7 +687,7 @@ _ZN5boost10shared_ptrIN8QuantLib17LmVolatilityModelEEC2ERKS3_.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib18LfmCovarianceProxy16correlationModelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.7") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib18LfmCovarianceProxy16correlationModelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.7") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %corrModel_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %corrModel_, align 8, !tbaa !3
@@ -979,7 +979,7 @@ _ZN8QuantLib5ArrayD2Ev.exit28:                    ; preds = %ehcleanup29, %_ZNKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib18LfmCovarianceProxy10Var_HelperC2EPKS0_mm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %proxy, i64 noundef %i, i64 noundef %j) unnamed_addr #9 align 2 {
+define void @_ZN8QuantLib18LfmCovarianceProxy10Var_HelperC2EPKS0_mm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef readonly %proxy, i64 noundef %i, i64 noundef %j) unnamed_addr #9 align 2 {
 entry:
   store i64 %i, ptr %this, align 8, !tbaa !43
   %j_ = getelementptr inbounds nuw i8, ptr %this, i64 8

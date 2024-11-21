@@ -629,7 +629,7 @@ define internal fastcc void @rm_hole(ptr noundef %0) unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @add_hole(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @add_hole(ptr noundef initializes((144, 160)) %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1627,7 +1627,7 @@ define dso_local void @drm_mm_remove_node(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_mm_replace_node(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local void @drm_mm_replace_node(ptr noundef %0, ptr noundef initializes((0, 168)) %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(168) %1, ptr noundef align 8 dereferenceable(168) %0, i64 168, i1 false)
@@ -1709,7 +1709,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local void @rb_replace_node(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @drm_mm_scan_init_with_range(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) #5 align 16 {
+define dso_local void @drm_mm_scan_init_with_range(ptr nocapture noundef writeonly initializes((0, 76)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) #5 align 16 {
   store ptr %1, ptr %0, align 8
   %9 = icmp ult i64 %3, 2
   %10 = select i1 %9, i64 0, i64 %3
@@ -1982,7 +1982,7 @@ define dso_local ptr @drm_mm_scan_color_evict(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_mm_init(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local void @drm_mm_init(ptr noundef initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile ptr %4, ptr %4, align 8
@@ -2102,7 +2102,7 @@ declare dso_local void @drm_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local void @__rb_insert_augmented(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @drm_mm_interval_tree_augment_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #6 align 16 {
+define internal void @drm_mm_interval_tree_augment_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((72, 80)) %1) #6 align 16 {
   %3 = getelementptr i8, ptr %0, i64 72
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr i8, ptr %1, i64 72
@@ -2153,7 +2153,7 @@ declare dso_local void @rb_erase(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare dso_local void @__rb_erase_color(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @augment_callbacks_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #6 align 16 {
+define internal void @augment_callbacks_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((40, 48)) %1) #6 align 16 {
   %3 = getelementptr i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr i8, ptr %1, i64 40

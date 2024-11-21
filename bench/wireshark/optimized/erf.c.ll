@@ -476,7 +476,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @erf_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @erf_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
   %7 = alloca %struct.if_filter_opt_s, align 8
   %8 = alloca i8, align 1
   %9 = alloca [16 x i8], align 16
@@ -3933,7 +3933,7 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %3, %wtap_wtap_encap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @erf_dump_open(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @erf_dump_open(ptr nocapture noundef initializes((40, 48), (64, 80)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8

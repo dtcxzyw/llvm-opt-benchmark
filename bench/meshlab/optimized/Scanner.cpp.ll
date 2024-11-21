@@ -1220,7 +1220,7 @@ define void @_Z18coco_string_deleteRPc(ptr nocapture noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14VrmlTranslator5TokenC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #11 align 2 {
+define void @_ZN14VrmlTranslator5TokenC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #11 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -1242,7 +1242,7 @@ _Z18coco_string_deleteRPw.exit:                   ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14VrmlTranslator6BufferC2EP8_IO_FILEb(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
+define void @_ZN14VrmlTranslator6BufferC2EP8_IO_FILEb(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 32), (40, 49)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
   %4 = zext i1 %2 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1364,7 +1364,7 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14VrmlTranslator6BufferC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, ptr nocapture noundef %1) unnamed_addr #13 align 2 {
+define void @_ZN14VrmlTranslator6BufferC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 36), (40, 49)) %0, ptr nocapture noundef %1) unnamed_addr #13 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1405,7 +1405,7 @@ define void @_ZN14VrmlTranslator6BufferC2EPS0_(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14VrmlTranslator6BufferC2EPKhi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define void @_ZN14VrmlTranslator6BufferC2EPKhi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 36), (40, 48)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
   %4 = sext i32 %2 to i64
   %5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #21
@@ -1431,7 +1431,7 @@ define void @_ZN14VrmlTranslator6BufferC2EPKhi(ptr nocapture noundef nonnull wri
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14VrmlTranslator6BufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14VrmlTranslator6BufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
@@ -1548,7 +1548,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14VrmlTranslator7ScannerC2EPKhi(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14VrmlTranslator7ScannerC2EPKhi(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
@@ -1611,7 +1611,7 @@ define void @_ZN14VrmlTranslator7ScannerC2EPKhi(ptr noundef nonnull align 8 dere
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dereferenceable(160) initializes((32, 33), (36, 48)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 .critedge:
   %1 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 10, ptr %1, align 8
@@ -2556,7 +2556,7 @@ _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14VrmlTranslator7ScannerC2EPKw(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef readonly %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14VrmlTranslator7ScannerC2EPKw(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef readonly %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [50 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %4, align 8
@@ -2675,7 +2675,7 @@ _Z18coco_string_deleteRPc.exit9:                  ; preds = %.loopexit
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14VrmlTranslator7ScannerC2EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14VrmlTranslator7ScannerC2EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %3, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
@@ -2935,7 +2935,7 @@ _Z16coco_string_hashPKw.exit:                     ; preds = %14, %._crit_edge.i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14VrmlTranslator7Scanner6NextChEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN14VrmlTranslator7Scanner6NextChEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((128, 132)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -3232,7 +3232,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %31, %63, %69
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN14VrmlTranslator7Scanner8Comment0Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN14VrmlTranslator7Scanner8Comment0Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((128, 132)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
@@ -5678,7 +5678,7 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner4PeekEv(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14VrmlTranslator7Scanner9ResetPeekEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #13 align 2 {
+define void @_ZN14VrmlTranslator7Scanner9ResetPeekEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((120, 128)) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120

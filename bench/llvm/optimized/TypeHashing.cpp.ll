@@ -39,7 +39,7 @@ $_ZN4llvm7hashing6detail10hash_shortEPKcmm = comdat any
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview17LocallyHashedType8hashTypeENS_8ArrayRefIhEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::codeview::LocallyHashedType") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8codeview17LocallyHashedType8hashTypeENS_8ArrayRefIhEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::codeview::LocallyHashedType") align 8 initializes((0, 24)) %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %1, ptr noundef %4)
   store i64 %5, ptr %0, align 8

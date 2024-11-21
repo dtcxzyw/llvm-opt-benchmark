@@ -88,7 +88,7 @@ $_ZTSN5boost6locale8impl_std24std_localization_backendE = comdat any
 @_ZTISt9exception = external constant ptr
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost6locale8impl_std27create_localization_backendEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost6locale8impl_std27create_localization_backendEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5boost6locale8impl_std24std_localization_backendESt14default_deleteIS3_EED2Ev.exit:
   %1 = alloca %"class.std::unique_ptr.2", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #21

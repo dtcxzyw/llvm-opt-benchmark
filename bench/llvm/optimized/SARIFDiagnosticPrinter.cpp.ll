@@ -79,7 +79,7 @@ $_ZN5clang17DiagnosticOptionsD2Ev = comdat any
 @_ZN5clang22SARIFDiagnosticPrinterC1ERN4llvm11raw_ostreamEPNS_17DiagnosticOptionsE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5clang22SARIFDiagnosticPrinterC2ERN4llvm11raw_ostreamEPNS_17DiagnosticOptionsE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang22SARIFDiagnosticPrinterC2ERN4llvm11raw_ostreamEPNS_17DiagnosticOptionsE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang22SARIFDiagnosticPrinterC2ERN4llvm11raw_ostreamEPNS_17DiagnosticOptionsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12

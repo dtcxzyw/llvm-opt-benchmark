@@ -127,7 +127,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat4dratC2ERNS_6solverE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef nonnull align 8 dereferenceable(4408) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat4dratC2ERNS_6solverE(ptr noundef nonnull align 8 dereferenceable(664) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(4408) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %s2 = getelementptr inbounds i8, ptr %this, i64 16
@@ -690,7 +690,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @_ZN3sat16clause_allocator10del_clauseEPNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(568), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3sat4drat11updt_configEv(ptr nocapture noundef nonnull align 8 dereferenceable(664) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN3sat4drat11updt_configEv(ptr nocapture noundef nonnull align 8 dereferenceable(664) initializes((641, 645)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %s = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %s, align 8
@@ -4872,7 +4872,7 @@ _ZN6vectorIjLb0EjE7set_endEPj.exit:               ; preds = %entry, %for.end69, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK3sat4drat10get_statusEb(ptr noalias nocapture writeonly sret(%"class.sat::status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(664) %this, i1 noundef zeroext %learned) local_unnamed_addr #7 align 2 {
+define hidden void @_ZNK3sat4drat10get_statusEb(ptr noalias nocapture writeonly sret(%"class.sat::status") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(664) %this, i1 noundef zeroext %learned) local_unnamed_addr #7 align 2 {
 entry:
   br i1 %learned, label %return, label %lor.lhs.false
 

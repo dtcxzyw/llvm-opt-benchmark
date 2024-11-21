@@ -550,7 +550,7 @@ define noundef ptr @ARKodeButcherTable_Copy(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ARKodeButcherTable_Space(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define void @ARKodeButcherTable_Space(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
   store i64 0, ptr %1, align 8
   store i64 0, ptr %2, align 8
   %4 = icmp eq ptr %0, null
@@ -773,7 +773,7 @@ define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr nocapture n
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
   %5 = icmp eq ptr %0, null
@@ -7326,7 +7326,7 @@ __vp.exit:                                        ; preds = %38, %.loopexit, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef initializes((0, 4)) %3, ptr noundef %4) local_unnamed_addr #0 {
   %.sroa.05613 = alloca ptr, align 16
   %.sroa.118 = alloca ptr, align 8
   %.sroa.05496 = alloca ptr, align 16

@@ -14,7 +14,7 @@ $__clang_call_terminate = comdat any
 @_ZN3gmx12MembedHolderC1EOS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN3gmx12MembedHolderC2EOS0_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx12MembedHolderC2EiPK8t_filenm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN3gmx12MembedHolderC2EiPK8t_filenm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = tail call noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull @.str, i32 noundef %1, ptr noundef %2)
@@ -106,7 +106,7 @@ define noundef ptr @_ZN3gmx12MembedHolder6membedEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx12MembedHolderC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr nocapture noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #6 align 2 {
+define void @_ZN3gmx12MembedHolderC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8

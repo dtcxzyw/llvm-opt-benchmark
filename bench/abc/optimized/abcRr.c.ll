@@ -2492,7 +2492,7 @@ Abc_NtkWindow.exit:                               ; preds = %.critedge4.i143, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NtkRRProve(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NtkRRProve(ptr noundef initializes((88, 96)) %0) unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80

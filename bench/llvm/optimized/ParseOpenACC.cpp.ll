@@ -3061,7 +3061,7 @@ _ZN5clang11SemaOpenACC19OpenACCParsedClause14VarListDetailsD2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser19ParseOpenACCVarListENS_17OpenACCClauseKindE(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::SmallVector.725") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2936) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang6Parser19ParseOpenACCVarListENS_17OpenACCClauseKindE(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::SmallVector.725") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2936) initializes((988, 989)) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca [2 x i16], align 2
   %5 = alloca %class.anon.752, align 1
   %6 = alloca [2 x i16], align 2
@@ -4091,7 +4091,7 @@ _ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser24ParseOpenACCWaitArgumentENS_14SourceLocationEb(ptr dead_on_unwind noalias writable sret(%"struct.clang::Parser::OpenACCWaitParseInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2936) %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang6Parser24ParseOpenACCWaitArgumentENS_14SourceLocationEb(ptr dead_on_unwind noalias writable sret(%"struct.clang::Parser::OpenACCWaitParseInfo") align 8 initializes((0, 1), (8, 20)) %0, ptr noundef nonnull align 8 dereferenceable(2936) %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %class.anon, align 1
   %6 = alloca %class.anon, align 1
   store i8 0, ptr %0, align 8
@@ -4590,7 +4590,7 @@ declare i64 @_ZN5clang4Sema17ActOnIdExpressionEPNS_5ScopeERNS_12CXXScopeSpecENS_
 declare i64 @_ZN5clang6Parser28ParseStringLiteralExpressionEbb(ptr noundef nonnull align 8 dereferenceable(2936), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i32 } @_ZN5clang6Parser15ParseOpenACCVarENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local { i64, i32 } @_ZN5clang6Parser15ParseOpenACCVarENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((988, 989)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.anon.752, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 988
   store i8 1, ptr %4, align 4
@@ -4906,7 +4906,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj6EED2Ev.exit: ; preds = %128, %_ZN12_GLOBA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser21ParseOpenACCDirectiveEv(ptr dead_on_unwind noalias writable sret(%"struct.clang::Parser::OpenACCDirectiveParseInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2936) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang6Parser21ParseOpenACCDirectiveEv(ptr dead_on_unwind noalias writable sret(%"struct.clang::Parser::OpenACCDirectiveParseInfo") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.clang::Token", align 8
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -5993,7 +5993,7 @@ declare void @_ZN5clang6Parser4DiagENS_14SourceLocationEj(ptr dead_on_unwind wri
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN5clang6Parser25ParseOpenACCDirectiveDeclEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #1 align 2 {
+define dso_local ptr @_ZN5clang6Parser25ParseOpenACCDirectiveDeclEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"struct.clang::Parser::OpenACCDirectiveParseInfo", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 987
   %4 = load i8, ptr %3, align 1
@@ -6040,7 +6040,7 @@ declare noundef zeroext i1 @_ZN5clang11SemaOpenACC23ActOnStartDeclDirectiveENS_2
 declare ptr @_ZN5clang11SemaOpenACC21ActOnEndDeclDirectiveEv(ptr noundef nonnull align 8 dereferenceable(73)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser25ParseOpenACCDirectiveStmtEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #1 align 2 {
+define dso_local i64 @_ZN5clang6Parser25ParseOpenACCDirectiveStmtEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"struct.clang::Parser::OpenACCDirectiveParseInfo", align 8
   %3 = alloca %"class.clang::SemaOpenACC::AssociatedStmtRAII", align 8
   %4 = alloca %"class.llvm::ArrayRef.755", align 8

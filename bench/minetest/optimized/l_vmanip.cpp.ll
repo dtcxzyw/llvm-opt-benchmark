@@ -2422,7 +2422,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13LuaVoxelManipC2EP8MMVManipb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %mmvm, i1 noundef zeroext %is_mg_vm) unnamed_addr #11 align 2 {
+define dso_local void @_ZN13LuaVoxelManipC2EP8MMVManipb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %this, ptr noundef %mmvm, i1 noundef zeroext %is_mg_vm) unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %is_mg_vm to i8
   store i8 %frombool, ptr %this, align 8, !tbaa !16
@@ -2432,7 +2432,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13LuaVoxelManipC2EP3Map(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %map) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13LuaVoxelManipC2EP3Map(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1)) %this, ptr noundef %map) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !16
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #28
@@ -2457,7 +2457,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 declare void @_ZN8MMVManipC1EP3Map(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13LuaVoxelManipC2EP3MapN3irr4core8vector3dIsEES5_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %map, i48 %p1.coerce, i48 %p2.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13LuaVoxelManipC2EP3MapN3irr4core8vector3dIsEES5_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %this, ptr noundef %map, i48 %p1.coerce, i48 %p2.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !16
   %vm = getelementptr inbounds i8, ptr %this, i64 8

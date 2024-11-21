@@ -1106,7 +1106,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7UnitSAO12getAnimationEPN3irr4core8vector2dIfEEPfS5_Pb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(850) %this, ptr nocapture noundef writeonly %frame_range, ptr nocapture noundef writeonly %frame_speed, ptr nocapture noundef writeonly %frame_blend, ptr nocapture noundef writeonly %frame_loop) unnamed_addr #12 align 2 {
+define dso_local void @_ZN7UnitSAO12getAnimationEPN3irr4core8vector2dIfEEPfS5_Pb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(850) %this, ptr nocapture noundef writeonly initializes((0, 8)) %frame_range, ptr nocapture noundef writeonly initializes((0, 4)) %frame_speed, ptr nocapture noundef writeonly initializes((0, 4)) %frame_blend, ptr nocapture noundef writeonly initializes((0, 1)) %frame_loop) unnamed_addr #12 align 2 {
 entry:
   %m_animation_range = getelementptr inbounds i8, ptr %this, i64 712
   %0 = load i64, ptr %m_animation_range, align 8, !tbaa.struct !120
@@ -1153,7 +1153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7UnitSAO15getBoneOverrideERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.BoneOverride) align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(850) %this, ptr noundef nonnull align 8 dereferenceable(32) %bone) unnamed_addr #6 align 2 {
+define dso_local void @_ZN7UnitSAO15getBoneOverrideERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.BoneOverride) align 4 initializes((0, 25), (28, 65), (68, 97), (100, 108)) %agg.result, ptr noundef nonnull align 8 dereferenceable(850) %this, ptr noundef nonnull align 8 dereferenceable(32) %bone) unnamed_addr #6 align 2 {
 entry:
   %m_bone_override = getelementptr inbounds i8, ptr %this, i64 648
   %call.i = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_12BoneOverrideESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %m_bone_override, ptr noundef nonnull align 8 dereferenceable(32) %bone)
@@ -2960,7 +2960,7 @@ cleanup:                                          ; preds = %if.then28, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7UnitSAO13getAttachmentEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3irr4core8vector3dIfEESC_Pb(ptr noundef nonnull align 8 dereferenceable(850) %this, ptr nocapture noundef writeonly %parent_id, ptr noundef nonnull %bone, ptr nocapture noundef writeonly %position, ptr nocapture noundef writeonly %rotation, ptr nocapture noundef writeonly %force_visible) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK7UnitSAO13getAttachmentEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3irr4core8vector3dIfEESC_Pb(ptr noundef nonnull align 8 dereferenceable(850) %this, ptr nocapture noundef writeonly initializes((0, 4)) %parent_id, ptr noundef nonnull %bone, ptr nocapture noundef writeonly initializes((0, 12)) %position, ptr nocapture noundef writeonly initializes((0, 12)) %rotation, ptr nocapture noundef writeonly initializes((0, 1)) %force_visible) unnamed_addr #6 align 2 {
 entry:
   %m_attachment_parent_id = getelementptr inbounds i8, ptr %this, i64 704
   %0 = load i32, ptr %m_attachment_parent_id, align 8, !tbaa !98
@@ -3654,7 +3654,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7UnitSAO30notifyObjectPropertiesModifiedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(850) %this) unnamed_addr #14 align 2 {
+define dso_local void @_ZN7UnitSAO30notifyObjectPropertiesModifiedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(850) initializes((272, 273)) %this) unnamed_addr #14 align 2 {
 entry:
   %m_properties_sent = getelementptr inbounds i8, ptr %this, i64 272
   store i8 0, ptr %m_properties_sent, align 8, !tbaa !59

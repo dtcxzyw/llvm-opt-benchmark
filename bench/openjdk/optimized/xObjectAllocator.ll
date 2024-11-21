@@ -77,7 +77,7 @@ declare void @_Z21XStatUnitOpsPerSecond15LogTargetHandleRK12XStatSamplerRK19XSta
 declare void @_ZN12XStatCounterC1EPKcS1_PFv15LogTargetHandleRK12XStatSamplerRK19XStatSamplerHistoryE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16XObjectAllocatorC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN16XObjectAllocatorC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 1)) %0) unnamed_addr #1 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN11XHeuristics30use_per_cpu_shared_small_pagesEv() #7
   %3 = zext i1 %2 to i8
   store i8 %3, ptr %0, align 8

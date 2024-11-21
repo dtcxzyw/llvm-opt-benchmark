@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ScaleRowUp2_Linear_Any_C(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @ScaleRowUp2_Linear_Any_C(ptr noundef %0, ptr noundef initializes((0, 1)) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %2, -1
   %5 = and i32 %4, -2
   %6 = load i8, ptr %0, align 1
@@ -38,7 +38,7 @@ define hidden void @ScaleRowUp2_Linear_Any_C(ptr noundef %0, ptr noundef %1, i32
 declare void @ScaleRowUp2_Linear_C(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ScaleRowUp2_Linear_16_Any_C(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @ScaleRowUp2_Linear_16_Any_C(ptr noundef %0, ptr noundef initializes((0, 2)) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %2, -1
   %5 = and i32 %4, -2
   %6 = load i16, ptr %0, align 2
@@ -72,7 +72,7 @@ define hidden void @ScaleRowUp2_Linear_16_Any_C(ptr noundef %0, ptr noundef %1, 
 declare void @ScaleRowUp2_Linear_16_C(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ScaleRowUp2_Bilinear_Any_C(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ScaleRowUp2_Bilinear_Any_C(ptr noundef %0, i64 noundef %1, ptr noundef initializes((0, 1)) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add nsw i32 %4, -1
   %7 = and i32 %6, -2
   %8 = getelementptr inbounds i8, ptr %0, i64 %1
@@ -146,7 +146,7 @@ define hidden void @ScaleRowUp2_Bilinear_Any_C(ptr noundef %0, i64 noundef %1, p
 declare void @ScaleRowUp2_Bilinear_C(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %0, i64 noundef %1, ptr noundef initializes((0, 2)) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add nsw i32 %4, -1
   %7 = and i32 %6, -2
   %8 = getelementptr inbounds i16, ptr %0, i64 %1

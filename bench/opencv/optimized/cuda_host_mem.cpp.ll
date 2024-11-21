@@ -65,7 +65,7 @@ define void @_ZN2cv4cuda7HostMem6createEiii(ptr nocapture noundef nonnull readno
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv4cuda7HostMem7reshapeEii(ptr dead_on_unwind noalias nocapture writable sret(%"class.cv::cuda::HostMem") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv4cuda7HostMem7reshapeEii(ptr dead_on_unwind noalias nocapture writable sret(%"class.cv::cuda::HostMem") align 8 initializes((0, 12), (16, 60)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

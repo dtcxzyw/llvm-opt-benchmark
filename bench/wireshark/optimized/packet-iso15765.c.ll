@@ -436,7 +436,7 @@ declare void @prefs_register_range_preference(ptr noundef, ptr noundef, ptr noun
 declare zeroext i1 @uat_fld_chk_bool(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_can_addr_mappings_extended_address_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_can_addr_mappings_extended_address_set_cb(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.177) #9
@@ -448,7 +448,7 @@ define internal void @config_can_addr_mappings_extended_address_set_cb(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_can_addr_mappings_extended_address_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_can_addr_mappings_extended_address_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %6, 0
   %7 = select i1 %.not, ptr @.str.179, ptr @.str.177
@@ -473,7 +473,7 @@ define internal void @config_can_addr_mappings_can_id_set_cb(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_can_addr_mappings_can_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_can_addr_mappings_can_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.180, i32 noundef %7) #9
@@ -495,7 +495,7 @@ define internal void @config_can_addr_mappings_can_id_mask_set_cb(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_can_addr_mappings_can_id_mask_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_can_addr_mappings_can_id_mask_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.180, i32 noundef %7) #9
@@ -517,7 +517,7 @@ define internal void @config_can_addr_mappings_source_addr_mask_set_cb(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_can_addr_mappings_source_addr_mask_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_can_addr_mappings_source_addr_mask_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.180, i32 noundef %7) #9
@@ -539,7 +539,7 @@ define internal void @config_can_addr_mappings_target_addr_mask_set_cb(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_can_addr_mappings_target_addr_mask_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_can_addr_mappings_target_addr_mask_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.180, i32 noundef %7) #9
@@ -561,7 +561,7 @@ define internal void @config_can_addr_mappings_ecu_addr_mask_set_cb(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_can_addr_mappings_ecu_addr_mask_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_can_addr_mappings_ecu_addr_mask_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.180, i32 noundef %7) #9
@@ -575,7 +575,7 @@ define internal void @config_can_addr_mappings_ecu_addr_mask_tostr_cb(ptr nocapt
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @copy_config_can_addr_mapping_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
+define internal noundef ptr @copy_config_can_addr_mapping_cb(ptr noundef returned writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -713,7 +713,7 @@ define internal void @config_pdu_transport_config_items_pdu_id_set_cb(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_pdu_transport_config_items_pdu_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_pdu_transport_config_items_pdu_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 4
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.180, i32 noundef %6) #9
   store ptr %7, ptr %1, align 8
@@ -736,7 +736,7 @@ define internal void @config_pdu_transport_config_items_source_address_size_set_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_pdu_transport_config_items_source_address_size_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_pdu_transport_config_items_source_address_size_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.196, i32 noundef %7) #9
@@ -758,7 +758,7 @@ define internal void @config_pdu_transport_config_items_source_address_fixed_set
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_pdu_transport_config_items_source_address_fixed_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_pdu_transport_config_items_source_address_fixed_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.180, i32 noundef %7) #9
@@ -780,7 +780,7 @@ define internal void @config_pdu_transport_config_items_target_address_size_set_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_pdu_transport_config_items_target_address_size_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_pdu_transport_config_items_target_address_size_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.196, i32 noundef %7) #9
@@ -802,7 +802,7 @@ define internal void @config_pdu_transport_config_items_target_address_fixed_set
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_pdu_transport_config_items_target_address_fixed_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_pdu_transport_config_items_target_address_fixed_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.180, i32 noundef %7) #9
@@ -824,7 +824,7 @@ define internal void @config_pdu_transport_config_items_ecu_address_size_set_cb(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_pdu_transport_config_items_ecu_address_size_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_pdu_transport_config_items_ecu_address_size_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.196, i32 noundef %7) #9
@@ -846,7 +846,7 @@ define internal void @config_pdu_transport_config_items_ecu_address_fixed_set_cb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @config_pdu_transport_config_items_ecu_address_fixed_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @config_pdu_transport_config_items_ecu_address_fixed_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.180, i32 noundef %7) #9
@@ -858,7 +858,7 @@ define internal void @config_pdu_transport_config_items_ecu_address_fixed_tostr_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @copy_config_pdu_transport_config_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
+define internal noundef ptr @copy_config_pdu_transport_config_cb(ptr noundef returned writeonly initializes((0, 28)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4

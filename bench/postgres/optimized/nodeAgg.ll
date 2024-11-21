@@ -60,7 +60,7 @@ define dso_local i64 @hash_agg_entry_size(i32 noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hash_agg_set_limits(double noundef %0, double noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
+define dso_local void @hash_agg_set_limits(double noundef %0, double noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
   %7 = tail call i64 @get_hash_memory_limit() #12
   %8 = fmul double %0, %1
   %9 = uitofp i64 %7 to double
@@ -2818,7 +2818,7 @@ define internal fastcc void @build_hash_tables(ptr noundef %0) unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @initialize_phase(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @initialize_phase(ptr nocapture noundef initializes((248, 256), (260, 264)) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 392
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2933,7 +2933,7 @@ declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_pertrans_for_aggref(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i1 noundef zeroext %9, ptr noundef nonnull %10, i32 noundef %11) unnamed_addr #1 {
+define internal fastcc void @build_pertrans_for_aggref(ptr noundef initializes((0, 9), (12, 16), (20, 36), (184, 188), (288, 297)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i1 noundef zeroext %9, ptr noundef nonnull %10, i32 noundef %11) unnamed_addr #1 {
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
@@ -3559,7 +3559,7 @@ declare void @ReScanExprContext(ptr noundef) local_unnamed_addr #2
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanAgg(ptr noundef %0) local_unnamed_addr #1 {
+define dso_local void @ExecReScanAgg(ptr noundef initializes((329, 330)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -4163,7 +4163,7 @@ declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecAggInitializeWorker(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local void @ExecAggInitializeWorker(ptr nocapture noundef initializes((592, 600)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5590,7 +5590,7 @@ hash_agg_check_limits.exit:                       ; preds = %69, %3, %21, %hasha
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hashagg_spill_init(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3, double noundef %4) unnamed_addr #1 {
+define internal fastcc void @hashagg_spill_init(ptr nocapture noundef initializes((8, 24), (32, 40)) %0, ptr noundef %1, i32 noundef %2, double noundef %3, double noundef %4) unnamed_addr #1 {
   %6 = tail call i64 @get_hash_memory_limit() #12
   %7 = uitofp i64 %6 to double
   %8 = tail call double @llvm.fmuladd.f64(double %7, double 2.500000e-01, double -8.192000e+03)
@@ -5816,7 +5816,7 @@ declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @initialize_aggregate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc void @initialize_aggregate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 10)) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 9
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1

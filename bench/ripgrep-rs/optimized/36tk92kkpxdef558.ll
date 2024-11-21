@@ -1300,7 +1300,7 @@ define void @_ZN8grep_cli6escape11unescape_os17h58094757b499c25bE(ptr noalias no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8grep_cli3wtr6stdout17he40c5ee73ed3bfc0E(ptr noalias nocapture noundef writeonly sret({ { i64, [7 x i64] } }) align 8 dereferenceable(64) %0, i8 noundef %1) unnamed_addr #0 {
+define void @_ZN8grep_cli3wtr6stdout17he40c5ee73ed3bfc0E(ptr noalias nocapture noundef writeonly sret({ { i64, [7 x i64] } }) align 8 dereferenceable(64) initializes((0, 64)) %0, i8 noundef %1) unnamed_addr #0 {
   %.sroa.4.i1 = alloca [7 x i64], align 8
   %.sroa.4.i = alloca [7 x i64], align 8
   %3 = tail call noundef nonnull align 8 ptr @_ZN3std2io5stdio6stdout17hf192803bee57f870E()
@@ -1330,7 +1330,7 @@ define void @_ZN8grep_cli3wtr6stdout17he40c5ee73ed3bfc0E(ptr noalias nocapture n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8grep_cli3wtr20stdout_buffered_line17h35ec89fdc952fb0eE(ptr noalias nocapture noundef writeonly sret({ { i64, [7 x i64] } }) align 8 dereferenceable(64) %0, i8 noundef %1) unnamed_addr #0 {
+define void @_ZN8grep_cli3wtr20stdout_buffered_line17h35ec89fdc952fb0eE(ptr noalias nocapture noundef writeonly sret({ { i64, [7 x i64] } }) align 8 dereferenceable(64) initializes((0, 64)) %0, i8 noundef %1) unnamed_addr #0 {
   %.sroa.4 = alloca [7 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.4)
   call void @_ZN9termcolor14StandardStream6stdout17h75ffeed4877f409dE(ptr noalias nocapture noundef nonnull sret({ { { i64, [6 x i64] } } }) align 8 dereferenceable(56) %.sroa.4, i8 noundef %1)
@@ -1342,7 +1342,7 @@ define void @_ZN8grep_cli3wtr20stdout_buffered_line17h35ec89fdc952fb0eE(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8grep_cli3wtr21stdout_buffered_block17h570af931f4fe0106E(ptr noalias nocapture noundef writeonly sret({ { i64, [7 x i64] } }) align 8 dereferenceable(64) %0, i8 noundef %1) unnamed_addr #0 {
+define void @_ZN8grep_cli3wtr21stdout_buffered_block17h570af931f4fe0106E(ptr noalias nocapture noundef writeonly sret({ { i64, [7 x i64] } }) align 8 dereferenceable(64) initializes((0, 64)) %0, i8 noundef %1) unnamed_addr #0 {
   %.sroa.4 = alloca [7 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.4)
   call void @_ZN9termcolor22BufferedStandardStream6stdout17h582290a6d457dc19E(ptr noalias nocapture noundef nonnull sret({ { { i64, [6 x i64] } } }) align 8 dereferenceable(56) %.sroa.4, i8 noundef %1)

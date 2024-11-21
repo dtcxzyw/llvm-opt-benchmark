@@ -1081,7 +1081,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl14flags_internal20ParseCommandLineImplEiPPcNS0_16UsageFlagsActionENS0_15OnUndefinedFlagERSo(ptr noalias nocapture nonnull sret(%"class.std::vector.21") align 8 %agg.result, i32 noundef %argc, ptr noundef %argv, i32 noundef %usage_flag_action, i32 noundef %undef_flag_action, ptr noundef nonnull align 8 dereferenceable(8) %error_help_output) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl14flags_internal20ParseCommandLineImplEiPPcNS0_16UsageFlagsActionENS0_15OnUndefinedFlagERSo(ptr noalias nocapture nonnull sret(%"class.std::vector.21") align 8 initializes((0, 24)) %agg.result, i32 noundef %argc, ptr noundef %argv, i32 noundef %usage_flag_action, i32 noundef %undef_flag_action, ptr noundef nonnull align 8 dereferenceable(8) %error_help_output) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %unrecognized_flags = alloca %"class.std::vector.26", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -4471,7 +4471,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_110LocateFlagESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 %flag_name.coerce0, ptr %flag_name.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl14flags_internal12_GLOBAL__N_110LocateFlagESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 1), (8, 16)) %agg.result, i64 %flag_name.coerce0, ptr %flag_name.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN4absl19FindCommandLineFlagESt17basic_string_viewIcSt11char_traitsIcEE(i64 %flag_name.coerce0, ptr %flag_name.coerce1)
   %tobool.not = icmp eq ptr %call, null
@@ -4649,7 +4649,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl16ParseCommandLineEiPPc(ptr noalias nocapture sret(%"class.std::vector.21") align 8 %agg.result, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #3 {
+define dso_local void @_ZN4absl16ParseCommandLineEiPPc(ptr noalias nocapture sret(%"class.std::vector.21") align 8 initializes((0, 24)) %agg.result, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #3 {
 entry:
   tail call void @_ZN4absl14flags_internal20ParseCommandLineImplEiPPcNS0_16UsageFlagsActionENS0_15OnUndefinedFlagERSo(ptr sret(%"class.std::vector.21") align 8 %agg.result, i32 noundef %argc, ptr noundef %argv, i32 noundef 0, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout)
   ret void

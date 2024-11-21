@@ -1254,7 +1254,7 @@ define internal void @intel_disable_tv(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @intel_tv_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal zeroext i1 @intel_tv_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 7368
   %5 = getelementptr inbounds i8, ptr %3, i64 7512
@@ -1323,7 +1323,7 @@ declare dso_local void @intel_encoder_destroy(ptr noundef) #2
 declare dso_local i32 @intel_dpll_crtc_compute_clock(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc void @intel_tv_mode_to_mode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #5 align 16 {
+define internal fastcc void @intel_tv_mode_to_mode(ptr nocapture noundef writeonly initializes((0, 12), (14, 22), (24, 28)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 14
   %5 = load i8, ptr %4, align 2
   %6 = zext i8 %5 to i32

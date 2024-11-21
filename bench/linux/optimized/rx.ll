@@ -10066,7 +10066,7 @@ declare dso_local void @ieee80211_scan_rx(ptr noundef, ptr noundef) local_unname
 declare dso_local ptr @link_sta_info_get_bss(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr noundef initializes((8, 16)) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca i16, align 2
   %5 = alloca %struct.sk_buff_head, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -11631,7 +11631,7 @@ ieee80211_is_our_addr.exit:                       ; preds = %.thread3.i, %.threa
 declare dso_local ptr @sta_info_hash_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ieee80211_rx_for_interface(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ieee80211_rx_for_interface(ptr noundef initializes((32, 56), (76, 80)) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24

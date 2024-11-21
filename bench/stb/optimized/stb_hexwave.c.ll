@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hexblep = local_unnamed_addr global %struct.anon zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @hexwave_change(ptr nocapture noundef writeonly %hex, i32 noundef %reflect, float noundef %peak_time, float noundef %half_height, float noundef %zero_wait) local_unnamed_addr #0 {
+define void @hexwave_change(ptr nocapture noundef writeonly initializes((24, 44)) %hex, i32 noundef %reflect, float noundef %peak_time, float noundef %half_height, float noundef %zero_wait) local_unnamed_addr #0 {
 entry:
   %pending = getelementptr inbounds i8, ptr %hex, i64 24
   store i32 %reflect, ptr %pending, align 4
@@ -33,7 +33,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @hexwave_create(ptr nocapture noundef %hex, i32 noundef %reflect, float noundef %peak_time, float noundef %half_height, float noundef %zero_wait) local_unnamed_addr #1 {
+define void @hexwave_create(ptr nocapture noundef initializes((0, 300)) %hex, i32 noundef %reflect, float noundef %peak_time, float noundef %half_height, float noundef %zero_wait) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(300) %hex, i8 0, i64 300, i1 false)
   %pending.i = getelementptr inbounds i8, ptr %hex, i64 24
@@ -217,7 +217,7 @@ hex_add_oversampled_bleplike.exit:                ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @hexwave_generate_linesegs(ptr nocapture noundef %vert, ptr nocapture noundef readonly %hex, float noundef %dt) local_unnamed_addr #6 {
+define void @hexwave_generate_linesegs(ptr nocapture noundef initializes((0, 8), (12, 20), (24, 32), (36, 44)) %vert, ptr nocapture noundef readonly %hex, float noundef %dt) local_unnamed_addr #6 {
 entry:
   %div = fmul float %dt, 3.906250e-03
   store float 0.000000e+00, ptr %vert, align 4

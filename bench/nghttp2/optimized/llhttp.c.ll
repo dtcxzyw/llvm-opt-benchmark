@@ -156,7 +156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_finish(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_finish(ptr nocapture noundef writeonly initializes((79, 80)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %finish = getelementptr inbounds i8, ptr %state, i64 79
   store i8 2, ptr %finish, align 1
@@ -173,7 +173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_store_method(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_store_method(ptr nocapture noundef writeonly initializes((73, 74)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #1 {
 entry:
   %conv = trunc i32 %match to i8
   %method = getelementptr inbounds i8, ptr %state, i64 73
@@ -192,7 +192,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_http_major(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_http_major(ptr nocapture noundef writeonly initializes((74, 75)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %http_major = getelementptr inbounds i8, ptr %state, i64 74
   store i8 0, ptr %http_major, align 2
@@ -200,7 +200,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_http_minor(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_http_minor(ptr nocapture noundef writeonly initializes((75, 76)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %http_minor = getelementptr inbounds i8, ptr %state, i64 75
   store i8 9, ptr %http_minor, align 1
@@ -218,7 +218,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_content_length(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_content_length(ptr nocapture noundef writeonly initializes((64, 72)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %content_length = getelementptr inbounds i8, ptr %state, i64 64
   store i64 0, ptr %content_length, align 8
@@ -226,7 +226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_initial_message_completed(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_initial_message_completed(ptr nocapture noundef writeonly initializes((84, 85)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %initial_message_completed = getelementptr inbounds i8, ptr %state, i64 84
   store i8 1, ptr %initial_message_completed, align 4
@@ -234,7 +234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_finish_1(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_finish_1(ptr nocapture noundef writeonly initializes((79, 80)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %finish = getelementptr inbounds i8, ptr %state, i64 79
   store i8 0, ptr %finish, align 1
@@ -356,7 +356,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_finish_3(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_finish_3(ptr nocapture noundef writeonly initializes((79, 80)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %finish = getelementptr inbounds i8, ptr %state, i64 79
   store i8 1, ptr %finish, align 1
@@ -407,7 +407,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_upgrade(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_upgrade(ptr nocapture noundef writeonly initializes((78, 79)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %upgrade = getelementptr inbounds i8, ptr %state, i64 78
   store i8 1, ptr %upgrade, align 2
@@ -415,7 +415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_store_header_state(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_store_header_state(ptr nocapture noundef writeonly initializes((76, 77)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #1 {
 entry:
   %conv = trunc i32 %match to i8
   %header_state = getelementptr inbounds i8, ptr %state, i64 76
@@ -443,7 +443,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_header_state(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_header_state(ptr nocapture noundef writeonly initializes((76, 77)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 1, ptr %header_state, align 4
@@ -481,7 +481,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_header_state_3(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_header_state_3(ptr nocapture noundef writeonly initializes((76, 77)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 6, ptr %header_state, align 4
@@ -489,7 +489,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_header_state_1(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_header_state_1(ptr nocapture noundef writeonly initializes((76, 77)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 0, ptr %header_state, align 4
@@ -497,7 +497,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_header_state_6(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_header_state_6(ptr nocapture noundef writeonly initializes((76, 77)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 5, ptr %header_state, align 4
@@ -505,7 +505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_header_state_7(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_header_state_7(ptr nocapture noundef writeonly initializes((76, 77)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 7, ptr %header_state, align 4
@@ -617,7 +617,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_header_state_8(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_header_state_8(ptr nocapture noundef writeonly initializes((76, 77)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %header_state = getelementptr inbounds i8, ptr %state, i64 76
   store i8 8, ptr %header_state, align 4
@@ -644,7 +644,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_store_http_major(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_store_http_major(ptr nocapture noundef writeonly initializes((74, 75)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #1 {
 entry:
   %conv = trunc i32 %match to i8
   %http_major = getelementptr inbounds i8, ptr %state, i64 74
@@ -653,7 +653,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_store_http_minor(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_store_http_minor(ptr nocapture noundef writeonly initializes((75, 76)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp, i32 noundef %match) local_unnamed_addr #1 {
 entry:
   %conv = trunc i32 %match to i8
   %http_minor = getelementptr inbounds i8, ptr %state, i64 75
@@ -691,7 +691,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_status_code(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_status_code(ptr nocapture noundef writeonly initializes((82, 84)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %status_code = getelementptr inbounds i8, ptr %state, i64 82
   store i16 0, ptr %status_code, align 2
@@ -735,7 +735,7 @@ return:                                           ; preds = %if.else, %if.then7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_type(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_type(ptr nocapture noundef writeonly initializes((72, 73)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %type = getelementptr inbounds i8, ptr %state, i64 72
   store i8 1, ptr %type, align 8
@@ -743,7 +743,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal__c_update_type_1(ptr nocapture noundef writeonly %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal__c_update_type_1(ptr nocapture noundef writeonly initializes((72, 73)) %state, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %type = getelementptr inbounds i8, ptr %state, i64 72
   store i8 2, ptr %type, align 8
@@ -751,7 +751,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @llhttp__internal_init(ptr nocapture noundef writeonly %state) local_unnamed_addr #1 {
+define noundef i32 @llhttp__internal_init(ptr nocapture noundef writeonly initializes((0, 96)) %state) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %state, i8 0, i64 96, i1 false)
   %_current = getelementptr inbounds i8, ptr %state, i64 56

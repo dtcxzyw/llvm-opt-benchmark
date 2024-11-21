@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef ptr @FLAC__memory_alloc_aligned(i64 noundef %bytes, ptr nocapture noundef writeonly %aligned_address) local_unnamed_addr #0 {
+define hidden noundef ptr @FLAC__memory_alloc_aligned(i64 noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %aligned_address) local_unnamed_addr #0 {
 entry:
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %bytes, i64 1)
   %call.i = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #6

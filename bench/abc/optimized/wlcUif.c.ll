@@ -147,7 +147,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %55
 declare void @Abc_FrameSetBoxes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Wlc_NtkCollectAddMult(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define noalias noundef ptr @Wlc_NtkCollectAddMult(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 8

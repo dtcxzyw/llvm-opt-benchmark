@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @rioFdIO = internal unnamed_addr constant { ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, { %struct.anon, [24 x i8] } } { ptr @rioFdRead, ptr @rioFdWrite, ptr @rioFdTell, ptr @rioFdFlush, ptr null, i64 0, i64 0, i64 0, i64 0, { %struct.anon, [24 x i8] } { %struct.anon zeroinitializer, [24 x i8] undef } }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @rioInitWithBuffer(ptr nocapture noundef writeonly %r, ptr noundef %s) local_unnamed_addr #0 {
+define dso_local void @rioInitWithBuffer(ptr nocapture noundef writeonly initializes((0, 112)) %r, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) @rioBufferIO, i64 112, i1 false)
   %io = getelementptr inbounds i8, ptr %r, i64 72
@@ -30,7 +30,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @rioInitWithFile(ptr nocapture noundef writeonly %r, ptr noundef %fp) local_unnamed_addr #0 {
+define dso_local void @rioInitWithFile(ptr nocapture noundef writeonly initializes((0, 112)) %r, ptr noundef %fp) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) @rioFileIO, i64 112, i1 false)
   %io = getelementptr inbounds i8, ptr %r, i64 72
@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rioInitWithConn(ptr nocapture noundef writeonly %r, ptr noundef %conn, i64 noundef %read_limit) local_unnamed_addr #2 {
+define dso_local void @rioInitWithConn(ptr nocapture noundef writeonly initializes((0, 112)) %r, ptr noundef %conn, i64 noundef %read_limit) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) @rioConnIO, i64 96, i1 false)
   %io = getelementptr inbounds i8, ptr %r, i64 72
@@ -155,7 +155,7 @@ declare void @sdsrange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr
 declare void @sdsfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rioInitWithFd(ptr nocapture noundef writeonly %r, i32 noundef %fd) local_unnamed_addr #2 {
+define dso_local void @rioInitWithFd(ptr nocapture noundef writeonly initializes((0, 112)) %r, i32 noundef %fd) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %r, ptr noundef nonnull align 8 dereferenceable(112) @rioFdIO, i64 112, i1 false)
   %io = getelementptr inbounds i8, ptr %r, i64 72

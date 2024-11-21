@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @e1000_gg82563_cable_length_table = internal unnamed_addr constant [11 x i16] [i16 0, i16 60, i16 115, i16 150, i16 150, i16 60, i16 115, i16 150, i16 180, i16 180, i16 255], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @e1000_get_variants_80003es2lan(ptr noundef %0) #0 align 16 {
+define internal i32 @e1000_get_variants_80003es2lan(ptr noundef initializes((1512, 1520), (1616, 1624), (1726, 1728), (2240, 2242), (2243, 2246), (2500, 2504)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1464
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1456

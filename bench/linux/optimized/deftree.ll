@@ -1723,7 +1723,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @build_tree(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0, ptr nocapture noundef %1) unnamed_addr #4 align 16 {
   %3 = alloca [16 x i16], align 16
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16

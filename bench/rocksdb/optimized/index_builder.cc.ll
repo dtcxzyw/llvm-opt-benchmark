@@ -559,7 +559,7 @@ eh.resume:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23PartitionedIndexBuilderC2EPKNS_21InternalKeyComparatorERKNS_22BlockBasedTableOptionsEbmb(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef %comparator, ptr noundef nonnull align 8 dereferenceable(248) %table_opt, i1 noundef zeroext %use_value_delta_encoding, i64 noundef %ts_sz, i1 noundef zeroext %persist_user_defined_timestamps) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23PartitionedIndexBuilderC2EPKNS_21InternalKeyComparatorERKNS_22BlockBasedTableOptionsEbmb(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 25), (32, 56)) %this, ptr noundef %comparator, ptr noundef nonnull align 8 dereferenceable(248) %table_opt, i1 noundef zeroext %use_value_delta_encoding, i64 noundef %ts_sz, i1 noundef zeroext %persist_user_defined_timestamps) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool.i = zext i1 %persist_user_defined_timestamps to i8
   %comparator_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -702,7 +702,7 @@ _ZNSt7__cxx1110_List_baseIN7rocksdb23PartitionedIndexBuilder5EntryESaIS3_EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb23PartitionedIndexBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23PartitionedIndexBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23PartitionedIndexBuilderE, i64 16), ptr %this, align 8
   %sub_index_builder_ = getelementptr inbounds i8, ptr %this, i64 432
@@ -941,7 +941,7 @@ _ZNSt10unique_ptrIN7rocksdb16FlushBlockPolicyESt14default_deleteIS1_EE5resetEPS1
 declare noundef ptr @_ZN7rocksdb29FlushBlockBySizePolicyFactory19NewFlushBlockPolicyEmiRKNS_12BlockBuilderE(i64 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb23PartitionedIndexBuilder19RequestPartitionCutEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN7rocksdb23PartitionedIndexBuilder19RequestPartitionCutEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((498, 499)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %partition_cut_requested_ = getelementptr inbounds i8, ptr %this, i64 498
   store i8 1, ptr %partition_cut_requested_, align 2

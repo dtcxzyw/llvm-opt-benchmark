@@ -757,7 +757,7 @@ define ptr @try_val_to_str_ext(i32 noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @try_val_to_str_idx_ext(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define ptr @try_val_to_str_idx_ext(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %4
 
@@ -1154,7 +1154,7 @@ define ptr @try_val64_to_str_ext(i64 noundef %0, ptr noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @try_val64_to_str_idx_ext(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define ptr @try_val64_to_str_idx_ext(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %4
 

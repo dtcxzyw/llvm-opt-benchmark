@@ -7679,7 +7679,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIdP7segmentSt
 declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15TCPStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15TCPStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15TCPStreamDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV15TCPStreamDialog, i64 488), ptr %2, align 8
@@ -8695,7 +8695,7 @@ define void @_ZN15TCPStreamDialog32on_actionWindowScaling_triggeredEv(ptr nocapt
 declare void @_ZN7QDialog13keyPressEventEP9QKeyEvent(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15TCPStreamDialog15mousePressEventEP11QMouseEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(584) %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 2 {
+define void @_ZN15TCPStreamDialog15mousePressEventEP11QMouseEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(584) %0, ptr nocapture noundef writeonly initializes((12, 13)) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 232
@@ -19555,7 +19555,7 @@ declare void @_ZN13QCPItemTracer8setStyleENS_11TracerStyleE(ptr noundef nonnull 
 declare void @_ZN13QCPItemTracer6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(209), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15TCPStreamDialog13getZoomRangesE5QRect(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(584) %1, i64 %2, i64 %3) local_unnamed_addr #2 align 2 {
+define void @_ZN15TCPStreamDialog13getZoomRangesE5QRect(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(584) %1, i64 %2, i64 %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %class.QRect, align 8
   %6 = alloca %class.QRect, align 8
   %7 = alloca %class.QRect, align 8

@@ -349,7 +349,7 @@ _ZN20CompressedReadStream15read_signed_intEv.exit12: ; preds = %_ZN20CompressedR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21CompressedWriteStreamC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN21CompressedWriteStreamC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8

@@ -36,7 +36,7 @@ $_ZN5folly6crypto8Blake2xb20kUnknownOutputLengthE = comdat any
 @_ZN5folly6crypto8Blake2xbD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly6crypto8Blake2xbD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6crypto8Blake2xbC2Ev(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(451) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6crypto8Blake2xbC2Ev(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(451) initializes((0, 451)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(451) %this, i8 0, i64 451, i1 false)
   %0 = load atomic i8, ptr @_ZGVZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult acquire, align 8
@@ -262,7 +262,7 @@ eh.resume:                                        ; preds = %lpad33, %lpad20, %l
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParamsEP32crypto_generichash_blake2b_stateRKNS0_6detail13Blake2xbParamENS_5RangeIPKhEE(ptr noundef nonnull %_state, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %param, ptr %key.coerce0, ptr %key.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParamsEP32crypto_generichash_blake2b_stateRKNS0_6detail13Blake2xbParamENS_5RangeIPKhEE(ptr noundef nonnull initializes((0, 368)) %_state, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %param, ptr %key.coerce0, ptr %key.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %block = alloca %"struct.std::array.0", align 1
   %0 = load i64, ptr %param, align 8, !tbaa !28

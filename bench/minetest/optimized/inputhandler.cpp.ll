@@ -254,7 +254,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8KeyCache20populate_nonchangingEv(ptr noundef nonnull align 8 dereferenceable(3088) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN8KeyCache20populate_nonchangingEv(ptr noundef nonnull align 8 dereferenceable(3088) initializes((400, 408)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 400
   %0 = load i64, ptr @EscapeKey, align 8
@@ -265,7 +265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8KeyCache8populateEv(ptr noundef nonnull align 8 dereferenceable(3088) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8KeyCache8populateEv(ptr noundef nonnull align 8 dereferenceable(3088) initializes((0, 8)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.KeyPress, align 8
   %ref.tmp2 = alloca %class.KeyPress, align 8

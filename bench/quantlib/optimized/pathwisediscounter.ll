@@ -10,7 +10,7 @@ $_ZNSt6vectorIdSaIdEE17_M_default_appendEm = comdat any
 @_ZN8QuantLib29MarketModelPathwiseDiscounterC1EdRKSt6vectorIdSaIdEE = unnamed_addr alias void (ptr, double, ptr), ptr @_ZN8QuantLib29MarketModelPathwiseDiscounterC2EdRKSt6vectorIdSaIdEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29MarketModelPathwiseDiscounterC2EdRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(56) %this, double noundef %paymentTime, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib29MarketModelPathwiseDiscounterC2EdRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((32, 56)) %this, double noundef %paymentTime, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %taus_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %taus_, i8 0, i64 24, i1 false)

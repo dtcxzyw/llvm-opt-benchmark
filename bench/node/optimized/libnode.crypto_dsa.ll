@@ -505,7 +505,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto15DsaKeyGenTraits5SetupEPNS0_16KeyPairGenConfigINS0_16DsaKeyPairParamsEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef readonly %params) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto15DsaKeyGenTraits5SetupEPNS0_16KeyPairGenConfigINS0_16DsaKeyPairParamsEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %params) local_unnamed_addr #3 align 2 {
 entry:
   %raw_params = alloca ptr, align 8
   %call = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef 116, ptr noundef null) #17

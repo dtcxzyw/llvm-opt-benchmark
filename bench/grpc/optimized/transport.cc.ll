@@ -438,7 +438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z20grpc_stream_ref_initP20grpc_stream_refcountiPFvPvN4absl12lts_202308026StatusEES1_(ptr nocapture noundef writeonly %refcount, i32 noundef %0, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #6 {
+define void @_Z20grpc_stream_ref_initP20grpc_stream_refcountiPFvPvN4absl12lts_202308026StatusEES1_(ptr nocapture noundef writeonly initializes((0, 8), (16, 40)) %refcount, i32 noundef %0, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #6 {
 entry:
   %cb1.i = getelementptr inbounds i8, ptr %refcount, i64 16
   store ptr %cb, ptr %cb1.i, align 8
@@ -476,7 +476,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z25grpc_transport_move_statsP27grpc_transport_stream_statsS0_(ptr nocapture noundef %from, ptr nocapture noundef %to) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_Z25grpc_transport_move_statsP27grpc_transport_stream_statsS0_(ptr nocapture noundef %from, ptr nocapture noundef initializes((48, 64)) %to) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %from, align 8
   %1 = load i64, ptr %to, align 8
@@ -1878,7 +1878,7 @@ if.end:                                           ; preds = %if.then.i.i5, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core24ServerMetadataFromStatusERKN4absl12lts_202308026StatusEPNS_5ArenaE(ptr noalias sret(%"class.std::unique_ptr.13") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status, ptr noundef %arena) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core24ServerMetadataFromStatusERKN4absl12lts_202308026StatusEPNS_5ArenaE(ptr noalias sret(%"class.std::unique_ptr.13") align 8 initializes((0, 1), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %status, ptr noundef %arena) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i.i.sroa.4.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %replacement.sroa.4.i.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8

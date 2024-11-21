@@ -6701,7 +6701,7 @@ define dso_local noundef zeroext i1 @limit_needed(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @mark_partial_aggref(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define dso_local void @mark_partial_aggref(ptr nocapture noundef initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   %4 = and i32 %1, 2
@@ -6738,7 +6738,7 @@ declare ptr @eval_const_expressions(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @fix_opfuncids(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @expression_planner_with_deps(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @expression_planner_with_deps(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PlannerGlobal, align 8
   %5 = alloca %struct.PlannerInfo, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, i8 0, i64 136, i1 false)

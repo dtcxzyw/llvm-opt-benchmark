@@ -6529,7 +6529,7 @@ return:                                           ; preds = %if.then1.i.i19, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_PyUnicodeWriter_Init(ptr nocapture noundef writeonly %writer) local_unnamed_addr #10 {
+define dso_local void @_PyUnicodeWriter_Init(ptr nocapture noundef writeonly initializes((0, 56)) %writer) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %writer, i8 0, i64 56, i1 false)
   %min_char = getelementptr inbounds i8, ptr %writer, i64 48
@@ -19805,7 +19805,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @PyCapsule_Import(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyUnicode_DecodeUnicodeEscapeInternal(ptr noundef %s, i64 noundef %size, ptr noundef %errors, ptr noundef writeonly %consumed, ptr nocapture noundef %first_invalid_escape) local_unnamed_addr #0 {
+define dso_local ptr @_PyUnicode_DecodeUnicodeEscapeInternal(ptr noundef %s, i64 noundef %size, ptr noundef %errors, ptr noundef writeonly %consumed, ptr nocapture noundef initializes((0, 8)) %first_invalid_escape) local_unnamed_addr #0 {
 entry:
   %s.addr = alloca ptr, align 8
   %starts = alloca ptr, align 8
@@ -46766,7 +46766,7 @@ return:                                           ; preds = %entry, %_init_globa
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyUnicode_InitGlobalObjects(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyUnicode_InitGlobalObjects(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
   %hashtable_alloc.i = alloca %struct._Py_hashtable_allocator_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashtable_alloc.i)
@@ -48210,7 +48210,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyUnicode_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyUnicode_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @_PyStaticType_InitBuiltin(ptr noundef %interp, ptr noundef nonnull @EncodingMapType) #35
   %cmp = icmp slt i32 %call, 0
@@ -48788,7 +48788,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyUnicode_InitEncodings(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %tstate) local_unnamed_addr #0 {
+define hidden void @_PyUnicode_InitEncodings(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %tstate) local_unnamed_addr #0 {
 entry:
   %encoding.i.i = alloca ptr, align 8
   %errors.i.i = alloca ptr, align 8
@@ -48951,7 +48951,7 @@ entry:
 declare void @_PyStaticType_Dealloc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyUnicode_Fini(ptr nocapture noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyUnicode_Fini(ptr nocapture noundef initializes((267720, 267724), (267736, 267740), (267744, 267752)) %interp) local_unnamed_addr #0 {
 entry:
   %unicode = getelementptr inbounds i8, ptr %interp, i64 267712
   %0 = load ptr, ptr %unicode, align 8
@@ -51520,7 +51520,7 @@ return:                                           ; preds = %if.end48.us, %if.th
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ucs1lib__preprocess(ptr noundef %needle, i64 noundef range(i64 6, -9223372036854775808) %len_needle, ptr nocapture noundef nonnull writeonly %p) unnamed_addr #23 {
+define internal fastcc void @ucs1lib__preprocess(ptr noundef %needle, i64 noundef range(i64 6, -9223372036854775808) %len_needle, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %p) unnamed_addr #23 {
 entry:
   store ptr %needle, ptr %p, align 8
   %len_needle2 = getelementptr inbounds i8, ptr %p, i64 8
@@ -52817,7 +52817,7 @@ return:                                           ; preds = %if.end48.us, %if.th
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ucs2lib__preprocess(ptr noundef %needle, i64 noundef range(i64 6, -9223372036854775808) %len_needle, ptr nocapture noundef nonnull writeonly %p) unnamed_addr #23 {
+define internal fastcc void @ucs2lib__preprocess(ptr noundef %needle, i64 noundef range(i64 6, -9223372036854775808) %len_needle, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %p) unnamed_addr #23 {
 entry:
   store ptr %needle, ptr %p, align 8
   %len_needle2 = getelementptr inbounds i8, ptr %p, i64 8
@@ -54049,7 +54049,7 @@ return:                                           ; preds = %if.end34.us, %if.th
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ucs4lib__preprocess(ptr noundef %needle, i64 noundef range(i64 6, -9223372036854775808) %len_needle, ptr nocapture noundef nonnull writeonly %p) unnamed_addr #23 {
+define internal fastcc void @ucs4lib__preprocess(ptr noundef %needle, i64 noundef range(i64 6, -9223372036854775808) %len_needle, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %p) unnamed_addr #23 {
 entry:
   store ptr %needle, ptr %p, align 8
   %len_needle2 = getelementptr inbounds i8, ptr %p, i64 8
@@ -64332,7 +64332,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @MarkupIterator_next(ptr nocapture noundef %self, ptr nocapture noundef nonnull writeonly %literal, ptr nocapture noundef nonnull writeonly %field_present, ptr nocapture noundef nonnull writeonly %field_name, ptr nocapture noundef nonnull writeonly %format_spec, ptr nocapture noundef nonnull writeonly %conversion, ptr nocapture noundef nonnull writeonly %format_spec_needs_expanding) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @MarkupIterator_next(ptr nocapture noundef %self, ptr nocapture noundef nonnull writeonly initializes((0, 24)) %literal, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %field_present, ptr nocapture noundef nonnull writeonly initializes((0, 24)) %field_name, ptr nocapture noundef nonnull writeonly initializes((0, 24)) %format_spec, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %conversion, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %format_spec_needs_expanding) unnamed_addr #0 {
 entry:
   %start2.i = getelementptr inbounds i8, ptr %literal, i64 8
   %end3.i = getelementptr inbounds i8, ptr %literal, i64 16

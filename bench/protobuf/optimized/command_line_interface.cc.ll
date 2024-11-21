@@ -1143,7 +1143,7 @@ declare void @_ZN6google8protobuf8compiler27StripSourceRetentionOptionsERKNS0_14
 declare void @_ZNK6google8protobuf14FileDescriptor14CopyJsonNameToEPNS0_19FileDescriptorProtoE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplC2ERKSt6vectorIPKNS0_14FileDescriptorESaIS7_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(24) %parsed_files) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplC2ERKSt6vectorIPKNS0_14FileDescriptorESaIS7_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %this, ptr noundef nonnull align 8 dereferenceable(24) %parsed_files) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 16), ptr %this, align 8
   %files_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2190,7 +2190,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %append_mode) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 16)) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %append_mode) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 16), ptr %this, align 8
   %directory_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2263,7 +2263,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %insertion_point) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 16)) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %insertion_point) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 16), ptr %this, align 8
   %directory_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2338,7 +2338,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKNS0_17GeneratedCodeInfoE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %insertion_point, ptr noundef nonnull align 8 dereferenceable(48) %info) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKNS0_17GeneratedCodeInfoE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 16)) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %insertion_point, ptr noundef nonnull align 8 dereferenceable(48) %info) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 16), ptr %this, align 8
   %directory_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2912,7 +2912,7 @@ declare noundef zeroext i1 @_ZNK6google8protobuf11MessageLite17SerializeToString
 declare void @_ZN6google8protobuf17GeneratedCodeInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args.i.i = alloca [1 x %"class.std::basic_string_view"], align 16
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8

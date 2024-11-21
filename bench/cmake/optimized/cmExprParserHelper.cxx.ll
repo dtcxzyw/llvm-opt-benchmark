@@ -642,7 +642,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18cmExprParserHelper9SetResultEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN18cmExprParserHelper9SetResultEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((72, 80)) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 %1, ptr %3, align 8
   ret void

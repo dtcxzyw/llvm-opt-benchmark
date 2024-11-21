@@ -259,7 +259,7 @@ define dso_local zeroext i1 @asymmetric_key_id_partial(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define dso_local i32 @__asymmetric_key_hex_to_key_id(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 align 16 {
+define dso_local i32 @__asymmetric_key_hex_to_key_id(ptr noundef %0, ptr noundef initializes((0, 2)) %1, i64 noundef %2) local_unnamed_addr #5 align 16 {
   %4 = trunc i64 %2 to i16
   store i16 %4, ptr %1, align 2
   %5 = getelementptr inbounds i8, ptr %1, i64 2

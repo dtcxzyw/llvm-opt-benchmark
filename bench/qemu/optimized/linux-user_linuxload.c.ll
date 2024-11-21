@@ -190,7 +190,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 declare i64 @target_strlen(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @loader_exec(i32 noundef %fdexec, ptr noundef %filename, ptr noundef %argv, ptr noundef %envp, ptr noundef %regs, ptr noundef %infop, ptr noundef %bprm) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @loader_exec(i32 noundef %fdexec, ptr noundef %filename, ptr noundef %argv, ptr noundef %envp, ptr noundef %regs, ptr noundef %infop, ptr noundef initializes((1036, 1040), (1080, 1088)) %bprm) local_unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
   %fd = getelementptr inbounds i8, ptr %bprm, i64 1036

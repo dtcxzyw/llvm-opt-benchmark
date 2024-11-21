@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @func_interface = internal constant %struct.FT_Outline_Funcs_ { ptr @gray_move_to, ptr @gray_line_to, ptr @gray_conic_to, ptr @gray_cubic_to, i32 0, i64 0 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gray_raster_new(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal i32 @gray_raster_new(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
   %3 = alloca i32, align 4
   %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #11
   %5 = load i32, ptr %3, align 4
@@ -493,7 +493,7 @@ define internal range(i32 0, 7) i32 @ft_smooth_transform(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ft_smooth_get_cbox(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @ft_smooth_get_cbox(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 32)) %2) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 144
   %5 = load i32, ptr %4, align 8
@@ -531,7 +531,7 @@ declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_un
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initializes((72, 88)) %0) unnamed_addr #0 {
   %2 = alloca [16 x %struct.FT_Span_], align 16
   %3 = alloca [682 x %struct.TCell_], align 16
   %4 = alloca [32 x i32], align 16

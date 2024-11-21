@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.Hacl_Hash_MD5_legacy_hash.s = private unnamed_addr constant [4 x i32] [i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Hacl_Hash_Core_MD5_legacy_init(ptr nocapture noundef writeonly %s) local_unnamed_addr #0 {
+define hidden void @Hacl_Hash_Core_MD5_legacy_init(ptr nocapture noundef writeonly initializes((0, 16)) %s) local_unnamed_addr #0 {
 entry:
   store i32 1732584193, ptr %s, align 4
   %arrayidx6 = getelementptr i8, ptr %s, i64 4
@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Hash_Core_MD5_legacy_finish(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %dst) local_unnamed_addr #1 {
+define hidden void @Hacl_Hash_Core_MD5_legacy_finish(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly initializes((0, 16)) %dst) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %s, align 4
   store i32 %0, ptr %dst, align 1
@@ -795,7 +795,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Hash_MD5_legacy_hash(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #2 {
+define hidden void @Hacl_Hash_MD5_legacy_hash(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly initializes((0, 16)) %dst) local_unnamed_addr #2 {
 entry:
   %tmp_twoblocks.i = alloca [128 x i8], align 16
   %s = alloca [4 x i32], align 16
@@ -892,7 +892,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @Hacl_Streaming_MD5_legacy_init(ptr nocapture noundef %s) local_unnamed_addr #8 {
+define hidden void @Hacl_Streaming_MD5_legacy_init(ptr nocapture noundef initializes((16, 24)) %s) local_unnamed_addr #8 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
@@ -1030,7 +1030,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @Hacl_Streaming_MD5_legacy_finish(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %dst) local_unnamed_addr #9 {
+define hidden void @Hacl_Streaming_MD5_legacy_finish(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly initializes((0, 16)) %dst) local_unnamed_addr #9 {
 entry:
   %tmp_twoblocks.i = alloca [128 x i8], align 16
   %tmp_block_state = alloca [4 x i32], align 16
@@ -1143,7 +1143,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Hacl_Streaming_MD5_legacy_hash(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #2 {
+define hidden void @Hacl_Streaming_MD5_legacy_hash(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly initializes((0, 16)) %dst) local_unnamed_addr #2 {
 entry:
   tail call void @Hacl_Hash_MD5_legacy_hash(ptr noundef %input, i32 noundef %input_len, ptr noundef %dst)
   ret void

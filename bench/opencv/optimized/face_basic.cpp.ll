@@ -93,7 +93,7 @@ define noundef i32 @_ZNK2cv4face19BasicFaceRecognizer16getNumComponentsEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv4face19BasicFaceRecognizer16setNumComponentsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN2cv4face19BasicFaceRecognizer16setNumComponentsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   ret void
@@ -107,7 +107,7 @@ define noundef double @_ZNK2cv4face19BasicFaceRecognizer12getThresholdEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv4face19BasicFaceRecognizer12setThresholdEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) %0, double noundef %1) unnamed_addr #4 align 2 {
+define void @_ZN2cv4face19BasicFaceRecognizer12setThresholdEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) initializes((64, 72)) %0, double noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store double %1, ptr %3, align 8
   ret void

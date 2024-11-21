@@ -212,7 +212,7 @@ _ZN26GrowableArrayWithAllocatorI15NativeCallStack18GrowableArrayCHeapIS0_L8MEMFL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22NativeCallStackStorageC2Ebi(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN22NativeCallStackStorageC2Ebi(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 20), (24, 28), (32, 57), (64, 96)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %1 to i8
   %5 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 8, i32 noundef 8, i8 noundef zeroext 12) #8
   store i32 0, ptr %0, align 8
@@ -260,7 +260,7 @@ define hidden void @_ZN22NativeCallStackStorageC2Ebi(ptr nocapture noundef nonnu
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22NativeCallStackStorageD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22NativeCallStackStorageD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 4), (40, 44)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #8

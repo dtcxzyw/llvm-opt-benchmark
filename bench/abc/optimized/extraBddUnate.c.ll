@@ -32,7 +32,7 @@ declare ptr @Cudd_Support(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_zddUnateInfoCompute(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -470,7 +470,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddGetSingletonsBoth(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Extra_zddGetSingletonsBoth(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 

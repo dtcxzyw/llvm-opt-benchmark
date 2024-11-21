@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.pg_lsn_mii = private unnamed_addr constant [11 x i8] c"pg_lsn_mii\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local i64 @pg_lsn_in_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i64 @pg_lsn_in_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   %3 = tail call i64 @strspn(ptr noundef %0, ptr noundef nonnull @.str) #11
   %4 = trunc i64 %3 to i32

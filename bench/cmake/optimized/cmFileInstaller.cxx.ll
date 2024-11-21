@@ -266,7 +266,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN12cmFileCopierD2Ev(ptr noundef nonnull align 8 dereferenceable(244)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15cmFileInstallerD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15cmFileInstallerD2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.5", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTV15cmFileInstaller, i64 16), ptr %0, align 8
@@ -334,7 +334,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15cmFileInstallerD0Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN15cmFileInstallerD0Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN15cmFileInstallerD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void

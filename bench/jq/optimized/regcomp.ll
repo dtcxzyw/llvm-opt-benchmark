@@ -5214,7 +5214,7 @@ declare void @onig_node_free(ptr noundef) local_unnamed_addr #6
 declare i32 @onig_init_for_match_at(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -403, 1) i32 @onig_reg_init(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
+define dso_local range(i32 -403, 1) i32 @onig_reg_init(ptr nocapture noundef writeonly initializes((0, 456)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456) %0, i8 0, i64 456, i1 false)
   %.b = load i1, ptr @onig_inited, align 4
   br i1 %.b, label %.thread, label %.lr.ph.i
@@ -5314,7 +5314,7 @@ define dso_local i32 @onig_initialize(ptr nocapture noundef readonly %0, i32 nou
 declare void @onig_warning(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onig_new_without_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #5 {
+define dso_local i32 @onig_new_without_alloc(ptr noundef initializes((0, 456)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #5 {
   %8 = load i32, ptr @OnigDefaultCaseFoldFlag, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456) %0, i8 0, i64 456, i1 false)
   %.b.i = load i1, ptr @onig_inited, align 4
@@ -5381,7 +5381,7 @@ onig_reg_init.exit.thread:                        ; preds = %.lr.ph.i.i, %13, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onig_new(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #5 {
+define dso_local i32 @onig_new(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #5 {
   %calloc = tail call dereferenceable_or_null(456) ptr @calloc(i64 1, i64 456)
   store ptr %calloc, ptr %0, align 8
   %8 = icmp eq ptr %calloc, null
@@ -9253,7 +9253,7 @@ tune_look_behind.exit:                            ; preds = %node_reduce_in_look
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @set_parent_node_trav(ptr noundef %0, ptr noundef %1) unnamed_addr #14 {
+define internal fastcc void @set_parent_node_trav(ptr noundef initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #14 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
@@ -12849,7 +12849,7 @@ define internal fastcc void @mmcl_add(ptr nocapture noundef nonnull %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -6, 1) i32 @optimize_nodes(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #5 {
+define internal fastcc range(i32 -6, 1) i32 @optimize_nodes(ptr noundef %0, ptr noundef nonnull initializes((0, 41), (64, 89), (112, 137), (160, 436)) %1, ptr noundef nonnull %2) unnamed_addr #5 {
   %4 = alloca %struct.OptNode, align 4
   %5 = alloca %struct.OptEnv, align 8
   %6 = alloca %struct.OptEnv, align 8

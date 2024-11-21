@@ -374,7 +374,7 @@ return:                                           ; preds = %land.rhs.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_stream_detach_item(ptr noundef %stream) local_unnamed_addr #0 {
+define hidden void @nghttp2_stream_detach_item(ptr noundef initializes((152, 160)) %stream) local_unnamed_addr #0 {
 entry:
   %item = getelementptr inbounds i8, ptr %stream, i64 152
   store ptr null, ptr %item, align 8
@@ -660,7 +660,7 @@ update_initial_window_size.exit:                  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nghttp2_stream_promise_fulfilled(ptr nocapture noundef %stream) local_unnamed_addr #3 {
+define hidden void @nghttp2_stream_promise_fulfilled(ptr nocapture noundef initializes((204, 208)) %stream) local_unnamed_addr #3 {
 entry:
   %state = getelementptr inbounds i8, ptr %stream, i64 204
   store i32 2, ptr %state, align 4
@@ -694,7 +694,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_stream_dep_insert(ptr noundef %dep_stream, ptr noundef %stream) local_unnamed_addr #0 {
+define hidden i32 @nghttp2_stream_dep_insert(ptr noundef %dep_stream, ptr noundef initializes((200, 204)) %stream) local_unnamed_addr #0 {
 entry:
   %sum_dep_weight = getelementptr inbounds i8, ptr %dep_stream, i64 200
   %0 = load i32, ptr %sum_dep_weight, align 8

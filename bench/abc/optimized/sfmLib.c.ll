@@ -148,7 +148,7 @@ declare i32 @Sfm_TruthToCnf(i64 noundef, ptr noundef, i32 noundef, ptr noundef, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define void @Sfm_LibPreprocess(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @Sfm_LibPreprocess(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((4, 8)) %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @Mio_LibraryReadGateNum(ptr noundef %0) #24
   %7 = load i32, ptr %1, align 8
   %.not.i = icmp slt i32 %7, %6
@@ -4812,7 +4812,7 @@ Vec_MemHashLookup.exit.thread:                    ; preds = %53, %Vec_MemHashKey
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1073741824, 1073741824) i32 @Sfm_LibFindDelayMatches(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 -1073741824, 1073741824) i32 @Sfm_LibFindDelayMatches(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3, ptr nocapture noundef initializes((4, 8)) %4, ptr nocapture noundef initializes((4, 8)) %5) local_unnamed_addr #0 {
   %7 = alloca [4 x i64], align 16
   %8 = icmp sgt i32 %3, 6
   br i1 %8, label %.lr.ph.i.preheader, label %10

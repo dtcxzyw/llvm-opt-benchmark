@@ -8173,7 +8173,7 @@ if.end13:                                         ; preds = %if.end13.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @EmitUncompressedMetaBlock(ptr noundef %begin, ptr noundef %end, i64 noundef %storage_ix_start, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) unnamed_addr #1 {
+define internal fastcc void @EmitUncompressedMetaBlock(ptr noundef %begin, ptr noundef %end, i64 noundef %storage_ix_start, ptr nocapture noundef initializes((0, 8)) %storage_ix, ptr nocapture noundef %storage) unnamed_addr #1 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %begin to i64
@@ -8255,7 +8255,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @BuildAndStoreLiteralPrefixCode(ptr noundef %s, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %input_size, ptr noundef %depths, ptr noundef %bits, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
+define internal fastcc i64 @BuildAndStoreLiteralPrefixCode(ptr noundef initializes((6288, 7312)) %s, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %input_size, ptr noundef %depths, ptr noundef %bits, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
 entry:
   %histogram1 = getelementptr inbounds i8, ptr %s, i64 6288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %histogram1, i8 0, i64 1024, i1 false)
@@ -8360,7 +8360,7 @@ for.end58:                                        ; preds = %for.inc56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @BuildAndStoreCommandPrefixCode(ptr noundef %s, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
+define internal fastcc void @BuildAndStoreCommandPrefixCode(ptr noundef initializes((7312, 8016)) %s, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
 entry:
   %cmd_histo = getelementptr inbounds i8, ptr %s, i64 1152
   %cmd_depth = getelementptr inbounds i8, ptr %s, i64 768

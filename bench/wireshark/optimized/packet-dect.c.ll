@@ -1015,7 +1015,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_afield(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_afield(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [8 x i8], align 1
   %8 = getelementptr inbounds i8, ptr %2, i64 408
   %9 = load ptr, ptr %8, align 8

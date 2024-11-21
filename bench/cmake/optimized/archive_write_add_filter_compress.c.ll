@@ -59,7 +59,7 @@ declare ptr @__archive_write_allocate_filter(ptr noundef) local_unnamed_addr #1
 declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @archive_compressor_compress_open(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_compress_open(ptr nocapture noundef initializes((80, 92)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 3, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 80

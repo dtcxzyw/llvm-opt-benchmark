@@ -1107,7 +1107,7 @@ _ZN8facebook5velox6memory12_GLOBAL__N_115FactoryRegistry17unregisterFactoryERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6memory15MemoryReclaimer6createEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.18") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory15MemoryReclaimer6createEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.18") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #35
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6memory15MemoryReclaimerE, i64 16), ptr %call, align 8
@@ -1330,7 +1330,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox6memory15MemoryReclaimer16reclaimableBytesERKNS1_10MemoryPoolERm(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(168) %pool, ptr noundef nonnull align 8 dereferenceable(8) %reclaimableBytes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8facebook5velox6memory15MemoryReclaimer16reclaimableBytesERKNS1_10MemoryPoolERm(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(168) %pool, ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %reclaimableBytes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reclaimable = alloca i8, align 1
   %ref.tmp = alloca %"class.std::function.44", align 8
@@ -2281,7 +2281,7 @@ _ZNSt8functionIFbPN8facebook5velox6memory10MemoryPoolEEED2Ev.exit8: ; preds = %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox6memory15MemoryReclaimer5Stats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) local_unnamed_addr #8 align 2 {
+define void @_ZN8facebook5velox6memory15MemoryReclaimer5Stats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this) local_unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   ret void
@@ -2362,7 +2362,7 @@ _ZNK8facebook5velox6memory15MemoryReclaimer5StatseqERKS3_.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox6memory16MemoryArbitrator5StatsC2Emmmmmmmmmmmmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %this, i64 noundef %_numRequests, i64 noundef %_numSucceeded, i64 noundef %_numAborted, i64 noundef %_numFailures, i64 noundef %_queueTimeUs, i64 noundef %_arbitrationTimeUs, i64 noundef %_numShrunkBytes, i64 noundef %_numReclaimedBytes, i64 noundef %_maxCapacityBytes, i64 noundef %_freeCapacityBytes, i64 noundef %_reclaimTimeUs, i64 noundef %_numNonReclaimableAttempts, i64 noundef %_numReserves, i64 noundef %_numReleases) unnamed_addr #8 align 2 {
+define void @_ZN8facebook5velox6memory16MemoryArbitrator5StatsC2Emmmmmmmmmmmmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 112)) %this, i64 noundef %_numRequests, i64 noundef %_numSucceeded, i64 noundef %_numAborted, i64 noundef %_numFailures, i64 noundef %_queueTimeUs, i64 noundef %_arbitrationTimeUs, i64 noundef %_numShrunkBytes, i64 noundef %_numReclaimedBytes, i64 noundef %_maxCapacityBytes, i64 noundef %_freeCapacityBytes, i64 noundef %_reclaimTimeUs, i64 noundef %_numNonReclaimableAttempts, i64 noundef %_numReserves, i64 noundef %_numReleases) unnamed_addr #8 align 2 {
 entry:
   store i64 %_numRequests, ptr %this, align 8
   %numSucceeded = getelementptr inbounds i8, ptr %this, i64 8
@@ -2542,7 +2542,7 @@ declare void @_ZN8facebook5velox13succinctBytesB5cxx11Emi(ptr sret(%"class.std::
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8facebook5velox6memory16MemoryArbitrator5StatsmiERKS3_(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::memory::MemoryArbitrator::Stats") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %other) local_unnamed_addr #10 align 2 {
+define void @_ZNK8facebook5velox6memory16MemoryArbitrator5StatsmiERKS3_(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::memory::MemoryArbitrator::Stats") align 8 initializes((0, 112)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %other) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %1 = load i64, ptr %other, align 8
@@ -3141,7 +3141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN8facebook5velox6memory30ScopedMemoryArbitrationContextC2ERKNS1_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(168) %requestor) unnamed_addr #12 align 2 {
+define void @_ZN8facebook5velox6memory30ScopedMemoryArbitrationContextC2ERKNS1_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(168) %requestor) unnamed_addr #12 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8facebook5velox6memory12_GLOBAL__N_114arbitrationCtxE)
   %1 = load ptr, ptr %0, align 8
@@ -4004,7 +4004,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox6memory12_GLOBAL__N_114NoopArbitratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox6memory12_GLOBAL__N_114NoopArbitratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6memory16MemoryArbitratorE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -4029,7 +4029,7 @@ _ZN8facebook5velox6memory16MemoryArbitratorD2Ev.exit: ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox6memory12_GLOBAL__N_114NoopArbitratorD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox6memory12_GLOBAL__N_114NoopArbitratorD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6memory16MemoryArbitratorE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -4087,7 +4087,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK8facebook5velox6memory12_GLOBAL__N_114NoopArbitrator5statsEv(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::memory::MemoryArbitrator::Stats") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal void @_ZNK8facebook5velox6memory12_GLOBAL__N_114NoopArbitrator5statsEv(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::memory::MemoryArbitrator::Stats") align 8 initializes((0, 112)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %agg.result, i8 0, i64 112, i1 false)
   %maxCapacityBytes = getelementptr inbounds i8, ptr %agg.result, i64 64

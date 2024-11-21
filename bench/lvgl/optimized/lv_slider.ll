@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_slider_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_bar_class, ptr @lv_slider_constructor, ptr null, ptr @lv_slider_event, ptr null, ptr @.str, i32 0, i32 0, i8 -123, i8 13, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_slider_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_slider_constructor(ptr nocapture readnone %0, ptr noundef initializes((200, 208)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -1093,7 +1093,7 @@ declare void @lv_draw_rect_dsc_init(ptr noundef) local_unnamed_addr #2
 declare void @lv_obj_init_draw_rect_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @position_knob(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @position_knob(ptr noundef %0, ptr nocapture noundef nonnull initializes((8, 16)) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = ashr i32 %2, 1
   br i1 %3, label %6, label %17
 

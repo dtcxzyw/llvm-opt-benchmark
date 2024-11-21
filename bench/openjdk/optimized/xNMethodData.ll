@@ -58,7 +58,7 @@ define hidden void @_ZN16XNMethodDataOops7destroyEPS_(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16XNMethodDataOopsC2ERK13GrowableArrayIPP7oopDescEb(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN16XNMethodDataOopsC2ERK13GrowableArrayIPP7oopDescEb(ptr noundef nonnull align 8 dereferenceable(9) initializes((0, 9)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
   %4 = zext i1 %2 to i8
   %5 = load i32, ptr %1, align 8
   %6 = sext i32 %5 to i64
@@ -126,7 +126,7 @@ define hidden noundef zeroext i1 @_ZNK16XNMethodDataOops18has_non_immediatesEv(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12XNMethodDataC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12XNMethodDataC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 40)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 40, i1 false)
   tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
   %2 = getelementptr inbounds i8, ptr %0, i64 40

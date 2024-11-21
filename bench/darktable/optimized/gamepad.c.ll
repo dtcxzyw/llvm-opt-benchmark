@@ -95,7 +95,7 @@ define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr null, ptr %2, align 8, !tbaa !6
   %3 = tail call i32 @SDL_Init(i32 noundef 8192) #9
@@ -547,7 +547,7 @@ define internal noalias ptr @_key_to_string(i32 noundef %0, i32 noundef %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @_string_to_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define internal range(i32 0, 2) i32 @_string_to_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #6 {
   store i32 0, ptr %1, align 4, !tbaa !30
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.7, ptr noundef nonnull dereferenceable(1) %0) #11
   %4 = icmp eq i32 %3, 0
@@ -720,7 +720,7 @@ define internal noalias ptr @_move_to_string(i32 noundef %0, i32 noundef %1) #1 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @_string_to_move(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define internal range(i32 0, 2) i32 @_string_to_move(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #6 {
   store i32 0, ptr %1, align 4, !tbaa !30
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.31, ptr noundef nonnull dereferenceable(1) %0) #11
   %4 = icmp eq i32 %3, 0

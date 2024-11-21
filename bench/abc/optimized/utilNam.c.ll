@@ -191,7 +191,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Abc_NamStop(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @Abc_NamStop(ptr nocapture noundef initializes((16, 24), (32, 40), (64, 72)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -2057,7 +2057,7 @@ define ptr @Abc_NamStr(ptr nocapture noundef readonly %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define nonnull ptr @Abc_NamBuffer(ptr noundef writeonly %0) local_unnamed_addr #16 {
+define nonnull ptr @Abc_NamBuffer(ptr noundef writeonly initializes((68, 72)) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 0, ptr %3, align 4

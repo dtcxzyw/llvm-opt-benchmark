@@ -1802,7 +1802,7 @@ define noundef range(i32 0, 25) i32 @_ZN10open_spiel9solitaire10GetMaxSizeENS0_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel9solitaire4CardC2EbNS0_8SuitTypeENS0_8RankTypeENS0_12LocationTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel9solitaire4CardC2EbNS0_8SuitTypeENS0_8RankTypeENS0_12LocationTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 13), (16, 20)) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #8 align 2 {
   %6 = zext i1 %1 to i8
   store i32 %3, ptr %0, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1817,7 +1817,7 @@ define void @_ZN10open_spiel9solitaire4CardC2EbNS0_8SuitTypeENS0_8RankTypeENS0_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel9solitaire4CardC2EibNS0_12LocationTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel9solitaire4CardC2EibNS0_12LocationTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 13), (16, 20)) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #8 align 2 {
   %5 = zext i1 %2 to i8
   store i32 14, ptr %0, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1932,27 +1932,27 @@ define noundef i32 @_ZNK10open_spiel9solitaire4Card8GetIndexEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel9solitaire4Card7SetRankENS0_8RankTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel9solitaire4Card7SetRankENS0_8RankTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel9solitaire4Card7SetSuitENS0_8SuitTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel9solitaire4Card7SetSuitENS0_8SuitTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel9solitaire4Card11SetLocationENS0_12LocationTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel9solitaire4Card11SetLocationENS0_12LocationTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel9solitaire4Card9SetHiddenEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel9solitaire4Card9SetHiddenEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((12, 13)) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %3, ptr %4, align 4
@@ -2533,7 +2533,7 @@ define noundef zeroext i1 @_ZNK10open_spiel9solitaire4CardltERKS1_(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9solitaire4PileC2ENS0_12LocationTypeENS0_6PileIDENS0_8SuitTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9solitaire4PileC2ENS0_12LocationTypeENS0_6PileIDENS0_8SuitTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN10open_spiel9solitaire4PileE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -2581,7 +2581,7 @@ define noundef zeroext i1 @_ZNK10open_spiel9solitaire4Pile10GetIsEmptyEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK10open_spiel9solitaire4Pile12GetFirstCardEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.open_spiel::solitaire::Card") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #12 align 2 {
+define void @_ZNK10open_spiel9solitaire4Pile12GetFirstCardEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.open_spiel::solitaire::Card") align 4 initializes((0, 20)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
@@ -2589,7 +2589,7 @@ define void @_ZNK10open_spiel9solitaire4Pile12GetFirstCardEv(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK10open_spiel9solitaire4Pile11GetLastCardEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.open_spiel::solitaire::Card") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #12 align 2 {
+define void @_ZNK10open_spiel9solitaire4Pile11GetLastCardEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.open_spiel::solitaire::Card") align 4 initializes((0, 20)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -20
@@ -2619,7 +2619,7 @@ define noundef i32 @_ZNK10open_spiel9solitaire4Pile5GetIDEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire4Pile8GetCardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire4Pile8GetCardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2672,7 +2672,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EEC2ERKS4_.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10open_spiel9solitaire4Pile8SetCardsESt6vectorINS0_4CardESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9solitaire4Pile8SetCardsESt6vectorINS0_4CardESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((16, 24)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3661,7 +3661,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9solitaire7TableauC2ENS0_6PileIDE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9solitaire7TableauC2ENS0_6PileIDE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN10open_spiel9solitaire4PileE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -3685,7 +3685,7 @@ define void @_ZN10open_spiel9solitaire7TableauC2ENS0_6PileIDE(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire7Tableau7TargetsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire7Tableau7TargetsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %"class.open_spiel::solitaire::Card"], align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3875,7 +3875,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit10: ; preds = %.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9solitaire7Tableau5SplitENS0_4CardE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.open_spiel::solitaire::Card") align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9solitaire7Tableau5SplitENS0_4CardE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.58") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.open_spiel::solitaire::Card") align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -4064,7 +4064,7 @@ define void @_ZN10open_spiel9solitaire7Tableau6RevealENS0_4CardE(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9solitaire10FoundationC2ENS0_6PileIDENS0_8SuitTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9solitaire10FoundationC2ENS0_6PileIDENS0_8SuitTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN10open_spiel9solitaire4PileE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -4088,7 +4088,7 @@ define void @_ZN10open_spiel9solitaire10FoundationC2ENS0_6PileIDENS0_8SuitTypeE(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire10Foundation7TargetsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire10Foundation7TargetsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %"class.open_spiel::solitaire::Card"], align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -4123,7 +4123,7 @@ define void @_ZNK10open_spiel9solitaire10Foundation7TargetsEv(ptr dead_on_unwind
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire10Foundation7SourcesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire10Foundation7SourcesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -4154,7 +4154,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit: ; preds = %13, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9solitaire10Foundation5SplitENS0_4CardE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.open_spiel::solitaire::Card") align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9solitaire10Foundation5SplitENS0_4CardE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.open_spiel::solitaire::Card") align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -4187,7 +4187,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EEaSESt16initializer_listIS2_E.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9solitaire5WasteC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9solitaire5WasteC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN10open_spiel9solitaire4PileE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -4211,7 +4211,7 @@ define void @_ZN10open_spiel9solitaire5WasteC2Ev(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK10open_spiel9solitaire5Waste7TargetsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #8 align 2 {
+define void @_ZNK10open_spiel9solitaire5Waste7TargetsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #8 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -4367,7 +4367,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit12: ; preds = %.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9solitaire5Waste5SplitENS0_4CardE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.open_spiel::solitaire::Card") align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9solitaire5Waste5SplitENS0_4CardE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.58") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.open_spiel::solitaire::Card") align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -4666,13 +4666,13 @@ _ZNSt6vectorIN10open_spiel9solitaire8SuitTypeESaIS2_EED2Ev.exit62: ; preds = %.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK10open_spiel9solitaire4Move9GetTargetEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.open_spiel::solitaire::Card") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(40) %1) local_unnamed_addr #16 align 2 {
+define void @_ZNK10open_spiel9solitaire4Move9GetTargetEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.open_spiel::solitaire::Card") align 4 initializes((0, 20)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(40) %1) local_unnamed_addr #16 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK10open_spiel9solitaire4Move9GetSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.open_spiel::solitaire::Card") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(40) %1) local_unnamed_addr #16 align 2 {
+define void @_ZNK10open_spiel9solitaire4Move9GetSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.open_spiel::solitaire::Card") align 4 initializes((0, 20)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(40) %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
   ret void
@@ -7377,7 +7377,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit30: ; preds = %.loope
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire14SolitaireState7TargetsERKN4absl7debian28optionalINS0_12LocationTypeEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(309) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire14SolitaireState7TargetsERKN4absl7debian28optionalINS0_12LocationTypeEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.58") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(309) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.58", align 8
   %5 = alloca %"class.std::vector.58", align 8
   %6 = load i8, ptr %2, align 4
@@ -7563,7 +7563,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit32: ; preds = %_ZNSt6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire14SolitaireState7SourcesERKN4absl7debian28optionalINS0_12LocationTypeEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.58") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(309) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire14SolitaireState7SourcesERKN4absl7debian28optionalINS0_12LocationTypeEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.58") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(309) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.58", align 8
   %5 = alloca %"class.std::vector.58", align 8
   %6 = alloca %"class.std::vector.58", align 8
@@ -10063,7 +10063,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EED2Ev.exit63: ; preds = %.body,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire14SolitaireState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.109") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(309) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire14SolitaireState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.109") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(309) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %4 = load double, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -10079,7 +10079,7 @@ define void @_ZNK10open_spiel9solitaire14SolitaireState7ReturnsEv(ptr dead_on_un
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire14SolitaireState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.109") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(309) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire14SolitaireState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.109") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(309) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %4 = load double, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -10912,7 +10912,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEvT_S7_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire14SolitaireState14CandidateMovesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.115") align 8 %0, ptr noundef nonnull align 8 dereferenceable(309) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire14SolitaireState14CandidateMovesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.115") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(309) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.open_spiel::solitaire::Card", align 8
   %4 = alloca %"class.open_spiel::solitaire::Card", align 8
   %5 = alloca %"class.open_spiel::solitaire::Card", align 8
@@ -11762,7 +11762,7 @@ _ZNKSt6vectorIN10open_spiel9solitaire7TableauESaIS2_EE2atEm.exit: ; preds = %84
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire14SolitaireState14ChanceOutcomesEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.122") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(309) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire14SolitaireState14ChanceOutcomesEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.122") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(309) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -13547,7 +13547,7 @@ define noundef double @_ZNK10open_spiel9solitaire13SolitaireGame10MaxUtilityEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9solitaire13SolitaireGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.141") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9solitaire13SolitaireGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.141") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #33
   store ptr %3, ptr %0, align 8

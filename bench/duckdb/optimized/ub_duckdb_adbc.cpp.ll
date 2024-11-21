@@ -8947,7 +8947,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN11duckdb_adbcL17EmptyErrorReleaseEP9AdbcError(ptr nocapture noundef writeonly %error) #0 {
+define internal void @_ZN11duckdb_adbcL17EmptyErrorReleaseEP9AdbcError(ptr nocapture noundef writeonly initializes((24, 32)) %error) #0 {
 entry:
   %release = getelementptr inbounds i8, ptr %error, i64 24
   store ptr null, ptr %release, align 8, !tbaa !165
@@ -10479,7 +10479,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11duckdb_adbc14stream_produceEmRN6duckdb21ArrowStreamParametersE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.71") align 8 %agg.result, i64 noundef %factory_ptr, ptr nocapture nonnull readnone align 8 %parameters) #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11duckdb_adbc14stream_produceEmRN6duckdb21ArrowStreamParametersE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.71") align 8 initializes((0, 8)) %agg.result, i64 noundef %factory_ptr, ptr nocapture nonnull readnone align 8 %parameters) #2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #36, !noalias !178
@@ -12450,7 +12450,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z14ErrorGetDetailPK9AdbcErrori(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.AdbcErrorDetail) align 8 %agg.result, ptr nocapture readnone %error, i32 %index) #0 {
+define void @_Z14ErrorGetDetailPK9AdbcErrori(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.AdbcErrorDetail) align 8 initializes((0, 24)) %agg.result, ptr nocapture readnone %error, i32 %index) #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
@@ -13726,7 +13726,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @AdbcDatabaseNew(ptr nocapture noundef writeonly %database, ptr nocapture noundef readnone %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @AdbcDatabaseNew(ptr nocapture noundef writeonly initializes((0, 16)) %database, ptr nocapture noundef readnone %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #36
   %0 = getelementptr inbounds i8, ptr %call, i64 32
@@ -20678,7 +20678,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @AdbcConnectionNew(ptr nocapture noundef writeonly %connection, ptr nocapture noundef readnone %error) local_unnamed_addr #2 {
+define noundef zeroext i8 @AdbcConnectionNew(ptr nocapture noundef writeonly initializes((0, 16)) %connection, ptr nocapture noundef readnone %error) local_unnamed_addr #2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #36
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %call, i64 48

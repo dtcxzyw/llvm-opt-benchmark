@@ -767,7 +767,7 @@ define void @_ZN8LightGBM8Metadata4InitEPKc(ptr noundef nonnull align 8 derefere
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata19LoadQueryBoundariesEv(ptr noundef nonnull align 8 dereferenceable(300) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM8Metadata19LoadQueryBoundariesEv(ptr noundef nonnull align 8 dereferenceable(300) initializes((192, 196)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::function.112", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.LightGBM::TextReader", align 8
@@ -1023,7 +1023,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %62, %_ZNSt6vectorIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata11LoadWeightsEv(ptr noundef nonnull align 8 dereferenceable(300) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM8Metadata11LoadWeightsEv(ptr noundef nonnull align 8 dereferenceable(300) initializes((36, 40)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::function.112", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.LightGBM::TextReader", align 8
@@ -1202,7 +1202,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %64, %_ZNSt6vectorIf
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata13LoadPositionsEv(ptr noundef nonnull align 8 dereferenceable(300) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM8Metadata13LoadPositionsEv(ptr noundef nonnull align 8 dereferenceable(300) initializes((40, 44)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::function.112", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.LightGBM::TextReader", align 8
@@ -1672,7 +1672,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %31, %_ZNSt6vectorIf
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata16LoadInitialScoreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(300) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM8Metadata16LoadInitialScoreERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(300) initializes((200, 208)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function.112", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2108,7 +2108,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata4InitEiii(ptr nocapture noundef nonnull align 8 dereferenceable(300) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM8Metadata4InitEiii(ptr nocapture noundef nonnull align 8 dereferenceable(300) initializes((32, 36)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %1, ptr %5, align 8
   %6 = sext i32 %1 to i64
@@ -2388,7 +2388,7 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata15InitByReferenceEiPKS0_(ptr noundef nonnull align 8 dereferenceable(300) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 align 2 {
+define void @_ZN8LightGBM8Metadata15InitByReferenceEiPKS0_(ptr noundef nonnull align 8 dereferenceable(300) initializes((32, 36)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 200
@@ -2421,7 +2421,7 @@ _ZNK8LightGBM8Metadata22num_init_score_classesEv.exit: ; preds = %3, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata4InitEiiiii(ptr noundef nonnull align 8 dereferenceable(300) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM8Metadata4InitEiiiii(ptr noundef nonnull align 8 dereferenceable(300) initializes((32, 36)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca float, align 4
   %8 = alloca double, align 8
   %9 = alloca i32, align 4
@@ -3256,7 +3256,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i71, %.l
 }
 
 ; Function Attrs: uwtable
-define void @_ZN8LightGBM8Metadata4InitERKS0_PKii(ptr noundef nonnull align 8 dereferenceable(300) %0, ptr noundef nonnull align 8 dereferenceable(300) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM8Metadata4InitERKS0_PKii(ptr noundef nonnull align 8 dereferenceable(300) initializes((32, 36)) %0, ptr noundef nonnull align 8 dereferenceable(300) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -13712,7 +13712,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata13InsertQueriesEPKiii(ptr nocapture noundef nonnull align 8 dereferenceable(300) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
+define void @_ZN8LightGBM8Metadata13InsertQueriesEPKiii(ptr nocapture noundef nonnull align 8 dereferenceable(300) initializes((298, 299)) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %6
 
@@ -14088,7 +14088,7 @@ _ZN8LightGBM6CommonL8AvoidInfEf.exit:             ; preds = %33, %30, %26
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL4AtofEPKcPd(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #21 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL4AtofEPKcPd(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #21 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16428,7 +16428,7 @@ _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17097,7 +17097,7 @@ define void @_ZN8LightGBM8Metadata10FinishLoadEv(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata14LoadFromMemoryEPKv(ptr nocapture noundef nonnull align 8 dereferenceable(300) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM8Metadata14LoadFromMemoryEPKv(ptr nocapture noundef nonnull align 8 dereferenceable(300) initializes((32, 40), (192, 196)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %3, ptr %4, align 8

@@ -171,7 +171,7 @@ define void @Abc_NtkCutsAddFanunt(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkCuts(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Abc_NtkCuts(ptr noundef %0, ptr noundef initializes((8, 12)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)

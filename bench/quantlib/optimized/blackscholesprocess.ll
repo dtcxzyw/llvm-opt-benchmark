@@ -7320,7 +7320,7 @@ unreachable:                                      ; preds = %invoke.cont14
 declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30GeneralizedBlackScholesProcess6updateEv(ptr noundef nonnull align 8 dereferenceable(250) %this) unnamed_addr #7 align 2 {
+define void @_ZN8QuantLib30GeneralizedBlackScholesProcess6updateEv(ptr noundef nonnull align 8 dereferenceable(250) initializes((248, 249)) %this) unnamed_addr #7 align 2 {
 entry:
   %updated_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   store i8 0, ptr %updated_, align 8, !tbaa !85

@@ -960,7 +960,7 @@ return:                                           ; preds = %if.else, %if.else.u
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @stbds_hmget_key_ts(ptr noundef readonly %a, i64 noundef %elemsize, ptr nocapture noundef readonly %key, i64 noundef %keysize, ptr nocapture noundef writeonly %temp, i32 noundef %mode) local_unnamed_addr #8 {
+define ptr @stbds_hmget_key_ts(ptr noundef readonly %a, i64 noundef %elemsize, ptr nocapture noundef readonly %key, i64 noundef %keysize, ptr nocapture noundef writeonly initializes((0, 8)) %temp, i32 noundef %mode) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.then, label %if.else

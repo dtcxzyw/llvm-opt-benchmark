@@ -220,7 +220,7 @@ file_write.exit:                                  ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @file_gets(ptr nocapture noundef readonly %bp, ptr noundef %buf, i32 noundef %size) #6 {
+define internal i32 @file_gets(ptr nocapture noundef readonly %bp, ptr noundef initializes((0, 1)) %buf, i32 noundef %size) #6 {
 entry:
   store i8 0, ptr %buf, align 1
   %ptr3 = getelementptr inbounds i8, ptr %bp, i64 64
@@ -436,7 +436,7 @@ sw.epilog:                                        ; preds = %entry, %cond.false,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @file_new(ptr nocapture noundef writeonly %bi) #7 {
+define internal noundef i32 @file_new(ptr nocapture noundef writeonly initializes((40, 44), (48, 52), (56, 60), (64, 72)) %bi) #7 {
 entry:
   %init = getelementptr inbounds i8, ptr %bi, i64 40
   store i32 0, ptr %init, align 8

@@ -196,7 +196,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [74 x i8] c"Genlib library used in the mapped design is not longer a current library.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cba_ManCreatePrimMap(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define void @Cba_ManCreatePrimMap(ptr noundef writeonly initializes((0, 720)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, i8 0, i64 696, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 704
   store ptr @.str, ptr %2, align 8

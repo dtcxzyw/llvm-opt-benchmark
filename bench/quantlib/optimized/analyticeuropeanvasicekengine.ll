@@ -568,7 +568,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26AnalyticBlackVasicekEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEENS2_INS_7VasicekEEEd(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef %blackProcess, ptr nocapture noundef %vasicekProcess, double noundef %correlation) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26AnalyticBlackVasicekEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEENS2_INS_7VasicekEEEd(ptr noundef nonnull align 8 dereferenceable(392) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %blackProcess, ptr nocapture noundef %vasicekProcess, double noundef %correlation) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp11 = alloca %"class.boost::shared_ptr", align 8

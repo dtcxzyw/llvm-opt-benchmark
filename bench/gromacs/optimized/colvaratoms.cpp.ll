@@ -797,7 +797,7 @@ define noundef i32 @_ZThn320_N12colvarmodule10atom_group17init_dependenciesEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12colvarmodule4atomC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0) unnamed_addr #5 align 2 {
+define void @_ZN12colvarmodule4atomC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 120)) %0) unnamed_addr #5 align 2 {
   store i32 -1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 -1, ptr %2, align 4
@@ -812,7 +812,7 @@ define void @_ZN12colvarmodule4atomC2Ev(ptr nocapture noundef nonnull writeonly 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule4atomC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define void @_ZN12colvarmodule4atomC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 120)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 96, i1 false)
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
@@ -850,7 +850,7 @@ define void @_ZN12colvarmodule4atomC2Ei(ptr nocapture noundef nonnull writeonly 
 declare noundef ptr @_ZN12colvarmodule4mainEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule4atomC2ERKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #2 align 2 {
+define void @_ZN12colvarmodule4atomC2ERKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 120)) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   %6 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
@@ -886,7 +886,7 @@ define void @_ZN12colvarmodule4atomC2ERKiRKNSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule4atomC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) unnamed_addr #2 align 2 {
+define void @_ZN12colvarmodule4atomC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 120)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) unnamed_addr #2 align 2 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -972,7 +972,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(120) ptr @_ZN12colvarmodule4atomaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(120) ptr @_ZN12colvarmodule4atomaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(120) initializes((0, 120)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
@@ -2083,7 +2083,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #11
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12colvarmodule10atom_groupD2Ev(ptr noundef nonnull align 8 dereferenceable(1440) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12colvarmodule10atom_groupD2Ev(ptr noundef nonnull align 8 dereferenceable(1440) initializes((0, 8), (320, 328)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12colvarmodule10atom_groupE, i64 128), ptr %2, align 8
@@ -3452,7 +3452,7 @@ _ZNSt12_Vector_baseIN10colvardeps13feature_stateESaIS1_EE13_M_deallocateEPS1_m.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule10atom_group17update_total_massEv(ptr noundef nonnull align 8 dereferenceable(1440) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12colvarmodule10atom_group17update_total_massEv(ptr noundef nonnull align 8 dereferenceable(1440) initializes((1272, 1280)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 628
@@ -3550,7 +3550,7 @@ define void @_ZN12colvarmodule10atom_group17update_total_massEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule10atom_group19update_total_chargeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1440) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN12colvarmodule10atom_group19update_total_chargeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1440) initializes((1280, 1288)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 628
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -8847,7 +8847,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE17_M_default_appendEm.exit: ; preds
 declare noundef i32 @_ZN12colvarmodule11load_coordsEPKcPSt6vectorINS_7rvectorESaIS3_EEPNS_10atom_groupERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN12colvarmodule10atom_group14center_ref_posEv(ptr nocapture noundef nonnull align 8 dereferenceable(1440) %0) local_unnamed_addr #15 align 2 {
+define void @_ZN12colvarmodule10atom_group14center_ref_posEv(ptr nocapture noundef nonnull align 8 dereferenceable(1440) initializes((1240, 1264)) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1240
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1248
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1256

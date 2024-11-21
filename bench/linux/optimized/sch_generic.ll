@@ -1092,7 +1092,7 @@ define dso_local void @netif_carrier_event(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @noop_enqueue(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #5 align 16 {
+define internal noundef i32 @noop_enqueue(ptr noundef initializes((0, 8)) %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #5 align 16 {
   %4 = load ptr, ptr %2, align 8
   store ptr %4, ptr %0, align 8
   store ptr %0, ptr %2, align 8
@@ -1105,7 +1105,7 @@ define internal noalias noundef ptr @noop_dequeue(ptr nocapture readnone %0) #6 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @noqueue_init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #7 align 16 {
+define internal noundef i32 @noqueue_init(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #7 align 16 {
   store ptr null, ptr %0, align 64
   ret i32 0
 }
@@ -4121,7 +4121,7 @@ define dso_local void @dev_shutdown(ptr noundef %0) local_unnamed_addr #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @psched_ratecfg_precompute(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #11 align 16 {
+define dso_local void @psched_ratecfg_precompute(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) #11 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 2
   %5 = load i16, ptr %4, align 2
@@ -4170,7 +4170,7 @@ define dso_local void @psched_ratecfg_precompute(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: write)
-define dso_local void @psched_ppscfg_precompute(ptr nocapture noundef writeonly %0, i64 noundef %1) #12 align 16 {
+define dso_local void @psched_ppscfg_precompute(ptr nocapture noundef writeonly initializes((0, 13)) %0, i64 noundef %1) #12 align 16 {
   store i64 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -4256,7 +4256,7 @@ declare dso_local void @synchronize_rcu_expedited() local_unnamed_addr #2
 declare dso_local i64 @start_poll_synchronize_rcu() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @mini_qdisc_pair_block_init(ptr nocapture noundef writeonly %0, ptr noundef %1) #7 align 16 {
+define dso_local void @mini_qdisc_pair_block_init(ptr nocapture noundef writeonly initializes((8, 16), (48, 56)) %0, ptr noundef %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4265,7 +4265,7 @@ define dso_local void @mini_qdisc_pair_block_init(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mini_qdisc_pair_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define dso_local void @mini_qdisc_pair_init(ptr nocapture noundef writeonly initializes((16, 40), (56, 88)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 16

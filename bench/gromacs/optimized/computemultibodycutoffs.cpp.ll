@@ -45,7 +45,7 @@ $_ZN7t_graphD2Ev = comdat any
 @.str.7 = private unnamed_addr constant [140 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/gromacs/gromacs/src/gromacs/domdec/computemultibodycutoffs.cpp\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z21dd_bonded_cg_distanceRKN3gmx8MDLoggerERK10gmx_mtop_tRK10t_inputrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_KfNS_16DDBondedCheckingEPfSI_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %1, ptr noundef nonnull align 8 dereferenceable(856) %2, ptr %3, ptr nocapture readnone %4, ptr noundef %5, i1 noundef zeroext %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z21dd_bonded_cg_distanceRKN3gmx8MDLoggerERK10gmx_mtop_tRK10t_inputrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_KfNS_16DDBondedCheckingEPfSI_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %1, ptr noundef nonnull align 8 dereferenceable(856) %2, ptr %3, ptr nocapture readnone %4, ptr noundef %5, i1 noundef zeroext %6, ptr nocapture noundef initializes((0, 4)) %7, ptr nocapture noundef initializes((0, 4)) %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %struct.t_pbc, align 4
   %11 = alloca %struct.ReverseTopOptions, align 1
   %12 = alloca [3 x float], align 4

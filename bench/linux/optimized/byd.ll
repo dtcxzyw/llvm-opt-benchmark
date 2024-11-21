@@ -194,7 +194,7 @@ declare dso_local i32 @psmouse_reset(ptr noundef) local_unnamed_addr #2
 declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @byd_clear_touch(ptr nocapture noundef %0) #0 align 16 {
+define internal void @byd_clear_touch(ptr nocapture noundef initializes((48, 56), (66, 67)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16

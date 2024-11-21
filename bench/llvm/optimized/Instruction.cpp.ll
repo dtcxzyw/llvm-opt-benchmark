@@ -143,7 +143,7 @@ $_ZN4llvm13SmallDenseMapIjNS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIjvEENS
 @_ZN4llvm11InstructionD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm11InstructionD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm14InsertPositionC2EPNS_11InstructionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14InsertPositionC2EPNS_11InstructionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 10)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -171,7 +171,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm14InsertPositionC2EPNS_10BasicBlockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14InsertPositionC2EPNS_10BasicBlockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 10)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -1162,7 +1162,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(p
 declare void @_ZN4llvm10BasicBlock20renumberInstructionsEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11Instruction25getInsertionPointAfterDefEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.103") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm11Instruction25getInsertionPointAfterDefEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.103") align 8 initializes((16, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
   %3 = load i8, ptr %1, align 8
   switch i8 %3, label %.preheader.i.i.i [
     i8 84, label %4

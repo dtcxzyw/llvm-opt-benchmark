@@ -1184,7 +1184,7 @@ return:                                           ; preds = %if.end6, %if.then13
 declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyImport_ReInitLock(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyImport_ReInitLock(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %interp, i64 1304
   %0 = load ptr, ptr %lock, align 8
@@ -1239,7 +1239,7 @@ declare i32 @_PyThread_at_fork_reinit(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyImport_InitModules(ptr nocapture noundef writeonly %interp) local_unnamed_addr #0 {
+define hidden ptr @_PyImport_InitModules(ptr nocapture noundef writeonly initializes((1256, 1264)) %interp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyDict_New() #19
   %imports = getelementptr inbounds i8, ptr %interp, i64 1256
@@ -2412,7 +2412,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_PyImport_SetDLOpenFlags(ptr nocapture noundef writeonly %interp, i32 noundef %new_val) local_unnamed_addr #11 {
+define hidden void @_PyImport_SetDLOpenFlags(ptr nocapture noundef writeonly initializes((1288, 1292)) %interp, i32 noundef %new_val) local_unnamed_addr #11 {
 entry:
   %dlopenflags = getelementptr inbounds i8, ptr %interp, i64 1288
   store i32 %new_val, ptr %dlopenflags, align 8
@@ -3982,7 +3982,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 6) i32 @find_frozen(ptr noundef %nameobj, ptr nocapture noundef nonnull writeonly %info) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @find_frozen(ptr noundef %nameobj, ptr nocapture noundef nonnull writeonly initializes((0, 40)) %info) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %info, i8 0, i64 40, i1 false)
   %cmp1 = icmp eq ptr %nameobj, null
@@ -5905,7 +5905,7 @@ declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_CallFunction(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyImport_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result) local_unnamed_addr #0 {
+define hidden void @_PyImport_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result) local_unnamed_addr #0 {
 entry:
   %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
   %tmp = alloca %struct.PyStatus, align 8
@@ -5996,7 +5996,7 @@ entry:
 declare void @PyMem_RawFree(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyImport_InitCore(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %tstate, ptr noundef %sysmod, i32 noundef %importlib) local_unnamed_addr #0 {
+define hidden void @_PyImport_InitCore(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %tstate, ptr noundef %sysmod, i32 noundef %importlib) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %importlib, 0
   br i1 %tobool.not, label %if.end2, label %if.then
@@ -6431,7 +6431,7 @@ declare i32 @_PySys_ClearAttrString(ptr noundef, ptr noundef, i32 noundef) local
 declare void @PyThread_free_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyImport_InitExternal(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %tstate) local_unnamed_addr #0 {
+define hidden void @_PyImport_InitExternal(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %tstate) local_unnamed_addr #0 {
 entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8

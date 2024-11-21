@@ -14489,7 +14489,7 @@ _ZN8pybind116detail12generic_typeD2Ev.exit:       ; preds = %0, %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8pybind113argaSIZ34test_submodule_kwargs_and_defaultsRNS_7module_EE10CustomReprEENS_5arg_vEOT_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8pybind113argaSIZ34test_submodule_kwargs_and_defaultsRNS_7module_EE10CustomReprEENS_5arg_vEOT_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pybind11::object", align 8
   %5 = alloca %"struct.pybind11::arg", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)

@@ -1374,7 +1374,7 @@ declare void @ggml_tallocr_free(ptr noundef) local_unnamed_addr #1
 declare void @ggml_gallocr_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_backend_sched_init_measure(ptr noundef %sched, ptr noundef %measure_graph) local_unnamed_addr #0 {
+define void @ggml_backend_sched_init_measure(ptr noundef initializes((80, 112), (59512, 59516)) %sched, ptr noundef %measure_graph) local_unnamed_addr #0 {
 entry:
   %visited_hash_table = getelementptr inbounds i8, ptr %measure_graph, i64 40
   %0 = load i64, ptr %visited_hash_table, align 8
@@ -1451,7 +1451,7 @@ sched_reset.exit:                                 ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sched_split_graph(ptr noundef %sched, ptr noundef %graph) unnamed_addr #0 {
+define internal fastcc void @sched_split_graph(ptr noundef initializes((59512, 59516)) %sched, ptr noundef %graph) unnamed_addr #0 {
 entry:
   %params = alloca %struct.ggml_init_params, align 8
   %tmp = alloca %struct.ggml_cgraph, align 8

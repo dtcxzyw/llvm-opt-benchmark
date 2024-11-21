@@ -51,37 +51,37 @@ define hidden noundef i64 @_ZN12NativeEndian3getEx(ptr nocapture nonnull readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12NativeEndian3setERtt(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %1, i16 noundef zeroext %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN12NativeEndian3setERtt(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %1, i16 noundef zeroext %2) unnamed_addr #1 align 2 {
   store i16 %2, ptr %1, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12NativeEndian3setERjj(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN12NativeEndian3setERjj(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, i32 noundef %2) unnamed_addr #1 align 2 {
   store i32 %2, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12NativeEndian3setERyy(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN12NativeEndian3setERyy(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, i64 noundef %2) unnamed_addr #1 align 2 {
   store i64 %2, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12NativeEndian3setERss(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %1, i16 noundef signext %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN12NativeEndian3setERss(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %1, i16 noundef signext %2) unnamed_addr #1 align 2 {
   store i16 %2, ptr %1, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12NativeEndian3setERii(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN12NativeEndian3setERii(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, i32 noundef %2) unnamed_addr #1 align 2 {
   store i32 %2, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12NativeEndian3setERxx(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN12NativeEndian3setERxx(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, i64 noundef %2) unnamed_addr #1 align 2 {
   store i64 %2, ptr %1, align 8
   ret void
 }
@@ -123,42 +123,42 @@ define hidden noundef i64 @_ZN14SwappingEndian3getEx(ptr nocapture nonnull readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14SwappingEndian3setERtt(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %1, i16 noundef zeroext %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN14SwappingEndian3setERtt(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %1, i16 noundef zeroext %2) unnamed_addr #1 align 2 {
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %2)
   store i16 %rev.i, ptr %1, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14SwappingEndian3setERjj(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN14SwappingEndian3setERjj(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %4 = tail call noundef i32 @llvm.bswap.i32(i32 %2)
   store i32 %4, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14SwappingEndian3setERyy(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN14SwappingEndian3setERyy(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, i64 noundef %2) unnamed_addr #1 align 2 {
   %4 = tail call noundef i64 @llvm.bswap.i64(i64 %2)
   store i64 %4, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14SwappingEndian3setERss(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %1, i16 noundef signext %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN14SwappingEndian3setERss(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %1, i16 noundef signext %2) unnamed_addr #1 align 2 {
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %2)
   store i16 %rev.i, ptr %1, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14SwappingEndian3setERii(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN14SwappingEndian3setERii(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %4 = tail call noundef i32 @llvm.bswap.i32(i32 %2)
   store i32 %4, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14SwappingEndian3setERxx(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN14SwappingEndian3setERxx(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, i64 noundef %2) unnamed_addr #1 align 2 {
   %4 = tail call noundef i64 @llvm.bswap.i64(i64 %2)
   store i64 %4, ptr %1, align 8
   ret void
@@ -183,7 +183,7 @@ define hidden noundef zeroext i16 @_ZN6Endian8get_javaEPh(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Endian8set_javaEPht(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Endian8set_javaEPht(ptr nocapture noundef writeonly initializes((0, 2)) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = lshr i16 %1, 8
   %4 = trunc nuw i16 %3 to i8
   store i8 %4, ptr %0, align 1

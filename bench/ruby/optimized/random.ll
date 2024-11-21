@@ -259,7 +259,7 @@ define internal noundef i64 @random_memsize(ptr nocapture readnone %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @rb_random_base_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define dso_local void @rb_random_base_init(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #4 {
   store i64 1, ptr %0, align 8
   ret void
 }
@@ -3027,7 +3027,7 @@ declare i64 @getrandom(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr
 declare i32 @getentropy(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @rand_mt_init(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #12 {
+define internal void @rand_mt_init(ptr noundef initializes((8, 12)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) #12 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 19650218, ptr %4, align 8
   br label %5
@@ -3132,7 +3132,7 @@ init_by_array.exit:                               ; preds = %58
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define internal void @rand_mt_init_int32(ptr noundef %0, i32 noundef %1) #13 {
+define internal void @rand_mt_init_int32(ptr noundef initializes((8, 12)) %0, i32 noundef %1) #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   br label %4

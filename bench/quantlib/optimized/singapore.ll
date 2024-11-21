@@ -85,7 +85,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib9Singapore7SgxImplEEE = comdat 
 @_ZN8QuantLib9SingaporeC1ENS0_6MarketE = unnamed_addr alias void (ptr, i32), ptr @_ZN8QuantLib9SingaporeC2ENS0_6MarketE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9SingaporeC2ENS0_6MarketE(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9SingaporeC2ENS0_6MarketE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, i32 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %1 = load atomic i8, ptr @_ZGVZN8QuantLib9SingaporeC1ENS0_6MarketEE4impl acquire, align 8

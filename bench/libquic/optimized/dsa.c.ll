@@ -1113,7 +1113,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_do_check_signature(ptr nocapture noundef writeonly %out_valid, ptr noundef %digest, i64 noundef %digest_len, ptr nocapture noundef readonly %sig, ptr noundef %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_do_check_signature(ptr nocapture noundef writeonly initializes((0, 4)) %out_valid, ptr noundef %digest, i64 noundef %digest_len, ptr nocapture noundef readonly %sig, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %u1 = alloca %struct.bignum_st, align 8
   %u2 = alloca %struct.bignum_st, align 8
@@ -1299,7 +1299,7 @@ declare i32 @BN_MONT_CTX_set_locked(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare i32 @BN_mod_exp2_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_sign(i32 noundef %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %out_sig, ptr nocapture noundef writeonly %out_siglen, ptr noundef %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_sign(i32 noundef %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %out_sig, ptr nocapture noundef writeonly initializes((0, 4)) %out_siglen, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %out_sig.addr = alloca ptr, align 8
   store ptr %out_sig, ptr %out_sig.addr, align 8

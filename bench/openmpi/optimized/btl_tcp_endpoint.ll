@@ -109,7 +109,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [49 x i8] c"Unable to connect to the peer %s on port %d: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_btl_tcp_endpoint_construct(ptr noundef %0) #0 {
+define internal void @mca_btl_tcp_endpoint_construct(ptr noundef initializes((40, 128), (696, 697)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -825,7 +825,7 @@ declare i32 @opal_fd_write(i32 noundef, i32 noundef, ptr noundef) local_unnamed_
 declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @mca_btl_tcp_endpoint_accept(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @mca_btl_tcp_endpoint_accept(ptr noundef initializes((68, 72)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 68

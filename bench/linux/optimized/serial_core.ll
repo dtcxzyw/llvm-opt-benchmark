@@ -227,7 +227,7 @@ declare dso_local void @tty_port_tty_wakeup(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @uart_update_timeout(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local void @uart_update_timeout(ptr nocapture noundef writeonly initializes((292, 296)) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = tail call zeroext i8 @tty_get_frame_size(i32 noundef %1) #19
   %5 = zext i8 %4 to i64
   %6 = mul nuw nsw i64 %5, 1000000000
@@ -592,7 +592,7 @@ declare dso_local i64 @simple_strtoull(ptr noundef, ptr noundef, i32 noundef) lo
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @uart_parse_options(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 align 16 {
+define dso_local void @uart_parse_options(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 align 16 {
   %6 = tail call i64 @simple_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 10) #19
   %7 = trunc i64 %6 to i32
   store i32 %7, ptr %1, align 4
@@ -1815,7 +1815,7 @@ define dso_local void @uart_unregister_driver(ptr nocapture noundef %0) #0 align
 declare dso_local void @tty_unregister_driver(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local ptr @uart_console_device(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #10 align 16 {
+define dso_local ptr @uart_console_device(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #10 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 74
@@ -3296,7 +3296,7 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @uart_install(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal i32 @uart_install(ptr noundef %0, ptr noundef initializes((584, 592)) %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -5291,7 +5291,7 @@ define internal noundef range(i32 -5, 1) i32 @uart_get_icount(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -5, 1) i32 @uart_get_info_user(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @uart_get_info_user(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 72)) %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 584
   %4 = load ptr, ptr %3, align 8
   %5 = tail call fastcc i32 @uart_get_info(ptr noundef %4, ptr noundef %1), !range !57
@@ -6622,7 +6622,7 @@ declare dso_local i64 @msleep_interruptible(i32 noundef) local_unnamed_addr #2
 declare dso_local i32 @jiffies_to_msecs(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -19, 1) i32 @uart_get_info(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @uart_get_info(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 72)) %1) unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @mutex_lock(ptr noundef %3) #19

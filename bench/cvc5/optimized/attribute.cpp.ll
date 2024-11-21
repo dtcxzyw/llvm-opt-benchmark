@@ -190,7 +190,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal4expr4attr16AttributeManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal4expr4attr16AttributeManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 1)) %this) unnamed_addr #3 align 2 {
 entry:
   store i8 0, ptr %this, align 8
   %d_bools = getelementptr inbounds i8, ptr %this, i64 8

@@ -311,7 +311,7 @@ define ptr @H5EA_open(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5EA_get_nelmts(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define noundef i32 @H5EA_get_nelmts(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 328
   %5 = load i64, ptr %4, align 8
@@ -320,7 +320,7 @@ define noundef i32 @H5EA_get_nelmts(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5EA_get_addr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define noundef i32 @H5EA_get_addr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 368
   %5 = load i64, ptr %4, align 8
@@ -404,7 +404,7 @@ define range(i32 -1, 1) i32 @H5EA_set(ptr nocapture noundef readonly %0, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr %.0.val, ptr %.8.val, i64 noundef %0, i1 noundef zeroext %1, i32 noundef range(i32 0, 129) %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr initializes((384, 392)) %.0.val, ptr %.8.val, i64 noundef %0, i1 noundef zeroext %1, i32 noundef range(i32 0, 129) %2, ptr nocapture noundef nonnull initializes((0, 8)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %5, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   store i8 0, ptr %8, align 1
   %9 = getelementptr inbounds i8, ptr %.0.val, i64 384

@@ -260,7 +260,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [25 x i8] c"Error opening directory.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Cmd_Init(ptr noundef %0) local_unnamed_addr #0 {
+define void @Cmd_Init(ptr noundef initializes((16, 48)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @st__init_table(ptr noundef nonnull @strcmp, ptr noundef nonnull @st__strhash) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %2, ptr %3, align 8

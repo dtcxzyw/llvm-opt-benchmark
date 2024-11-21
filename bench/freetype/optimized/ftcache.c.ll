@@ -488,7 +488,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_basic_family_compare(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @FTC_MruList_New(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @FTC_MruList_New(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -3584,7 +3584,7 @@ define void @FTC_Node_Unref(ptr noundef %0, ptr noundef readonly %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_inode_new(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal i32 @ftc_inode_new(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %2, i64 96
@@ -3815,7 +3815,7 @@ FTC_GNode_UnselectFamily.exit:                    ; preds = %FTC_MruList_Remove.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ftc_inode_free(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @ftc_inode_free(ptr noundef initializes((48, 52)) %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3886,7 +3886,7 @@ FTC_GNode_Done.exit:                              ; preds = %2, %10, %FTC_MruLis
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_gcache_init(ptr noundef %0) #0 {
+define internal i32 @ftc_gcache_init(ptr noundef initializes((0, 24)) %0) #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %3 = getelementptr inbounds i8, ptr %0, i64 96
@@ -4057,7 +4057,7 @@ FTC_MruList_Done.exit:                            ; preds = %FTC_MruList_Remove.
 declare void @FT_Done_Glyph(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_cache_init(ptr nocapture noundef %0) #0 {
+define internal i32 @ftc_cache_init(ptr nocapture noundef initializes((0, 24)) %0) #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
@@ -4163,7 +4163,7 @@ ftc_node_mru_unlink.exit:                         ; preds = %27, %.sink.split.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ftc_basic_family_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #6 {
+define internal noundef i32 @ftc_basic_family_init(ptr nocapture noundef writeonly initializes((16, 20), (24, 80)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) #6 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 64
@@ -4639,7 +4639,7 @@ define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ftc_sbit_copy_bitmap(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ftc_sbit_copy_bitmap(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
@@ -5034,7 +5034,7 @@ ftc_node_hash_unlink.exit:                        ; preds = %.lr.ph, %ftc_node_m
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftc_cmap_node_new(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @ftc_cmap_node_new(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 96
   %6 = load ptr, ptr %5, align 8

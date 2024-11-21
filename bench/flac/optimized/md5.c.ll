@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__MD5Init(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
+define hidden void @FLAC__MD5Init(ptr nocapture noundef writeonly initializes((64, 104)) %ctx) local_unnamed_addr #0 {
 entry:
   %buf = getelementptr inbounds i8, ptr %ctx, i64 64
   store i32 1732584193, ptr %buf, align 8
@@ -20,7 +20,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @FLAC__MD5Final(ptr nocapture noundef writeonly %digest, ptr nocapture noundef %ctx) local_unnamed_addr #1 {
+define hidden void @FLAC__MD5Final(ptr nocapture noundef writeonly initializes((0, 16)) %digest, ptr nocapture noundef %ctx) local_unnamed_addr #1 {
 entry:
   %bytes = getelementptr inbounds i8, ptr %ctx, i64 80
   %0 = load i32, ptr %bytes, align 8

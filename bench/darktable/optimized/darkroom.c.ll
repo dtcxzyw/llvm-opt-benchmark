@@ -303,7 +303,7 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @init(ptr noundef %0) local_unnamed_addr #1 {
+define void @init(ptr noundef initializes((288, 296)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(2816) ptr @malloc(i64 noundef 2816) #20
   store ptr %2, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !6
   %3 = getelementptr inbounds i8, ptr %0, i64 288
@@ -3233,7 +3233,7 @@ declare void @gtk_container_add(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare ptr @dt_bauhaus_combobox_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @rawoverexposed_mode_callback(ptr noundef %0, ptr noundef %1) #1 {
+define internal void @rawoverexposed_mode_callback(ptr noundef %0, ptr noundef initializes((2540, 2544)) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
   %4 = getelementptr inbounds i8, ptr %1, i64 2540
   store i32 %3, ptr %4, align 4, !tbaa !176
@@ -3259,7 +3259,7 @@ define internal void @rawoverexposed_mode_callback(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rawoverexposed_colorscheme_callback(ptr noundef %0, ptr noundef %1) #1 {
+define internal void @rawoverexposed_colorscheme_callback(ptr noundef %0, ptr noundef initializes((2544, 2548)) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
   %4 = getelementptr inbounds i8, ptr %1, i64 2544
   store i32 %3, ptr %4, align 8, !tbaa !177
@@ -3291,7 +3291,7 @@ declare void @dt_bauhaus_slider_set(ptr noundef, float noundef) local_unnamed_ad
 declare ptr @dt_bauhaus_widget_set_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @rawoverexposed_threshold_callback(ptr noundef %0, ptr noundef %1) #1 {
+define internal void @rawoverexposed_threshold_callback(ptr noundef %0, ptr noundef initializes((2548, 2552)) %1) #1 {
   %3 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %0) #19
   %4 = getelementptr inbounds i8, ptr %1, i64 2548
   store float %3, ptr %4, align 4, !tbaa !178
@@ -3332,7 +3332,7 @@ define internal void @_overexposed_quickbutton_clicked(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mode_callback(ptr noundef %0, ptr noundef %1) #1 {
+define internal void @mode_callback(ptr noundef %0, ptr noundef initializes((2512, 2516)) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
   %4 = getelementptr inbounds i8, ptr %1, i64 2512
   store i32 %3, ptr %4, align 16, !tbaa !181
@@ -3358,7 +3358,7 @@ define internal void @mode_callback(ptr noundef %0, ptr noundef %1) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @colorscheme_callback(ptr noundef %0, ptr noundef %1) #1 {
+define internal void @colorscheme_callback(ptr noundef %0, ptr noundef initializes((2500, 2504)) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #19
   %4 = getelementptr inbounds i8, ptr %1, i64 2500
   store i32 %3, ptr %4, align 4, !tbaa !182
@@ -3386,7 +3386,7 @@ define internal void @colorscheme_callback(ptr noundef %0, ptr noundef %1) #1 {
 declare void @dt_bauhaus_slider_set_format(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @lower_callback(ptr noundef %0, ptr noundef %1) #1 {
+define internal void @lower_callback(ptr noundef %0, ptr noundef initializes((2504, 2508)) %1) #1 {
   %3 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %0) #19
   %4 = getelementptr inbounds i8, ptr %1, i64 2504
   store float %3, ptr %4, align 8, !tbaa !183
@@ -3412,7 +3412,7 @@ define internal void @lower_callback(ptr noundef %0, ptr noundef %1) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @upper_callback(ptr noundef %0, ptr noundef %1) #1 {
+define internal void @upper_callback(ptr noundef %0, ptr noundef initializes((2508, 2512)) %1) #1 {
   %3 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %0) #19
   %4 = getelementptr inbounds i8, ptr %1, i64 2508
   store float %3, ptr %4, align 4, !tbaa !184
@@ -3730,7 +3730,7 @@ define internal void @display2_profile_callback(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @display2_iso12646_callback(ptr noundef %0, ptr noundef %1) #1 {
+define internal void @display2_iso12646_callback(ptr noundef %0, ptr noundef initializes((2760, 2764)) %1) #1 {
   %3 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %0) #19
   %4 = getelementptr inbounds i8, ptr %1, i64 2704
   %5 = getelementptr inbounds i8, ptr %1, i64 2760
@@ -8763,7 +8763,7 @@ define internal noundef i32 @_second_window_leave_callback(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_second_window_configure_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef i32 @_second_window_configure_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef initializes((2736, 2760)) %2) #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 2712
   %5 = load i32, ptr %4, align 8, !tbaa !289
   %6 = getelementptr inbounds i8, ptr %1, i64 28
@@ -8824,7 +8824,7 @@ define internal noundef i32 @_second_window_configure_callback(ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_second_window_delete_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #1 {
+define internal noundef i32 @_second_window_delete_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef initializes((2704, 2712)) %2) #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 2600
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   tail call fastcc void @_darkroom_ui_second_window_write_config(ptr noundef %5)

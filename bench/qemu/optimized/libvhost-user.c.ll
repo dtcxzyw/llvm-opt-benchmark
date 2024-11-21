@@ -1991,7 +1991,7 @@ if.end118:                                        ; preds = %if.then117, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @vu_panic(ptr noundef %dev, ptr noundef %msg, ...) unnamed_addr #2 {
+define internal void @vu_panic(ptr noundef initializes((1408, 1409)) %dev, ptr noundef %msg, ...) unnamed_addr #2 {
 entry:
   %buf = alloca ptr, align 8
   %ap = alloca [1 x %struct.__va_list_tag], align 16
@@ -2259,7 +2259,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @vu_queue_set_notification(ptr nocapture noundef readonly %dev, ptr nocapture noundef %vq, i32 noundef %enable) local_unnamed_addr #2 {
+define dso_local void @vu_queue_set_notification(ptr nocapture noundef readonly %dev, ptr nocapture noundef initializes((89, 90)) %vq, i32 noundef %enable) local_unnamed_addr #2 {
 entry:
   %tobool = icmp ne i32 %enable, 0
   %notification = getelementptr inbounds i8, ptr %vq, i64 89
@@ -3259,7 +3259,7 @@ declare ptr @__cmsg_nxthdr(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_features_exec(ptr noundef %dev, i64 %vmsg.12.val) unnamed_addr #2 {
+define internal fastcc void @vu_set_features_exec(ptr noundef initializes((1392, 1400)) %dev, i64 %vmsg.12.val) unnamed_addr #2 {
 entry:
   %features = getelementptr inbounds i8, ptr %dev, i64 1392
   store i64 %vmsg.12.val, ptr %features, align 8
@@ -3315,7 +3315,7 @@ return:                                           ; preds = %if.end3, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_get_protocol_features_exec(ptr noundef %dev, ptr nocapture noundef nonnull writeonly %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_get_protocol_features_exec(ptr noundef %dev, ptr nocapture noundef nonnull writeonly initializes((4, 20), (316, 320)) %vmsg) unnamed_addr #2 {
 entry:
   %api_struct.i = alloca %struct.uffdio_api, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %api_struct.i)
@@ -3383,7 +3383,7 @@ if.end13:                                         ; preds = %if.then8, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_protocol_features_exec(ptr noundef %dev, i64 %vmsg.12.val) unnamed_addr #2 {
+define internal fastcc void @vu_set_protocol_features_exec(ptr noundef initializes((1400, 1408)) %dev, i64 %vmsg.12.val) unnamed_addr #2 {
 entry:
   %protocol_features = getelementptr inbounds i8, ptr %dev, i64 1400
   store i64 %vmsg.12.val, ptr %protocol_features, align 8
@@ -3952,7 +3952,7 @@ return:                                           ; preds = %if.end, %if.then32,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_get_vring_base_exec(ptr noundef %dev, ptr nocapture noundef nonnull %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_get_vring_base_exec(ptr noundef %dev, ptr nocapture noundef nonnull initializes((8, 12), (16, 20)) %vmsg) unnamed_addr #2 {
 entry:
   %payload = getelementptr inbounds i8, ptr %vmsg, i64 12
   %0 = load i32, ptr %payload, align 1
@@ -4470,7 +4470,7 @@ if.end8:                                          ; preds = %if.then, %if.then7,
 declare void @exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_postcopy_advise(ptr noundef %dev, ptr nocapture noundef nonnull writeonly %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_set_postcopy_advise(ptr noundef initializes((1456, 1460)) %dev, ptr nocapture noundef nonnull writeonly initializes((8, 12), (284, 288), (316, 320)) %vmsg) unnamed_addr #2 {
 entry:
   %api_struct = alloca %struct.uffdio_api, align 8
   %call = tail call i64 (i64, ...) @syscall(i64 noundef 323, i32 noundef 526336) #21
@@ -4518,7 +4518,7 @@ out:                                              ; preds = %if.end, %if.then7, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_get_inflight_fd(ptr noundef %dev, ptr nocapture noundef nonnull %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_get_inflight_fd(ptr noundef %dev, ptr nocapture noundef nonnull initializes((12, 20)) %vmsg) unnamed_addr #2 {
 entry:
   %size = getelementptr inbounds i8, ptr %vmsg, i64 8
   %0 = load i32, ptr %size, align 1

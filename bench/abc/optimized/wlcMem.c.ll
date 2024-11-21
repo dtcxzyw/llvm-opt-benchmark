@@ -2384,7 +2384,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_NtkDupOneBuffer(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Wlc_NtkDupOneBuffer(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef initializes((4, 8)) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %2, align 8
   %8 = lshr i16 %7, 6
   %9 = and i16 %8, 1

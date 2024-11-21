@@ -15,7 +15,7 @@ $_ZN14GZipCompressorD0Ev = comdat any
 @_ZN10FileWriterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10FileWriterD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10FileWriter11open_writerEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN10FileWriter11open_writerEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((20, 24)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -46,7 +46,7 @@ declare noundef ptr @_ZN2os8strerrorEi(i32 noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10FileWriterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10FileWriterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10FileWriter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -65,7 +65,7 @@ define hidden void @_ZN10FileWriterD2Ev(ptr nocapture noundef nonnull align 8 de
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10FileWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10FileWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10FileWriter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
@@ -103,7 +103,7 @@ define hidden noundef ptr @_ZN10FileWriter9write_bufEPcm(ptr nocapture noundef n
 declare noundef zeroext i1 @_ZN2os5writeEiPKvm(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14GZipCompressor4initEmPmS0_(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14GZipCompressor4initEmPmS0_(ptr nocapture noundef nonnull align 8 dereferenceable(25) initializes((16, 25)) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -120,7 +120,7 @@ define hidden noundef ptr @_ZN14GZipCompressor4initEmPmS0_(ptr nocapture noundef
 declare noundef ptr @_ZN10ZipLibrary11init_paramsEmPmS0_i(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14GZipCompressor8compressEPcmS0_mS0_mPm(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14GZipCompressor8compressEPcmS0_mS0_mPm(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) unnamed_addr #0 align 2 {
   %9 = alloca ptr, align 8
   %10 = alloca [128 x i8], align 16
   store ptr null, ptr %9, align 8

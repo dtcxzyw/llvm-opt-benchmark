@@ -2058,7 +2058,7 @@ define void @write_fields_proto_tree(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @write_json_preamble(ptr dead_on_unwind noalias writable sret(%struct.json_dumper) align 8 %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @write_json_preamble(ptr dead_on_unwind noalias writable sret(%struct.json_dumper) align 8 initializes((0, 1136)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1136) %3, i8 0, i64 1128, i1 false)
   store ptr %1, ptr %0, align 8

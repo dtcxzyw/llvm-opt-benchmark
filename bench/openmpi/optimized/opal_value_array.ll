@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_value_array_t_class = local_unnamed_addr global %struct.opal_class_t { ptr @.str, ptr @opal_object_t_class, ptr @opal_value_array_construct, ptr @opal_value_array_destruct, i32 0, i32 0, ptr null, ptr null, i64 48 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_value_array_construct(ptr nocapture noundef writeonly %0) #0 {
+define internal void @opal_value_array_construct(ptr nocapture noundef writeonly initializes((16, 48)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void

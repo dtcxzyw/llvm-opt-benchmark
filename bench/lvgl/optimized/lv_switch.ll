@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_switch_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_switch_constructor, ptr @lv_switch_destructor, ptr @lv_switch_event, ptr null, ptr @.str, i32 52, i32 30, i8 -124, i8 4, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_switch_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_switch_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 68)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 -1, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -350,7 +350,7 @@ declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_switch_anim_exec_cb(ptr noundef %0, i32 noundef %1) #0 {
+define internal void @lv_switch_anim_exec_cb(ptr noundef initializes((64, 68)) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8, !tbaa !3
   tail call void @lv_obj_invalidate(ptr noundef %0) #5

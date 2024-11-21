@@ -891,7 +891,7 @@ declare hidden i32 @lj_ir_kgc(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare hidden i32 @lj_ir_kint(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @crec_index_bf(ptr noundef %J, ptr nocapture noundef %rd, i32 noundef %ptr, i32 noundef %info) unnamed_addr #0 {
+define internal fastcc void @crec_index_bf(ptr noundef initializes((184, 190)) %J, ptr nocapture noundef %rd, i32 noundef %ptr, i32 noundef %info) unnamed_addr #0 {
 entry:
   %shr = lshr i32 %info, 16
   %and = and i32 %shr, 127

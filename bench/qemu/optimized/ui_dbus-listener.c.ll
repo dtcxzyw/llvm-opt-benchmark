@@ -211,7 +211,7 @@ return:                                           ; preds = %if.end28, %if.then9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @dbus_gfx_switch(ptr nocapture noundef writeonly %dcl, ptr noundef %new_surface) #2 {
+define internal void @dbus_gfx_switch(ptr nocapture noundef writeonly initializes((48, 60)) %dcl, ptr noundef %new_surface) #2 {
 entry:
   %ds = getelementptr i8, ptr %dcl, i64 48
   store ptr %new_surface, ptr %ds, align 8

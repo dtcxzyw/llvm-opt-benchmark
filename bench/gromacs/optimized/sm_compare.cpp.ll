@@ -115,7 +115,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb = private unnamed_addr constant [4 x i32] [i32 3, i32 4, i32 1, i32 2], align 4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL17init_data_compareiP18gmx_ana_selparam_t(i32 %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef ptr @_ZL17init_data_compareiP18gmx_ana_selparam_t(i32 %0, ptr nocapture noundef writeonly initializes((112, 120)) %1) #0 {
   %3 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 271, i64 noundef 1, i64 noundef 64)
   %4 = getelementptr inbounds i8, ptr %1, i64 112
   store ptr %3, ptr %4, align 8
@@ -123,7 +123,7 @@ define internal noundef ptr @_ZL17init_data_compareiP18gmx_ana_selparam_t(i32 %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL12init_comparePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL12init_comparePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((8, 12), (16, 20), (40, 44)) %3) #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.gmx::InternalError", align 8
   %6 = alloca %"class.gmx::ExceptionInitializer", align 8
   %7 = alloca %"class.gmx::ExceptionInfo", align 8

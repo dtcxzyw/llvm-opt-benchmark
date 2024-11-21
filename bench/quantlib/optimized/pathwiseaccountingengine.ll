@@ -227,7 +227,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24PathwiseAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEEd(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr nocapture noundef %evolver, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %product, ptr nocapture noundef %pseudoRootStructure, double noundef %initialNumeraireValue) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24PathwiseAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEEd(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 16)) %this, ptr nocapture noundef %evolver, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %product, ptr nocapture noundef %pseudoRootStructure, double noundef %initialNumeraireValue) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %VModel = alloca %"class.QuantLib::Matrix", align 8
@@ -3838,7 +3838,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i6, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29PathwiseVegasAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEERKSt6vectorISC_INS_6MatrixESaISD_EESaISF_EEd(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr nocapture noundef %evolver, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %product, ptr nocapture noundef %pseudoRootStructure, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vegaBumps, double noundef %initialNumeraireValue) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib29PathwiseVegasAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEERKSt6vectorISC_INS_6MatrixESaISD_EESaISF_EEd(ptr noundef nonnull align 8 dereferenceable(624) initializes((0, 16)) %this, ptr nocapture noundef %evolver, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %product, ptr nocapture noundef %pseudoRootStructure, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vegaBumps, double noundef %initialNumeraireValue) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp113 = alloca %"class.std::vector.13", align 8
@@ -8240,7 +8240,7 @@ ehcleanup61:                                      ; preds = %if.then.i.i.i144, %
 declare double @sqrt(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib34PathwiseVegasOuterAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEERKSt6vectorISC_INS_6MatrixESaISD_EESaISF_EEd(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr nocapture noundef %evolver, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %product, ptr nocapture noundef %pseudoRootStructure, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vegaBumps, double noundef %initialNumeraireValue) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib34PathwiseVegasOuterAccountingEngineC2EN5boost10shared_ptrINS_21LogNormalFwdRateEulerEEERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEENS2_INS_11MarketModelEEERKSt6vectorISC_INS_6MatrixESaISD_EESaISF_EEd(ptr noundef nonnull align 8 dereferenceable(664) initializes((0, 16)) %this, ptr nocapture noundef %evolver, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %product, ptr nocapture noundef %pseudoRootStructure, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vegaBumps, double noundef %initialNumeraireValue) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp122 = alloca %"class.std::vector.13", align 8

@@ -311,7 +311,7 @@ lj_buf_need.exit:                                 ; preds = %entry, %lj_buf_need
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_bufx_set(ptr noundef %sbx, ptr noundef %p, i32 noundef %len, ptr noundef %ref) local_unnamed_addr #0 {
+define hidden void @lj_bufx_set(ptr noundef initializes((0, 8), (32, 48)) %sbx, ptr noundef %p, i32 noundef %len, ptr noundef %ref) local_unnamed_addr #0 {
 entry:
   %L1 = getelementptr inbounds i8, ptr %sbx, i64 24
   %0 = load i64, ptr %L1, align 8

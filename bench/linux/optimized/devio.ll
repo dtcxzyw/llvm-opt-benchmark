@@ -4967,7 +4967,7 @@ define internal fastcc void @snoop_urb(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @usbfs_start_wait_urb(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @usbfs_start_wait_urb(ptr noundef nonnull initializes((168, 184)) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.completion, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
   %5 = getelementptr inbounds i8, ptr %4, i64 16

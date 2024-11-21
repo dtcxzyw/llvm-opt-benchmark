@@ -345,7 +345,7 @@ return:                                           ; preds = %entry, %for.end
 declare void @ossl_quic_demux_unregister_by_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @qrx_on_rx(ptr noundef %urxe, ptr nocapture noundef %arg) #0 {
+define internal void @qrx_on_rx(ptr noundef initializes((32, 48), (280, 281)) %urxe, ptr nocapture noundef %arg) #0 {
 entry:
   %processed.i = getelementptr inbounds i8, ptr %urxe, i64 32
   %deferred.i = getelementptr inbounds i8, ptr %urxe, i64 280
@@ -406,7 +406,7 @@ declare void @ossl_qrl_enc_level_set_discard(ptr noundef, i32 noundef) local_unn
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_qrx_inject_urxe(ptr nocapture noundef %qrx, ptr noundef %urxe) local_unnamed_addr #0 {
+define void @ossl_qrx_inject_urxe(ptr nocapture noundef %qrx, ptr noundef initializes((32, 48), (280, 281)) %urxe) local_unnamed_addr #0 {
 entry:
   %processed = getelementptr inbounds i8, ptr %urxe, i64 32
   %deferred = getelementptr inbounds i8, ptr %urxe, i64 280
@@ -1756,7 +1756,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_qrx_set_late_validation_cb(ptr nocapture noundef writeonly %qrx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #6 {
+define noundef i32 @ossl_qrx_set_late_validation_cb(ptr nocapture noundef writeonly initializes((1024, 1040)) %qrx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #6 {
 entry:
   %validation_cb = getelementptr inbounds i8, ptr %qrx, i64 1024
   store ptr %cb, ptr %validation_cb, align 8
@@ -1766,7 +1766,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_qrx_set_key_update_cb(ptr nocapture noundef writeonly %qrx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #6 {
+define noundef i32 @ossl_qrx_set_key_update_cb(ptr nocapture noundef writeonly initializes((1040, 1056)) %qrx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #6 {
 entry:
   %key_update_cb = getelementptr inbounds i8, ptr %qrx, i64 1040
   store ptr %cb, ptr %key_update_cb, align 8
@@ -1966,7 +1966,7 @@ return:                                           ; preds = %ossl_list_urxe_inse
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_qrx_set_msg_callback(ptr nocapture noundef writeonly %qrx, ptr noundef %msg_callback, ptr noundef %msg_callback_ssl) local_unnamed_addr #6 {
+define void @ossl_qrx_set_msg_callback(ptr nocapture noundef writeonly initializes((1064, 1072), (1080, 1088)) %qrx, ptr noundef %msg_callback, ptr noundef %msg_callback_ssl) local_unnamed_addr #6 {
 entry:
   %msg_callback1 = getelementptr inbounds i8, ptr %qrx, i64 1064
   store ptr %msg_callback, ptr %msg_callback1, align 8
@@ -1976,7 +1976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_qrx_set_msg_callback_arg(ptr nocapture noundef writeonly %qrx, ptr noundef %msg_callback_arg) local_unnamed_addr #6 {
+define void @ossl_qrx_set_msg_callback_arg(ptr nocapture noundef writeonly initializes((1072, 1080)) %qrx, ptr noundef %msg_callback_arg) local_unnamed_addr #6 {
 entry:
   %msg_callback_arg1 = getelementptr inbounds i8, ptr %qrx, i64 1072
   store ptr %msg_callback_arg, ptr %msg_callback_arg1, align 8

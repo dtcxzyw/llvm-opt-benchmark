@@ -11397,7 +11397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang9TFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %0) unnamed_addr #0 align 2 {
+define void @_ZN7glslang9TFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(340) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTVN7glslang9TFunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -12297,7 +12297,7 @@ define void @_ZN7glslang17TSymbolTableLevel8readOnlyEv(ptr noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang7TSymbolC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %1) unnamed_addr #0 align 2 {
+define void @_ZN7glslang7TSymbolC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 24), (32, 33)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN7glslang7TSymbolE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -12377,7 +12377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang9TVariableC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(236) %0, ptr noundef nonnull align 8 dereferenceable(236) %1) unnamed_addr #0 align 2 {
+define void @_ZN7glslang9TVariableC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(236) initializes((0, 24), (32, 33), (40, 48), (56, 64), (76, 84), (100, 105), (108, 130), (136, 168), (176, 192), (200, 216)) %0, ptr noundef nonnull align 8 dereferenceable(236) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.glslang::TMap", align 8
   %4 = alloca %"class.glslang::TConstUnionArray", align 8
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN7glslang7TSymbolE, i64 16), ptr %0, align 8
@@ -12682,7 +12682,7 @@ define noundef ptr @_ZNK7glslang9TVariable5cloneEv(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang9TFunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef nonnull align 8 dereferenceable(340) %1) unnamed_addr #0 align 2 {
+define void @_ZN7glslang9TFunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(340) initializes((0, 24), (32, 33), (40, 80), (88, 96), (108, 116), (132, 137), (140, 162), (168, 200), (208, 224), (232, 240)) %0, ptr noundef nonnull align 8 dereferenceable(340) %1) unnamed_addr #0 align 2 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE10_M_replaceEmmPKcm.exit:
   %2 = alloca %"class.glslang::TMap", align 8
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN7glslang7TSymbolE, i64 16), ptr %0, align 8
@@ -14360,7 +14360,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang12TSymbolTable9copyTableERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang12TSymbolTable9copyTableERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((24, 34)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24

@@ -92,7 +92,7 @@ declare i32 @internal_encode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef,
 declare i64 @internal_exr_huf_compress_spare_bytes() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DwaCompressor_construct(ptr noundef nonnull %me, i32 noundef range(i32 0, 2) %acCompression, ptr noundef %encode, ptr noundef %decode) unnamed_addr #0 {
+define internal fastcc i32 @DwaCompressor_construct(ptr noundef nonnull initializes((0, 208)) %me, i32 noundef range(i32 0, 2) %acCompression, ptr noundef %encode, ptr noundef %decode) unnamed_addr #0 {
 entry:
   %.b.i = load i1, ptr @initializeFuncs.done, align 4
   br i1 %.b.i, label %initializeFuncs.exit, label %if.end.i
@@ -398,7 +398,7 @@ return:                                           ; preds = %cond.end77, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DwaCompressor_compress(ptr nocapture noundef nonnull %me) unnamed_addr #0 {
+define internal fastcc i32 @DwaCompressor_compress(ptr nocapture noundef nonnull initializes((72, 88)) %me) unnamed_addr #0 {
 entry:
   %planarUncBuffer.i = alloca [3 x ptr], align 16
   %outBufferSize = alloca i64, align 8
@@ -2777,7 +2777,7 @@ for.end:                                          ; preds = %float_to_half.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fromHalfZigZag_scalar(ptr noundef readonly %src, ptr noundef writeonly %dst) #4 {
+define internal void @fromHalfZigZag_scalar(ptr noundef readonly %src, ptr noundef writeonly initializes((0, 256)) %dst) #4 {
 entry:
   %0 = load i16, ptr %src, align 2
   %conv.i.i = zext i16 %0 to i32
@@ -7082,7 +7082,7 @@ return:                                           ; preds = %if.then, %if.end15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef nonnull %e) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef nonnull initializes((8, 24)) %e) unnamed_addr #8 {
 entry:
   %chanData = alloca [3 x ptr], align 16
   %halfZigCoef = alloca [64 x i16], align 16
@@ -8016,7 +8016,7 @@ return:                                           ; preds = %for.end243, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @LossyDctEncoder_construct(ptr nocapture noundef nonnull writeonly %e, float noundef %quantBaseError, ptr noundef %rowPtrs, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #9 {
+define internal fastcc void @LossyDctEncoder_construct(ptr nocapture noundef nonnull writeonly initializes((0, 24), (52, 80)) %e, float noundef %quantBaseError, ptr noundef %rowPtrs, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #9 {
 entry:
   %_quantBaseError.i = getelementptr inbounds i8, ptr %e, i64 60
   store float %quantBaseError, ptr %_quantBaseError.i, align 4

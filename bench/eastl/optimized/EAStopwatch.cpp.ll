@@ -180,7 +180,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA4StdC9StopwatchC2Eib(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %nUnits, i1 noundef zeroext %bStartImmediately) unnamed_addr #1 align 2 {
+define dso_local void @_ZN2EA4StdC9StopwatchC2Eib(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %nUnits, i1 noundef zeroext %bStartImmediately) unnamed_addr #1 align 2 {
 entry:
   %ts.i.i = alloca %struct.timespec, align 8
   %mnUnits = getelementptr inbounds i8, ptr %this, i64 16
@@ -253,7 +253,7 @@ if.end3:                                          ; preds = %if.end6.sink.split.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN2EA4StdC9Stopwatch8SetUnitsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %nUnits) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN2EA4StdC9Stopwatch8SetUnitsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %this, i32 noundef %nUnits) local_unnamed_addr #3 align 2 {
 entry:
   %mnUnits = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %nUnits, ptr %mnUnits, align 8
@@ -434,7 +434,7 @@ if.end15:                                         ; preds = %if.then13, %switch.
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC9Stopwatch14SetElapsedTimeEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %nElapsedTime) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC9Stopwatch14SetElapsedTimeEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %this, i64 noundef %nElapsedTime) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %0 = load i64, ptr %this, align 8
@@ -554,7 +554,7 @@ if.end11:                                         ; preds = %if.then6, %if.else8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC9Stopwatch19SetElapsedTimeFloatEf(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, float noundef %fElapsedTime) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC9Stopwatch19SetElapsedTimeFloatEf(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %this, float noundef %fElapsedTime) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %0 = load i64, ptr %this, align 8
@@ -694,7 +694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC14LimitStopwatch12SetTimeLimitEmb(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %nLimit, i1 noundef zeroext %bStartImmediately) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC14LimitStopwatch12SetTimeLimitEmb(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %this, i64 noundef %nLimit, i1 noundef zeroext %bStartImmediately) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i.i = alloca %struct.timespec, align 8
   %ts.i = alloca %struct.timespec, align 8

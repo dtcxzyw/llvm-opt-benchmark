@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN7Imf_3_28TimeCodeC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN7Imf_3_28TimeCodeC2ERKS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_28TimeCodeC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this) unnamed_addr #0 align 2 {
+define void @_ZN7Imf_3_28TimeCodeC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 4
   %_user = getelementptr inbounds i8, ptr %this, i64 4
@@ -422,7 +422,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_28TimeCodeC2EjjNS0_7PackingE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, i32 noundef %timeAndFlags, i32 noundef %userData, i32 noundef %packing) unnamed_addr #0 align 2 {
+define void @_ZN7Imf_3_28TimeCodeC2EjjNS0_7PackingE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %timeAndFlags, i32 noundef %userData, i32 noundef %packing) unnamed_addr #0 align 2 {
 entry:
   switch i32 %packing, label %if.end23.sink.split.i [
     i32 1, label %if.then.i
@@ -458,7 +458,7 @@ _ZN7Imf_3_28TimeCode15setTimeAndFlagsEjNS0_7PackingE.exit: ; preds = %if.then.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_28TimeCode15setTimeAndFlagsEjNS0_7PackingE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, i32 noundef %value, i32 noundef %packing) local_unnamed_addr #0 align 2 {
+define void @_ZN7Imf_3_28TimeCode15setTimeAndFlagsEjNS0_7PackingE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 4)) %this, i32 noundef %value, i32 noundef %packing) local_unnamed_addr #0 align 2 {
 entry:
   switch i32 %packing, label %if.end23.sink.split [
     i32 1, label %if.then
@@ -497,7 +497,7 @@ if.end23:                                         ; preds = %if.end23.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_28TimeCode11setUserDataEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #0 align 2 {
+define void @_ZN7Imf_3_28TimeCode11setUserDataEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((4, 8)) %this, i32 noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %_user = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %value, ptr %_user, align 4
@@ -505,7 +505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_28TimeCodeC2ERKS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %other) unnamed_addr #2 align 2 {
+define void @_ZN7Imf_3_28TimeCodeC2ERKS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %other) unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %other, align 4
   store i32 %0, ptr %this, align 4

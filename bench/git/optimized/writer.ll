@@ -127,7 +127,7 @@ declare void @abort() local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @reftable_writer_set_limits(ptr nocapture noundef writeonly %w, i64 noundef %min, i64 noundef %max) local_unnamed_addr #4 {
+define dso_local void @reftable_writer_set_limits(ptr nocapture noundef writeonly initializes((56, 72)) %w, i64 noundef %min, i64 noundef %max) local_unnamed_addr #4 {
 entry:
   %min_update_index = getelementptr inbounds i8, ptr %w, i64 56
   store i64 %min, ptr %min_update_index, align 8
@@ -1160,7 +1160,7 @@ return:                                           ; preds = %writer_dump_object_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @writer_write_header(ptr nocapture noundef readonly %w, ptr noundef %dest) unnamed_addr #0 {
+define internal fastcc i32 @writer_write_header(ptr nocapture noundef readonly %w, ptr noundef initializes((0, 5)) %dest) unnamed_addr #0 {
 entry:
   store i32 1413891410, ptr %dest, align 1
   %0 = getelementptr i8, ptr %w, i64 88

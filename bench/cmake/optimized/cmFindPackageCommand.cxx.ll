@@ -18464,7 +18464,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPathsIRZN20cmFindPackageCommand12SearchPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0RNS_39cmCaseInsensitiveDirectoryListGeneratorEJEEEbOT_S9_OT0_DpOT1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(33) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPathsIRZN20cmFindPackageCommand12SearchPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0RNS_39cmCaseInsensitiveDirectoryListGeneratorEJEEEbOT_S9_OT0_DpOT1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(33) initializes((32, 33)) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18955,7 +18955,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_inse
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPathsIRZN20cmFindPackageCommand12SearchPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0RNS_27cmEnumPathSegmentsGeneratorEJRNS_28cmAppendPathSegmentGeneratorERNS_31cmProjectDirectoryListGeneratorEEEEbOT_S9_OT0_DpOT1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull align 8 dereferenceable(17) %3, ptr noundef nonnull align 8 dereferenceable(56) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPathsIRZN20cmFindPackageCommand12SearchPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0RNS_27cmEnumPathSegmentsGeneratorEJRNS_28cmAppendPathSegmentGeneratorERNS_31cmProjectDirectoryListGeneratorEEEEbOT_S9_OT0_DpOT1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %2, ptr nocapture noundef nonnull align 8 dereferenceable(17) %3, ptr noundef nonnull align 8 dereferenceable(56) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca [3 x %"struct.std::pair.423"], align 8
   %7 = alloca %class.cmAlphaNum, align 8
   %8 = alloca [3 x %"struct.std::pair.423"], align 8
@@ -19274,7 +19274,7 @@ _ZN12_GLOBAL__N_127cmEnumPathSegmentsGenerator16GetNextCandidateERKNSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPathsIRZN20cmFindPackageCommand12SearchPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0RNS_27cmEnumPathSegmentsGeneratorEJRNS_31cmProjectDirectoryListGeneratorEEEEbOT_S9_OT0_DpOT1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPathsIRZN20cmFindPackageCommand12SearchPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0RNS_27cmEnumPathSegmentsGeneratorEJRNS_31cmProjectDirectoryListGeneratorEEEEbOT_S9_OT0_DpOT1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x %"struct.std::pair.423"], align 8
   %6 = alloca %class.cmAlphaNum, align 8
   %7 = alloca [3 x %"struct.std::pair.423"], align 8
@@ -19445,7 +19445,7 @@ _ZN12_GLOBAL__N_127cmEnumPathSegmentsGenerator16GetNextCandidateERKNSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPathsIRZN20cmFindPackageCommand12SearchPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0RNS_27cmEnumPathSegmentsGeneratorEJRNS_31cmProjectDirectoryListGeneratorERNS_39cmCaseInsensitiveDirectoryListGeneratorEEEEbOT_S9_OT0_DpOT1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(33) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPathsIRZN20cmFindPackageCommand12SearchPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0RNS_27cmEnumPathSegmentsGeneratorEJRNS_31cmProjectDirectoryListGeneratorERNS_39cmCaseInsensitiveDirectoryListGeneratorEEEEbOT_S9_OT0_DpOT1_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(33) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca [3 x %"struct.std::pair.423"], align 8
   %7 = alloca %class.cmAlphaNum, align 8
   %8 = alloca [3 x %"struct.std::pair.423"], align 8
@@ -19892,7 +19892,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131cmProjectDirectoryListGeneratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131cmProjectDirectoryListGeneratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124cmDirectoryListGeneratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -21005,7 +21005,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_134cmMacProjectDirectoryListGeneratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_134cmMacProjectDirectoryListGeneratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124cmDirectoryListGeneratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -22645,7 +22645,7 @@ declare void @_ZN10cmMakefile9PushScopeEv(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN10cmMakefile8PopScopeEv(ptr noundef nonnull align 8 dereferenceable(3520)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131cmProjectDirectoryListGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131cmProjectDirectoryListGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124cmDirectoryListGeneratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -22707,7 +22707,7 @@ define internal void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator22TransformName
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124cmDirectoryListGeneratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_124cmDirectoryListGeneratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124cmDirectoryListGeneratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -22741,7 +22741,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124cmDirectoryListGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_124cmDirectoryListGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124cmDirectoryListGeneratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -22781,7 +22781,7 @@ define internal void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator15OnMatchesLoad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_134cmMacProjectDirectoryListGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_134cmMacProjectDirectoryListGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124cmDirectoryListGeneratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8

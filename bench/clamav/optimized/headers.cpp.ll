@@ -17,7 +17,7 @@ $_ZN5ArrayIhEaSERKS0_ = comdat any
 @.str = private unnamed_addr constant [44 x i32] [i32 77, i32 97, i32 120, i32 105, i32 109, i32 117, i32 109, i32 32, i32 97, i32 108, i32 108, i32 111, i32 119, i32 101, i32 100, i32 32, i32 97, i32 114, i32 114, i32 97, i32 121, i32 32, i32 115, i32 105, i32 122, i32 101, i32 32, i32 40, i32 37, i32 117, i32 41, i32 32, i32 105, i32 115, i32 32, i32 101, i32 120, i32 99, i32 101, i32 101, i32 100, i32 101, i32 100, i32 0], align 4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10FileHeader5ResetEm(ptr noundef nonnull align 8 dereferenceable(17184) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10FileHeader5ResetEm(ptr noundef nonnull align 8 dereferenceable(17184) initializes((16, 17), (8240, 8248)) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8232
   %4 = getelementptr inbounds i8, ptr %0, i64 8248
   %5 = load i64, ptr %4, align 8
@@ -93,7 +93,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %2, %_ZN5ArrayIhE3Ad
 declare void @_ZN9HashValue4InitE9HASH_TYPE(ptr noundef nonnull align 4 dereferenceable(36), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(17184) ptr @_ZN10FileHeaderaSERS_(ptr noundef nonnull returned align 8 dereferenceable(17184) %0, ptr noundef nonnull align 8 dereferenceable(17184) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(17184) ptr @_ZN10FileHeaderaSERS_(ptr noundef nonnull returned align 8 dereferenceable(17184) initializes((0, 8232), (8240, 17184)) %0, ptr noundef nonnull align 8 dereferenceable(17184) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8232
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -187,7 +187,7 @@ _ZN5ArrayIhE5AllocEm.exit.thread:                 ; preds = %_ZN5ArrayIhE5ResetE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10MainHeader5ResetEv(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainHeader5ResetEv(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 72)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.MainHeader, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false)
   %3 = getelementptr inbounds i8, ptr %2, i64 72

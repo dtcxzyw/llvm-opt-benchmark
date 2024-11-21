@@ -55,7 +55,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @bipbuf_init(ptr nocapture noundef writeonly %me, i32 noundef %size) local_unnamed_addr #1 {
+define dso_local void @bipbuf_init(ptr nocapture noundef writeonly initializes((0, 24)) %me, i32 noundef %size) local_unnamed_addr #1 {
 entry:
   %b_end = getelementptr inbounds i8, ptr %me, i64 16
   store i32 0, ptr %b_end, align 8

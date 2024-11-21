@@ -458,7 +458,7 @@ _ZN4cvc58internal7options7ioutils12_GLOBAL__N_17getDataINS0_8LanguageEEET_RSt8io
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal7options7ioutils5ScopeC2ERSt8ios_base(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(216) %ios) unnamed_addr #5 align 2 {
+define void @_ZN4cvc58internal7options7ioutils5ScopeC2ERSt8ios_base(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 9), (16, 33), (36, 44)) %this, ptr noundef nonnull align 8 dereferenceable(216) %ios) unnamed_addr #5 align 2 {
 entry:
   store ptr %ios, ptr %this, align 8
   %d_bvPrintConstsAsIndexedSymbols = getelementptr inbounds i8, ptr %this, i64 8

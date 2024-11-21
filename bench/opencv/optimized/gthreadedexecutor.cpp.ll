@@ -835,7 +835,7 @@ _ZNSt12_Vector_baseIN2cv7GRunArgESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl17GThreadedExecutor5InputC2ERNS0_10GraphStateERKSt6vectorINS0_6RcDescESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl17GThreadedExecutor5InputC2ERNS0_10GraphStateERKSt6vectorINS0_6RcDescESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv5gimpl17GThreadedExecutor5InputE, i64 16), ptr %0, align 8
@@ -1316,7 +1316,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4ut
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl17GThreadedExecutor6OutputC2ERNS0_10GraphStateERKSt6vectorINS0_6RcDescESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl17GThreadedExecutor6OutputC2ERNS0_10GraphStateERKSt6vectorINS0_6RcDescESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv5gimpl17GThreadedExecutor6OutputE, i64 16), ptr %0, align 8
@@ -3836,7 +3836,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 declare void @_ZN2cv5gimpl8magazine9bindInArgERNS1_5ClassIJNS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENS6_9OpaqueRefENS_4RMatENS9_4ViewENS_10MediaFrameENS_4UMatEEEERKNS0_6RcDescERKNS_7GRunArgENS1_10HandleRMatE(ptr noundef nonnull align 8 dereferenceable(896), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(160), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl11IslandActorC2ERKSt6vectorINS0_6RcDescESaIS3_EES7_St10shared_ptrINS0_17GIslandExecutableEERNS0_10GraphStateE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(936) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl11IslandActorC2ERKSt6vectorINS0_6RcDescESaIS3_EES7_St10shared_ptrINS0_17GIslandExecutableEERNS0_10GraphStateE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(936) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4103,7 +4103,7 @@ _ZN2cv5gimpl17GThreadedExecutor6Output6verifyEv.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl4TaskC2EOSt8functionIFvvEEOSt6vectorISt10shared_ptrIS1_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl4TaskC2EOSt8functionIFvvEEOSt6vectorISt10shared_ptrIS1_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 36), (40, 64)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.246", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 24
@@ -4561,7 +4561,7 @@ declare void @_ZN2cv4gapi3own10ThreadPool8scheduleEOSt8functionIFvvEE(ptr nounde
 declare void @_ZN2cv4gapi3own5Latch10count_downEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl11TaskManager10createTaskEOSt8functionIFvvEEOSt6vectorISt10shared_ptrINS0_4TaskEESaIS9_EE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.246") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl11TaskManager10createTaskEOSt8functionIFvvEEOSt6vectorISt10shared_ptrINS0_4TaskEESaIS9_EE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.246") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8

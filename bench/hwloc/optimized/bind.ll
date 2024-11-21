@@ -2125,7 +2125,7 @@ define internal noundef i32 @dontset_thisproc_membind(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dontget_thisproc_membind(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal noundef i32 @dontget_thisproc_membind(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
   %5 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
   %6 = tail call i32 @hwloc_bitmap_copy(ptr noundef %1, ptr noundef %5) #14
   store i32 -1, ptr %2, align 4
@@ -2138,7 +2138,7 @@ define internal noundef i32 @dontset_thisthread_membind(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dontget_thisthread_membind(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal noundef i32 @dontget_thisthread_membind(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
   %5 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
   %6 = tail call i32 @hwloc_bitmap_copy(ptr noundef %1, ptr noundef %5) #14
   store i32 -1, ptr %2, align 4
@@ -2151,7 +2151,7 @@ define internal noundef i32 @dontset_proc_membind(ptr nocapture readnone %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dontget_proc_membind(ptr noundef %0, i32 %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i32 %4) #0 {
+define internal noundef i32 @dontget_proc_membind(ptr noundef %0, i32 %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, i32 %4) #0 {
   %6 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
   %7 = tail call i32 @hwloc_bitmap_copy(ptr noundef %2, ptr noundef %6) #14
   store i32 -1, ptr %3, align 4
@@ -2164,7 +2164,7 @@ define internal noundef i32 @dontset_area_membind(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dontget_area_membind(ptr noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3, ptr nocapture noundef writeonly %4, i32 %5) #0 {
+define internal noundef i32 @dontget_area_membind(ptr noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 %5) #0 {
   %7 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
   %8 = tail call i32 @hwloc_bitmap_copy(ptr noundef %3, ptr noundef %7) #14
   store i32 -1, ptr %4, align 4

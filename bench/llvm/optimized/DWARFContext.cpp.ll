@@ -1013,7 +1013,7 @@ define dso_local void @_Z10fixupIndexRN4llvm12DWARFContextERNS_14DWARFUnitIndexE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12DWARFContext17DWARFContextState19parseMacroOrMacinfoENS1_12MacroSecTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.50") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12DWARFContext17DWARFContextState19parseMacroOrMacinfoENS1_12MacroSecTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.50") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca %class.anon.58, align 8
   %6 = alloca %"class.llvm::DWARFDataExtractor", align 8
@@ -1419,7 +1419,7 @@ _ZN4llvm5ErrorD2Ev.exit14:                        ; preds = %80, %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12DWARFContextC2ESt10unique_ptrIKNS_11DWARFObjectESt14default_deleteIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvNS_5ErrorEEESG_b(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12DWARFContextC2ESt10unique_ptrIKNS_11DWARFObjectESt14default_deleteIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvNS_5ErrorEEESG_b(ptr noundef nonnull align 8 dereferenceable(105) initializes((0, 12), (16, 28), (32, 64)) %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm12DWARFContextE, i64 16), ptr %0, align 8
@@ -1567,7 +1567,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_115ThreadSafeStateESt14default_deleteIS1_EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12DWARFContextD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12DWARFContextD2Ev(ptr noundef nonnull align 8 dereferenceable(105) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm12DWARFContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -10248,7 +10248,7 @@ _ZN4llvm12DWARFContext23getCompileUnitForOffsetEm.exit: ; preds = %39, %49, %_ZN
 declare { ptr, ptr } @_ZN4llvm9DWARFUnit21getVariableForAddressEm(ptr noundef nonnull align 8 dereferenceable(448), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12DWARFContext17getDIEsForAddressEmb(ptr dead_on_unwind noalias nocapture writable sret(%"struct.llvm::DWARFContext::DIEsForAddress") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12DWARFContext17getDIEsForAddressEmb(ptr dead_on_unwind noalias nocapture writable sret(%"struct.llvm::DWARFContext::DIEsForAddress") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::vector.255", align 8
   %6 = alloca %"class.llvm::DWARFDie", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
@@ -11149,7 +11149,7 @@ declare { i64, i8 } @_ZN4llvm8DWARFDie11getTypeSizeEm(ptr noundef nonnull align 
 declare noundef ptr @_ZN4llvm9DWARFUnit17getCompilationDirEv(ptr noundef nonnull align 8 dereferenceable(448)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12DWARFContext19getLocalsForAddressENS_6object16SectionedAddressE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.342") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12DWARFContext19getLocalsForAddressENS_6object16SectionedAddressE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.342") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -18986,13 +18986,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImmNS_12DenseMapInfoImvEENS_6detail12DenseMap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115ThreadSafeStateD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115ThreadSafeStateD2Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextStateD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115ThreadSafeStateD0Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115ThreadSafeStateD0Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextStateD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 480) #27
   ret void
@@ -19590,7 +19590,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_115ThreadSafeState12isThrea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextStateD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextStateD2Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_129ThreadUnsafeDWARFContextStateE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
@@ -20291,7 +20291,7 @@ _ZN4llvm15DWARFUnitVectorD2Ev.exit81:             ; preds = %_ZN4llvm23SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextStateD0Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextStateD0Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextStateD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 440) #27
   ret void
@@ -21073,7 +21073,7 @@ _ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit.thread:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextState13getDebugFrameEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(440) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextState13getDebugFrameEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(440) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::DWARFDataExtractor", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -21176,7 +21176,7 @@ _ZNSt10unique_ptrIN4llvm15DWARFDebugFrameESt14default_deleteIS1_EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextState10getEHFrameEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(440) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_129ThreadUnsafeDWARFContextState10getEHFrameEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(440) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::DWARFDataExtractor", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -24860,7 +24860,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairImNS_10DILineInfoEELb0EE13destroy_range
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Error", align 8

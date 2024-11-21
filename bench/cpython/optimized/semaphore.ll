@@ -618,7 +618,7 @@ exit:                                             ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef nonnull ptr @_multiprocessing_SemLock__after_fork(ptr nocapture noundef writeonly %self, ptr nocapture readnone %_unused_ignored) #3 {
+define internal noundef nonnull ptr @_multiprocessing_SemLock__after_fork(ptr nocapture noundef writeonly initializes((32, 36)) %self, ptr nocapture readnone %_unused_ignored) #3 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %self, i64 32
   store i32 0, ptr %count.i, align 8

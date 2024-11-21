@@ -76,7 +76,7 @@ $_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
 @_ZN8QuantLib30InverseCumulativeBehrensFisherC1ERKSt6vectorIiSaIiEERKS1_IdSaIdEEd = unnamed_addr alias void (ptr, ptr, ptr, double), ptr @_ZN8QuantLib30InverseCumulativeBehrensFisherC2ERKSt6vectorIiSaIiEERKS1_IdSaIdEEd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23CumulativeBehrensFisherC2ERKSt6vectorIiSaIiEERKS1_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %degreesFreedom, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %factors) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23CumulativeBehrensFisherC2ERKSt6vectorIiSaIiEERKS1_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %degreesFreedom, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %factors) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8

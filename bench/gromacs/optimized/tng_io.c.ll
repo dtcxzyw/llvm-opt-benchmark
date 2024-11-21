@@ -125,7 +125,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.tng_frame_gen_data_write = private unnamed_addr constant [3 x i64] [i64 8, i64 4, i64 8], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_atom_residue_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @tng_atom_residue_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %2, align 8
   ret i32 0
@@ -261,19 +261,19 @@ define range(i32 0, 3) i32 @tng_atom_type_set(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_version_major(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define noundef i32 @tng_version_major(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #8 {
   store i32 1, ptr %1, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_version_minor(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define noundef i32 @tng_version_minor(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #8 {
   store i32 8, ptr %1, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_version_patchlevel(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define noundef i32 @tng_version_patchlevel(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #8 {
   store i32 4, ptr %1, align 4
   ret i32 0
 }
@@ -398,7 +398,7 @@ tng_molecule_name_set.exit:                       ; preds = %36, %39
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_molecule_init(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define noundef i32 @tng_molecule_init(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((8, 88)) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
@@ -653,7 +653,7 @@ define range(i32 0, 2) i32 @tng_molecule_cnt_set(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_molecule_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @tng_molecule_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #13 {
   %5 = getelementptr inbounds i8, ptr %0, i64 208
   %6 = load i64, ptr %5, align 8
   %7 = icmp sgt i64 %6, 0
@@ -725,7 +725,7 @@ define range(i32 0, 2) i32 @tng_molecule_find(ptr nocapture noundef readonly %0,
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_molecule_of_index_get(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_molecule_of_index_get(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 208
   %5 = load i64, ptr %4, align 8
   %.not = icmp slt i64 %1, %5
@@ -1650,7 +1650,7 @@ tng_atom_type_set.exit:                           ; preds = %49, %52
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_molecule_num_chains_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @tng_molecule_num_chains_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -1658,7 +1658,7 @@ define noundef i32 @tng_molecule_num_chains_get(ptr nocapture noundef readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_molecule_chain_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_molecule_chain_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %.not = icmp slt i64 %2, %6
@@ -1678,7 +1678,7 @@ define range(i32 0, 2) i32 @tng_molecule_chain_of_index_get(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_molecule_num_residues_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @tng_molecule_num_residues_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -1686,7 +1686,7 @@ define noundef i32 @tng_molecule_num_residues_get(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_molecule_residue_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_molecule_residue_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %.not = icmp slt i64 %2, %6
@@ -1706,7 +1706,7 @@ define range(i32 0, 2) i32 @tng_molecule_residue_of_index_get(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_molecule_num_atoms_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @tng_molecule_num_atoms_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -1714,7 +1714,7 @@ define noundef i32 @tng_molecule_num_atoms_get(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_molecule_atom_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_molecule_atom_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i64, ptr %5, align 8
   %.not = icmp slt i64 %2, %6
@@ -1734,7 +1734,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_of_index_get(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %7, 0
@@ -1866,7 +1866,7 @@ define range(i32 0, 3) i32 @tng_chain_name_set(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_molecule_bond_add(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_molecule_bond_add(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %1, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1905,7 +1905,7 @@ define range(i32 0, 3) i32 @tng_molecule_bond_add(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %7, 0
@@ -1992,7 +1992,7 @@ define range(i32 0, 2) i32 @tng_chain_name_get(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_chain_num_residues_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @tng_chain_num_residues_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -2000,7 +2000,7 @@ define noundef i32 @tng_chain_num_residues_get(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_chain_residue_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_chain_residue_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %.not = icmp slt i64 %2, %6
@@ -2020,7 +2020,7 @@ define range(i32 0, 2) i32 @tng_chain_residue_of_index_get(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_chain_residue_find(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @tng_chain_residue_find(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %7, 0
@@ -2172,7 +2172,7 @@ define range(i32 0, 2) i32 @tng_residue_name_get(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_residue_num_atoms_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @tng_residue_num_atoms_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -2180,7 +2180,7 @@ define noundef i32 @tng_residue_num_atoms_get(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_residue_atom_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #14 {
+define range(i32 0, 2) i32 @tng_residue_atom_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #14 {
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %.not = icmp slt i64 %2, %6
@@ -2235,7 +2235,7 @@ define range(i32 0, 3) i32 @tng_residue_atom_add(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 3) i32 @tng_molecule_alloc(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
+define range(i32 0, 3) i32 @tng_molecule_alloc(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #9 {
   %3 = tail call noalias dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #26
   store ptr %3, ptr %1, align 8
   %.not = icmp eq ptr %3, null
@@ -2336,7 +2336,7 @@ define range(i32 0, 2) i32 @tng_molecule_name_of_particle_nr_get(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_molecule_cnt_list_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_molecule_cnt_list_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 0
@@ -3158,7 +3158,7 @@ define noundef i32 @tng_frame_set_particle_mapping_free(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_trajectory_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_trajectory_init(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #4 {
   %2 = tail call noalias dereferenceable_or_null(504) ptr @malloc(i64 noundef 504) #26
   store ptr %2, ptr %0, align 8
   %.not = icmp eq ptr %2, null
@@ -4605,7 +4605,7 @@ tng_block_destroy.exit:                           ; preds = %78, %65, %59, %44, 
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
+define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #9 {
   %3 = tail call noalias dereferenceable_or_null(504) ptr @malloc(i64 noundef 504) #26
   store ptr %3, ptr %1, align 8
   %.not = icmp eq ptr %3, null
@@ -5871,7 +5871,7 @@ define range(i32 0, 3) i32 @tng_forcefield_name_set(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_medium_stride_length_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @tng_medium_stride_length_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -5896,7 +5896,7 @@ define range(i32 0, 2) i32 @tng_medium_stride_length_set(ptr nocapture noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_long_stride_length_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @tng_long_stride_length_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -5921,7 +5921,7 @@ define range(i32 0, 2) i32 @tng_long_stride_length_set(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_time_per_frame_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @tng_time_per_frame_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load double, ptr %3, align 8
   store double %4, ptr %1, align 8
@@ -7077,7 +7077,7 @@ tng_block_destroy.exit:                           ; preds = %300, %287, %23, %2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_input_file_len_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @tng_input_file_len_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -7278,7 +7278,7 @@ tng_block_destroy.exit:                           ; preds = %tng_file_input_nume
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @tng_block_init(ptr nocapture noundef nonnull writeonly %0) unnamed_addr #9 {
+define internal fastcc void @tng_block_init(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0) unnamed_addr #9 {
   %2 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %2, ptr %0, align 8
   %.not = icmp eq ptr %2, null
@@ -7626,7 +7626,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_input_numerical(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_compression_precision_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @tng_compression_precision_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 496
   %4 = load double, ptr %3, align 8
   store double %4, ptr %1, align 8
@@ -7634,7 +7634,7 @@ define noundef i32 @tng_compression_precision_get(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_compression_precision_set(ptr nocapture noundef writeonly %0, double noundef %1) local_unnamed_addr #8 {
+define noundef i32 @tng_compression_precision_set(ptr nocapture noundef writeonly initializes((496, 504)) %0, double noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 496
   store double %1, ptr %3, align 8
   ret i32 0
@@ -7937,7 +7937,7 @@ tng_molecule_cnt_set.exit:                        ; preds = %.thread, %156, %144
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_num_particles_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @tng_num_particles_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 0
@@ -7949,7 +7949,7 @@ define noundef i32 @tng_num_particles_get(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_num_particles_variable_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @tng_num_particles_variable_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load i8, ptr %3, align 8
   store i8 %4, ptr %1, align 1
@@ -7957,7 +7957,7 @@ define noundef i32 @tng_num_particles_variable_get(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_num_molecule_types_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @tng_num_molecule_types_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -8002,7 +8002,7 @@ define range(i32 0, 2) i32 @tng_num_molecules_get(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_distance_unit_exponential_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @tng_distance_unit_exponential_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -8010,14 +8010,14 @@ define noundef i32 @tng_distance_unit_exponential_get(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_distance_unit_exponential_set(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define noundef i32 @tng_distance_unit_exponential_set(ptr nocapture noundef writeonly initializes((160, 168)) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_num_frames_per_frame_set_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @tng_num_frames_per_frame_set_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -8025,7 +8025,7 @@ define noundef i32 @tng_num_frames_per_frame_set_get(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_num_frames_per_frame_set_set(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define noundef i32 @tng_num_frames_per_frame_set_set(ptr nocapture noundef writeonly initializes((176, 184), (296, 304)) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 296
@@ -11316,7 +11316,7 @@ tng_data_block_contents_read.exit:                ; preds = %899, %910, %1266, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_current_frame_set_get(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define noundef i32 @tng_current_frame_set_get(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   store ptr %3, ptr %1, align 8
   ret i32 0
@@ -12886,7 +12886,7 @@ tng_block_destroy.exit:                           ; preds = %38, %41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_frame_set_next_frame_set_file_pos_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @tng_frame_set_next_frame_set_file_pos_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -12894,7 +12894,7 @@ define noundef i32 @tng_frame_set_next_frame_set_file_pos_get(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_frame_set_prev_frame_set_file_pos_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @tng_frame_set_prev_frame_set_file_pos_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -12902,7 +12902,7 @@ define noundef i32 @tng_frame_set_prev_frame_set_file_pos_get(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_frame_set_frame_range_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define noundef i32 @tng_frame_set_frame_range_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   store i64 %6, ptr %2, align 8
@@ -12915,7 +12915,7 @@ define noundef i32 @tng_frame_set_frame_range_get(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_file_headers_read(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_file_headers_read(ptr noundef initializes((440, 448)) %0, i8 noundef signext %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   store i64 0, ptr %3, align 8
   %4 = tail call fastcc i32 @tng_input_file_init(ptr noundef %0)
@@ -16084,7 +16084,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #9 {
+define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1) unnamed_addr #9 {
   store i64 0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load i64, ptr %3, align 8
@@ -20133,7 +20133,7 @@ define range(i32 0, 3) i32 @tng_frame_set_with_time_new(ptr noundef %0, i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_frame_set_first_frame_time_set(ptr nocapture noundef writeonly %0, double noundef %1) local_unnamed_addr #8 {
+define noundef i32 @tng_frame_set_first_frame_time_set(ptr nocapture noundef writeonly initializes((384, 392)) %0, double noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 384
   store double %1, ptr %3, align 8
   ret i32 0
@@ -27832,7 +27832,7 @@ define range(i32 0, 3) i32 @tng_util_time_of_frame_get(ptr noundef %0, i64 nound
 declare double @llvm.fmuladd.f64(double, double, double) #17
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @tng_util_molecule_particles_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #9 {
+define noundef i32 @tng_util_molecule_particles_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef initializes((0, 8)) %4, ptr nocapture noundef initializes((0, 8)) %5, ptr nocapture noundef initializes((0, 8)) %6, ptr nocapture noundef initializes((0, 8)) %7, ptr nocapture noundef initializes((0, 8)) %8) local_unnamed_addr #9 {
   %10 = getelementptr inbounds i8, ptr %1, i64 32
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %2, align 8
@@ -32372,7 +32372,7 @@ define range(i32 0, 3) i32 @tng_util_prepare_append_after_frame(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_num_frames_with_data_of_block_id_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_num_frames_with_data_of_block_id_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   store i64 0, ptr %2, align 8
   %5 = tail call fastcc i32 @tng_input_file_init(ptr noundef %0)

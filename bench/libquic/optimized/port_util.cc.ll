@@ -440,7 +440,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19ScopedPortExceptionC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 noundef %port) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net19ScopedPortExceptionC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %port) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %port, ptr %this, align 4
   %0 = load atomic volatile i64, ptr @_ZN3net12_GLOBAL__N_126g_explicitly_allowed_portsE acquire, align 8

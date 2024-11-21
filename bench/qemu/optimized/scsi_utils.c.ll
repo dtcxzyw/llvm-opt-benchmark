@@ -407,7 +407,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @scsi_build_sense(ptr nocapture noundef writeonly %buf, i24 %sense.coerce) local_unnamed_addr #6 {
+define dso_local noundef i32 @scsi_build_sense(ptr nocapture noundef writeonly initializes((0, 18)) %buf, i24 %sense.coerce) local_unnamed_addr #6 {
 entry:
   %sense.sroa.0.0.extract.trunc.i = trunc i24 %sense.coerce to i8
   %sense.sroa.3.0.extract.shift.i = lshr i24 %sense.coerce, 8

@@ -3404,7 +3404,7 @@ define range(i32 -21, 6) i32 @arkCheckTemporalError(ptr noundef %0, ptr nocaptur
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @arkCompleteStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define i32 @arkCompleteStep(ptr noundef initializes((424, 432)) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 680
@@ -5461,7 +5461,7 @@ define noundef i32 @arkEwtSetSmallReal(ptr nocapture noundef readnone %0, ptr no
 declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @arkExpStab(ptr nocapture noundef readnone %0, double noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #10 {
+define noundef i32 @arkExpStab(ptr nocapture noundef readnone %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef readnone %3) local_unnamed_addr #10 {
   store double 0.000000e+00, ptr %2, align 8
   ret i32 0
 }

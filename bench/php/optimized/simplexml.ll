@@ -518,7 +518,7 @@ declare ptr @_zend_new_array(i32 noundef) local_unnamed_addr #2
 declare void @zend_hash_real_init_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_node_as_zval(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @_node_as_zval(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = getelementptr inbounds i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 88
@@ -5329,14 +5329,14 @@ php_sxe_count_elements_helper.exit:               ; preds = %.lr.ph.i, %php_sxe_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sxe_get_debug_info(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #1 {
+define internal ptr @sxe_get_debug_info(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
   store i32 1, ptr %1, align 4
   %3 = tail call fastcc ptr @sxe_get_prop_hash(ptr noundef %0, i32 noundef 1)
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @sxe_get_gc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #6 {
+define internal ptr @sxe_get_gc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #6 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 -80
@@ -5463,7 +5463,7 @@ define internal nonnull ptr @php_sxe_iterator_current_data(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_sxe_iterator_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal void @php_sxe_iterator_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 56

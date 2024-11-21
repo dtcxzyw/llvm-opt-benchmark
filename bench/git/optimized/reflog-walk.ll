@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @the_repository = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @init_reflog_walk(ptr nocapture noundef writeonly %info) local_unnamed_addr #0 {
+define dso_local void @init_reflog_walk(ptr nocapture noundef writeonly initializes((0, 8)) %info) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 72) #11
   store ptr %call, ptr %info, align 8

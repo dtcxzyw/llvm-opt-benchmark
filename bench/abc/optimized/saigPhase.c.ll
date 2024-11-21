@@ -192,7 +192,7 @@ define range(i32 0, -1) i32 @Saig_TsiStateHash(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Saig_TsiCountNonXValuedRegisters(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @Saig_TsiCountNonXValuedRegisters(ptr nocapture noundef initializes((48, 56)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 104
   %5 = load i32, ptr %4, align 8

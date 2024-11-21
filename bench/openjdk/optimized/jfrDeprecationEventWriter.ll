@@ -724,7 +724,7 @@ declare void @_ZN19JfrCheckpointWriter4moveEPK20JfrCheckpointContext(ptr dead_on
 declare void @_ZN17JfrDeprecatedEdge14set_stacktraceERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE(ptr noundef nonnull align 8 dereferenceable(82), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29JfrDeprecatedStackTraceWriterC2ER14JfrChunkWriter(ptr nocapture noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN29JfrDeprecatedStackTraceWriterC2ER14JfrChunkWriter(ptr nocapture noundef nonnull align 8 dereferenceable(37) initializes((0, 37)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1688,7 +1688,7 @@ _ZNK7JfrBlob5writeI14JfrChunkWriterEEvRT_.exit:   ; preds = %_ZN10WriterHostI11E
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17JfrDeprecatedEdge10stacktraceEv(ptr noundef nonnull align 8 dereferenceable(82)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24JfrDeprecatedEventWriterC2ER14JfrChunkWriterR19JfrCheckpointWriterb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(73) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
+define hidden void @_ZN24JfrDeprecatedEventWriterC2ER14JfrChunkWriterR19JfrCheckpointWriterb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((0, 26)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(73) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #14
   store i64 %6, ptr %0, align 8

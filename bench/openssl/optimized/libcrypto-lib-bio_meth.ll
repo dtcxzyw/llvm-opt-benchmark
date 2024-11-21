@@ -119,7 +119,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2) i32 @bwrite_conv(ptr noundef %bio, ptr noundef %data, i64 noundef %datal, ptr nocapture noundef writeonly %written) #0 {
+define range(i32 -2147483648, 2) i32 @bwrite_conv(ptr noundef %bio, ptr noundef %data, i64 noundef %datal, ptr nocapture noundef writeonly initializes((0, 8)) %written) #0 {
 entry:
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %datal, i64 2147483647)
   %method = getelementptr inbounds i8, ptr %bio, i64 8
@@ -136,7 +136,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @BIO_meth_set_write(ptr nocapture noundef writeonly %biom, ptr noundef %bwrite) local_unnamed_addr #4 {
+define noundef i32 @BIO_meth_set_write(ptr nocapture noundef writeonly initializes((16, 32)) %biom, ptr noundef %bwrite) local_unnamed_addr #4 {
 entry:
   %bwrite_old = getelementptr inbounds i8, ptr %biom, i64 24
   store ptr %bwrite, ptr %bwrite_old, align 8
@@ -146,7 +146,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @BIO_meth_set_write_ex(ptr nocapture noundef writeonly %biom, ptr noundef %bwrite) local_unnamed_addr #4 {
+define noundef i32 @BIO_meth_set_write_ex(ptr nocapture noundef writeonly initializes((16, 32)) %biom, ptr noundef %bwrite) local_unnamed_addr #4 {
 entry:
   %bwrite_old = getelementptr inbounds i8, ptr %biom, i64 24
   store ptr null, ptr %bwrite_old, align 8
@@ -172,7 +172,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2) i32 @bread_conv(ptr noundef %bio, ptr noundef %data, i64 noundef %datal, ptr nocapture noundef writeonly %readbytes) #0 {
+define range(i32 -2147483648, 2) i32 @bread_conv(ptr noundef %bio, ptr noundef %data, i64 noundef %datal, ptr nocapture noundef writeonly initializes((0, 8)) %readbytes) #0 {
 entry:
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %datal, i64 2147483647)
   %method = getelementptr inbounds i8, ptr %bio, i64 8
@@ -189,7 +189,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @BIO_meth_set_read(ptr nocapture noundef writeonly %biom, ptr noundef %bread) local_unnamed_addr #4 {
+define noundef i32 @BIO_meth_set_read(ptr nocapture noundef writeonly initializes((32, 48)) %biom, ptr noundef %bread) local_unnamed_addr #4 {
 entry:
   %bread_old = getelementptr inbounds i8, ptr %biom, i64 40
   store ptr %bread, ptr %bread_old, align 8
@@ -199,7 +199,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @BIO_meth_set_read_ex(ptr nocapture noundef writeonly %biom, ptr noundef %bread) local_unnamed_addr #4 {
+define noundef i32 @BIO_meth_set_read_ex(ptr nocapture noundef writeonly initializes((32, 48)) %biom, ptr noundef %bread) local_unnamed_addr #4 {
 entry:
   %bread_old = getelementptr inbounds i8, ptr %biom, i64 40
   store ptr null, ptr %bread_old, align 8
@@ -217,7 +217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @BIO_meth_set_puts(ptr nocapture noundef writeonly %biom, ptr noundef %bputs) local_unnamed_addr #4 {
+define noundef i32 @BIO_meth_set_puts(ptr nocapture noundef writeonly initializes((48, 56)) %biom, ptr noundef %bputs) local_unnamed_addr #4 {
 entry:
   %bputs1 = getelementptr inbounds i8, ptr %biom, i64 48
   store ptr %bputs, ptr %bputs1, align 8
@@ -233,7 +233,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @BIO_meth_set_gets(ptr nocapture noundef writeonly %biom, ptr noundef %bgets) local_unnamed_addr #4 {
+define noundef i32 @BIO_meth_set_gets(ptr nocapture noundef writeonly initializes((56, 64)) %biom, ptr noundef %bgets) local_unnamed_addr #4 {
 entry:
   %bgets1 = getelementptr inbounds i8, ptr %biom, i64 56
   store ptr %bgets, ptr %bgets1, align 8
@@ -249,7 +249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @BIO_meth_set_ctrl(ptr nocapture noundef writeonly %biom, ptr noundef %ctrl) local_unnamed_addr #4 {
+define noundef i32 @BIO_meth_set_ctrl(ptr nocapture noundef writeonly initializes((64, 72)) %biom, ptr noundef %ctrl) local_unnamed_addr #4 {
 entry:
   %ctrl1 = getelementptr inbounds i8, ptr %biom, i64 64
   store ptr %ctrl, ptr %ctrl1, align 8
@@ -265,7 +265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @BIO_meth_set_create(ptr nocapture noundef writeonly %biom, ptr noundef %create) local_unnamed_addr #4 {
+define noundef i32 @BIO_meth_set_create(ptr nocapture noundef writeonly initializes((72, 80)) %biom, ptr noundef %create) local_unnamed_addr #4 {
 entry:
   %create1 = getelementptr inbounds i8, ptr %biom, i64 72
   store ptr %create, ptr %create1, align 8
@@ -281,7 +281,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @BIO_meth_set_destroy(ptr nocapture noundef writeonly %biom, ptr noundef %destroy) local_unnamed_addr #4 {
+define noundef i32 @BIO_meth_set_destroy(ptr nocapture noundef writeonly initializes((80, 88)) %biom, ptr noundef %destroy) local_unnamed_addr #4 {
 entry:
   %destroy1 = getelementptr inbounds i8, ptr %biom, i64 80
   store ptr %destroy, ptr %destroy1, align 8
@@ -297,7 +297,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @BIO_meth_set_callback_ctrl(ptr nocapture noundef writeonly %biom, ptr noundef %callback_ctrl) local_unnamed_addr #4 {
+define noundef i32 @BIO_meth_set_callback_ctrl(ptr nocapture noundef writeonly initializes((88, 96)) %biom, ptr noundef %callback_ctrl) local_unnamed_addr #4 {
 entry:
   %callback_ctrl1 = getelementptr inbounds i8, ptr %biom, i64 88
   store ptr %callback_ctrl, ptr %callback_ctrl1, align 8
@@ -305,7 +305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @BIO_meth_set_sendmmsg(ptr nocapture noundef writeonly %biom, ptr noundef %bsendmmsg) local_unnamed_addr #4 {
+define noundef i32 @BIO_meth_set_sendmmsg(ptr nocapture noundef writeonly initializes((96, 104)) %biom, ptr noundef %bsendmmsg) local_unnamed_addr #4 {
 entry:
   %bsendmmsg1 = getelementptr inbounds i8, ptr %biom, i64 96
   store ptr %bsendmmsg, ptr %bsendmmsg1, align 8
@@ -321,7 +321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @BIO_meth_set_recvmmsg(ptr nocapture noundef writeonly %biom, ptr noundef %brecvmmsg) local_unnamed_addr #4 {
+define noundef i32 @BIO_meth_set_recvmmsg(ptr nocapture noundef writeonly initializes((104, 112)) %biom, ptr noundef %brecvmmsg) local_unnamed_addr #4 {
 entry:
   %brecvmmsg1 = getelementptr inbounds i8, ptr %biom, i64 104
   store ptr %brecvmmsg, ptr %brecvmmsg1, align 8

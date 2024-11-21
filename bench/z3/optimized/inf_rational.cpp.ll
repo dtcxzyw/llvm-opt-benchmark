@@ -100,7 +100,7 @@ _ZN8rationalD2Ev.exit4:                           ; preds = %.noexc.i2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z8inf_multRK12inf_rationalS1_(ptr noalias sret(%class.inf_rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %r1, ptr noundef nonnull align 8 dereferenceable(64) %r2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z8inf_multRK12inf_rationalS1_(ptr noalias sret(%class.inf_rational) align 8 initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 64)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %r1, ptr noundef nonnull align 8 dereferenceable(64) %r2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i81 = alloca %class.mpq, align 8
   %ref.tmp.i = alloca %class.mpq, align 8
@@ -835,7 +835,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i21,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z8sup_multRK12inf_rationalS1_(ptr noalias sret(%class.inf_rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %r1, ptr noundef nonnull align 8 dereferenceable(64) %r2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z8sup_multRK12inf_rationalS1_(ptr noalias sret(%class.inf_rational) align 8 initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 64)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %r1, ptr noundef nonnull align 8 dereferenceable(64) %r2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i79 = alloca %class.mpq, align 8
   %ref.tmp.i = alloca %class.mpq, align 8
@@ -1117,7 +1117,7 @@ ehcleanup37:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z7inf_divRK12inf_rationalS1_(ptr noalias sret(%class.inf_rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %r1, ptr noundef nonnull align 8 dereferenceable(64) %r2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z7inf_divRK12inf_rationalS1_(ptr noalias sret(%class.inf_rational) align 8 initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 64)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %r1, ptr noundef nonnull align 8 dereferenceable(64) %r2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %class.inf_rational, align 8
   %ref.tmp3 = alloca %class.rational, align 8
@@ -2292,7 +2292,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z7sup_divRK12inf_rationalS1_(ptr noalias sret(%class.inf_rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %r1, ptr noundef nonnull align 8 dereferenceable(64) %r2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z7sup_divRK12inf_rationalS1_(ptr noalias sret(%class.inf_rational) align 8 initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 64)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %r1, ptr noundef nonnull align 8 dereferenceable(64) %r2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %class.inf_rational, align 8
   %ref.tmp3 = alloca %class.rational, align 8
@@ -3071,7 +3071,7 @@ ehcleanup54:                                      ; preds = %lpad, %lpad.i185, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z9inf_powerRK12inf_rationalj(ptr noalias sret(%class.inf_rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %r, i32 noundef %n) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z9inf_powerRK12inf_rationalj(ptr noalias sret(%class.inf_rational) align 8 initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 64)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %r, i32 noundef %n) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   %ref.tmp41 = alloca %class.rational, align 8
@@ -3506,7 +3506,7 @@ nrvo.skipdtor:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z9sup_powerRK12inf_rationalj(ptr noalias sret(%class.inf_rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %r, i32 noundef %n) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z9sup_powerRK12inf_rationalj(ptr noalias sret(%class.inf_rational) align 8 initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 64)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %r, i32 noundef %n) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   %ref.tmp42 = alloca %class.rational, align 8
@@ -4056,7 +4056,7 @@ ehcleanup80:                                      ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_Z8inf_rootRK12inf_rationalj(ptr noalias nocapture sret(%class.inf_rational) align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %r, i32 noundef %n) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z8inf_rootRK12inf_rationalj(ptr noalias nocapture sret(%class.inf_rational) align 8 initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 64)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %r, i32 noundef %n) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4

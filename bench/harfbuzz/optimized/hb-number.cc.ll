@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZZL6_pow10jE13_powers_of_10 = internal unnamed_addr constant [9 x double] [double 1.000000e+256, double 1.000000e+128, double 1.000000e+64, double 1.000000e+32, double 1.000000e+16, double 1.000000e+08, double 1.000000e+04, double 1.000000e+02, double 1.000000e+01], align 16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr nocapture noundef %pp, ptr noundef %end, ptr nocapture noundef writeonly %pv, i1 noundef zeroext %whole_buffer) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr nocapture noundef %pp, ptr noundef %end, ptr nocapture noundef writeonly initializes((0, 4)) %pv, i1 noundef zeroext %whole_buffer) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [32 x i8], align 16
   %pend.i = alloca ptr, align 8
@@ -67,7 +67,7 @@ if.end.i:                                         ; preds = %lor.lhs.false10.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr nocapture noundef %pp, ptr noundef %end, ptr nocapture noundef writeonly %pv, i1 noundef zeroext %whole_buffer, i32 noundef %base) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr nocapture noundef %pp, ptr noundef %end, ptr nocapture noundef writeonly initializes((0, 4)) %pv, i1 noundef zeroext %whole_buffer, i32 noundef %base) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [32 x i8], align 16
   %pend.i = alloca ptr, align 8

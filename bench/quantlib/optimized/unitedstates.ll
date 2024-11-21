@@ -335,7 +335,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8SofrImplEEE = comdat
 @_ZN8QuantLib12UnitedStatesC1ENS0_6MarketE = unnamed_addr alias void (ptr, i32), ptr @_ZN8QuantLib12UnitedStatesC2ENS0_6MarketE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12UnitedStatesC2ENS0_6MarketE(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %market) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12UnitedStatesC2ENS0_6MarketE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, i32 noundef %market) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

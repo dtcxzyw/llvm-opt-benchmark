@@ -73,7 +73,7 @@ $_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFvvENS_4ListIJEEEvE4implEiPNS_15Q
 @_ZN16WirelessTimelineD1Ev = unnamed_addr alias void (ptr), ptr @_ZN16WirelessTimelineD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16WirelessTimeline15mousePressEventEP11QMouseEvent(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16WirelessTimeline15mousePressEventEP11QMouseEvent(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((48, 64)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -566,7 +566,7 @@ define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16WirelessTimeline22captureFileReadStartedEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN16WirelessTimeline22captureFileReadStartedEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(896) initializes((880, 888)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 880
   store ptr %1, ptr %3, align 8
   tail call void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -1091,7 +1091,7 @@ declare void @_ZN15MainApplication14appInitializedEv(ptr noundef nonnull align 8
 declare void @_ZN7QWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16WirelessTimelineD2Ev(ptr noundef nonnull align 8 dereferenceable(896) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16WirelessTimelineD2Ev(ptr noundef nonnull align 8 dereferenceable(896) initializes((0, 8), (16, 24)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16WirelessTimeline, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV16WirelessTimeline, i64 448), ptr %2, align 8
@@ -1156,7 +1156,7 @@ define void @_ZThn16_N16WirelessTimelineD0Ev(ptr noundef %0) unnamed_addr #12 al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16WirelessTimeline13setPacketListEP10PacketList(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
+define void @_ZN16WirelessTimeline13setPacketListEP10PacketList(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void

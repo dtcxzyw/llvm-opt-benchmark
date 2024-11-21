@@ -261,7 +261,7 @@ declare ptr @find_job_record(i32 noundef) local_unnamed_addr #1
 declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @_free_srun_alloc(ptr noundef %0) #0 {
+define internal void @_free_srun_alloc(ptr noundef initializes((200, 208)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr null, ptr %2, align 8
   tail call void @slurm_free_resource_allocation_response_msg(ptr noundef %0) #6

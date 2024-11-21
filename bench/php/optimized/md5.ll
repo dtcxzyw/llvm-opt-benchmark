@@ -256,7 +256,7 @@ declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_MD5InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define void @PHP_MD5InitArgs(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1732584193, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -337,7 +337,7 @@ define void @PHP_MD5Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_MD5Final(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @PHP_MD5Final(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 4
   %4 = and i32 %3, 63
   %5 = getelementptr inbounds i8, ptr %1, i64 24

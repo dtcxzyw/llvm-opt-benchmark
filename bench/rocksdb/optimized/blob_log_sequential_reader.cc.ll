@@ -82,7 +82,7 @@ $_ZTVN7rocksdb25FSRandomAccessFileWrapperE = comdat any
 @_ZN7rocksdb23BlobLogSequentialReaderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb23BlobLogSequentialReaderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb23BlobLogSequentialReaderC2EOSt10unique_ptrINS_22RandomAccessFileReaderESt14default_deleteIS2_EEPNS_11SystemClockEPNS_10StatisticsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %file_reader, ptr noundef %clock, ptr noundef %statistics) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23BlobLogSequentialReaderC2EOSt10unique_ptrINS_22RandomAccessFileReaderESt14default_deleteIS2_EEPNS_11SystemClockEPNS_10StatisticsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 40), (72, 80)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %file_reader, ptr noundef %clock, ptr noundef %statistics) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %file_reader, align 8
   store i64 %0, ptr %this, align 8

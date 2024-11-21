@@ -259,7 +259,7 @@ declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @anim_timeline_exec_cb(ptr noundef %0, i32 noundef %1) #0 {
+define internal void @anim_timeline_exec_cb(ptr noundef initializes((12, 16)) %0, i32 noundef %1) #0 {
   tail call fastcc void @anim_timeline_set_act_time(ptr noundef %0, i32 noundef %1)
   ret void
 }
@@ -385,7 +385,7 @@ lv_anim_timeline_get_playtime.exit:               ; preds = %.lr.ph.i, %8, %.pre
 declare i32 @lv_map(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @anim_timeline_set_act_time(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes((12, 16)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4, !tbaa !22
   %4 = tail call ptr @lv_anim_get(ptr noundef %0, ptr noundef nonnull @anim_timeline_exec_cb) #7

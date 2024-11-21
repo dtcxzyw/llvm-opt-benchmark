@@ -923,7 +923,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @evws_connection_set_closecb(ptr nocapture noundef writeonly %evws, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #5 {
+define void @evws_connection_set_closecb(ptr nocapture noundef writeonly initializes((40, 56)) %evws, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #5 {
 entry:
   %cbclose = getelementptr inbounds i8, ptr %evws, i64 40
   store ptr %cb, ptr %cbclose, align 8

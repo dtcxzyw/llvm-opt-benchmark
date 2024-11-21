@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZZ26toku_dbt_negative_infinityvE21negative_infinity_dbt = internal global %struct.__toku_dbt zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_Z13toku_init_dbtP10__toku_dbt(ptr noundef returned writeonly %dbt) local_unnamed_addr #0 {
+define noundef ptr @_Z13toku_init_dbtP10__toku_dbt(ptr noundef returned writeonly initializes((0, 32)) %dbt) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
   ret ptr %dbt
@@ -19,14 +19,14 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z14toku_empty_dbtv(ptr noalias nocapture writeonly sret(%struct.__toku_dbt) align 8 %agg.result) local_unnamed_addr #0 {
+define void @_Z14toku_empty_dbtv(ptr noalias nocapture writeonly sret(%struct.__toku_dbt) align 8 initializes((0, 32)) %agg.result) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_Z19toku_init_dbt_flagsP10__toku_dbtj(ptr noundef returned writeonly %dbt, i32 noundef %flags) local_unnamed_addr #0 {
+define noundef ptr @_Z19toku_init_dbt_flagsP10__toku_dbtj(ptr noundef returned writeonly initializes((0, 32)) %dbt, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
   %flags1 = getelementptr inbounds i8, ptr %dbt, i64 24
@@ -57,7 +57,7 @@ sw.epilog:                                        ; preds = %sw.bb, %entry
 declare void @_Z9toku_freePv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_Z13toku_fill_dbtP10__toku_dbtPKvm(ptr noundef returned writeonly %dbt, ptr noundef %k, i64 noundef %len) local_unnamed_addr #0 {
+define noundef ptr @_Z13toku_fill_dbtP10__toku_dbtPKvm(ptr noundef returned writeonly initializes((0, 32)) %dbt, ptr noundef %k, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %dbt, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
@@ -68,7 +68,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z15toku_memdup_dbtP10__toku_dbtPKvm(ptr noundef returned writeonly %dbt, ptr noundef %k, i64 noundef %len) local_unnamed_addr #2 {
+define noundef ptr @_Z15toku_memdup_dbtP10__toku_dbtPKvm(ptr noundef returned writeonly initializes((0, 32)) %dbt, ptr noundef %k, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
   %flags1.i = getelementptr inbounds i8, ptr %dbt, i64 24
@@ -83,7 +83,7 @@ entry:
 declare noundef ptr @_Z12toku_xmemdupPKvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_Z16toku_copyref_dbtP10__toku_dbtS_(ptr noundef returned writeonly %dst, ptr nocapture noundef readonly byval(%struct.__toku_dbt) align 8 %src) local_unnamed_addr #4 {
+define noundef ptr @_Z16toku_copyref_dbtP10__toku_dbtS_(ptr noundef returned writeonly initializes((0, 28)) %dst, ptr nocapture noundef readonly byval(%struct.__toku_dbt) align 8 %src) local_unnamed_addr #4 {
 entry:
   %flags = getelementptr inbounds i8, ptr %dst, i64 24
   store i32 0, ptr %flags, align 8
@@ -99,7 +99,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef returned writeonly %dst, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %src) local_unnamed_addr #2 {
+define noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef returned writeonly initializes((0, 32)) %dst, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %src) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %src, align 8
   %size = getelementptr inbounds i8, ptr %src, i64 8
@@ -115,7 +115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17toku_sdbt_cleanupP10simple_dbt(ptr nocapture noundef %sdbt) local_unnamed_addr #2 {
+define void @_Z17toku_sdbt_cleanupP10simple_dbt(ptr nocapture noundef initializes((0, 8)) %sdbt) local_unnamed_addr #2 {
 entry:
   %data = getelementptr inbounds i8, ptr %sdbt, i64 8
   %0 = load ptr, ptr %data, align 8

@@ -2797,7 +2797,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #3
 declare dso_local void @tracing_record_cmdline(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @trace_note_tsk(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @trace_note_tsk(ptr nocapture noundef initializes((960, 964)) %0) unnamed_addr #0 align 16 {
   %2 = load i32, ptr @blktrace_seq, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 960
   store i32 %2, ptr %3, align 64

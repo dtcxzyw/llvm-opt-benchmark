@@ -157,7 +157,7 @@ define range(i32 -1, 1) i32 @H5FA__hdr_dest(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FA__hdr_init(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FA__hdr_init(ptr nocapture noundef initializes((280, 288), (296, 304), (320, 328)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 12

@@ -689,7 +689,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4llvm14CodeGenRegBankC1ERNS_12RecordKeeperERKNS_14CodeGenHwModesE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm14CodeGenRegBankC2ERNS_12RecordKeeperERKNS_14CodeGenHwModesE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18CodeGenSubRegIndexC2EPNS_6RecordEjRKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18CodeGenSubRegIndexC2EPNS_6RecordEjRKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.468", align 4
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -923,7 +923,7 @@ declare void @_ZN4llvm19SubRegRangeByHwModeC1EPNS_6RecordERKNS_14CodeGenHwModesE
 declare void @_ZN4llvm11SubRegRangeC1EPNS_6RecordE(ptr noundef nonnull align 2 dereferenceable(4), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18CodeGenSubRegIndexC2ENS_9StringRefES1_j(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr %1, i64 %2, ptr %3, i64 %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18CodeGenSubRegIndexC2ENS_9StringRefES1_j(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8)) %0, ptr %1, i64 %2, ptr %3, i64 %4, i32 noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %8 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %9 = alloca %"class.std::allocator", align 1
@@ -1772,7 +1772,7 @@ _ZSt4copyIPPN4llvm18CodeGenSubRegIndexES3_ET0_T_S5_S4_.exit: ; preds = %85, %._c
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15CodeGenRegisterC2EPNS_6RecordEj(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15CodeGenRegisterC2EPNS_6RecordEj(ptr noundef nonnull align 8 dereferenceable(624) initializes((0, 12)) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8
@@ -6530,7 +6530,7 @@ _ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.thread:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20CodeGenRegisterClassC2ERNS_14CodeGenRegBankEPNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(684) %0, ptr noundef nonnull align 8 dereferenceable(1008) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20CodeGenRegisterClassC2ERNS_14CodeGenRegBankEPNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(684) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(1008) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair.527", align 4
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -8321,7 +8321,7 @@ declare noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 derefer
 declare noundef ptr @_ZNK4llvm6Record18getValueAsBitsInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20CodeGenRegisterClassC2ERNS_14CodeGenRegBankENS_9StringRefENS0_3KeyE(ptr noundef nonnull align 8 dereferenceable(684) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1008) %1, ptr %2, i64 %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20CodeGenRegisterClassC2ERNS_14CodeGenRegBankENS_9StringRefENS0_3KeyE(ptr noundef nonnull align 8 dereferenceable(684) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1008) %1, ptr %2, i64 %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, llvm::RegSizeInfo>, std::_Select1st<std::pair<const unsigned int, llvm::RegSizeInfo>>, std::less<unsigned int>>::_Alloc_node", align 8
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -11874,7 +11874,7 @@ _ZN12_GLOBAL__N_115RegUnitIterator7advanceEv.exit: ; preds = %_ZNK4llvm15SparseB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23CodeGenRegisterCategoryC2ERNS_14CodeGenRegBankEPNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1008) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm23CodeGenRegisterCategoryC2ERNS_14CodeGenRegBankEPNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1008) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -17138,7 +17138,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_18CodeGenSubRegIndexES4_ELb1EE9pu
 declare void @_ZN4llvm12PrintWarningERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14CodeGenRegBank22computeSubRegLaneMasksEv(ptr noundef nonnull align 8 dereferenceable(1008) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14CodeGenRegBank22computeSubRegLaneMasksEv(ptr noundef nonnull align 8 dereferenceable(1008) initializes((1000, 1008)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -36341,7 +36341,7 @@ _ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSERKj.exit11: ; preds = %_ZNSt6ve
 declare void @_ZN4llvm9SetTheory8Expander6anchorEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113TupleExpanderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113TupleExpanderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_113TupleExpanderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -36388,7 +36388,7 @@ _ZN4llvm9StringSetINS_15MallocAllocatorEED2Ev.exit: ; preds = %16, %1, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113TupleExpanderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113TupleExpanderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_113TupleExpanderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28

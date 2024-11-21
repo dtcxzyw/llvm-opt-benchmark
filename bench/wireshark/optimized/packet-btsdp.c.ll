@@ -3159,7 +3159,7 @@ get_type_length.exit:                             ; preds = %5, %9, %12, %13, %1
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sdp_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -1, 65536) %4, i16 %.0.val, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #1 {
+define internal fastcc i32 @dissect_sdp_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -1, 65536) %4, i16 %.0.val, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %9) unnamed_addr #1 {
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
@@ -6906,7 +6906,7 @@ get_int_by_size.exit:                             ; preds = %1986, %1987, %1990,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #1 {
+define internal fastcc void @dissect_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull initializes((0, 3)) %5) unnamed_addr #1 {
   %7 = alloca %struct._uuid_t, align 2
   %8 = alloca %struct._uuid_t, align 2
   switch i32 %4, label %39 [

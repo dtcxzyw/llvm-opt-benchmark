@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [26 x i8] c"iteration operator failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @H5ES__list_append(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @H5ES__list_append(ptr nocapture noundef %0, ptr noundef initializes((16, 24)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

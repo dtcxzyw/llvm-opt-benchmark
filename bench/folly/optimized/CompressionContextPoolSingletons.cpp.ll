@@ -2139,7 +2139,7 @@ declare i64 @ZSTD_CCtx_reset(ptr noundef, i32 noundef) local_unnamed_addr #9
 declare i64 @ZSTD_DCtx_reset(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11compression8contexts12getZSTD_CCtxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.45") align 8 %agg.result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11compression8contexts12getZSTD_CCtxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.45") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cpu.i.i.i.i = alloca i32, align 4
   %ref.tmp.i = alloca %"class.std::unique_ptr.7", align 8
@@ -2503,7 +2503,7 @@ declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZNSt11logic_errorC1EOS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11compression8contexts12getZSTD_DCtxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.57") align 8 %agg.result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11compression8contexts12getZSTD_DCtxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.57") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cpu.i.i.i.i = alloca i32, align 4
   %ref.tmp.i = alloca %"class.std::unique_ptr.36", align 8
@@ -2750,7 +2750,7 @@ ehcleanup32:                                      ; preds = %lpad16, %lpad5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly11compression8contexts17getNULL_ZSTD_CCtxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.45") align 8 %agg.result) local_unnamed_addr #21 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11compression8contexts17getNULL_ZSTD_CCtxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.45") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #21 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 ptrtoint (ptr @_ZN5folly11compression8contexts12_GLOBAL__N_124zstd_cctx_pool_singletonE to i64), ptr %agg.result, align 8, !tbaa !16, !alias.scope !121
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2759,7 +2759,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly11compression8contexts17getNULL_ZSTD_DCtxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.57") align 8 %agg.result) local_unnamed_addr #21 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11compression8contexts17getNULL_ZSTD_DCtxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.57") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #21 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 ptrtoint (ptr @_ZN5folly11compression8contexts12_GLOBAL__N_124zstd_dctx_pool_singletonE to i64), ptr %agg.result, align 8, !tbaa !16, !alias.scope !124
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8

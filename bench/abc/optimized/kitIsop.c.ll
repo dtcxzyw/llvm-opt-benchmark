@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.Kit_TruthIsop5_rec.uMasks = private unnamed_addr constant [5 x i32] [i32 -1431655766, i32 -858993460, i32 -252645136, i32 -16711936, i32 -65536], align 16
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Kit_TruthIsop2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Kit_TruthIsop2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((4, 8)) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.Kit_Sop_t_, align 8
   %8 = alloca %struct.Kit_Sop_t_, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 4
@@ -747,7 +747,7 @@ Kit_TruthClear.exit:                              ; preds = %._crit_edge257.us, 
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Kit_TruthIsop(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Kit_TruthIsop(ptr noundef %0, i32 noundef %1, ptr noundef initializes((4, 8)) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Kit_Sop_t_, align 8
   %6 = alloca %struct.Kit_Sop_t_, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 4
@@ -983,7 +983,7 @@ default.unreachable:                              ; preds = %18
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_TruthIsopPrint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Kit_TruthIsopPrint(ptr noundef %0, i32 noundef %1, ptr noundef initializes((4, 8)) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @Kit_TruthIsop(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   tail call void @Kit_TruthIsopPrintCover(ptr noundef %2, i32 noundef %1, i32 noundef %5)
   ret void

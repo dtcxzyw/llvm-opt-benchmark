@@ -1735,7 +1735,7 @@ _ZN5osgeo4proj3crs14EngineeringCRSD2Ev.exit:      ; preds = %_ZN5osgeo4proj3crs1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs10DerivedCRSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs10DerivedCRSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1784,7 +1784,7 @@ _ZNSt10unique_ptrIN5osgeo4proj3crs10DerivedCRS7PrivateESt14default_deleteIS4_EED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs14EngineeringCRSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs14EngineeringCRSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1840,7 +1840,7 @@ define weak_odr void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_27DerivedEngine
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 32), (48, 56)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj3crs9SingleCRSE, i64 80), ptr %2, align 8
@@ -3781,7 +3781,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5osgeo4proj3crs14EngineeringCRS5datumEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.86") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs14EngineeringCRS5datumEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.86") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
@@ -3818,7 +3818,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum16EngineeringDatumEED2Ev.exit: ; preds = %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs14EngineeringCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum16EngineeringDatumEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs14EngineeringCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum16EngineeringDatumEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3938,7 +3938,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum16EngineeringDatumEED2Ev.exit: ; preds = %1,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_9SingleCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4986,7 +4986,7 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_27Derive
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs14EngineeringCRSC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs14EngineeringCRSC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5027,7 +5027,7 @@ define hidden void @_ZN5osgeo4proj3crs14EngineeringCRSC2ERKS2_(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5743,7 +5743,7 @@ _ZN5osgeo4proj3crs13ParametricCRSD2Ev.exit:       ; preds = %_ZN5osgeo4proj3crs1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs13ParametricCRSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs13ParametricCRSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6781,7 +6781,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5osgeo4proj3crs13ParametricCRS5datumEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.133") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs13ParametricCRS5datumEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.133") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
@@ -6818,7 +6818,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum15ParametricDatumEED2Ev.exit: ; preds = %18,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5osgeo4proj3crs13ParametricCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum15ParametricDatumEEEERKNS5_IS6_INS0_2cs12ParametricCSEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs13ParametricCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum15ParametricDatumEEEERKNS5_IS6_INS0_2cs12ParametricCSEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7929,7 +7929,7 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_26Derive
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5osgeo4proj3crs13ParametricCRSC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs13ParametricCRSC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -8370,7 +8370,7 @@ _ZN5osgeo4proj3crs11TemporalCRSD2Ev.exit:         ; preds = %_ZN5osgeo4proj3crs1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs11TemporalCRSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs11TemporalCRSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -9408,7 +9408,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5osgeo4proj3crs11TemporalCRS5datumEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.167") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs11TemporalCRS5datumEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.167") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
@@ -9445,7 +9445,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum13TemporalDatumEED2Ev.exit: ; preds = %18, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5osgeo4proj3crs11TemporalCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum13TemporalDatumEEEERKNS5_IS6_INS0_2cs10TemporalCSEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs11TemporalCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum13TemporalDatumEEEERKNS5_IS6_INS0_2cs10TemporalCSEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10477,7 +10477,7 @@ define weak_odr hidden void @_ZN5osgeo4proj3crs18DerivedCRSTemplateINS1_24Derive
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5osgeo4proj3crs11TemporalCRSC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs11TemporalCRSC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10964,7 +10964,7 @@ _ZN5osgeo4proj3crs3CRS7PrivateC2ERKS3_.exit:      ; preds = %33, %30, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs3CRSD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs3CRSD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (16, 32), (48, 56)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj3crs3CRSE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj3crs3CRSE, i64 80), ptr %2, align 8
@@ -11762,7 +11762,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs11VerticalCRSEED2Ev.exit: ; preds = %.lr.ph, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5osgeo4proj3crs11VerticalCRS5datumEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.215") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs11VerticalCRS5datumEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.215") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
@@ -11958,7 +11958,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs11VerticalCRSELN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5osgeo4proj3crs3CRS18extractGeodeticCRSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.234") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs3CRS18extractGeodeticCRSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.234") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.osgeo::proj::util::BaseObjectNNPtr", align 8
   %4 = tail call noundef ptr @_ZNK5osgeo4proj3crs3CRS21extractGeodeticCRSRawEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %.not = icmp eq ptr %4, null
@@ -12045,7 +12045,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs8Boun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @_ZNK5osgeo4proj3crs19DerivedProjectedCRS7baseCRSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.265") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs19DerivedProjectedCRS7baseCRSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.265") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8, !noalias !170
@@ -12176,7 +12176,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj3c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5osgeo4proj3crs3CRS20extractGeographicCRSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.277") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs3CRS20extractGeographicCRSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.277") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.osgeo::proj::util::BaseObjectNNPtr", align 8
   %4 = tail call noundef ptr @_ZNK5osgeo4proj3crs3CRS21extractGeodeticCRSRawEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %.not = icmp eq ptr %4, null
@@ -18063,7 +18063,7 @@ _ZNSt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5osgeo4proj3crs11VerticalCRS16coordinateSystemEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.324") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs11VerticalCRS16coordinateSystemEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.324") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
@@ -24510,7 +24510,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEC2INS2_3CRSEEERKS_IT_EPS3_.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK5osgeo4proj3crs11GeodeticCRS12datumNonNullERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.460") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5osgeo4proj3crs11GeodeticCRS12datumNonNullERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.460") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.dropbox::oxygen::nn.546", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -33497,7 +33497,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEED2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @_ZNK5osgeo4proj3crs20DerivedGeographicCRS7baseCRSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.245") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs20DerivedGeographicCRS7baseCRSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.245") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8, !noalias !415
@@ -39248,7 +39248,7 @@ define hidden void @_ZNK5osgeo4proj3crs9SingleCRS31exportDatumOrDatumEnsembleToW
 declare hidden void @_ZNK5osgeo4proj5datum13DatumEnsemble12_exportToWKTEPNS0_2io12WKTFormatterE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs13EllipsoidalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs13EllipsoidalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io21IPROJStringExportableE, i64 16), ptr %0, align 8
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8
@@ -39659,7 +39659,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osge
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs11SphericalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs11SphericalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io21IPROJStringExportableE, i64 16), ptr %0, align 8
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8
@@ -40022,7 +40022,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev.exit: ; preds = %_ZN7dropbox6ox
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs11CartesianCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs11CartesianCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io21IPROJStringExportableE, i64 16), ptr %0, align 8
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8
@@ -40385,7 +40385,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev.exit: ; preds = %_ZN7dropbox6ox
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io21IPROJStringExportableE, i64 16), ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
@@ -40501,7 +40501,7 @@ define hidden void @_ZN5osgeo4proj3crs11GeodeticCRSC1ERKS2_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs11GeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs11GeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -40551,7 +40551,7 @@ _ZNSt10unique_ptrIN5osgeo4proj3crs11GeodeticCRS7PrivateESt14default_deleteIS4_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs11GeodeticCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs11GeodeticCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24), (32, 48), (64, 72)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-72, 48) (i8, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i64 160), ptr %2, align 8
@@ -40710,7 +40710,7 @@ _ZN5osgeo4proj3crs11GeodeticCRSD1Ev.exit:         ; preds = %1, %_ZNKSt14default
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs11GeodeticCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs11GeodeticCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24), (32, 48), (64, 72)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-72, 48) (i8, ptr @_ZTVN5osgeo4proj3crs11GeodeticCRSE, i64 160), ptr %2, align 8
@@ -51185,7 +51185,7 @@ define hidden void @_ZTv0_n64_NK5osgeo4proj3crs11GeodeticCRS9_identifyB5cxx11ERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs13GeographicCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs13EllipsoidalCSEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs13GeographicCRSC2ERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs13EllipsoidalCSEEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %2, align 8
   %6 = tail call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5osgeo4proj3crsL27checkEnsembleForGeodeticCRSERKSt10shared_ptrINS0_5datum22GeodeticReferenceFrameEERKS2_INS3_13DatumEnsembleEE(ptr %.val, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -51669,7 +51669,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev.exit: ; preds = %_ZN7dropbox6ox
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs13GeographicCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs13GeographicCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io21IPROJStringExportableE, i64 16), ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
@@ -51913,7 +51913,7 @@ define hidden void @_ZN5osgeo4proj3crs13GeographicCRSC1ERKS2_(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
@@ -52081,7 +52081,7 @@ _ZN5osgeo4proj3crs11GeodeticCRSD2Ev.exit:         ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs13GeographicCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
+define void @_ZN5osgeo4proj3crs13GeographicCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @_ZTTN5osgeo4proj3crs13GeographicCRSE) #39
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #39
@@ -52140,7 +52140,7 @@ define void @_ZTvn48_n24_N5osgeo4proj3crs13GeographicCRSD1Ev(ptr noundef %0) unn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs13GeographicCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
+define void @_ZN5osgeo4proj3crs13GeographicCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN5osgeo4proj3crs13GeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @_ZTTN5osgeo4proj3crs13GeographicCRSE) #39
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #39
@@ -55085,7 +55085,7 @@ define hidden void @_ZTvn48_n72_NK5osgeo4proj3crs13GeographicCRS13_exportToJSONE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs11VerticalCRSC2ERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs10VerticalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs11VerticalCRSC2ERKSt10shared_ptrINS0_5datum22VerticalReferenceFrameEERKS3_INS4_13DatumEnsembleEERKN7dropbox6oxygen2nnIS3_INS0_2cs10VerticalCSEEEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io21IPROJStringExportableE, i64 16), ptr %0, align 8
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8
@@ -55437,7 +55437,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum5DatumEED2Ev.exit: ; preds = %_ZN7dropbox6ox
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs11VerticalCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs11VerticalCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io21IPROJStringExportableE, i64 16), ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
@@ -55553,7 +55553,7 @@ define hidden void @_ZN5osgeo4proj3crs11VerticalCRSC1ERKS2_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs11VerticalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs11VerticalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -55603,7 +55603,7 @@ _ZNSt10unique_ptrIN5osgeo4proj3crs11VerticalCRS7PrivateESt14default_deleteIS4_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs11VerticalCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs11VerticalCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24), (32, 48), (64, 72)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-72, 48) (i8, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i64 160), ptr %2, align 8
@@ -55762,7 +55762,7 @@ _ZN5osgeo4proj3crs11VerticalCRSD1Ev.exit:         ; preds = %1, %_ZNKSt14default
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs11VerticalCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs11VerticalCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24), (32, 48), (64, 72)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-24, 64) (i8, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-72, 48) (i8, ptr @_ZTVN5osgeo4proj3crs11VerticalCRSE, i64 160), ptr %2, align 8
@@ -56127,7 +56127,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj3crs11Ver
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK5osgeo4proj3crs11VerticalCRS12datumNonNullERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.665") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5osgeo4proj3crs11VerticalCRS12datumNonNullERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.665") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.dropbox::oxygen::nn.546", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr i8, ptr %5, i64 -24
@@ -60958,7 +60958,7 @@ define hidden void @_ZTvn48_n72_NK5osgeo4proj3crs10DerivedCRS13_exportToJSONEPNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs12ProjectedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11GeodeticCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs11CartesianCSEEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs12ProjectedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11GeodeticCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs11CartesianCSEEEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.dropbox::oxygen::nn.58", align 8
   %7 = alloca %"class.dropbox::oxygen::nn.70", align 8
   %8 = load ptr, ptr %2, align 8
@@ -61973,7 +61973,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEC2ERKS8_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs12ProjectedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs12ProjectedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -78389,7 +78389,7 @@ _ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZN5osgeo4proj3crs8BoundCRS7PrivateC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_3CRSEEEESC_RKNS6_IS7_INS0_9operation14TransformationEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs8BoundCRS7PrivateC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_3CRSEEEESC_RKNS6_IS7_INS0_9operation14TransformationEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -85271,7 +85271,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -85379,7 +85379,7 @@ _ZN5osgeo4proj3crs11GeodeticCRSD2Ev.exit:         ; preds = %_ZN5osgeo4proj3crs1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE) #39
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #39
@@ -85387,7 +85387,7 @@ define void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSD1Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N5osgeo4proj3crs18DerivedGeodeticCRSD1Ev(ptr noundef %0) unnamed_addr #4 align 2 {
+define void @_ZThn16_N5osgeo4proj3crs18DerivedGeodeticCRSD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE) #39
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -85447,7 +85447,7 @@ define void @_ZTvn48_n24_N5osgeo4proj3crs18DerivedGeodeticCRSD1Ev(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE) #39
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #39
@@ -85456,7 +85456,7 @@ define void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSD0Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N5osgeo4proj3crs18DerivedGeodeticCRSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
+define void @_ZThn16_N5osgeo4proj3crs18DerivedGeodeticCRSD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull @_ZTTN5osgeo4proj3crs18DerivedGeodeticCRSE) #39
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -85521,7 +85521,7 @@ define void @_ZTvn48_n24_N5osgeo4proj3crs18DerivedGeodeticCRSD0Ev(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11GeodeticCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs11CartesianCSEEEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11GeodeticCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs11CartesianCSEEEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.dropbox::oxygen::nn.58", align 8
   %7 = alloca %"class.dropbox::oxygen::nn.70", align 8
   %8 = load ptr, ptr %2, align 8
@@ -86542,7 +86542,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11GeodeticCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs11SphericalCSEEEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11GeodeticCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs11SphericalCSEEEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.dropbox::oxygen::nn.58", align 8
   %7 = alloca %"class.dropbox::oxygen::nn.70", align 8
   %8 = load ptr, ptr %2, align 8
@@ -87563,7 +87563,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs18DerivedGeodeticCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io21IPROJStringExportableE, i64 16), ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
@@ -87938,7 +87938,7 @@ define hidden void @_ZTv0_n56_NK5osgeo4proj3crs18DerivedGeodeticCRS13_shallowClo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @_ZNK5osgeo4proj3crs18DerivedGeodeticCRS7baseCRSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.245") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs18DerivedGeodeticCRS7baseCRSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.245") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8, !noalias !845
@@ -88938,7 +88938,7 @@ define hidden void @_ZTv0_n64_NK5osgeo4proj3crs18DerivedGeodeticCRS9_identifyB5c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs20DerivedGeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs20DerivedGeographicCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (24, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -89002,7 +89002,7 @@ _ZN5osgeo4proj3crs10DerivedCRSD2Ev.exit:          ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs20DerivedGeographicCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs20DerivedGeographicCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (24, 32), (48, 56), (64, 80), (96, 104)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -89042,7 +89042,7 @@ _ZN5osgeo4proj3crs20DerivedGeographicCRSD2Ev.exit: ; preds = %_ZNSt10unique_ptrI
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn24_N5osgeo4proj3crs20DerivedGeographicCRSD1Ev(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn24_N5osgeo4proj3crs20DerivedGeographicCRSD1Ev(ptr noundef initializes((-24, -16), (0, 8), (24, 32), (40, 56), (72, 80)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -89261,7 +89261,7 @@ _ZN5osgeo4proj3crs20DerivedGeographicCRSD1Ev.exit: ; preds = %_ZNSt10unique_ptrI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs20DerivedGeographicCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs20DerivedGeographicCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (24, 32), (48, 56), (64, 80), (96, 104)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -89302,7 +89302,7 @@ _ZN5osgeo4proj3crs20DerivedGeographicCRSD1Ev.exit: ; preds = %_ZNSt10unique_ptrI
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn24_N5osgeo4proj3crs20DerivedGeographicCRSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn24_N5osgeo4proj3crs20DerivedGeographicCRSD0Ev(ptr noundef initializes((-24, -16), (0, 8), (24, 32), (40, 56), (72, 80)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -89526,7 +89526,7 @@ _ZN5osgeo4proj3crs20DerivedGeographicCRSD0Ev.exit: ; preds = %_ZNSt10unique_ptrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs20DerivedGeographicCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11GeodeticCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs13EllipsoidalCSEEEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs20DerivedGeographicCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11GeodeticCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs13EllipsoidalCSEEEE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.dropbox::oxygen::nn.58", align 8
   %7 = alloca %"class.dropbox::oxygen::nn.70", align 8
   %8 = load ptr, ptr %2, align 8
@@ -90447,7 +90447,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs20DerivedGeographicCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs20DerivedGeographicCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZN5osgeo4proj3crs13GeographicCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -91279,7 +91279,7 @@ define hidden void @_ZTv0_n64_NK5osgeo4proj3crs20DerivedGeographicCRS9_identifyB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs19DerivedProjectedCRSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs19DerivedProjectedCRSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -91340,7 +91340,7 @@ _ZN5osgeo4proj3crs10DerivedCRSD2Ev.exit:          ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs19DerivedProjectedCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs19DerivedProjectedCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (24, 32), (40, 56), (72, 80)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -91549,7 +91549,7 @@ _ZN5osgeo4proj3crs19DerivedProjectedCRSD1Ev.exit: ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs19DerivedProjectedCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs19DerivedProjectedCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (24, 32), (40, 56), (72, 80)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -91763,7 +91763,7 @@ _ZN5osgeo4proj3crs19DerivedProjectedCRSD0Ev.exit: ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs19DerivedProjectedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_12ProjectedCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs19DerivedProjectedCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_12ProjectedCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs16CoordinateSystemEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.dropbox::oxygen::nn.58", align 8
   %7 = load ptr, ptr %2, align 8
   %8 = icmp eq ptr %7, null
@@ -92198,7 +92198,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs19DerivedProjectedCRSC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs19DerivedProjectedCRSC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZN5osgeo4proj3crs10DerivedCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %5 = load ptr, ptr %1, align 8
@@ -93046,7 +93046,7 @@ define hidden void @_ZNK5osgeo4proj3crs19DerivedProjectedCRS25addUnitConvertAndA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs11TemporalCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs11TemporalCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24), (32, 48), (64, 72)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-24, 48) (i8, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-72, 48) (i8, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i64 144), ptr %2, align 8
@@ -93195,7 +93195,7 @@ _ZN5osgeo4proj3crs11TemporalCRSD1Ev.exit:         ; preds = %1, %_ZNKSt14default
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs11TemporalCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs11TemporalCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24), (32, 48), (64, 72)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-24, 48) (i8, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-72, 48) (i8, ptr @_ZTVN5osgeo4proj3crs11TemporalCRSE, i64 144), ptr %2, align 8
@@ -93907,7 +93907,7 @@ define hidden void @_ZTv0_n56_NK5osgeo4proj3crs11TemporalCRS13_shallowCloneEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5osgeo4proj3crs11TemporalCRS16coordinateSystemEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.163") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs11TemporalCRS16coordinateSystemEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.163") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
@@ -94916,7 +94916,7 @@ _ZNK5osgeo4proj3crs11TemporalCRS15_isEquivalentToEPKNS0_4util11IComparableENS4_9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs14EngineeringCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs14EngineeringCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24), (32, 48), (64, 72)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-24, 48) (i8, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-72, 48) (i8, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i64 144), ptr %2, align 8
@@ -95065,7 +95065,7 @@ _ZN5osgeo4proj3crs14EngineeringCRSD1Ev.exit:      ; preds = %1, %_ZNKSt14default
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs14EngineeringCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs14EngineeringCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24), (32, 48), (64, 72)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-24, 48) (i8, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-72, 48) (i8, ptr @_ZTVN5osgeo4proj3crs14EngineeringCRSE, i64 144), ptr %2, align 8
@@ -96766,7 +96766,7 @@ define hidden noundef zeroext i1 @_ZTvn16_n32_NK5osgeo4proj3crs14EngineeringCRS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs13ParametricCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs13ParametricCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24), (32, 48), (64, 72)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-24, 48) (i8, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-72, 48) (i8, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i64 144), ptr %2, align 8
@@ -96915,7 +96915,7 @@ _ZN5osgeo4proj3crs13ParametricCRSD1Ev.exit:       ; preds = %1, %_ZNKSt14default
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs13ParametricCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs13ParametricCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24), (32, 48), (64, 72)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-24, 48) (i8, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i64 24), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-72, 48) (i8, ptr @_ZTVN5osgeo4proj3crs13ParametricCRSE, i64 144), ptr %2, align 8
@@ -97627,7 +97627,7 @@ define hidden void @_ZTv0_n56_NK5osgeo4proj3crs13ParametricCRS13_shallowCloneEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5osgeo4proj3crs13ParametricCRS16coordinateSystemEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.129") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs13ParametricCRS16coordinateSystemEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.129") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
@@ -98630,7 +98630,7 @@ _ZNK5osgeo4proj3crs13ParametricCRS15_isEquivalentToEPKNS0_4util11IComparableENS4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs18DerivedVerticalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj3crs18DerivedVerticalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -98738,7 +98738,7 @@ _ZN5osgeo4proj3crs11VerticalCRSD2Ev.exit:         ; preds = %_ZN5osgeo4proj3crs1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs18DerivedVerticalCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define void @_ZN5osgeo4proj3crs18DerivedVerticalCRSD1Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN5osgeo4proj3crs18DerivedVerticalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE) #39
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #39
@@ -98746,7 +98746,7 @@ define void @_ZN5osgeo4proj3crs18DerivedVerticalCRSD1Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N5osgeo4proj3crs18DerivedVerticalCRSD1Ev(ptr noundef %0) unnamed_addr #4 align 2 {
+define void @_ZThn16_N5osgeo4proj3crs18DerivedVerticalCRSD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj3crs18DerivedVerticalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE) #39
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -98806,7 +98806,7 @@ define void @_ZTvn48_n24_N5osgeo4proj3crs18DerivedVerticalCRSD1Ev(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj3crs18DerivedVerticalCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define void @_ZN5osgeo4proj3crs18DerivedVerticalCRSD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN5osgeo4proj3crs18DerivedVerticalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE) #39
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN5osgeo4proj3crs9SingleCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #39
@@ -98815,7 +98815,7 @@ define void @_ZN5osgeo4proj3crs18DerivedVerticalCRSD0Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N5osgeo4proj3crs18DerivedVerticalCRSD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
+define void @_ZThn16_N5osgeo4proj3crs18DerivedVerticalCRSD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5osgeo4proj3crs18DerivedVerticalCRSD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull @_ZTTN5osgeo4proj3crs18DerivedVerticalCRSE) #39
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -98880,7 +98880,7 @@ define void @_ZTvn48_n24_N5osgeo4proj3crs18DerivedVerticalCRSD0Ev(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs18DerivedVerticalCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11VerticalCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs10VerticalCSEEEE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs18DerivedVerticalCRSC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_11VerticalCRSEEEERKNS5_IS6_INS0_9operation10ConversionEEEERKNS5_IS6_INS0_2cs10VerticalCSEEEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr.215", align 8
   %7 = alloca %"class.dropbox::oxygen::nn.58", align 8
   %8 = alloca %"class.dropbox::oxygen::nn.70", align 8
@@ -100171,7 +100171,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs9SingleCRSEEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj3crs18DerivedVerticalCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj3crs18DerivedVerticalCRSC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io21IPROJStringExportableE, i64 16), ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
@@ -100546,7 +100546,7 @@ define hidden void @_ZTv0_n56_NK5osgeo4proj3crs18DerivedVerticalCRS13_shallowClo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @_ZNK5osgeo4proj3crs18DerivedVerticalCRS7baseCRSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.323") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj3crs18DerivedVerticalCRS7baseCRSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.323") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8, !noalias !1045

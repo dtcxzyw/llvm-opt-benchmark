@@ -283,7 +283,7 @@ pmix_obj_run_destructors.exit34:                  ; preds = %.lr.ph.i31, %pmix_o
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @acon(ptr nocapture noundef writeonly %0) #2 {
+define internal void @acon(ptr nocapture noundef writeonly initializes((144, 146)) %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 145

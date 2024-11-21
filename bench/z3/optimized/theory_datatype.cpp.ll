@@ -446,7 +446,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt15theory_datatype14final_check_stC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %th) unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt15theory_datatype14final_check_stC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %th) unnamed_addr #3 align 2 {
 entry:
   store ptr %th, ptr %this, align 8
   %m_used_eqs = getelementptr inbounds i8, ptr %th, i64 664
@@ -8944,7 +8944,7 @@ declare void @_ZN8datatype4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN3smt6theoryD2Ev(ptr noundef nonnull align 8 dereferenceable(53)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt15theory_datatypeD2Ev(ptr noundef nonnull align 8 dereferenceable(728) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt15theory_datatypeD2Ev(ptr noundef nonnull align 8 dereferenceable(728) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt15theory_datatypeE, i64 16), ptr %this, align 8
   %m_var_data = getelementptr inbounds i8, ptr %this, i64 496
@@ -9273,7 +9273,7 @@ terminate.lpad:                                   ; preds = %_Z7deallocIN3smt15t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt15theory_datatypeD0Ev(ptr noundef nonnull align 8 dereferenceable(728) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN3smt15theory_datatypeD0Ev(ptr noundef nonnull align 8 dereferenceable(728) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN3smt15theory_datatypeD2Ev(ptr noundef nonnull align 8 dereferenceable(728) %this) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #30
@@ -9545,7 +9545,7 @@ return:                                           ; preds = %land.lhs.true10, %f
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt15theory_datatype10init_modelERNS_15model_generatorE(ptr nocapture noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(104) %mg) unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt15theory_datatype10init_modelERNS_15model_generatorE(ptr nocapture noundef nonnull align 8 dereferenceable(728) initializes((616, 624)) %this, ptr noundef nonnull align 8 dereferenceable(104) %mg) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 408)
   %m = getelementptr inbounds i8, ptr %this, i64 24
@@ -12478,7 +12478,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIF7svectorIN3sat7literalEjEvEZN3smt15theory_datatype26assert_update_field_axiomsEPNS5_5enodeEE3$_0E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%class.svector.49) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 {
+define internal void @"_ZNSt17_Function_handlerIF7svectorIN3sat7literalEjEvEZN3smt15theory_datatype26assert_update_field_axiomsEPNS5_5enodeEE3$_0E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%class.svector.49) align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)

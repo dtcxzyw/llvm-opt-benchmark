@@ -1943,7 +1943,7 @@ land.end53.i.i.i.i.i:                             ; preds = %_ZN4pbrt3LogIJllllE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt11InitLoggingENS_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbENK3$_1clEv"(ptr noalias nonnull align 8 %agg.result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt11InitLoggingENS_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbENK3$_1clEv"(ptr noalias nonnull align 8 initializes((0, 64)) %agg.result) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stat = alloca %"class.std::basic_ifstream", align 8
   %line = alloca %"class.std::__cxx11::basic_string", align 8

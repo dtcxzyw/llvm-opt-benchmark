@@ -4221,7 +4221,7 @@ define dso_local void @rcu_early_boot_tests() local_unnamed_addr #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @call_rcu_tasks(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local void @call_rcu_tasks(ptr noundef initializes((0, 16)) %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i64, align 8
   %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 104), align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !70
@@ -5681,7 +5681,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #0
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rcu_tasks_wait_gp(ptr noundef %0) #1 align 16 {
+define internal void @rcu_tasks_wait_gp(ptr noundef initializes((48, 52), (64, 72)) %0) #1 align 16 {
   %2 = alloca %struct.list_head, align 8
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16

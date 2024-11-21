@@ -1903,7 +1903,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %21, %4, %64, %68, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm16InstCombinerImpl13foldEqOfPartsEPNS_8ICmpInstES2_bENK3$_0clES2_j"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm16InstCombinerImpl13foldEqOfPartsEPNS_8ICmpInstES2_bENK3$_0clES2_j"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((16, 17)) %0, ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.llvm::PatternMatch::api_pred_ty.379", align 8
   %6 = load i32, ptr %.0.val, align 4

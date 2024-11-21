@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [25 x i8] c"Buffer allocation failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_sha512_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_sha512_init(ptr nocapture noundef writeonly initializes((0, 216)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
   ret void
 }
@@ -40,7 +40,7 @@ define hidden void @mbedtls_sha512_free(ptr noundef %0) local_unnamed_addr #2 {
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mbedtls_sha512_clone(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @mbedtls_sha512_clone(ptr nocapture noundef writeonly initializes((0, 216)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, i64 216, i1 false)
   ret void
 }
@@ -49,7 +49,7 @@ define hidden void @mbedtls_sha512_clone(ptr nocapture noundef writeonly %0, ptr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mbedtls_sha512_starts(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @mbedtls_sha512_starts(ptr nocapture noundef writeonly initializes((0, 80), (208, 212)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br i1 %3, label %5, label %4
@@ -578,7 +578,7 @@ mbedtls_internal_sha512_process_many.exit:        ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
+define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef writeonly initializes((0, 48)) %1) local_unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8
   %4 = trunc i64 %3 to i32
   %5 = and i32 %4, 127

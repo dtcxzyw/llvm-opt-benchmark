@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [44 x i8] c"Unsupported interpolation (%d->%d channels)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocInterpPluginChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocInterpPluginChunk(ptr nocapture noundef initializes((56, 64)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -54,7 +54,7 @@ define hidden noundef i32 @_cmsRegisterInterpPlugin(ptr noundef %0, ptr noundef 
 declare ptr @_cmsContextGetClientChunk(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsSetInterpolationRoutine(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_cmsSetInterpolationRoutine(ptr noundef %0, ptr nocapture noundef initializes((208, 216)) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 5) #8
   %4 = getelementptr inbounds i8, ptr %1, i64 208
   store ptr null, ptr %4, align 8
@@ -341,7 +341,7 @@ define hidden void @_cmsFreeInterpParams(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @LinLerp1Dfloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @LinLerp1Dfloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef readonly %2) #3 {
   %4 = getelementptr inbounds i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load float, ptr %0, align 4
@@ -397,7 +397,7 @@ define internal void @LinLerp1Dfloat(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @LinLerp1D(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @LinLerp1D(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 2)) %1, ptr nocapture noundef readonly %2) #3 {
   %4 = getelementptr inbounds i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %0, align 2

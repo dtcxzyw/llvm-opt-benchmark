@@ -49,7 +49,7 @@ $_ZN26GrowableArrayWithAllocatorIP12MonitorValue13GrowableArrayIS1_EE9expand_toE
 @_ZN9ScopeDescC1EPKS_i = hidden unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN9ScopeDescC2EPKS_i
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9ScopeDescC2EPK7nmethodP6PcDescb(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN9ScopeDescC2EPK7nmethodP6PcDescb(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((20, 24), (48, 56)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   br i1 %3, label %8, label %5
 
 5:                                                ; preds = %4
@@ -583,7 +583,7 @@ _ZN20CompressedReadStream8read_intEv.exit50:      ; preds = %_ZN20CompressedRead
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9ScopeDesc10initializeEPKS_i(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9ScopeDesc10initializeEPKS_i(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((12, 17), (20, 24), (40, 56)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -612,7 +612,7 @@ define hidden void @_ZN9ScopeDesc10initializeEPKS_i(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9ScopeDescC2EPKS_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN9ScopeDescC2EPKS_(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((12, 17), (20, 24), (40, 56)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 48
@@ -643,7 +643,7 @@ define hidden void @_ZN9ScopeDescC2EPKS_(ptr nocapture noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9ScopeDescC2EPKS_i(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN9ScopeDescC2EPKS_i(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((12, 17), (20, 24), (40, 56)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48

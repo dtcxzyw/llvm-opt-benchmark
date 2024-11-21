@@ -336,7 +336,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %5, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr %1, i64 %2, ptr noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, ptr noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #1 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = load i64, ptr %4, align 8
   %8 = tail call i64 @ZSTD_decompress(ptr noundef %3, i64 noundef %7, ptr noundef %1, i64 noundef %2) #7
@@ -484,7 +484,7 @@ _ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEEPhRm.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEERNS_15SmallVectorImplIhEEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEERNS_15SmallVectorImplIhEEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #7
   %8 = icmp eq i64 %4, %7

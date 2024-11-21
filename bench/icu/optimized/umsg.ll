@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZTVN6icu_7513FieldPositionE = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_7520MessageFormatAdapter14getArgTypeListERKNS_13MessageFormatERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(816) %m, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN6icu_7520MessageFormatAdapter14getArgTypeListERKNS_13MessageFormatERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(816) %m, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #0 align 2 {
 entry:
   %argTypeCount.i = getelementptr inbounds i8, ptr %m, i64 704
   %0 = load i32, ptr %argTypeCount.i, align 8

@@ -14,7 +14,7 @@ $_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_ = com
 @_ZN7rocksdb9LogBufferC1ENS_12InfoLogLevelEPNS_6LoggerE = unnamed_addr alias void (ptr, i8, ptr), ptr @_ZN7rocksdb9LogBufferC2ENS_12InfoLogLevelEPNS_6LoggerE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9LogBufferC2ENS_12InfoLogLevelEPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2408) %this, i8 noundef zeroext %log_level, ptr noundef %info_log) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb9LogBufferC2ENS_12InfoLogLevelEPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2408) initializes((0, 1), (8, 16)) %this, i8 noundef zeroext %log_level, ptr noundef %info_log) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 %log_level, ptr %this, align 16
   %info_log_ = getelementptr inbounds i8, ptr %this, i64 8

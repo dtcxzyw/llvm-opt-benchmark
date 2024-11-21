@@ -3754,7 +3754,7 @@ _ZN13ObjectMonitor13DequeueWaiterEv.exit.thread:  ; preds = %2, %_ZN12ObjectWait
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12ObjectWaiter18wait_reenter_beginEP13ObjectMonitor(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12ObjectWaiter18wait_reenter_beginEP13ObjectMonitor(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((48, 49)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null

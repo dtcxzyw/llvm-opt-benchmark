@@ -2085,7 +2085,7 @@ return:                                           ; preds = %if.end45, %verify_h
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @buffer_gets(ptr noundef %b, ptr nocapture noundef nonnull %s) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @buffer_gets(ptr noundef %b, ptr nocapture noundef nonnull initializes((0, 8)) %s) unnamed_addr #0 {
 entry:
   %offset = getelementptr inbounds i8, ptr %b, i64 20
   %0 = load i32, ptr %offset, align 4
@@ -3019,7 +3019,7 @@ declare i64 @xread(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @parse_capability(ptr nocapture noundef %imap, ptr noundef %cmd) unnamed_addr #9 {
+define internal fastcc void @parse_capability(ptr nocapture noundef initializes((4, 8)) %imap, ptr noundef %cmd) unnamed_addr #9 {
 entry:
   %caps = getelementptr inbounds i8, ptr %imap, i64 4
   store i32 -2147483648, ptr %caps, align 4

@@ -706,7 +706,7 @@ define dso_local void @nf_ct_helper_destroy(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_ct_helper_expectfn_register(ptr noundef %0) #3 align 16 {
+define dso_local void @nf_ct_helper_expectfn_register(ptr noundef initializes((0, 16)) %0) #3 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #11
   %2 = load ptr, ptr @nf_ct_helper_expectfn_list, align 8
   store ptr %2, ptr %0, align 8
@@ -1183,7 +1183,7 @@ define internal noundef i32 @unhelp(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local void @nf_ct_helper_init(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 align 16 {
+define dso_local void @nf_ct_helper_init(ptr nocapture noundef writeonly initializes((40, 56), (72, 76), (94, 95), (96, 104), (112, 120), (128, 132)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 align 16 {
   %13 = getelementptr inbounds i8, ptr %0, i64 74
   store i16 %1, ptr %13, align 2
   %14 = trunc i16 %2 to i8
@@ -1326,7 +1326,7 @@ define dso_local void @nf_conntrack_helpers_unregister(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_nat_helper_register(ptr noundef %0) #3 align 16 {
+define dso_local void @nf_nat_helper_register(ptr noundef initializes((0, 16)) %0) #3 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @nf_ct_nat_helpers_mutex) #11
   %2 = load ptr, ptr @nf_ct_nat_helpers, align 8
   store ptr %2, ptr %0, align 8

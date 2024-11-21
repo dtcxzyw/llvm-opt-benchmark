@@ -2742,7 +2742,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO15RelocationFixupESt14default_deleteIS2_EED2Ev.exi
 declare void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details33dyld_chained_ptr_arm64e_auth_bindE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF5MachO12BinaryParser9copy_fromERNS0_18ChainedBindingInfoES3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(272) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %2) local_unnamed_addr #5 align 2 {
+define void @_ZN4LIEF5MachO12BinaryParser9copy_fromERNS0_18ChainedBindingInfoES3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(272) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((8, 24), (48, 56)) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4041,7 +4041,7 @@ define void @_ZN4LIEF5MachO12BinaryParserC2Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZN4LIEF6ParserC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF5MachO12BinaryParserD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF5MachO12BinaryParserD2Ev(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO12BinaryParserE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = getelementptr inbounds i8, ptr %0, i64 232

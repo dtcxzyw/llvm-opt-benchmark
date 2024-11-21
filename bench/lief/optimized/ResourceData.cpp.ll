@@ -37,7 +37,7 @@ $_ZNK4LIEF2PE12ResourceData5cloneEv = comdat any
 @_ZN4LIEF2PE12ResourceDataC1ESt6vectorIhSaIhEEj = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN4LIEF2PE12ResourceDataC2ESt6vectorIhSaIhEEj
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF2PE12ResourceDataD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF2PE12ResourceDataD2Ev(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
@@ -307,7 +307,7 @@ define noundef i32 @_ZNK4LIEF2PE12ResourceData6offsetEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE12ResourceData9code_pageEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE12ResourceData9code_pageEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8
   ret void
@@ -431,7 +431,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE12ResourceData8reservedEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE12ResourceData8reservedEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) initializes((108, 112)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 108
   store i32 %1, ptr %3, align 4
   ret void

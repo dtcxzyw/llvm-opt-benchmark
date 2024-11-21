@@ -2987,7 +2987,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %3, %7, %_ZN12QHashP
 declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17PreferencesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17PreferencesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17PreferencesDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV17PreferencesDialog, i64 488), ptr %2, align 8
@@ -3921,7 +3921,7 @@ _ZN7QStringD2Ev.exit12:                           ; preds = %65, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL20module_prefs_unstashP11pref_modulePv(ptr noundef %0, ptr noundef %1) #0 {
+define internal noundef i32 @_ZL20module_prefs_unstashP11pref_modulePv(ptr noundef initializes((60, 64)) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.pref_unstash_data, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8

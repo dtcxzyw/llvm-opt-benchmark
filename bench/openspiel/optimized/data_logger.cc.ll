@@ -102,7 +102,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel19DataLoggerJsonLinesC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bS8_N4absl7debian24TimeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nocapture noundef readonly byval(%"class.absl::debian2::Time") align 8 %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel19DataLoggerJsonLinesC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_bS8_N4absl7debian24TimeE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nocapture noundef readonly byval(%"class.absl::debian2::Time") align 8 %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE4ELS3_4EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_4ELS3_4EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit:
   %6 = alloca [2 x %"class.absl::debian2::str_format_internal::FormatArgImpl"], align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -549,7 +549,7 @@ define void @_ZN10open_spiel19DataLoggerJsonLines5FlushEv(ptr noundef nonnull al
 declare noundef zeroext i1 @_ZN10open_spiel4file4File5FlushEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10open_spiel19DataLoggerJsonLinesD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel19DataLoggerJsonLinesD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel19DataLoggerJsonLinesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = invoke noundef zeroext i1 @_ZN10open_spiel4file4File5FlushEv(ptr noundef nonnull align 8 dereferenceable(8) %2)

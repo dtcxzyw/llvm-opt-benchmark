@@ -861,7 +861,7 @@ pmix_obj_run_destructors.exit74:                  ; preds = %.lr.ph.i71, %113
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @launch_local_const(ptr noundef %0) #0 {
+define internal void @launch_local_const(ptr noundef initializes((120, 128)) %0) #0 {
   %2 = tail call ptr @prte_event_alloc() #12
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %2, ptr %3, align 8
@@ -883,7 +883,7 @@ define internal void @launch_local_dest(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @sccon(ptr nocapture noundef writeonly %0) #5 {
+define internal void @sccon(ptr nocapture noundef writeonly initializes((248, 280), (308, 340)) %0) #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 308
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 248

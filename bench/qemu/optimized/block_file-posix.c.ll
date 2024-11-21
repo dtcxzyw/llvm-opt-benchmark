@@ -6206,7 +6206,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cdrom_refresh_limits(ptr noundef %bs, ptr noundef %errp) #0 {
+define internal void @cdrom_refresh_limits(ptr noundef initializes((16548, 16549)) %bs, ptr noundef %errp) #0 {
 entry:
   %has_variable_length = getelementptr inbounds i8, ptr %bs, i64 16548
   store i8 1, ptr %has_variable_length, align 4

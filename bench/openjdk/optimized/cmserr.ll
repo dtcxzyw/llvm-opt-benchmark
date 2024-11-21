@@ -252,7 +252,7 @@ define hidden ptr @_cmsSubAllocDup(ptr nocapture noundef %0, ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_cmsInstallAllocFunctions(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define hidden void @_cmsInstallAllocFunctions(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 48)) %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -639,7 +639,7 @@ define internal void @DefaultLogErrorHandlerFunction(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocLogErrorChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden void @_cmsAllocLogErrorChunk(ptr nocapture noundef initializes((24, 32)) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %3
 
@@ -731,7 +731,7 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsTagSignature2String(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden void @_cmsTagSignature2String(ptr nocapture noundef writeonly initializes((0, 5)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = tail call i32 @_cmsAdjustEndianess32(i32 noundef %1) #20
   store i32 %3, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -785,7 +785,7 @@ define internal void @defMtxUnlock(ptr nocapture readnone %0, ptr noundef %1) #6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocMutexPluginChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden void @_cmsAllocMutexPluginChunk(ptr nocapture noundef initializes((128, 136)) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %3
 
@@ -932,7 +932,7 @@ define hidden void @_cmsUnlockMutex(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocParallelizationPluginChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden void @_cmsAllocParallelizationPluginChunk(ptr nocapture noundef initializes((136, 144)) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %3
 

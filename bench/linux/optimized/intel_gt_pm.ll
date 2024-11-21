@@ -758,7 +758,7 @@ define dso_local i64 @intel_gt_get_awake_time(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @__gt_unpark(ptr noundef %0) #0 align 16 {
+define internal noundef i32 @__gt_unpark(ptr noundef initializes((280, 288)) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -3296
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @intel_display_power_get(ptr noundef %3, i32 noundef 72) #7
@@ -807,7 +807,7 @@ define internal noundef i32 @__gt_unpark(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @__gt_park(ptr noundef %0) #0 align 16 {
+define internal noundef i32 @__gt_park(ptr noundef initializes((280, 288), (720, 721)) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -3296
   %3 = getelementptr i8, ptr %0, i64 280
   store i64 0, ptr %3, align 8

@@ -304,7 +304,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @observer_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @observer_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
   %7 = alloca %struct.packet_entry_header, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = tail call i64 @file_tell(ptr noundef %8) #13
@@ -759,7 +759,7 @@ define internal fastcc i32 @read_packet_header(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_packet_header(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_packet_header(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef initializes((0, 8), (72, 76), (232, 240)) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.tm, align 8
   %7 = alloca %struct.tm, align 8
   store i32 0, ptr %2, align 8
@@ -907,7 +907,7 @@ wtap_to_observer_encap.exit:                      ; preds = %wtap_to_observer_en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @observer_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 2) i32 @observer_dump_open(ptr noundef initializes((40, 48), (64, 72)) %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.tm, align 8
   %6 = alloca %struct.tm, align 8

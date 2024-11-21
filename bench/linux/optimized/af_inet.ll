@@ -1265,7 +1265,7 @@ define dso_local i32 @inet_accept(ptr noundef %0, ptr noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -107, 17) i32 @inet_getname(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -107, 17) i32 @inet_getname(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 2)) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   store i16 2, ptr %1, align 4
@@ -2506,7 +2506,7 @@ define dso_local void @inet_sk_state_store(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @inet_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local ptr @inet_gso_segment(ptr noundef initializes((180, 182)) %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -4338,7 +4338,7 @@ declare dso_local i32 @datagram_poll(ptr noundef, ptr noundef, ptr noundef) #3
 declare dso_local i32 @register_pernet_subsys(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @ipv4_mib_init_net(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @ipv4_mib_init_net(ptr nocapture noundef initializes((424, 432)) %0) #0 align 16 {
   %2 = tail call noalias dereferenceable_or_null(128) ptr @__alloc_percpu(i64 noundef 128, i64 noundef 8) #20
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   %4 = getelementptr inbounds i8, ptr %0, i64 424
@@ -4497,7 +4497,7 @@ declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #3
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @inet_init_net(ptr nocapture noundef writeonly %0) #14 align 16 {
+define internal noundef i32 @inet_init_net(ptr nocapture noundef writeonly initializes((738, 740), (1100, 1104), (1110, 1111), (1112, 1113), (1115, 1118), (1296, 1297), (1298, 1299), (1300, 1328), (1344, 1348)) %0) #14 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1100
   store i32 -297304064, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 1312

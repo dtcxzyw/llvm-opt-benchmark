@@ -1994,7 +1994,7 @@ declare ptr @create_sort_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare ptr @create_incremental_sort_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @standard_join_search(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @standard_join_search(ptr noundef initializes((128, 136)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 3
@@ -3888,7 +3888,7 @@ declare zeroext i1 @limit_needed(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @relation_excluded_by_constraints(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_dummy_rel_pathlist(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @set_dummy_rel_pathlist(ptr noundef initializes((16, 24), (40, 48), (56, 64)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4526,7 +4526,7 @@ declare void @set_opfuncid(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @func_strict(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr nocapture noundef readonly %0, i16 noundef signext %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr nocapture noundef readonly %0, i16 noundef signext %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.SupportRequestWFuncMonotonic, align 8
   store i8 1, ptr %5, align 1
   br label %9

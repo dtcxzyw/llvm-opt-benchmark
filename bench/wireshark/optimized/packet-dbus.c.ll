@@ -2911,7 +2911,7 @@ declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare double @tvb_get_ieee_double(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_dbus_string(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 1, 5) %2) unnamed_addr #0 {
+define internal fastcc ptr @add_dbus_string(ptr nocapture noundef initializes((40, 48)) %0, i32 noundef %1, i32 noundef range(i32 1, 5) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call i32 @ptvcursor_current_offset(ptr noundef %5) #9

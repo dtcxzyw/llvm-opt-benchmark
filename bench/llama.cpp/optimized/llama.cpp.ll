@@ -7320,7 +7320,7 @@ for.end46:                                        ; preds = %for.inc44, %invoke.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @llama_set_rng_seed(ptr nocapture noundef writeonly %ctx, i32 noundef %seed) local_unnamed_addr #0 {
+define void @llama_set_rng_seed(ptr nocapture noundef writeonly initializes((184, 192)) %ctx, i32 noundef %seed) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %seed, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -13398,7 +13398,7 @@ _ZNSt6vectorI10llama_beamSaIS0_EED2Ev.exit17:     ; preds = %invoke.cont.i14, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @llama_model_default_params(ptr noalias nocapture writeonly sret(%struct.llama_model_params) align 8 %agg.result) local_unnamed_addr #14 {
+define void @llama_model_default_params(ptr noalias nocapture writeonly sret(%struct.llama_model_params) align 8 initializes((0, 48)) %agg.result) local_unnamed_addr #14 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i8 0, i64 48, i1 false)
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 41
@@ -13410,7 +13410,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llama_context_default_params(ptr noalias nocapture writeonly sret(%struct.llama_context_params) align 4 %agg.result) local_unnamed_addr #16 {
+define void @llama_context_default_params(ptr noalias nocapture writeonly sret(%struct.llama_context_params) align 4 initializes((0, 64)) %agg.result) local_unnamed_addr #16 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) @__const.llama_context_default_params.result, i64 64, i1 false)
   ret void
@@ -16833,7 +16833,7 @@ _ZNSt8functionIFvP11ggml_tensorPKciEED2Ev.exit21: ; preds = %if.end52, %if.then.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @llama_batch_get_one(ptr noalias nocapture writeonly sret(%struct.llama_batch) align 8 %agg.result, ptr noundef %tokens, i32 noundef %n_tokens, i32 noundef %pos_0, i32 noundef %seq_id) local_unnamed_addr #14 {
+define void @llama_batch_get_one(ptr noalias nocapture writeonly sret(%struct.llama_batch) align 8 initializes((0, 4), (8, 68)) %agg.result, ptr noundef %tokens, i32 noundef %n_tokens, i32 noundef %pos_0, i32 noundef %seq_id) local_unnamed_addr #14 {
 entry:
   store i32 %n_tokens, ptr %agg.result, align 8
   %token = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -21969,7 +21969,7 @@ terminate.lpad:                                   ; preds = %lpad2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llama_kv_cache_view_init(ptr noalias nocapture writeonly sret(%struct.llama_kv_cache_view) align 8 %agg.result, ptr nocapture noundef readonly %ctx, i32 noundef %n_max_seq) local_unnamed_addr #16 {
+define void @llama_kv_cache_view_init(ptr noalias nocapture writeonly sret(%struct.llama_kv_cache_view) align 8 initializes((0, 40)) %agg.result, ptr nocapture noundef readonly %ctx, i32 noundef %n_max_seq) local_unnamed_addr #16 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %n_max_seq1 = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -25808,7 +25808,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @llama_set_n_threads(ptr nocapture noundef writeonly %ctx, i32 noundef %n_threads, i32 noundef %n_threads_batch) local_unnamed_addr #14 {
+define void @llama_set_n_threads(ptr nocapture noundef writeonly initializes((8, 16)) %ctx, i32 noundef %n_threads, i32 noundef %n_threads_batch) local_unnamed_addr #14 {
 entry:
   %n_threads1 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 %n_threads, ptr %n_threads1, align 8
@@ -25818,7 +25818,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define void @llama_batch_init(ptr noalias nocapture writeonly sret(%struct.llama_batch) align 8 %agg.result, i32 noundef %n_tokens, i32 noundef %embd, i32 noundef %n_seq_max) local_unnamed_addr #24 {
+define void @llama_batch_init(ptr noalias nocapture writeonly sret(%struct.llama_batch) align 8 initializes((0, 72)) %agg.result, i32 noundef %n_tokens, i32 noundef %embd, i32 noundef %n_seq_max) local_unnamed_addr #24 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, i8 0, i64 72, i1 false)
   %tobool.not = icmp eq i32 %embd, 0
@@ -26164,7 +26164,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23llama_tokenize_internalRK11llama_vocabNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %vocab, ptr noundef nonnull %raw_text, i1 noundef zeroext %bos, i1 noundef zeroext %special) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL23llama_tokenize_internalRK11llama_vocabNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %vocab, ptr noundef nonnull %raw_text, i1 noundef zeroext %bos, i1 noundef zeroext %special) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i = alloca %"class.std::allocator.6", align 1
@@ -27369,7 +27369,7 @@ do.body15:                                        ; preds = %_ZNKSt6vectorIN11ll
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_get_timings(ptr noalias nocapture writeonly sret(%struct.llama_timings) align 8 %agg.result, ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
+define void @llama_get_timings(ptr noalias nocapture writeonly sret(%struct.llama_timings) align 8 initializes((0, 60)) %agg.result, ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
 entry:
   %t_start_us = getelementptr inbounds i8, ptr %ctx, i64 5192
   %0 = load i64, ptr %t_start_us, align 8
@@ -27481,7 +27481,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @llama_reset_timings(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #2 {
+define void @llama_reset_timings(ptr nocapture noundef writeonly initializes((5192, 5200), (5208, 5244)) %ctx) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @ggml_time_us()
   %t_start_us = getelementptr inbounds i8, ptr %ctx, i64 5192
@@ -29123,7 +29123,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL41llama_grammar_reject_candidates_for_stackRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IPKS0_SaIS8_EERKS_I23llama_grammar_candidateSaISD_EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rules, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stack, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %candidates) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL41llama_grammar_reject_candidates_for_stackRKSt6vectorIS_I21llama_grammar_elementSaIS0_EESaIS2_EERKS_IPKS0_SaIS8_EERKS_I23llama_grammar_candidateSaISD_EE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rules, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stack, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %candidates) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %next_candidates = alloca %"class.std::vector.219", align 8
   %stack_after = alloca %"class.std::vector.92", align 8
@@ -33306,7 +33306,7 @@ unreachable:                                      ; preds = %invoke.cont28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13llm_load_archR18llama_model_loaderR11llama_model(ptr noundef nonnull align 8 dereferenceable(180) %ml, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %model) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13llm_load_archR18llama_model_loaderR11llama_model(ptr noundef nonnull align 8 dereferenceable(180) %ml, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((4, 8)) %model) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -34478,7 +34478,7 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #31
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16llm_load_tensorsR18llama_model_loaderR11llama_modeliiPKfbPFvfPvES5_(ptr noundef nonnull align 8 dereferenceable(180) %ml, ptr noundef nonnull align 8 dereferenceable(640) %model, i32 noundef %n_gpu_layers, i1 noundef zeroext %use_mlock, ptr noundef %progress_callback, ptr noundef %progress_callback_user_data) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16llm_load_tensorsR18llama_model_loaderR11llama_modeliiPKfbPFvfPvES5_(ptr noundef nonnull align 8 dereferenceable(180) %ml, ptr noundef nonnull align 8 dereferenceable(640) initializes((448, 452), (632, 640)) %model, i32 noundef %n_gpu_layers, i1 noundef zeroext %use_mlock, ptr noundef %progress_callback, ptr noundef %progress_callback_user_data) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator.6", align 1
   %agg.tmp = alloca %struct.ggml_init_params, align 8
@@ -51405,7 +51405,7 @@ unreachable:                                      ; preds = %invoke.cont16
 declare float @gguf_get_val_f32(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20codepoints_from_utf8RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %utf8) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20codepoints_from_utf8RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %utf8) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %offset = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)

@@ -183,7 +183,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManSimCollect(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define void @Gia_ManSimCollect(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   tail call void @Gia_ManSimCollect_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2)
@@ -619,7 +619,7 @@ Abc_Clock.exit102:                                ; preds = %Vec_IntFree.exit100
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Gia_ManSimSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
+define void @Gia_ManSimSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 28)) %0) local_unnamed_addr #3 {
   store i32 8, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 32, ptr %2, align 4
@@ -2842,7 +2842,7 @@ Vec_IntFree.exit24:                               ; preds = %42, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManBuiltInSimStart(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Gia_ManBuiltInSimStart(ptr nocapture noundef initializes((808, 820), (824, 832), (848, 856)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 808
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 812
@@ -4860,7 +4860,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Gia_ManObjCheckOverlap1(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Gia_ManObjCheckOverlap1(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = tail call i32 @Gia_ManObjCheckSat_rec(ptr noundef %0, i32 noundef %1, ptr noundef %3)
@@ -4908,7 +4908,7 @@ define range(i32 0, 2) i32 @Gia_ManObjCheckOverlap1(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Gia_ManObjCheckOverlap(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Gia_ManObjCheckOverlap(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = tail call i32 @Gia_ManObjCheckSat_rec(ptr noundef %0, i32 noundef %1, ptr noundef %3)
@@ -5267,7 +5267,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManIncrSimStart(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Gia_ManIncrSimStart(ptr nocapture noundef writeonly initializes((812, 820), (832, 840), (896, 908), (912, 920)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 896
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 812
@@ -5328,7 +5328,7 @@ Vec_WrdAlloc.exit:                                ; preds = %Vec_IntAlloc.exit, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Gia_ManIncrSimStop(ptr nocapture noundef %0) local_unnamed_addr #12 {
+define void @Gia_ManIncrSimStop(ptr nocapture noundef initializes((812, 820), (896, 900), (904, 908)) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 896
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 812

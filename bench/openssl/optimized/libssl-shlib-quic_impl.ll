@@ -3177,7 +3177,7 @@ return:                                           ; preds = %sw.default.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_write(ptr noundef %s, ptr noundef %buf, i64 noundef %len, ptr noundef %written) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_write(ptr noundef %s, ptr noundef %buf, i64 noundef %len, ptr noundef initializes((0, 8)) %written) local_unnamed_addr #0 {
 entry:
   %args.i = alloca %struct.quic_write_again_args, align 8
   %actual_written.i = alloca i64, align 8
@@ -3456,7 +3456,7 @@ return:                                           ; preds = %entry, %out
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @expect_quic_with_stream_lock(ptr noundef %s, i32 noundef range(i32 -1, 1) %remote_init, i32 noundef range(i32 0, 2) %in_io, ptr noundef nonnull %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @expect_quic_with_stream_lock(ptr noundef %s, i32 noundef range(i32 -1, 1) %remote_init, i32 noundef range(i32 0, 2) %in_io, ptr noundef nonnull initializes((0, 20)) %ctx) unnamed_addr #0 {
 entry:
   %xso2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %is_stream.i = getelementptr inbounds i8, ptr %ctx, i64 16
@@ -3959,14 +3959,14 @@ return:                                           ; preds = %if.then9.i.i43, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_read(ptr noundef %s, ptr noundef %buf, i64 noundef %len, ptr noundef %bytes_read) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_read(ptr noundef %s, ptr noundef %buf, i64 noundef %len, ptr noundef initializes((0, 8)) %bytes_read) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @quic_read(ptr noundef %s, ptr noundef %buf, i64 noundef %len, ptr noundef %bytes_read, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @quic_read(ptr noundef %s, ptr noundef %buf, i64 noundef %len, ptr noundef %bytes_read, i32 noundef range(i32 0, 2) %peek) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @quic_read(ptr noundef %s, ptr noundef %buf, i64 noundef %len, ptr noundef initializes((0, 8)) %bytes_read, i32 noundef range(i32 0, 2) %peek) unnamed_addr #0 {
 entry:
   %wargs.i = alloca %struct.quic_wait_for_stream_args, align 8
   %rtt_info.i = alloca %struct.ossl_rtt_info_st, align 8
@@ -4416,7 +4416,7 @@ return:                                           ; preds = %sw.default.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_peek(ptr noundef %s, ptr noundef %buf, i64 noundef %len, ptr noundef %bytes_read) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_peek(ptr noundef %s, ptr noundef %buf, i64 noundef %len, ptr noundef initializes((0, 8)) %bytes_read) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @quic_read(ptr noundef %s, ptr noundef %buf, i64 noundef %len, ptr noundef %bytes_read, i32 noundef 1)
   ret i32 %call

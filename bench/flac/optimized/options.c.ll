@@ -136,7 +136,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.108 = private unnamed_addr constant [8 x i8] c"hexdump\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @init_options(ptr nocapture noundef writeonly %options) local_unnamed_addr #0 {
+define dso_local void @init_options(ptr nocapture noundef writeonly initializes((0, 92), (96, 104)) %options) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %options, align 8
   %prefix_with_filename = getelementptr inbounds i8, ptr %options, i64 4

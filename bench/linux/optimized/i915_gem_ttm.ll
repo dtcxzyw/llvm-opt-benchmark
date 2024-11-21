@@ -1235,7 +1235,7 @@ define internal zeroext i1 @i915_ttm_eviction_valuable(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal void @i915_ttm_evict_flags(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #6 align 16 {
+define internal void @i915_ttm_evict_flags(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) #6 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) @i915_sys_placement, i64 32, i1 false)
   ret void
 }
@@ -2073,7 +2073,7 @@ define internal fastcc i32 @__i915_ttm_get_pages(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @i915_ttm_place_from_region(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc void @i915_ttm_place_from_region(ptr noundef %0, ptr nocapture noundef initializes((0, 16)) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %6 = tail call i32 @intel_region_to_ttm_type(ptr noundef %0) #11
   %7 = getelementptr inbounds i8, ptr %1, i64 8

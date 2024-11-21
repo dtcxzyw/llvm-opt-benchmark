@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [40 x i8] c"fmap_unneed: unneed on a unlocked page\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @fmap_check_empty(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef ptr @fmap_check_empty(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.stat, align 8
   store i32 0, ptr %3, align 4
   %7 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %6) #18

@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @CAST_S_table7 = external local_unnamed_addr constant [256 x i32], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @CAST_ecb_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %ks, i32 noundef %enc) local_unnamed_addr #0 {
+define hidden void @CAST_ecb_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef readonly %ks, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %d = alloca [2 x i32], align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %in, i64 1

@@ -1255,7 +1255,7 @@ declare dso_local void @rtnl_notify(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare dso_local void @rtnl_set_sk_err(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @fib_nh_common_init(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef readnone %2, i16 noundef zeroext %3, ptr nocapture readnone %4, i32 noundef %5, ptr noundef writeonly %6) #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @fib_nh_common_init(ptr nocapture readnone %0, ptr nocapture noundef initializes((48, 56)) %1, ptr noundef readnone %2, i16 noundef zeroext %3, ptr nocapture readnone %4, i32 noundef %5, ptr noundef writeonly %6) #0 align 16 {
   %8 = tail call noalias dereferenceable_or_null(8) ptr @__alloc_percpu_gfp(i64 noundef 8, i64 noundef 8, i32 noundef %5) #19
   %9 = getelementptr inbounds i8, ptr %1, i64 48
   store ptr %8, ptr %9, align 8
@@ -1347,7 +1347,7 @@ declare dso_local noalias ptr @__alloc_percpu_gfp(i64 noundef, i64 noundef, i32 
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @fib_nh_init(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @fib_nh_init(ptr nocapture readnone %0, ptr nocapture noundef initializes((13, 14), (48, 56)) %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %1, i64 13
   store i8 2, ptr %6, align 1
   %7 = getelementptr inbounds i8, ptr %2, i64 112
@@ -6640,7 +6640,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @fib_detect_death(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal fastcc void @fib_result_assign(ptr nocapture noundef writeonly %0, ptr noundef nonnull %1) unnamed_addr #5 align 16 {
+define internal fastcc void @fib_result_assign(ptr nocapture noundef writeonly initializes((16, 32)) %0, ptr noundef nonnull %1) unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 104

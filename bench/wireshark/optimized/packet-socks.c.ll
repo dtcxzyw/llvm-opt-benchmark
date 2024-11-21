@@ -1900,7 +1900,7 @@ declare ptr @get_tcp_conversation_data(ptr noundef, ptr noundef) local_unnamed_a
 declare void @except_setup_clean(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @clear_in_socks_dissector_flag(ptr nocapture noundef writeonly %0) #3 {
+define internal void @clear_in_socks_dissector_flag(ptr nocapture noundef writeonly initializes((0, 4)) %0) #3 {
   store i32 0, ptr %0, align 4
   ret void
 }

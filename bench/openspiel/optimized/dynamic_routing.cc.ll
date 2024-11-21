@@ -9029,7 +9029,7 @@ define noundef ptr @_ZNK10open_spiel15dynamic_routing25MeanFieldRoutingGameState
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel15dynamic_routing25MeanFieldRoutingGameState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.139") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel15dynamic_routing25MeanFieldRoutingGameState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.139") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -9070,7 +9070,7 @@ define void @_ZNK10open_spiel15dynamic_routing25MeanFieldRoutingGameState7Return
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15dynamic_routing25MeanFieldRoutingGameState19DistributionSupportB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15dynamic_routing25MeanFieldRoutingGameState19DistributionSupportB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair.230", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

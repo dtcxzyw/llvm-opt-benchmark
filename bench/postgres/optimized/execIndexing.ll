@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [33 x i8] c"Key conflicts with existing key.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecOpenIndices(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local void @ExecOpenIndices(ptr nocapture noundef initializes((16, 20)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -884,7 +884,7 @@ index_recheck_constraint.exit.thread:             ; preds = %71, %.lr.ph135.us, 
 declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ExecCheckIndexConstraints(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ExecCheckIndexConstraints(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((0, 6)) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca [32 x i64], align 16
   %8 = alloca [32 x i8], align 16

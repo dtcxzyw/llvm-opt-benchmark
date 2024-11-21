@@ -272,7 +272,7 @@ define dso_local i32 @crypto_shash_import(ptr noundef %0, ptr noundef %1) #1 ali
 declare dso_local i32 @crypto_alg_extsize(ptr noundef) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crypto_shash_init_tfm(ptr noundef %0) #1 align 16 {
+define internal i32 @crypto_shash_init_tfm(ptr noundef initializes((-8, -4)) %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %3 = getelementptr i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -363,7 +363,7 @@ define internal void @crypto_shash_free_instance(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @crypto_grab_shash(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
+define dso_local i32 @crypto_grab_shash(ptr noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @crypto_shash_type, ptr %6, align 8
   %7 = tail call i32 @crypto_grab_spawn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #8

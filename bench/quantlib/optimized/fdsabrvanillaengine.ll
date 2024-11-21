@@ -794,7 +794,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19FdSabrVanillaEngineC2EdddddNS_6HandleINS_18YieldTermStructureEEEmmmmddRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(464) %this, double noundef %f0, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho, ptr nocapture noundef %rTS, i64 noundef %tGrid, i64 noundef %fGrid, i64 noundef %xGrid, i64 noundef %dampingSteps, double noundef %scalingFactor, double noundef %eps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19FdSabrVanillaEngineC2EdddddNS_6HandleINS_18YieldTermStructureEEEmmmmddRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(464) initializes((16, 20), (24, 32)) %this, double noundef %f0, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho, ptr nocapture noundef %rTS, i64 noundef %tGrid, i64 noundef %fGrid, i64 noundef %xGrid, i64 noundef %dampingSteps, double noundef %scalingFactor, double noundef %eps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

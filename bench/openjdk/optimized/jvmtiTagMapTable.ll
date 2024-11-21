@@ -167,7 +167,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN16JvmtiTagMapTableD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16JvmtiTagMapTableD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14JvmtiTagMapKeyC2EP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiTagMapKeyC2EP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -175,7 +175,7 @@ define hidden void @_ZN14JvmtiTagMapKeyC2EP7oopDesc(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiTagMapKeyC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14JvmtiTagMapKeyC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = alloca %class.WeakHandle, align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -233,7 +233,7 @@ define hidden noundef ptr @_ZNK14JvmtiTagMapKey19object_no_keepaliveEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16JvmtiTagMapTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN16JvmtiTagMapTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %0) unnamed_addr #1 align 2 {
   store i32 1007, ptr %0, align 8
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8056, i8 noundef zeroext 23, i32 noundef 0) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8056) %2, i8 0, i64 8056, i1 false)

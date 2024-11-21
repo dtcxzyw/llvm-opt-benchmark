@@ -566,7 +566,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal21StatusDetailFromErrnoEi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, i32 noundef %errnum) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal21StatusDetailFromErrnoEi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, i32 noundef %errnum) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq i32 %errnum, 0
   br i1 %tobool.not, label %if.then, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEED2Ev.exit
@@ -596,7 +596,7 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal22StatusDetailFromSignalEi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, i32 noundef %signum) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal22StatusDetailFromSignalEi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, i32 noundef %signum) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_112SignalDetailEED2Ev.exit:
   %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #36, !noalias !7
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 8
@@ -1009,7 +1009,7 @@ _ZNSt10shared_ptrIN5arrow12StatusDetailEED2Ev.exit: ; preds = %cleanup, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal16PlatformFilenameC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal16PlatformFilenameC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call, i8 0, i64 32, i1 false)
@@ -1042,7 +1042,7 @@ _ZNSt10unique_ptrIN5arrow8internal16PlatformFilename4ImplESt14default_deleteIS3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal16PlatformFilenameC2ENS1_4ImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %impl) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal16PlatformFilenameC2ENS1_4ImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %impl) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #36
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %impl) #34
@@ -1092,7 +1092,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal16PlatformFilenameC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #8 align 2 {
+define void @_ZN5arrow8internal16PlatformFilenameC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #8 align 2 {
 entry:
   %0 = load i64, ptr %other, align 8
   store i64 %0, ptr %this, align 8
@@ -4731,7 +4731,7 @@ return:                                           ; preds = %if.end, %_ZN5arrow6
 declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal14FileDescriptorC2EOS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %other) unnamed_addr #14 align 2 {
+define void @_ZN5arrow8internal14FileDescriptorC2EOS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %other) unnamed_addr #14 align 2 {
 entry:
   %0 = atomicrmw xchg ptr %other, i32 -1 seq_cst, align 4
   store i32 %0, ptr %this, align 4
@@ -7570,7 +7570,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal14MemoryMapRemapEPvmmiPS1_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %addr, i64 noundef %old_size, i64 noundef %new_size, i32 noundef %fildes, ptr nocapture noundef writeonly %new_addr) local_unnamed_addr #3 {
+define void @_ZN5arrow8internal14MemoryMapRemapEPvmmiPS1_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %addr, i64 noundef %old_size, i64 noundef %new_size, i32 noundef %fildes, ptr nocapture noundef writeonly initializes((0, 8)) %new_addr) local_unnamed_addr #3 {
 entry:
   %prefix.addr.i4 = alloca ptr, align 8
   %prefix.addr.i = alloca ptr, align 8
@@ -11698,7 +11698,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry, %_ZN5arrow6S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow8internal13SignalHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #4 align 2 {
+define void @_ZN5arrow8internal13SignalHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (136, 140)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %sa_flags.i = getelementptr inbounds i8, ptr %this, i64 136
@@ -11709,7 +11709,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow8internal13SignalHandlerC2EPFviE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %cb) unnamed_addr #4 align 2 {
+define void @_ZN5arrow8internal13SignalHandlerC2EPFviE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (136, 140)) %this, ptr noundef %cb) unnamed_addr #4 align 2 {
 entry:
   store ptr %cb, ptr %this, align 8
   %sa_flags = getelementptr inbounds i8, ptr %this, i64 136
@@ -11723,7 +11723,7 @@ entry:
 declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal13SignalHandlerC2ERK9sigaction(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %sa) unnamed_addr #8 align 2 {
+define void @_ZN5arrow8internal13SignalHandlerC2ERK9sigaction(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((0, 152)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %sa) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(152) %sa, i64 152, i1 false)
   ret void
@@ -19744,7 +19744,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_s = alloca %"class.arrow::Status", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19997,7 +19997,7 @@ terminate.lpad.body:                              ; preds = %lpad.i, %terminate.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImplD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImplD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #34
   tail call void @_ZdlPv(ptr noundef nonnull %this) #37

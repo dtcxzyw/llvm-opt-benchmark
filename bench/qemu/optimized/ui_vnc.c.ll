@@ -1823,7 +1823,7 @@ entry:
 declare ptr @pixman_image_get_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @vnc_convert_pixel(ptr nocapture noundef readonly %vs, ptr nocapture noundef writeonly %buf, i32 noundef %v) local_unnamed_addr #5 {
+define dso_local void @vnc_convert_pixel(ptr nocapture noundef readonly %vs, ptr nocapture noundef writeonly initializes((0, 1)) %buf, i32 noundef %v) local_unnamed_addr #5 {
 entry:
   %and = lshr i32 %v, 16
   %shr = and i32 %and, 255
@@ -2838,7 +2838,7 @@ entry:
 declare i64 @qio_channel_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @vnc_read_when(ptr nocapture noundef writeonly %vs, ptr noundef %func, i64 noundef %expecting) local_unnamed_addr #6 {
+define dso_local void @vnc_read_when(ptr nocapture noundef writeonly initializes((49480, 49496)) %vs, ptr noundef %func, i64 noundef %expecting) local_unnamed_addr #6 {
 entry:
   %read_handler = getelementptr inbounds i8, ptr %vs, i64 49480
   store ptr %func, ptr %read_handler, align 8
@@ -3415,7 +3415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @start_client_init(ptr nocapture noundef writeonly %vs) local_unnamed_addr #6 {
+define dso_local void @start_client_init(ptr nocapture noundef writeonly initializes((49480, 49496)) %vs) local_unnamed_addr #6 {
 entry:
   %read_handler.i = getelementptr inbounds i8, ptr %vs, i64 49480
   store ptr @protocol_client_init, ptr %read_handler.i, align 8
@@ -5987,7 +5987,7 @@ glib_autoptr_cleanup_SocketAddressList.exit117:   ; preds = %if.then, %if.end, %
 declare ptr @qemu_opts_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_display_close(ptr nocapture noundef nonnull %vd) unnamed_addr #0 {
+define internal fastcc void @vnc_display_close(ptr nocapture noundef nonnull initializes((284960, 284961), (284984, 284992)) %vd) unnamed_addr #0 {
 entry:
   %is_unix = getelementptr inbounds i8, ptr %vd, i64 284960
   store i8 0, ptr %is_unix, align 8
@@ -6965,7 +6965,7 @@ declare void @buffer_advance(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @buffer_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pixel_format_message(ptr noundef %vs) unnamed_addr #0 {
+define internal fastcc void @pixel_format_message(ptr noundef initializes((49416, 49448)) %vs) unnamed_addr #0 {
 entry:
   %value.addr.i35 = alloca i8, align 1
   %value.addr.i34 = alloca i8, align 1
@@ -12468,7 +12468,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vnc_dpy_cursor_define(ptr nocapture noundef %dcl, ptr noundef %c) #0 {
+define internal void @vnc_dpy_cursor_define(ptr nocapture noundef initializes((136, 140)) %dcl, ptr noundef %c) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %dcl, i64 -64
   %cursor_mask = getelementptr i8, ptr %dcl, i64 144

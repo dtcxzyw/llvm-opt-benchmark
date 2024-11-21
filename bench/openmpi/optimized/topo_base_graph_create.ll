@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_topo_base_graph_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @mca_topo_base_graph_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, ptr noundef initializes((0, 8)) %6) local_unnamed_addr #0 {
   %8 = zext i1 %5 to i8
   store ptr @ompi_mpi_comm_null, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 248
@@ -285,7 +285,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare i32 @ompi_comm_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_topo_base_comm_graph_2_2_0_construct(ptr nocapture noundef writeonly %0) #3 {
+define internal void @mca_topo_base_comm_graph_2_2_0_construct(ptr nocapture noundef writeonly initializes((16, 20), (24, 40)) %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24

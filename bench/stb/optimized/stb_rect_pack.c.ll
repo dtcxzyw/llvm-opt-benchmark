@@ -24,7 +24,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbrp_setup_allow_out_of_mem(ptr nocapture noundef %context, i32 noundef %allow_out_of_mem) local_unnamed_addr #0 {
+define void @stbrp_setup_allow_out_of_mem(ptr nocapture noundef initializes((8, 12)) %context, i32 noundef %allow_out_of_mem) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %allow_out_of_mem, 0
   br i1 %tobool.not, label %if.else, label %if.end

@@ -1711,7 +1711,7 @@ define hidden void @zim_WeakMap_count(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @zend_weakmap_count_elements(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 {
+define internal noundef i32 @zend_weakmap_count_elements(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -28
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -2182,7 +2182,7 @@ define internal ptr @zend_weakmap_iterator_get_current_data(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_weakmap_iterator_get_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @zend_weakmap_iterator_get_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56

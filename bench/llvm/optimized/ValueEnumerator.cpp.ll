@@ -187,7 +187,7 @@ $_ZNSt6vectorIPKN4llvm8MetadataESaIS3_EE17_M_default_appendEm = comdat any
 @_ZN4llvm15ValueEnumeratorC1ERKNS_6ModuleEb = unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN4llvm15ValueEnumeratorC2ERKNS_6ModuleEb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15ValueEnumeratorC2ERKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(492) %0, ptr noundef nonnull readonly align 8 dereferenceable(857) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15ValueEnumeratorC2ERKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(492) initializes((0, 44), (48, 92), (96, 120), (128, 132), (136, 144)) %0, ptr noundef nonnull readonly align 8 dereferenceable(857) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
 .lr.ph.i.i.i:
   %3 = alloca [1 x %"struct.std::pair.271"], align 16
   %4 = alloca %"struct.(anonymous namespace)::OrderMap", align 8
@@ -9349,7 +9349,7 @@ _ZNSt6vectorIPKN4llvm8MetadataESaIS3_EE9push_backERKS3_.exit: ; preds = %55, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15ValueEnumerator27incorporateFunctionMetadataERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(492) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15ValueEnumerator27incorporateFunctionMetadataERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(492) initializes((476, 480)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
@@ -9644,7 +9644,7 @@ declare noundef zeroext i1 @_ZNK4llvm9Attribute15isTypeAttributeEv(ptr noundef n
 declare noundef ptr @_ZNK4llvm9Attribute14getValueAsTypeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15ValueEnumerator19incorporateFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(492) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15ValueEnumerator19incorporateFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(492) initializes((440, 444), (472, 480)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::SmallVector.273", align 8
   %5 = alloca %"class.llvm::SmallVector.278", align 8

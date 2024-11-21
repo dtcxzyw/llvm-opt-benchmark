@@ -394,7 +394,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmpv4_error(ptr noc
 declare dso_local zeroext i16 @nf_ip_checksum(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @nf_conntrack_icmp_init_net(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 align 16 {
+define dso_local void @nf_conntrack_icmp_init_net(ptr nocapture noundef writeonly initializes((2528, 2532)) %0) local_unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2528
   store i32 30000, ptr %2, align 4
   ret void

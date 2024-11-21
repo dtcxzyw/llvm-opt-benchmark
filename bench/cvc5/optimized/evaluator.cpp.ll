@@ -194,7 +194,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory10EvalResultC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory10EvalResultC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -519,7 +519,7 @@ declare void @_ZN4cvc58internal11NodeManager7mkConstINS0_22UninterpretedSortValu
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory9EvaluatorC2EPNS1_8RewriterEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr noundef %rr, i32 noundef %alphaCard) unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal6theory9EvaluatorC2EPNS1_8RewriterEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr noundef %rr, i32 noundef %alphaCard) unnamed_addr #6 align 2 {
 entry:
   store ptr %rr, ptr %this, align 8
   %d_alphaCard = getelementptr inbounds i8, ptr %this, i64 8

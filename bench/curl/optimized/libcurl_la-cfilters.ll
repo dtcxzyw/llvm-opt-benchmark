@@ -345,7 +345,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_cf_create(ptr nocapture noundef writeonly %pcf, ptr noundef %cft, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_cf_create(ptr nocapture noundef writeonly initializes((0, 8)) %pcf, ptr noundef %cft, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 40) #11
@@ -365,7 +365,7 @@ out:                                              ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_conn_cf_add(ptr noundef %data, ptr noundef %conn, i32 noundef %index, ptr noundef %cf) local_unnamed_addr #0 {
+define hidden void @Curl_conn_cf_add(ptr noundef %data, ptr noundef %conn, i32 noundef %index, ptr noundef initializes((8, 16), (24, 36)) %cf) local_unnamed_addr #0 {
 entry:
   %cfilter = getelementptr inbounds i8, ptr %conn, i64 432
   %idxprom = sext i32 %index to i64
@@ -1685,7 +1685,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_pollset_reset(ptr nocapture noundef readnone %data, ptr nocapture noundef writeonly %ps) local_unnamed_addr #6 {
+define hidden void @Curl_pollset_reset(ptr nocapture noundef readnone %data, ptr nocapture noundef writeonly initializes((0, 32)) %ps) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr inbounds i8, ptr %ps, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 12, i1 false)

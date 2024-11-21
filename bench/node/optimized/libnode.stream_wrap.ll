@@ -1309,7 +1309,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node15LibuvStreamWrap9OnUvAllocEmP8uv_buf_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, i64 noundef %suggested_size, ptr nocapture noundef writeonly %buf) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node15LibuvStreamWrap9OnUvAllocEmP8uv_buf_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, i64 noundef %suggested_size, ptr nocapture noundef writeonly initializes((0, 16)) %buf) local_unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
   %realm_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2600,7 +2600,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZN4node15LibuvStreamWrap9ReadStartEvEN3$_08__invokeEP11uv_handle_smP8uv_buf_t"(ptr nocapture noundef readonly %handle, i64 noundef %suggested_size, ptr nocapture noundef writeonly %buf) #3 align 2 {
+define internal void @"_ZZN4node15LibuvStreamWrap9ReadStartEvEN3$_08__invokeEP11uv_handle_smP8uv_buf_t"(ptr nocapture noundef readonly %handle, i64 noundef %suggested_size, ptr nocapture noundef writeonly initializes((0, 16)) %buf) #3 align 2 {
 entry:
   %scope.i.i = alloca %"class.v8::HandleScope", align 8
   %handle.val = load ptr, ptr %handle, align 8

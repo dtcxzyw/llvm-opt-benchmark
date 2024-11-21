@@ -35,7 +35,7 @@ declare i32 @rand() local_unnamed_addr #1
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z13RandomCommandPPc(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define dso_local void @_Z13RandomCommandPPc(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #3 {
   %2 = tail call i32 @rand() #9
   %3 = sitofp i32 %2 to double
   %4 = fdiv double %3, 0x41DFFFFFFFC00000

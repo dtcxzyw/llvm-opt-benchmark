@@ -450,7 +450,7 @@ define hidden void @av1_free_context_buffers(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr nocapture noundef initializes((40, 52)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = add nsw i32 %2, 31
   %6 = and i32 %5, -32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44

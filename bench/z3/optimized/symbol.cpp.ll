@@ -177,7 +177,7 @@ _Z7deallocI22internal_symbol_tablesEvPT_.exit:    ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6symbolC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %d) unnamed_addr #3 align 2 {
+define hidden void @_ZN6symbolC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %d) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %d, null
   br i1 %cmp, label %if.end, label %if.else
@@ -269,7 +269,7 @@ _ZN12_GLOBAL__N_121internal_symbol_table7get_strEPKc.exit: ; preds = %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN6symbolaSEPKc(ptr noundef nonnull returned writeonly align 8 dereferenceable(8) %this, ptr noundef %d) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN6symbolaSEPKc(ptr noundef nonnull returned writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %d) local_unnamed_addr #3 align 2 {
 entry:
   %tobool.not = icmp eq ptr %d, null
   br i1 %tobool.not, label %cond.end, label %cond.true

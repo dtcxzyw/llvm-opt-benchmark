@@ -349,7 +349,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_init_in_iov_from_pdu(ptr nocapture noundef readonly %pdu, ptr nocapture noundef writeonly %piov, ptr nocapture noundef writeonly %pniov, i64 noundef %size) #0 {
+define internal void @virtio_init_in_iov_from_pdu(ptr nocapture noundef readonly %pdu, ptr nocapture noundef writeonly initializes((0, 8)) %piov, ptr nocapture noundef writeonly initializes((0, 4)) %pniov, i64 noundef %size) #0 {
 entry:
   %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
@@ -386,7 +386,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_init_out_iov_from_pdu(ptr nocapture noundef readonly %pdu, ptr nocapture noundef writeonly %piov, ptr nocapture noundef writeonly %pniov, i64 noundef %size) #0 {
+define internal void @virtio_init_out_iov_from_pdu(ptr nocapture noundef readonly %pdu, ptr nocapture noundef writeonly initializes((0, 8)) %piov, ptr nocapture noundef writeonly initializes((0, 4)) %pniov, i64 noundef %size) #0 {
 entry:
   %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8

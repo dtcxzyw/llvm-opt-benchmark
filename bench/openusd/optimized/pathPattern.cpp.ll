@@ -123,13 +123,13 @@ $_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS
 @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC1ENS_7SdfPathEOSt6vectorINS0_9ComponentESaIS3_EEOS2_INS_22SdfPredicateExpressionESaIS7_EEb = unnamed_addr alias void (ptr, ptr, ptr, ptr, i1), ptr @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC2ENS_7SdfPathEOSt6vectorINS0_9ComponentESaIS3_EEOS2_INS_22SdfPredicateExpressionESaIS7_EEb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((0, 57)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %0, i8 0, i64 57, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC2EONS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC2EONS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 56)) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   %3 = invoke noundef nonnull align 8 dereferenceable(57) ptr @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9SetPrefixEONS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 4 dereferenceable(8) %1)
           to label %4 unwind label %5
@@ -412,7 +412,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC2ERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC2ERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 56)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %3, align 4
@@ -488,7 +488,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC2ENS_7SdfPathEOSt6vectorINS0_9ComponentESaIS3_EEOS2_INS_22SdfPredicateExpressionESaIS7_EEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternC2ENS_7SdfPathEOSt6vectorINS0_9ComponentESaIS3_EEOS2_INS_22SdfPredicateExpressionESaIS7_EEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((0, 57)) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = zext i1 %4 to i8
   %7 = load i32, ptr %1, align 4
   store i32 %7, ptr %0, align 8

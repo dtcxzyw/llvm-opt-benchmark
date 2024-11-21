@@ -363,7 +363,7 @@ declare ptr @PKCS7_ENCRYPT_new() local_unnamed_addr #1
 declare ptr @PKCS7_DIGEST_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_set0_type_other(ptr nocapture noundef writeonly %p7, i32 noundef %type, ptr noundef %other) local_unnamed_addr #0 {
+define noundef i32 @PKCS7_set0_type_other(ptr nocapture noundef writeonly initializes((24, 40)) %p7, i32 noundef %type, ptr noundef %other) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef %type) #7
   %type1 = getelementptr inbounds i8, ptr %p7, i64 24
@@ -1045,7 +1045,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @ossl_x509_set0_libctx(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_pkcs7_set0_libctx(ptr nocapture noundef writeonly %p7, ptr noundef %ctx) local_unnamed_addr #4 {
+define void @ossl_pkcs7_set0_libctx(ptr nocapture noundef writeonly initializes((40, 48)) %p7, ptr noundef %ctx) local_unnamed_addr #4 {
 entry:
   %ctx1 = getelementptr inbounds i8, ptr %p7, i64 40
   store ptr %ctx, ptr %ctx1, align 8
@@ -1088,7 +1088,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_pkcs7_ctx_propagate(ptr nocapture noundef readonly %from, ptr noundef %to) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pkcs7_ctx_propagate(ptr nocapture noundef readonly %from, ptr noundef initializes((40, 48)) %to) local_unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %from, i64 40
   %0 = load ptr, ptr %ctx, align 8

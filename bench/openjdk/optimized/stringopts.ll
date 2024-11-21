@@ -1091,7 +1091,7 @@ declare noundef ptr @_ZNK9MultiNode16proj_out_or_nullEj(ptr noundef nonnull alig
 declare void @_ZN4Node17disconnect_inputsEP7Compile(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15PhaseStringOpts22collect_toString_callsEv(ptr dead_on_unwind noalias writable sret(%class.Node_List) align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15PhaseStringOpts22collect_toString_callsEv(ptr dead_on_unwind noalias writable sret(%class.Node_List) align 8 initializes((0, 12), (16, 28)) %0, ptr noundef nonnull align 8 dereferenceable(136) initializes((104, 108)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Node_List, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8

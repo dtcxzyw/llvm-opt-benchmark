@@ -718,7 +718,7 @@ $_ZZN5boost4math6detail15float_prior_impIdNS0_8policies6policyINS3_14default_pol
 @_ZN8QuantLib30SquareRootProcessRNDCalculatorC1Edddd = unnamed_addr alias void (ptr, double, double, double, double), ptr @_ZN8QuantLib30SquareRootProcessRNDCalculatorC2Edddd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib30SquareRootProcessRNDCalculatorC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, double noundef %v0, double noundef %kappa, double noundef %theta, double noundef %sigma) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib30SquareRootProcessRNDCalculatorC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, double noundef %v0, double noundef %kappa, double noundef %theta, double noundef %sigma) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib30SquareRootProcessRNDCalculatorE, i64 16), ptr %this, align 8, !tbaa !3
   %v0_ = getelementptr inbounds nuw i8, ptr %this, i64 8

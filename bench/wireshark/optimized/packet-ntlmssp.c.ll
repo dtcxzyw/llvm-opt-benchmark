@@ -492,7 +492,7 @@ target triple = "x86_64-pc-linux-gnu"
 @dissect_ntlmssp_verf.catch_spec = internal constant [1 x %struct.except_id_t] [%struct.except_id_t { i64 1, i64 0 }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @get_md4pass_list(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden i32 @get_md4pass_list(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca [256 x i8], align 16
   %5 = load ptr, ptr @ntlmssp_option_nt_password, align 8
@@ -1039,7 +1039,7 @@ create_ntlmssp_v2_key.exit:                       ; preds = %83, %84, %87, %90, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_ntlmssp_v1_key(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef readonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @create_ntlmssp_v1_key(ptr noundef %0, ptr noundef %1, ptr noundef nonnull initializes((0, 16)) %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef readonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [16 x i8], align 16
   %11 = alloca [24 x i8], align 16
   %12 = alloca [21 x i8], align 16
@@ -3041,7 +3041,7 @@ declare signext i8 @g_ascii_toupper(i8 noundef signext) local_unnamed_addr #5
 declare i32 @ws_hmac_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_keyexchange_key(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @get_keyexchange_key(ptr noundef nonnull initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca [24 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -3173,7 +3173,7 @@ declare ptr @except_pop() local_unnamed_addr #1
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ntlmssp_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_ntlmssp_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1) #12
   %10 = add i32 %1, 2
   %11 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %10) #12
@@ -3302,7 +3302,7 @@ define internal noundef zeroext i1 @ntlmssp_sessions_destroy_cb(ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_sealing_rc4key(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @get_sealing_rc4key(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef nonnull initializes((0, 4)) %2, ptr noundef nonnull initializes((0, 16)) %3, ptr noundef nonnull initializes((0, 16)) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -3410,7 +3410,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_ntlmssp_blob(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_ntlmssp_blob(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5, ptr nocapture noundef writeonly initializes((0, 2), (8, 16)) %6) unnamed_addr #0 {
   %8 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %3) #12
   %9 = add i32 %3, 2
   %10 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %9) #12

@@ -131,7 +131,7 @@ $_ZTIN8QuantLib23MarketModelMultiProductE = comdat any
 @_ZN8QuantLib25CallSpecifiedMultiProductC1ERKNS_5CloneINS_23MarketModelMultiProductEEERKNS1_INS_16ExerciseStrategyINS_10CurveStateEEEEES3_ = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib25CallSpecifiedMultiProductC2ERKNS_5CloneINS_23MarketModelMultiProductEEERKNS1_INS_16ExerciseStrategyINS_10CurveStateEEEEES3_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25CallSpecifiedMultiProductC2ERKNS_5CloneINS_23MarketModelMultiProductEEERKNS1_INS_16ExerciseStrategyINS_10CurveStateEEEEES3_(ptr noundef nonnull align 8 dereferenceable(281) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %underlying, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %strategy, ptr nocapture noundef %rebate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25CallSpecifiedMultiProductC2ERKNS_5CloneINS_23MarketModelMultiProductEEERKNS1_INS_16ExerciseStrategyINS_10CurveStateEEEEES3_(ptr noundef nonnull align 8 dereferenceable(281) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %underlying, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %strategy, ptr nocapture noundef %rebate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i83 = alloca %"class.std::unique_ptr", align 8
   %ref.tmp.i43 = alloca %"class.std::unique_ptr.3", align 8
@@ -2925,7 +2925,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib25CallSpecifiedMultiProduct21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(281) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib25CallSpecifiedMultiProduct21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(281) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cashFlowTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -3002,7 +3002,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25CallSpecifiedMultiProduct5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(281) %this) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib25CallSpecifiedMultiProduct5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(281) initializes((216, 217), (272, 280)) %this) unnamed_addr #0 align 2 {
 entry:
   %underlying_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %underlying_, align 8, !tbaa !6
@@ -4046,7 +4046,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib25CallSpecifiedMultiProduct17enableCallabilityEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(281) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib25CallSpecifiedMultiProduct17enableCallabilityEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(281) initializes((280, 281)) %this) local_unnamed_addr #11 align 2 {
 entry:
   %callable_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   store i8 1, ptr %callable_, align 8, !tbaa !11
@@ -4054,7 +4054,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib25CallSpecifiedMultiProduct18disableCallabilityEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(281) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib25CallSpecifiedMultiProduct18disableCallabilityEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(281) initializes((280, 281)) %this) local_unnamed_addr #11 align 2 {
 entry:
   %callable_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   store i8 0, ptr %callable_, align 8, !tbaa !11

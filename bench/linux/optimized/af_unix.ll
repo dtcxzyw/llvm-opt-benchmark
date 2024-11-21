@@ -2627,7 +2627,7 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @unix_socketpair(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef i32 @unix_socketpair(ptr nocapture noundef initializes((0, 4)) %0, ptr nocapture noundef initializes((0, 4)) %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -7143,7 +7143,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @unix_dgram_peer_wake_relay(ptr noundef %0, i32 %1, i32 %2, ptr noundef %3) #0 align 16 {
+define internal noundef i32 @unix_dgram_peer_wake_relay(ptr noundef initializes((8, 16)) %0, i32 %1, i32 %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7172,7 +7172,7 @@ define internal noundef i32 @unix_dgram_peer_wake_relay(ptr noundef %0, i32 %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @unix_net_init(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @unix_net_init(ptr noundef initializes((568, 572)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 552
   %3 = getelementptr inbounds i8, ptr %0, i64 568
   store i32 10, ptr %3, align 8

@@ -42877,7 +42877,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi13CodeGenerator7sz_workERmS1_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3097) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #3 align 2 {
+define void @_ZNK6casadi13CodeGenerator7sz_workERmS1_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3097) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %4) local_unnamed_addr #3 align 2 {
   store i64 0, ptr %4, align 8
   store i64 0, ptr %3, align 8
   store i64 0, ptr %2, align 8

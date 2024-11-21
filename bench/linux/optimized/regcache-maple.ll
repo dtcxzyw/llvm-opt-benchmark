@@ -313,7 +313,7 @@ define internal i32 @regcache_maple_write(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @regcache_maple_sync(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define internal i32 @regcache_maple_sync(ptr noundef initializes((549, 550)) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.ma_state, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 568
   %6 = load ptr, ptr %5, align 8

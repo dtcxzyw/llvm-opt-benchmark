@@ -220,7 +220,7 @@ define dso_local i32 @Curl_http_setup_conn(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define dso_local i32 @Curl_http(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.dynbuf, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -806,14 +806,14 @@ define dso_local i32 @Curl_http_connect(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_http_getsock_do(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 {
+define dso_local noundef i32 @Curl_http_getsock_do(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
   %4 = tail call i32 @Curl_conn_get_socket(ptr noundef %0, i32 noundef 0) #12
   store i32 %4, ptr %2, align 4
   ret i32 65536
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http_write_resp(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4) #0 {
+define dso_local i32 @Curl_http_write_resp(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef initializes((0, 1)) %4) #0 {
   %6 = alloca i64, align 8
   store i8 0, ptr %4, align 1
   %7 = call i32 @Curl_http_write_resp_hds(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %4)
@@ -3346,7 +3346,7 @@ declare ptr @Curl_checkheaders(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @Curl_http_method(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #6 {
+define dso_local void @Curl_http_method(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4938
   %6 = load i8, ptr %5, align 2
   %7 = getelementptr inbounds i8, ptr %1, i64 680
@@ -4998,7 +4998,7 @@ declare void @Curl_set_in_callback(ptr noundef, i1 noundef zeroext) local_unname
 declare i64 @curlx_sotouz(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 34) i32 @Curl_http_firstwrite(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 34) i32 @Curl_http_firstwrite(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 216
   store i8 0, ptr %2, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 360
@@ -5838,7 +5838,7 @@ declare ptr @Curl_cookie_add(ptr noundef, ptr noundef, i1 noundef zeroext, i1 no
 declare i32 @Curl_hsts_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_http_statusline(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_http_statusline(ptr noundef initializes((4952, 4956), (4960, 4964)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 216
   %4 = getelementptr inbounds i8, ptr %0, i64 296
   %5 = load i32, ptr %4, align 8
@@ -6062,7 +6062,7 @@ select.unfold:                                    ; preds = %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http_write_resp_hds(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local i32 @Curl_http_write_resp_hds(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) local_unnamed_addr #0 {
   store i8 0, ptr %4, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 403
   %7 = load i16, ptr %6, align 1
@@ -7955,7 +7955,7 @@ declare i64 @Curl_dynhds_count(ptr noundef) local_unnamed_addr #1
 declare ptr @Curl_dynhds_getn(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_http_resp_make(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_http_resp_make(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @Curl_ccalloc, align 8
   %5 = tail call ptr %4(i64 noundef 1, i64 noundef 136) #12
   %.not25 = icmp eq ptr %5, null

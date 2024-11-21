@@ -258,7 +258,7 @@ define internal ptr @H5O__ainfo_decode(ptr noundef %0, ptr nocapture readnone %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5O__ainfo_encode(ptr noundef %0, i1 zeroext %1, i64 %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal noundef i32 @H5O__ainfo_encode(ptr noundef %0, i1 zeroext %1, i64 %2, ptr noundef initializes((0, 1)) %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %3, align 1

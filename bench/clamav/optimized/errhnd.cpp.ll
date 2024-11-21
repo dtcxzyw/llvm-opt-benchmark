@@ -21,7 +21,7 @@ $_ZTI8RAR_EXIT = comdat any
 @_ZN12ErrorHandlerC1Ev = unnamed_addr alias void (ptr), ptr @_ZN12ErrorHandlerC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12ErrorHandlerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) %0) unnamed_addr #0 align 2 {
+define void @_ZN12ErrorHandlerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) initializes((0, 14)) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -33,7 +33,7 @@ define void @_ZN12ErrorHandlerC2Ev(ptr nocapture noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12ErrorHandler5CleanEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN12ErrorHandler5CleanEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) initializes((0, 14)) %0) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -249,7 +249,7 @@ define void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr nocapture noundef non
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define void @_ZN12ErrorHandler9ReadErrorEPKw(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 align 2 {
+define void @_ZN12ErrorHandler9ReadErrorEPKw(ptr nocapture noundef nonnull align 4 dereferenceable(14) initializes((0, 4)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 align 2 {
   tail call void @_Z7uiAlarm12UIALARM_TYPE(i32 noundef 0)
   store i32 12, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -263,7 +263,7 @@ define void @_ZN12ErrorHandler9ReadErrorEPKw(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %3, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %4) local_unnamed_addr #4 align 2 {
+define void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr nocapture noundef nonnull align 4 dereferenceable(14) initializes((0, 4)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %3, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %4) local_unnamed_addr #4 align 2 {
   store i32 12, ptr %0, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
@@ -274,7 +274,7 @@ define void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr nocapture noundef 
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define void @_ZN12ErrorHandler10WriteErrorEPKwS1_(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #5 align 2 {
+define void @_ZN12ErrorHandler10WriteErrorEPKwS1_(ptr nocapture noundef nonnull align 4 dereferenceable(14) initializes((0, 4)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #5 align 2 {
   tail call void @_Z7uiAlarm12UIALARM_TYPE(i32 noundef 0)
   store i32 5, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -816,7 +816,7 @@ define void @_Z13ProcessSignali(i32 %0) #9 {
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12ErrorHandler17SetSignalHandlersEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define void @_ZN12ErrorHandler17SetSignalHandlersEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) initializes((8, 9)) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %3, ptr %4, align 4

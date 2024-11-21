@@ -17167,7 +17167,7 @@ cleanup:                                          ; preds = %if.end, %_ZN9Object
 declare void @_ZN6Server13RespawnPlayerEt(ptr noundef nonnull align 8 dereferenceable(1640), i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9ObjectRefC2EP18ServerActiveObject(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %object) unnamed_addr #18 align 2 {
+define dso_local void @_ZN9ObjectRefC2EP18ServerActiveObject(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %object) unnamed_addr #18 align 2 {
 entry:
   store ptr %object, ptr %this, align 8, !tbaa !15
   ret void

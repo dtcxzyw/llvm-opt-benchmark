@@ -1224,7 +1224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EC_GROUP_set_curve_name(ptr nocapture noundef writeonly %group, i32 noundef %nid) local_unnamed_addr #4 {
+define void @EC_GROUP_set_curve_name(ptr nocapture noundef writeonly initializes((32, 40)) %group, i32 noundef %nid) local_unnamed_addr #4 {
 entry:
   %curve_name = getelementptr inbounds i8, ptr %group, i64 32
   store i32 %nid, ptr %curve_name, align 8
@@ -1261,7 +1261,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EC_GROUP_set_asn1_flag(ptr nocapture noundef writeonly %group, i32 noundef %flag) local_unnamed_addr #4 {
+define void @EC_GROUP_set_asn1_flag(ptr nocapture noundef writeonly initializes((36, 40)) %group, i32 noundef %flag) local_unnamed_addr #4 {
 entry:
   %asn1_flag = getelementptr inbounds i8, ptr %group, i64 36
   store i32 %flag, ptr %asn1_flag, align 4
@@ -1277,7 +1277,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EC_GROUP_set_point_conversion_form(ptr nocapture noundef writeonly %group, i32 noundef %form) local_unnamed_addr #4 {
+define void @EC_GROUP_set_point_conversion_form(ptr nocapture noundef writeonly initializes((44, 48)) %group, i32 noundef %form) local_unnamed_addr #4 {
 entry:
   %asn1_form = getelementptr inbounds i8, ptr %group, i64 44
   store i32 %form, ptr %asn1_form, align 4
@@ -1293,7 +1293,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @EC_GROUP_set_seed(ptr nocapture noundef %group, ptr noundef readonly %p, i64 noundef %len) local_unnamed_addr #0 {
+define noundef i64 @EC_GROUP_set_seed(ptr nocapture noundef initializes((56, 64)) %group, ptr noundef readonly %p, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %seed = getelementptr inbounds i8, ptr %group, i64 48
   %0 = load ptr, ptr %seed, align 8

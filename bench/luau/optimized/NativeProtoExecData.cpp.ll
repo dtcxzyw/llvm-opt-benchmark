@@ -25,7 +25,7 @@ define dso_local void @_ZN4Luau7CodeGen26destroyNativeProtoExecDataEPKj(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen25createNativeProtoExecDataEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, i32 noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen25createNativeProtoExecDataEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit:
   %2 = zext i32 %1 to i64
   %3 = shl nuw nsw i64 %2, 2

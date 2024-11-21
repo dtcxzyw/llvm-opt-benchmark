@@ -7999,7 +7999,7 @@ ehcleanup183:                                     ; preds = %ehcleanup169, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7voxalgo17VoxelLineIteratorC2ERKN3irr4core8vector3dIfEES6_(ptr nocapture noundef nonnull align 4 dereferenceable(70) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %start_position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %line_vector) unnamed_addr #9 align 2 {
+define dso_local void @_ZN7voxalgo17VoxelLineIteratorC2ERKN3irr4core8vector3dIfEES6_(ptr nocapture noundef nonnull align 4 dereferenceable(70) initializes((0, 68)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %start_position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %line_vector) unnamed_addr #9 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 4 dereferenceable(12) %start_position, i64 12, i1 false), !tbaa.struct !252
   %m_line_vector = getelementptr inbounds i8, ptr %this, i64 12

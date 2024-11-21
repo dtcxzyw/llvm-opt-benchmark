@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 1, 5) i32 @_ZN3re210chartoruneEPiPKc(ptr nocapture noundef writeonly %rune, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define noundef range(i32 1, 5) i32 @_ZN3re210chartoruneEPiPKc(ptr nocapture noundef writeonly initializes((0, 4)) %rune, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %str, align 1
   %conv = zext i8 %0 to i32
@@ -93,7 +93,7 @@ return:                                           ; preds = %if.end8, %entry, %b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 1, 5) i32 @_ZN3re210runetocharEPcPKi(ptr nocapture noundef writeonly %str, ptr nocapture noundef readonly %rune) local_unnamed_addr #0 {
+define noundef range(i32 1, 5) i32 @_ZN3re210runetocharEPcPKi(ptr nocapture noundef writeonly initializes((0, 1)) %str, ptr nocapture noundef readonly %rune) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %rune, align 4
   %cmp = icmp ult i32 %0, 128

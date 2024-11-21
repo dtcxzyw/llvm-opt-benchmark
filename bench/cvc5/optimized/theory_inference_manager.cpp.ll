@@ -891,7 +891,7 @@ _ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory22TheoryInferenceManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory22TheoryInferenceManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8), (160, 168)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory22TheoryInferenceManagerE, i64 16), ptr %this, align 8
   %d_lemmasSent = getelementptr inbounds i8, ptr %this, i64 160
@@ -1002,7 +1002,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory2eq13ProofEqEngineESt14default_deleteIS4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory22TheoryInferenceManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal6theory22TheoryInferenceManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8), (160, 168)) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory22TheoryInferenceManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) #27
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -1010,7 +1010,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory22TheoryInferenceManager17setEqualityEngineEPNS1_2eq14EqualityEngineE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %ee) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory22TheoryInferenceManager17setEqualityEngineEPNS1_2eq14EqualityEngineE(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((40, 48)) %this, ptr noundef %ee) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_ee = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %ee, ptr %d_ee, align 8
@@ -1075,7 +1075,7 @@ declare noundef ptr @_ZN4cvc58internal6theory2eq14EqualityEngine22getProofEquali
 declare void @_ZN4cvc58internal6theory2eq14EqualityEngine22setProofEqualityEngineEPNS2_13ProofEqEngineE(ptr noundef nonnull align 8 dereferenceable(1784), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory22TheoryInferenceManager18setDecisionManagerEPNS1_15DecisionManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %this, ptr noundef %dm) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory22TheoryInferenceManager18setDecisionManagerEPNS1_15DecisionManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((48, 56)) %this, ptr noundef %dm) local_unnamed_addr #7 align 2 {
 entry:
   %d_decManager = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %dm, ptr %d_decManager, align 8
@@ -1085,7 +1085,7 @@ entry:
 declare noundef zeroext i1 @_ZNK4cvc58internal3Env22isTheoryProofProducingEv(ptr noundef nonnull align 8 dereferenceable(576)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory22TheoryInferenceManager5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory22TheoryInferenceManager5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((216, 228)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_numConflicts = getelementptr inbounds i8, ptr %this, i64 216
   store i32 0, ptr %d_numConflicts, align 8

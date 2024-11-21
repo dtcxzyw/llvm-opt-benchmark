@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN17JfrStackTraceMarkD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17JfrStackTraceMarkD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JfrStackTraceMarkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17JfrStackTraceMarkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
@@ -47,7 +47,7 @@ define hidden void @_ZN17JfrStackTraceMarkC2Ev(ptr nocapture noundef nonnull wri
 declare noundef i64 @_ZN23JfrStackTraceRepository6recordEP6Threadil(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JfrStackTraceMarkC2EP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN17JfrStackTraceMarkC2EP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 704
@@ -73,7 +73,7 @@ define hidden void @_ZN17JfrStackTraceMarkC2EP6Thread(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JfrStackTraceMarkC2E10JfrEventId(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN17JfrStackTraceMarkC2E10JfrEventId(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = zext i32 %1 to i64
@@ -111,7 +111,7 @@ define hidden void @_ZN17JfrStackTraceMarkC2E10JfrEventId(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JfrStackTraceMarkC2E10JfrEventIdP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN17JfrStackTraceMarkC2E10JfrEventIdP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = zext i32 %1 to i64

@@ -846,7 +846,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16HestonSLVMCModelC2ENS_6HandleINS_21LocalVolTermStructureEEENS1_INS_11HestonModelEEEN5boost10shared_ptrINS_24BrownianGeneratorFactoryEEERKNS_4DateEmmmRKSt6vectorISA_SaISA_EEd(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %localVol, ptr nocapture noundef %hestonModel, ptr nocapture noundef %brownianGeneratorFactory, ptr noundef nonnull align 8 dereferenceable(8) %endDate, i64 noundef %timeStepsPerYear, i64 noundef %nBins, i64 noundef %calibrationPaths, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mandatoryDates, double noundef %mixingFactor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16HestonSLVMCModelC2ENS_6HandleINS_21LocalVolTermStructureEEENS1_INS_11HestonModelEEEN5boost10shared_ptrINS_24BrownianGeneratorFactoryEEERKNS_4DateEmmmRKSt6vectorISA_SaISA_EEd(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 12), (16, 128)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %localVol, ptr nocapture noundef %hestonModel, ptr nocapture noundef %brownianGeneratorFactory, ptr noundef nonnull align 8 dereferenceable(8) %endDate, i64 noundef %timeStepsPerYear, i64 noundef %nBins, i64 noundef %calibrationPaths, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mandatoryDates, double noundef %mixingFactor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp18 = alloca %"class.boost::shared_ptr", align 8
@@ -3118,7 +3118,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_21LocalVolTermStructureEE4LinkEED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16HestonSLVMCModelC1ENS_6HandleINS_21LocalVolTermStructureEEENS1_INS_11HestonModelEEEN5boost10shared_ptrINS_24BrownianGeneratorFactoryEEERKNS_4DateEmmmRKSt6vectorISA_SaISA_EEd(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef %localVol, ptr nocapture noundef %hestonModel, ptr nocapture noundef %brownianGeneratorFactory, ptr noundef nonnull align 8 dereferenceable(8) %endDate, i64 noundef %timeStepsPerYear, i64 noundef %nBins, i64 noundef %calibrationPaths, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mandatoryDates, double noundef %mixingFactor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16HestonSLVMCModelC1ENS_6HandleINS_21LocalVolTermStructureEEENS1_INS_11HestonModelEEEN5boost10shared_ptrINS_24BrownianGeneratorFactoryEEERKNS_4DateEmmmRKSt6vectorISA_SaISA_EEd(ptr noundef nonnull align 8 dereferenceable(128) initializes((144, 148), (152, 160)) %this, ptr nocapture noundef %localVol, ptr nocapture noundef %hestonModel, ptr nocapture noundef %brownianGeneratorFactory, ptr noundef nonnull align 8 dereferenceable(8) %endDate, i64 noundef %timeStepsPerYear, i64 noundef %nBins, i64 noundef %calibrationPaths, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mandatoryDates, double noundef %mixingFactor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp13 = alloca %"class.boost::shared_ptr", align 8
@@ -4357,7 +4357,7 @@ ehcleanup133:                                     ; preds = %ehcleanup132, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16HestonSLVMCModel13hestonProcessEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.36") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16HestonSLVMCModel13hestonProcessEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.36") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hestonModel_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_11HestonModelEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %hestonModel_)
@@ -4393,7 +4393,7 @@ _ZNK8QuantLib11HestonModel7processEv.exit:        ; preds = %_ZNK5boost10shared_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16HestonSLVMCModel8localVolEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.61") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16HestonSLVMCModel8localVolEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.61") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %localVol_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_21LocalVolTermStructureEE11currentLinkEv(ptr noundef nonnull align 8 dereferenceable(16) %localVol_)
@@ -4605,7 +4605,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16HestonSLVMCModel16leverageFunctionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.61") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16HestonSLVMCModel16leverageFunctionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.61") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !33
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24

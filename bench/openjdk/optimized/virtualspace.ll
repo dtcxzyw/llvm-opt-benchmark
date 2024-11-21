@@ -116,7 +116,7 @@ $_ZN7LogImplILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLeve
 @_ZN12VirtualSpaceD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN12VirtualSpaceD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13ReservedSpaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN13ReservedSpaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 32), (40, 41), (44, 49)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 44
@@ -128,7 +128,7 @@ define hidden void @_ZN13ReservedSpaceC2Ev(ptr nocapture noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ReservedSpaceC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13ReservedSpaceC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 41), (44, 49)) %0, i64 noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 -1, ptr %3, align 4
   %4 = tail call noundef i64 @_ZN2os30page_size_for_region_unalignedEmm(i64 noundef %1, i64 noundef 1) #13
@@ -152,7 +152,7 @@ _ZN13ReservedSpace10initializeEmmmPcb.exit:       ; preds = %2, %8
 declare noundef i64 @_ZN2os30page_size_for_region_unalignedEmm(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ReservedSpace10initializeEmmmPcb(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13ReservedSpace10initializeEmmmPcb(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 41), (48, 49)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 41, i1 false)
@@ -231,7 +231,7 @@ _ZN13ReservedSpace7releaseEv.exit:                ; preds = %42, %20, %6, %_ZL30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ReservedSpaceC2Emm(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN13ReservedSpaceC2Emm(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 41), (44, 49)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 -1, ptr %4, align 4
   %5 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
@@ -267,7 +267,7 @@ _ZN13ReservedSpace10initializeEmmmPcb.exit:       ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ReservedSpaceC2EmmmPc(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #1 align 2 {
+define hidden void @_ZN13ReservedSpaceC2EmmmPc(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 41), (44, 49)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 -1, ptr %6, align 4
   tail call void @_ZN13ReservedSpace10initializeEmmmPcb(ptr noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i1 noundef zeroext false)
@@ -275,7 +275,7 @@ define hidden void @_ZN13ReservedSpaceC2EmmmPc(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13ReservedSpaceC2EPcmmmbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN13ReservedSpaceC2EPcmmmbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 41), (44, 49)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 -1, ptr %8, align 4
   %9 = zext i1 %5 to i8
@@ -297,7 +297,7 @@ define hidden void @_ZN13ReservedSpaceC2EPcmmmbb(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13ReservedSpace18initialize_membersEPcmmmbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ReservedSpace18initialize_membersEPcmmmbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 41), (48, 49)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = zext i1 %5 to i8
   %9 = zext i1 %6 to i8
   store ptr %1, ptr %0, align 8
@@ -317,7 +317,7 @@ define hidden void @_ZN13ReservedSpace18initialize_membersEPcmmmbb(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13ReservedSpace13clear_membersEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ReservedSpace13clear_membersEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 41), (48, 49)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 0, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
@@ -746,7 +746,7 @@ define hidden void @_ZN13ReservedSpace7releaseEv(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13ReservedSpace10first_partEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ReservedSpace) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13ReservedSpace10first_partEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ReservedSpace) align 8 initializes((0, 41), (44, 49)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8
@@ -775,7 +775,7 @@ define hidden void @_ZN13ReservedSpace10first_partEmm(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13ReservedSpace9last_partEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ReservedSpace) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13ReservedSpace9last_partEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ReservedSpace) align 8 initializes((0, 41), (44, 49)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 %2
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -808,7 +808,7 @@ define hidden void @_ZN13ReservedSpace9last_partEmm(ptr dead_on_unwind noalias n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13ReservedSpace9partitionEmmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ReservedSpace) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13ReservedSpace9partitionEmmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ReservedSpace) align 8 initializes((0, 41), (44, 49)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 align 2 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 %2
   %8 = getelementptr inbounds i8, ptr %1, i64 32
@@ -872,7 +872,7 @@ declare noundef zeroext i1 @_ZN2os22release_memory_specialEPcm(ptr noundef, i64 
 declare noundef zeroext i1 @_ZN2os14release_memoryEPcm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13ReservedSpace15space_for_rangeEPcmmmbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ReservedSpace) align 8 %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ReservedSpace15space_for_rangeEPcmmmbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ReservedSpace) align 8 initializes((0, 41), (44, 49)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 -1, ptr %9, align 4
@@ -894,7 +894,7 @@ define hidden void @_ZN13ReservedSpace15space_for_rangeEPcmmmbb(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ReservedHeapSpace25establish_noaccess_prefixEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17ReservedHeapSpace25establish_noaccess_prefixEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((16, 24)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
@@ -1519,7 +1519,7 @@ declare noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef) 
 declare noundef zeroext i1 @_ZN14CompressedOops29is_disjoint_heap_base_addressEPh(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ReservedHeapSpaceC2EmmmPKc(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #1 align 2 {
+define hidden void @_ZN17ReservedHeapSpaceC2EmmmPKc(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 32), (40, 41), (44, 49)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #1 align 2 {
   %6 = alloca %class.ThreadCritical, align 1
   %7 = alloca %class.FormatBuffer, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1686,7 +1686,7 @@ define hidden { ptr, i64 } @_ZNK17ReservedHeapSpace6regionEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ReservedCodeSpaceC2Emmm(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 2 {
+define hidden void @_ZN17ReservedCodeSpaceC2Emmm(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 41), (44, 49)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca %class.ThreadCritical, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 -1, ptr %6, align 4
@@ -1724,7 +1724,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %_ZN13Re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12VirtualSpaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12VirtualSpaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 34), (40, 112)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %0, i8 0, i64 34, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
@@ -2063,7 +2063,7 @@ _ZL15commit_expandedPcmmbb.exit:                  ; preds = %_ZL15commit_expande
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12VirtualSpaceD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12VirtualSpaceD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 34), (40, 112)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 34, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
@@ -2071,7 +2071,7 @@ define hidden void @_ZN12VirtualSpaceD2Ev(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12VirtualSpace7releaseEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12VirtualSpace7releaseEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 34), (40, 112)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %0, i8 0, i64 34, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)

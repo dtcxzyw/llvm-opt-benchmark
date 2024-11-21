@@ -494,7 +494,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm5MachO6SymboleqERKS1_(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm5MachO11parseSymbolENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachO::SimpleSymbol") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #2 {
+define dso_local void @_ZN4llvm5MachO11parseSymbolENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachO::SimpleSymbol") align 8 initializes((0, 18)) %0, ptr %1, i64 %2) local_unnamed_addr #2 {
   %.not.i = icmp ult i64 %2, 17
   br i1 %.not.i, label %8, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 

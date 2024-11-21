@@ -54,7 +54,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3zmq8object_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq8object_tD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq8object_tC2EPNS_5ctx_tEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr noundef %ctx_, i32 noundef %tid_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq8object_tC2EPNS_5ctx_tEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr noundef %ctx_, i32 noundef %tid_) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8object_tE, i64 16), ptr %this, align 8
   %_ctx = getelementptr inbounds i8, ptr %this, i64 8
@@ -65,7 +65,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3zmq8object_tC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture noundef readonly %parent_) unnamed_addr #1 align 2 {
+define void @_ZN3zmq8object_tC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture noundef readonly %parent_) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8object_tE, i64 16), ptr %this, align 8
   %_ctx = getelementptr inbounds i8, ptr %this, i64 8
@@ -105,7 +105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq8object_t7set_tidEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, i32 noundef %id_) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq8object_t7set_tidEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %this, i32 noundef %id_) local_unnamed_addr #0 align 2 {
 entry:
   %_tid = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %id_, ptr %_tid, align 8

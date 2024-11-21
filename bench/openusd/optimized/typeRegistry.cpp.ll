@@ -4191,7 +4191,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4Auto7ReleaseEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14TsTypeRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14TsTypeRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (40, 48)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__14TsTypeRegistryE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4285,7 +4285,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__6TfTypeEPFvPNS0_24Ts_Pol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14TsTypeRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14TsTypeRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__14TsTypeRegistryE, i64 16), ptr %0, align 8
   %2 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17TfRegistryManager11GetInstanceEv()
           to label %3 unwind label %18
@@ -5681,7 +5681,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__6TfTypeESt4pairIKS1_PFvPNS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction79EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction79EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -5779,7 +5779,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAnyUniquePtr7
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction80EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction80EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 32), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -18512,7 +18512,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7VtArrayIfEENS_1
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction85EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction85EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 24), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Ts_TypedData<pxrInternal_v0_24__pxrReserved__::GfVec2d>::_Values", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -21246,7 +21246,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec2dENS_19Tf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction86EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction86EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -23968,7 +23968,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedRemoveINS_7GfVec2fEEET_v
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfVec2fEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction87EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction87EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 24), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Ts_TypedData<pxrInternal_v0_24__pxrReserved__::GfVec3d>::_Values", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -26766,7 +26766,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec3dENS_19Tf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction88EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction88EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 24), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Ts_TypedData<pxrInternal_v0_24__pxrReserved__::GfVec3f>::_Values", align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -29644,7 +29644,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec3fENS_19Tf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction89EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction89EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 24), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Ts_TypedData<pxrInternal_v0_24__pxrReserved__::GfVec4d>::_Values", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -32952,7 +32952,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec4dENS_19Tf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction90EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction90EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 24), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Ts_TypedData<pxrInternal_v0_24__pxrReserved__::GfVec4f>::_Values", align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -36058,7 +36058,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec4fENS_19Tf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction91EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction91EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 24), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Ts_TypedData<pxrInternal_v0_24__pxrReserved__::GfMatrix2d>::_Values", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -38784,7 +38784,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_10GfMatrix2dENS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction92EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction92EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 24), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Ts_TypedData<pxrInternal_v0_24__pxrReserved__::GfMatrix3d>::_Values", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -41691,7 +41691,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_10GfMatrix3dENS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction93EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction93EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 24), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Ts_TypedData<pxrInternal_v0_24__pxrReserved__::GfMatrix4d>::_Values", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -44582,7 +44582,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_10GfMatrix4dENS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction96EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction96EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 24), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Ts_TypedData<pxrInternal_v0_24__pxrReserved__::GfQuatd>::_Values", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -46612,7 +46612,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatdEEEbv.exit.t
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfQuatdEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction97EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction97EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 24), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Ts_TypedData<pxrInternal_v0_24__pxrReserved__::GfQuatf>::_Values", align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -48665,7 +48665,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7GfQuatfEEEbv.exit.t
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Vt_DefaultValueFactoryINS_7GfQuatfEE6InvokeEv(ptr dead_on_unwind writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder") align 8) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction100EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction100EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 20), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -50332,7 +50332,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAnyUniquePtr7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction101EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction101EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 32), (48, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -54155,7 +54155,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAnyUniquePtr7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction103EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN32pxrInternal_v0_24__pxrReserved__L23_Tf_RegistryFunction103EPNS_14TsTypeRegistryEPvEN3$_08__invokeEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE"(ptr nocapture noundef writeonly initializes((0, 70)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h03ddf18104a226bfE"(ptr nocapture writeonly sret([160 x i8]) align 8 %0) unnamed_addr #0 {
+define void @"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h03ddf18104a226bfE"(ptr nocapture writeonly sret([160 x i8]) align 8 initializes((0, 160)) %0) unnamed_addr #0 {
   %2 = alloca [160 x i8], align 8
   call void @"_ZN17pyo3_build_config3get28_$u7b$$u7b$closure$u7d$$u7d$17h00ef6096e2f06626E"(ptr nonnull sret([160 x i8]) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %2, i64 160, i1 false)

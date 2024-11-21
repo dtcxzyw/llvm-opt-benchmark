@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @host_memory_backend_set_mapped(ptr nocapture noundef writeonly %backend, i1 noundef zeroext %mapped) local_unnamed_addr #2 {
+define dso_local void @host_memory_backend_set_mapped(ptr nocapture noundef writeonly initializes((52, 53)) %backend, i1 noundef zeroext %mapped) local_unnamed_addr #2 {
 entry:
   %frombool = zext i1 %mapped to i8
   %is_mapped = getelementptr inbounds i8, ptr %backend, i64 52

@@ -201,7 +201,7 @@ define internal void @tstoreDestroyReceiver(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SetTuplestoreDestReceiverParams(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
+define dso_local void @SetTuplestoreDestReceiverParams(ptr nocapture noundef writeonly initializes((40, 57), (64, 80)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = zext i1 %3 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %8, align 8

@@ -28,7 +28,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @long_new(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %it) #1 {
+define internal noundef i32 @long_new(ptr nocapture noundef writeonly initializes((0, 8)) %pval, ptr nocapture noundef readonly %it) #1 {
 entry:
   %size = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
@@ -37,7 +37,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @long_free(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %it) #1 {
+define internal void @long_free(ptr nocapture noundef writeonly initializes((0, 8)) %pval, ptr nocapture noundef readonly %it) #1 {
 entry:
   %size = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8

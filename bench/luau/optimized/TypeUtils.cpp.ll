@@ -4437,7 +4437,7 @@ declare { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr noundef nonnull align
 declare noundef zeroext i1 @_ZN4Luau14isVariadicTailEPKNS_11TypePackVarERKNS_6TxnLogEb(ptr noundef, ptr noundef nonnull align 8 dereferenceable(128), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau14extendTypePackERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_11TypePackVarEmSt6vectorISt8optionalIPKNS_4TypeEESaISD_EE(ptr dead_on_unwind noalias nocapture writable sret(%"struct.Luau::TypePack") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau14extendTypePackERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_11TypePackVarEmSt6vectorISt8optionalIPKNS_4TypeEESaISD_EE(ptr dead_on_unwind noalias nocapture writable sret(%"struct.Luau::TypePack") align 8 initializes((0, 24), (32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.Luau::TypePack", align 8
   %8 = alloca %"struct.Luau::FreeType", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)

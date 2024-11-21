@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [54 x i8] c"Tas_ManDeriveReason(): Failed to derive the clause!!!\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Tas_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Tas_SetDefaultParams(ptr nocapture noundef writeonly initializes((0, 56)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %2, i8 0, i64 20, i1 false)
   store i32 2000, ptr %0, align 4
@@ -2152,7 +2152,7 @@ Vec_IntPush.exit54:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Tas_ManCancelUntil(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #10 {
+define internal fastcc void @Tas_ManCancelUntil(ptr nocapture noundef initializes((64, 68)) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2730,7 +2730,7 @@ Tas_ManCheckLimits.exit75.thread:                 ; preds = %Tas_ManCheckLimits.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Tas_ManSaveModel(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #8 {
+define internal fastcc void @Tas_ManSaveModel(ptr nocapture noundef initializes((64, 68)) %0, ptr nocapture noundef initializes((4, 8)) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 64

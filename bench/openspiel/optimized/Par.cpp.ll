@@ -2398,7 +2398,7 @@ switch.lookup:                                    ; preds = %22
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define range(i32 -1, 2) i32 @ConvertToSidesTextFormat(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @ConvertToSidesTextFormat(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 256)) %1) local_unnamed_addr #3 {
   %3 = alloca [20 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   %4 = load i32, ptr %0, align 4

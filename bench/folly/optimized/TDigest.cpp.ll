@@ -37,7 +37,7 @@ $_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8Centroi
 @_ZN5folly7TDigestC1ESt6vectorINS0_8CentroidESaIS2_EEddddm = unnamed_addr alias void (ptr, ptr, double, double, double, double, i64), ptr @_ZN5folly7TDigestC2ESt6vectorINS0_8CentroidESaIS2_EEddddm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7TDigestC2ESt6vectorINS0_8CentroidESaIS2_EEddddm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef %centroids, double noundef %sum, double noundef %count, double noundef %max_val, double noundef %min_val, i64 noundef %maxSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7TDigestC2ESt6vectorINS0_8CentroidESaIS2_EEddddm(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %this, ptr nocapture noundef %centroids, double noundef %sum, double noundef %count, double noundef %max_val, double noundef %min_val, i64 noundef %maxSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %digests = alloca %"struct.std::array", align 8
   %agg.tmp = alloca %"class.std::vector", align 8
@@ -1189,7 +1189,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
 declare void @_ZN5folly6detail17double_radix_sortEmPmPdS2_(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly7TDigest5mergeENS_19sorted_equivalent_tENS_5RangeIPKdEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.folly::TDigest") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr %sortedValues.coerce0, ptr %sortedValues.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TDigest5mergeENS_19sorted_equivalent_tENS_5RangeIPKdEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.folly::TDigest") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr %sortedValues.coerce0, ptr %sortedValues.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp eq ptr %sortedValues.coerce0, %sortedValues.coerce1
   br i1 %cmp.i, label %if.then, label %if.end

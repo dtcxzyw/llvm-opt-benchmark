@@ -1775,7 +1775,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
 declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx21FileNameOptionStorage10extensionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.36") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(244) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3gmx21FileNameOptionStorage10extensionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.36") align 8 initializes((8, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(244) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 224
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, -1
@@ -2536,7 +2536,7 @@ define noundef ptr @_ZNK3gmx18FileNameOptionInfo16defaultExtensionEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx18FileNameOptionInfo10extensionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.36") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK3gmx18FileNameOptionInfo10extensionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.36") align 8 initializes((8, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNK3gmx21FileNameOptionStorage10extensionsEv(ptr dead_on_unwind writable sret(%"class.std::vector.36") align 8 %0, ptr noundef nonnull align 8 dereferenceable(244) %4)

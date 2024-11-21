@@ -467,7 +467,7 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #1
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @v2r0_mem2diskdqb(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal void @v2r0_mem2diskdqb(ptr noundef initializes((0, 48)) %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 136
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -535,7 +535,7 @@ define internal void @v2r0_mem2diskdqb(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @v2r0_disk2memdqb(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal void @v2r0_disk2memdqb(ptr nocapture noundef writeonly initializes((136, 160), (168, 208)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = alloca %struct.v2r0_disk_dqblk, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 136
@@ -645,7 +645,7 @@ declare dso_local i32 @qtree_entry_unused(ptr noundef, ptr noundef) local_unname
 declare dso_local zeroext i1 @qid_eq(i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @v2r1_mem2diskdqb(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal void @v2r1_mem2diskdqb(ptr noundef initializes((0, 72)) %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 136
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -710,7 +710,7 @@ define internal void @v2r1_mem2diskdqb(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @v2r1_disk2memdqb(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal void @v2r1_disk2memdqb(ptr nocapture noundef writeonly initializes((136, 160), (168, 208)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = alloca %struct.v2r1_disk_dqblk, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 136

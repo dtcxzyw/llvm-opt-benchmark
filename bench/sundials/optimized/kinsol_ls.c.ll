@@ -1010,7 +1010,7 @@ kinLs_AccessLMem.exit.thread:                     ; preds = %12, %7, %31, %65, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @kinLsInitializeCounters(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define noundef i32 @kinLsInitializeCounters(ptr nocapture noundef writeonly initializes((56, 112)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   ret i32 0

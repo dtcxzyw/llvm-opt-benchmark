@@ -8139,7 +8139,7 @@ return:                                           ; preds = %if.then52, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @groupby_next(ptr noundef %gbo) #0 {
+define internal ptr @groupby_next(ptr noundef initializes((56, 64)) %gbo) #0 {
 entry:
   %currgrouper = getelementptr inbounds i8, ptr %gbo, i64 56
   store ptr null, ptr %currgrouper, align 8

@@ -640,7 +640,7 @@ if.end:                                           ; preds = %_ZlsRSo6symbol.exit
 declare noundef nonnull align 8 dereferenceable(8) ptr @_Z11ast_smt2_ppRSoRK6symbolbR19smt2_pp_environmentRK10params_ref(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15model_converter7set_envEP11ast_pp_util(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr noundef %visitor) unnamed_addr #6 align 2 {
+define hidden void @_ZN15model_converter7set_envEP11ast_pp_util(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((16, 24)) %this, ptr noundef %visitor) unnamed_addr #6 align 2 {
 entry:
   %tobool.not = icmp eq ptr %visitor, null
   %m_env.i = getelementptr inbounds i8, ptr %visitor, i64 32

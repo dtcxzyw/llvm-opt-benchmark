@@ -1617,7 +1617,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @audio_sample_to_uint64(ptr nocapture noundef readonly %samples, i32 noundef %pos, ptr nocapture noundef writeonly %left, ptr nocapture noundef writeonly %right) local_unnamed_addr #1 {
+define dso_local void @audio_sample_to_uint64(ptr nocapture noundef readonly %samples, i32 noundef %pos, ptr nocapture noundef writeonly initializes((0, 8)) %left, ptr nocapture noundef writeonly initializes((0, 8)) %right) local_unnamed_addr #1 {
 entry:
   %idx.ext = sext i32 %pos to i64
   %add.ptr = getelementptr %struct.st_sample, ptr %samples, i64 %idx.ext

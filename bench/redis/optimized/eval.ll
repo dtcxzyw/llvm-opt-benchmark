@@ -1057,7 +1057,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evalCalcFunctionName(i32 noundef %evalsha, ptr noundef %script, ptr nocapture noundef nonnull writeonly %out_funcname) unnamed_addr #0 {
+define internal fastcc void @evalCalcFunctionName(i32 noundef %evalsha, ptr noundef %script, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %out_funcname) unnamed_addr #0 {
 entry:
   %ctx.i = alloca %struct.SHA1_CTX, align 4
   %hash.i = alloca [20 x i8], align 16

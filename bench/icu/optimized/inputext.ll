@@ -9,7 +9,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_759InputTextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_759InputTextD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759InputTextC2ER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
+define void @_ZN6icu_759InputTextC2ER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8), (16, 24), (32, 52)) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias dereferenceable_or_null(8192) ptr @uprv_malloc_75(i64 noundef 8192) #13
   store ptr %call, ptr %this, align 8
@@ -82,7 +82,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_759InputText7setTextEPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this, ptr noundef %in, i32 noundef %len) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_759InputText7setTextEPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((8, 12), (24, 25), (40, 52)) %this, ptr noundef %in, i32 noundef %len) local_unnamed_addr #6 align 2 {
 entry:
   %fInputLen = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %fInputLen, align 8

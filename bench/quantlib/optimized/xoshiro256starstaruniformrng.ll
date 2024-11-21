@@ -101,7 +101,7 @@ cond.end:                                         ; preds = %entry, %_ZN8QuantLi
 declare noundef i64 @_ZN8QuantLib13SeedGenerator3getEv(ptr noundef nonnull align 8 dereferenceable(5000)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib28Xoshiro256StarStarUniformRngC2Emmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i64 noundef %s0, i64 noundef %s1, i64 noundef %s2, i64 noundef %s3) unnamed_addr #2 align 2 {
+define void @_ZN8QuantLib28Xoshiro256StarStarUniformRngC2Emmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, i64 noundef %s0, i64 noundef %s1, i64 noundef %s2, i64 noundef %s3) unnamed_addr #2 align 2 {
 entry:
   store i64 %s0, ptr %this, align 8, !tbaa !4
   %s1_ = getelementptr inbounds nuw i8, ptr %this, i64 8

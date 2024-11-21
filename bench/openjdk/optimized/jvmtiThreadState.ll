@@ -231,7 +231,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN27JvmtiVTMSTransitionDisablerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN27JvmtiVTMSTransitionDisablerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16JvmtiThreadStateC2EP10JavaThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN16JvmtiThreadStateC2EP10JavaThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(184) initializes((16, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80
@@ -720,7 +720,7 @@ define hidden void @_ZN16JvmtiThreadState17periodic_clean_upEv() local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiVTMSTransitionDisablerC2EP8_jobject(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiVTMSTransitionDisablerC2EP8_jobject(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -973,7 +973,7 @@ _ZN13MonitorLocker4waitEl.exit5:                  ; preds = %.preheader, %_ZN13M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27JvmtiVTMSTransitionDisablerC2Eb(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN27JvmtiVTMSTransitionDisablerC2Eb(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2372,7 +2372,7 @@ _ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit: ; preds = %24, %15, %1, %9, 
 declare void @_ZN19JvmtiEnvThreadStateC1EP16JvmtiThreadStateP12JvmtiEnvBase(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16JvmtiThreadState22enter_interp_only_modeEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN16JvmtiThreadState22enter_interp_only_modeEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((72, 76)) %0) local_unnamed_addr #4 align 2 {
   store i8 1, ptr @_ZN16JvmtiThreadState22_seen_interp_only_modeE, align 1
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 1544
@@ -2385,7 +2385,7 @@ define hidden void @_ZN16JvmtiThreadState22enter_interp_only_modeEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16JvmtiThreadState26invalidate_cur_stack_depthEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN16JvmtiThreadState26invalidate_cur_stack_depthEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((72, 76)) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 -99, ptr %2, align 8
   ret void
@@ -2642,7 +2642,7 @@ define hidden noundef i32 @_ZN16JvmtiThreadState15cur_stack_depthEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden void @_ZN16JvmtiThreadState33process_pending_step_for_popframeEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN16JvmtiThreadState33process_pending_step_for_popframeEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((35, 36)) %0) local_unnamed_addr #7 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 1324
   %4 = load i32, ptr %3, align 4
@@ -2786,7 +2786,7 @@ declare noundef zeroext i1 @_ZN19JvmtiEnvThreadState12is_frame_popEi(ptr noundef
 declare void @_ZN19JvmtiEnvThreadState15clear_frame_popEi(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden void @_ZN16JvmtiThreadState33process_pending_step_for_earlyretEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN16JvmtiThreadState33process_pending_step_for_earlyretEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((36, 37)) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 156
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
@@ -2948,7 +2948,7 @@ define hidden void @_ZN16JvmtiThreadState26run_nmethod_entry_barriersEv(ptr noca
 declare void @_ZN23JvmtiDeferredEventQueue26run_nmethod_entry_barriersEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16JvmtiThreadState10set_threadEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN16JvmtiThreadState10set_threadEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32

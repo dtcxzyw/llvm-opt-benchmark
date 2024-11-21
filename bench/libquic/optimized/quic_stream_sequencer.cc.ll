@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net19QuicStreamSequencerD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net19QuicStreamSequencerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19QuicStreamSequencerC2EPNS_18ReliableQuicStreamEPKNS_9QuicClockE(ptr noundef nonnull align 8 dereferenceable(169) %this, ptr noundef %quic_stream, ptr noundef %clock) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net19QuicStreamSequencerC2EPNS_18ReliableQuicStreamEPKNS_9QuicClockE(ptr noundef nonnull align 8 dereferenceable(169) initializes((0, 16)) %this, ptr noundef %quic_stream, ptr noundef %clock) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net19QuicStreamSequencerE, i64 16), ptr %this, align 8
   %stream_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -66,7 +66,7 @@ entry:
 declare void @_ZN3net25QuicStreamSequencerBufferC1Em(ptr noundef nonnull align 8 dereferenceable(120), i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net19QuicStreamSequencerD2Ev(ptr noundef nonnull align 8 dereferenceable(169) %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net19QuicStreamSequencerD2Ev(ptr noundef nonnull align 8 dereferenceable(169) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net19QuicStreamSequencerE, i64 16), ptr %this, align 8
   %buffered_frames_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -78,7 +78,7 @@ entry:
 declare void @_ZN3net25QuicStreamSequencerBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net19QuicStreamSequencerD0Ev(ptr noundef nonnull align 8 dereferenceable(169) %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net19QuicStreamSequencerD0Ev(ptr noundef nonnull align 8 dereferenceable(169) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net19QuicStreamSequencerE, i64 16), ptr %this, align 8
   %buffered_frames_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1137,7 +1137,7 @@ ehcleanup63:                                      ; preds = %ehcleanup62, %lpad
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net19QuicStreamSequencer20SetBlockedUntilFlushEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(169) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3net19QuicStreamSequencer20SetBlockedUntilFlushEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(169) initializes((144, 145)) %this) local_unnamed_addr #5 align 2 {
 entry:
   %blocked_ = getelementptr inbounds i8, ptr %this, i64 144
   store i8 1, ptr %blocked_, align 8
@@ -1145,7 +1145,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19QuicStreamSequencer12SetUnblockedEv(ptr noundef nonnull align 8 dereferenceable(169) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net19QuicStreamSequencer12SetUnblockedEv(ptr noundef nonnull align 8 dereferenceable(169) initializes((144, 145)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %blocked_ = getelementptr inbounds i8, ptr %this, i64 144
   store i8 0, ptr %blocked_, align 8

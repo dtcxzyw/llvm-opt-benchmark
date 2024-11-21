@@ -510,7 +510,7 @@ define dso_local void @ExecEndNestLoop(ptr nocapture noundef readonly %0) local_
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanNestLoop(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanNestLoop(ptr nocapture noundef initializes((216, 218)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 104

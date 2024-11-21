@@ -663,7 +663,7 @@ _ZN4llvm13isPowerOf2_32Ej.exit9:                  ; preds = %13, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LoopVectorizeHintsC2EPKNS_4LoopEbRNS_25OptimizationRemarkEmitterEPKNS_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18LoopVectorizeHintsC2EPKNS_4LoopEbRNS_25OptimizationRemarkEmitterEPKNS_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 97), (104, 120)) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr @_ZN4llvm16VectorizerParams19VectorizationFactorE, align 4
   store ptr @.str.22, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1015,7 +1015,7 @@ declare noundef zeroext i1 @_ZN4llvm16VectorizerParams18isInterleaveForcedEv() l
 declare noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo27enableScalableVectorizationEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LoopVectorizeHints20setAlreadyVectorizedEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18LoopVectorizeHints20setAlreadyVectorizedEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((56, 60)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [2 x ptr], align 8
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca [2 x %"class.llvm::StringRef"], align 8
@@ -5018,7 +5018,7 @@ declare noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo13isLegalNTLoadEPNS_4T
 declare noundef zeroext i1 @_ZNK4llvm11Instruction6isFastEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm25LoopVectorizationLegality18canVectorizeMemoryEv(ptr noundef nonnull align 8 dereferenceable(537) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm25LoopVectorizationLegality18canVectorizeMemoryEv(ptr noundef nonnull align 8 dereferenceable(537) initializes((56, 64)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::OptimizationRemarkAnalysis", align 8
   %3 = alloca %"class.llvm::SmallVector.335", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48

@@ -9821,7 +9821,7 @@ while.end:                                        ; preds = %if.end13, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @array_designator(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr nocapture noundef readonly %ty, ptr nocapture noundef nonnull %begin, ptr nocapture noundef nonnull writeonly %end) unnamed_addr #0 {
+define internal fastcc void @array_designator(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr nocapture noundef readonly %ty, ptr nocapture noundef nonnull initializes((0, 4)) %begin, ptr nocapture noundef nonnull writeonly %end) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
@@ -11784,7 +11784,7 @@ if.end229:                                        ; preds = %if.end224
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @expr_stmt(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc noundef ptr @expr_stmt(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
@@ -11876,7 +11876,7 @@ if.end:                                           ; preds = %lor.lhs.false
 declare zeroext i1 @is_numeric(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @struct_decl(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc noundef ptr @struct_decl(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @struct_union_decl(ptr noundef %rest, ptr noundef %tok)
   store i32 14, ptr %call, align 8
@@ -12008,7 +12008,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @union_decl(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc noundef ptr @union_decl(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @struct_union_decl(ptr noundef %rest, ptr noundef %tok)
   store i32 15, ptr %call, align 8
@@ -12304,7 +12304,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @struct_union_decl(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc ptr @struct_union_decl(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   %call = tail call ptr @struct_type() #13

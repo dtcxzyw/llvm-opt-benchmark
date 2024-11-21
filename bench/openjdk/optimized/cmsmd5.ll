@@ -660,7 +660,7 @@ define internal fastcc void @cmsMD5_Transform(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsMD5finish(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @cmsMD5finish(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 3

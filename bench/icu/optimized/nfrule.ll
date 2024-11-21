@@ -53,7 +53,7 @@ $_ZN6icu_7512LocalPointerINS_24CollationElementIteratorEED2Ev = comdat any
 @_ZN6icu_756NFRuleD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_756NFRuleD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756NFRuleC2EPKNS_21RuleBasedNumberFormatERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %_rbnf, ptr noundef nonnull align 8 dereferenceable(64) %_ruleText, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756NFRuleC2EPKNS_21RuleBasedNumberFormatERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16)) %this, ptr noundef %_rbnf, ptr noundef nonnull align 8 dereferenceable(64) %_ruleText, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %this, align 8
   %radix = getelementptr inbounds i8, ptr %this, i64 8
@@ -1456,7 +1456,7 @@ declare void @_ZN6icu_759NFRuleSet19setNonNumericalRuleEPNS_6NFRuleE(ptr noundef
 declare noundef signext i8 @_ZN6icu_7512PatternProps12isWhiteSpaceEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756NFRule12setBaseValueElR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %newBaseValue, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_756NFRule12setBaseValueElR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 14)) %this, i64 noundef %newBaseValue, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
 entry:
   store i64 %newBaseValue, ptr %this, align 8
   %radix = getelementptr inbounds i8, ptr %this, i64 8

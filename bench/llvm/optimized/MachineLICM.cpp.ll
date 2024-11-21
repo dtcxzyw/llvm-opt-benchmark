@@ -1156,7 +1156,7 @@ _ZN12_GLOBAL__N_111MachineLICMC2Ev.exit:          ; preds = %0
 declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(56), i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115MachineLICMBaseC2ERcb(ptr noundef nonnull align 8 dereferenceable(1452) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115MachineLICMBaseC2ERcb(ptr noundef nonnull align 8 dereferenceable(1452) initializes((0, 28), (32, 288)) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
@@ -1230,13 +1230,13 @@ _ZN4llvm13SmallDenseMapIPNS_11MachineLoopEbLj4ENS_12DenseMapInfoIS2_vEENS_6detai
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111MachineLICMD2Ev(ptr noundef nonnull align 8 dereferenceable(1452) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_111MachineLICMD2Ev(ptr noundef nonnull align 8 dereferenceable(1452) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_115MachineLICMBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1452) %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111MachineLICMD0Ev(ptr noundef nonnull align 8 dereferenceable(1452) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_111MachineLICMD0Ev(ptr noundef nonnull align 8 dereferenceable(1452) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_115MachineLICMBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1452) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1456) #19
   ret void
@@ -6900,7 +6900,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm19MachineFunctionPass20getClearedProper
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115MachineLICMBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1452) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115MachineLICMBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1452) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_115MachineLICMBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   tail call void @_ZN4llvm8DenseMapIPNS_17MachineBasicBlockENS0_IjSt6vectorIPNS_12MachineInstrESaIS5_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEENS8_IS2_vEENSB_IS2_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #16
@@ -7066,7 +7066,7 @@ _ZN4llvm16TargetSchedModelD2Ev.exit:              ; preds = %_ZN4llvm13SmallDens
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115MachineLICMBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(1452) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115MachineLICMBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(1452) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_115MachineLICMBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1452) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1456) #19
   ret void
@@ -13351,7 +13351,7 @@ _ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1452) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115MachineLICMBase16calcRegisterCostEPKN4llvm12MachineInstrEbb(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(1452) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Register", align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -16564,13 +16564,13 @@ _ZN12_GLOBAL__N_116EarlyMachineLICMC2Ev.exit:     ; preds = %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116EarlyMachineLICMD2Ev(ptr noundef nonnull align 8 dereferenceable(1452) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116EarlyMachineLICMD2Ev(ptr noundef nonnull align 8 dereferenceable(1452) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_115MachineLICMBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1452) %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116EarlyMachineLICMD0Ev(ptr noundef nonnull align 8 dereferenceable(1452) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116EarlyMachineLICMD0Ev(ptr noundef nonnull align 8 dereferenceable(1452) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_115MachineLICMBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1452) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1456) #19
   ret void

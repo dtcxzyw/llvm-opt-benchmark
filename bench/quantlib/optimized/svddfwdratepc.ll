@@ -132,7 +132,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13SVDDFwdRatePcC2ERKN5boost10shared_ptrINS_11MarketModelEEERKNS_24BrownianGeneratorFactoryERKNS2_INS_21MarketModelVolProcessEEEmmRKSt6vectorImSaImEEm(ptr noundef nonnull align 8 dereferenceable(704) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %marketModel, ptr noundef nonnull align 8 dereferenceable(8) %factory, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volProcess, i64 noundef %firstVolatilityFactor, i64 %volatilityFactorStep, ptr noundef nonnull align 8 dereferenceable(24) %numeraires, i64 noundef %initialStep) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13SVDDFwdRatePcC2ERKN5boost10shared_ptrINS_11MarketModelEEERKNS_24BrownianGeneratorFactoryERKNS2_INS_21MarketModelVolProcessEEEmmRKSt6vectorImSaImEEm(ptr noundef nonnull align 8 dereferenceable(704) initializes((0, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %marketModel, ptr noundef nonnull align 8 dereferenceable(8) %factory, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volProcess, i64 noundef %firstVolatilityFactor, i64 %volatilityFactorStep, ptr noundef nonnull align 8 dereferenceable(24) %numeraires, i64 noundef %initialStep) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp130 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2818,7 +2818,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib13SVDDFwdRatePc12startNewPathEv(ptr nocapture noundef nonnull align 8 dereferenceable(704) %this) unnamed_addr #4 align 2 {
+define noundef double @_ZN8QuantLib13SVDDFwdRatePc12startNewPathEv(ptr nocapture noundef nonnull align 8 dereferenceable(704) initializes((384, 392)) %this) unnamed_addr #4 align 2 {
 entry:
   %initialStep_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %initialStep_, align 8, !tbaa !44

@@ -511,7 +511,7 @@ _ZN16cmArgumentParserIvE4BindINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 declare void @_ZN21cmCTestHandlerCommand13BindArgumentsEv(ptr noundef nonnull align 8 dereferenceable(344)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN19cmCTestBuildCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19cmCTestBuildCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19cmCTestBuildCommand, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 552
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
@@ -568,7 +568,7 @@ _ZN21cmCTestHandlerCommandD2Ev.exit:              ; preds = %_ZNSt10unique_ptrI1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN19cmCTestBuildCommandD0Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN19cmCTestBuildCommandD0Ev(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN19cmCTestBuildCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
@@ -578,7 +578,7 @@ define dso_local void @_ZN19cmCTestBuildCommandD0Ev(ptr noundef nonnull align 8 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN19cmCTestBuildCommand17InitializeHandlerEv(ptr noundef nonnull align 8 dereferenceable(584) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN19cmCTestBuildCommand17InitializeHandlerEv(ptr noundef nonnull align 8 dereferenceable(584) initializes((352, 360)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [3 x %"struct.std::pair.517"], align 8
   %3 = alloca %class.cmAlphaNum, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

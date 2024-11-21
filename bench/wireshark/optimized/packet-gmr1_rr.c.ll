@@ -987,7 +987,7 @@ define internal noundef zeroext i16 @gmr1_ie_rr_persistence_lvl(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @gmr1_get_msg_rr_params(i8 noundef zeroext %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define hidden void @gmr1_get_msg_rr_params(i8 noundef zeroext %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %.not = icmp eq i32 %1, 0
   %.pre = zext i8 %0 to i32

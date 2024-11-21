@@ -183,7 +183,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define dso_local void @throttle_config_init(ptr nocapture noundef writeonly %cfg) local_unnamed_addr #3 {
+define dso_local void @throttle_config_init(ptr nocapture noundef writeonly initializes((0, 248)) %cfg) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %cfg, i8 0, i64 248, i1 false)
   br label %for.body
@@ -204,7 +204,7 @@ for.end:                                          ; preds = %for.body
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define dso_local void @throttle_init(ptr nocapture noundef writeonly %ts) local_unnamed_addr #3 {
+define dso_local void @throttle_init(ptr nocapture noundef writeonly initializes((0, 256)) %ts) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %ts, i8 0, i64 256, i1 false)
   br label %for.body.i
@@ -551,7 +551,7 @@ return:                                           ; preds = %for.inc, %if.then12
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @throttle_config(ptr nocapture noundef writeonly %ts, i32 noundef %clock_type, ptr nocapture noundef readonly %cfg) local_unnamed_addr #1 {
+define dso_local void @throttle_config(ptr nocapture noundef writeonly initializes((0, 248)) %ts, i32 noundef %clock_type, ptr nocapture noundef readonly %cfg) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %ts, ptr noundef nonnull align 8 dereferenceable(248) %cfg, i64 248, i1 false)
   %invariant.gep = getelementptr i8, ptr %ts, i64 16
@@ -578,7 +578,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @throttle_get_config(ptr nocapture noundef readonly %ts, ptr nocapture noundef writeonly %cfg) local_unnamed_addr #0 {
+define dso_local void @throttle_get_config(ptr nocapture noundef readonly %ts, ptr nocapture noundef writeonly initializes((0, 248)) %cfg) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %cfg, ptr noundef nonnull align 8 dereferenceable(248) %ts, i64 248, i1 false)
   ret void
@@ -1140,7 +1140,7 @@ return:                                           ; preds = %if.end126, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @throttle_config_to_limits(ptr nocapture noundef readonly %cfg, ptr nocapture noundef writeonly %var) local_unnamed_addr #0 {
+define dso_local void @throttle_config_to_limits(ptr nocapture noundef readonly %cfg, ptr nocapture noundef writeonly initializes((0, 1), (8, 17), (24, 33), (40, 49), (56, 65), (72, 81), (88, 97), (104, 113), (120, 129), (136, 145), (152, 161), (168, 177), (184, 193), (200, 209), (216, 225), (232, 241), (248, 257), (264, 273), (280, 289), (296, 304)) %var) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %cfg, align 8
   %bps_total = getelementptr inbounds i8, ptr %var, i64 152

@@ -1031,7 +1031,7 @@ _ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3, i64 %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 initializes((0, 2), (4, 25)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 1808
@@ -1154,7 +1154,7 @@ _ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %53, %_ZN26GrowableA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 initializes((0, 2), (4, 25)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   store i8 17, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %4, align 1
@@ -1530,7 +1530,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
 declare noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable14add_jump_tableEP16MachConstantNode(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable14add_jump_tableEP16MachConstantNode(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 initializes((0, 2), (4, 25)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i:
   %3 = ptrtoint ptr %2 to i64
   %4 = getelementptr inbounds i8, ptr %1, i64 32

@@ -270,7 +270,7 @@ return:                                           ; preds = %if.else, %entry, %i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(ptr noundef nonnull %T, ptr noundef nonnull %SA, ptr nocapture noundef nonnull %bucket_A, ptr nocapture noundef nonnull %bucket_B, i32 noundef range(i32 2, -2147483648) %n) unnamed_addr #2 {
+define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(ptr noundef nonnull %T, ptr noundef nonnull %SA, ptr nocapture noundef nonnull initializes((0, 1024)) %bucket_A, ptr nocapture noundef nonnull initializes((0, 262144)) %bucket_B, i32 noundef range(i32 2, -2147483648) %n) unnamed_addr #2 {
 entry:
   %stack.i.i = alloca [64 x %struct.anon.1], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %bucket_A, i8 0, i64 1024, i1 false)

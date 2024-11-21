@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [23 x i8] c"SERVER_OVERLAY_VISUALS\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @initFakeVisual(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @initFakeVisual(ptr nocapture noundef writeonly initializes((0, 8), (16, 20), (24, 56)) %0) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 5, ptr %2, align 8
@@ -35,7 +35,7 @@ define hidden void @initFakeVisual(ptr nocapture noundef writeonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @GetMultiVisualRegions(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr noundef %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef %9, ptr noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr nocapture noundef %13, ptr nocapture noundef %14, ptr nocapture noundef %15) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @GetMultiVisualRegions(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr noundef %7, ptr nocapture noundef writeonly initializes((0, 8)) %8, ptr nocapture noundef %9, ptr noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr nocapture noundef initializes((0, 8)) %13, ptr nocapture noundef initializes((0, 8)) %14, ptr nocapture noundef %15) local_unnamed_addr #1 {
   %17 = alloca i32, align 4
   %18 = alloca %struct.XRectangle, align 2
   %19 = trunc i32 %2 to i16
@@ -115,7 +115,7 @@ thread-pre-split:                                 ; preds = %.thread, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #1 {
   %10 = alloca %struct.XVisualInfo, align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -260,7 +260,7 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) unnamed_addr #1 {
+define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) unnamed_addr #1 {
   %8 = alloca %struct.XRectangle, align 2
   %9 = alloca %struct.XRectangle, align 2
   %10 = alloca %struct.XWindowAttributes, align 8

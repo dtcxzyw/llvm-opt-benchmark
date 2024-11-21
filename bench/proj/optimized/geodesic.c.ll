@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @C4coeff.coeff = internal unnamed_addr constant [77 x double] [double 9.700000e+01, double 1.501500e+04, double 1.088000e+03, double 1.560000e+02, double 4.504500e+04, double -2.240000e+02, double -4.784000e+03, double 1.573000e+03, double 4.504500e+04, double -1.065600e+04, double 1.414400e+04, double -4.576000e+03, double -8.580000e+02, double 4.504500e+04, double 6.400000e+01, double 6.240000e+02, double -4.576000e+03, double 6.864000e+03, double -3.003000e+03, double 1.501500e+04, double 1.000000e+02, double 2.080000e+02, double 5.720000e+02, double 3.432000e+03, double -1.201200e+04, double 3.003000e+04, double 4.504500e+04, double 1.000000e+00, double 9.009000e+03, double -2.944000e+03, double 4.680000e+02, double 1.351350e+05, double 5.792000e+03, double 1.040000e+03, double -1.287000e+03, double 1.351350e+05, double 5.952000e+03, double -1.164800e+04, double 9.152000e+03, double -2.574000e+03, double 1.351350e+05, double -6.400000e+01, double -6.240000e+02, double 4.576000e+03, double -6.864000e+03, double 3.003000e+03, double 1.351350e+05, double 8.000000e+00, double 1.072500e+04, double 1.856000e+03, double -9.360000e+02, double 2.252250e+05, double -8.448000e+03, double 4.992000e+03, double -1.144000e+03, double 2.252250e+05, double -1.440000e+03, double 4.160000e+03, double -4.576000e+03, double 1.716000e+03, double 2.252250e+05, double -1.360000e+02, double 6.306300e+04, double 1.024000e+03, double -2.080000e+02, double 1.051050e+05, double 3.584000e+03, double -3.328000e+03, double 1.144000e+03, double 3.153150e+05, double -1.280000e+02, double 1.351350e+05, double -2.560000e+03, double 8.320000e+02, double 4.054050e+05, double 1.280000e+02, double 9.909900e+04], align 16
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @geod_init(ptr nocapture noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define void @geod_init(ptr nocapture noundef initializes((0, 72)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %.b = load i1, ptr @init, align 4
   br i1 %.b, label %4, label %Init.exit
 
@@ -401,7 +401,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %35,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @geod_lineinit_int(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7) unnamed_addr #3 {
+define internal fastcc void @geod_lineinit_int(ptr noundef initializes((0, 56), (72, 96), (504, 508)) %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7) unnamed_addr #3 {
   %9 = alloca i32, align 4
   %10 = alloca double, align 8
   %11 = alloca double, align 8
@@ -1101,7 +1101,7 @@ geod_gensetdistance.exit:                         ; preds = %10, %15
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @geod_gensetdistance(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
+define void @geod_gensetdistance(ptr noundef initializes((64, 72)) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %1, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
@@ -1958,7 +1958,7 @@ declare double @llvm.copysign.f64(double, double) #2
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @geod_setdistance(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define void @geod_setdistance(ptr noundef initializes((64, 72)) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store double %1, ptr %3, align 8
   %4 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 0, double noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -3722,7 +3722,7 @@ define void @geod_inverse(ptr nocapture noundef readonly %0, double noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @geod_polygon_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @geod_polygon_init(ptr nocapture noundef writeonly initializes((0, 76)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp ne i32 %1, 0
   %4 = zext i1 %3 to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3745,7 +3745,7 @@ define void @geod_polygon_init(ptr nocapture noundef writeonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @geod_polygon_clear(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define void @geod_polygon_clear(ptr nocapture noundef writeonly initializes((0, 64), (68, 76)) %0) local_unnamed_addr #4 {
   %2 = load double, ptr @NaN, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store double %2, ptr %3, align 8

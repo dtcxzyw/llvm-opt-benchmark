@@ -99,7 +99,7 @@ define hidden noundef ptr @_ZN6G1NUMA6createEv() local_unnamed_addr #1 align 2 {
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6G1NUMA10initializeEb(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6G1NUMA10initializeEb(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((16, 28)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %1, label %9, label %4
 
@@ -212,7 +212,7 @@ define hidden noundef ptr @_ZNK6G1NUMA8node_idsEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6G1NUMAC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN6G1NUMAC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 12), (16, 28), (32, 56)) %0) unnamed_addr #3 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -226,7 +226,7 @@ define hidden void @_ZN6G1NUMAC2Ev(ptr nocapture noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6G1NUMA23initialize_without_numaEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6G1NUMA23initialize_without_numaEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 12), (16, 28)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1, ptr %2, align 8
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 4, i8 noundef zeroext 5, i32 noundef 0) #12
@@ -276,7 +276,7 @@ declare void @_ZN11G1NUMAStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(3
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6G1NUMA15set_region_infoEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6G1NUMA15set_region_infoEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((32, 48)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -563,7 +563,7 @@ define hidden void @_ZNK6G1NUMA16print_statisticsEv(ptr nocapture noundef nonnul
 declare void @_ZN11G1NUMAStats16print_statisticsEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23G1NodeIndexCheckClosureC2EPKcP6G1NUMAP9LogStream(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 align 2 {
+define hidden void @_ZN23G1NodeIndexCheckClosureC2EPKcP6G1NUMAP9LogStream(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 9), (16, 64)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23G1NodeIndexCheckClosure, i64 16), ptr %0, align 8
@@ -599,7 +599,7 @@ define hidden void @_ZN23G1NodeIndexCheckClosureC2EPKcP6G1NUMAP9LogStream(ptr no
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23G1NodeIndexCheckClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN23G1NodeIndexCheckClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV23G1NodeIndexCheckClosure, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8

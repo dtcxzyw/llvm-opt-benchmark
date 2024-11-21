@@ -548,7 +548,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ir_truncate(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @ir_truncate(ptr nocapture noundef initializes((12, 16)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -597,7 +597,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_efree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ir_init(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @ir_init(ptr nocapture noundef writeonly initializes((0, 680)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(680) %0, i8 0, i64 680, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %5, align 8
@@ -5985,7 +5985,7 @@ ir_emit2.exit:                                    ; preds = %19, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ir_hashtab_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @ir_hashtab_init(ptr nocapture noundef writeonly initializes((0, 24)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add i32 %1, -1
   %4 = lshr i32 %3, 1
   %5 = or i32 %4, %3
@@ -6589,7 +6589,7 @@ define hidden noundef zeroext i1 @ir_use_list_add(ptr nocapture noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ir_array_grow(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @ir_array_grow(ptr nocapture noundef initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = zext i32 %1 to i64
   %5 = shl nuw nsw i64 %4, 2
@@ -6858,7 +6858,7 @@ define internal i32 @ir_hashtab_key_cmp(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ir_addrtab_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @ir_addrtab_init(ptr nocapture noundef writeonly initializes((0, 24)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add i32 %1, -1
   %4 = lshr i32 %3, 1
   %5 = or i32 %4, %3
@@ -7379,7 +7379,7 @@ define hidden void @_ir_PHI_SET_OP(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ir_START(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @_ir_START(ptr nocapture noundef initializes((248, 252)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -7430,7 +7430,7 @@ ir_emit0.exit:                                    ; preds = %1, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ir_ENTRY(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @_ir_ENTRY(ptr nocapture noundef initializes((248, 252)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -7481,7 +7481,7 @@ ir_emit2.exit:                                    ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ir_BEGIN(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @_ir_BEGIN(ptr nocapture noundef initializes((248, 252)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %3
 
@@ -7734,7 +7734,7 @@ ir_emit2.exit:                                    ; preds = %.loopexit, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ir_IF_TRUE(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @_ir_IF_TRUE(ptr nocapture noundef initializes((248, 252)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -7785,7 +7785,7 @@ ir_emit1.exit:                                    ; preds = %2, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ir_IF_TRUE_cold(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @_ir_IF_TRUE_cold(ptr nocapture noundef initializes((248, 252)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -7836,7 +7836,7 @@ ir_emit2.exit:                                    ; preds = %2, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ir_IF_FALSE(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @_ir_IF_FALSE(ptr nocapture noundef initializes((248, 252)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -7887,7 +7887,7 @@ ir_emit1.exit:                                    ; preds = %2, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ir_IF_FALSE_cold(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @_ir_IF_FALSE_cold(ptr nocapture noundef initializes((248, 252)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -7990,7 +7990,7 @@ ir_emit1.exit:                                    ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ir_MERGE_2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @_ir_MERGE_2(ptr nocapture noundef initializes((248, 252)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -8731,7 +8731,7 @@ _ir_BEGIN.exit:                                   ; preds = %.lr.ph, %ir_emit_N.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_ir_LOOP_BEGIN(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden i32 @_ir_LOOP_BEGIN(ptr nocapture noundef initializes((248, 252)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -10423,7 +10423,7 @@ ir_emit2.exit:                                    ; preds = %2, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ir_CASE_VAL(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @_ir_CASE_VAL(ptr nocapture noundef initializes((248, 252)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -10474,7 +10474,7 @@ ir_emit2.exit:                                    ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ir_CASE_DEFAULT(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @_ir_CASE_DEFAULT(ptr nocapture noundef initializes((248, 252)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12

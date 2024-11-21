@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_virtio_register_types, ptr null }]
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @virtio_gpu_base_reset(ptr nocapture noundef %g) local_unnamed_addr #0 {
+define dso_local void @virtio_gpu_base_reset(ptr nocapture noundef initializes((580, 584)) %g) local_unnamed_addr #0 {
 entry:
   %enable = getelementptr inbounds i8, ptr %g, i64 580
   store i32 0, ptr %enable, align 4
@@ -125,7 +125,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_gpu_base_generate_edid(ptr nocapture noundef readonly %g, i32 noundef %scanout, ptr noundef %edid) local_unnamed_addr #1 {
+define dso_local void @virtio_gpu_base_generate_edid(ptr nocapture noundef readonly %g, i32 noundef %scanout, ptr noundef initializes((24, 28)) %edid) local_unnamed_addr #1 {
 entry:
   %info = alloca %struct.qemu_edid_info, align 8
   %width_mm = getelementptr inbounds i8, ptr %info, i64 24

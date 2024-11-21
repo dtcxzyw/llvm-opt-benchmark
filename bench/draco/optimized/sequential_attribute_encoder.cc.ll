@@ -46,7 +46,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5draco26SequentialAttributeEncoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5draco26SequentialAttributeEncoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 28), (32, 57), (64, 72)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5draco26SequentialAttributeEncoderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -60,7 +60,7 @@ define void @_ZN5draco26SequentialAttributeEncoderC2Ev(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5draco26SequentialAttributeEncoder4InitEPNS_17PointCloudEncoderEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN5draco26SequentialAttributeEncoder4InitEPNS_17PointCloudEncoderEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((8, 28)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -78,7 +78,7 @@ define noundef zeroext i1 @_ZN5draco26SequentialAttributeEncoder4InitEPNS_17Poin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN5draco26SequentialAttributeEncoder20InitializeStandaloneEPNS_14PointAttributeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN5draco26SequentialAttributeEncoder20InitializeStandaloneEPNS_14PointAttributeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((16, 28)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -211,7 +211,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5draco26SequentialAttributeEncoder19MarkParentAttributeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN5draco26SequentialAttributeEncoder19MarkParentAttributeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((56, 57)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 1, ptr %2, align 8
   ret void

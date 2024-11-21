@@ -447,7 +447,7 @@ __archive_write_allocate_filter.exit.thread:      ; preds = %9, %58, %62, %6, %_
 declare void @archive_clear_error(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_write_client_open(ptr nocapture noundef %0) #3 {
+define internal i32 @archive_write_client_open(ptr nocapture noundef initializes((92, 100)) %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @__archive_check_magic(ptr noundef %3, i32 noundef -1329217314, i32 noundef 32767, ptr noundef nonnull @.str.1) #13

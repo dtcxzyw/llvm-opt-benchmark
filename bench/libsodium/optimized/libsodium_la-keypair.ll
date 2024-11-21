@@ -252,7 +252,7 @@ declare void @_sodium_fe25519_invert(ptr noundef, ptr noundef) local_unnamed_add
 declare void @_sodium_fe25519_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_sign_ed25519_sk_to_curve25519(ptr nocapture noundef nonnull writeonly %curve25519_sk, ptr noundef nonnull %ed25519_sk) local_unnamed_addr #0 {
+define noundef i32 @crypto_sign_ed25519_sk_to_curve25519(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %curve25519_sk, ptr noundef nonnull %ed25519_sk) local_unnamed_addr #0 {
 entry:
   %h = alloca [64 x i8], align 16
   %call = call i32 @crypto_hash_sha512(ptr noundef nonnull %h, ptr noundef nonnull %ed25519_sk, i64 noundef 32) #4

@@ -124,7 +124,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 }
 
 ; Function Attrs: nounwind uwtable
-define void @clearGrid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @clearGrid(ptr nocapture noundef initializes((16, 24), (40, 48)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr %3(ptr noundef nonnull %2, ptr noundef null, i32 noundef 64) #12

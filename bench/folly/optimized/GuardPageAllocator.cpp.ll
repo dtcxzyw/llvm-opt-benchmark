@@ -148,7 +148,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers18GuardPageAllocatorC2Em(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %guardPagesPerStack) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers18GuardPageAllocatorC2Em(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 24)) %this, i64 noundef %guardPagesPerStack) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__callable.i.i = alloca %class.anon.2, align 8
   %ref.tmp.i = alloca %class.anon, align 1

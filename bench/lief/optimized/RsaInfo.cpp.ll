@@ -25,7 +25,7 @@ define void @_ZN4LIEF2PE7RsaInfoC2Ev(ptr nocapture nonnull readnone align 8 %0) 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4LIEF2PE7RsaInfoC2EPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define void @_ZN4LIEF2PE7RsaInfoC2EPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %3, i8 0, i64 336, i1 false)
   tail call void @mbedtls_rsa_init(ptr noundef nonnull %3)
@@ -79,7 +79,7 @@ define void @_ZN4LIEF2PE7RsaInfoC2ERKS1_(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF2PE7RsaInfoC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 {
+define void @_ZN4LIEF2PE7RsaInfoC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   ret void

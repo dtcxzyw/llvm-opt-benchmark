@@ -1859,7 +1859,7 @@ unreachable:                                      ; preds = %invoke.cont110, %in
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14grammar_parser5parseEPKc(ptr noalias sret(%"struct.grammar_parser::parse_state") align 8 %agg.result, ptr noundef %src) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN14grammar_parser5parseEPKc(ptr noalias sret(%"struct.grammar_parser::parse_state") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef %src) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %name.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::allocator.8", align 1
@@ -3066,7 +3066,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14grammar_parser11parse_state7c_rulesEv(ptr noalias nocapture sret(%"class.std::vector.19") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14grammar_parser11parse_state7c_rulesEv(ptr noalias nocapture sret(%"class.std::vector.19") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %rules = getelementptr inbounds i8, ptr %this, i64 48

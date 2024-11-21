@@ -851,14 +851,14 @@ return:                                           ; preds = %if.end4, %if.then10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL47fake_handshaker_result_get_frame_protector_typePK21tsi_handshaker_resultP24tsi_frame_protector_type(ptr nocapture readnone %0, ptr nocapture noundef writeonly %frame_protector_type) #5 {
+define internal noundef i32 @_ZL47fake_handshaker_result_get_frame_protector_typePK21tsi_handshaker_resultP24tsi_frame_protector_type(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %frame_protector_type) #5 {
 entry:
   store i32 2, ptr %frame_protector_type, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL54fake_handshaker_result_create_zero_copy_grpc_protectorPK21tsi_handshaker_resultPmPP28tsi_zero_copy_grpc_protector(ptr nocapture readnone %0, ptr noundef readonly %max_output_protected_frame_size, ptr nocapture noundef writeonly %protector) #0 {
+define internal noundef i32 @_ZL54fake_handshaker_result_create_zero_copy_grpc_protectorPK21tsi_handshaker_resultPmPP28tsi_zero_copy_grpc_protector(ptr nocapture readnone %0, ptr noundef readonly %max_output_protected_frame_size, ptr nocapture noundef writeonly initializes((0, 8)) %protector) #0 {
 entry:
   %call.i = tail call ptr @gpr_zalloc(i64 noundef 552)
   %header_sb.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -884,7 +884,7 @@ _Z40tsi_create_fake_zero_copy_grpc_protectorPm.exit: ; preds = %entry, %cond.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL45fake_handshaker_result_create_frame_protectorPK21tsi_handshaker_resultPmPP19tsi_frame_protector(ptr nocapture readnone %0, ptr noundef readonly %max_output_protected_frame_size, ptr nocapture noundef writeonly %protector) #0 {
+define internal noundef i32 @_ZL45fake_handshaker_result_create_frame_protectorPK21tsi_handshaker_resultPmPP19tsi_frame_protector(ptr nocapture readnone %0, ptr noundef readonly %max_output_protected_frame_size, ptr nocapture noundef writeonly initializes((0, 8)) %protector) #0 {
 entry:
   %call.i.i = tail call noundef ptr @gpr_zalloc(i64 noundef 96)
   %cmp.i = icmp eq ptr %max_output_protected_frame_size, null
@@ -904,7 +904,7 @@ _Z31tsi_create_fake_frame_protectorPm.exit:       ; preds = %entry, %cond.false.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZL39fake_handshaker_result_get_unused_bytesPK21tsi_handshaker_resultPPKhPm(ptr nocapture noundef readonly %self, ptr nocapture noundef writeonly %bytes, ptr nocapture noundef writeonly %bytes_size) #6 {
+define internal noundef i32 @_ZL39fake_handshaker_result_get_unused_bytesPK21tsi_handshaker_resultPPKhPm(ptr nocapture noundef readonly %self, ptr nocapture noundef writeonly initializes((0, 8)) %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %bytes_size) #6 {
 entry:
   %unused_bytes_size = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i64, ptr %unused_bytes_size, align 8
@@ -1070,7 +1070,7 @@ return:                                           ; preds = %15, %_ZL21tsi_fake_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 0, 8) i32 @_ZL28fake_protector_protect_flushP19tsi_frame_protectorPhPmS2_(ptr nocapture noundef %self, ptr nocapture noundef writeonly %protected_output_frames, ptr nocapture noundef %protected_output_frames_size, ptr nocapture noundef writeonly %still_pending_size) #7 {
+define internal noundef range(i32 0, 8) i32 @_ZL28fake_protector_protect_flushP19tsi_frame_protectorPhPmS2_(ptr nocapture noundef %self, ptr nocapture noundef writeonly %protected_output_frames, ptr nocapture noundef %protected_output_frames_size, ptr nocapture noundef writeonly initializes((0, 8)) %still_pending_size) #7 {
 entry:
   %protect_frame = getelementptr inbounds i8, ptr %self, i64 8
   %needs_draining = getelementptr inbounds i8, ptr %self, i64 40

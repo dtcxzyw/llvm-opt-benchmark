@@ -697,7 +697,7 @@ define void @_ZN13PacketDiagram10resetSceneEb(ptr noundef nonnull align 8 derefe
 declare void @_ZN13QGraphicsViewD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13PacketDiagramD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #4 align 2 {
+define void @_ZN13PacketDiagramD2Ev(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV13PacketDiagram, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV13PacketDiagram, i64 512), ptr %2, align 8
@@ -2054,7 +2054,7 @@ define void @_ZN13PacketDiagram5clearEv(ptr noundef nonnull align 8 dereferencea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13PacketDiagram14setCaptureFileEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1) #0 align 2 {
+define void @_ZN13PacketDiagram14setCaptureFileEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(76) initializes((48, 56)) %0, ptr noundef %1) #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   %.not = icmp eq ptr %1, null

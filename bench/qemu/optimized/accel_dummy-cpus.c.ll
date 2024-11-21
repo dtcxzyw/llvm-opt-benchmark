@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [8 x i8] c"sigwait\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dummy_start_vcpu_thread(ptr noundef %cpu) local_unnamed_addr #0 {
+define dso_local void @dummy_start_vcpu_thread(ptr noundef initializes((176, 184), (192, 200)) %cpu) local_unnamed_addr #0 {
 entry:
   %thread_name = alloca [16 x i8], align 16
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #8
@@ -40,7 +40,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare void @qemu_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @dummy_cpu_thread_fn(ptr noundef %arg) #0 {
+define internal noalias noundef ptr @dummy_cpu_thread_fn(ptr noundef initializes((184, 188), (10164, 10165)) %arg) #0 {
 entry:
   %waitset = alloca %struct.__sigset_t, align 8
   %sig = alloca i32, align 4

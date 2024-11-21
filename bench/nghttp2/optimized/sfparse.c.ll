@@ -1079,7 +1079,7 @@ return:                                           ; preds = %for.cond.i, %for.co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @sf_parser_init(ptr nocapture noundef writeonly %sfp, ptr noundef %data, i64 noundef %datalen) local_unnamed_addr #3 {
+define hidden void @sf_parser_init(ptr nocapture noundef writeonly initializes((0, 20)) %sfp, ptr noundef %data, i64 noundef %datalen) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i64 %datalen, 0
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %datalen

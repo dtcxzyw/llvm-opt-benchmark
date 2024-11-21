@@ -616,7 +616,7 @@ define hidden i32 @OGLContext_CreateBlitTexture(i32 noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i8 @OGLContext_InitBlitTileTexture(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden noundef zeroext i8 @OGLContext_InitBlitTileTexture(ptr nocapture noundef writeonly initializes((48, 52)) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @OGLContext_CreateBlitTexture(i32 noundef 32856, i32 noundef 6408, i32 noundef 128, i32 noundef 128)
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %2, ptr %3, align 8

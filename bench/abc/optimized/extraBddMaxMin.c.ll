@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddMaximal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Extra_zddMaximal(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 
@@ -114,7 +114,7 @@ define ptr @extraZddMaximal(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddMinimal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Extra_zddMinimal(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 
@@ -228,7 +228,7 @@ define ptr @extraZddMinimal(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddMaxUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_zddMaxUnion(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -409,7 +409,7 @@ tailrecurse:                                      ; preds = %26, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddMinUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_zddMinUnion(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -595,7 +595,7 @@ tailrecurse:                                      ; preds = %30, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_zddDotProduct(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -821,7 +821,7 @@ tailrecurse:                                      ; preds = %26, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddCrossProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_zddCrossProduct(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -1071,7 +1071,7 @@ tailrecurse:                                      ; preds = %25, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddMaxDotProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_zddMaxDotProduct(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 

@@ -2714,7 +2714,7 @@ declare double @tanh(double noundef) local_unnamed_addr #3
 declare double @tan(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 %.0.val) unnamed_addr #5 {
+define internal fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 16)) %0, i32 %.0.val) unnamed_addr #5 {
   switch i32 %.0.val, label %17 [
     i32 1, label %2
     i32 2, label %5
@@ -2775,7 +2775,7 @@ define internal fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_o
 declare double @llvm.round.f64(double) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau7Compile15foldBuiltinMathENS_7AstNameE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Compile::Constant") align 8 %0, ptr readonly %1) local_unnamed_addr #6 {
+define dso_local void @_ZN4Luau7Compile15foldBuiltinMathENS_7AstNameE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Compile::Constant") align 8 initializes((0, 16)) %0, ptr readonly %1) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZNK4Luau7AstNameeqEPKc.exit2.thread, label %sub_0
 

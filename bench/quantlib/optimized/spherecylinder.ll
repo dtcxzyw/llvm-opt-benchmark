@@ -40,7 +40,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib23SphereCylinderOptimizerC1Eddddddd = unnamed_addr alias void (ptr, double, double, double, double, double, double, double), ptr @_ZN8QuantLib23SphereCylinderOptimizerC2Eddddddd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23SphereCylinderOptimizerC2Eddddddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, double noundef %r, double noundef %s, double noundef %alpha, double noundef %z1, double noundef %z2, double noundef %z3, double noundef %zweight) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23SphereCylinderOptimizerC2Eddddddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 48), (72, 80)) %this, double noundef %r, double noundef %s, double noundef %alpha, double noundef %z1, double noundef %z2, double noundef %z3, double noundef %zweight) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -824,7 +824,7 @@ if.end31.i:                                       ; preds = %"_ZZNK8QuantLib23Sp
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib23SphereCylinderOptimizer16findByProjectionERdS1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %y1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %y2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %y3) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib23SphereCylinderOptimizer16findByProjectionERdS1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %y1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %y2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %y3) local_unnamed_addr #10 align 2 {
 entry:
   %z1_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %z1_, align 8, !tbaa !11
@@ -930,7 +930,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30sphereCylinderOptimizerClosestEddddddjdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, double noundef %r, double noundef %s, double noundef %alpha, double noundef %z1, double noundef %z2, double noundef %z3, i32 noundef %maxIterations, double noundef %tolerance, double noundef %zweight) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30sphereCylinderOptimizerClosestEddddddjdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, double noundef %r, double noundef %s, double noundef %alpha, double noundef %z1, double noundef %z2, double noundef %z3, i32 noundef %maxIterations, double noundef %tolerance, double noundef %zweight) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %optimizer = alloca %"class.QuantLib::SphereCylinderOptimizer", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8

@@ -214,7 +214,7 @@ declare i32 @Curl_pgrsUpdate(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_speedcheck(ptr noundef, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_pp_init(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @Curl_pp_init(ptr noundef initializes((0, 9), (40, 52)) %0) local_unnamed_addr #0 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = tail call { i64, i32 } @Curl_now() #8
@@ -321,7 +321,7 @@ define dso_local i32 @Curl_pp_sendf(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local i32 @Curl_pp_readresp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca [900 x i8], align 16
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -483,7 +483,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 1, 65537) i32 @Curl_pp_getsock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define dso_local range(i32 1, 65537) i32 @Curl_pp_getsock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 392

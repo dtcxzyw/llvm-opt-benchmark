@@ -234,7 +234,7 @@ define range(i32 -1, -2147483648) i32 @lstat(ptr noundef %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @inode_stat(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef i32 @inode_stat(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 88)) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.geometry, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 26

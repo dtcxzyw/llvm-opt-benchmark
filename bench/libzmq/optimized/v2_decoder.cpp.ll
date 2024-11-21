@@ -48,7 +48,7 @@ $_ZTVN3zmq14decoder_base_tINS_12v2_decoder_tENS_31shared_message_memory_allocato
 @_ZN3zmq12v2_decoder_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq12v2_decoder_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq12v2_decoder_tC2Emlb(ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %bufsize_, i64 noundef %maxmsgsize_, i1 noundef zeroext %zero_copy_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq12v2_decoder_tC2Emlb(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 40)) %this, i64 noundef %bufsize_, i64 noundef %maxmsgsize_, i1 noundef zeroext %zero_copy_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v2_decoder_tENS_31shared_message_memory_allocatorEEE, i64 16), ptr %this, align 8
   %_next.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -135,7 +135,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN3zmq12v2_decoder_t11flags_readyEPKh(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture readnone %0) #5 align 2 {
+define noundef i32 @_ZN3zmq12v2_decoder_t11flags_readyEPKh(ptr noundef nonnull align 8 dereferenceable(184) initializes((96, 97)) %this, ptr nocapture readnone %0) #5 align 2 {
 entry:
   %_msg_flags = getelementptr inbounds i8, ptr %this, i64 96
   %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88

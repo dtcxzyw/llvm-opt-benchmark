@@ -627,7 +627,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm33createAArch64PreLegalizerCombine
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_127AArch64PreLegalizerCombinerC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_127AArch64PreLegalizerCombinerC2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 28), (32, 56)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::optional", align 8
   %3 = alloca %"class.std::optional", align 8
   %4 = alloca %class.anon.845, align 8
@@ -1379,7 +1379,7 @@ declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_a
 declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127AArch64PreLegalizerCombinerD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_127AArch64PreLegalizerCombinerD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_127AArch64PreLegalizerCombinerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -1399,7 +1399,7 @@ _ZN12_GLOBAL__N_141AArch64PreLegalizerCombinerImplRuleConfigD2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127AArch64PreLegalizerCombinerD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_127AArch64PreLegalizerCombinerD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_127AArch64PreLegalizerCombinerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -2229,7 +2229,7 @@ declare noundef nonnull align 8 dereferenceable(760) ptr @_ZN4llvm22GISelKnownBi
 declare noundef zeroext i1 @_ZN4llvm8Combiner20combineMachineInstrsEv(ptr noundef nonnull align 8 dereferenceable(4288)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplD2Ev(ptr noundef nonnull align 8 dereferenceable(5624) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplD2Ev(ptr noundef nonnull align 8 dereferenceable(5624) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4592
   %3 = load i32, ptr %2, align 8
@@ -2274,7 +2274,7 @@ declare void @_ZN4llvm14CombinerHelperC1ERNS_19GISelChangeObserverERNS_16Machine
 declare void @_ZN4llvm20GIMatchTableExecutor12MatcherStateC1Ej(ptr noundef nonnull align 8 dereferenceable(168), i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplD0Ev(ptr noundef nonnull align 8 dereferenceable(5624) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplD0Ev(ptr noundef nonnull align 8 dereferenceable(5624) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4592
   %3 = load i32, ptr %2, align 8
@@ -2301,7 +2301,7 @@ _ZN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplD2Ev.exit: ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_131AArch64PreLegalizerCombinerImpl30setupGeneratedPerFunctionStateERN4llvm15MachineFunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(5624) %0, ptr nocapture nonnull readonly align 8 %1) unnamed_addr #11 align 2 {
+define internal void @_ZN12_GLOBAL__N_131AArch64PreLegalizerCombinerImpl30setupGeneratedPerFunctionStateERN4llvm15MachineFunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(5624) initializes((4384, 4392)) %0, ptr nocapture nonnull readonly align 8 %1) unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4384
   store i64 0, ptr %3, align 8
   ret void

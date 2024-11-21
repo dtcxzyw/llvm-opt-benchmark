@@ -712,7 +712,7 @@ declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 4, 28) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 4, 28) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -4886,7 +4886,7 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @CommandCounterIncrement() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationAssumeNewRelfilelocator(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @RelationAssumeNewRelfilelocator(ptr nocapture noundef initializes((44, 48)) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @GetCurrentSubTransactionId() #12
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 %2, ptr %3, align 4
@@ -6050,7 +6050,7 @@ define internal fastcc void @load_critical_index(i32 noundef range(i32 2655, 359
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RelationParseRelOptions(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @RelationParseRelOptions(ptr nocapture noundef initializes((296, 304)) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -6135,7 +6135,7 @@ GetPgClassDescriptor.exit:                        ; preds = %13, %BuildHardcoded
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RelationBuildRuleLock(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @RelationBuildRuleLock(ptr nocapture noundef initializes((96, 104)) %0) unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   %3 = alloca i8, align 1
   %4 = load ptr, ptr @CacheMemoryContext, align 8
@@ -8140,7 +8140,7 @@ RelationClose.exit:                               ; preds = %RelationDecrementRe
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationGetExclusionInfo(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local void @RelationGetExclusionInfo(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.ScanKeyData], align 16
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 320
@@ -8407,7 +8407,7 @@ declare i32 @get_opcode(i32 noundef) local_unnamed_addr #1
 declare i32 @get_op_opfamily_strategy(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = tail call zeroext i1 @is_publishable_relation(ptr noundef %0) #12

@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.24 = private unnamed_addr constant [13 x i8] c"counter: %d\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ffc_params_init(ptr nocapture noundef writeonly %params) local_unnamed_addr #0 {
+define void @ossl_ffc_params_init(ptr nocapture noundef writeonly initializes((0, 96)) %params) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %params, i8 0, i64 96, i1 false)
   %pcounter = getelementptr inbounds i8, ptr %params, i64 48
@@ -46,7 +46,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_ffc_params_cleanup(ptr nocapture noundef %params) local_unnamed_addr #2 {
+define void @ossl_ffc_params_cleanup(ptr nocapture noundef initializes((40, 96)) %params) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %params, align 8
   tail call void @BN_free(ptr noundef %0) #5
@@ -216,7 +216,7 @@ return:                                           ; preds = %if.end14, %if.else,
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ffc_params_set_gindex(ptr nocapture noundef writeonly %params, i32 noundef %index) local_unnamed_addr #0 {
+define void @ossl_ffc_params_set_gindex(ptr nocapture noundef writeonly initializes((56, 60)) %params, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %gindex = getelementptr inbounds i8, ptr %params, i64 56
   store i32 %index, ptr %gindex, align 8
@@ -224,7 +224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ffc_params_set_pcounter(ptr nocapture noundef writeonly %params, i32 noundef %index) local_unnamed_addr #0 {
+define void @ossl_ffc_params_set_pcounter(ptr nocapture noundef writeonly initializes((48, 52)) %params, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %pcounter = getelementptr inbounds i8, ptr %params, i64 48
   store i32 %index, ptr %pcounter, align 8
@@ -232,7 +232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ffc_params_set_h(ptr nocapture noundef writeonly %params, i32 noundef %index) local_unnamed_addr #0 {
+define void @ossl_ffc_params_set_h(ptr nocapture noundef writeonly initializes((60, 64)) %params, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %h = getelementptr inbounds i8, ptr %params, i64 60
   store i32 %index, ptr %h, align 4
@@ -240,7 +240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ffc_params_set_flags(ptr nocapture noundef writeonly %params, i32 noundef %flags) local_unnamed_addr #0 {
+define void @ossl_ffc_params_set_flags(ptr nocapture noundef writeonly initializes((64, 68)) %params, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %flags1 = getelementptr inbounds i8, ptr %params, i64 64
   store i32 %flags, ptr %flags1, align 8
@@ -273,7 +273,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ffc_set_digest(ptr nocapture noundef writeonly %params, ptr noundef %alg, ptr noundef %props) local_unnamed_addr #0 {
+define void @ossl_ffc_set_digest(ptr nocapture noundef writeonly initializes((72, 88)) %params, ptr noundef %alg, ptr noundef %props) local_unnamed_addr #0 {
 entry:
   %mdname = getelementptr inbounds i8, ptr %params, i64 72
   store ptr %alg, ptr %mdname, align 8

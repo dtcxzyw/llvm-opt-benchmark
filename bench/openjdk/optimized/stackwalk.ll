@@ -318,7 +318,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN15LiveFrameStreamC1EP10JavaThreadP11RegisterMap6HandleS4_ = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr), ptr @_ZN15LiveFrameStreamC2EP10JavaThreadP11RegisterMap6HandleS4_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15BaseFrameStreamC2EP10JavaThread6Handle(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15BaseFrameStreamC2EP10JavaThread6Handle(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV15BaseFrameStream, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -428,7 +428,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15JavaFrameStreamC2EP10JavaThreadi6HandleS2_(ptr noundef nonnull align 8 dereferenceable(5137) %0, ptr noundef %1, i32 noundef %2, ptr %3, ptr %4) unnamed_addr #2 align 2 {
+define hidden void @_ZN15JavaFrameStreamC2EP10JavaThreadi6HandleS2_(ptr noundef nonnull align 8 dereferenceable(5137) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, ptr %3, ptr %4) unnamed_addr #2 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -463,7 +463,7 @@ declare void @_ZN12vframeStreamC1EP10JavaThread6Handleb(ptr noundef nonnull alig
 declare void @_ZN12vframeStreamC1EP7oopDesc6Handle(ptr noundef nonnull align 8 dereferenceable(5104), ptr noundef, ptr) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15LiveFrameStreamC2EP10JavaThreadP11RegisterMap6HandleS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, ptr %3, ptr %4) unnamed_addr #2 align 2 {
+define hidden void @_ZN15LiveFrameStreamC2EP10JavaThreadP11RegisterMap6HandleS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1, ptr noundef %2, ptr %3, ptr %4) unnamed_addr #2 align 2 {
   %6 = alloca %class.frame, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8

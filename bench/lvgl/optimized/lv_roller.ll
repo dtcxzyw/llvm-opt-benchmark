@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_text_encoded_next = external local_unnamed_addr constant ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_roller_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_roller_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 76)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, -4
@@ -937,7 +937,7 @@ define internal fastcc void @inf_normalize(ptr noundef %0) unnamed_addr #0 {
 declare void @lv_obj_refresh_ext_draw_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_roller_set_selected(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_roller_set_selected(ptr noundef initializes((72, 76)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 3

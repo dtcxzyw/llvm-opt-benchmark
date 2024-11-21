@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._bt_endpoint = private unnamed_addr constant [13 x i8] c"_bt_endpoint\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @_bt_search(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @_bt_search(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 4)) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @_bt_getroot(ptr noundef %0, ptr noundef %1, i32 noundef %4) #6
   store i32 %6, ptr %3, align 4
   %.not65 = icmp eq i32 %6, 0

@@ -800,7 +800,7 @@ declare ptr @find_base_rel_ignore_join(ptr noundef, i32 noundef) local_unnamed_a
 declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @deconstruct_jointree(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @deconstruct_jointree(ptr noundef initializes((88, 104), (593, 594)) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 593

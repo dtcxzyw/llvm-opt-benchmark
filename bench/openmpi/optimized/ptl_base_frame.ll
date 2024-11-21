@@ -993,7 +993,7 @@ pmix_obj_run_destructors.exit114:                 ; preds = %.lr.ph.i111, %pmix_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @scon(ptr nocapture noundef writeonly %0) #1 {
+define internal void @scon(ptr nocapture noundef writeonly initializes((272, 297), (304, 320)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 276
@@ -1079,7 +1079,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @rcon(ptr nocapture noundef writeonly %0) #1 {
+define internal void @rcon(ptr nocapture noundef writeonly initializes((272, 280), (284, 300), (304, 313), (320, 336)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 284
@@ -1167,7 +1167,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @prcon(ptr nocapture noundef writeonly %0) #1 {
+define internal void @prcon(ptr nocapture noundef writeonly initializes((272, 276), (280, 296)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 280
@@ -1176,7 +1176,7 @@ define internal void @prcon(ptr nocapture noundef writeonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @srcon(ptr nocapture noundef writeonly %0) #1 {
+define internal void @srcon(ptr nocapture noundef writeonly initializes((256, 264), (272, 296)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 272
@@ -1256,7 +1256,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pccon(ptr noundef %0) #0 {
+define internal void @pccon(ptr noundef initializes((256, 257)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 260
@@ -1349,7 +1349,7 @@ define internal void @pcdes(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @lcon(ptr noundef %0) #2 {
+define internal void @lcon(ptr noundef initializes((144, 272)) %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 272
@@ -1406,7 +1406,7 @@ define internal void @ldes(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @qcon(ptr nocapture noundef writeonly %0) #1 {
+define internal void @qcon(ptr nocapture noundef writeonly initializes((256, 276)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -1486,7 +1486,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ccon(ptr nocapture noundef writeonly %0) #1 {
+define internal void @ccon(ptr nocapture noundef writeonly initializes((144, 148), (152, 164), (168, 184)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152

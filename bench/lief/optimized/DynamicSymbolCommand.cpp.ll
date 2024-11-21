@@ -362,7 +362,7 @@ declare void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 de
 declare void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO20DynamicSymbolCommandE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -534,126 +534,126 @@ define noundef i32 @_ZNK4LIEF5MachO20DynamicSymbolCommand20nb_local_relocationsE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand16idx_local_symbolEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand16idx_local_symbolEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand16nb_local_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand16nb_local_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((60, 64)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand26idx_external_define_symbolEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand26idx_external_define_symbolEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand26nb_external_define_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand26nb_external_define_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((68, 72)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand20idx_undefined_symbolEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand20idx_undefined_symbolEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand20nb_undefined_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand20nb_undefined_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((76, 80)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand10toc_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand10toc_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand6nb_tocEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand6nb_tocEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 84
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand19module_table_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand19module_table_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand15nb_module_tableEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand15nb_module_tableEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((92, 96)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand32external_reference_symbol_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand32external_reference_symbol_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((96, 100)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand29nb_external_reference_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand29nb_external_reference_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((100, 104)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 100
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand22indirect_symbol_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand22indirect_symbol_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand19nb_indirect_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand19nb_indirect_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((108, 112)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 108
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand26external_relocation_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand26external_relocation_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((112, 116)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand23nb_external_relocationsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand23nb_external_relocationsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((116, 120)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 116
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand23local_relocation_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand23local_relocation_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((120, 124)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO20DynamicSymbolCommand20nb_local_relocationsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO20DynamicSymbolCommand20nb_local_relocationsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((124, 128)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 %1, ptr %3, align 4
   ret void

@@ -302,7 +302,7 @@ H5FL__fac_gc.exit:                                ; preds = %H5FL__fac_gc_list.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @H5FL_reg_free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @H5FL_reg_free(ptr nocapture noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8
@@ -1659,7 +1659,7 @@ define ptr @H5FL_fac_init(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @H5FL_fac_free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @H5FL_fac_free(ptr nocapture noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8

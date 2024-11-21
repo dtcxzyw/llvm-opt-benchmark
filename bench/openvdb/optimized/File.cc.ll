@@ -538,7 +538,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare void @_ZN7openvdb5v11_02io7ArchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(65)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7openvdb5v11_02io4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io4FileE, i64 16), ptr %this, align 8
   %mImpl = getelementptr inbounds i8, ptr %this, i64 72
@@ -566,7 +566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io4FileC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io4FileC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 20)) %this, ptr noundef nonnull align 8 dereferenceable(80) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io7ArchiveE, i64 16), ptr %this, align 8
   %mFileVersion.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -972,7 +972,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN7openvdb5v11_02io4File12fileMetadataEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.2") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io4File12fileMetadataEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.2") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mImpl = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mImpl, align 8
@@ -1007,7 +1007,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_07MetaMapEEC2ERKS3_.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK7openvdb5v11_02io4File12fileMetadataEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.35") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_02io4File12fileMetadataEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.35") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mImpl = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mImpl, align 8
@@ -9451,7 +9451,7 @@ unreachable:                                      ; preds = %try.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK7openvdb5v11_02io4File7endNameEv(ptr noalias nocapture writeonly sret(%"class.openvdb::v11_0::io::File::NameIterator") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #16 align 2 {
+define void @_ZNK7openvdb5v11_02io4File7endNameEv(ptr noalias nocapture writeonly sret(%"class.openvdb::v11_0::io::File::NameIterator") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #16 align 2 {
 entry:
   %mImpl.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mImpl.i, align 8

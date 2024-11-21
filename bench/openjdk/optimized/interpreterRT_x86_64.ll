@@ -82,7 +82,7 @@ $_ZTV20SlowSignatureHandler = comdat any
 @_ZN18InterpreterRuntime25SignatureHandlerGeneratorC1ERK12methodHandleP10CodeBuffer = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN18InterpreterRuntime25SignatureHandlerGeneratorC2ERK12methodHandleP10CodeBuffer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGeneratorC2ERK12methodHandleP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN18InterpreterRuntime25SignatureHandlerGeneratorC2ERK12methodHandleP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 17), (24, 48)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.methodHandle, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %1, align 8

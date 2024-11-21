@@ -166,7 +166,7 @@ define noundef i32 @virtual_cwd_deactivate() local_unnamed_addr #0 {
 declare void @_efree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @virtual_getcwd_ex(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define noalias ptr @virtual_getcwd_ex(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %7
@@ -1461,7 +1461,7 @@ define noundef ptr @virtual_realpath(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @virtual_filepath_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @virtual_filepath_ex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._cwd_state, align 8
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1480,7 +1480,7 @@ define range(i32 -1, 2) i32 @virtual_filepath_ex(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @virtual_filepath(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @virtual_filepath(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
 virtual_filepath_ex.exit:
   %2 = alloca %struct._cwd_state, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)

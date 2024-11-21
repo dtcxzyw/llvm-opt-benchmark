@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Bi = internal constant [8 x %struct.ge_precomp] [%struct.ge_precomp { [10 x i32] [i32 25967493, i32 -14356035, i32 29566456, i32 3660896, i32 -12694345, i32 4014787, i32 27544626, i32 -11754271, i32 -6079156, i32 2047605], [10 x i32] [i32 -12545711, i32 934262, i32 -2722910, i32 3049990, i32 -727428, i32 9406986, i32 12720692, i32 5043384, i32 19500929, i32 -15469378], [10 x i32] [i32 -8738181, i32 4489570, i32 9688441, i32 -14785194, i32 10184609, i32 -12363380, i32 29287919, i32 11864899, i32 -24514362, i32 -4438546] }, %struct.ge_precomp { [10 x i32] [i32 15636291, i32 -9688557, i32 24204773, i32 -7912398, i32 616977, i32 -16685262, i32 27787600, i32 -14772189, i32 28944400, i32 -1550024], [10 x i32] [i32 16568933, i32 4717097, i32 -11556148, i32 -1102322, i32 15682896, i32 -11807043, i32 16354577, i32 -11775962, i32 7689662, i32 11199574], [10 x i32] [i32 30464156, i32 -5976125, i32 -11779434, i32 -15670865, i32 23220365, i32 15915852, i32 7512774, i32 10017326, i32 -17749093, i32 -9920357] }, %struct.ge_precomp { [10 x i32] [i32 10861363, i32 11473154, i32 27284546, i32 1981175, i32 -30064349, i32 12577861, i32 32867885, i32 14515107, i32 -15438304, i32 10819380], [10 x i32] [i32 4708026, i32 6336745, i32 20377586, i32 9066809, i32 -11272109, i32 6594696, i32 -25653668, i32 12483688, i32 -12668491, i32 5581306], [10 x i32] [i32 19563160, i32 16186464, i32 -29386857, i32 4097519, i32 10237984, i32 -4348115, i32 28542350, i32 13850243, i32 -23678021, i32 -15815942] }, %struct.ge_precomp { [10 x i32] [i32 5153746, i32 9909285, i32 1723747, i32 -2777874, i32 30523605, i32 5516873, i32 19480852, i32 5230134, i32 -23952439, i32 -15175766], [10 x i32] [i32 -30269007, i32 -3463509, i32 7665486, i32 10083793, i32 28475525, i32 1649722, i32 20654025, i32 16520125, i32 30598449, i32 7715701], [10 x i32] [i32 28881845, i32 14381568, i32 9657904, i32 3680757, i32 -20181635, i32 7843316, i32 -31400660, i32 1370708, i32 29794553, i32 -1409300] }, %struct.ge_precomp { [10 x i32] [i32 -22518993, i32 -6692182, i32 14201702, i32 -8745502, i32 -23510406, i32 8844726, i32 18474211, i32 -1361450, i32 -13062696, i32 13821877], [10 x i32] [i32 -6455177, i32 -7839871, i32 3374702, i32 -4740862, i32 -27098617, i32 -10571707, i32 31655028, i32 -7212327, i32 18853322, i32 -14220951], [10 x i32] [i32 4566830, i32 -12963868, i32 -28974889, i32 -12240689, i32 -7602672, i32 -2830569, i32 -8514358, i32 -10431137, i32 2207753, i32 -3209784] }, %struct.ge_precomp { [10 x i32] [i32 -25154831, i32 -4185821, i32 29681144, i32 7868801, i32 -6854661, i32 -9423865, i32 -12437364, i32 -663000, i32 -31111463, i32 -16132436], [10 x i32] [i32 25576264, i32 -2703214, i32 7349804, i32 -11814844, i32 16472782, i32 9300885, i32 3844789, i32 15725684, i32 171356, i32 6466918], [10 x i32] [i32 23103977, i32 13316479, i32 9739013, i32 -16149481, i32 817875, i32 -15038942, i32 8965339, i32 -14088058, i32 -30714912, i32 16193877] }, %struct.ge_precomp { [10 x i32] [i32 -33521811, i32 3180713, i32 -2394130, i32 14003687, i32 -16903474, i32 -16270840, i32 17238398, i32 4729455, i32 -18074513, i32 9256800], [10 x i32] [i32 -25182317, i32 -4174131, i32 32336398, i32 5036987, i32 -21236817, i32 11360617, i32 22616405, i32 9761698, i32 -19827198, i32 630305], [10 x i32] [i32 -13720693, i32 2639453, i32 -24237460, i32 -7406481, i32 9494427, i32 -5774029, i32 -6554551, i32 -15960994, i32 -2449256, i32 -14291300] }, %struct.ge_precomp { [10 x i32] [i32 -3151181, i32 -5046075, i32 9282714, i32 6866145, i32 -31907062, i32 -863023, i32 -18940575, i32 15033784, i32 25105118, i32 -7894876], [10 x i32] [i32 -24326370, i32 15950226, i32 -31801215, i32 -14592823, i32 -11662737, i32 -5090925, i32 1573892, i32 -2625887, i32 2198790, i32 -15804619], [10 x i32] [i32 -3099351, i32 10324967, i32 -2241613, i32 7453183, i32 -5446979, i32 -2735503, i32 -13812022, i32 -16236442, i32 -32461234, i32 -12290683] }], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @x25519_ge_tobytes(ptr nocapture noundef %s, ptr nocapture noundef readonly %h) local_unnamed_addr #0 {
+define hidden void @x25519_ge_tobytes(ptr nocapture noundef initializes((0, 32)) %s, ptr nocapture noundef readonly %h) local_unnamed_addr #0 {
 entry:
   %s.i = alloca [32 x i8], align 16
   %recip = alloca [10 x i32], align 16
@@ -159,7 +159,7 @@ for.end131:                                       ; preds = %for.body126
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_mul(ptr nocapture noundef writeonly %h, ptr nocapture noundef readonly %f, ptr nocapture noundef readonly %g) unnamed_addr #1 {
+define internal fastcc void @fe_mul(ptr nocapture noundef writeonly initializes((0, 40)) %h, ptr nocapture noundef readonly %f, ptr nocapture noundef readonly %g) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %f, align 4
   %arrayidx1 = getelementptr inbounds i8, ptr %f, i64 4
@@ -531,7 +531,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_tobytes(ptr nocapture noundef writeonly %s, ptr nocapture noundef readonly %h) unnamed_addr #1 {
+define internal fastcc void @fe_tobytes(ptr nocapture noundef writeonly initializes((0, 32)) %s, ptr nocapture noundef readonly %h) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %h, align 4
   %arrayidx1 = getelementptr inbounds i8, ptr %h, i64 4
@@ -749,7 +749,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @x25519_ge_frombytes_vartime(ptr nocapture noundef %h, ptr nocapture noundef readonly %s) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @x25519_ge_frombytes_vartime(ptr nocapture noundef initializes((40, 120)) %h, ptr nocapture noundef readonly %s) local_unnamed_addr #2 {
 entry:
   %s.i56 = alloca [32 x i8], align 16
   %s.i52 = alloca [32 x i8], align 16
@@ -987,7 +987,7 @@ return:                                           ; preds = %fe_add.exit51, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_frombytes(ptr nocapture noundef writeonly %h, ptr nocapture noundef readonly %s) unnamed_addr #1 {
+define internal fastcc void @fe_frombytes(ptr nocapture noundef writeonly initializes((0, 40)) %h, ptr nocapture noundef readonly %s) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %s, align 1
   %1 = zext i32 %0 to i64
@@ -1151,7 +1151,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_sq(ptr nocapture noundef writeonly %h, ptr nocapture noundef readonly %f) unnamed_addr #1 {
+define internal fastcc void @fe_sq(ptr nocapture noundef writeonly initializes((0, 40)) %h, ptr nocapture noundef readonly %f) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %f, align 4
   %arrayidx1 = getelementptr inbounds i8, ptr %f, i64 4
@@ -1448,7 +1448,7 @@ fe_sub.exit:                                      ; preds = %for.body.i9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @x25519_ge_p1p1_to_p2(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %p) local_unnamed_addr #1 {
+define hidden void @x25519_ge_p1p1_to_p2(ptr nocapture noundef writeonly initializes((0, 120)) %r, ptr nocapture noundef readonly %p) local_unnamed_addr #1 {
 entry:
   %T = getelementptr inbounds i8, ptr %p, i64 120
   tail call fastcc void @fe_mul(ptr noundef %r, ptr noundef %p, ptr noundef nonnull %T)
@@ -1462,7 +1462,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @x25519_ge_p1p1_to_p3(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %p) local_unnamed_addr #1 {
+define hidden void @x25519_ge_p1p1_to_p3(ptr nocapture noundef writeonly initializes((0, 160)) %r, ptr nocapture noundef readonly %p) local_unnamed_addr #1 {
 entry:
   %T = getelementptr inbounds i8, ptr %p, i64 120
   tail call fastcc void @fe_mul(ptr noundef %r, ptr noundef %p, ptr noundef nonnull %T)
@@ -2180,7 +2180,7 @@ for.end63:                                        ; preds = %for.body57
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @table_select(ptr nocapture noundef nonnull %t, i32 noundef range(i32 -1073741824, 32) %pos, i8 noundef signext %b) unnamed_addr #0 {
+define internal fastcc void @table_select(ptr nocapture noundef nonnull initializes((0, 120)) %t, i32 noundef range(i32 -1073741824, 32) %pos, i8 noundef signext %b) unnamed_addr #0 {
 entry:
   %minust = alloca %struct.ge_precomp, align 4
   %and = tail call i8 @llvm.smin.i8(i8 %b, i8 0)
@@ -2729,7 +2729,7 @@ cmov.exit355:                                     ; preds = %for.body.i19.i346
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_p2_dbl(ptr nocapture noundef nonnull %r, ptr nocapture noundef readonly %p) unnamed_addr #0 {
+define internal fastcc void @ge_p2_dbl(ptr nocapture noundef nonnull initializes((0, 40), (80, 160)) %r, ptr nocapture noundef readonly %p) unnamed_addr #0 {
 entry:
   %t0 = alloca [10 x i32], align 16
   tail call fastcc void @fe_sq(ptr noundef nonnull %r, ptr noundef %p)
@@ -4036,7 +4036,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ED25519_keypair(ptr nocapture noundef %out_public_key, ptr nocapture noundef writeonly %out_private_key) local_unnamed_addr #2 {
+define hidden void @ED25519_keypair(ptr nocapture noundef initializes((0, 32)) %out_public_key, ptr nocapture noundef writeonly initializes((0, 64)) %out_private_key) local_unnamed_addr #2 {
 entry:
   %s.i.i = alloca [32 x i8], align 16
   %recip.i = alloca [10 x i32], align 16
@@ -4094,7 +4094,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ED25519_sign(ptr noundef %out_sig, ptr noundef %message, i64 noundef %message_len, ptr noundef %private_key) local_unnamed_addr #2 {
+define hidden noundef i32 @ED25519_sign(ptr noundef initializes((0, 32)) %out_sig, ptr noundef %message, i64 noundef %message_len, ptr noundef %private_key) local_unnamed_addr #2 {
 entry:
   %s.i.i = alloca [32 x i8], align 16
   %recip.i = alloca [10 x i32], align 16

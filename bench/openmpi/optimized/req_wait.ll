@@ -1353,7 +1353,7 @@ opal_thread_compare_exchange_strong_ptr.exit140:  ; preds = %188, %191, %183
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_request_default_wait_some(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @ompi_request_default_wait_some(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.ompi_wait_sync_t, align 8
   %7 = icmp eq i64 %0, 0
   br i1 %7, label %14, label %.preheader127

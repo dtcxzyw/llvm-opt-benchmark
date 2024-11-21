@@ -832,7 +832,7 @@ define range(i32 0, 2) i32 @Cudd_IsNonConstant(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cudd_AutodynEnable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Cudd_AutodynEnable(ptr noundef initializes((484, 488)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 484
   store i32 1, ptr %3, align 4
   %.not = icmp eq i32 %1, 0
@@ -884,14 +884,14 @@ declare void @cuddClearDeathRow(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_AutodynDisable(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define void @Cudd_AutodynDisable(ptr nocapture noundef writeonly initializes((484, 488)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 484
   store i32 0, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @Cudd_ReorderingStatus(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define i32 @Cudd_ReorderingStatus(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 492
   %4 = load i32, ptr %3, align 4
   store i32 %4, ptr %1, align 4
@@ -901,7 +901,7 @@ define i32 @Cudd_ReorderingStatus(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_AutodynEnableZdd(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_AutodynEnableZdd(ptr nocapture noundef writeonly initializes((488, 492)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 488
   store i32 1, ptr %3, align 8
   %.not = icmp eq i32 %1, 0
@@ -917,14 +917,14 @@ define void @Cudd_AutodynEnableZdd(ptr nocapture noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_AutodynDisableZdd(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define void @Cudd_AutodynDisableZdd(ptr nocapture noundef writeonly initializes((488, 492)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 488
   store i32 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @Cudd_ReorderingStatusZdd(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define i32 @Cudd_ReorderingStatusZdd(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 496
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4
@@ -941,14 +941,14 @@ define i32 @Cudd_zddRealignmentEnabled(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_zddRealignEnable(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define void @Cudd_zddRealignEnable(ptr nocapture noundef writeonly initializes((500, 504)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 500
   store i32 1, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_zddRealignDisable(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define void @Cudd_zddRealignDisable(ptr nocapture noundef writeonly initializes((500, 504)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 500
   store i32 0, ptr %2, align 4
   ret void
@@ -962,14 +962,14 @@ define i32 @Cudd_bddRealignmentEnabled(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_bddRealignEnable(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define void @Cudd_bddRealignEnable(ptr nocapture noundef writeonly initializes((504, 508)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 504
   store i32 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_bddRealignDisable(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define void @Cudd_bddRealignDisable(ptr nocapture noundef writeonly initializes((504, 508)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 504
   store i32 0, ptr %2, align 8
   ret void
@@ -1053,7 +1053,7 @@ define ptr @Cudd_ReadBackground(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetBackground(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetBackground(ptr nocapture noundef writeonly initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8
   ret void
@@ -1146,7 +1146,7 @@ define i32 @Cudd_ReadMinHit(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetMinHit(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetMinHit(ptr nocapture noundef writeonly initializes((120, 128)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = uitofp i32 %1 to double
   %4 = fsub double 1.000000e+02, %3
   %5 = fdiv double %3, %4
@@ -1163,7 +1163,7 @@ define i32 @Cudd_ReadLooseUpTo(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cudd_SetLooseUpTo(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Cudd_SetLooseUpTo(ptr nocapture noundef writeonly initializes((268, 272)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %9
 
@@ -1202,7 +1202,7 @@ define i32 @Cudd_ReadMaxCacheHard(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cudd_SetMaxCacheHard(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Cudd_SetMaxCacheHard(ptr nocapture noundef writeonly initializes((132, 136)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %9
 
@@ -1531,7 +1531,7 @@ define i32 @Cudd_ReadSiftMaxVar(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetSiftMaxVar(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetSiftMaxVar(ptr nocapture noundef writeonly initializes((456, 460)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 456
   store i32 %1, ptr %3, align 8
   ret void
@@ -1545,7 +1545,7 @@ define i32 @Cudd_ReadSiftMaxSwap(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetSiftMaxSwap(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetSiftMaxSwap(ptr nocapture noundef writeonly initializes((460, 464)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 460
   store i32 %1, ptr %3, align 4
   ret void
@@ -1559,7 +1559,7 @@ define double @Cudd_ReadMaxGrowth(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetMaxGrowth(ptr nocapture noundef writeonly %0, double noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetMaxGrowth(ptr nocapture noundef writeonly initializes((464, 472)) %0, double noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 464
   store double %1, ptr %3, align 8
   ret void
@@ -1573,7 +1573,7 @@ define double @Cudd_ReadMaxGrowthAlternate(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetMaxGrowthAlternate(ptr nocapture noundef writeonly %0, double noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetMaxGrowthAlternate(ptr nocapture noundef writeonly initializes((472, 480)) %0, double noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 472
   store double %1, ptr %3, align 8
   ret void
@@ -1587,7 +1587,7 @@ define i32 @Cudd_ReadReorderingCycle(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetReorderingCycle(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetReorderingCycle(ptr nocapture noundef writeonly initializes((480, 484)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 480
   store i32 %1, ptr %3, align 8
   ret void
@@ -1631,7 +1631,7 @@ define void @Cudd_SetTree(ptr nocapture noundef %0, ptr noundef %1) local_unname
 declare void @Mtr_FreeTree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @fixVarTree(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #14 {
+define internal fastcc void @fixVarTree(ptr nocapture noundef nonnull initializes((12, 16)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #14 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %17, %3
@@ -1875,7 +1875,7 @@ define double @Cudd_ReadEpsilon(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetEpsilon(ptr nocapture noundef writeonly %0, double noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetEpsilon(ptr nocapture noundef writeonly initializes((440, 448)) %0, double noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   store double %1, ptr %3, align 8
   ret void
@@ -1889,7 +1889,7 @@ define i32 @Cudd_ReadGroupcheck(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetGroupcheck(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetGroupcheck(ptr nocapture noundef writeonly initializes((536, 540)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 536
   store i32 %1, ptr %3, align 8
   ret void
@@ -1903,14 +1903,14 @@ define i32 @Cudd_GarbageCollectionEnabled(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_EnableGarbageCollection(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define void @Cudd_EnableGarbageCollection(ptr nocapture noundef writeonly initializes((264, 268)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   store i32 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_DisableGarbageCollection(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define void @Cudd_DisableGarbageCollection(ptr nocapture noundef writeonly initializes((264, 268)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   store i32 0, ptr %2, align 8
   ret void
@@ -1926,14 +1926,14 @@ define range(i32 0, 2) i32 @Cudd_DeadAreCounted(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_TurnOnCountDead(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define void @Cudd_TurnOnCountDead(ptr nocapture noundef writeonly initializes((512, 516)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 512
   store i32 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_TurnOffCountDead(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define void @Cudd_TurnOffCountDead(ptr nocapture noundef writeonly initializes((512, 516)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 512
   store i32 -1, ptr %2, align 8
   ret void
@@ -1947,7 +1947,7 @@ define i32 @Cudd_ReadRecomb(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetRecomb(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetRecomb(ptr nocapture noundef writeonly initializes((540, 544)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 540
   store i32 %1, ptr %3, align 4
   ret void
@@ -1961,7 +1961,7 @@ define i32 @Cudd_ReadSymmviolation(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetSymmviolation(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetSymmviolation(ptr nocapture noundef writeonly initializes((544, 548)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 544
   store i32 %1, ptr %3, align 8
   ret void
@@ -1975,7 +1975,7 @@ define i32 @Cudd_ReadArcviolation(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetArcviolation(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetArcviolation(ptr nocapture noundef writeonly initializes((548, 552)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 548
   store i32 %1, ptr %3, align 4
   ret void
@@ -1989,7 +1989,7 @@ define i32 @Cudd_ReadPopulationSize(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetPopulationSize(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetPopulationSize(ptr nocapture noundef writeonly initializes((552, 556)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 552
   store i32 %1, ptr %3, align 8
   ret void
@@ -2003,7 +2003,7 @@ define i32 @Cudd_ReadNumberXovers(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetNumberXovers(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetNumberXovers(ptr nocapture noundef writeonly initializes((556, 560)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 556
   store i32 %1, ptr %3, align 4
   ret void
@@ -3139,7 +3139,7 @@ define i32 @Cudd_ReadErrorCode(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_ClearErrorCode(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define void @Cudd_ClearErrorCode(ptr nocapture noundef writeonly initializes((624, 628)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 0, ptr %2, align 8
   ret void
@@ -3153,7 +3153,7 @@ define ptr @Cudd_ReadStdout(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetStdout(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetStdout(ptr nocapture noundef writeonly initializes((608, 616)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 608
   store ptr %1, ptr %3, align 8
   ret void
@@ -3167,14 +3167,14 @@ define ptr @Cudd_ReadStderr(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetStderr(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetStderr(ptr nocapture noundef writeonly initializes((616, 624)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 616
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetNextReordering(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetNextReordering(ptr nocapture noundef writeonly initializes((508, 512)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 508
   store i32 %1, ptr %3, align 4
   ret void
@@ -3193,7 +3193,7 @@ define i32 @Cudd_ReadMaxLive(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetMaxLive(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetMaxLive(ptr nocapture noundef writeonly initializes((244, 248)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 244
   store i32 %1, ptr %3, align 4
   ret void
@@ -3207,7 +3207,7 @@ define i64 @Cudd_ReadMaxMemory(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cudd_SetMaxMemory(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #6 {
+define void @Cudd_SetMaxMemory(ptr nocapture noundef writeonly initializes((648, 656)) %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 648
   store i64 %1, ptr %3, align 8
   ret void

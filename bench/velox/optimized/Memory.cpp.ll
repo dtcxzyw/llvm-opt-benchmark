@@ -189,7 +189,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN8facebook5velox6memory13MemoryManagerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8facebook5velox6memory13MemoryManagerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6memory13MemoryManagerC2ERKNS1_20MemoryManagerOptionsE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(128) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory13MemoryManagerC2ERKNS1_20MemoryManagerOptionsE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(128) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator.10", align 1
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store", align 16
@@ -2281,7 +2281,7 @@ lpad:                                             ; preds = %if.end5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox6memory13MemoryManager13getAlivePoolsEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox6memory13MemoryManager13getAlivePoolsEv(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %guard = alloca %"class.folly::SharedMutexImpl<false>::ReadHolder", align 8
   %pool = alloca %"class.std::shared_ptr.2", align 8

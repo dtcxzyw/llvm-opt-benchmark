@@ -873,7 +873,7 @@ define internal range(i32 -2, 1) i32 @proc_readdir(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @proc_rewinddir(ptr nocapture noundef writeonly %0) #4 {
+define internal noundef i32 @proc_rewinddir(ptr nocapture noundef writeonly initializes((18, 20)) %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 18
   store i16 0, ptr %2, align 2
   ret i32 0

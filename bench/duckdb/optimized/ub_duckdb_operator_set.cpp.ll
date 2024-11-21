@@ -331,7 +331,7 @@ $_ZTIN6duckdb8CTEStateE = comdat any
 @_ZN6duckdb11PhysicalCTED1Ev = unnamed_addr alias void (ptr), ptr @_ZN6duckdb11PhysicalCTED2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb13PhysicalUnionC2ENS_6vectorINS_11LogicalTypeELb1EEENS_10unique_ptrINS_16PhysicalOperatorESt14default_deleteIS5_ELb1EEES8_mb(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr nocapture noundef %types, ptr noundef nonnull %top, ptr noundef %bottom, i64 noundef %estimated_cardinality, i1 noundef zeroext %allow_out_of_order) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13PhysicalUnionC2ENS_6vectorINS_11LogicalTypeELb1EEENS_10unique_ptrINS_16PhysicalOperatorESt14default_deleteIS5_ELb1EEES8_mb(ptr noundef nonnull align 8 dereferenceable(129) initializes((0, 9), (16, 129)) %this, ptr nocapture noundef %types, ptr noundef nonnull %top, ptr noundef %bottom, i64 noundef %estimated_cardinality, i1 noundef zeroext %allow_out_of_order) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.else.i.i:
   %frombool = zext i1 %allow_out_of_order to i8
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %types, i64 16
@@ -692,7 +692,7 @@ declare void @_ZN6duckdb12MetaPipeline20AssignNextBatchIndexEPNS_8PipelineE(ptr 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb13PhysicalUnion10GetSourcesEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.98") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(129) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb13PhysicalUnion10GetSourcesEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.98") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(129) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %child_sources = alloca %"class.duckdb::vector.98", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -783,7 +783,7 @@ _ZNSt6vectorISt17reference_wrapperIKN6duckdb16PhysicalOperatorEESaIS4_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb20PhysicalRecursiveCTEC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_6vectorINS_11LogicalTypeELb1EEEbNS_10unique_ptrINS_16PhysicalOperatorESt14default_deleteISB_ELb1EEESE_m(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %ctename, i64 noundef %table_index, ptr nocapture noundef %types, i1 noundef zeroext %union_all, ptr noundef %top, ptr noundef %bottom, i64 noundef %estimated_cardinality) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb20PhysicalRecursiveCTEC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_6vectorINS_11LogicalTypeELb1EEEbNS_10unique_ptrINS_16PhysicalOperatorESt14default_deleteISB_ELb1EEESE_m(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 9), (16, 128)) %this, ptr noundef %ctename, i64 noundef %table_index, ptr nocapture noundef %types, i1 noundef zeroext %union_all, ptr noundef %top, ptr noundef %bottom, i64 noundef %estimated_cardinality) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
   %frombool = zext i1 %union_all to i8
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %types, i64 16
@@ -968,7 +968,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb20PhysicalRecursiveCTED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb20PhysicalRecursiveCTED2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb20PhysicalRecursiveCTEE, i64 16), ptr %this, align 8, !tbaa !39
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 200
@@ -2438,7 +2438,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN6duckdb8PipelineEESaIS3_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb20PhysicalRecursiveCTE14BuildPipelinesERNS_8PipelineERNS_12MetaPipelineE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(224) %current, ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb20PhysicalRecursiveCTE14BuildPipelinesERNS_8PipelineERNS_12MetaPipelineE(ptr noundef nonnull align 8 dereferenceable(208) initializes((192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(224) %current, ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %op_state = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %op_state, align 8, !tbaa !8
@@ -2757,7 +2757,7 @@ _ZN6duckdb10unique_ptrINS_16PhysicalOperatorESt14default_deleteIS1_ELb1EE13Asser
 declare void @_ZN6duckdb12MetaPipeline15SetRecursiveCTEEv(ptr noundef nonnull align 8 dereferenceable(272)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb20PhysicalRecursiveCTE10GetSourcesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.98") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb20PhysicalRecursiveCTE10GetSourcesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.98") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i5.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
   store ptr %call5.i.i.i.i5.i.i, ptr %agg.result, align 8, !tbaa !61
@@ -3002,7 +3002,7 @@ eh.resume:                                        ; preds = %if.then.i.i86, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11PhysicalCTEC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_6vectorINS_11LogicalTypeELb1EEENS_10unique_ptrINS_16PhysicalOperatorESt14default_deleteISB_ELb1EEESE_m(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %ctename, i64 noundef %table_index, ptr nocapture noundef %types, ptr noundef %top, ptr noundef %bottom, i64 noundef %estimated_cardinality) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11PhysicalCTEC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_6vectorINS_11LogicalTypeELb1EEENS_10unique_ptrINS_16PhysicalOperatorESt14default_deleteISB_ELb1EEESE_m(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 9), (16, 168)) %this, ptr noundef %ctename, i64 noundef %table_index, ptr nocapture noundef %types, ptr noundef %top, ptr noundef %bottom, i64 noundef %estimated_cardinality) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %types, i64 16
   %0 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8, !tbaa !3
@@ -3128,7 +3128,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb11PhysicalCTED2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11PhysicalCTED2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb11PhysicalCTEE, i64 16), ptr %this, align 8, !tbaa !39
   %ctename = getelementptr inbounds i8, ptr %this, i64 168
@@ -3863,7 +3863,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11PhysicalCTE14BuildPipelinesERNS_8PipelineERNS_12MetaPipelineE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(224) %current, ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11PhysicalCTE14BuildPipelinesERNS_8PipelineERNS_12MetaPipelineE(ptr noundef nonnull align 8 dereferenceable(200) initializes((144, 152)) %this, ptr noundef nonnull align 8 dereferenceable(224) %current, ptr noundef nonnull align 8 dereferenceable(272) %meta_pipeline) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %op_state = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %op_state, align 8, !tbaa !8
@@ -4110,7 +4110,7 @@ declare void @_ZN6duckdb8Executor18AddMaterializedCTEERNS_16PhysicalOperatorE(pt
 declare noundef zeroext i1 @_ZNK6duckdb12MetaPipeline15HasRecursiveCTEEv(ptr noundef nonnull align 8 dereferenceable(272)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb11PhysicalCTE10GetSourcesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.98") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb11PhysicalCTE10GetSourcesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.98") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i5.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
   store ptr %call5.i.i.i.i5.i.i, ptr %agg.result, align 8, !tbaa !61

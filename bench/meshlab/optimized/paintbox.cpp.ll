@@ -12885,7 +12885,7 @@ declare void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef) local_unnamed_addr #
 declare void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8Paintbox14setPixmapDeltaEdd(ptr nocapture noundef nonnull align 8 dereferenceable(844) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN8Paintbox14setPixmapDeltaEdd(ptr nocapture noundef nonnull align 8 dereferenceable(844) initializes((836, 844)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.QPointF, align 8
   %5 = alloca %class.QPointF, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 836

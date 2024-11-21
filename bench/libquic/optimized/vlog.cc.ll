@@ -71,7 +71,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7logging8VlogInfoC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %v_switch, ptr noundef nonnull align 8 dereferenceable(32) %vmodule_switch, ptr noundef %min_log_level) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7logging8VlogInfoC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_Pi(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %v_switch, ptr noundef nonnull align 8 dereferenceable(32) %vmodule_switch, ptr noundef %min_log_level) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vlog_level = alloca i32, align 4
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8

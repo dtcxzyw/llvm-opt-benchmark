@@ -1440,7 +1440,7 @@ declare i64 @iov_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @of_dpa_ig_port_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly %match) #9 {
+define internal void @of_dpa_ig_port_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly initializes((0, 4), (8, 12), (104, 108)) %match) #9 {
 entry:
   %tbl_id = getelementptr inbounds i8, ptr %match, i64 8
   store i32 0, ptr %tbl_id, align 8
@@ -1474,7 +1474,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @of_dpa_vlan_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly %match) #11 {
+define internal void @of_dpa_vlan_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly initializes((0, 4), (8, 12), (104, 108)) %match) #11 {
 entry:
   %tbl_id = getelementptr inbounds i8, ptr %match, i64 8
   store i32 10, ptr %tbl_id, align 8
@@ -1539,7 +1539,7 @@ if.end:                                           ; preds = %if.end.i, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @of_dpa_term_mac_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly %match) #13 {
+define internal void @of_dpa_term_mac_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly initializes((0, 4), (8, 14), (20, 28), (104, 108)) %match) #13 {
 entry:
   %tbl_id = getelementptr inbounds i8, ptr %match, i64 8
   store i32 20, ptr %tbl_id, align 8
@@ -1572,7 +1572,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @of_dpa_apply_actions(ptr nocapture noundef writeonly %fc, ptr nocapture noundef readonly %flow) #9 {
+define internal void @of_dpa_apply_actions(ptr nocapture noundef writeonly initializes((144, 145), (146, 148)) %fc, ptr nocapture noundef readonly %flow) #9 {
 entry:
   %copy_to_cpu = getelementptr inbounds i8, ptr %flow, i64 264
   %0 = load i8, ptr %copy_to_cpu, align 8
@@ -1586,7 +1586,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @of_dpa_unicast_routing_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly %match) #13 {
+define internal void @of_dpa_unicast_routing_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly initializes((8, 12), (26, 28), (104, 108)) %match) #13 {
 entry:
   %tbl_id = getelementptr inbounds i8, ptr %match, i64 8
   store i32 30, ptr %tbl_id, align 8
@@ -1649,7 +1649,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @of_dpa_multicast_routing_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly %match) #13 {
+define internal void @of_dpa_multicast_routing_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly initializes((8, 14), (26, 28), (104, 108)) %match) #13 {
 entry:
   %tbl_id = getelementptr inbounds i8, ptr %match, i64 8
   store i32 40, ptr %tbl_id, align 8
@@ -1716,7 +1716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @of_dpa_multicast_routing_action_write(ptr nocapture noundef writeonly %fc, ptr nocapture noundef readonly %flow) #9 {
+define internal void @of_dpa_multicast_routing_action_write(ptr nocapture noundef writeonly initializes((132, 134)) %fc, ptr nocapture noundef readonly %flow) #9 {
 entry:
   %write = getelementptr inbounds i8, ptr %flow, i64 244
   %0 = load i32, ptr %write, align 4
@@ -1737,7 +1737,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @of_dpa_bridging_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly %match) #13 {
+define internal void @of_dpa_bridging_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly initializes((8, 12), (20, 26), (104, 108)) %match) #13 {
 entry:
   %tbl_id = getelementptr inbounds i8, ptr %match, i64 8
   store i32 50, ptr %tbl_id, align 8
@@ -1842,7 +1842,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @of_dpa_bridging_action_write(ptr nocapture noundef writeonly %fc, ptr nocapture noundef readonly %flow) #9 {
+define internal void @of_dpa_bridging_action_write(ptr nocapture noundef writeonly initializes((128, 132)) %fc, ptr nocapture noundef readonly %flow) #9 {
 entry:
   %write = getelementptr inbounds i8, ptr %flow, i64 244
   %0 = load i32, ptr %write, align 4
@@ -1863,7 +1863,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @of_dpa_acl_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly %match) #13 {
+define internal void @of_dpa_acl_build_match(ptr nocapture noundef readonly %fc, ptr nocapture noundef writeonly initializes((0, 4), (8, 28), (104, 108)) %match) #13 {
 entry:
   %tbl_id = getelementptr inbounds i8, ptr %match, i64 8
   store i32 60, ptr %tbl_id, align 8
@@ -2848,7 +2848,7 @@ return:                                           ; preds = %if.end142, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_bridging(ptr nocapture noundef %flow, ptr nocapture noundef nonnull readonly %flow_tlvs) unnamed_addr #13 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_add_bridging(ptr nocapture noundef initializes((32, 36)) %flow, ptr nocapture noundef nonnull readonly %flow_tlvs) unnamed_addr #13 {
 entry:
   %action3 = getelementptr inbounds i8, ptr %flow, i64 240
   %tbl_id = getelementptr inbounds i8, ptr %flow, i64 32

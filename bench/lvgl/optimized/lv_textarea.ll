@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_text_encoded_get_byte_id = external local_unnamed_addr constant ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_textarea_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_textarea_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 120)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -2013,14 +2013,14 @@ declare zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef, i8 noundef zeroe
 declare void @lv_obj_scroll_to(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_textarea_set_accepted_chars(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @lv_textarea_set_accepted_chars(ptr nocapture noundef writeonly initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %3, align 8, !tbaa !13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_textarea_set_max_length(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @lv_textarea_set_max_length(ptr nocapture noundef writeonly initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8, !tbaa !14
   ret void
@@ -2067,7 +2067,7 @@ lv_textarea_clear_selection.exit:                 ; preds = %15, %12, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_textarea_set_password_show_time(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_textarea_set_password_show_time(ptr noundef initializes((108, 112)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %1, ptr %3, align 4, !tbaa !3
   tail call fastcc void @pwd_char_hider(ptr noundef %0)

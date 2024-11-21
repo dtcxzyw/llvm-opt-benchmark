@@ -34,7 +34,7 @@ define hidden noundef double @_ZN17ThreadHeapSampler9fast_log2ERKd(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ThreadHeapSampler26pick_next_geometric_sampleEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17ThreadHeapSampler26pick_next_geometric_sampleEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #2 align 2 {
   %2 = load i64, ptr @_ZN17ThreadHeapSampler4_rndE, align 8
   %3 = mul i64 %2, 25214903917
   %4 = add i64 %3, 11
@@ -78,7 +78,7 @@ define hidden noundef i32 @_ZN17ThreadHeapSampler21get_sampling_intervalEv() loc
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ThreadHeapSampler16pick_next_sampleEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17ThreadHeapSampler16pick_next_sampleEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load volatile i32, ptr @_ZN17ThreadHeapSampler18_sampling_intervalE, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
   %4 = icmp eq i32 %3, 0

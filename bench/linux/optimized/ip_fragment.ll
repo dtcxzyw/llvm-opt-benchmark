@@ -825,7 +825,7 @@ define dso_local void @ipfrag_init() local_unnamed_addr #6 section ".init.text" 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ip4_frag_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @ip4_frag_init(ptr nocapture noundef initializes((8, 28), (176, 177), (192, 200)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.inetpeer_addr, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8

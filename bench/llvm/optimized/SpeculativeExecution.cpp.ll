@@ -960,7 +960,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm51createSpeculativeExecutionIfHasB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm24SpeculativeExecutionPassC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i1 noundef zeroext %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm24SpeculativeExecutionPassC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, i1 noundef zeroext %1) unnamed_addr #5 align 2 {
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL29SpecExecOnlyIfDivergentTarget, i64 128), align 8
   %4 = and i8 %3, 1
   %5 = select i1 %1, i8 1, i8 %4

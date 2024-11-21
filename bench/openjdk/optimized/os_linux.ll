@@ -1144,7 +1144,7 @@ define hidden noundef range(i64 0, -1023) i64 @_ZN2os3rssEv() local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN2os5Linux25query_process_memory_infoEPNS0_9meminfo_tE(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN2os5Linux25query_process_memory_infoEPNS0_9meminfo_tE(ptr noundef initializes((0, 64)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [256 x i8], align 16
   %3 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.6) #26
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1265,7 +1265,7 @@ define hidden noundef zeroext i1 @_ZN2os5Linux25query_process_memory_infoEPNS0_9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os5Linux14kernel_versionEPlS1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN2os5Linux14kernel_versionEPlS1_(ptr noundef initializes((0, 8)) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.utsname, align 1
   store i64 -1, ptr %0, align 8
   store i64 -1, ptr %1, align 8
@@ -1320,7 +1320,7 @@ declare noundef ptr @_ZN2os10errno_nameEi(i32 noundef) local_unnamed_addr #1
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN2os5Linux20get_tick_informationEPNS0_12CPUPerfTicksEi(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN2os5Linux20get_tick_informationEPNS0_12CPUPerfTicksEi(ptr nocapture noundef writeonly initializes((0, 40)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -8424,7 +8424,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2os19set_native_priorityEP6Thread
 declare i32 @setpriority(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 1) i32 @_ZN2os19get_native_priorityEPK6ThreadPi(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 1) i32 @_ZN2os19get_native_priorityEPK6ThreadPi(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @UseThreadPriorities, align 1
   %4 = trunc i8 %3 to i1
   %5 = load i32, ptr @ThreadPriorityPolicy, align 4
@@ -9907,7 +9907,7 @@ _ZL13fast_cpu_timeP6Thread.exit:                  ; preds = %8, %_ZN2os5Linux21p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2os28current_thread_cpu_time_infoEP14jvmtiTimerInfo(ptr nocapture noundef writeonly %0) local_unnamed_addr #17 align 2 {
+define hidden void @_ZN2os28current_thread_cpu_time_infoEP14jvmtiTimerInfo(ptr nocapture noundef writeonly initializes((0, 10), (12, 16)) %0) local_unnamed_addr #17 align 2 {
   store i64 -1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 9
   store i8 0, ptr %2, align 1
@@ -9919,7 +9919,7 @@ define hidden void @_ZN2os28current_thread_cpu_time_infoEP14jvmtiTimerInfo(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2os20thread_cpu_time_infoEP14jvmtiTimerInfo(ptr nocapture noundef writeonly %0) local_unnamed_addr #17 align 2 {
+define hidden void @_ZN2os20thread_cpu_time_infoEP14jvmtiTimerInfo(ptr nocapture noundef writeonly initializes((0, 10), (12, 16)) %0) local_unnamed_addr #17 align 2 {
   store i64 -1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 9
   store i8 0, ptr %2, align 1

@@ -162,7 +162,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16FdmLocalVolFwdOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_5QuoteEEENS2_INS_18YieldTermStructureEEESC_RKNS2_INS_21LocalVolTermStructureEEEm(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture nonnull readnone align 1 %spot, ptr nocapture noundef %rTS, ptr nocapture noundef %qTS, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %localVol, i64 noundef %direction) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16FdmLocalVolFwdOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_5QuoteEEENS2_INS_18YieldTermStructureEEESC_RKNS2_INS_21LocalVolTermStructureEEEm(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 72)) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture nonnull readnone align 1 %spot, ptr nocapture noundef %rTS, ptr nocapture noundef %qTS, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %localVol, i64 noundef %direction) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Array", align 8
   %ref.tmp19 = alloca %"class.QuantLib::SecondDerivativeOp", align 8
@@ -1375,7 +1375,7 @@ return:                                           ; preds = %for.body.i.i.i.preh
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16FdmLocalVolFwdOp11apply_mixedERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16FdmLocalVolFwdOp11apply_mixedERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %r, i64 8
   %0 = load i64, ptr %n_.i, align 8, !tbaa !73

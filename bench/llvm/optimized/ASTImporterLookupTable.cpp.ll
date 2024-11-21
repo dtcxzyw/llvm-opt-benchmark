@@ -168,7 +168,7 @@ $_ZGVZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEvE7NoneLoc = comdat
 @_ZN5clang22ASTImporterLookupTableC1ERNS_19TranslationUnitDeclE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang22ASTImporterLookupTableC2ERNS_19TranslationUnitDeclE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang22ASTImporterLookupTableC2ERNS_19TranslationUnitDeclE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang22ASTImporterLookupTableC2ERNS_19TranslationUnitDeclE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.clang::(anonymous namespace)::Builder", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   store ptr %0, ptr %3, align 8

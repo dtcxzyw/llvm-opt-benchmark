@@ -567,7 +567,7 @@ define dso_local void @_ZN9Stockfish12WinProcGroup14bindThisThreadEm(i64 noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9Stockfish11CommandLineC2EiPPc(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN9Stockfish11CommandLineC2EiPPc(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 4), (8, 16)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1

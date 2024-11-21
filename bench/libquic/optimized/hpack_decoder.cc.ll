@@ -40,7 +40,7 @@ $_ZTIN3net21HpackDecoderInterfaceE = comdat any
 @_ZN3net12HpackDecoderD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net12HpackDecoderD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net12HpackDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net12HpackDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12HpackDecoderE, i64 16), ptr %this, align 8
   %header_table_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -90,7 +90,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN3net16HpackHeaderTableD1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net12HpackDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3net12HpackDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12HpackDecoderE, i64 16), ptr %this, align 8
   %value_buffer_ = getelementptr inbounds i8, ptr %this, i64 416
@@ -110,7 +110,7 @@ entry:
 declare void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net12HpackDecoderD0Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3net12HpackDecoderD0Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12HpackDecoderE, i64 16), ptr %this, align 8
   %value_buffer_.i = getelementptr inbounds i8, ptr %this, i64 416
@@ -141,7 +141,7 @@ entry:
 declare void @_ZN3net16HpackHeaderTable26SetSettingsHeaderTableSizeEm(ptr noundef nonnull align 8 dereferenceable(256), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net12HpackDecoder30HandleControlFrameHeadersStartEPNS_27SpdyHeadersHandlerInterfaceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) %this, ptr noundef %handler) unnamed_addr #5 align 2 {
+define dso_local void @_ZN3net12HpackDecoder30HandleControlFrameHeadersStartEPNS_27SpdyHeadersHandlerInterfaceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) initializes((448, 464)) %this, ptr noundef %handler) unnamed_addr #5 align 2 {
 entry:
   %handler_ = getelementptr inbounds i8, ptr %this, i64 448
   store ptr %handler, ptr %handler_, align 8
@@ -388,7 +388,7 @@ _ZNSt10unique_ptrIN3net16HpackHeaderTable21DebugVisitorInterfaceESt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net12HpackDecoder32set_max_decode_buffer_size_bytesEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) %this, i64 noundef %max_decode_buffer_size_bytes) unnamed_addr #5 align 2 {
+define dso_local void @_ZN3net12HpackDecoder32set_max_decode_buffer_size_bytesEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) initializes((464, 472)) %this, i64 noundef %max_decode_buffer_size_bytes) unnamed_addr #5 align 2 {
 entry:
   %max_decode_buffer_size_bytes_ = getelementptr inbounds i8, ptr %this, i64 464
   store i64 %max_decode_buffer_size_bytes, ptr %max_decode_buffer_size_bytes_, align 8
@@ -396,7 +396,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net12HpackDecoder26HandleHeaderRepresentationEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr %name.coerce0, i64 %name.coerce1, ptr %value.coerce0, i64 %value.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net12HpackDecoder26HandleHeaderRepresentationEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(480) initializes((478, 479)) %this, ptr %name.coerce0, i64 %name.coerce1, ptr %value.coerce0, i64 %value.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key.i = alloca %"class.base::BasicStringPiece", align 8
   %name = alloca %"class.base::BasicStringPiece", align 8

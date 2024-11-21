@@ -74,7 +74,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18WriteBufferManagerC2EmSt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(160) %this, i64 noundef %_buffer_size, ptr noundef %cache, i1 noundef zeroext %allow_stall) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WriteBufferManagerC2EmSt10shared_ptrINS_5CacheEEb(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this, i64 noundef %_buffer_size, ptr noundef %cache, i1 noundef zeroext %allow_stall) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca i8, align 1
   store i64 %_buffer_size, ptr %this, align 8

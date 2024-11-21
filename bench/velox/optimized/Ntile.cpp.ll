@@ -3346,7 +3346,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunctionE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -3512,7 +3512,7 @@ _ZN8facebook5velox4exec14WindowFunctionD2Ev.exit: ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #5 align 2 {
+define internal void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -3520,7 +3520,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunction14resetPartitionEPKNS0_4exec15WindowPartitionE(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %partition) unnamed_addr #13 align 2 {
+define internal void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_113NtileFunction14resetPartitionEPKNS0_4exec15WindowPartitionE(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((136, 160)) %this, ptr noundef %partition) unnamed_addr #13 align 2 {
 entry:
   %partition_ = getelementptr inbounds i8, ptr %this, i64 136
   store ptr %partition, ptr %partition_, align 8

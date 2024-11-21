@@ -649,7 +649,7 @@ define dso_local zeroext i1 @AllTablesyncsReady() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @FetchTableStates(ptr nocapture noundef nonnull writeonly %0) unnamed_addr #1 {
+define internal fastcc zeroext i1 @FetchTableStates(ptr nocapture noundef nonnull writeonly initializes((0, 1)) %0) unnamed_addr #1 {
   store i8 0, ptr %0, align 1
   %.b12 = load i1, ptr @table_states_valid, align 1
   br i1 %.b12, label %._crit_edge22, label %2

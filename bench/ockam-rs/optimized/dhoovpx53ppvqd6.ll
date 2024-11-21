@@ -1053,7 +1053,7 @@ define { ptr, i64 } @_ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15ockam_multiaddr10ProtoValue8to_owned17hdb265c716119d79eE(ptr noalias nocapture noundef writeonly sret({ { i16, [15 x i16] }, i32, [1 x i32] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @_ZN15ockam_multiaddr10ProtoValue8to_owned17hdb265c716119d79eE(ptr noalias nocapture noundef writeonly sret({ { i16, [15 x i16] }, i32, [1 x i32] }) align 8 dereferenceable(40) initializes((0, 2), (8, 36)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 8, !range !151, !noundef !8
   %4 = icmp eq i16 %3, 2
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -6531,7 +6531,7 @@ common.resume:                                    ; preds = %.body, %343, %317
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15ockam_multiaddr5Match4code17h92b40bfb2d91150eE(ptr noalias nocapture noundef writeonly sret({ i32, [7 x i32] }) align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 {
+define void @_ZN15ockam_multiaddr5Match4code17h92b40bfb2d91150eE(ptr noalias nocapture noundef writeonly sret({ i32, [7 x i32] }) align 8 dereferenceable(32) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 2, ptr %0, align 8
@@ -6539,7 +6539,7 @@ define void @_ZN15ockam_multiaddr5Match4code17h92b40bfb2d91150eE(ptr noalias noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN91_$LT$ockam_multiaddr..Match$u20$as$u20$core..convert..From$LT$ockam_multiaddr..Code$GT$$GT$4from17h033821c4283e1b83E"(ptr noalias nocapture noundef writeonly sret({ i32, [7 x i32] }) align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 {
+define void @"_ZN91_$LT$ockam_multiaddr..Match$u20$as$u20$core..convert..From$LT$ockam_multiaddr..Code$GT$$GT$4from17h033821c4283e1b83E"(ptr noalias nocapture noundef writeonly sret({ i32, [7 x i32] }) align 8 dereferenceable(32) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4, !alias.scope !1709
   store i32 2, ptr %0, align 8, !alias.scope !1709

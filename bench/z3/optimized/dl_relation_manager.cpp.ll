@@ -874,7 +874,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog16relation_managerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog16relation_managerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog16relation_managerE, i64 16), ptr %this, align 8
   invoke void @_ZN7datalog16relation_manager5resetEv(ptr noundef nonnull align 8 dereferenceable(200) %this)
@@ -1172,7 +1172,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog16relation_managerD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog16relation_managerD0Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN7datalog16relation_managerD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -2128,7 +2128,7 @@ _ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_baseD2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog16relation_manager18collect_predicatesEv(ptr noalias sret(%class.obj_hashtable) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7datalog16relation_manager18collect_predicatesEv(ptr noalias sret(%class.obj_hashtable) align 8 initializes((0, 20)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i = alloca ptr, align 8
   %call.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 64)
@@ -4640,7 +4640,7 @@ if.end:                                           ; preds = %entry
 declare noundef zeroext i1 @_ZNK7datalog12dl_decl_util14is_numeral_extEP4exprRm(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog16relation_manager17table_to_relationERKP4sortRKmRP3app(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sort, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %from, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %to) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN7datalog16relation_manager17table_to_relationERKP4sortRKmRP3app(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sort, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %from, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %to) local_unnamed_addr #4 align 2 {
 entry:
   %m_context.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_context.i.i, align 8
@@ -4762,7 +4762,7 @@ entry:
 declare noundef zeroext i1 @_ZNK7datalog12dl_decl_util12try_get_sizeEPK4sortRm(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7datalog16relation_manager14from_predicateEP9func_decljRP4sort(ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %pred, i32 noundef %arg_index, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) local_unnamed_addr #14 align 2 {
+define hidden void @_ZN7datalog16relation_manager14from_predicateEP9func_decljRP4sort(ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %pred, i32 noundef %arg_index, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result) local_unnamed_addr #14 align 2 {
 entry:
   %m_domain.i = getelementptr inbounds i8, ptr %pred, i64 48
   %idxprom.i = zext i32 %arg_index to i64

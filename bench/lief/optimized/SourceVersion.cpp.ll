@@ -168,7 +168,7 @@ define noundef nonnull align 4 dereferenceable(20) ptr @_ZNK4LIEF5MachO13SourceV
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF5MachO13SourceVersion7versionERKSt5arrayIjLm5EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO13SourceVersion7versionERKSt5arrayIjLm5EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((56, 76)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 20, i1 false)
   ret void

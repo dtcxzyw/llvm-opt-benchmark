@@ -1735,7 +1735,7 @@ declare i32 @ompi_fcoll_base_coll_allgatherv_array(ptr noundef, i32 noundef, ptr
 declare i32 @ompi_fcoll_base_sort_iovec(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((172, 176), (200, 208), (216, 220)) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 216
   store i32 0, ptr %7, align 8
@@ -3194,7 +3194,7 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
 declare void @mca_common_ompio_register_progress() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_init(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 -1073741824, 1073741824) %2, i32 noundef range(i32 1, 3) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @write_init(ptr noundef initializes((296, 304)) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 -1073741824, 1073741824) %2, i32 noundef range(i32 1, 3) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   call void @mca_common_ompio_request_alloc(ptr noundef nonnull %6, i32 noundef 0) #11

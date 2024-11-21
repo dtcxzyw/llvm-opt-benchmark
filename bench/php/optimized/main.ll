@@ -2732,7 +2732,7 @@ define internal void @php_error_cb(i32 noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @php_fopen_wrapper_for_zend(ptr noundef %0, ptr noundef %1) #4 {
+define internal ptr @php_fopen_wrapper_for_zend(ptr noundef %0, ptr noundef initializes((0, 8)) %1) #4 {
   store ptr %0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = tail call ptr @_php_stream_open_wrapper_as_file(ptr noundef nonnull %3, ptr noundef nonnull @.str.31, i32 noundef 65673, ptr noundef nonnull %1) #29

@@ -3696,7 +3696,7 @@ if.end54:                                         ; preds = %for.inc49, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08TGAInput5closeEv(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08TGAInput5closeEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((264, 268), (272, 297), (298, 300)) %this) unnamed_addr #5 align 2 {
 entry:
   %m_buf.i = getelementptr inbounds i8, ptr %this, i64 304
   %0 = load ptr, ptr %m_buf.i, align 8

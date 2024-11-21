@@ -183,7 +183,7 @@ define hidden ptr @nvgCreateGL3(i32 noundef %0) local_unnamed_addr #3 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL19glnvg__renderCreatePv(ptr noundef %0) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL19glnvg__renderCreatePv(ptr noundef initializes((0, 24)) %0) #3 {
   %2 = alloca i32, align 4
   store i32 4, ptr %2, align 4
   %3 = getelementptr i8, ptr %0, i64 68
@@ -622,7 +622,7 @@ _ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread: ; preds = %10, %4, %_ZL18gl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL21glnvg__renderViewportPvfff(ptr nocapture noundef writeonly %0, float noundef %1, float noundef %2, float %3) #6 {
+define internal void @_ZL21glnvg__renderViewportPvfff(ptr nocapture noundef writeonly initializes((32, 40)) %0, float noundef %1, float noundef %2, float %3) #6 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   store float %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 36
@@ -631,7 +631,7 @@ define internal void @_ZL21glnvg__renderViewportPvfff(ptr nocapture noundef writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL19glnvg__renderCancelPv(ptr nocapture noundef writeonly %0) #6 {
+define internal void @_ZL19glnvg__renderCancelPv(ptr nocapture noundef writeonly initializes((84, 88), (100, 104), (116, 120), (132, 136)) %0) #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 116
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 100
@@ -3352,7 +3352,7 @@ declare ptr @glfwSetWindowFocusCallback(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @glfwSetWindowContentScaleCallback(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen10initializeEP10GLFWwindowb(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6Screen10initializeEP10GLFWwindowb(ptr noundef nonnull align 8 dereferenceable(384) initializes((144, 152), (344, 345)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.NVGparams, align 8
   %5 = alloca %struct.NVGparams, align 8
   %6 = alloca float, align 4
@@ -3698,7 +3698,7 @@ declare void @nvgBeginFrame(ptr noundef, float noundef, float noundef, float nou
 declare void @nvgEndFrame(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7nanogui6ScreenD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6ScreenD2Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6ScreenE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = invoke noundef i64 @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE5eraseERS3_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN7nanogui17__nanogui_screensE, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -3817,7 +3817,7 @@ declare void @glfwDestroyCursor(ptr noundef) local_unnamed_addr #0
 declare void @glfwDestroyWindow(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7nanogui6ScreenD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 align 2 {
+define hidden void @_ZN7nanogui6ScreenD0Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN7nanogui6ScreenD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #34
   ret void
@@ -3891,7 +3891,7 @@ declare void @glfwSetWindowTitle(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen8set_sizeERKNS_5ArrayIiLm2EEE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7nanogui6Screen8set_sizeERKNS_5ArrayIiLm2EEE(ptr nocapture noundef nonnull align 8 dereferenceable(384) initializes((48, 56)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 8
@@ -4533,7 +4533,7 @@ define hidden void @_ZN7nanogui6Screen6redrawEv(ptr nocapture noundef nonnull al
 declare void @glfwPostEmptyEvent() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen25cursor_pos_callback_eventEdd(ptr noundef nonnull align 8 dereferenceable(384) %0, double noundef %1, double noundef %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6Screen25cursor_pos_callback_eventEdd(ptr noundef nonnull align 8 dereferenceable(384) initializes((280, 288)) %0, double noundef %1, double noundef %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %3 = alloca %"struct.nanogui::Array", align 8
   %4 = alloca %"struct.nanogui::Array", align 4
@@ -4727,7 +4727,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen27mouse_button_callback_eventEiii(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6Screen27mouse_button_callback_eventEiii(ptr noundef nonnull align 8 dereferenceable(384) initializes((256, 260), (280, 288)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.nanogui::Array", align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 256
   store i32 %3, ptr %6, align 8
@@ -5203,7 +5203,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen18key_callback_eventEiiii(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6Screen18key_callback_eventEiiii(ptr noundef nonnull align 8 dereferenceable(384) initializes((280, 288)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call double @glfwGetTime()
   %7 = getelementptr inbounds i8, ptr %0, i64 280
   store double %6, ptr %7, align 8
@@ -5274,7 +5274,7 @@ define hidden void @_ZN7nanogui6Screen18key_callback_eventEiiii(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen19char_callback_eventEj(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6Screen19char_callback_eventEj(ptr noundef nonnull align 8 dereferenceable(384) initializes((280, 288)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call double @glfwGetTime()
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   store double %3, ptr %4, align 8
@@ -5496,7 +5496,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen21scroll_callback_eventEdd(ptr noundef nonnull align 8 dereferenceable(384) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6Screen21scroll_callback_eventEdd(ptr noundef nonnull align 8 dereferenceable(384) initializes((280, 288)) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.nanogui::Array.25", align 4
   %5 = tail call double @glfwGetTime()
   %6 = getelementptr inbounds i8, ptr %0, i64 280
@@ -6298,7 +6298,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7nanogui6Screen10drop_eventERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = alloca [513 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca [513 x i8], align 16
@@ -6835,7 +6835,7 @@ _ZL28glnvg_convertBlendFuncFactori.exit18.thread: ; preds = %_ZL28glnvg_convertB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #14 {
+define internal fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 176)) %1, ptr noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #14 {
   %8 = alloca [6 x float], align 16
   %9 = alloca [6 x float], align 16
   %10 = alloca [6 x float], align 16

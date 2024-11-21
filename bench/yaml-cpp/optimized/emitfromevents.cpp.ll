@@ -58,7 +58,7 @@ $_ZTIN4YAML12EventHandlerE = comdat any
 @_ZN4YAML14EmitFromEventsC1ERNS_7EmitterE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4YAML14EmitFromEventsC2ERNS_7EmitterE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML14EmitFromEventsC2ERNS_7EmitterE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(72) %emitter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML14EmitFromEventsC2ERNS_7EmitterE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 96)) %this, ptr noundef nonnull align 8 dereferenceable(72) %emitter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML14EmitFromEventsE, i64 16), ptr %this, align 8
   %m_emitter = getelementptr inbounds i8, ptr %this, i64 8

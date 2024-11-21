@@ -1720,7 +1720,7 @@ opal_obj_new.exit.thread:                         ; preds = %12, %49, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_attr_get_c(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_attr_get_c(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load i8, ptr @opal_uses_threads, align 1
@@ -1816,7 +1816,7 @@ translate_to_c.exit:                              ; preds = %.thread, %27, %30, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_attr_get_fint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_attr_get_fint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load i8, ptr @opal_uses_threads, align 1
@@ -1918,7 +1918,7 @@ translate_to_fint.exit:                           ; preds = %.thread, %27, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_attr_get_aint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_attr_get_aint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load i8, ptr @opal_uses_threads, align 1
@@ -3897,7 +3897,7 @@ declare i32 @opal_bitmap_find_and_set_first_unset_bit(ptr noundef, ptr noundef) 
 declare i32 @opal_hash_table_set_value_uint32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ompi_attribute_keyval_construct(ptr nocapture noundef writeonly %0) #8 {
+define internal void @ompi_attribute_keyval_construct(ptr nocapture noundef writeonly initializes((16, 52), (56, 64)) %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr null, ptr %3, align 8
@@ -3947,7 +3947,7 @@ declare i32 @opal_hash_table_remove_value_uint32(ptr noundef, i32 noundef) local
 declare i32 @opal_bitmap_clear_bit(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @attribute_key_value_construct(ptr nocapture noundef writeonly %0) #8 {
+define internal void @attribute_key_value_construct(ptr nocapture noundef writeonly initializes((16, 20), (24, 40)) %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24

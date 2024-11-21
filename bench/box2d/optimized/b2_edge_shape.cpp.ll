@@ -20,7 +20,7 @@ $_ZTI7b2Shape = comdat any
 @_ZTI11b2EdgeShape = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS11b2EdgeShape, ptr @_ZTI7b2Shape }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11b2EdgeShape11SetOneSidedERK6b2Vec2S2_S2_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v3) local_unnamed_addr #0 align 2 {
+define void @_ZN11b2EdgeShape11SetOneSidedERK6b2Vec2S2_S2_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((16, 49)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v3) local_unnamed_addr #0 align 2 {
 entry:
   %m_vertex0 = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %v0, align 4
@@ -43,7 +43,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11b2EdgeShape11SetTwoSidedERK6b2Vec2S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v2) local_unnamed_addr #0 align 2 {
+define void @_ZN11b2EdgeShape11SetTwoSidedERK6b2Vec2S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((16, 32), (48, 49)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v2) local_unnamed_addr #0 align 2 {
 entry:
   %m_vertex1 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %v1, align 4
@@ -214,7 +214,7 @@ return:                                           ; preds = %if.end32, %if.end23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK11b2EdgeShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr nocapture noundef writeonly %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, i32 %childIndex) unnamed_addr #5 align 2 {
+define void @_ZNK11b2EdgeShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr nocapture noundef writeonly initializes((0, 16)) %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, i32 %childIndex) unnamed_addr #5 align 2 {
 entry:
   %m_vertex1 = getelementptr inbounds i8, ptr %this, i64 16
   %q.i = getelementptr inbounds i8, ptr %xf, i64 8
@@ -270,7 +270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK11b2EdgeShape11ComputeMassEP10b2MassDataf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr nocapture noundef writeonly %massData, float %density) unnamed_addr #5 align 2 {
+define void @_ZNK11b2EdgeShape11ComputeMassEP10b2MassDataf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr nocapture noundef writeonly initializes((0, 16)) %massData, float %density) unnamed_addr #5 align 2 {
 entry:
   store float 0.000000e+00, ptr %massData, align 4
   %m_vertex1 = getelementptr inbounds i8, ptr %this, i64 16

@@ -509,7 +509,7 @@ define dso_local ptr @int_to_str(ptr nocapture noundef readonly byval(%struct.In
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @int_from_real(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, double noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @int_from_real(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = add i32 %2, -8
   %5 = icmp ult i32 %4, 5
   %6 = fptoui double %1 to i64
@@ -1324,7 +1324,7 @@ i128_ashr64.exit:                                 ; preds = %32, %29, %25, %24, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local { i64, i64 } @i128_add_swrap64(i64 %0, i64 %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define dso_local { i64, i64 } @i128_add_swrap64(i64 %0, i64 %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #5 {
   %5 = add i64 %2, %1
   %6 = icmp ult i64 %5, %1
   %7 = zext i1 %6 to i64
@@ -1396,7 +1396,7 @@ define dso_local range(i32 -1, 2) i32 @i128_scomp(i64 %0, i64 %1, i64 %2, i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local { i64, i64 } @i128_add_uwrap64(i64 %0, i64 %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define dso_local { i64, i64 } @i128_add_uwrap64(i64 %0, i64 %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #5 {
   %5 = add i64 %2, %1
   %6 = icmp ult i64 %5, %1
   %7 = zext i1 %6 to i64
@@ -1785,7 +1785,7 @@ common.ret:                                       ; preds = %12, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @i128_udivrem(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #13 {
+define dso_local void @i128_udivrem(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocapture noundef writeonly initializes((0, 16)) %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #13 {
   %7 = alloca %struct.Int128_, align 8
   %8 = alloca %struct.Int128_, align 8
   store i64 %0, ptr %7, align 8
@@ -2807,7 +2807,7 @@ i128_neg.exit:                                    ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_add(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #0 {
+define dso_local void @int_add(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2833,7 +2833,7 @@ define dso_local void @int_add(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_add64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @int_add64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2855,7 +2855,7 @@ define dso_local void @int_add64(ptr dead_on_unwind noalias nocapture writable w
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_sub(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #0 {
+define dso_local void @int_sub(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2881,7 +2881,7 @@ define dso_local void @int_sub(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_sub64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @int_sub64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2903,7 +2903,7 @@ define dso_local void @int_sub64(ptr dead_on_unwind noalias nocapture writable w
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_mul(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #0 {
+define dso_local void @int_mul(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2947,7 +2947,7 @@ define dso_local void @int_mul(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_conv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @int_conv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @type_kind_bitsize(i32 noundef %5) #19
@@ -3388,7 +3388,7 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @int_and(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
+define dso_local void @int_and(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -3408,7 +3408,7 @@ define dso_local void @int_and(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @int_or(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
+define dso_local void @int_or(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -3428,7 +3428,7 @@ define dso_local void @int_or(ptr dead_on_unwind noalias nocapture writable writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @int_xor(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
+define dso_local void @int_xor(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
@@ -3448,7 +3448,7 @@ define dso_local void @int_xor(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_neg(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1) local_unnamed_addr #0 {
+define dso_local void @int_neg(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
@@ -3471,7 +3471,7 @@ define dso_local void @int_neg(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_not(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1) local_unnamed_addr #0 {
+define dso_local void @int_not(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -3491,7 +3491,7 @@ define dso_local void @int_not(ptr dead_on_unwind noalias nocapture writable wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_shr64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @int_shr64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -8
@@ -3611,7 +3611,7 @@ i128_ashr64.exit:                                 ; preds = %29, %32, %33, %37, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @int_shl64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @int_shl64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -8

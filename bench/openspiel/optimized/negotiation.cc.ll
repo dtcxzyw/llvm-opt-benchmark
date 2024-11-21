@@ -2850,7 +2850,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11negotiation15NegotiationGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.9") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11negotiation15NegotiationGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.9") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 281
@@ -3917,7 +3917,7 @@ define noundef i32 @_ZNK10open_spiel11negotiation16NegotiationState13CurrentPlay
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel11negotiation16NegotiationState29DetermineItemPoolAndUtilitiesEv(ptr noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel11negotiation16NegotiationState29DetermineItemPoolAndUtilitiesEv(ptr noundef nonnull align 8 dereferenceable(208) initializes((92, 96)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .lr.ph:
   %1 = alloca %"class.absl::debian2::poisson_distribution", align 8
   %2 = alloca %"class.std::vector.9", align 8
@@ -4548,7 +4548,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit37:                  ; preds = %338, %341
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel11negotiation16NegotiationState17InitializeEpisodeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) %0) local_unnamed_addr #9 align 2 {
+define void @_ZN10open_spiel11negotiation16NegotiationState17InitializeEpisodeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) initializes((100, 108)) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104

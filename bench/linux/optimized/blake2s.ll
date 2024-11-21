@@ -84,7 +84,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local void @blake2s_compress(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blake2s_final(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local void @blake2s_final(ptr noundef initializes((40, 44)) %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 -1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 48

@@ -58,7 +58,7 @@ $_ZTV28ShenandoahGenerationCounters = comdat any
 @_ZN27ShenandoahMonitoringSupportC1EP14ShenandoahHeap = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN27ShenandoahMonitoringSupportC2EP14ShenandoahHeap
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27ShenandoahMonitoringSupportC2EP14ShenandoahHeap(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN27ShenandoahMonitoringSupportC2EP14ShenandoahHeap(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

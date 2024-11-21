@@ -315,7 +315,7 @@ declare noundef ptr @_Z5cleanP6tactic(ptr noundef) local_unnamed_addr #0
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119elim_uncnstr_tacticC2ER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119elim_uncnstr_tacticC2ER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 12), (16, 32)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ref_count.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_ref_count.i, align 8
@@ -495,7 +495,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119elim_uncnstr_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_119elim_uncnstr_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119elim_uncnstr_tacticE, i64 16), ptr %this, align 8
   %m_params = getelementptr inbounds i8, ptr %this, i64 112
@@ -588,7 +588,7 @@ _ZN3refI23generic_model_converterED2Ev.exit:      ; preds = %_ZN13obj_hashtableI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119elim_uncnstr_tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_119elim_uncnstr_tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_119elim_uncnstr_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -2642,7 +2642,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_119elim_uncnstr_tactic16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_119elim_uncnstr_tactic16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((88, 92)) %this) unnamed_addr #5 align 2 {
 entry:
   %m_num_elim_apps = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %m_num_elim_apps, align 8
@@ -10558,7 +10558,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119elim_uncnstr_tactic2rwD2Ev(ptr noundef nonnull align 8 dereferenceable(1120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_119elim_uncnstr_tactic2rwD2Ev(ptr noundef nonnull align 8 dereferenceable(1120) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119elim_uncnstr_tactic2rwE, i64 16), ptr %this, align 8
   %m_cache_domain.i = getelementptr inbounds i8, ptr %this, i64 1088
@@ -10744,7 +10744,7 @@ _ZN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfgD2Ev.exit: ; preds = %_ZN10ref_vect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119elim_uncnstr_tactic2rwD0Ev(ptr noundef nonnull align 8 dereferenceable(1120) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_119elim_uncnstr_tactic2rwD0Ev(ptr noundef nonnull align 8 dereferenceable(1120) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_119elim_uncnstr_tactic2rwD2Ev(ptr noundef nonnull align 8 dereferenceable(1120) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -10780,7 +10780,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %entry, %if.then.i.i
 declare void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12rewriter_tplIN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12rewriter_tplIN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12rewriter_tplIN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfgEE, i64 16), ptr %this, align 8
   %m_shifts = getelementptr inbounds i8, ptr %this, i64 528
@@ -10909,7 +10909,7 @@ _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7obj_refI4expr11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12rewriter_tplIN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfgEED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN12rewriter_tplIN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfgEED0Ev(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN12rewriter_tplIN12_GLOBAL__N_119elim_uncnstr_tactic6rw_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23

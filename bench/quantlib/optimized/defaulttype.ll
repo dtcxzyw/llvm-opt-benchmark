@@ -46,7 +46,7 @@ $_ZTIN8QuantLib11DefaultTypeE = comdat any
 @_ZN8QuantLib11DefaultTypeC1ENS_13AtomicDefault4TypeENS_13Restructuring4TypeE = unnamed_addr alias void (ptr, i32, i32), ptr @_ZN8QuantLib11DefaultTypeC2ENS_13AtomicDefault4TypeENS_13Restructuring4TypeE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib11DefaultTypeC2ENS_13AtomicDefault4TypeENS_13Restructuring4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i32 noundef %defType, i32 noundef %restType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib11DefaultTypeC2ENS_13AtomicDefault4TypeENS_13Restructuring4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i32 noundef %defType, i32 noundef %restType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

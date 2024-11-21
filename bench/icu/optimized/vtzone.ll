@@ -76,7 +76,7 @@ $_ZN6icu_7512LocalPointerINS_12TimeZoneRuleEE29adoptInsteadAndCheckErrorCodeEPS1
 @_ZN6icu_759VTimeZoneD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_759VTimeZoneD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_759VTZWriterC2ERNS_13UnicodeStringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(64) %output) unnamed_addr #0 align 2 {
+define void @_ZN6icu_759VTZWriterC2ERNS_13UnicodeStringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %output) unnamed_addr #0 align 2 {
 entry:
   store ptr %output, ptr %this, align 8
   ret void
@@ -137,7 +137,7 @@ lpad:                                             ; preds = %entry
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_759VTZReaderC2ERKNS_13UnicodeStringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(64) %input) unnamed_addr #0 align 2 {
+define void @_ZN6icu_759VTZReaderC2ERKNS_13UnicodeStringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr noundef nonnull align 8 dereferenceable(64) %input) unnamed_addr #0 align 2 {
 entry:
   store ptr %input, ptr %this, align 8
   %index = getelementptr inbounds i8, ptr %this, i64 8
@@ -427,7 +427,7 @@ declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8
 declare void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_759VTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %this) unnamed_addr #6 align 2 {
+define void @_ZN6icu_759VTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759VTimeZoneE, i64 16), ptr %this, align 8
   %tz = getelementptr inbounds i8, ptr %this, i64 72
@@ -1479,7 +1479,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_759VTimeZone15setLastModifiedEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(288) %this, double noundef %lastModified) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_759VTimeZone15setLastModifiedEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(288) initializes((152, 160)) %this, double noundef %lastModified) local_unnamed_addr #0 align 2 {
 entry:
   %lastmod = getelementptr inbounds i8, ptr %this, i64 152
   store double %lastModified, ptr %lastmod, align 8

@@ -134,7 +134,7 @@ define void @php_dom_xpath_callback_ns_dtor(ptr noundef %0) local_unnamed_addr #
 declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_dom_xpath_callbacks_ctor(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define void @php_dom_xpath_callbacks_ctor(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }

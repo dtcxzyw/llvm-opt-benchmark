@@ -2522,7 +2522,7 @@ define internal void @sixaxis_send_output_report(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @sony_register_sensors(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @sony_register_sensors(ptr noundef initializes((40, 48)) %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 6352

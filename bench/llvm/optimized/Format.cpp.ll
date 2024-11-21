@@ -1482,7 +1482,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format12getLLVMStyleENS0_11FormatStyle12LanguageKindE(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 %0, i8 noundef signext %1) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang6format12getLLVMStyleENS0_11FormatStyle12LanguageKindE(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 initializes((88, 112), (120, 121)) %0, i8 noundef signext %1) local_unnamed_addr #2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3566,7 +3566,7 @@ define dso_local void @_ZN5clang6format16getChromiumStyleENS0_11FormatStyle12Lan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format15getMozillaStyleEv(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 %0) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang6format15getMozillaStyleEv(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 initializes((88, 112), (120, 121)) %0) local_unnamed_addr #2 {
   tail call void @_ZN5clang6format12getLLVMStyleENS0_11FormatStyle12LanguageKindE(ptr dead_on_unwind writable sret(%"struct.clang::format::FormatStyle") align 8 %0, i8 noundef signext 1)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 69
   store i8 0, ptr %2, align 1
@@ -3612,7 +3612,7 @@ define dso_local void @_ZN5clang6format15getMozillaStyleEv(ptr dead_on_unwind no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format14getWebKitStyleEv(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 %0) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang6format14getWebKitStyleEv(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 initializes((88, 112), (120, 121)) %0) local_unnamed_addr #2 {
   tail call void @_ZN5clang6format12getLLVMStyleENS0_11FormatStyle12LanguageKindE(ptr dead_on_unwind writable sret(%"struct.clang::format::FormatStyle") align 8 %0, i8 noundef signext 1)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -4, ptr %2, align 4
@@ -3656,7 +3656,7 @@ define dso_local void @_ZN5clang6format14getWebKitStyleEv(ptr dead_on_unwind noa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format11getGNUStyleEv(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 %0) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang6format11getGNUStyleEv(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 initializes((88, 112), (120, 121)) %0) local_unnamed_addr #2 {
   tail call void @_ZN5clang6format12getLLVMStyleENS0_11FormatStyle12LanguageKindE(ptr dead_on_unwind writable sret(%"struct.clang::format::FormatStyle") align 8 %0, i8 noundef signext 1)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 1, ptr %2, align 8
@@ -3680,7 +3680,7 @@ define dso_local void @_ZN5clang6format11getGNUStyleEv(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format17getMicrosoftStyleENS0_11FormatStyle12LanguageKindE(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 %0, i8 noundef signext %1) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang6format17getMicrosoftStyleENS0_11FormatStyle12LanguageKindE(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 initializes((88, 112), (120, 121)) %0, i8 noundef signext %1) local_unnamed_addr #2 {
   tail call void @_ZN5clang6format12getLLVMStyleENS0_11FormatStyle12LanguageKindE(ptr dead_on_unwind writable sret(%"struct.clang::format::FormatStyle") align 8 %0, i8 noundef signext %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 120, ptr %3, align 4
@@ -3726,7 +3726,7 @@ define dso_local void @_ZN5clang6format17getMicrosoftStyleENS0_11FormatStyle12La
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format19getClangFormatStyleEv(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 %0) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang6format19getClangFormatStyleEv(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 initializes((88, 112), (120, 121)) %0) local_unnamed_addr #2 {
   tail call void @_ZN5clang6format12getLLVMStyleENS0_11FormatStyle12LanguageKindE(ptr dead_on_unwind writable sret(%"struct.clang::format::FormatStyle") align 8 %0, i8 noundef signext 1)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 381
   store i8 1, ptr %2, align 1
@@ -3748,7 +3748,7 @@ define dso_local void @_ZN5clang6format19getClangFormatStyleEv(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format10getNoStyleEv(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 %0) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang6format10getNoStyleEv(ptr dead_on_unwind noalias writable sret(%"struct.clang::format::FormatStyle") align 8 initializes((88, 112), (120, 121)) %0) local_unnamed_addr #2 {
   tail call void @_ZN5clang6format12getLLVMStyleENS0_11FormatStyle12LanguageKindE(ptr dead_on_unwind writable sret(%"struct.clang::format::FormatStyle") align 8 %0, i8 noundef signext 1)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 206
   store i8 1, ptr %2, align 2
@@ -5329,7 +5329,7 @@ _ZN5clang6format15make_error_codeENS0_10ParseErrorE.exit: ; preds = %146, %_ZSt8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format11FormatStyle14FormatStyleSet5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang6format11FormatStyle14FormatStyleSet5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) local_unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -14734,7 +14734,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local
 declare void @_ZN4llvm8toStringB5cxx11ENS_5ErrorE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format8reformatERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_7tooling5RangeEEES5_PNS0_23FormattingAttemptStatusE(ptr dead_on_unwind noalias writable sret(%"class.clang::tooling::Replacements") align 8 %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, ptr noundef %7) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang6format8reformatERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_7tooling5RangeEEES5_PNS0_23FormattingAttemptStatusE(ptr dead_on_unwind noalias writable sret(%"class.clang::tooling::Replacements") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = alloca %"struct.std::pair.109", align 8
   call void @_ZN5clang6format8internal8reformatERKNS0_11FormatStyleEN4llvm9StringRefENS5_8ArrayRefINS_7tooling5RangeEEEjjjS6_PNS0_23FormattingAttemptStatusE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.109") align 8 %9, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3, ptr %4, i64 %5, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, ptr noundef %7)
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14786,7 +14786,7 @@ _ZN5clang7tooling12ReplacementsC2EOS1_.exit:      ; preds = %13, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format7cleanupERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_7tooling5RangeEEES5_(ptr dead_on_unwind noalias writable sret(%"class.clang::tooling::Replacements") align 8 %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang6format7cleanupERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_7tooling5RangeEEES5_(ptr dead_on_unwind noalias writable sret(%"class.clang::tooling::Replacements") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6) local_unnamed_addr #2 {
   %8 = alloca %"class.std::unique_ptr.116", align 8
   %9 = alloca %"class.llvm::ArrayRef", align 8
   %10 = alloca %"struct.std::pair.109", align 8
@@ -14933,7 +14933,7 @@ _ZNSt10unique_ptrIN5clang6format11EnvironmentESt14default_deleteIS2_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang6format12_GLOBAL__N_17CleanerD2Ev(ptr noundef nonnull align 8 dereferenceable(4328) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN5clang6format12_GLOBAL__N_17CleanerD2Ev(ptr noundef nonnull align 8 dereferenceable(4328) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang6format12_GLOBAL__N_17CleanerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4296
   %.val = load ptr, ptr %2, align 8
@@ -14999,7 +14999,7 @@ _ZN5clang6format8reformatERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format23fixNamespaceEndCommentsERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_7tooling5RangeEEES5_(ptr dead_on_unwind noalias writable sret(%"class.clang::tooling::Replacements") align 8 %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang6format23fixNamespaceEndCommentsERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_7tooling5RangeEEES5_(ptr dead_on_unwind noalias writable sret(%"class.clang::tooling::Replacements") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6) local_unnamed_addr #2 {
   %8 = alloca %"class.std::unique_ptr.116", align 8
   %9 = alloca %"class.llvm::ArrayRef", align 8
   %10 = alloca %"struct.std::pair.109", align 8
@@ -15112,7 +15112,7 @@ _ZNSt10unique_ptrIN5clang6format11EnvironmentESt14default_deleteIS2_EED2Ev.exit:
 declare void @_ZN5clang6format25NamespaceEndCommentsFixerC1ERKNS0_11EnvironmentERKNS0_11FormatStyleE(ptr noundef nonnull align 8 dereferenceable(4276), ptr noundef nonnull align 8 dereferenceable(148), ptr noundef nonnull align 8 dereferenceable(936)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format21sortUsingDeclarationsERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_7tooling5RangeEEES5_(ptr dead_on_unwind noalias writable sret(%"class.clang::tooling::Replacements") align 8 %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang6format21sortUsingDeclarationsERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_7tooling5RangeEEES5_(ptr dead_on_unwind noalias writable sret(%"class.clang::tooling::Replacements") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6) local_unnamed_addr #2 {
   %8 = alloca %"class.std::unique_ptr.116", align 8
   %9 = alloca %"class.llvm::ArrayRef", align 8
   %10 = alloca %"struct.std::pair.109", align 8
@@ -15819,7 +15819,7 @@ define internal void @_ZN5clang6format12_GLOBAL__N_122ObjCHeaderStyleGuesserD2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format22loadAndParseConfigFileEN4llvm9StringRefEPNS1_3vfs10FileSystemEPNS0_11FormatStyleEbPFvRKNS1_12SMDiagnosticEPvE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr %1, i64 %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang6format22loadAndParseConfigFileEN4llvm9StringRefEPNS1_3vfs10FileSystemEPNS0_11FormatStyleEbPFvRKNS1_12SMDiagnosticEPvE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 initializes((0, 4)) %0, ptr %1, i64 %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.llvm::ErrorOr", align 8
   %10 = alloca %"class.llvm::Twine", align 8
@@ -22745,7 +22745,7 @@ _ZNSt8_Rb_treeIN5clang7tooling11ReplacementES2_St9_IdentityIS2_ESt4lessIS2_ESaIS
 declare noundef zeroext i1 @_ZN5clang7toolingltERKNS0_11ReplacementES3_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang6format12_GLOBAL__N_17CleanerD0Ev(ptr noundef nonnull align 8 dereferenceable(4328) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN5clang6format12_GLOBAL__N_17CleanerD0Ev(ptr noundef nonnull align 8 dereferenceable(4328) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang6format12_GLOBAL__N_17CleanerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4296
   %.val.i = load ptr, ptr %2, align 8
@@ -24133,7 +24133,7 @@ define internal void @_ZN5clang6format12_GLOBAL__N_122ObjCHeaderStyleGuesserD0Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang6format12_GLOBAL__N_122ObjCHeaderStyleGuesser7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4277) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3648) %4) unnamed_addr #2 align 2 {
+define internal void @_ZN5clang6format12_GLOBAL__N_122ObjCHeaderStyleGuesser7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4277) initializes((4276, 4277)) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3648) %4) unnamed_addr #2 align 2 {
 _ZNSt4pairIN5clang7tooling12ReplacementsEjEC2IRS2_iTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit:
   %5 = alloca %"class.clang::tooling::Replacements", align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 992
@@ -43692,7 +43692,7 @@ define internal void @_ZN5clang6format12_GLOBAL__N_113ParensRemoverD0Ev(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang6format12_GLOBAL__N_113ParensRemover7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #2 align 2 {
+define internal void @_ZN5clang6format12_GLOBAL__N_113ParensRemover7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #2 align 2 {
   %6 = alloca %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node", align 8
   %7 = alloca %"class.clang::tooling::Replacements", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1800
@@ -43963,7 +43963,7 @@ define internal void @_ZN5clang6format12_GLOBAL__N_114BracesInserterD0Ev(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang6format12_GLOBAL__N_114BracesInserter7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #2 align 2 {
+define internal void @_ZN5clang6format12_GLOBAL__N_114BracesInserter7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #2 align 2 {
   %6 = alloca %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node", align 8
   %7 = alloca %"class.clang::tooling::Replacements", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1800
@@ -44260,7 +44260,7 @@ define internal void @_ZN5clang6format12_GLOBAL__N_113BracesRemoverD0Ev(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang6format12_GLOBAL__N_113BracesRemover7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #2 align 2 {
+define internal void @_ZN5clang6format12_GLOBAL__N_113BracesRemover7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #2 align 2 {
   %6 = alloca %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node", align 8
   %7 = alloca %"class.clang::tooling::Replacements", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1800
@@ -44566,7 +44566,7 @@ define internal void @_ZN5clang6format12_GLOBAL__N_111SemiRemoverD0Ev(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang6format12_GLOBAL__N_111SemiRemover7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr noundef nonnull align 8 dereferenceable(1000) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #2 align 2 {
+define internal void @_ZN5clang6format12_GLOBAL__N_111SemiRemover7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr noundef nonnull align 8 dereferenceable(1000) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #2 align 2 {
   %6 = alloca %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node", align 8
   %7 = alloca %"class.clang::tooling::Replacements", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1800
@@ -45075,7 +45075,7 @@ define internal void @_ZN5clang6format12_GLOBAL__N_118JavaScriptRequoterD0Ev(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang6format12_GLOBAL__N_118JavaScriptRequoter7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #2 align 2 {
+define internal void @_ZN5clang6format12_GLOBAL__N_118JavaScriptRequoter7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #2 align 2 {
   %6 = alloca %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node", align 8
   %7 = alloca %"class.clang::tooling::Replacements", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1800
@@ -45564,7 +45564,7 @@ define internal void @_ZN5clang6format12_GLOBAL__N_121TrailingCommaInserterD0Ev(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang6format12_GLOBAL__N_121TrailingCommaInserter7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #2 align 2 {
+define internal void @_ZN5clang6format12_GLOBAL__N_121TrailingCommaInserter7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.109") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #2 align 2 {
   %6 = alloca %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node", align 8
   %7 = alloca %"class.clang::tooling::Replacements", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1800

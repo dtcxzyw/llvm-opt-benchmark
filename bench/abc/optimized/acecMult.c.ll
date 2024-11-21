@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [3 x i8] c" }\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Extra_TruthCanonNPN3(i64 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i64 @Extra_TruthCanonNPN3(i64 noundef %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @Extra_Factorial(i32 noundef %1) #11
   %5 = tail call ptr @Extra_GreyCodeSchedule(i32 noundef %1) #11
   %6 = tail call ptr @Extra_PermSchedule(i32 noundef %1) #11

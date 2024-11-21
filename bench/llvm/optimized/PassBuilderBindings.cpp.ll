@@ -994,7 +994,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 declare void @_ZN4llvm21PipelineTuningOptionsC1Ev(ptr noundef nonnull align 4 dereferenceable(25)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetVerifyEach(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetVerifyEach(ptr nocapture noundef writeonly initializes((1, 2)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = zext i1 %3 to i8
@@ -1003,7 +1003,7 @@ define dso_local void @LLVMPassBuilderOptionsSetVerifyEach(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetDebugLogging(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetDebugLogging(ptr nocapture noundef writeonly initializes((0, 1)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne i32 %1, 0
   %4 = zext i1 %3 to i8
   store i8 %4, ptr %0, align 8
@@ -1011,14 +1011,14 @@ define dso_local void @LLVMPassBuilderOptionsSetDebugLogging(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetAAPipeline(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetAAPipeline(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetLoopInterleaving(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetLoopInterleaving(ptr nocapture noundef writeonly initializes((16, 17)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = zext i1 %3 to i8
@@ -1027,7 +1027,7 @@ define dso_local void @LLVMPassBuilderOptionsSetLoopInterleaving(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetLoopVectorization(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetLoopVectorization(ptr nocapture noundef writeonly initializes((17, 18)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %5 = zext i1 %3 to i8
@@ -1036,7 +1036,7 @@ define dso_local void @LLVMPassBuilderOptionsSetLoopVectorization(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetSLPVectorization(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetSLPVectorization(ptr nocapture noundef writeonly initializes((18, 19)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %5 = zext i1 %3 to i8
@@ -1045,7 +1045,7 @@ define dso_local void @LLVMPassBuilderOptionsSetSLPVectorization(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetLoopUnrolling(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetLoopUnrolling(ptr nocapture noundef writeonly initializes((19, 20)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %5 = zext i1 %3 to i8
@@ -1054,7 +1054,7 @@ define dso_local void @LLVMPassBuilderOptionsSetLoopUnrolling(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetForgetAllSCEVInLoopUnroll(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetForgetAllSCEVInLoopUnroll(ptr nocapture noundef writeonly initializes((20, 21)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = zext i1 %3 to i8
@@ -1063,21 +1063,21 @@ define dso_local void @LLVMPassBuilderOptionsSetForgetAllSCEVInLoopUnroll(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetLicmMssaOptCap(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetLicmMssaOptCap(ptr nocapture noundef writeonly initializes((24, 28)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetLicmMssaNoAccForPromotionCap(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetLicmMssaNoAccForPromotionCap(ptr nocapture noundef writeonly initializes((28, 32)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetCallGraphProfile(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetCallGraphProfile(ptr nocapture noundef writeonly initializes((32, 33)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = zext i1 %3 to i8
@@ -1086,7 +1086,7 @@ define dso_local void @LLVMPassBuilderOptionsSetCallGraphProfile(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetMergeFunctions(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetMergeFunctions(ptr nocapture noundef writeonly initializes((34, 35)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %5 = zext i1 %3 to i8
@@ -1095,7 +1095,7 @@ define dso_local void @LLVMPassBuilderOptionsSetMergeFunctions(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPassBuilderOptionsSetInlinerThreshold(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @LLVMPassBuilderOptionsSetInlinerThreshold(ptr nocapture noundef writeonly initializes((36, 40)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %1, ptr %3, align 4
   ret void

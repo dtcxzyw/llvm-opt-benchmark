@@ -1198,7 +1198,7 @@ _ZN3euf9th_solverD2Ev.exit:                       ; preds = %_ZN7svectorIN3sat6e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5array6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5array6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 8), (32, 56)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5array6solverE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 32
@@ -1510,7 +1510,7 @@ _ZN17scoped_ptr_vectorIN5array6solver8var_dataEED2Ev.exit: ; preds = %_ZN7obj_ma
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn32_N5array6solverD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn32_N5array6solverD1Ev(ptr noundef initializes((-32, -24), (0, 24)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   tail call void @_ZN5array6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #17
@@ -1518,7 +1518,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn40_N5array6solverD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn40_N5array6solverD1Ev(ptr noundef initializes((-40, -32), (-8, 16)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   tail call void @_ZN5array6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #17
@@ -1526,7 +1526,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn48_N5array6solverD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn48_N5array6solverD1Ev(ptr noundef initializes((-48, -40), (-16, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
   tail call void @_ZN5array6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #17
@@ -1534,7 +1534,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5array6solverD0Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN5array6solverD0Ev(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 8), (32, 56)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5array6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
@@ -1545,7 +1545,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn32_N5array6solverD0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn32_N5array6solverD0Ev(ptr noundef initializes((-32, -24), (0, 24)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   tail call void @_ZN5array6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #17
@@ -1554,7 +1554,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn40_N5array6solverD0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn40_N5array6solverD0Ev(ptr noundef initializes((-40, -32), (-8, 16)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   tail call void @_ZN5array6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #17
@@ -1563,7 +1563,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn48_N5array6solverD0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn48_N5array6solverD0Ev(ptr noundef initializes((-48, -40), (-16, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
   tail call void @_ZN5array6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) #17

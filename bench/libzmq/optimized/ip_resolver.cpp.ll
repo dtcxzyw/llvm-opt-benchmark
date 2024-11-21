@@ -100,7 +100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq9ip_addr_t8set_portEt(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %this, i16 noundef zeroext %port_) local_unnamed_addr #4 align 2 {
+define void @_ZN3zmq9ip_addr_t8set_portEt(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((2, 4)) %this, i16 noundef zeroext %port_) local_unnamed_addr #4 align 2 {
 entry:
   %call2 = tail call zeroext i16 @htons(i16 noundef zeroext %port_) #17
   %0 = getelementptr inbounds i8, ptr %this, i64 2
@@ -148,14 +148,14 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq21ip_resolver_options_tC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(6) %this) unnamed_addr #8 align 2 {
+define void @_ZN3zmq21ip_resolver_options_tC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(6) initializes((0, 6)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %this, i8 0, i64 6, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t8bindableEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) %this, i1 noundef zeroext %bindable_) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t8bindableEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) initializes((0, 1)) %this, i1 noundef zeroext %bindable_) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %bindable_ to i8
   store i8 %frombool, ptr %this, align 1
@@ -163,7 +163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t14allow_nic_nameEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) %this, i1 noundef zeroext %allow_) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t14allow_nic_nameEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) initializes((1, 2)) %this, i1 noundef zeroext %allow_) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %allow_ to i8
   %_nic_name_allowed = getelementptr inbounds i8, ptr %this, i64 1
@@ -172,7 +172,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t4ipv6Eb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) %this, i1 noundef zeroext %ipv6_) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t4ipv6Eb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) initializes((2, 3)) %this, i1 noundef zeroext %ipv6_) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %ipv6_ to i8
   %_ipv6_wanted = getelementptr inbounds i8, ptr %this, i64 2
@@ -181,7 +181,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t11expect_portEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) %this, i1 noundef zeroext %expect_) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t11expect_portEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) initializes((3, 4)) %this, i1 noundef zeroext %expect_) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %expect_ to i8
   %_port_expected = getelementptr inbounds i8, ptr %this, i64 3
@@ -190,7 +190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t9allow_dnsEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) %this, i1 noundef zeroext %allow_) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t9allow_dnsEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) initializes((4, 5)) %this, i1 noundef zeroext %allow_) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %allow_ to i8
   %_dns_allowed = getelementptr inbounds i8, ptr %this, i64 4
@@ -199,7 +199,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t10allow_pathEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) %this, i1 noundef zeroext %allow_) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t10allow_pathEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) initializes((5, 6)) %this, i1 noundef zeroext %allow_) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %allow_ to i8
   %_path_allowed = getelementptr inbounds i8, ptr %this, i64 5
@@ -261,7 +261,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq13ip_resolver_tC2ENS_21ip_resolver_options_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(14) %this, i48 %opts_.coerce) unnamed_addr #8 align 2 {
+define void @_ZN3zmq13ip_resolver_tC2ENS_21ip_resolver_options_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(14) initializes((0, 14)) %this, i48 %opts_.coerce) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13ip_resolver_tE, i64 16), ptr %this, align 8
   %_options = getelementptr inbounds i8, ptr %this, i64 8

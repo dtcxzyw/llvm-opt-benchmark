@@ -98,7 +98,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13TermStructureC2ENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %dc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13TermStructureC2ENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 11), (16, 32)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %dc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib12ExtrapolatorE, i64 16), ptr %this, align 8, !tbaa !3
   %extrapolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -196,7 +196,7 @@ _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEED2Ev.exit: ; preds = %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib13TermStructureC2ERKNS_4DateENS_8CalendarENS_10DayCounterE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef %cal, ptr nocapture noundef %dc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13TermStructureC2ERKNS_4DateENS_8CalendarENS_10DayCounterE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 11), (16, 44), (48, 64)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef %cal, ptr nocapture noundef %dc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib12ExtrapolatorE, i64 16), ptr %this, align 8, !tbaa !3
   %extrapolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -248,7 +248,7 @@ invoke.cont:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13TermStructureC2EjNS_8CalendarENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %vtt, i32 noundef %settlementDays, ptr nocapture noundef %cal, ptr nocapture noundef %dc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13TermStructureC2EjNS_8CalendarENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 11), (16, 32)) %this, ptr nocapture noundef readonly %vtt, i32 noundef %settlementDays, ptr nocapture noundef %cal, ptr nocapture noundef %dc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib12ExtrapolatorE, i64 16), ptr %this, align 8, !tbaa !3

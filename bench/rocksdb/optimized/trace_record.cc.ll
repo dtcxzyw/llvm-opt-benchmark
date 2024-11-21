@@ -85,7 +85,7 @@ $_ZTVN7rocksdb16QueryTraceRecordE = comdat any
 @_ZN7rocksdb24MultiGetQueryTraceRecordD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb24MultiGetQueryTraceRecordD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb11TraceRecordC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %timestamp) unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb11TraceRecordC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i64 noundef %timestamp) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11TraceRecordE, i64 16), ptr %this, align 8
   %timestamp_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -129,7 +129,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb16QueryTraceRecordC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %timestamp) unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb16QueryTraceRecordC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i64 noundef %timestamp) unnamed_addr #0 align 2 {
 entry:
   %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i, align 8
@@ -138,7 +138,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21WriteQueryTraceRecordC2EONS_13PinnableSliceEm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(89) %write_batch_rep, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21WriteQueryTraceRecordC2EONS_13PinnableSliceEm(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(89) %write_batch_rep, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
@@ -151,7 +151,7 @@ entry:
 declare void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dereferenceable(89), ptr noundef nonnull align 8 dereferenceable(89)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21WriteQueryTraceRecordC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(32) %write_batch_rep, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21WriteQueryTraceRecordC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %write_batch_rep, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
@@ -192,7 +192,7 @@ lpad3:                                            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb21WriteQueryTraceRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21WriteQueryTraceRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 32)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21WriteQueryTraceRecordE, i64 16), ptr %this, align 8
   %rep_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -252,7 +252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb19GetQueryTraceRecordC2EjONS_13PinnableSliceEm(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(89) %key, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19GetQueryTraceRecordC2EjONS_13PinnableSliceEm(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 20)) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(89) %key, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
@@ -265,7 +265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb19GetQueryTraceRecordC2EjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19GetQueryTraceRecordC2EjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 20), (24, 40)) %this, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
@@ -308,7 +308,7 @@ lpad3:                                            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb19GetQueryTraceRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19GetQueryTraceRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (24, 40)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19GetQueryTraceRecordE, i64 16), ptr %this, align 8
   %key_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -361,7 +361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24IteratorQueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(208) %this, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24IteratorQueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 32)) %this, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
@@ -404,7 +404,7 @@ lpad2:                                            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24IteratorQueryTraceRecordC2EONS_13PinnableSliceES2_m(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(89) %lower_bound, ptr noundef nonnull align 8 dereferenceable(89) %upper_bound, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24IteratorQueryTraceRecordC2EONS_13PinnableSliceES2_m(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(89) %lower_bound, ptr noundef nonnull align 8 dereferenceable(89) %upper_bound, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
@@ -429,7 +429,7 @@ lpad2:                                            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24IteratorQueryTraceRecordC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_m(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %lower_bound, ptr noundef nonnull align 8 dereferenceable(32) %upper_bound, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24IteratorQueryTraceRecordC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_m(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %lower_bound, ptr noundef nonnull align 8 dereferenceable(32) %upper_bound, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
@@ -509,7 +509,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb24IteratorQueryTraceRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #6 align 2 {
+define void @_ZN7rocksdb24IteratorQueryTraceRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i64 16), ptr %this, align 8
   %self_space_.i = getelementptr inbounds i8, ptr %this, i64 160
@@ -558,7 +558,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC2ENS0_8SeekTypeEjONS_13PinnableSliceEm(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %seek_type, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(89) %key, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC2ENS0_8SeekTypeEjONS_13PinnableSliceEm(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 32)) %this, i32 noundef %seek_type, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(89) %key, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timestamp_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i.i, align 8
@@ -621,7 +621,7 @@ lpad:                                             ; preds = %_ZN7rocksdb24Iterat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC2ENS0_8SeekTypeEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %seek_type, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC2ENS0_8SeekTypeEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 32)) %this, i32 noundef %seek_type, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timestamp_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i.i, align 8
@@ -718,7 +718,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC2ENS0_8SeekTypeEjONS_13PinnableSliceES3_S3_m(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %seek_type, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(89) %key, ptr noundef nonnull align 8 dereferenceable(89) %lower_bound, ptr noundef nonnull align 8 dereferenceable(89) %upper_bound, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC2ENS0_8SeekTypeEjONS_13PinnableSliceES3_S3_m(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 16)) %this, i32 noundef %seek_type, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(89) %key, ptr noundef nonnull align 8 dereferenceable(89) %lower_bound, ptr noundef nonnull align 8 dereferenceable(89) %upper_bound, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timestamp_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i.i, align 8
@@ -763,7 +763,7 @@ lpad:                                             ; preds = %_ZN7rocksdb24Iterat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC2ENS0_8SeekTypeEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_m(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %seek_type, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 8 dereferenceable(32) %lower_bound, ptr noundef nonnull align 8 dereferenceable(32) %upper_bound, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordC2ENS0_8SeekTypeEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_m(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 32)) %this, i32 noundef %seek_type, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 8 dereferenceable(32) %lower_bound, ptr noundef nonnull align 8 dereferenceable(32) %upper_bound, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7rocksdb24IteratorQueryTraceRecordC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_m(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %lower_bound, ptr noundef nonnull align 8 dereferenceable(32) %upper_bound, i64 noundef %timestamp)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i64 16), ptr %this, align 8
@@ -820,7 +820,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb28IteratorSeekQueryTraceRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8), (216, 232)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i64 16), ptr %this, align 8
   %key_ = getelementptr inbounds i8, ptr %this, i64 216
@@ -899,7 +899,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24MultiGetQueryTraceRecordC2ESt6vectorIjSaIjEEOS1_INS_13PinnableSliceESaIS4_EEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %column_family_ids, ptr nocapture noundef nonnull align 8 dereferenceable(24) %keys, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24MultiGetQueryTraceRecordC2ESt6vectorIjSaIjEEOS1_INS_13PinnableSliceESaIS4_EEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 40)) %this, ptr nocapture noundef readonly %column_family_ids, ptr nocapture noundef nonnull align 8 dereferenceable(24) %keys, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp, ptr %timestamp_.i.i, align 8
@@ -967,7 +967,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24MultiGetQueryTraceRecordC2ESt6vectorIjSaIjEERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEm(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %column_family_ids, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %keys, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24MultiGetQueryTraceRecordC2ESt6vectorIjSaIjEERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEm(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 40)) %this, ptr nocapture noundef readonly %column_family_ids, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %keys, i64 noundef %timestamp) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ps = alloca %"class.rocksdb::PinnableSlice", align 8
   %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1237,7 +1237,7 @@ _ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EED2Ev.exit: ; preds = %invok
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb24MultiGetQueryTraceRecordD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24MultiGetQueryTraceRecordD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24MultiGetQueryTraceRecordE, i64 16), ptr %this, align 8
   %cf_ids_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1320,7 +1320,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb24MultiGetQueryTraceRecord18GetColumnFamilyIDsEv(ptr noalias nocapture writeonly sret(%"class.std::vector.10") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb24MultiGetQueryTraceRecord18GetColumnFamilyIDsEv(ptr noalias nocapture writeonly sret(%"class.std::vector.10") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cf_ids_ = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -1366,7 +1366,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb24MultiGetQueryTraceRecord7GetKeysEv(ptr noalias nocapture writeonly sret(%"class.std::vector.25") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb24MultiGetQueryTraceRecord7GetKeysEv(ptr noalias nocapture writeonly sret(%"class.std::vector.25") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %keys_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %keys_, align 8

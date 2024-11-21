@@ -713,7 +713,7 @@ $_ZTIN5arrow3ipc8internal17PayloadFileWriterE = comdat any
 @_ZN5arrow3ipc8internal16IpcPayloadWriterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5arrow3ipc8internal16IpcPayloadWriterD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc15WriteIpcPayloadERKNS0_10IpcPayloadERKNS0_15IpcWriteOptionsEPNS_2io12OutputStreamEPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %payload, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %dst, ptr noundef %metadata_length) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc15WriteIpcPayloadERKNS0_10IpcPayloadERKNS0_15IpcWriteOptionsEPNS_2io12OutputStreamEPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %payload, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %dst, ptr noundef %metadata_length) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp22 = alloca %"class.arrow::Status", align 8
@@ -897,7 +897,7 @@ if.end:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc16GetSchemaPayloadERKNS_6SchemaERKNS0_15IpcWriteOptionsERKNS0_21DictionaryFieldMapperEPNS0_10IpcPayloadE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %schema, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef nonnull align 8 dereferenceable(8) %mapper, ptr noundef %out) local_unnamed_addr #0 {
+define void @_ZN5arrow3ipc16GetSchemaPayloadERKNS_6SchemaERKNS0_15IpcWriteOptionsERKNS0_21DictionaryFieldMapperEPNS0_10IpcPayloadE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %schema, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef nonnull align 8 dereferenceable(8) %mapper, ptr noundef initializes((0, 4)) %out) local_unnamed_addr #0 {
 entry:
   store i32 1, ptr %out, align 8
   %metadata = getelementptr inbounds i8, ptr %out, i64 8
@@ -908,14 +908,14 @@ entry:
 declare void @_ZN5arrow3ipc8internal18WriteSchemaMessageERKNS_6SchemaERKNS0_21DictionaryFieldMapperERKNS0_15IpcWriteOptionsEPSt10shared_ptrINS_6BufferEE(ptr sret(%"class.arrow::Status") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(60), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc20GetDictionaryPayloadElRKSt10shared_ptrINS_5ArrayEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 noundef %id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %out) local_unnamed_addr #0 {
+define void @_ZN5arrow3ipc20GetDictionaryPayloadElRKSt10shared_ptrINS_5ArrayEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 noundef %id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef initializes((0, 4)) %out) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN5arrow3ipc20GetDictionaryPayloadElbRKSt10shared_ptrINS_5ArrayEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr sret(%"class.arrow::Status") align 8 %agg.result, i64 noundef %id, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %dictionary, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %out)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc20GetDictionaryPayloadElbRKSt10shared_ptrINS_5ArrayEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 noundef %id, i1 noundef zeroext %is_delta, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc20GetDictionaryPayloadElbRKSt10shared_ptrINS_5ArrayEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, i64 noundef %id, i1 noundef zeroext %is_delta, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef initializes((0, 4)) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %schema.i = alloca %"class.std::shared_ptr.41", align 8
@@ -2038,14 +2038,14 @@ lpad.body:                                        ; preds = %ehcleanup29.i, %ehc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow3ipc12_GLOBAL__N_120DictionarySerializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(137) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow3ipc12_GLOBAL__N_120DictionarySerializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(137) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #22
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc21GetRecordBatchPayloadERKNS_11RecordBatchERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc21GetRecordBatchPayloadERKNS_11RecordBatchERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef initializes((0, 4)) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializerC2ElRKSt10shared_ptrIKNS_16KeyValueMetadataEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE.exit.i:
   %assembler.i = alloca %"class.arrow::ipc::(anonymous namespace)::RecordBatchSerializer", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.28", align 8
@@ -2083,7 +2083,7 @@ _ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit: ; preds = %_ZN5arrow3ip
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc21GetRecordBatchPayloadERKNS_11RecordBatchERKSt10shared_ptrIKNS_16KeyValueMetadataEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %custom_metadata, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc21GetRecordBatchPayloadERKNS_11RecordBatchERKSt10shared_ptrIKNS_16KeyValueMetadataEERKNS0_15IpcWriteOptionsEPNS0_10IpcPayloadE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %custom_metadata, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef initializes((0, 4)) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %assembler = alloca %"class.arrow::ipc::(anonymous namespace)::RecordBatchSerializer", align 8
   store i32 3, ptr %out, align 8
@@ -3791,7 +3791,7 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializerE, i64 16), ptr %this, align 8
   %variadic_counts_ = getelementptr inbounds i8, ptr %this, i64 80
@@ -10069,7 +10069,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow3ipc8internal16IpcPayloadWriter5StartEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define void @_ZN5arrow3ipc8internal16IpcPayloadWriter5StartEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !255
   ret void
@@ -11042,7 +11042,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc8internal23MakePayloadStreamWriterEPNS_2io12OutputStreamERKNS0_15IpcWriteOptionsE(ptr noalias nocapture writeonly sret(%"class.arrow::Result.183") align 8 %agg.result, ptr noundef %sink, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %options) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc8internal23MakePayloadStreamWriterEPNS_2io12OutputStreamERKNS0_15IpcWriteOptionsE(ptr noalias nocapture writeonly sret(%"class.arrow::Result.183") align 8 initializes((0, 16)) %agg.result, ptr noundef %sink, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %options) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #25, !noalias !304
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow3ipc8internal16IpcPayloadWriterE, i64 16), ptr %call.i, align 8, !noalias !304
@@ -11093,7 +11093,7 @@ _ZNSt10unique_ptrIN5arrow3ipc8internal19PayloadStreamWriterESt14default_deleteIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc8internal21MakePayloadFileWriterEPNS_2io12OutputStreamERKSt10shared_ptrINS_6SchemaEERKNS0_15IpcWriteOptionsERKS5_IKNS_16KeyValueMetadataEE(ptr noalias nocapture writeonly sret(%"class.arrow::Result.183") align 8 %agg.result, ptr noundef %sink, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %schema, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %metadata) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc8internal21MakePayloadFileWriterEPNS_2io12OutputStreamERKSt10shared_ptrINS_6SchemaEERKNS0_15IpcWriteOptionsERKS5_IKNS_16KeyValueMetadataEE(ptr noalias nocapture writeonly sret(%"class.arrow::Result.183") align 8 initializes((0, 16)) %agg.result, ptr noundef %sink, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %schema, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %metadata) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #25, !noalias !307
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow3ipc8internal16IpcPayloadWriterE, i64 16), ptr %call.i, align 8, !noalias !307
@@ -14221,7 +14221,7 @@ if.end:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow3ipc12_GLOBAL__N_120DictionarySerializerD0Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow3ipc12_GLOBAL__N_120DictionarySerializerD0Ev(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -14252,7 +14252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializerD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializerD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -38257,7 +38257,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 40
@@ -38338,7 +38338,7 @@ _ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 40
@@ -39384,7 +39384,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0EE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -39425,7 +39425,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0EE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16

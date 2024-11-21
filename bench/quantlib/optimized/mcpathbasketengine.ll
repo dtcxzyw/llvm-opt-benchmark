@@ -218,7 +218,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib27EuropeanPathMultiPathPricerC2ERN5boost10shared_ptrINS_10PathPayoffEEESt6vectorImSaImEES6_INS_6HandleINS_18YieldTermStructureEEESaISB_EENS_5ArrayE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr nocapture noundef %timePositions, ptr nocapture noundef %forwardTermStructures, ptr nocapture noundef %discounts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27EuropeanPathMultiPathPricerC2ERN5boost10shared_ptrINS_10PathPayoffEEESt6vectorImSaImEES6_INS_6HandleINS_18YieldTermStructureEEESaISB_EENS_5ArrayE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr nocapture noundef %timePositions, ptr nocapture noundef %forwardTermStructures, ptr nocapture noundef %discounts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib27EuropeanPathMultiPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8

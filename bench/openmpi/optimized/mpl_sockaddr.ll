@@ -23,7 +23,7 @@ define void @MPL_sockaddr_set_aftype(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @MPL_get_sockaddr(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define i32 @MPL_get_sockaddr(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 128)) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.addrinfo, align 8
   %4 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
@@ -81,7 +81,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @MPL_get_sockaddr_direct(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define noundef i32 @MPL_get_sockaddr_direct(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 128)) %1) local_unnamed_addr #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   %3 = load i32, ptr @af_type, align 4
   switch i32 %3, label %16 [
@@ -127,7 +127,7 @@ define noundef i32 @MPL_get_sockaddr_direct(i32 noundef %0, ptr nocapture nounde
 declare i32 @htonl(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @MPL_get_sockaddr_iface(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define i32 @MPL_get_sockaddr_iface(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 128)) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   %4 = call i32 @getifaddrs(ptr noundef nonnull %3) #12

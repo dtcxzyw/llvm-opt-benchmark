@@ -305,7 +305,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15node_napi_env__C2EN2v85LocalINS0_7ContextEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(226) %this, ptr nonnull %context.coerce, ptr noundef nonnull align 8 dereferenceable(32) %module_filename, i32 noundef %module_api_version) unnamed_addr #3 align 2 {
+define dso_local void @_ZN15node_napi_env__C2EN2v85LocalINS0_7ContextEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(226) initializes((0, 80)) %this, ptr nonnull %context.coerce, ptr noundef nonnull align 8 dereferenceable(32) %module_filename, i32 noundef %module_api_version) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV10napi_env__, i64 16), ptr %this, align 8
   %isolate.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -403,7 +403,7 @@ declare void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15node_napi_env__8DeleteMeEv(ptr noundef nonnull align 8 dereferenceable(226) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN15node_napi_env__8DeleteMeEv(ptr noundef nonnull align 8 dereferenceable(226) initializes((224, 225)) %this) unnamed_addr #3 align 2 {
 entry:
   %ref_tracker.i = alloca ptr, align 8
   %destructing = getelementptr inbounds i8, ptr %this, i64 224
@@ -1229,7 +1229,7 @@ return:                                           ; preds = %entry, %_ZN10napi_e
 declare i32 @napi_set_named_property(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4node26napi_module_to_node_moduleEPK11napi_module(ptr noalias nocapture writeonly sret(%"struct.node::node_module") align 8 %agg.result, ptr noundef %mod) local_unnamed_addr #5 {
+define dso_local void @_ZN4node26napi_module_to_node_moduleEPK11napi_module(ptr noalias nocapture writeonly sret(%"struct.node::node_module") align 8 initializes((0, 64)) %agg.result, ptr noundef %mod) local_unnamed_addr #5 {
 entry:
   store i32 -1, ptr %agg.result, align 8
   %nm_flags = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -2809,7 +2809,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN4node6Buffer3NewEPN2v87IsolateEPcmPFvS4_PvES5_(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_115BufferFinalizer22FinalizeBufferCallbackEPcPv(ptr noundef %data, ptr noundef %hint) #3 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_115BufferFinalizer22FinalizeBufferCallbackEPcPv(ptr noundef %data, ptr noundef initializes((24, 32)) %hint) #3 align 2 {
 entry:
   %finalize_data_ = getelementptr inbounds i8, ptr %hint, i64 24
   store ptr %data, ptr %finalize_data_, align 8
@@ -5556,7 +5556,7 @@ declare void @_ZN4node9AsyncWrap11EmitDestroyEPNS_11EnvironmentEd(ptr noundef, d
 declare ptr @_ZN4node20InternalMakeCallbackEPNS_11EnvironmentEN2v85LocalINS2_6ObjectEEES5_NS3_INS2_8FunctionEEEiPNS3_INS2_5ValueEEENS_13async_contextE(ptr noundef, ptr, ptr, ptr, i32 noundef, ptr noundef, double, double) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_115BufferFinalizerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_115BufferFinalizerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_115BufferFinalizerE, i64 16), ptr %this, align 8
   %env_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -5580,7 +5580,7 @@ _ZN10napi_env__5UnrefEv.exit:                     ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_115BufferFinalizerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_115BufferFinalizerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_115BufferFinalizerE, i64 16), ptr %this, align 8
   %env_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -6278,7 +6278,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(369) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(369) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_118ThreadSafeFunctionE, i64 16), ptr %this, align 8
   %env = getelementptr inbounds i8, ptr %this, i64 336
@@ -6364,7 +6364,7 @@ _ZNSt10unique_ptrIN4node21ConditionVariableBaseINS0_16LibuvMutexTraitsEEESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(369) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(369) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(369) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -7946,7 +7946,7 @@ return:                                           ; preds = %entry, %_ZN10napi_e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -7967,7 +7967,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16

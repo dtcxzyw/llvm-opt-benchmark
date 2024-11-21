@@ -52,7 +52,7 @@ entry:
 declare i32 @crypto_auth_hmacsha512_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_auth_hmacsha512256_final(ptr noundef nonnull %state, ptr nocapture noundef nonnull writeonly %out) local_unnamed_addr #1 {
+define noundef i32 @crypto_auth_hmacsha512256_final(ptr noundef nonnull %state, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %out) local_unnamed_addr #1 {
 entry:
   %out0 = alloca [64 x i8], align 16
   %call = call i32 @crypto_auth_hmacsha512_final(ptr noundef nonnull %state, ptr noundef nonnull %out0) #5
@@ -66,7 +66,7 @@ declare i32 @crypto_auth_hmacsha512_final(ptr noundef, ptr noundef) local_unname
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_auth_hmacsha512256(ptr nocapture noundef nonnull writeonly %out, ptr noundef %in, i64 noundef %inlen, ptr noundef nonnull %k) local_unnamed_addr #1 {
+define noundef i32 @crypto_auth_hmacsha512256(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %out, ptr noundef %in, i64 noundef %inlen, ptr noundef nonnull %k) local_unnamed_addr #1 {
 entry:
   %out0.i = alloca [64 x i8], align 16
   %state = alloca %struct.crypto_auth_hmacsha512_state, align 8

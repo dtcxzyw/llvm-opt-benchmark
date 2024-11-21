@@ -1653,7 +1653,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @recent_read_static(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @recent_read_static(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   store i32 20, ptr getelementptr inbounds (i8, ptr @recent, i64 112), align 8
   store i32 20, ptr getelementptr inbounds (i8, ptr @recent, i64 116), align 4
   store i32 750, ptr getelementptr inbounds (i8, ptr @recent, i64 120), align 8
@@ -1965,7 +1965,7 @@ define internal range(i32 0, 2) i32 @read_set_recent_common_pair_static(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @recent_read_profile_static(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @recent_read_profile_static(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   store i32 1, ptr @recent, align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @recent, i64 4), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @recent, i64 8), align 8
@@ -2099,7 +2099,7 @@ define hidden range(i32 0, 2) i32 @recent_read_profile_static(ptr nocapture noun
 declare zeroext i1 @file_exists(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @recent_read_dynamic(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @recent_read_dynamic(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._GHashTableIter, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

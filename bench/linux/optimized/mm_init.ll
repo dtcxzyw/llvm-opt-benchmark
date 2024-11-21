@@ -438,7 +438,7 @@ define internal noundef range(i32 -22, 1) i32 @cmdline_parse_movablecore(ptr nou
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid optsize memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @__init_single_page(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 section ".meminit.text" align 16 {
+define dso_local void @__init_single_page(ptr noundef initializes((0, 8), (24, 64)) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 section ".meminit.text" align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(64) %5, i8 0, i64 40, i1 false)
   %6 = zext i32 %3 to i64
@@ -1000,7 +1000,7 @@ declare dso_local ptr @memblock_alloc_exact_nid_raw(i64 noundef, i64 noundef, i6
 declare dso_local ptr @memblock_alloc_try_nid_raw(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @get_pfn_range_for_nid(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local void @get_pfn_range_for_nid(i32 noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -2710,7 +2710,7 @@ define internal fastcc void @free_area_init_core(ptr noundef %0) unnamed_addr #0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc i64 @zone_spanned_pages_in_node(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #18 section ".init.text" align 16 {
+define internal fastcc i64 @zone_spanned_pages_in_node(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef initializes((0, 8)) %4, ptr nocapture noundef initializes((0, 8)) %5) unnamed_addr #18 section ".init.text" align 16 {
   %7 = getelementptr [4 x i64], ptr @arch_zone_lowest_possible_pfn, i64 0, i64 %1
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr [4 x i64], ptr @arch_zone_highest_possible_pfn, i64 0, i64 %1

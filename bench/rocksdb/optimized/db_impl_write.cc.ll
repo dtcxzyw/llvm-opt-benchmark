@@ -3256,7 +3256,7 @@ _ZNSt10unique_ptrIN7rocksdb18PreReleaseCallbackESt14default_deleteIS1_EE5resetEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl5WriteERKNS_12WriteOptionsEPNS_10WriteBatchE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %write_options, ptr noundef %my_batch) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl5WriteERKNS_12WriteOptionsEPNS_10WriteBatchE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %write_options, ptr noundef %my_batch) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %ref.tmp6 = alloca %"class.rocksdb::Status", align 8
@@ -5944,7 +5944,7 @@ eh.resume:                                        ; preds = %lpad, %ehcleanup734
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl17WriteWithCallbackERKNS_12WriteOptionsEPNS_10WriteBatchEPNS_13WriteCallbackE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %write_options, ptr noundef %my_batch, ptr noundef %callback) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl17WriteWithCallbackERKNS_12WriteOptionsEPNS_10WriteBatchEPNS_13WriteCallbackE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %write_options, ptr noundef %my_batch, ptr noundef %callback) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %ref.tmp6 = alloca %"class.rocksdb::Status", align 8
@@ -11587,7 +11587,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN7rocksdb11WriteThread24ExitAsBatchGroupFollowerEPNS0_6WriterE(ptr noundef nonnull align 16 dereferenceable(432), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb6DBImpl15PreprocessWriteERKNS_12WriteOptionsEPNS0_10LogContextEPNS0_12WriteContextE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %write_options, ptr nocapture noundef %log_context, ptr noundef %write_context) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl15PreprocessWriteERKNS_12WriteOptionsEPNS0_10LogContextEPNS0_12WriteContextE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %write_options, ptr nocapture noundef %log_context, ptr noundef %write_context) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %perf_step_timer_write_scheduling_flushes_compactions_time = alloca %"class.rocksdb::PerfStepTimer", align 8
@@ -13151,7 +13151,7 @@ declare noundef i64 @_ZN7rocksdb18WriteBatchInternal16AppendedByteSizeEmm(i64 no
 declare noundef zeroext i1 @_ZNK7rocksdb10WriteBatch8HasMergeEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl10WriteToWALERKNS_11WriteThread10WriteGroupEPNS_3log6WriterEPmbbmRNS0_17LogFileNumberSizeE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %write_group, ptr noundef %log_writer, ptr noundef %log_used, i1 noundef zeroext %need_log_sync, i1 noundef zeroext %need_log_dir_sync, i64 noundef %sequence, ptr nocapture noundef nonnull align 8 dereferenceable(17) %log_file_number_size) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl10WriteToWALERKNS_11WriteThread10WriteGroupEPNS_3log6WriterEPmbbmRNS0_17LogFileNumberSizeE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %write_group, ptr noundef %log_writer, ptr noundef %log_used, i1 noundef zeroext %need_log_sync, i1 noundef zeroext %need_log_dir_sync, i64 noundef %sequence, ptr nocapture noundef nonnull align 8 dereferenceable(17) %log_file_number_size) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %write_with_wal = alloca i64, align 8
   %to_be_cached_state = alloca ptr, align 8
@@ -13981,7 +13981,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl20ConcurrentWriteToWALERKNS_11WriteThread10WriteGroupEPmS5_m(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %write_group, ptr noundef %log_used, ptr nocapture noundef writeonly %last_sequence, i64 noundef %seq_inc) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl20ConcurrentWriteToWALERKNS_11WriteThread10WriteGroupEPmS5_m(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %write_group, ptr noundef %log_used, ptr nocapture noundef writeonly %last_sequence, i64 noundef %seq_inc) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp_batch = alloca %"class.rocksdb::WriteBatch", align 8
   %write_with_wal = alloca i64, align 8
@@ -15684,7 +15684,7 @@ if.end9:                                          ; preds = %if.then3.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl9SwitchWALEPNS0_12WriteContextE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef %write_context) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl9SwitchWALEPNS0_12WriteContextE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef %write_context) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cfds = alloca %"class.rocksdb::autovector.183", align 8
   %ref.tmp40 = alloca %"class.rocksdb::autovector.183", align 8
@@ -16549,7 +16549,7 @@ _ZN7rocksdb6StatusD2Ev.exit188:                   ; preds = %ehcleanup177, %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl29HandleWriteBufferManagerFlushEPNS0_12WriteContextE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef %write_context) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl29HandleWriteBufferManagerFlushEPNS0_12WriteContextE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef %write_context) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cfds = alloca %"class.rocksdb::autovector.183", align 8
   %ref.tmp = alloca %"class.rocksdb::autovector.183", align 8
@@ -18578,7 +18578,7 @@ _ZN7rocksdb6DBImpl17WBMStallInterface8SetStateENS1_5StateE.exit: ; preds = %entr
 declare void @_ZN7rocksdb19InstrumentedCondVar4WaitEv(ptr noundef nonnull align 8 dereferenceable(76)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl10MergeBatchERKNS_11WriteThread10WriteGroupEPNS_10WriteBatchEPS6_PmS7_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 64 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %write_group, ptr noundef %tmp_batch, ptr nocapture noundef %merged_batch, ptr nocapture noundef %write_with_wal, ptr nocapture noundef writeonly %to_be_cached_state) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl10MergeBatchERKNS_11WriteThread10WriteGroupEPNS_10WriteBatchEPS6_PmS7_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 64 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %write_group, ptr noundef %tmp_batch, ptr nocapture noundef initializes((0, 8)) %merged_batch, ptr nocapture noundef initializes((0, 8)) %write_with_wal, ptr nocapture noundef writeonly %to_be_cached_state) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %write_with_wal, align 8
   %0 = load ptr, ptr %write_group, align 8

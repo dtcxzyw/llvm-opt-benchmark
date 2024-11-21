@@ -533,7 +533,7 @@ define dso_local i64 @ttm_io_prot(ptr nocapture noundef readonly %0, ptr nocaptu
 declare dso_local i64 @ttm_prot_from_caching(i32 noundef, i64) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ttm_bo_kmap(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define dso_local i32 @ttm_bo_kmap(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8), (24, 32)) %3) #0 align 16 {
   %5 = alloca %struct.ttm_operation_ctx, align 8
   store ptr null, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 24

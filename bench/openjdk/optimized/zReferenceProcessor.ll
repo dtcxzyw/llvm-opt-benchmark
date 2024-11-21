@@ -240,7 +240,7 @@ $_ZN13ZValueStorageI17ZContendedStorageE4_endE = comdat any
 declare void @_ZN13ZStatSubPhaseC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i8 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ZReferenceProcessorC2EP8ZWorkers(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN19ZReferenceProcessorC2EP8ZWorkers(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 25)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19ZReferenceProcessor, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -406,7 +406,7 @@ _ZN6ZValueI17ZContendedStorage8zaddressEC2ERKS1_.exit: ; preds = %tailrecurse.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ZReferenceProcessor25set_soft_reference_policyEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19ZReferenceProcessor25set_soft_reference_policyEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((16, 25)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = load atomic i8, ptr @_ZGVZN19ZReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %8, !prof !8

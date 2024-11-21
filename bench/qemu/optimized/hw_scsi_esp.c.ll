@@ -204,7 +204,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_esp_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @esp_dma_enable(ptr noundef %s, i32 %irq, i32 noundef %level) local_unnamed_addr #0 {
+define dso_local void @esp_dma_enable(ptr noundef initializes((444, 448)) %s, i32 %irq, i32 noundef %level) local_unnamed_addr #0 {
 entry:
   %_now.i.i6 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1481,7 +1481,7 @@ return:                                           ; preds = %if.end32, %if.end29
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @esp_hard_reset(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local void @esp_hard_reset(ptr noundef initializes((160, 192), (209, 210), (212, 216), (448, 452)) %s) local_unnamed_addr #0 {
 entry:
   %rregs = getelementptr inbounds i8, ptr %s, i64 160
   %tchi_written = getelementptr inbounds i8, ptr %s, i64 209
@@ -2242,7 +2242,7 @@ _nocheck__trace_esp_mem_writeb_cmd_reset.exit:    ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @esp_soft_reset(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @esp_soft_reset(ptr noundef initializes((160, 192), (209, 210), (212, 216), (448, 452)) %s) unnamed_addr #0 {
 entry:
   %irq = getelementptr inbounds i8, ptr %s, i64 192
   %0 = load ptr, ptr %irq, align 8

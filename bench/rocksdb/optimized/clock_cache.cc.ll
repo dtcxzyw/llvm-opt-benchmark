@@ -4022,7 +4022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11clock_cache20FixedHyperClockTableC2EmNS_25CacheMetadataChargePolicyEPNS_15MemoryAllocatorEPKSt8functionIFbRKNS_5SliceEPNS_5Cache6HandleEbEEPKjRKNS1_4OptsE(ptr nocapture noundef nonnull align 64 dereferenceable(192) %this, i64 noundef %capacity, i32 noundef %metadata_charge_policy, ptr noundef %allocator, ptr noundef %eviction_callback, ptr noundef %hash_seed, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %opts) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache20FixedHyperClockTableC2EmNS_25CacheMetadataChargePolicyEPNS_15MemoryAllocatorEPKSt8functionIFbRKNS_5SliceEPNS_5Cache6HandleEbEEPKjRKNS1_4OptsE(ptr nocapture noundef nonnull align 64 dereferenceable(192) initializes((0, 24), (64, 88), (128, 132), (136, 160)) %this, i64 noundef %capacity, i32 noundef %metadata_charge_policy, ptr noundef %allocator, ptr noundef %eviction_callback, ptr noundef %hash_seed, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %opts) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %occupancy_.i = getelementptr inbounds i8, ptr %this, i64 64
   %metadata_charge_policy_.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -4780,7 +4780,7 @@ declare noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv() local_unnamed_addr #
 declare void @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11clock_cache19AutoHyperClockTableC2EmNS_25CacheMetadataChargePolicyEPNS_15MemoryAllocatorEPKSt8functionIFbRKNS_5SliceEPNS_5Cache6HandleEbEEPKjRKNS1_4OptsE(ptr noundef nonnull align 64 dereferenceable(208) %this, i64 noundef %capacity, i32 noundef %metadata_charge_policy, ptr noundef %allocator, ptr noundef %eviction_callback, ptr noundef %hash_seed, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %opts) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache19AutoHyperClockTableC2EmNS_25CacheMetadataChargePolicyEPNS_15MemoryAllocatorEPKSt8functionIFbRKNS_5SliceEPNS_5Cache6HandleEbEEPKjRKNS1_4OptsE(ptr noundef nonnull align 64 dereferenceable(208) initializes((0, 24), (64, 88), (128, 132), (136, 160)) %this, i64 noundef %capacity, i32 noundef %metadata_charge_policy, ptr noundef %allocator, ptr noundef %eviction_callback, ptr noundef %hash_seed, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %opts) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont22:
   %ref.tmp = alloca %"class.rocksdb::MemMapping", align 8
   %occupancy_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -5015,7 +5015,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable11StartInsertERNS1_11InsertStateE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(208) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %state) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable11StartInsertERNS1_11InsertStateE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(208) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %state) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_info_ = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load atomic i64, ptr %length_info_ acquire, align 16

@@ -76,7 +76,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib6PeriodC1ENS_9FrequencyE = unnamed_addr alias void (ptr, i32), ptr @_ZN8QuantLib6PeriodC2ENS_9FrequencyE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib6PeriodC2ENS_9FrequencyE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, i32 noundef %f) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib6PeriodC2ENS_9FrequencyE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %f) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

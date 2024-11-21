@@ -1242,7 +1242,7 @@ declare void @_ZN3smt6kernelD1Ev(ptr noundef nonnull align 8 dereferenceable(8))
 declare void @_ZN12solver_na2asD2Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3opt10opt_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(1034) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3opt10opt_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(1034) initializes((0, 8), (72, 80)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3opt10opt_solverE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 72
@@ -1507,7 +1507,7 @@ _ZN3refI5modelED2Ev.exit:                         ; preds = %_ZN7svectorIijED2Ev
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn72_N3opt10opt_solverD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn72_N3opt10opt_solverD1Ev(ptr noundef initializes((-72, -64), (0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   tail call void @_ZN3opt10opt_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(1034) %0) #20
@@ -1515,7 +1515,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3opt10opt_solverD0Ev(ptr noundef nonnull align 8 dereferenceable(1034) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN3opt10opt_solverD0Ev(ptr noundef nonnull align 8 dereferenceable(1034) initializes((0, 8), (72, 80)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN3opt10opt_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(1034) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -1526,7 +1526,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn72_N3opt10opt_solverD0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn72_N3opt10opt_solverD0Ev(ptr noundef initializes((-72, -64), (0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   tail call void @_ZN3opt10opt_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(1034) %0) #20
@@ -1685,7 +1685,7 @@ entry:
 declare void @_ZN3smt6kernel3popEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3opt10opt_solver9set_logicERK6symbol(ptr noundef nonnull align 8 dereferenceable(1034) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %logic) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3opt10opt_solver9set_logicERK6symbol(ptr noundef nonnull align 8 dereferenceable(1034) initializes((952, 960)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %logic) local_unnamed_addr #3 align 2 {
 entry:
   %m_logic = getelementptr inbounds i8, ptr %this, i64 952
   %0 = load i64, ptr %logic, align 8
@@ -5067,7 +5067,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3opt10opt_solver21set_progress_callbackEP17progress_callback(ptr noundef nonnull align 8 dereferenceable(1034) %this, ptr noundef %callback) unnamed_addr #3 align 2 {
+define hidden void @_ZN3opt10opt_solver21set_progress_callbackEP17progress_callback(ptr noundef nonnull align 8 dereferenceable(1034) initializes((944, 952)) %this, ptr noundef %callback) unnamed_addr #3 align 2 {
 entry:
   %m_callback = getelementptr inbounds i8, ptr %this, i64 944
   store ptr %callback, ptr %m_callback, align 8

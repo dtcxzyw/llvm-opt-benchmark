@@ -43,7 +43,7 @@ $_ZN12hb_hashmap_tIj6TripleLb0EE13set_with_hashIjS0_EEbOT_jOT0_b = comdat any
 @_ZN17hb_subset_input_tC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17hb_subset_input_tC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17hb_subset_input_tC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN17hb_subset_input_tC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((0, 16), (84, 86)) %this) unnamed_addr #0 align 2 {
 entry:
   %default_drop_tables = alloca [18 x i32], align 16
   %default_no_subset_tables = alloca [5 x i32], align 16
@@ -564,7 +564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @hb_subset_input_set_flags(ptr nocapture noundef writeonly %input, i32 noundef %value) local_unnamed_addr #7 {
+define dso_local void @hb_subset_input_set_flags(ptr nocapture noundef writeonly initializes((80, 84)) %input, i32 noundef %value) local_unnamed_addr #7 {
 entry:
   %flags = getelementptr inbounds i8, ptr %input, i64 80
   store i32 %value, ptr %flags, align 8

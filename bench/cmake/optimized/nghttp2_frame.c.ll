@@ -31,7 +31,7 @@ define dso_local void @nghttp2_frame_pack_frame_hd(ptr noundef %0, ptr nocapture
 declare void @nghttp2_put_uint32be(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nghttp2_frame_unpack_frame_hd(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @nghttp2_frame_unpack_frame_hd(ptr nocapture noundef writeonly initializes((0, 15)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @nghttp2_get_uint32(ptr noundef %1) #17
   %4 = lshr i32 %3, 8
   %5 = zext nneg i32 %4 to i64
@@ -57,7 +57,7 @@ define dso_local void @nghttp2_frame_unpack_frame_hd(ptr nocapture noundef write
 declare i32 @nghttp2_get_uint32(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_frame_hd_init(ptr nocapture noundef writeonly %0, i64 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local void @nghttp2_frame_hd_init(ptr nocapture noundef writeonly initializes((0, 15)) %0, i64 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #2 {
   store i64 %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 %2, ptr %6, align 4
@@ -71,7 +71,7 @@ define dso_local void @nghttp2_frame_hd_init(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nghttp2_frame_headers_init(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define dso_local void @nghttp2_frame_headers_init(ptr noundef initializes((0, 15), (16, 24), (40, 60)) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   store i64 0, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 1, ptr %8, align 4
@@ -125,7 +125,7 @@ define dso_local void @nghttp2_nv_array_del(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nghttp2_frame_priority_init(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define dso_local void @nghttp2_frame_priority_init(ptr nocapture noundef writeonly initializes((0, 15), (16, 28)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   store i64 5, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 2, ptr %4, align 4
@@ -146,7 +146,7 @@ define dso_local void @nghttp2_frame_priority_free(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_frame_rst_stream_init(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @nghttp2_frame_rst_stream_init(ptr nocapture noundef writeonly initializes((0, 15), (16, 20)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   store i64 4, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 3, ptr %4, align 4
@@ -167,7 +167,7 @@ define dso_local void @nghttp2_frame_rst_stream_free(ptr nocapture noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_frame_settings_init(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define dso_local void @nghttp2_frame_settings_init(ptr nocapture noundef writeonly initializes((0, 15), (16, 32)) %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = mul i64 %3, 6
   store i64 %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -196,7 +196,7 @@ define dso_local void @nghttp2_frame_settings_free(ptr nocapture noundef readonl
 declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_frame_push_promise_init(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #2 {
+define dso_local void @nghttp2_frame_push_promise_init(ptr nocapture noundef writeonly initializes((0, 15), (16, 45)) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #2 {
   store i64 0, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 5, ptr %7, align 4
@@ -228,7 +228,7 @@ define dso_local void @nghttp2_frame_push_promise_free(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nghttp2_frame_ping_init(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define dso_local void @nghttp2_frame_ping_init(ptr nocapture noundef writeonly initializes((0, 15), (16, 24)) %0, i8 noundef zeroext %1, ptr noundef readonly %2) local_unnamed_addr #4 {
   store i64 8, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 6, ptr %4, align 4
@@ -261,7 +261,7 @@ define dso_local void @nghttp2_frame_ping_free(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_frame_goaway_init(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define dso_local void @nghttp2_frame_goaway_init(ptr nocapture noundef writeonly initializes((0, 15), (16, 41)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = add i64 %4, 8
   store i64 %6, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 12
@@ -294,7 +294,7 @@ define dso_local void @nghttp2_frame_goaway_free(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_frame_window_update_init(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local void @nghttp2_frame_window_update_init(ptr nocapture noundef writeonly initializes((0, 15), (16, 21)) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   store i64 4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 8, ptr %5, align 4
@@ -336,7 +336,7 @@ define dso_local i64 @nghttp2_frame_trail_padlen(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_frame_data_init(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @nghttp2_frame_data_init(ptr nocapture noundef writeonly initializes((0, 15), (16, 24)) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #2 {
   store i64 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 0, ptr %4, align 4
@@ -357,7 +357,7 @@ define dso_local void @nghttp2_frame_data_free(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_frame_extension_init(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define dso_local void @nghttp2_frame_extension_init(ptr nocapture noundef writeonly initializes((0, 15), (16, 24)) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   store i64 0, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 %1, ptr %6, align 4
@@ -378,7 +378,7 @@ define dso_local void @nghttp2_frame_extension_free(ptr nocapture noundef readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @nghttp2_frame_altsvc_init(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #8 {
+define dso_local void @nghttp2_frame_altsvc_init(ptr nocapture noundef initializes((0, 15)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #8 {
   %7 = add i64 %3, 2
   %8 = add i64 %7, %5
   store i64 %8, ptr %0, align 8
@@ -471,7 +471,7 @@ define dso_local void @nghttp2_frame_origin_free(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @nghttp2_frame_priority_update_init(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #8 {
+define dso_local void @nghttp2_frame_priority_update_init(ptr nocapture noundef initializes((0, 15)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #8 {
   %5 = add i64 %3, 4
   store i64 %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -871,7 +871,7 @@ define dso_local noundef i32 @nghttp2_frame_pack_rst_stream(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nghttp2_frame_unpack_rst_stream_payload(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @nghttp2_frame_unpack_rst_stream_payload(ptr nocapture noundef writeonly initializes((16, 20)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @nghttp2_get_uint32(ptr noundef %1) #17
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %3, ptr %4, align 8
@@ -982,7 +982,7 @@ define dso_local noundef i64 @nghttp2_frame_pack_settings_payload(ptr noundef %0
 declare void @nghttp2_put_uint16be(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_frame_unpack_settings_payload(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local void @nghttp2_frame_unpack_settings_payload(ptr nocapture noundef writeonly initializes((16, 32)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -991,7 +991,7 @@ define dso_local void @nghttp2_frame_unpack_settings_payload(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nghttp2_frame_unpack_settings_entry(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @nghttp2_frame_unpack_settings_entry(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i16 @nghttp2_get_uint16(ptr noundef %1) #17
   %4 = zext i16 %3 to i32
   store i32 %4, ptr %0, align 4
@@ -1005,7 +1005,7 @@ define dso_local void @nghttp2_frame_unpack_settings_entry(ptr nocapture noundef
 declare zeroext i16 @nghttp2_get_uint16(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -901, 1) i32 @nghttp2_frame_unpack_settings_payload2(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_frame_unpack_settings_payload2(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 8)) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = udiv i64 %3, 6
   store i64 %6, ptr %1, align 8
   %7 = icmp ult i64 %3, 6
@@ -1091,7 +1091,7 @@ define dso_local i32 @nghttp2_frame_pack_push_promise(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_frame_unpack_push_promise_payload(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @nghttp2_frame_unpack_push_promise_payload(ptr nocapture noundef writeonly initializes((24, 44)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @nghttp2_get_uint32(ptr noundef %1) #17
   %4 = and i32 %3, 2147483647
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1135,7 +1135,7 @@ define dso_local noundef i32 @nghttp2_frame_pack_ping(ptr nocapture noundef read
 declare ptr @nghttp2_cpymem(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nghttp2_frame_unpack_ping_payload(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define dso_local void @nghttp2_frame_unpack_ping_payload(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %1, align 1
   store i64 %4, ptr %3, align 8
@@ -1192,7 +1192,7 @@ define dso_local range(i32 -501, -502) i32 @nghttp2_frame_pack_goaway(ptr nounde
 declare i32 @nghttp2_bufs_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nghttp2_frame_unpack_goaway_payload(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local void @nghttp2_frame_unpack_goaway_payload(ptr nocapture noundef writeonly initializes((16, 40)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @nghttp2_get_uint32(ptr noundef %1) #17
   %6 = and i32 %5, 2147483647
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1289,7 +1289,7 @@ define dso_local noundef i32 @nghttp2_frame_pack_window_update(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nghttp2_frame_unpack_window_update_payload(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @nghttp2_frame_unpack_window_update_payload(ptr nocapture noundef writeonly initializes((16, 20)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @nghttp2_get_uint32(ptr noundef %1) #17
   %4 = and i32 %3, 2147483647
   %5 = getelementptr inbounds i8, ptr %0, i64 16

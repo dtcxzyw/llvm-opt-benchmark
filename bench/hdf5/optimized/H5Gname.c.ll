@@ -181,7 +181,7 @@ H5G__build_fullpath.exit:                         ; preds = %6, %17
 declare ptr @H5RS_get_str(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5G__name_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define noundef i32 @H5G__name_init(ptr nocapture noundef writeonly initializes((0, 20)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @H5RS_create(ptr noundef %1) #10
   store ptr %3, ptr %0, align 8
   %4 = tail call ptr @H5RS_create(ptr noundef %1) #10
@@ -195,7 +195,7 @@ define noundef i32 @H5G__name_init(ptr nocapture noundef writeonly %0, ptr nound
 declare ptr @H5RS_create(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G_name_set(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5G_name_set(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((16, 20)) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %7, label %5
@@ -301,7 +301,7 @@ H5G_build_fullpath_refstr_str.exit15:             ; preds = %40, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5G_name_free(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define noundef i32 @H5G_name_free(ptr nocapture noundef initializes((16, 20)) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -329,7 +329,7 @@ define noundef i32 @H5G_name_free(ptr nocapture noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5G_name_copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef i32 @H5G_name_copy(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %4 = icmp eq i32 %2, 1
   br i1 %4, label %5, label %12
@@ -359,7 +359,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @H5RS_dup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5G_name_reset(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
+define noundef i32 @H5G_name_reset(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret i32 0
 }

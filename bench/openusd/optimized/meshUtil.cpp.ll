@@ -14104,7 +14104,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit58: ; preds = %.lo
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTableC2EPKNS_14HdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTableC2EPKNS_14HdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit:
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshUtil", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24

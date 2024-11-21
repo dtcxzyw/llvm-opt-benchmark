@@ -144,7 +144,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stnode_clear(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @stnode_clear(ptr nocapture noundef initializes((40, 58)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %3
@@ -191,7 +191,7 @@ define void @stnode_clear(ptr nocapture noundef %0) local_unnamed_addr #0 {
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @stnode_init(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 %4, i64 %5) local_unnamed_addr #0 {
+define void @stnode_init(ptr nocapture noundef writeonly initializes((0, 58)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 %4, i64 %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -321,7 +321,7 @@ stnode_init.exit:                                 ; preds = %24, %31, %34
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @stnode_mutate(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @stnode_mutate(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr [15 x ptr], ptr @type_list, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -465,7 +465,7 @@ define noundef ptr @stnode_dup(ptr nocapture noundef readonly %0) local_unnamed_
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @stnode_free(ptr noundef %0) local_unnamed_addr #0 {
+define void @stnode_free(ptr noundef initializes((40, 58)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %stnode_clear.exit, label %3
@@ -584,7 +584,7 @@ define { i64, i64 } @stnode_location(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stnode_set_location(ptr nocapture noundef writeonly %0, i64 %1, i64 %2) local_unnamed_addr #10 {
+define void @stnode_set_location(ptr nocapture noundef writeonly initializes((40, 56)) %0, i64 %1, i64 %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %1, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
@@ -611,7 +611,7 @@ define void @stnode_set_flags(ptr nocapture noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @stnode_merge_location(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #9 {
+define hidden void @stnode_merge_location(ptr nocapture noundef writeonly initializes((40, 56)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 48

@@ -2148,7 +2148,7 @@ define dso_local void @ExecEndMergeJoin(ptr nocapture noundef readonly %0) local
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanMergeJoin(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanMergeJoin(ptr nocapture noundef initializes((232, 236), (241, 243), (248, 264)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80

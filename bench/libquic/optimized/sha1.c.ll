@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @SHA1.buf = internal global [20 x i8] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @SHA1_Init(ptr nocapture noundef writeonly %sha) local_unnamed_addr #0 {
+define hidden noundef i32 @SHA1_Init(ptr nocapture noundef writeonly initializes((0, 96)) %sha) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %sha, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
@@ -170,7 +170,7 @@ return:                                           ; preds = %if.end44, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SHA1_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
+define hidden noundef i32 @SHA1_Final(ptr nocapture noundef writeonly initializes((0, 20)) %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %num = getelementptr inbounds i8, ptr %c, i64 92
   %0 = load i32, ptr %num, align 4

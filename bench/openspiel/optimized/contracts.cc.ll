@@ -46,7 +46,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel5tarok8ContractC2ENS0_12ContractNameEiibbb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(15) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #3 align 2 {
+define void @_ZN10open_spiel5tarok8ContractC2ENS0_12ContractNameEiibbb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(15) initializes((0, 15)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #3 align 2 {
   %8 = zext i1 %4 to i8
   %9 = zext i1 %5 to i8
   %10 = zext i1 %6 to i8

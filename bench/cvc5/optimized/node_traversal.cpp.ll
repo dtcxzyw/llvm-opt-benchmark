@@ -65,7 +65,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal15NodeDfsIteratorC2ENS0_12NodeTemplateILb0EEENS0_10VisitOrderESt8functionIFbS3_EE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef readonly %n, i32 noundef %order, ptr noundef %skipIf) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal15NodeDfsIteratorC2ENS0_12NodeTemplateILb0EEENS0_10VisitOrderESt8functionIFbS3_EE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 24), (56, 64)) %this, ptr nocapture noundef readonly %n, i32 noundef %order, ptr noundef %skipIf) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %n, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
@@ -224,7 +224,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_bESaIS6_ENSt8_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal15NodeDfsIteratorC2ENS0_10VisitOrderE(ptr noundef nonnull align 8 dereferenceable(128) %this, i32 noundef %order) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal15NodeDfsIteratorC2ENS0_10VisitOrderE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 64)) %this, i32 noundef %order) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_visited = getelementptr inbounds i8, ptr %this, i64 24
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -1143,7 +1143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal15NodeDfsIterableC2ENS0_12NodeTemplateILb0EEENS0_10VisitOrderESt8functionIFbS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %n, i32 noundef %order, ptr noundef %skipIf) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal15NodeDfsIterableC2ENS0_12NodeTemplateILb0EEENS0_10VisitOrderESt8functionIFbS3_EE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 12), (16, 48)) %this, ptr nocapture noundef readonly %n, i32 noundef %order, ptr noundef %skipIf) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %n, align 8
   store ptr %0, ptr %this, align 8
@@ -1290,7 +1290,7 @@ ehcleanup:                                        ; preds = %if.then.i.i10, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal15NodeDfsIterable3endEv(ptr noalias nonnull sret(%"class.cvc5::internal::NodeDfsIterator") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal15NodeDfsIterable3endEv(ptr noalias nonnull sret(%"class.cvc5::internal::NodeDfsIterator") align 8 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_order = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %d_order, align 8

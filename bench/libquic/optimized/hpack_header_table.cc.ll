@@ -183,7 +183,7 @@ return:                                           ; preds = %entry, %if.end5, %l
 declare noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net16HpackHeaderTableC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net16HpackHeaderTableC2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 88)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(192) ptr @_ZN3net22ObtainHpackStaticTableEv()
   store ptr %call, ptr %this, align 8
@@ -1269,7 +1269,7 @@ for.end:                                          ; preds = %_ZNSt16reverse_iter
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net16HpackHeaderTable26SetSettingsHeaderTableSizeEm(ptr noundef nonnull align 8 dereferenceable(256) %this, i64 noundef %settings_size) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net16HpackHeaderTable26SetSettingsHeaderTableSizeEm(ptr noundef nonnull align 8 dereferenceable(256) initializes((216, 224)) %this, i64 noundef %settings_size) local_unnamed_addr #0 align 2 {
 entry:
   %settings_size_bound_ = getelementptr inbounds i8, ptr %this, i64 216
   store i64 %settings_size, ptr %settings_size_bound_, align 8

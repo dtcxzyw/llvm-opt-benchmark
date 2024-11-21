@@ -1010,7 +1010,7 @@ declare i32 @ssl_set_new_record_layer(ptr noundef, i32 noundef, i32 noundef, i32
 declare i32 @tls_finish_handshake(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @ossl_statem_client_post_work(ptr noundef %s, i32 noundef %wst) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @ossl_statem_client_post_work(ptr noundef initializes((256, 264)) %s, i32 noundef %wst) local_unnamed_addr #0 {
 entry:
   %init_num = getelementptr inbounds i8, ptr %s, i64 256
   store i64 0, ptr %init_num, align 8

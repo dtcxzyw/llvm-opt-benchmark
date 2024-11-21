@@ -235,7 +235,7 @@ _ZN4core5array25try_from_trusted_iterator17h1004ebbe92a96c9eE.llvm.1119237667996
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5array5drain16drain_array_with17hd41d718fd2d12c62E(ptr noalias nocapture noundef writeonly sret({ [28 x i8] }) align 1 dereferenceable(28) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5array5drain16drain_array_with17hd41d718fd2d12c62E(ptr noalias nocapture noundef writeonly sret({ [28 x i8] }) align 1 dereferenceable(28) initializes((0, 28)) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [28 x {}] }, align 1
   %3 = alloca { ptr, ptr }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)

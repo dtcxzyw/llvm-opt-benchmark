@@ -632,7 +632,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5O__fsinfo_encode(ptr noundef %0, i1 zeroext %1, i64 %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal noundef i32 @H5O__fsinfo_encode(ptr noundef %0, i1 zeroext %1, i64 %2, ptr noundef initializes((0, 2)) %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr %4, align 8
   %8 = trunc i32 %7 to i8

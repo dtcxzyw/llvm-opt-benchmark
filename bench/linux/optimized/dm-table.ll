@@ -553,7 +553,7 @@ declare dso_local ptr @dm_device_name(ptr noundef) local_unnamed_addr #2
 declare dso_local void @dm_put_table_device(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @dm_split_args(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @dm_split_args(ptr nocapture noundef initializes((0, 4)) %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   store i32 0, ptr %0, align 4
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.loopexit, label %5
@@ -1124,7 +1124,7 @@ define dso_local void @dm_consume_args(ptr nocapture noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @dm_table_set_type(ptr nocapture noundef writeonly %0, i32 noundef %1) #8 align 16 {
+define dso_local void @dm_table_set_type(ptr nocapture noundef writeonly initializes((8, 12)) %0, i32 noundef %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
@@ -1776,7 +1776,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dm_table_event_callback(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @dm_table_event_callback(ptr nocapture noundef writeonly initializes((304, 320)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @_event_lock) #22
   %4 = getelementptr inbounds i8, ptr %0, i64 304
   store ptr %1, ptr %4, align 8
@@ -2342,7 +2342,7 @@ define internal noundef range(i32 0, 2) i32 @device_area_is_invalid(ptr nocaptur
 declare dso_local i32 @blk_stack_limits(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dm_table_set_restrictions(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @dm_table_set_restrictions(ptr nocapture noundef readonly %0, ptr noundef initializes((120, 240)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(120) %4, ptr noundef align 8 dereferenceable(120) %2, i64 120, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 224

@@ -4713,7 +4713,7 @@ _ZN3irr4core8aabbox3dIfE6repairEv.exit.cont:      ; preds = %_ZN3irr4core8aabbox
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z18setMaterialFiltersRN3irr5video14SMaterialLayerEbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %tex, i1 noundef zeroext %bilinear, i1 noundef zeroext %trilinear, i1 noundef zeroext %anisotropic) local_unnamed_addr #12 {
+define dso_local void @_Z18setMaterialFiltersRN3irr5video14SMaterialLayerEbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((12, 21)) %tex, i1 noundef zeroext %bilinear, i1 noundef zeroext %trilinear, i1 noundef zeroext %anisotropic) local_unnamed_addr #12 {
 entry:
   %MinFilter = getelementptr inbounds i8, ptr %tex, i64 12
   %. = zext i1 %bilinear to i32

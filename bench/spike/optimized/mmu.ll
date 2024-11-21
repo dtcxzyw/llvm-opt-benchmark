@@ -297,7 +297,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN5mmu_tC2EP7simif_t12endianness_tP11processor_t(ptr noundef nonnull align 8 dereferenceable(43168) %0, ptr noundef %1, i32 %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5mmu_tC2EP7simif_t12endianness_tP11processor_t(ptr noundef nonnull align 8 dereferenceable(43168) initializes((8, 12), (16, 24)) %0, ptr noundef %1, i32 %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -346,7 +346,7 @@ _ZN5mmu_t9flush_tlbEv.exit:                       ; preds = %20
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN5mmu_t9flush_tlbEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43168) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN5mmu_t9flush_tlbEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43168) initializes((37008, 43152)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 37008
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6144) %2, i8 -1, i64 6144, i1 false)
@@ -381,7 +381,7 @@ _ZNSt6vectorIP11memtracer_tSaIS1_EED2Ev.exit:     ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5mmu_tD2Ev(ptr noundef nonnull align 8 dereferenceable(43168) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5mmu_tD2Ev(ptr noundef nonnull align 8 dereferenceable(43168) initializes((88, 96)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr getelementptr inbounds (i8, ptr @_ZTV16memtracer_list_t, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96
@@ -3350,7 +3350,7 @@ define linkonce_odr void @_ZN21trap_store_page_faultD2Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5mmu_t18register_memtracerEP11memtracer_t(ptr nocapture noundef nonnull align 8 dereferenceable(43168) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN5mmu_t18register_memtracerEP11memtracer_t(ptr nocapture noundef nonnull align 8 dereferenceable(43168) initializes((37008, 43152)) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 37008
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6144) %3, i8 -1, i64 6144, i1 false)

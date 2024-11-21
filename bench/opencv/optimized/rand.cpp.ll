@@ -3629,7 +3629,7 @@ define void @cvRandShuffle(ptr noundef %0, ptr noundef %1, double noundef %2) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN2cv11RNG_MT19937C2Ej(ptr nocapture noundef nonnull align 4 dereferenceable(2500) %0, i32 noundef %1) unnamed_addr #7 align 2 {
+define void @_ZN2cv11RNG_MT19937C2Ej(ptr nocapture noundef nonnull align 4 dereferenceable(2500) initializes((0, 4), (2496, 2500)) %0, i32 noundef %1) unnamed_addr #7 align 2 {
   store i32 %1, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 2496
   store i32 1, ptr %3, align 4
@@ -3659,7 +3659,7 @@ _ZN2cv11RNG_MT199374seedEj.exit:                  ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN2cv11RNG_MT199374seedEj(ptr nocapture noundef nonnull align 4 dereferenceable(2500) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN2cv11RNG_MT199374seedEj(ptr nocapture noundef nonnull align 4 dereferenceable(2500) initializes((0, 4), (2496, 2500)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   store i32 %1, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 2496
   store i32 1, ptr %3, align 4
@@ -3689,7 +3689,7 @@ define void @_ZN2cv11RNG_MT199374seedEj(ptr nocapture noundef nonnull align 4 de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN2cv11RNG_MT19937C2Ev(ptr nocapture noundef nonnull align 4 dereferenceable(2500) %0) unnamed_addr #7 align 2 {
+define void @_ZN2cv11RNG_MT19937C2Ev(ptr nocapture noundef nonnull align 4 dereferenceable(2500) initializes((0, 4), (2496, 2500)) %0) unnamed_addr #7 align 2 {
   store i32 5489, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 2496
   store i32 1, ptr %2, align 4

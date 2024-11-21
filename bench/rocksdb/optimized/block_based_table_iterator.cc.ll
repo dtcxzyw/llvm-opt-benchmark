@@ -2303,7 +2303,7 @@ if.end:                                           ; preds = %_ZNK7rocksdb21UserC
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb23BlockBasedTableIterator11SeekForPrevERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(784) %this, ptr noundef nonnull align 8 dereferenceable(16) %target) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23BlockBasedTableIterator11SeekForPrevERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(784) initializes((690, 691), (777, 778), (780, 784)) %this, ptr noundef nonnull align 8 dereferenceable(16) %target) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i23 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp.i = alloca %"struct.rocksdb::IndexValue", align 8
@@ -2733,7 +2733,7 @@ while.end:                                        ; preds = %if.then11, %_ZN7roc
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb23BlockBasedTableIterator10SeekToLastEv(ptr noundef nonnull align 8 dereferenceable(784) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23BlockBasedTableIterator10SeekToLastEv(ptr noundef nonnull align 8 dereferenceable(784) initializes((690, 691), (777, 778), (780, 784)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i3 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp.i = alloca %"struct.rocksdb::IndexValue", align 8
@@ -3071,7 +3071,7 @@ return:                                           ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZN7rocksdb23BlockBasedTableIterator23MaterializeCurrentBlockEv(ptr noundef nonnull align 8 dereferenceable(784) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb23BlockBasedTableIterator23MaterializeCurrentBlockEv(ptr noundef nonnull align 8 dereferenceable(784) initializes((684, 685)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i14 = alloca %"class.std::unique_ptr.10", align 8
   %ref.tmp.i = alloca %"class.rocksdb::Slice", align 8
@@ -5780,7 +5780,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23BlockBasedTableIterator28InitializeStartAndEndOffsetsEbRbRmS2_S2_(ptr noundef nonnull align 8 dereferenceable(784) %this, i1 noundef zeroext %read_curr_block, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %found_first_miss_block, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %start_updated_offset, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %end_updated_offset, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %prev_handles_size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23BlockBasedTableIterator28InitializeStartAndEndOffsetsEbRbRmS2_S2_(ptr noundef nonnull align 8 dereferenceable(784) %this, i1 noundef zeroext %read_curr_block, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %found_first_miss_block, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %start_updated_offset, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %end_updated_offset, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %prev_handles_size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %block_handle_info = alloca %"struct.rocksdb::BlockBasedTableIterator::BlockHandleInfo", align 8
   %ref.tmp = alloca %"struct.rocksdb::IndexValue", align 8

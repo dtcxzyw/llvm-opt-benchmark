@@ -3262,7 +3262,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN5Yosys3AST8type2strB5cxx11ENS0_11AstNodeTypeE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys3AST7AstNode15detectSignWidthERiRbPb(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN5Yosys3AST7AstNode15detectSignWidthERiRbPb(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1, ptr noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   store i32 -1, ptr %1, align 4
   store i8 1, ptr %2, align 1
   %.not = icmp eq ptr %3, null

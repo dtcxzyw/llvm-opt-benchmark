@@ -184,7 +184,7 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1
 declare i32 @pmix_event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @_loadtp(i32 %0, i16 signext %1, ptr noundef %2) #0 {
+define internal void @_loadtp(i32 %0, i16 signext %1, ptr noundef initializes((504, 508)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 1104
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @pmix_hwloc_load_topology(ptr noundef %5) #10
@@ -1723,7 +1723,7 @@ pmix_obj_run_destructors.exit421:                 ; preds = %.lr.ph.i418, %599
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @distcb(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @distcb(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef initializes((500, 504), (792, 800)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 500
   store i32 %0, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %3, i64 792

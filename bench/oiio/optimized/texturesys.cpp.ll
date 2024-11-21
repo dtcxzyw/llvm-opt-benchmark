@@ -1301,7 +1301,7 @@ declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011wrap_mirrorERiii(ptr nounde
 declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_018wrap_periodic_pow2ERiii(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, i32 noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_03pvt15wrap_black_simdERNS_4simd5vint4ERKS2_S5_(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::simd::vbool4") align 16 %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %coord_, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %origin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %width) #8 {
+define hidden void @_ZN18OpenImageIO_v2_6_03pvt15wrap_black_simdERNS_4simd5vint4ERKS2_S5_(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::simd::vbool4") align 16 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %coord_, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %origin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %width) #8 {
 entry:
   %0 = load <4 x i32>, ptr %coord_, align 16
   %1 = load <4 x i32>, ptr %origin, align 16
@@ -1316,7 +1316,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_03pvt15wrap_clamp_simdERNS_4simd5vint4ERKS2_S5_(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::simd::vbool4") align 16 %agg.result, ptr nocapture noundef nonnull align 16 dereferenceable(16) %coord_, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %origin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %width) #8 {
+define hidden void @_ZN18OpenImageIO_v2_6_03pvt15wrap_clamp_simdERNS_4simd5vint4ERKS2_S5_(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::simd::vbool4") align 16 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 16 dereferenceable(16) %coord_, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %origin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %width) #8 {
 entry:
   %0 = load <4 x i32>, ptr %coord_, align 16
   %1 = load <4 x i32>, ptr %origin, align 16
@@ -1374,7 +1374,7 @@ _ZN18OpenImageIO_v2_6_04simdrmERKNS0_5vint4ES3_.exit: ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_03pvt23wrap_periodic_pow2_simdERNS_4simd5vint4ERKS2_S5_(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::simd::vbool4") align 16 %agg.result, ptr nocapture noundef nonnull align 16 dereferenceable(16) %coord_, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %origin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %width) #8 {
+define hidden void @_ZN18OpenImageIO_v2_6_03pvt23wrap_periodic_pow2_simdERNS_4simd5vint4ERKS2_S5_(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::simd::vbool4") align 16 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 16 dereferenceable(16) %coord_, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %origin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %width) #8 {
 entry:
   %0 = load <4 x i32>, ptr %coord_, align 16
   %1 = load <4 x i32>, ptr %origin, align 16
@@ -1516,7 +1516,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImplC2EPNS_10ImageCacheE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %imagecache) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImplC2EPNS_10ImageCacheE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 17), (20, 150), (152, 180)) %this, ptr noundef %imagecache) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_03pvt17TextureSystemImplE, i64 16), ptr %this, align 8
   %m_imagecache = getelementptr inbounds i8, ptr %this, i64 8
@@ -1574,7 +1574,7 @@ _ZNSt10unique_ptrIN18OpenImageIO_v2_6_08Filter1DESt14default_deleteIS1_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl4initEv(ptr noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl4initEv(ptr noundef nonnull align 8 dereferenceable(184) initializes((20, 84), (148, 150), (152, 160), (176, 180)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp3 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -8202,7 +8202,7 @@ if.end184:                                        ; preds = %if.then182, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl20texture_lookup_nomipERNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiffffffPfS8_S8_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, float noundef %s, float noundef %t, float %0, float %1, float %2, float %3, ptr noundef %result, ptr noundef %dresultds, ptr noundef %dresultdt) #17 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl20texture_lookup_nomipERNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiffffffPfS8_S8_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, float noundef %s, float noundef %t, float %0, float %1, float %2, float %3, ptr noundef initializes((0, 16)) %result, ptr noundef %dresultds, ptr noundef %dresultdt) #17 align 2 {
 entry:
   %sval = alloca [4 x float], align 16
   %tval = alloca [4 x float], align 16
@@ -8287,7 +8287,7 @@ sw.epilog:                                        ; preds = %memptr.end, %switch
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl31texture_lookup_trilinear_mipmapERNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiffffffPfS8_S8_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, float noundef %s, float noundef %t, float noundef %dsdx, float noundef %dtdx, float noundef %dsdy, float noundef %dtdy, ptr nocapture noundef writeonly %result, ptr noundef writeonly %dresultds, ptr nocapture noundef writeonly %dresultdt) #17 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl31texture_lookup_trilinear_mipmapERNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiffffffPfS8_S8_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, float noundef %s, float noundef %t, float noundef %dsdx, float noundef %dtdx, float noundef %dsdy, float noundef %dtdy, ptr nocapture noundef writeonly initializes((0, 16)) %result, ptr noundef writeonly %dresultds, ptr nocapture noundef writeonly %dresultdt) #17 align 2 {
 entry:
   %miplevel = alloca [2 x i32], align 8
   %levelweight = alloca [2 x float], align 8

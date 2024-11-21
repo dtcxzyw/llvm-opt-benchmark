@@ -2013,7 +2013,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %2, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriter16WriteTypeAbbrevsEv(ptr nocapture noundef nonnull align 8 dereferenceable(3340) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriter16WriteTypeAbbrevsEv(ptr nocapture noundef nonnull align 8 dereferenceable(3340) initializes((3224, 3228)) %0) local_unnamed_addr #0 align 2 {
 _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit:
   %1 = alloca %"class.std::shared_ptr", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #32, !noalias !9
@@ -3118,7 +3118,7 @@ _ZNK4llvm15BitstreamWriter12GetWordIndexEv.exit:  ; preds = %_ZN4llvm15Bitstream
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang9ASTWriter15createSignatureEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.179") align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3340) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang9ASTWriter15createSignatureEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.179") align 1 initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3340) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SHA1", align 4
   %.sroa.016 = alloca [20 x i8], align 8
   %4 = alloca %"struct.std::array", align 8
@@ -3377,7 +3377,7 @@ _ZL20BackpatchSignatureAtRN4llvm15BitstreamWriterERKN5clang16ASTFileSignatureEm.
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriter25writeUnhashedControlBlockERNS_12PreprocessorERNS_10ASTContextE(ptr nocapture noundef nonnull align 8 dereferenceable(3340) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3288) %1, ptr noundef nonnull align 8 dereferenceable(23096) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriter25writeUnhashedControlBlockERNS_12PreprocessorERNS_10ASTContextE(ptr nocapture noundef nonnull align 8 dereferenceable(3340) initializes((72, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3288) %1, ptr noundef nonnull align 8 dereferenceable(23096) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.llvm::SmallVector.96", align 8
   %6 = alloca %"class.llvm::SmallString", align 8
@@ -60805,7 +60805,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang8SelectorEjELb1EE9push_backES4_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriterC2ERN4llvm15BitstreamWriterERNS1_15SmallVectorImplIcEERNS_19InMemoryModuleCacheENS1_8ArrayRefISt10shared_ptrINS_19ModuleFileExtensionEEEEbbb(ptr noundef nonnull align 8 dereferenceable(3340) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr readonly %4, i64 %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriterC2ERN4llvm15BitstreamWriterERNS1_15SmallVectorImplIcEERNS_19InMemoryModuleCacheENS1_8ArrayRefISt10shared_ptrINS_19ModuleFileExtensionEEEEbbb(ptr noundef nonnull align 8 dereferenceable(3340) initializes((0, 128)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr readonly %4, i64 %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 align 2 {
   %10 = alloca %"class.std::unique_ptr.2629", align 8
   %11 = zext i1 %6 to i8
   %12 = zext i1 %7 to i8
@@ -61044,7 +61044,7 @@ _ZNSt10unique_ptrIN5clang25ModuleFileExtensionWriterESt14default_deleteIS1_EED2E
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(3340) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(3340) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 304) (i8, ptr @_ZTVN5clang9ASTWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTVN5clang9ASTWriterE, i64 336), ptr %2, align 8
@@ -61721,7 +61721,7 @@ define dso_local void @_ZThn8_N5clang9ASTWriterD0Ev(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriter8WriteASTERNS_4SemaEN4llvm9StringRefEPNS_6ModuleES4_b(ptr dead_on_unwind noalias nocapture writable sret(%"struct.clang::ASTFileSignature") align 1 %0, ptr noundef nonnull align 8 dereferenceable(3340) %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr %3, i64 %4, ptr noundef %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriter8WriteASTERNS_4SemaEN4llvm9StringRefEPNS_6ModuleES4_b(ptr dead_on_unwind noalias nocapture writable sret(%"struct.clang::ASTFileSignature") align 1 %0, ptr noundef nonnull align 8 dereferenceable(3340) initializes((162, 163), (164, 165)) %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr %3, i64 %4, ptr noundef %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -68981,7 +68981,7 @@ declare void @_ZN5clang8SemaObjC23updateOutOfDateSelectorENS_8SelectorE(ptr noun
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriter17WriteDeclAndTypesERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(3340) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriter17WriteDeclAndTypesERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(3340) initializes((768, 776), (3224, 3228)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.96", align 8
   %4 = alloca %"class.llvm::SmallVector.96", align 8
   %5 = alloca %"class.llvm::SmallVector.1795", align 8
@@ -75690,7 +75690,7 @@ declare noundef ptr @_ZNK5clang7VarDecl16getEvaluatedStmtEv(ptr noundef nonnull 
 declare noundef ptr @_ZNK5clang7VarDecl17getEvaluatedValueEv(ptr noundef nonnull align 8 dereferenceable(100)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriter17ReaderInitializedEPNS_9ASTReaderE(ptr nocapture noundef nonnull align 8 dereferenceable(3340) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriter17ReaderInitializedEPNS_9ASTReaderE(ptr nocapture noundef nonnull align 8 dereferenceable(3340) initializes((56, 64), (920, 928), (1072, 1088)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4128

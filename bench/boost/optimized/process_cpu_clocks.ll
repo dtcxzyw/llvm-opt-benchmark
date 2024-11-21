@@ -1277,7 +1277,7 @@ _ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit19: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost6chrono17process_cpu_clock3nowEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::chrono::time_point.5") align 8 %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6chrono17process_cpu_clock3nowEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::chrono::time_point.5") align 8 initializes((0, 24)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.tms, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
   %3 = call i64 @times(ptr noundef nonnull %2) #23

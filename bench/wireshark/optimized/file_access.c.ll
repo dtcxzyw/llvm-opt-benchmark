@@ -707,7 +707,7 @@ define i32 @open_info_name_to_type(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @wtap_open_offline(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef ptr @wtap_open_offline(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
 sub_0:
   %5 = alloca %struct.stat, align 8
   %6 = alloca ptr, align 8
@@ -3029,7 +3029,7 @@ define range(i32 0, 2) i32 @wtap_dump_can_compress(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @wtap_dump_open(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noundef ptr @wtap_dump_open(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef initializes((0, 8)) %5) local_unnamed_addr #0 {
   store i32 0, ptr %4, align 4
   store ptr null, ptr %5, align 8
   %7 = tail call fastcc ptr @wtap_dump_init_dumper(i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4)
@@ -3149,7 +3149,7 @@ wtap_dump_file_close.exit:                        ; preds = %57, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @wtap_dump_init_dumper(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @wtap_dump_init_dumper(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -3361,7 +3361,7 @@ thread-pre-split.thread:                          ; preds = %31, %27, %thread-pr
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @wtap_dump_open_tempfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define noundef ptr @wtap_dump_open_tempfile(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef initializes((0, 4)) %6, ptr noundef initializes((0, 8)) %7) local_unnamed_addr #0 {
   %9 = alloca [16 x i8], align 16
   store ptr null, ptr %1, align 8
   store i32 0, ptr %6, align 4
@@ -3523,7 +3523,7 @@ declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare i32 @create_tempfile(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @wtap_dump_fdopen(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noundef ptr @wtap_dump_fdopen(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef initializes((0, 8)) %5) local_unnamed_addr #0 {
   store i32 0, ptr %4, align 4
   store ptr null, ptr %5, align 8
   %7 = tail call fastcc ptr @wtap_dump_init_dumper(i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4)
@@ -3639,7 +3639,7 @@ wtap_dump_open_finish.exit:                       ; preds = %40, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @wtap_dump_open_stdout(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef ptr @wtap_dump_open_stdout(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @dup(i32 noundef 1) #22
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %8, label %11
@@ -3665,7 +3665,7 @@ define noundef ptr @wtap_dump_open_stdout(i32 noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wtap_dump_add_idb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @wtap_dump_add_idb(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -3690,7 +3690,7 @@ define i32 @wtap_dump_add_idb(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wtap_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @wtap_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef initializes((0, 8)) %4) local_unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   store ptr null, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3745,7 +3745,7 @@ declare i32 @gzwfile_geterr(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wtap_dump_close(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_dump_close(ptr noundef %0, ptr noundef writeonly %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3833,7 +3833,7 @@ define i64 @wtap_get_bytes_dumped(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @wtap_set_bytes_dumped(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #15 {
+define void @wtap_set_bytes_dumped(ptr nocapture noundef writeonly initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8
   ret void

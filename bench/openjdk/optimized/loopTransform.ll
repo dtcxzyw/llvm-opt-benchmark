@@ -9417,7 +9417,7 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop40assertion_predicate_has_l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop23count_opaque_loop_nodesEP4NodeRjS2_(ptr noundef %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop23count_opaque_loop_nodesEP4NodeRjS2_(ptr noundef %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Unique_Node_List, align 8
   store i32 0, ptr %1, align 4
   store i32 0, ptr %2, align 4
@@ -22335,7 +22335,7 @@ _ZN13IdealLoopTree10is_countedEv.exit.thread:     ; preds = %357, %345, %66, %2,
 declare void @_ZN16LoopTreeIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop15match_fill_loopEP13IdealLoopTreeRP4NodeS4_S4_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop15match_fill_loopEP13IdealLoopTreeRP4NodeS4_S4_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca [4 x ptr], align 16
   %9 = alloca %class.VectorSet, align 8

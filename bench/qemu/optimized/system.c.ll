@@ -1581,7 +1581,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @gdb_monitor_open(ptr nocapture readnone %chr, ptr nocapture readnone %backend, ptr nocapture noundef writeonly %be_opened, ptr nocapture readnone %errp) #12 {
+define internal void @gdb_monitor_open(ptr nocapture readnone %chr, ptr nocapture readnone %backend, ptr nocapture noundef writeonly initializes((0, 1)) %be_opened, ptr nocapture readnone %errp) #12 {
 entry:
   store i8 0, ptr %be_opened, align 1
   ret void

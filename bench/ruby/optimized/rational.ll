@@ -9479,7 +9479,7 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #13
 declare i64 @rb_dbl2big(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @read_num(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_num(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   store i64 1, ptr %3, align 8

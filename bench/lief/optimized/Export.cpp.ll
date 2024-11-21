@@ -40,7 +40,7 @@ $_ZNSt6vectorIN4LIEF2PE11ExportEntryESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx1
 @_ZN4LIEF2PE6ExportC1ERKNS0_7details25pe_export_directory_tableE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4LIEF2PE6ExportC2ERKNS0_7details25pe_export_directory_tableE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF2PE6ExportD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF2PE6ExportD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE6ExportE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11

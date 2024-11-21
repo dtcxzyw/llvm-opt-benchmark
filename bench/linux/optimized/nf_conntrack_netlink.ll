@@ -1055,7 +1055,7 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filter(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 15) %2, i8 noundef zeroext %3, ptr noundef %4, i32 noundef range(i32 1, 0) %5) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filter(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 40)) %1, i32 noundef range(i32 1, 15) %2, i8 noundef zeroext %3, ptr noundef %4, i32 noundef range(i32 1, 0) %5) unnamed_addr #3 align 16 {
   %7 = alloca [10 x ptr], align 16
   %8 = alloca %struct.in6_addr, align 8
   %9 = alloca %struct.in6_addr, align 8

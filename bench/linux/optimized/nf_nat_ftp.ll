@@ -81,7 +81,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local void @nf_nat_helper_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @nf_nat_ftp(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #4 align 16 {
+define internal noundef range(i32 0, 2) i32 @nf_nat_ftp(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef initializes((104, 112), (184, 186), (188, 192)) %6) #4 align 16 {
   %8 = alloca %union.nf_inet_addr, align 4
   %9 = alloca [59 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10

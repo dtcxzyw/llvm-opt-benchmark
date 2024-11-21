@@ -765,7 +765,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN5clang13MangleContext6anchorEv(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126MicrosoftMangleContextImplD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126MicrosoftMangleContextImplD2Ev(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 288) (i8, ptr @_ZTVN12_GLOBAL__N_126MicrosoftMangleContextImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #21
@@ -847,7 +847,7 @@ _ZN4llvm11SmallStringILj16EED2Ev.exit:            ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126MicrosoftMangleContextImplD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126MicrosoftMangleContextImplD0Ev(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_126MicrosoftMangleContextImplD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 288) #22
   ret void
@@ -6265,7 +6265,7 @@ _ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj10EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameManglerC2ERNS_26MicrosoftMangleContextImplERN4llvm11raw_ostreamEPKN5clang17CXXDestructorDeclENS6_11CXXDtorTypeE(ptr noundef nonnull align 8 dereferenceable(593) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameManglerC2ERNS_26MicrosoftMangleContextImplERN4llvm11raw_ostreamEPKN5clang17CXXDestructorDeclENS6_11CXXDtorTypeE(ptr noundef nonnull align 8 dereferenceable(593) initializes((0, 28)) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -6344,7 +6344,7 @@ _ZN12_GLOBAL__N_111getStructorEPKN5clang9NamedDeclE.exit: ; preds = %11, %.sink.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120msvc_hashing_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120msvc_hashing_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::MD5", align 4
   %3 = alloca %"struct.llvm::MD5::MD5Result", align 1
   %4 = alloca %"class.llvm::SmallString.734", align 8
@@ -6502,7 +6502,7 @@ _ZN4llvm11SmallStringILj64EED2Ev.exit:            ; preds = %_ZN4llvm11raw_ostre
 declare void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120msvc_hashing_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120msvc_hashing_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_120msvc_hashing_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #22
   ret void
@@ -21752,7 +21752,7 @@ _ZN4llvm11SmallStringILj64EED2Ev.exit:            ; preds = %_ZN12_GLOBAL__N_123
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang12DecltypeTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang12DecltypeTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -21818,7 +21818,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang8AutoTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang8AutoTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -21884,7 +21884,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang33DeducedTemplateSpecializationTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang33DeducedTemplateSpecializationTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -21950,7 +21950,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang25DependentAddressSpaceTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang25DependentAddressSpaceTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -22016,7 +22016,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang19DependentBitIntTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang19DependentBitIntTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -22082,7 +22082,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang17DependentNameTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang17DependentNameTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -22148,7 +22148,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang27DependentSizedExtVectorTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang27DependentSizedExtVectorTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -22214,7 +22214,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang35DependentTemplateSpecializationTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang35DependentTemplateSpecializationTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -22280,7 +22280,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang19DependentVectorTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang19DependentVectorTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -22443,7 +22443,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %34, %20, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang18ConstantMatrixTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang18ConstantMatrixTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -22509,7 +22509,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang24DependentSizedMatrixTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang24DependentSizedMatrixTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -23765,7 +23765,7 @@ _ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleNameEN5clang10GlobalDeclE.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang17PackExpansionTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang17PackExpansionTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -24501,7 +24501,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang29SubstTemplateTypeParmPackTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang29SubstTemplateTypeParmPackTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -24645,7 +24645,7 @@ _ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleNameEN5clang10GlobalDeclE.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang26TemplateSpecializationTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang26TemplateSpecializationTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -24711,7 +24711,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang20TemplateTypeParmTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang20TemplateTypeParmTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -24777,7 +24777,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang14TypeOfExprTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang14TypeOfExprTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -24843,7 +24843,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang10TypeOfTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang10TypeOfTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -24909,7 +24909,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang18UnaryTransformTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang18UnaryTransformTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -24975,7 +24975,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %22, %28, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang19UnresolvedUsingTypeENS1_10QualifiersENS1_11SourceRangeE(ptr %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler10mangleTypeEPKN5clang19UnresolvedUsingTypeENS1_10QualifiersENS1_11SourceRangeE(ptr initializes((368, 376)) %.0.val.16.val, i64 %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %.sroa.01.0.extract.trunc = trunc i64 %0 to i32
@@ -25644,7 +25644,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE28reserveForParamAndGetAddressE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler5ErrorEN5clang14SourceLocationEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val.16.val, i32 %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler5ErrorEN5clang14SourceLocationEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr initializes((368, 376)) %.0.val.16.val, i32 %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %.0.val.16.val, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -28184,7 +28184,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i32 @_ZNK5clang17FunctionProtoType8canThrowEv(ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler5ErrorEN5clang14SourceLocationEN4llvm9StringRefES4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val.16.val, i32 %1, ptr %2, i64 %3, ptr %.0.val1, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler5ErrorEN5clang14SourceLocationEN4llvm9StringRefES4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr initializes((368, 376)) %.0.val.16.val, i32 %1, ptr %2, i64 %3, ptr %.0.val1, i64 %.8.val) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %.0.val.16.val, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -30150,7 +30150,7 @@ declare noundef zeroext i1 @_ZNK5clang7APValue21isLValueOnePastTheEndEv(ptr noun
 declare noundef zeroext i1 @_ZNK5clang7APValue10LValueBase6isNullEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler5ErrorEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val.16.val, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler5ErrorEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr initializes((368, 376)) %.0.val.16.val, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = getelementptr inbounds nuw i8, ptr %.0.val.16.val, i64 32
   %6 = load ptr, ptr %5, align 8

@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bitmap_writer_build_type_index(ptr nocapture noundef %to_pack, ptr nocapture noundef readonly %index, i32 noundef %index_nr) local_unnamed_addr #1 {
+define dso_local void @bitmap_writer_build_type_index(ptr nocapture noundef initializes((40, 48)) %to_pack, ptr nocapture noundef readonly %index, i32 noundef %index_nr) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ewah_new() #18
   store ptr %call, ptr @writer, align 8
@@ -1169,7 +1169,7 @@ declare ptr @prepare_bitmap_git(ptr noundef) local_unnamed_addr #2
 declare ptr @create_bitmap_mapping(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bitmap_builder_init(ptr nocapture noundef nonnull %bb, ptr noundef %old_bitmap) unnamed_addr #1 {
+define internal fastcc void @bitmap_builder_init(ptr nocapture noundef nonnull initializes((0, 48)) %bb, ptr noundef %old_bitmap) unnamed_addr #1 {
 entry:
   %revs = alloca %struct.rev_info, align 8
   %reusable = alloca ptr, align 8

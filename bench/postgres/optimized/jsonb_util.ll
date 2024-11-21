@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.convertJsonbObject = private unnamed_addr constant [19 x i8] c"convertJsonbObject\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @JsonbToJsonbValue(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @JsonbToJsonbValue(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 12), (16, 24)) %1) local_unnamed_addr #0 {
   store i32 18, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1354,7 +1354,7 @@ define dso_local ptr @findJsonbValueFromContainer(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @fillJsonbValue(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #6 {
+define internal fastcc void @fillJsonbValue(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) unnamed_addr #6 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = sext i32 %1 to i64
   %8 = getelementptr [0 x i32], ptr %6, i64 0, i64 %7

@@ -120,7 +120,7 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = alloca [2 x ptr], align 8
   %3 = alloca [2 x ptr], align 8
   %4 = tail call noalias dereferenceable_or_null(184) ptr @calloc(i64 noundef 1, i64 noundef 184) #13
@@ -711,7 +711,7 @@ declare void @gtk_spin_button_set_digits(ptr noundef, i32 noundef) local_unnamed
 declare i64 @gtk_spin_button_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @_overlay_id_changed(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
+define internal void @_overlay_id_changed(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
   %3 = tail call i64 @gtk_spin_button_get_type() #14
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #12
   %5 = tail call reassoc nsz arcp contract afn double @gtk_spin_button_get_value(ptr noundef %4) #12

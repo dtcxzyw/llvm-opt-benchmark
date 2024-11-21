@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_sha3_reset(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
+define void @ossl_sha3_reset(ptr nocapture noundef writeonly initializes((0, 200), (384, 392), (424, 428)) %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %ctx, i8 0, i64 200, i1 false)
   %bufsz = getelementptr inbounds i8, ptr %ctx, i64 384

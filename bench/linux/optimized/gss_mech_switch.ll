@@ -795,7 +795,7 @@ define dso_local ptr @gss_service_to_auth_domain_name(ptr nocapture noundef read
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @gss_import_sec_context(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local i32 @gss_import_sec_context(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = and i32 %5, 17
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %13, label %9, !prof !21

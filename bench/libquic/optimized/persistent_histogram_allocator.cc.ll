@@ -126,7 +126,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4base24GlobalHistogramAllocatorC1ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4base24GlobalHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base36PersistentSparseHistogramDataManagerC2EPNS_25PersistentMemoryAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base36PersistentSparseHistogramDataManagerC2EPNS_25PersistentMemoryAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %allocator, ptr %this, align 8
   %record_iterator_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -373,7 +373,7 @@ return:                                           ; preds = %_ZNSt3mapImSt10uniq
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN4base26PersistentSampleMapRecords7AcquireEPKv(ptr noundef nonnull returned writeonly align 8 dereferenceable(80) %this, ptr noundef %user) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZN4base26PersistentSampleMapRecords7AcquireEPKv(ptr noundef nonnull returned writeonly align 8 dereferenceable(80) initializes((16, 32)) %this, ptr noundef %user) local_unnamed_addr #3 align 2 {
 entry:
   %user_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %user, ptr %user_, align 8
@@ -690,7 +690,7 @@ _ZN4base8AutoLockD2Ev.exit72:                     ; preds = %for.end
 declare noundef i32 @_ZN4base19PersistentSampleMap23GetNextPersistentRecordERNS_25PersistentMemoryAllocator8IteratorEPm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base26PersistentSampleMapRecordsC2EPNS_36PersistentSparseHistogramDataManagerEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, ptr noundef %data_manager, i64 noundef %sample_map_id) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4base26PersistentSampleMapRecordsC2EPNS_36PersistentSparseHistogramDataManagerEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %this, ptr noundef %data_manager, i64 noundef %sample_map_id) unnamed_addr #3 align 2 {
 entry:
   store ptr %data_manager, ptr %this, align 8
   %sample_map_id_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -727,7 +727,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base26PersistentSampleMapRecords7ReleaseEPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, ptr nocapture noundef readnone %user) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base26PersistentSampleMapRecords7ReleaseEPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((16, 24)) %this, ptr nocapture noundef readnone %user) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %user_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %user_, align 8
@@ -791,7 +791,7 @@ entry:
 declare noundef i32 @_ZN4base19PersistentSampleMap22CreatePersistentRecordEPNS_25PersistentMemoryAllocatorEmi(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocator8IteratorC2EPS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %allocator) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base28PersistentHistogramAllocator8IteratorC2EPS0_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef %allocator) unnamed_addr #0 align 2 {
 entry:
   store ptr %allocator, ptr %this, align 8
   %memory_iter_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -891,7 +891,7 @@ return:                                           ; preds = %if.end, %_ZN4base28
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr nocapture noundef %memory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base28PersistentHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 24)) %this, ptr nocapture noundef %memory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %this, align 8
   %memory_allocator_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -956,7 +956,7 @@ _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base28PersistentHistogramAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %this, align 8
   %lock_.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -993,7 +993,7 @@ _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base28PersistentHistogramAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base28PersistentHistogramAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 16), ptr %this, align 8
   %lock_.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -2220,7 +2220,7 @@ declare noundef ptr @_ZN4base18StatisticsRecorder25RegisterOrDeleteDuplicateEPNS
 declare void @_ZN4base6PickleD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base24GlobalHistogramAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 16), ptr %this, align 8
   %persistent_location_ = getelementptr inbounds i8, ptr %this, i64 160
@@ -2263,7 +2263,7 @@ _ZN4base28PersistentHistogramAllocatorD2Ev.exit:  ; preds = %_ZN4base36Persisten
 declare void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base24GlobalHistogramAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 16), ptr %this, align 8
   %persistent_location_.i = getelementptr inbounds i8, ptr %this, i64 160
@@ -2632,7 +2632,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base24GlobalHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef %memory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base24GlobalHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, ptr nocapture noundef %memory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %memory, align 8
   store ptr null, ptr %memory, align 8

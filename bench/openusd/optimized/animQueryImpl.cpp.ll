@@ -127,7 +127,7 @@ $_ZZNK32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImpl28_Compu
 @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplC1ERKNS_16UsdSkelAnimationE = unnamed_addr alias void (ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplC2ERKNS_16UsdSkelAnimationE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplC2ERKNS_16UsdSkelAnimationE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdSkel_SkelAnimationQueryImplC2ERKNS_16UsdSkelAnimationE(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8

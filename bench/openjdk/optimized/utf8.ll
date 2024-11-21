@@ -31,7 +31,7 @@ $_ZN7UNICODE15as_quoted_asciiItEEvPKT_iPci = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull ptr @_ZN4UTF814next_characterEPKcPi(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN4UTF814next_characterEPKcPi(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, -19
   br i1 %4, label %5, label %43
@@ -308,7 +308,7 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextItEEPcPKcPT_(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKciRbS2_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKciRbS2_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #3 align 2 {
   store i8 0, ptr %3, align 1
   store i8 1, ptr %2, align 1
   %5 = icmp sgt i32 %1, 0
@@ -352,7 +352,7 @@ define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKciRbS2_(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKcRbS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKcRbS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2) local_unnamed_addr #3 align 2 {
   store i8 0, ptr %2, align 1
   store i8 1, ptr %1, align 1
   %4 = load i8, ptr %0, align 1

@@ -88,7 +88,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @test_rng_uninstantiate(ptr nocapture noundef writeonly %vtest) #1 {
+define internal noundef i32 @test_rng_uninstantiate(ptr nocapture noundef writeonly initializes((12, 16), (56, 64)) %vtest) #1 {
 entry:
   %entropy_pos = getelementptr inbounds i8, ptr %vtest, i64 56
   store i64 0, ptr %entropy_pos, align 8
@@ -474,7 +474,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @test_rng_get_seed(ptr nocapture noundef readonly %vtest, ptr nocapture noundef writeonly %pout, i32 %entropy, i64 %min_len, i64 noundef %max_len, i32 %prediction_resistance, ptr nocapture readnone %adin, i64 %adin_len) #4 {
+define internal i64 @test_rng_get_seed(ptr nocapture noundef readonly %vtest, ptr nocapture noundef writeonly initializes((0, 8)) %pout, i32 %entropy, i64 %min_len, i64 noundef %max_len, i32 %prediction_resistance, ptr nocapture readnone %adin, i64 %adin_len) #4 {
 entry:
   %entropy1 = getelementptr inbounds i8, ptr %vtest, i64 32
   %0 = load ptr, ptr %entropy1, align 8

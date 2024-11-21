@@ -582,7 +582,7 @@ declare noundef ptr @_ZNK6icu_7518TimeZoneTransition5getToEv(ptr noundef nonnull
 declare void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7513BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZoneRuleERPNS_18AnnualTimeZoneRuleES6_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, double noundef %date, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %initial, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %std, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7513BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZoneRuleERPNS_18AnnualTimeZoneRuleES6_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this, double noundef %date, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %initial, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %std, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %dst, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %initialRaw = alloca i32, align 4
   %initialDst = alloca i32, align 4

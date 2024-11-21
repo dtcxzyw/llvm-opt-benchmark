@@ -242,7 +242,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @kbkdf_reset(ptr nocapture noundef %vctx) #0 {
+define internal void @kbkdf_reset(ptr nocapture noundef initializes((8, 16), (24, 32), (96, 112)) %vctx) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %ctx_init = getelementptr inbounds i8, ptr %vctx, i64 16

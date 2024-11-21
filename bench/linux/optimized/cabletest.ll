@@ -203,7 +203,7 @@ declare dso_local void @rtnl_unlock() local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ethnl_cable_test_alloc(ptr nocapture noundef %0, i8 noundef zeroext %1) #0 align 16 {
+define dso_local i32 @ethnl_cable_test_alloc(ptr nocapture noundef initializes((1200, 1208)) %0, i8 noundef zeroext %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = tail call ptr @__alloc_skb(i32 noundef 16404, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #5
   %5 = getelementptr inbounds i8, ptr %0, i64 1200

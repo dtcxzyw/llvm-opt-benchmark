@@ -1195,7 +1195,7 @@ if.end16:                                         ; preds = %if.then13, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @log_write_email_headers(ptr nocapture noundef %opt, ptr noundef %commit, ptr nocapture noundef writeonly %extra_headers_p, ptr nocapture noundef writeonly %need_8bit_cte_p, i32 noundef %maybe_multipart) local_unnamed_addr #0 {
+define dso_local void @log_write_email_headers(ptr nocapture noundef %opt, ptr noundef %commit, ptr nocapture noundef writeonly %extra_headers_p, ptr nocapture noundef writeonly initializes((0, 4)) %need_8bit_cte_p, i32 noundef %maybe_multipart) local_unnamed_addr #0 {
 entry:
   %ctx.i = alloca %struct.pretty_print_context, align 8
   %subject.i = alloca %struct.strbuf, align 8
@@ -2270,7 +2270,7 @@ declare void @diff_flush(ptr noundef) local_unnamed_addr #1
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @log_tree_commit(ptr noundef %opt, ptr noundef %commit) local_unnamed_addr #0 {
+define dso_local i32 @log_tree_commit(ptr noundef initializes((336, 344)) %opt, ptr noundef %commit) local_unnamed_addr #0 {
 entry:
   %iter.i.i.i = alloca %struct.hashmap_iter, align 8
   %o.i.i = alloca %struct.merge_options, align 8

@@ -33,7 +33,7 @@ $_ZN7logging17MakeCheckOpStringIjjEEPNSt7__cxx1112basic_stringIcSt11char_traitsI
 @_ZN3net16HpackInputStreamD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net16HpackInputStreamD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net16HpackInputStreamC2EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %this, ptr %buffer.coerce0, i64 %buffer.coerce1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net16HpackInputStreamC2EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 33)) %this, ptr %buffer.coerce0, i64 %buffer.coerce1) unnamed_addr #0 align 2 {
 entry:
   store ptr %buffer.coerce0, ptr %this, align 8
   %buffer.sroa.2.0.buffer_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
@@ -297,7 +297,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13remove_prefixEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net16HpackInputStream16DecodeNextUint32EPj(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr nocapture noundef %I) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net16HpackInputStream16DecodeNextUint32EPj(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr nocapture noundef initializes((0, 4)) %I) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %bit_offset_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %bit_offset_, align 8
@@ -600,7 +600,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net16HpackInputStream19MarkCurrentPositionEv(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN3net16HpackInputStream19MarkCurrentPositionEv(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((24, 28)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %parsed_bytes_current_ = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %parsed_bytes_current_, align 4

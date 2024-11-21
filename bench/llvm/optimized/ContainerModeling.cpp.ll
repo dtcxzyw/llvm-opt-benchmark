@@ -6146,7 +6146,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit32: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117ContainerModelingD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117ContainerModelingD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_117ContainerModelingE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
@@ -6348,7 +6348,7 @@ _ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_117ContainerModelingEKFvRNS0_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117ContainerModelingD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117ContainerModelingD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_117ContainerModelingD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #19
   ret void
@@ -19747,7 +19747,7 @@ declare noundef i32 @_ZNK5clang4ento12BlockCounter13getNumVisitedEPKNS_17StackFr
 declare noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_133rebaseSymbolInIteratorPositionsIfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS3_11SValBuilderEPKNS3_7SymExprESB_SB_NS2_18BinaryOperatorKindEENK3$_1clERKNS3_8iterator16IteratorPositionE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_133rebaseSymbolInIteratorPositionsIfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS3_11SValBuilderEPKNS3_7SymExprESB_SB_NS2_18BinaryOperatorKindEENK3$_1clERKNS3_8iterator16IteratorPositionE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 9), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr.544", align 8
   %5 = alloca %"class.clang::ento::NonLoc", align 8
   %6 = alloca %"class.clang::ento::SVal", align 8

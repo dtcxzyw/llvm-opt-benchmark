@@ -222,7 +222,7 @@ declare ptr @xmlDocGetRootElement(ptr noundef) local_unnamed_addr #1
 declare ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_nodelist_length_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_nodelist_length_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @php_dom_get_nodelist_length(ptr noundef %0)
   %4 = sext i32 %3 to i64
   store i64 %4, ptr %1, align 8

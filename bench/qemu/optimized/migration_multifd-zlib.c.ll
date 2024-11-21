@@ -252,7 +252,7 @@ return:                                           ; preds = %for.end, %if.then23
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @zlib_recv_setup(ptr nocapture noundef %p, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @zlib_recv_setup(ptr nocapture noundef initializes((296, 304)) %p, ptr noundef %errp) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #7
   %data = getelementptr inbounds i8, ptr %p, i64 296

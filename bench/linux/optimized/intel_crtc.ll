@@ -495,7 +495,7 @@ define dso_local noundef ptr @intel_crtc_state_alloc(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_crtc_state_reset(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_crtc_state_reset(ptr noundef initializes((0, 5032)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(5032) %0, i8 0, i64 5032, i1 false)
   tail call void @__drm_atomic_helper_crtc_state_reset(ptr noundef %0, ptr noundef %1) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 864

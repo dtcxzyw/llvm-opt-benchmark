@@ -408,7 +408,7 @@ define dso_local ptr @win64_create_params(ptr noundef readonly %0, ptr nocapture
 declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @c_abi_func_create_win64(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @c_abi_func_create_win64(ptr nocapture noundef initializes((56, 64)) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.Regs, align 8

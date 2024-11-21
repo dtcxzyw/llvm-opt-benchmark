@@ -521,7 +521,7 @@ pmix_obj_run_destructors.exit116:                 ; preds = %.lr.ph.i113, %._cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ftcon(ptr nocapture noundef writeonly %0) #2 {
+define internal void @ftcon(ptr nocapture noundef writeonly initializes((144, 176)) %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void

@@ -606,28 +606,28 @@ define i32 @Mio_GateReadProfile2(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Mio_GateSetValue(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @Mio_GateSetValue(ptr nocapture noundef writeonly initializes((112, 116)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Mio_GateSetCell(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @Mio_GateSetCell(ptr nocapture noundef writeonly initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Mio_GateSetProfile(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @Mio_GateSetProfile(ptr nocapture noundef writeonly initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Mio_GateSetProfile2(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @Mio_GateSetProfile2(ptr nocapture noundef writeonly initializes((76, 80)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 %1, ptr %3, align 4
   ret void

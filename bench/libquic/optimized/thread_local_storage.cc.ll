@@ -91,7 +91,7 @@ _ZN12_GLOBAL__N_120OnThreadExitInternalEPv.exit:  ; preds = %while.cond.i, %for.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base18ThreadLocalStorage10StaticSlot10InitializeEPFvPvE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef %destructor) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base18ThreadLocalStorage10StaticSlot10InitializeEPFvPvE(ptr noundef nonnull align 4 dereferenceable(8) initializes((4, 8)) %this, ptr noundef %destructor) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v1.addr.i = alloca i32, align 4
   %v2.addr.i = alloca i32, align 4
@@ -292,7 +292,7 @@ if.end18:                                         ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base18ThreadLocalStorage4SlotC2EPFvPvE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef %destructor) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base18ThreadLocalStorage4SlotC2EPFvPvE(ptr noundef nonnull align 4 dereferenceable(8) initializes((4, 8)) %this, ptr noundef %destructor) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4base18ThreadLocalStorage10StaticSlot10InitializeEPFvPvE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef %destructor)
   ret void

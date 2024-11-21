@@ -458,7 +458,7 @@ $_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapCon
 @_ZN5clang7CodeGen14CodeGenVTablesC1ERNS0_13CodeGenModuleE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang7CodeGen14CodeGenVTablesC2ERNS0_13CodeGenModuleE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen14CodeGenVTablesC2ERNS0_13CodeGenModuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen14CodeGenVTablesC2ERNS0_13CodeGenModuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 36), (40, 60), (64, 80)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -1891,7 +1891,7 @@ _ZN4llvm8DenseMapINS_18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14V
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction10StartThunkEPN4llvm8FunctionENS_10GlobalDeclERKNS0_14CGFunctionInfoEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i64 %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction10StartThunkEPN4llvm8FunctionENS_10GlobalDeclERKNS0_14CGFunctionInfoEb(ptr noundef nonnull align 8 dereferenceable(6488) initializes((1912, 1924), (2105, 2106)) %0, ptr noundef %1, i64 %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca %"class.clang::CodeGen::FunctionArgList", align 8
   %9 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
@@ -2094,7 +2094,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction13StartFunctionENS_10GlobalDeclE
 declare void @_ZN5clang7CodeGen18ApplyDebugLocationD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction11FinishThunkEv(ptr noundef nonnull align 8 dereferenceable(6488) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction11FinishThunkEv(ptr noundef nonnull align 8 dereferenceable(6488) initializes((1800, 1816)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   tail call void @_ZN5clang7CodeGen15CodeGenFunction14FinishFunctionENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 0) #17
@@ -2897,7 +2897,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_10ReturnInstEEEPT_S4_RKNS_5TwineE.exit: ; pre
 declare void @_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction13generateThunkEPN4llvm8FunctionERKNS0_14CGFunctionInfoENS_10GlobalDeclERKNS_9ThunkInfoEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction13generateThunkEPN4llvm8FunctionERKNS0_14CGFunctionInfoENS_10GlobalDeclERKNS_9ThunkInfoEb(ptr noundef nonnull align 8 dereferenceable(6488) initializes((1912, 1924), (2105, 2106)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   tail call void @_ZN5clang7CodeGen15CodeGenFunction10StartThunkEPN4llvm8FunctionENS_10GlobalDeclERKNS0_14CGFunctionInfoEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, i64 %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i1 noundef zeroext %6)
   call void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEbNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(6488) %0, i1 noundef zeroext false, i32 0) #17

@@ -193,7 +193,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3mcc11CChartModelC2ENS0_9TYPECHARTE(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3mcc11CChartModelC2ENS0_9TYPECHARTE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 112)) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.6", align 8
   %4 = alloca %"class.std::vector.6", align 8
   %5 = alloca %"class.std::vector.6", align 8
@@ -1386,7 +1386,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit5:   ; preds = %_ZNSt6vectorIN2cv6P
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv3mcc11CChartModel8evaluateERKNS1_12_SUBCCMModelERiS5_Rf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv3mcc11CChartModel8evaluateERKNS1_12_SUBCCMModelERiS5_Rf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca float, align 4
   %7 = alloca i32, align 4
   store float 0x7FF0000000000000, ptr %4, align 4
@@ -2692,7 +2692,7 @@ declare void @_ZN2cv9transposeERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr nound
 declare void @_ZN2cv4flipERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3mcc8CChecker6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3mcc8CChecker6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_3mcc12CCheckerImplEED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #27, !noalias !42
   %2 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2719,7 +2719,7 @@ _ZN2cv3PtrINS_3mcc12CCheckerImplEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv3mcc12CCheckerImpl9setTargetENS0_9TYPECHARTE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(244) %0, i32 noundef %1) unnamed_addr #6 align 2 {
+define hidden void @_ZN2cv3mcc12CCheckerImpl9setTargetENS0_9TYPECHARTE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(244) initializes((8, 12)) %0, i32 noundef %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
@@ -2749,14 +2749,14 @@ define hidden void @_ZN2cv3mcc12CCheckerImpl14setChartsYCbCrENS_3MatE(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv3mcc12CCheckerImpl7setCostEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(244) %0, float noundef %1) unnamed_addr #6 align 2 {
+define hidden void @_ZN2cv3mcc12CCheckerImpl7setCostEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(244) initializes((232, 236)) %0, float noundef %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   store float %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv3mcc12CCheckerImpl9setCenterENS_6Point_IfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(244) %0, <2 x float> %1) unnamed_addr #7 align 2 {
+define hidden void @_ZN2cv3mcc12CCheckerImpl9setCenterENS_6Point_IfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(244) initializes((236, 244)) %0, <2 x float> %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 236
   store <2 x float> %1, ptr %3, align 4
   ret void
@@ -2770,7 +2770,7 @@ define hidden noundef i32 @_ZN2cv3mcc12CCheckerImpl9getTargetEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3mcc12CCheckerImpl6getBoxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(244) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3mcc12CCheckerImpl6getBoxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(244) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8

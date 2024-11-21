@@ -810,7 +810,7 @@ define internal void @dma_fence_chain_set_deadline(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dma_fence_chain_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local void @dma_fence_chain_init(ptr noundef initializes((120, 124)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %10, label %6
 
@@ -911,7 +911,7 @@ declare dso_local i32 @dma_fence_signal(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @dma_fence_add_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @dma_fence_chain_cb(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal void @dma_fence_chain_cb(ptr noundef %0, ptr noundef initializes((0, 32)) %1) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr @dma_fence_chain_irq_work, ptr %3, align 8

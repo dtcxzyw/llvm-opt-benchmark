@@ -32,7 +32,7 @@ $_ZNSt6vectorIfSaIfEE17_M_default_appendEm = comdat any
 @_ZN5nblib8LeapFrogC1EN3gmx8ArrayRefIKfEERKNS_3BoxE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN5nblib8LeapFrogC2EN3gmx8ArrayRefIKfEERKNS_3BoxE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib8LeapFrogC2ERKNS_8TopologyERKNS_3BoxE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(1104) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib8LeapFrogC2ERKNS_8TopologyERKNS_3BoxE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 60)) %0, ptr noundef nonnull align 8 dereferenceable(1104) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.5", align 8
   %5 = alloca %"class.std::vector.0", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -330,7 +330,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib8LeapFrogC2EN3gmx8ArrayRefIKfEERKNS_3BoxE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr %1, ptr %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib8LeapFrogC2EN3gmx8ArrayRefIKfEERKNS_3BoxE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 24)) %0, ptr %1, ptr %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = ptrtoint ptr %2 to i64
   %6 = ptrtoint ptr %1 to i64

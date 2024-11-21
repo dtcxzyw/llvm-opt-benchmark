@@ -66,7 +66,7 @@ $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18Sortabl
 @_ZN2cv6detail8tracking14ClfOnlineStumpC1Ei = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN2cv6detail8tracking14ClfOnlineStumpC2Ei
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv6detail8tracking11ClfMilBoost6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv6detail8tracking11ClfMilBoost6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
   store i32 50, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 250, ptr %2, align 4
@@ -76,7 +76,7 @@ define void @_ZN2cv6detail8tracking11ClfMilBoost6ParamsC2Ev(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail8tracking11ClfMilBoostC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail8tracking11ClfMilBoostC2Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 4)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cv::detail::tracking::ClfMilBoost::Params", align 4
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -194,7 +194,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN2cv6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail8tracking11ClfMilBoost4initERKNS2_6ParamsE(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail8tracking11ClfMilBoost4initERKNS2_6ParamsE(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   store i32 0, ptr %0, align 8
@@ -2583,7 +2583,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit32:                  ; preds = %80, %_ZNSt6vectorIf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv6detail8tracking14ClfOnlineStumpC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(52) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv6detail8tracking14ClfOnlineStumpC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(52) initializes((0, 45), (48, 52)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -2603,7 +2603,7 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStumpC2Ev(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump4initEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(52) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump4initEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(52) initializes((0, 16), (40, 45)) %0) local_unnamed_addr #0 align 2 {
   store float 0.000000e+00, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %2, align 4
@@ -2619,7 +2619,7 @@ define hidden void @_ZN2cv6detail8tracking14ClfOnlineStump4initEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv6detail8tracking14ClfOnlineStumpC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(52) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv6detail8tracking14ClfOnlineStumpC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(52) initializes((0, 45), (48, 52)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12

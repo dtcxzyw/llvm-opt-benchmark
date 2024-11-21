@@ -1381,7 +1381,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucnv_getToUCallBack_75(ptr nocapture noundef readonly %converter, ptr nocapture noundef writeonly %action, ptr nocapture noundef writeonly %context) local_unnamed_addr #6 {
+define void @ucnv_getToUCallBack_75(ptr nocapture noundef readonly %converter, ptr nocapture noundef writeonly initializes((0, 8)) %action, ptr nocapture noundef writeonly initializes((0, 8)) %context) local_unnamed_addr #6 {
 entry:
   %fromCharErrorBehaviour = getelementptr inbounds i8, ptr %converter, i64 8
   %0 = load ptr, ptr %fromCharErrorBehaviour, align 8
@@ -1393,7 +1393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucnv_getFromUCallBack_75(ptr nocapture noundef readonly %converter, ptr nocapture noundef writeonly %action, ptr nocapture noundef writeonly %context) local_unnamed_addr #6 {
+define void @ucnv_getFromUCallBack_75(ptr nocapture noundef readonly %converter, ptr nocapture noundef writeonly initializes((0, 8)) %action, ptr nocapture noundef writeonly initializes((0, 8)) %context) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %converter, align 8
   store ptr %0, ptr %action, align 8
@@ -4092,7 +4092,7 @@ _ZL17ucnv_getAmbiguousPK10UConverter.exit:        ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ucnv_setFallback_75(ptr nocapture noundef writeonly %cnv, i8 noundef signext %usesFallback) local_unnamed_addr #12 {
+define void @ucnv_setFallback_75(ptr nocapture noundef writeonly initializes((63, 64)) %cnv, i8 noundef signext %usesFallback) local_unnamed_addr #12 {
 entry:
   %useFallback = getelementptr inbounds i8, ptr %cnv, i64 63
   store i8 %usesFallback, ptr %useFallback, align 1

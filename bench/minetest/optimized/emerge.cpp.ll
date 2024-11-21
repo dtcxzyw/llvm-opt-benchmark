@@ -825,7 +825,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12EmergeParamsC2EP13EmergeManagerPK8BiomeGenPK12BiomeManagerPK10OreManagerPK17DecorationManagerPK16SchematicManager(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %parent, ptr noundef %biomegen, ptr noundef nonnull %biomemgr, ptr noundef %oremgr, ptr noundef %decomgr, ptr noundef %schemmgr) unnamed_addr #1 align 2 {
+define dso_local void @_ZN12EmergeParamsC2EP13EmergeManagerPK8BiomeGenPK12BiomeManagerPK10OreManagerPK17DecorationManagerPK16SchematicManager(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 9), (12, 72)) %this, ptr noundef %parent, ptr noundef %biomegen, ptr noundef nonnull %biomemgr, ptr noundef %oremgr, ptr noundef %decomgr, ptr noundef %schemmgr) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %parent, align 8, !tbaa !45
   store ptr %0, ptr %this, align 8, !tbaa !80
@@ -874,7 +874,7 @@ declare noundef ptr @_ZNK17DecorationManager5cloneEv(ptr noundef nonnull align 8
 declare noundef ptr @_ZNK16SchematicManager5cloneEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #4
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN13EmergeManagerC2EP6ServerP14MetricsBackend(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef %server, ptr noundef %mb) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13EmergeManagerC2EP6ServerP14MetricsBackend(ptr noundef nonnull align 8 dereferenceable(464) initializes((12, 16), (24, 28), (32, 40)) %this, ptr noundef %server, ptr noundef %mb) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i409 = alloca i64, align 8
   %__dnew.i.i379 = alloca i64, align 8

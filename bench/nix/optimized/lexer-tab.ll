@@ -648,7 +648,7 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" comda
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 292) i32 @_Z5yylexP7YYSTYPEPN3nix14ParserLocationEPvPNS1_11ParserStateE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 292) i32 @_Z5yylexP7YYSTYPEPN3nix14ParserLocationEPvPNS1_11ParserStateE(ptr noundef %0, ptr noundef %1, ptr noundef initializes((144, 160)) %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.nix::ErrorInfo", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.4", align 1
@@ -2973,7 +2973,7 @@ _ZL14yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv.exit: ; preds = %45, %.thread.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN3nixL9adjustLocEPNS_14ParserLocationEPKcm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #6 {
+define internal fastcc void @_ZN3nixL9adjustLocEPNS_14ParserLocationEPKcm(ptr nocapture noundef initializes((16, 32)) %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #6 {
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %4, ptr %5, align 4
@@ -5058,7 +5058,7 @@ define noundef ptr @_Z10yyget_textPv(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z11yyset_extraPvS_(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #24 {
+define void @_Z11yyset_extraPvS_(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #24 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -5114,14 +5114,14 @@ define void @_Z12yyset_columniPv(i32 noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z8yyset_inP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #24 {
+define void @_Z8yyset_inP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #24 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z9yyset_outP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #24 {
+define void @_Z9yyset_outP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #24 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -5135,7 +5135,7 @@ define noundef i32 @_Z11yyget_debugPv(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z11yyset_debugiPv(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #24 {
+define void @_Z11yyset_debugiPv(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #24 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -5149,7 +5149,7 @@ define noundef ptr @_Z10yyget_lvalPv(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z10yyset_lvalP7YYSTYPEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #24 {
+define void @_Z10yyset_lvalP7YYSTYPEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((144, 152)) %1) local_unnamed_addr #24 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   ret void
@@ -5163,7 +5163,7 @@ define noundef ptr @_Z10yyget_llocPv(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z10yyset_llocPN3nix14ParserLocationEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #24 {
+define void @_Z10yyset_llocPN3nix14ParserLocationEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((152, 160)) %1) local_unnamed_addr #24 {
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   store ptr %0, ptr %3, align 8
   ret void

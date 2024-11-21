@@ -149,7 +149,7 @@ declare void @_ZN21JfrNetworkUtilization7destroyEv() local_unnamed_addr #3
 declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14JfrOSInterface18JfrOSInterfaceImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN14JfrOSInterface18JfrOSInterfaceImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #4 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -586,7 +586,7 @@ define hidden noundef i32 @_ZN14JfrOSInterface18JfrOSInterfaceImpl19network_util
 declare noundef i32 @_ZNK27NetworkPerformanceInterface19network_utilizationEPP16NetworkInterface(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK14JfrOSInterface18JfrOSInterfaceImpl10os_versionEPPc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZNK14JfrOSInterface18JfrOSInterfaceImpl10os_versionEPPc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.stringStream, align 8
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %3, i64 noundef 0) #14
   call void @_ZN2os19print_os_info_briefEP12outputStream(ptr noundef nonnull %3) #14
@@ -606,13 +606,13 @@ declare noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 
 declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14JfrOSInterfaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN14JfrOSInterfaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14JfrOSInterface10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN14JfrOSInterface10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 32) #14
   %3 = icmp ne ptr %2, null
   br i1 %3, label %4, label %5
@@ -728,7 +728,7 @@ _ZN14JfrOSInterface18JfrOSInterfaceImpl17cpu_loads_processEPdS1_S1_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14JfrOSInterface10os_versionEPPc(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN14JfrOSInterface10os_versionEPPc(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.stringStream, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #14

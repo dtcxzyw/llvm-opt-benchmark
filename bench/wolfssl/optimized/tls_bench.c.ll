@@ -1207,7 +1207,7 @@ declare i32 @wolfSSL_get_ciphers(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @SetupSocketAndListen(ptr nocapture noundef %listenFd, i32 noundef %port) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @SetupSocketAndListen(ptr nocapture noundef initializes((0, 4)) %listenFd, i32 noundef %port) unnamed_addr #0 {
 entry:
   %servAddr = alloca %struct.sockaddr_in, align 4
   %optval = alloca i32, align 4

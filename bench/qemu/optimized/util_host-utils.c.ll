@@ -273,7 +273,7 @@ return:                                           ; preds = %if.end83, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal fastcc { i64, i64 } @udiv256_qrnnd(ptr nocapture noundef nonnull writeonly %r, i64 noundef %n1.coerce0, i64 noundef %n1.coerce1, i64 noundef %n0.coerce0, i64 noundef %n0.coerce1, i128 noundef %d) unnamed_addr #1 {
+define internal fastcc { i64, i64 } @udiv256_qrnnd(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %r, i64 noundef %n1.coerce0, i64 noundef %n1.coerce1, i64 noundef %n0.coerce0, i64 noundef %n0.coerce1, i128 noundef %d) unnamed_addr #1 {
 entry:
   %coerce.sroa.2.0.extract.shift = lshr i128 %d, 64
   %coerce.sroa.2.0.extract.trunc = trunc nuw i128 %coerce.sroa.2.0.extract.shift to i64

@@ -1485,7 +1485,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb4test12_GLOBAL__N_120Uint64ComparatorImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb4test12_GLOBAL__N_120Uint64ComparatorImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2510,7 +2510,7 @@ declare noundef ptr @_ZN7rocksdb24NewCappedPrefixTransformEm(i64 noundef) local_
 declare noundef ptr @_ZN7rocksdb16NewNoopTransformEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb4test28RandomBlockBasedTableOptionsEPNS_6RandomE(ptr noalias sret(%"struct.rocksdb::BlockBasedTableOptions") align 8 %agg.result, ptr nocapture noundef %rnd) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb4test28RandomBlockBasedTableOptionsEPNS_6RandomE(ptr noalias sret(%"struct.rocksdb::BlockBasedTableOptions") align 8 initializes((0, 16), (17, 18), (20, 34), (40, 48), (49, 50), (56, 88), (112, 124), (136, 140), (144, 152)) %agg.result, ptr nocapture noundef %rnd) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 invoke.cont26:
   %index_types = alloca %"struct.std::array", align 4
   %cache_index_and_filter_blocks_with_high_priority.i = getelementptr inbounds i8, ptr %agg.result, i64 17
@@ -3158,7 +3158,7 @@ cleanup.action:                                   ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(ptr noundef %db_opt, ptr nocapture noundef %rnd) local_unnamed_addr #4 {
+define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(ptr noundef initializes((0, 4), (6, 8), (68, 76), (104, 105), (212, 216), (220, 256), (264, 268), (288, 300), (301, 302), (328, 329), (336, 344), (392, 393), (448, 449), (496, 498), (530, 532), (649, 650)) %db_opt, ptr nocapture noundef %rnd) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %rnd, align 4
   %conv.i.i = zext i32 %0 to i64
@@ -3785,7 +3785,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS_9DBOptionsEPNS_6RandomE(ptr noundef %cf_opt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(688) %db_options, ptr nocapture noundef %rnd) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS_9DBOptionsEPNS_6RandomE(ptr noundef initializes((0, 12), (16, 25), (56, 65), (136, 148), (160, 165), (168, 176), (232, 233), (272, 273), (368, 369), (370, 373), (424, 425), (449, 450), (456, 472), (696, 700), (736, 737)) %cf_opt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(688) %db_options, ptr nocapture noundef %rnd) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %rnd, align 4
   %conv.i.i = zext i32 %0 to i64
@@ -8471,7 +8471,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb4test12_GLOBAL__N_120Uint64ComparatorImplD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb4test12_GLOBAL__N_120Uint64ComparatorImplD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -8780,7 +8780,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn32_N7rocksdb4test12_GLOBAL__N_120Uint64ComparatorImplD1Ev(ptr nocapture noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn32_N7rocksdb4test12_GLOBAL__N_120Uint64ComparatorImplD1Ev(ptr nocapture noundef initializes((-32, -24)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %0, align 8
@@ -8816,7 +8816,7 @@ _ZN7rocksdb4test12_GLOBAL__N_120Uint64ComparatorImplD2Ev.exit: ; preds = %invoke
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn32_N7rocksdb4test12_GLOBAL__N_120Uint64ComparatorImplD0Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn32_N7rocksdb4test12_GLOBAL__N_120Uint64ComparatorImplD0Ev(ptr noundef initializes((-32, -24)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %0, align 8
@@ -11113,7 +11113,7 @@ _ZNSt10shared_ptrIKN7rocksdb14SliceTransformEED2Ev.exit: ; preds = %_ZNSt6vector
 declare void @_ZN7rocksdb15SkipListFactoryC1Em(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb4test12_GLOBAL__N_122SpecialSkipListFactoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb4test12_GLOBAL__N_122SpecialSkipListFactoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 8), (32, 40)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb4test12_GLOBAL__N_122SpecialSkipListFactoryE, i64 16), ptr %this, align 8
   %factory_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -11179,7 +11179,7 @@ _ZN7rocksdb18MemTableRepFactoryD2Ev.exit:         ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb4test12_GLOBAL__N_122SpecialSkipListFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb4test12_GLOBAL__N_122SpecialSkipListFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8), (32, 40)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb4test12_GLOBAL__N_122SpecialSkipListFactoryE, i64 16), ptr %this, align 8
   %factory_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -11754,7 +11754,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb4test12_GLOBAL__N_118SpecialMemTableRepD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb4test12_GLOBAL__N_118SpecialMemTableRepD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb4test12_GLOBAL__N_118SpecialMemTableRepE, i64 16), ptr %this, align 8
   %memtable_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -11775,7 +11775,7 @@ _ZNSt10unique_ptrIN7rocksdb11MemTableRepESt14default_deleteIS1_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb4test12_GLOBAL__N_118SpecialMemTableRepD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb4test12_GLOBAL__N_118SpecialMemTableRepD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb4test12_GLOBAL__N_118SpecialMemTableRepE, i64 16), ptr %this, align 8
   %memtable_.i = getelementptr inbounds i8, ptr %this, i64 16

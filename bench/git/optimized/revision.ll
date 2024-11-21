@@ -300,7 +300,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.238 = private unnamed_addr constant [40 x i8] c"Failed to simplify parents of commit %s\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @init_revision_sources_with_stride(ptr nocapture noundef writeonly %s, i32 noundef %stride) local_unnamed_addr #0 {
+define dso_local void @init_revision_sources_with_stride(ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %s, i32 noundef %stride) local_unnamed_addr #0 {
 entry:
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %stride, i32 1)
   %stride1 = getelementptr inbounds i8, ptr %s, i64 4
@@ -316,7 +316,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @init_revision_sources(ptr nocapture noundef writeonly %s) local_unnamed_addr #0 {
+define dso_local void @init_revision_sources(ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %s) local_unnamed_addr #0 {
 entry:
   %stride1.i = getelementptr inbounds i8, ptr %s, i64 4
   store i32 1, ptr %stride1.i, align 4
@@ -1447,7 +1447,7 @@ declare i32 @wildmatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @ref_is_hidden(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @init_ref_exclusions(ptr nocapture noundef writeonly %exclusions) local_unnamed_addr #9 {
+define dso_local void @init_ref_exclusions(ptr nocapture noundef writeonly initializes((0, 72)) %exclusions) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %exclusions, ptr noundef nonnull align 8 dereferenceable(72) @__const.init_ref_exclusions.blank, i64 72, i1 false)
   ret void
@@ -1615,7 +1615,7 @@ if.end:                                           ; preds = %add_other_reflogs_t
 declare i32 @for_each_reflog(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @handle_one_reflog(ptr noundef %refname_in_wt, ptr nocapture readnone %oid, i32 %flag, ptr noundef %cb_data) #1 {
+define internal noundef i32 @handle_one_reflog(ptr noundef %refname_in_wt, ptr nocapture readnone %oid, i32 %flag, ptr noundef initializes((4, 8), (16, 24)) %cb_data) #1 {
 entry:
   %refname = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %refname, ptr noundef nonnull align 8 dereferenceable(24) @__const.commit_match.buf, i64 24, i1 false)
@@ -1932,7 +1932,7 @@ declare void @discard_index(ptr noundef) local_unnamed_addr #3
 declare void @free_worktrees(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @repo_init_revisions(ptr noundef %r, ptr noundef %revs, ptr noundef %prefix) local_unnamed_addr #1 {
+define dso_local void @repo_init_revisions(ptr noundef %r, ptr noundef initializes((0, 3024)) %revs, ptr noundef %prefix) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @default_abbrev, align 4
   %blank.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %revs, i64 280
@@ -2040,7 +2040,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal void @file_change(ptr nocapture noundef writeonly %options, i32 %old_mode, i32 %new_mode, ptr nocapture readnone %old_oid, ptr nocapture readnone %new_oid, i32 %old_oid_valid, i32 %new_oid_valid, ptr nocapture readnone %fullpath, i32 %old_dirty_submodule, i32 %new_dirty_submodule) #13 {
+define internal void @file_change(ptr nocapture noundef writeonly initializes((140, 144)) %options, i32 %old_mode, i32 %new_mode, ptr nocapture readnone %old_oid, ptr nocapture readnone %new_oid, i32 %old_oid_valid, i32 %new_oid_valid, ptr nocapture readnone %fullpath, i32 %old_dirty_submodule, i32 %new_dirty_submodule) #13 {
 entry:
   store i32 3, ptr @tree_difference, align 4
   %has_changes = getelementptr inbounds i8, ptr %options, i64 140

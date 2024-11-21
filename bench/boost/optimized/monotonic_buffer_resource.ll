@@ -90,7 +90,7 @@ define void @_ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPNS1_15memory_resourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPNS1_15memory_resourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %5
@@ -132,7 +132,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EmPNS1_15memory_resourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EmPNS1_15memory_resourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not = icmp eq ptr %2, null
@@ -181,7 +181,7 @@ _ZN5boost9container3pmr25monotonic_buffer_resource32increase_next_buffer_at_leas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPvmPNS1_15memory_resourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPvmPNS1_15memory_resourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %7
@@ -216,7 +216,7 @@ define void @_ZN5boost9container3pmr25monotonic_buffer_resourceC2EPvmPNS1_15memo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr25monotonic_buffer_resourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr25monotonic_buffer_resourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr25monotonic_buffer_resourceE, i64 16), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -324,7 +324,7 @@ define noundef nonnull ptr @_ZNK5boost9container3pmr25monotonic_buffer_resource1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZNK5boost9container3pmr25monotonic_buffer_resource17remaining_storageEmRm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK5boost9container3pmr25monotonic_buffer_resource17remaining_storageEmRm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
   %4 = add i64 %1, -1
   %5 = sub i64 0, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -668,7 +668,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MD4_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #3 {
+define noundef i32 @MD4_Final(ptr nocapture noundef writeonly initializes((0, 16)) %md, ptr noundef %c) local_unnamed_addr #3 {
 entry:
   %data = getelementptr inbounds i8, ptr %c, i64 24
   %num = getelementptr inbounds i8, ptr %c, i64 88
@@ -801,7 +801,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @MD4_Init(ptr nocapture noundef writeonly %c) local_unnamed_addr #5 {
+define noundef i32 @MD4_Init(ptr nocapture noundef writeonly initializes((0, 92)) %c) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds i8, ptr %c, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %0, i8 0, i64 76, i1 false)

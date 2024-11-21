@@ -116,7 +116,7 @@ define noundef zeroext i1 @_ZN5draco16SymbolBitDecoder13DecodeNextBitEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5draco16SymbolBitDecoder28DecodeLeastSignificantBits32EiPj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZN5draco16SymbolBitDecoder28DecodeLeastSignificantBits32EiPj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -4

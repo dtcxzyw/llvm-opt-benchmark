@@ -2228,7 +2228,7 @@ declare void @qemu_iovec_add(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare ptr @blk_aio_preadv(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @aio_rw_done(ptr nocapture noundef writeonly %opaque, i32 noundef %ret) #16 {
+define internal void @aio_rw_done(ptr nocapture noundef writeonly initializes((0, 4)) %opaque, i32 noundef %ret) #16 {
 entry:
   store i32 %ret, ptr %opaque, align 4
   ret void
@@ -5113,7 +5113,7 @@ return:                                           ; preds = %if.then.i, %while.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @sleep_cb(ptr nocapture noundef writeonly %opaque) #16 {
+define internal void @sleep_cb(ptr nocapture noundef writeonly initializes((0, 1)) %opaque) #16 {
 entry:
   store i8 1, ptr %opaque, align 1
   ret void

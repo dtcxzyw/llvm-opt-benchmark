@@ -926,7 +926,7 @@ define internal i64 @H5FD_multi_sb_size(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD_multi_sb_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5FD_multi_sb_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9)) %1, ptr noundef %2) #0 {
   %4 = alloca [7 x i32], align 16
   %5 = alloca [7 x i32], align 16
   %6 = tail call i32 @H5Eclear2(i64 noundef 0) #16
@@ -2201,7 +2201,7 @@ define internal noundef i32 @H5FD_multi_query(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5FD_multi_get_type_map(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define internal noundef i32 @H5FD_multi_get_type_map(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 28)) %1) #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %3, i64 28, i1 false)
   ret i32 0

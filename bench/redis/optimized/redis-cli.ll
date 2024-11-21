@@ -985,7 +985,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @cliInitCommandHelpEntry(ptr noundef %cmdname, ptr noundef %subcommandname, ptr noundef %next, ptr nocapture noundef readonly %specs, ptr noundef %groups) unnamed_addr #2 {
+define internal fastcc nonnull ptr @cliInitCommandHelpEntry(ptr noundef %cmdname, ptr noundef %subcommandname, ptr noundef initializes((0, 32), (48, 60), (64, 72), (80, 88)) %next, ptr nocapture noundef readonly %specs, ptr noundef %groups) unnamed_addr #2 {
 entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %next, i64 88
   tail call fastcc void @cliFillInCommandHelpEntry(ptr noundef %next, ptr noundef %cmdname, ptr noundef %subcommandname)
@@ -1233,7 +1233,7 @@ for.end:                                          ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @cliLegacyInitCommandHelpEntry(ptr noundef %cmdname, ptr noundef %subcommandname, ptr noundef %next, ptr nocapture noundef readonly %command, ptr noundef %groups, ptr noundef %version) unnamed_addr #2 {
+define internal fastcc nonnull ptr @cliLegacyInitCommandHelpEntry(ptr noundef %cmdname, ptr noundef %subcommandname, ptr noundef initializes((0, 32), (48, 60), (64, 72), (80, 88)) %next, ptr nocapture noundef readonly %command, ptr noundef %groups, ptr noundef %version) unnamed_addr #2 {
 entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %next, i64 88
   tail call fastcc void @cliFillInCommandHelpEntry(ptr noundef %next, ptr noundef %cmdname, ptr noundef %subcommandname)
@@ -14708,7 +14708,7 @@ while.end:                                        ; preds = %if.then15, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cliFillInCommandHelpEntry(ptr nocapture noundef %help, ptr noundef %cmdname, ptr noundef %subcommandname) unnamed_addr #2 {
+define internal fastcc void @cliFillInCommandHelpEntry(ptr nocapture noundef initializes((0, 32), (48, 60), (64, 72), (80, 88)) %help, ptr noundef %cmdname, ptr noundef %subcommandname) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %subcommandname, null
   %cond = select i1 %tobool.not, i32 1, i32 2
@@ -16636,7 +16636,7 @@ if.end44:                                         ; preds = %freeClusterManagerN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeLoadInfo(ptr nocapture noundef %node, i32 noundef range(i32 0, 2) %opts, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeLoadInfo(ptr nocapture noundef %node, i32 noundef range(i32 0, 2) %opts, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %err) unnamed_addr #2 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %0 = load ptr, ptr %node, align 8
@@ -17246,7 +17246,7 @@ if.end15:                                         ; preds = %if.end15.critedge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeIsEmpty(ptr nocapture noundef readonly %node, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeIsEmpty(ptr nocapture noundef readonly %node, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %err) unnamed_addr #2 {
 entry:
   %node.val = load ptr, ptr %node, align 8
   %call.i = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %node.val, ptr noundef nonnull @.str.186) #34

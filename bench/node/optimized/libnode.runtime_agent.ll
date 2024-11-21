@@ -55,7 +55,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node9inspector8protocol12RuntimeAgentC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9inspector8protocol12RuntimeAgentC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol12RuntimeAgentE, i64 16), ptr %this, align 8
   %frontend_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -177,7 +177,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol11NodeRuntime8FrontendESt14default_de
 declare void @_ZN4node9inspector8protocol11NodeRuntime10Dispatcher4wireEPNS1_14UberDispatcherEPNS2_7BackendE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol12RuntimeAgent30notifyWhenWaitingForDisconnectEb(ptr noalias sret(%"class.node::inspector::protocol::DispatchResponse") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i1 noundef zeroext %enabled) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node9inspector8protocol12RuntimeAgent30notifyWhenWaitingForDisconnectEb(ptr noalias sret(%"class.node::inspector::protocol::DispatchResponse") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((24, 25)) %this, i1 noundef zeroext %enabled) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %enabled to i8
   %notify_when_waiting_for_disconnect_ = getelementptr inbounds i8, ptr %this, i64 24

@@ -219,7 +219,7 @@ define hidden double @get_cpu_load(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store double 0.000000e+00, ptr %1, align 8

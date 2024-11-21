@@ -772,7 +772,7 @@ declare void @_ZN10params_refC1ERKS_(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120bv_bounds_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120bv_bounds_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_120bv_bounds_simplifierE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -784,7 +784,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120bv_bounds_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120bv_bounds_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_120bv_bounds_simplifierE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1103,7 +1103,7 @@ _ZNK6vectorIN2bv10undo_boundELb1EjE4sizeEv.exit:  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_120bv_bounds_simplifier11updt_paramsERK10params_ref(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_120bv_bounds_simplifier11updt_paramsERK10params_ref(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((104, 105)) %this, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.6, i1 noundef zeroext false)
   %m_propagate_eq = getelementptr inbounds i8, ptr %this, i64 104
@@ -1113,7 +1113,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N12_GLOBAL__N_120bv_bounds_simplifierD1Ev(ptr noundef %this) unnamed_addr #6 align 2 {
+define internal void @_ZThn16_N12_GLOBAL__N_120bv_bounds_simplifierD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_120bv_bounds_simplifierE, i64 16), ptr %0, align 8
@@ -1125,7 +1125,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N12_GLOBAL__N_120bv_bounds_simplifierD0Ev(ptr noundef %this) unnamed_addr #6 align 2 {
+define internal void @_ZThn16_N12_GLOBAL__N_120bv_bounds_simplifierD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_120bv_bounds_simplifierE, i64 16), ptr %0, align 8

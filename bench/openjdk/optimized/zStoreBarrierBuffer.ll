@@ -113,7 +113,7 @@ define hidden noundef i32 @_ZN19ZStoreBarrierBuffer14current_offsetEv() local_un
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ZStoreBarrierBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(832) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN19ZStoreBarrierBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(832) initializes((0, 568)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %0, i8 0, i64 568, i1 false)
   tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
@@ -131,7 +131,7 @@ define hidden void @_ZN19ZStoreBarrierBufferC2Ev(ptr noundef nonnull align 8 der
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN19ZStoreBarrierBuffer10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(832) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN19ZStoreBarrierBuffer10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(832) initializes((512, 528)) %0) local_unnamed_addr #3 align 2 {
   %2 = load i64, ptr @ZPointerStoreGoodMask, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 512
   store i64 %2, ptr %3, align 8
@@ -141,7 +141,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer10initializeEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19ZStoreBarrierBuffer5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(832) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19ZStoreBarrierBuffer5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(832) initializes((824, 832)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 824
   store i64 512, ptr %2, align 8
   ret void

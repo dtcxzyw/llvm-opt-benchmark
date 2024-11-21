@@ -1501,7 +1501,7 @@ declare void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(1
 declare void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15FilterListModel13setFilterTypeENS_14FilterListTypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15FilterListModel13setFilterTypeENS_14FilterListTypeE(ptr noundef nonnull align 8 dereferenceable(48) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   tail call void @_ZN15FilterListModel6reloadEv(ptr noundef nonnull align 8 dereferenceable(48) %0)

@@ -171,7 +171,7 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512UnifiedCacheC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512UnifiedCacheC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 36), (40, 56)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512UnifiedCacheE, i64 16), ptr %this, align 8
   %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
@@ -723,7 +723,7 @@ for.end:                                          ; preds = %_ZNK6icu_7512Unifie
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7512UnifiedCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512UnifiedCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512UnifiedCacheE, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
@@ -1005,7 +1005,7 @@ if.end13:                                         ; preds = %entry, %if.then11, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_7512UnifiedCache16_registerPrimaryEPKNS_12CacheKeyBaseEPKNS_12SharedObjectE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly %theKey, ptr nocapture noundef writeonly %value) local_unnamed_addr #8 align 2 {
+define void @_ZNK6icu_7512UnifiedCache16_registerPrimaryEPKNS_12CacheKeyBaseEPKNS_12SharedObjectE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef writeonly initializes((12, 13)) %theKey, ptr nocapture noundef writeonly initializes((16, 24)) %value) local_unnamed_addr #8 align 2 {
 entry:
   %fIsPrimary = getelementptr inbounds i8, ptr %theKey, i64 12
   store i8 1, ptr %fIsPrimary, align 4
@@ -1339,7 +1339,7 @@ _ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #9 align 2 {
+define void @_ZNK6icu_7512UnifiedCache6_fetchEPK12UHashElementRPKNS_12SharedObjectER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %status) local_unnamed_addr #9 align 2 {
 entry:
   %key = getelementptr inbounds i8, ptr %element, i64 16
   %0 = load ptr, ptr %key, align 8

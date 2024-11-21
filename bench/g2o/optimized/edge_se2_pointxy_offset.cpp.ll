@@ -843,7 +843,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3g2o20EdgeSE2PointXYOffset12computeErrorEv(ptr nocapture noundef nonnull align 16 dereferenceable(344) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o20EdgeSE2PointXYOffset12computeErrorEv(ptr nocapture noundef nonnull align 16 dereferenceable(344) initializes((224, 240)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i = alloca [3 x double], align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -944,7 +944,7 @@ define void @_ZN3g2o20EdgeSE2PointXYOffset14linearizeOplusEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN3g2o20EdgeSE2PointXYOffset23setMeasurementFromStateEv(ptr nocapture noundef nonnull align 16 dereferenceable(344) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3g2o20EdgeSE2PointXYOffset23setMeasurementFromStateEv(ptr nocapture noundef nonnull align 16 dereferenceable(344) initializes((176, 192)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i = alloca [3 x double], align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

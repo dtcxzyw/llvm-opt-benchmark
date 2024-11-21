@@ -236,7 +236,7 @@ define noundef i32 @_ZN10open_spiel10algorithms12MemoryUsedMbEi(i32 noundef %0) 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10algorithms22RandomRolloutEvaluator8EvaluateERKNS_5StateE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(5016) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10algorithms22RandomRolloutEvaluator8EvaluateERKNS_5StateE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(5016) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::vector.7", align 8
   %6 = alloca %"class.absl::debian2::BitGenRef", align 8
@@ -2001,7 +2001,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit11: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10algorithms15dirichlet_noiseEidPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, i32 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10algorithms15dirichlet_noiseEidPSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, i32 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::gamma_distribution", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = sext i32 %1 to i64
@@ -2213,7 +2213,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %65, %68
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10algorithms7MCTSBotC2ERKNS_4GameESt10shared_ptrINS0_9EvaluatorEEdilbibNS0_20ChildSelectionPolicyEddb(ptr noundef nonnull align 8 dereferenceable(5096) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr nocapture noundef readonly %2, double noundef %3, i32 noundef %4, i64 noundef %5, i1 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8, i32 noundef %9, double noundef %10, double noundef %11, i1 noundef zeroext %12) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10algorithms7MCTSBotC2ERKNS_4GameESt10shared_ptrINS0_9EvaluatorEEdilbibNS0_20ChildSelectionPolicyEddb(ptr noundef nonnull align 8 dereferenceable(5096) initializes((0, 34), (40, 65), (72, 80)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr nocapture noundef readonly %2, double noundef %3, i32 noundef %4, i64 noundef %5, i1 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8, i32 noundef %9, double noundef %10, double noundef %11, i1 noundef zeroext %12) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %14 = alloca %"struct.open_spiel::GameType", align 8
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator.17", align 1
@@ -2593,7 +2593,7 @@ _ZNSt12__shared_ptrIN10open_spiel10algorithms9EvaluatorELN9__gnu_cxx12_Lock_poli
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN10open_spiel10algorithms7MCTSBot4StepERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(5096) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN10open_spiel10algorithms7MCTSBot4StepERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(5096) initializes((24, 32)) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [5 x %"class.absl::debian2::str_format_internal::FormatArgImpl"], align 8
   %4 = alloca %"class.absl::debian2::Duration", align 8
   %5 = alloca %"class.std::unique_ptr.42", align 8
@@ -3009,7 +3009,7 @@ _ZNSt10unique_ptrIN10open_spiel10algorithms10SearchNodeESt14default_deleteIS2_EE
 declare { i64, i32 } @_ZN4absl7debian23NowEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10algorithms7MCTSBot9MCTSearchERKNS_5StateE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(5096) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10algorithms7MCTSBot9MCTSearchERKNS_5StateE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.42") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(5096) initializes((24, 32)) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12_Vector_baseIPN10open_spiel10algorithms10SearchNodeESaIS3_EE11_M_allocateEm.exit.i:
   %3 = alloca [2 x %"class.absl::debian2::str_format_internal::FormatArgImpl"], align 8
   %4 = alloca [4 x %"class.absl::debian2::str_format_internal::FormatArgImpl"], align 8
@@ -3979,7 +3979,7 @@ _ZNKSt14default_deleteIN10open_spiel10algorithms10SearchNodeEEclEPS2_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10algorithms7MCTSBot14StepWithPolicyERKNS_5StateE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.51") align 8 %0, ptr noundef nonnull align 8 dereferenceable(5096) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10algorithms7MCTSBot14StepWithPolicyERKNS_5StateE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.51") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(5096) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt16allocator_traitsISaISt4pairIldEEE8allocateERS2_m.exit.i.i.i.i.i:
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16

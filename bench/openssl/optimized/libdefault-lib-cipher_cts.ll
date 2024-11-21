@@ -558,7 +558,7 @@ return:                                           ; preds = %if.end37, %if.end16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_cipher_cbc_cts_block_final(ptr nocapture noundef readnone %vctx, ptr nocapture noundef readnone %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize) local_unnamed_addr #3 {
+define noundef i32 @ossl_cipher_cbc_cts_block_final(ptr nocapture noundef readnone %vctx, ptr nocapture noundef readnone %out, ptr nocapture noundef writeonly initializes((0, 8)) %outl, i64 noundef %outsize) local_unnamed_addr #3 {
 entry:
   store i64 0, ptr %outl, align 8
   ret i32 1

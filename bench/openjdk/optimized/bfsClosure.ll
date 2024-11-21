@@ -305,7 +305,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN10BFSClosureC1EP9EdgeQueueP9EdgeStoreP12ObjectBitSetIL8MEMFLAGS16EE = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN10BFSClosureC2EP9EdgeQueueP9EdgeStoreP12ObjectBitSetIL8MEMFLAGS16EE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10BFSClosureC2EP9EdgeQueueP9EdgeStoreP12ObjectBitSetIL8MEMFLAGS16EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN10BFSClosureC2EP9EdgeQueueP9EdgeStoreP12ObjectBitSetIL8MEMFLAGS16EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) initializes((0, 81)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10BFSClosure, i64 16), ptr %0, align 8
@@ -537,7 +537,7 @@ define hidden void @_ZN10BFSClosure16process_root_setEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BFSClosure13process_queueEv(ptr noundef nonnull align 8 dereferenceable(81) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10BFSClosure13process_queueEv(ptr noundef nonnull align 8 dereferenceable(81) initializes((56, 64)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK9EdgeQueue3topEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
@@ -761,7 +761,7 @@ declare void @_ZN9EdgeQueue3addEPK4Edge13UnifiedOopRef(ptr noundef nonnull align
 declare noundef zeroext i1 @_ZNK9EdgeQueue7is_fullEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BFSClosure12dfs_fallbackEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10BFSClosure12dfs_fallbackEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((72, 81)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -870,7 +870,7 @@ _ZNK10BFSClosure13step_frontierEv.exit:           ; preds = %17, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BFSClosure7iterateEPK4Edge(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10BFSClosure7iterateEPK4Edge(ptr noundef nonnull align 8 dereferenceable(81) initializes((40, 48)) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZNK4Edge7pointeeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #12
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %4, align 8

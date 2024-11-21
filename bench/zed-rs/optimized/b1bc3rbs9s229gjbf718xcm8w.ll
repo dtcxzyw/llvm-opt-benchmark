@@ -20313,7 +20313,7 @@ define void @_ZN6remote11ssh_session20SshConnectionOptions17connection_string17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6remote11ssh_session9SshSocket11ssh_options17he495234a78290bc3E(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0, ptr noalias noundef returned align 8 dereferenceable(216) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6remote11ssh_session9SshSocket11ssh_options17he495234a78290bc3E(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0, ptr noalias noundef returned align 8 dereferenceable(216) initializes((208, 209)) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = alloca [16 x i8], align 8
   %5 = alloca [16 x i8], align 8
@@ -20412,7 +20412,7 @@ _ZN3std7process7Command3arg17had63be6a8213f5b9E.exit: ; preds = %30, %"_ZN63_$LT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6remote11ssh_session7run_cmd17he057da0da201e91fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([632 x i8]) align 8 dereferenceable(632) %0, ptr noalias noundef align 8 dereferenceable(216) %1) unnamed_addr #9 {
+define void @_ZN6remote11ssh_session7run_cmd17he057da0da201e91fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([632 x i8]) align 8 dereferenceable(632) initializes((0, 8), (624, 625)) %0, ptr noalias noundef align 8 dereferenceable(216) %1) unnamed_addr #9 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 624
   store i8 0, ptr %3, align 8
@@ -20420,7 +20420,7 @@ define void @_ZN6remote11ssh_session7run_cmd17he057da0da201e91fE(ptr dead_on_unw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6remote11ssh_session17read_with_timeout17h329697420fd00186E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([176 x i8]) align 8 dereferenceable(176) %0, ptr noalias noundef align 8 dereferenceable(16) %1, i64 noundef %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(24) %4) unnamed_addr #9 {
+define void @_ZN6remote11ssh_session17read_with_timeout17h329697420fd00186E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([176 x i8]) align 8 dereferenceable(176) initializes((0, 12), (16, 32), (168, 169)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, i64 noundef %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(24) %4) unnamed_addr #9 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %6, align 8
   store i64 %2, ptr %0, align 8
@@ -21140,7 +21140,7 @@ common.ret:                                       ; preds = %99, %19, %"_ZN4core
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6remote11ssh_session16ChannelForwarder13into_channels17h8e11766294274573E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([96 x i8]) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #10 {
+define hidden void @_ZN6remote11ssh_session16ChannelForwarder13into_channels17h8e11766294274573E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([96 x i8]) align 8 dereferenceable(96) initializes((0, 32), (64, 65)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #10 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 0, ptr %3, align 8
@@ -21148,7 +21148,7 @@ define hidden void @_ZN6remote11ssh_session16ChannelForwarder13into_channels17h8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6remote11ssh_session15SshRemoteClient3new17h8adf6f4d293b1441E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1944 x i8]) align 8 dereferenceable(1944) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1, ptr noundef nonnull %2, ptr noalias noundef readonly align 8 dereferenceable(64) %3, ptr noalias noundef align 8 dereferenceable(40) %4) unnamed_addr #10 {
+define void @_ZN6remote11ssh_session15SshRemoteClient3new17h8adf6f4d293b1441E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1944 x i8]) align 8 dereferenceable(1944) initializes((0, 104), (1928, 1929)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1, ptr noundef nonnull %2, ptr noalias noundef readonly align 8 dereferenceable(64) %3, ptr noalias noundef align 8 dereferenceable(40) %4) unnamed_addr #10 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %2, ptr %6, align 8
@@ -26231,7 +26231,7 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit265: ; preds = %1640
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6remote11ssh_session15SshRemoteClient20establish_connection17hb890b43c585b9916E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1664 x i8]) align 8 dereferenceable(1664) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1, ptr noundef nonnull %2, ptr noalias noundef readonly align 8 dereferenceable(64) %3, ptr noalias noundef align 8 dereferenceable(40) %4) unnamed_addr #10 {
+define void @_ZN6remote11ssh_session15SshRemoteClient20establish_connection17hb890b43c585b9916E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1664 x i8]) align 8 dereferenceable(1664) initializes((0, 104), (360, 361)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1, ptr noundef nonnull %2, ptr noalias noundef readonly align 8 dereferenceable(64) %3, ptr noalias noundef align 8 dereferenceable(40) %4) unnamed_addr #10 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %2, ptr %6, align 8
@@ -26598,7 +26598,7 @@ define noundef zeroext i1 @_ZN6remote11ssh_session15SshRemoteClient21is_reconnec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6remote11ssh_session19SshRemoteConnection3new17h68c1d50eaed08527E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([640 x i8]) align 8 dereferenceable(640) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1, ptr noundef nonnull %2, ptr noalias noundef readonly align 8 dereferenceable(64) %3, ptr noalias noundef align 8 dereferenceable(40) %4) unnamed_addr #10 {
+define void @_ZN6remote11ssh_session19SshRemoteConnection3new17h68c1d50eaed08527E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([640 x i8]) align 8 dereferenceable(640) initializes((0, 104), (448, 449)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1, ptr noundef nonnull %2, ptr noalias noundef readonly align 8 dereferenceable(64) %3, ptr noalias noundef align 8 dereferenceable(40) %4) unnamed_addr #10 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %2, ptr %6, align 8
@@ -26612,7 +26612,7 @@ define void @_ZN6remote11ssh_session19SshRemoteConnection3new17h68c1d50eaed08527
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6remote11ssh_session19SshRemoteConnection20ensure_server_binary17h6ac0efca655bcf00E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1296 x i8]) align 8 dereferenceable(1296) %0, ptr noalias noundef readonly align 8 dereferenceable(184) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %7, ptr noalias noundef align 8 dereferenceable(40) %8) unnamed_addr #10 {
+define void @_ZN6remote11ssh_session19SshRemoteConnection20ensure_server_binary17h6ac0efca655bcf00E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1296 x i8]) align 8 dereferenceable(1296) initializes((224, 280), (352, 376), (381, 382)) %0, ptr noalias noundef readonly align 8 dereferenceable(184) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %7, ptr noalias noundef align 8 dereferenceable(40) %8) unnamed_addr #10 {
   %10 = getelementptr inbounds i8, ptr %0, i64 352
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 360
@@ -26635,7 +26635,7 @@ define void @_ZN6remote11ssh_session19SshRemoteConnection20ensure_server_binary1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6remote11ssh_session19SshRemoteConnection14query_platform17hf56ef7adc8dafdc3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([896 x i8]) align 8 dereferenceable(896) %0, ptr noalias noundef readonly align 8 dereferenceable(184) %1) unnamed_addr #9 {
+define void @_ZN6remote11ssh_session19SshRemoteConnection14query_platform17hf56ef7adc8dafdc3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([896 x i8]) align 8 dereferenceable(896) initializes((0, 8), (40, 41)) %0, ptr noalias noundef readonly align 8 dereferenceable(184) %1) unnamed_addr #9 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %3, align 8
@@ -26643,7 +26643,7 @@ define void @_ZN6remote11ssh_session19SshRemoteConnection14query_platform17hf56e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6remote11ssh_session19SshRemoteConnection11upload_file17h09f0a3d0bba6bcf1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([912 x i8]) align 8 dereferenceable(912) %0, ptr noalias noundef readonly align 8 dereferenceable(184) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #9 {
+define void @_ZN6remote11ssh_session19SshRemoteConnection11upload_file17h09f0a3d0bba6bcf1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([912 x i8]) align 8 dereferenceable(912) initializes((0, 40), (904, 905)) %0, ptr noalias noundef readonly align 8 dereferenceable(184) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #9 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -26822,7 +26822,7 @@ define noundef nonnull ptr @_ZN6remote11ssh_session13ChannelClient3new17h913361c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6remote11ssh_session13ChannelClient15request_dynamic17h8403315921d30af9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([456 x i8]) align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 %1, ptr noalias nocapture noundef align 8 dereferenceable(408) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN6remote11ssh_session13ChannelClient15request_dynamic17h8403315921d30af9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([456 x i8]) align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 %1, ptr noalias nocapture noundef align 8 dereferenceable(408) initializes((404, 408)) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca [496 x i8], align 8
   %7 = alloca [408 x i8], align 8
   %8 = alloca [416 x i8], align 8
@@ -27583,7 +27583,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr118dro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef ptr @_ZN6remote11ssh_session13ChannelClient12send_dynamic17h1d1b90cfd6872befE(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(408) %1) unnamed_addr #1 {
+define noundef ptr @_ZN6remote11ssh_session13ChannelClient12send_dynamic17h1d1b90cfd6872befE(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(408) initializes((404, 408)) %1) unnamed_addr #1 {
   %3 = alloca [416 x i8], align 8
   %4 = alloca [408 x i8], align 8
   %5 = alloca [416 x i8], align 8
@@ -27618,7 +27618,7 @@ define noundef ptr @_ZN6remote11ssh_session13ChannelClient12send_dynamic17h1d1b9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, ptr } @"_ZN85_$LT$remote..ssh_session..ChannelClient$u20$as$u20$rpc..proto_client..ProtoClient$GT$7request17h3be75afe1bf25843E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(408) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define { ptr, ptr } @"_ZN85_$LT$remote..ssh_session..ChannelClient$u20$as$u20$rpc..proto_client..ProtoClient$GT$7request17h3be75afe1bf25843E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(408) initializes((404, 408)) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [456 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 456, ptr nonnull %5)
   call void @_ZN6remote11ssh_session13ChannelClient15request_dynamic17h8403315921d30af9E(ptr noalias nocapture noundef nonnull sret([456 x i8]) align 8 dereferenceable(456) %5, ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(408) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
@@ -27658,7 +27658,7 @@ define { ptr, ptr } @"_ZN85_$LT$remote..ssh_session..ChannelClient$u20$as$u20$rp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef ptr @"_ZN85_$LT$remote..ssh_session..ChannelClient$u20$as$u20$rpc..proto_client..ProtoClient$GT$4send17h9fb4efed2cc010e0E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(408) %1, ptr noalias nocapture nonnull readonly align 1 %2, i64 %3) unnamed_addr #1 {
+define noundef ptr @"_ZN85_$LT$remote..ssh_session..ChannelClient$u20$as$u20$rpc..proto_client..ProtoClient$GT$4send17h9fb4efed2cc010e0E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(408) initializes((404, 408)) %1, ptr noalias nocapture nonnull readonly align 1 %2, i64 %3) unnamed_addr #1 {
   %5 = alloca [416 x i8], align 8
   %6 = alloca [408 x i8], align 8
   %7 = alloca [416 x i8], align 8
@@ -27694,7 +27694,7 @@ _ZN6remote11ssh_session13ChannelClient12send_dynamic17h1d1b90cfd6872befE.exit: ;
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef ptr @"_ZN85_$LT$remote..ssh_session..ChannelClient$u20$as$u20$rpc..proto_client..ProtoClient$GT$13send_response17h615e9f4db5f66a06E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(408) %1, ptr noalias nocapture nonnull readonly align 1 %2, i64 %3) unnamed_addr #1 {
+define noundef ptr @"_ZN85_$LT$remote..ssh_session..ChannelClient$u20$as$u20$rpc..proto_client..ProtoClient$GT$13send_response17h615e9f4db5f66a06E"(ptr noundef nonnull align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(408) initializes((404, 408)) %1, ptr noalias nocapture nonnull readonly align 1 %2, i64 %3) unnamed_addr #1 {
   %5 = alloca [416 x i8], align 8
   %6 = alloca [408 x i8], align 8
   %7 = alloca [416 x i8], align 8

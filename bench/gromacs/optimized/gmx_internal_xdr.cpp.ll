@@ -764,7 +764,7 @@ define noundef range(i32 0, 2) i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z15xdrstdio_createP3XDRP8_IO_FILE6xdr_op(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @_Z15xdrstdio_createP3XDRP8_IO_FILE6xdr_op(ptr nocapture noundef writeonly initializes((0, 4), (8, 16), (24, 44)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @_ZL12xdrstdio_ops, ptr %4, align 8

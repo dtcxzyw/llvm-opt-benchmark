@@ -922,7 +922,7 @@ _ZNK3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE22writeInformationM
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3g2o24EdgeSE3PointXYZDisparity12computeErrorEv(ptr nocapture noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o24EdgeSE3PointXYZDisparity12computeErrorEv(ptr nocapture noundef nonnull align 8 dereferenceable(616) initializes((272, 296)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i = alloca [4 x double], align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -1005,7 +1005,7 @@ define void @_ZN3g2o24EdgeSE3PointXYZDisparity12computeErrorEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3g2o24EdgeSE3PointXYZDisparity14linearizeOplusEv(ptr nocapture noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o24EdgeSE3PointXYZDisparity14linearizeOplusEv(ptr nocapture noundef nonnull align 8 dereferenceable(616) initializes((464, 488), (496, 520)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i6 = alloca [4 x double], align 16
   %.sroa.0.i.i = alloca [4 x double], align 16
   %2 = alloca %"class.Eigen::Matrix.80", align 8
@@ -1336,7 +1336,7 @@ _ZN5Eigen3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEaSINS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN3g2o24EdgeSE3PointXYZDisparity23setMeasurementFromStateEv(ptr nocapture noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3g2o24EdgeSE3PointXYZDisparity23setMeasurementFromStateEv(ptr nocapture noundef nonnull align 8 dereferenceable(616) initializes((176, 200)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i = alloca [4 x double], align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

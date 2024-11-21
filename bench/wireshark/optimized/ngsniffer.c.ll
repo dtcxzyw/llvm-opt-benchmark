@@ -602,7 +602,7 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ngsniffer_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @ngsniffer_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
   %7 = alloca [2 x i8], align 2
   %8 = alloca [4 x i8], align 2
   %9 = alloca i32, align 4
@@ -995,7 +995,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_frame_record(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef writeonly %2, i16 %.0.val, i16 %.2.val, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_frame_record(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef writeonly %2, i16 %.0.val, i16 %.2.val, ptr noundef initializes((0, 8), (232, 240)) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.frame2_rec, align 2
   %9 = alloca %struct.frame4_rec, align 4
   %10 = alloca %struct.frame6_rec, align 2
@@ -2576,7 +2576,7 @@ define internal range(i32 -9, 1) i32 @ngsniffer_dump_can_write_encap(i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ngsniffer_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @ngsniffer_dump_open(ptr noundef initializes((40, 48), (64, 80)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca [6 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @__const.ngsniffer_dump_open.buf, i64 6, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 64

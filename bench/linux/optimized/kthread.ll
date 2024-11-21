@@ -1362,7 +1362,7 @@ declare dso_local ptr @housekeeping_cpumask(i32 noundef) local_unnamed_addr #3
 declare dso_local void @schedule() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @__kthread_init_worker(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #10 align 16 {
+define dso_local void @__kthread_init_worker(ptr noundef initializes((0, 56)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store volatile ptr %4, ptr %4, align 8

@@ -278,7 +278,7 @@ if.end3:                                          ; preds = %hook_list_is_empty.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qtest_set_expected_status(ptr nocapture noundef writeonly %s, i32 noundef %status) local_unnamed_addr #3 {
+define dso_local void @qtest_set_expected_status(ptr nocapture noundef writeonly initializes((16, 20)) %s, i32 noundef %status) local_unnamed_addr #3 {
 entry:
   %expected_status = getelementptr inbounds i8, ptr %s, i64 16
   store i32 %status, ptr %expected_status, align 8
@@ -784,7 +784,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qtest_init_with_serial(ptr noundef %extra_args, ptr nocapture noundef %sock_fd) local_unnamed_addr #1 {
+define dso_local noundef ptr @qtest_init_with_serial(ptr noundef %extra_args, ptr nocapture noundef initializes((0, 4)) %sock_fd) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @g_dir_make_tmp(ptr noundef nonnull @.str.3, ptr noundef null) #23
   %cmp.not = icmp eq ptr %call, null
@@ -1134,7 +1134,7 @@ entry:
 declare void @qmp_fd_vsend_raw(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qtest_qmp_set_event_callback(ptr nocapture noundef writeonly %s, ptr noundef %cb, ptr noundef %opaque) local_unnamed_addr #3 {
+define dso_local void @qtest_qmp_set_event_callback(ptr nocapture noundef writeonly initializes((320, 336)) %s, ptr noundef %cb, ptr noundef %opaque) local_unnamed_addr #3 {
 entry:
   %eventCB = getelementptr inbounds i8, ptr %s, i64 320
   store ptr %cb, ptr %eventCB, align 8
@@ -3551,7 +3551,7 @@ qtest_qmp_eventwait.exit:                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qtest_inproc_init(ptr nocapture noundef writeonly %s, i1 noundef zeroext %log, ptr noundef %arch, ptr noundef %send) local_unnamed_addr #1 {
+define dso_local noundef ptr @qtest_inproc_init(ptr nocapture noundef writeonly initializes((0, 8)) %s, i1 noundef zeroext %log, ptr noundef %arch, ptr noundef %send) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #30
   %pending_events = getelementptr inbounds i8, ptr %call, i64 312

@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @generate_canonical_g.ggen = internal constant [4 x i8] c"ggen", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @ossl_ffc_params_FIPS186_4_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef %mode, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @ossl_ffc_params_FIPS186_4_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef %mode, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef initializes((0, 4)) %res, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %pcounter = alloca i32, align 4
   %m = alloca i32, align 4
@@ -1087,7 +1087,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @ossl_ffc_params_FIPS186_2_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef %mode, i32 %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @ossl_ffc_params_FIPS186_2_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef %mode, i32 %type, i64 noundef %L, i64 noundef %N, ptr noundef initializes((0, 4)) %res, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %buf2.i = alloca [64 x i8], align 16
   %md.i = alloca [64 x i8], align 16
@@ -1597,14 +1597,14 @@ if.end282:                                        ; preds = %if.then16, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @ossl_ffc_params_FIPS186_4_generate(ptr noundef %libctx, ptr noundef %params, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @ossl_ffc_params_FIPS186_4_generate(ptr noundef %libctx, ptr noundef %params, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef initializes((0, 4)) %res, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_ffc_params_FIPS186_4_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef 1, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ffc_params_FIPS186_2_generate(ptr noundef %libctx, ptr noundef %params, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_params_FIPS186_2_generate(ptr noundef %libctx, ptr noundef %params, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef initializes((0, 4)) %res, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_ffc_params_FIPS186_2_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef 1, i32 poison, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb)
   %tobool.not = icmp eq i32 %call, 0

@@ -1269,7 +1269,7 @@ define dso_local void @_ZN5clang7CodeGen13CGHLSLRuntime27addBufferResourceAnnota
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen13CGHLSLRuntime6BufferC2EPKNS_14HLSLBufferDeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen13CGHLSLRuntime6BufferC2EPKNS_14HLSLBufferDeclE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 7
@@ -1914,7 +1914,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
 declare noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen13CGHLSLRuntime16BufferResBindingC2EPNS_23HLSLResourceBindingAttrE(ptr nocapture noundef nonnull align 4 dereferenceable(12) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen13CGHLSLRuntime16BufferResBindingC2EPNS_23HLSLResourceBindingAttrE(ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((4, 5), (8, 12)) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::APInt", align 8

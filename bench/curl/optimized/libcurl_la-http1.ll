@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [8 x i8] c"CONNECT\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_h1_req_parse_init(ptr noundef %parser, i64 noundef %max_line_len) local_unnamed_addr #0 {
+define hidden void @Curl_h1_req_parse_init(ptr noundef initializes((0, 80)) %parser, i64 noundef %max_line_len) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %parser, i8 0, i64 80, i1 false)
   %max_line_len1 = getelementptr inbounds i8, ptr %parser, i64 56
@@ -50,7 +50,7 @@ declare void @Curl_http_req_free(ptr noundef) local_unnamed_addr #2
 declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @Curl_h1_req_parse_read(ptr noundef %parser, ptr noundef %buf, i64 noundef %buflen, ptr noundef %scheme_default, i32 noundef %options, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
+define hidden i64 @Curl_h1_req_parse_read(ptr noundef %parser, ptr noundef %buf, i64 noundef %buflen, ptr noundef %scheme_default, i32 noundef %options, ptr nocapture noundef writeonly initializes((0, 4)) %err) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca [8192 x i8], align 16
   store i32 0, ptr %err, align 4

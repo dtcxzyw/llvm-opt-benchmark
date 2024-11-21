@@ -607,7 +607,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4llvm15InstrProfWriterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm15InstrProfWriterD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15InstrProfWriterC2EbmmbNS_7memprof14IndexedVersionEb(ptr noundef nonnull align 8 dereferenceable(5305) %0, i1 noundef zeroext %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15InstrProfWriterC2EbmmbNS_7memprof14IndexedVersionEb(ptr noundef nonnull align 8 dereferenceable(5305) initializes((0, 1), (8, 56)) %0, i1 noundef zeroext %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = zext i1 %1 to i8
   store i8 %8, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1160,7 +1160,7 @@ define dso_local void @_ZN4llvm15InstrProfWriter26setValueProfDataEndiannessENS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15InstrProfWriter15setOutputSparseEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(5305) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm15InstrProfWriter15setOutputSparseEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(5305) initializes((0, 1)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 8
   ret void

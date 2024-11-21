@@ -22,7 +22,7 @@ $_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE9expand_toEi = 
 @_ZN24DebugInformationRecorderC1EP11OopRecorder = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN24DebugInformationRecorderC2EP11OopRecorder
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24DebugInformationRecorderC2EP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24DebugInformationRecorderC2EP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(76) initializes((8, 9), (56, 76)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.PcDesc, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr @_ZN11JvmtiExport33_should_post_compiled_method_loadE, align 1

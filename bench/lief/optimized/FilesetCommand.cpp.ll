@@ -93,7 +93,7 @@ define void @_ZN4LIEF5MachO14FilesetCommand4nameERKNSt7__cxx1112basic_stringIcSt
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF5MachO14FilesetCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define void @_ZN4LIEF5MachO14FilesetCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO14FilesetCommandE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
@@ -230,14 +230,14 @@ define noundef i64 @_ZNK4LIEF5MachO14FilesetCommand11file_offsetEv(ptr nocapture
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14FilesetCommand15virtual_addressEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO14FilesetCommand15virtual_addressEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((88, 96)) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14FilesetCommand11file_offsetEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO14FilesetCommand11file_offsetEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((96, 104)) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store i64 %1, ptr %3, align 8
   ret void

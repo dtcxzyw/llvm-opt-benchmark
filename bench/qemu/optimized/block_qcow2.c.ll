@@ -3442,7 +3442,7 @@ return:                                           ; preds = %land.lhs.true2, %la
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcow2_refresh_limits(ptr nocapture noundef %bs, ptr nocapture readnone %errp) #0 {
+define internal void @qcow2_refresh_limits(ptr nocapture noundef initializes((16480, 16484), (16496, 16500)) %bs, ptr nocapture readnone %errp) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -5835,7 +5835,7 @@ return:                                           ; preds = %while.end, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @qcow2_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #10 {
+define internal noundef i32 @qcow2_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly initializes((0, 17)) %bdi) #10 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -6155,7 +6155,7 @@ return:                                           ; preds = %do.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_check(ptr noundef %bs, ptr nocapture noundef %result, i32 noundef %fix) #0 {
+define internal i32 @qcow2_co_check(ptr noundef %bs, ptr nocapture noundef initializes((0, 64)) %result, i32 noundef %fix) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -6957,7 +6957,7 @@ declare void @aio_co_enter(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcow2_open_entry(ptr nocapture noundef %opaque) #0 {
+define internal void @qcow2_open_entry(ptr nocapture noundef initializes((32, 36)) %opaque) #0 {
 glib_autoptr_cleanup_GraphLockable.exit:
   %0 = load ptr, ptr %opaque, align 8
   %opaque1 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8598,7 +8598,7 @@ declare i32 @bdrv_get_flags(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @qcow2_load_dirty_bitmaps(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_check_locked(ptr noundef %bs, ptr nocapture noundef %result, i32 noundef %fix) #0 {
+define internal i32 @qcow2_co_check_locked(ptr noundef %bs, ptr nocapture noundef initializes((0, 64)) %result, i32 noundef %fix) #0 {
 entry:
   %snapshot_res = alloca %struct.BdrvCheckResult, align 8
   %refcount_res = alloca %struct.BdrvCheckResult, align 8

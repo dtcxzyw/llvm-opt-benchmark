@@ -2442,7 +2442,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen15HTTPTransactionD2Ev(ptr noundef nonnull align 8 dereferenceable(912) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransactionD2Ev(ptr noundef nonnull align 8 dereferenceable(912) initializes((0, 8), (64, 72)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen15HTTPTransactionE, i64 16), ptr %this, align 8
@@ -3627,7 +3627,7 @@ declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 derefer
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen15HTTPTransaction28updateIngressCompressionInfoERKNS_15CompressionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %tableInfo) local_unnamed_addr #11 align 2 {
+define void @_ZN8proxygen15HTTPTransaction28updateIngressCompressionInfoERKNS_15CompressionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) initializes((316, 344)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %tableInfo) local_unnamed_addr #11 align 2 {
 entry:
   %ingress = getelementptr inbounds i8, ptr %tableInfo, i64 28
   %ingress2 = getelementptr inbounds i8, ptr %this, i64 316
@@ -10796,7 +10796,7 @@ terminate.lpad:                                   ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen15HTTPTransaction27updateEgressCompressionInfoERKNS_15CompressionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %tableInfo) local_unnamed_addr #11 align 2 {
+define void @_ZN8proxygen15HTTPTransaction27updateEgressCompressionInfoERKNS_15CompressionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) initializes((288, 316)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %tableInfo) local_unnamed_addr #11 align 2 {
 entry:
   %tableInfo_ = getelementptr inbounds i8, ptr %this, i64 288
   %0 = load i32, ptr %tableInfo, align 4
@@ -16690,7 +16690,7 @@ eh.resume:                                        ; preds = %lpad, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction18setEgressRateLimitEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) %this, i64 noundef %bitsPerSecond) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction18setEgressRateLimitEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) initializes((736, 744)) %this, i64 noundef %bitsPerSecond) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.google::LogMessage", align 8
   %div = udiv i64 %bitsPerSecond, 8000
@@ -17422,7 +17422,7 @@ ehcleanup:                                        ; preds = %lpad35, %lpad22, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction14setIdleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 %idleTimeout.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction14setIdleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(912) initializes((760, 768)) %this, i64 %idleTimeout.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %idleTimeout_ = getelementptr inbounds i8, ptr %this, i64 760

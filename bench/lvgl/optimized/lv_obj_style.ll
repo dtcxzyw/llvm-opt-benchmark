@@ -1994,7 +1994,7 @@ define noundef zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef %0, i8 nou
 declare zeroext i1 @lv_style_remove_prop(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_style_create_transition(ptr noundef nonnull %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define void @lv_obj_style_create_transition(ptr noundef nonnull initializes((60, 62)) %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = alloca %union.lv_style_value_t, align 8
   %7 = alloca %union.lv_style_value_t, align 8
   %8 = alloca %union.lv_style_value_t, align 8

@@ -37,7 +37,7 @@ $_ZTIN3net22SendAlgorithmInterfaceE = comdat any
 @_ZN3net18TcpCubicSenderBaseD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net18TcpCubicSenderBaseD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141) %this, ptr nocapture noundef readnone %clock, ptr noundef %rtt_stats, i1 noundef zeroext %reno, ptr noundef %stats) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141) initializes((0, 8)) %this, ptr nocapture noundef readnone %clock, ptr noundef %rtt_stats, i1 noundef zeroext %reno, ptr noundef %stats) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18TcpCubicSenderBaseE, i64 16), ptr %this, align 8
   %hybrid_slow_start_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -453,7 +453,7 @@ declare i64 @_ZN3net13QuicBandwidth18FromBytesPerSecondEl(i64 noundef) local_unn
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(141) %this, i32 noundef %num_connections) unnamed_addr #6 align 2 {
+define dso_local void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(141) initializes((108, 112)) %this, i32 noundef %num_connections) unnamed_addr #6 align 2 {
 entry:
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %num_connections, i32 1)
   %num_connections_ = getelementptr inbounds i8, ptr %this, i64 108
@@ -966,7 +966,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18TcpCubicSenderBase23OnRetransmissionTimeoutEb(ptr noundef nonnull align 8 dereferenceable(141) %this, i1 noundef zeroext %packets_retransmitted) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net18TcpCubicSenderBase23OnRetransmissionTimeoutEb(ptr noundef nonnull align 8 dereferenceable(141) initializes((128, 136)) %this, i1 noundef zeroext %packets_retransmitted) unnamed_addr #0 align 2 {
 entry:
   %largest_sent_at_last_cutback_ = getelementptr inbounds i8, ptr %this, i64 128
   store i64 0, ptr %largest_sent_at_last_cutback_, align 8

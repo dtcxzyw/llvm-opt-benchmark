@@ -538,14 +538,14 @@ $_ZN5folly6detail30StaticSingletonManagerWithRtti5debugINS0_14UniqueInstance5Val
 @llvm.used = appending global [1 x ptr] [ptr @_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E6uniqueE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly16ThreadedExecutorD1Ev(ptr noundef nonnull align 128 dereferenceable(416) %this) unnamed_addr #0 align 2 {
+define void @_ZN5folly16ThreadedExecutorD1Ev(ptr noundef nonnull align 128 dereferenceable(416) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN5folly16ThreadedExecutorD2Ev(ptr noundef nonnull align 128 dereferenceable(416) %this, ptr noundef nonnull @_ZTTN5folly16ThreadedExecutorE) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly16ThreadedExecutorD0Ev(ptr noundef nonnull align 128 dereferenceable(416) %this) unnamed_addr #0 align 2 {
+define void @_ZN5folly16ThreadedExecutorD0Ev(ptr noundef nonnull align 128 dereferenceable(416) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN5folly16ThreadedExecutorD2Ev(ptr noundef nonnull align 128 dereferenceable(416) %this, ptr noundef nonnull @_ZTTN5folly16ThreadedExecutorE) #25
   tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %this, i64 noundef 128) #32
@@ -1139,7 +1139,7 @@ declare noundef zeroext i1 @_ZN5folly8Executor16keepAliveAcquireEv(ptr noundef n
 declare void @_ZN5folly8Executor16keepAliveReleaseEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly16ThreadedExecutorC2ESt10shared_ptrINS_13ThreadFactoryEE(ptr noundef nonnull align 128 dereferenceable(416) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %threadFactory) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly16ThreadedExecutorC2ESt10shared_ptrINS_13ThreadFactoryEE(ptr noundef nonnull align 128 dereferenceable(416) initializes((0, 25)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %threadFactory) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   %0 = load ptr, ptr %vtt, align 8
@@ -6132,7 +6132,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly16ThreadedExecutorC1ESt10shared_ptrINS_13ThreadFactoryEE(ptr noundef nonnull align 128 dereferenceable(416) %this, ptr nocapture noundef %threadFactory) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly16ThreadedExecutorC1ESt10shared_ptrINS_13ThreadFactoryEE(ptr noundef nonnull align 128 dereferenceable(416) initializes((0, 25)) %this, ptr nocapture noundef %threadFactory) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly16ThreadedExecutorE, i64 72), ptr %this, align 128, !tbaa !60
@@ -6276,7 +6276,7 @@ ehcleanup:                                        ; preds = %lpad2.body, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly16ThreadedExecutorD2Ev(ptr noundef nonnull align 128 dereferenceable(416) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly16ThreadedExecutorD2Ev(ptr noundef nonnull align 128 dereferenceable(416) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::ThreadedExecutor::Message", align 16
   %ref.tmp6 = alloca %"class.google::LogMessageFatal", align 8
@@ -9147,7 +9147,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly16ThreadedExecutor23newDefaultThreadFactoryEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly16ThreadedExecutor23newDefaultThreadFactoryEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i17.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #34
   %_M_use_count.i.i.i1 = getelementptr inbounds i8, ptr %call5.i.i.i17.i, i64 8

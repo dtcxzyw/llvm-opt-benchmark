@@ -645,7 +645,7 @@ $_ZTIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE = comdat any
 @.str.172 = private unnamed_addr constant [30 x i8] c"invalid export in core module\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader8loadSortERSt7variantIJNS_3AST9Component8CoreSortENS4_8SortCaseEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull align 1 dereferenceable(2) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader8loadSortERSt7variantIJNS_3AST9Component8CoreSortENS4_8SortCaseEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull align 1 dereferenceable(2) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.0", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -784,7 +784,7 @@ _ZNSt7variantIJN8WasmEdge3AST9Component8CoreSortENS2_8SortCaseEEEaSIS4_EENSt9ena
 declare void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind writable sret(%"class.cxx20::expected.0") align 4, ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader12loadCoreSortERNS_3AST9Component8CoreSortE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader12loadCoreSortERNS_3AST9Component8CoreSortE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected.0", align 4
   %5 = alloca %"class.cxx20::unexpected", align 4
   %6 = alloca %"class.WasmEdge::ErrCode", align 4
@@ -893,7 +893,7 @@ define linkonce_odr hidden void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7E
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader13loadSortIndexERNS_3AST9Component9SortIndexISt7variantIJNS3_8CoreSortENS3_8SortCaseEEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader13loadSortIndexERNS_3AST9Component9SortIndexISt7variantIJNS3_8CoreSortENS3_8SortCaseEEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected", align 4
   %5 = alloca %"class.cxx20::expected.43", align 4
   call void @_ZN8WasmEdge6Loader6Loader8loadSortERSt7variantIJNS_3AST9Component8CoreSortENS4_8SortCaseEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 1 dereferenceable(2) %2)
@@ -937,7 +937,7 @@ define void @_ZN8WasmEdge6Loader6Loader13loadSortIndexERNS_3AST9Component9SortIn
 declare void @_ZN8WasmEdge7FileMgr7readU32Ev(ptr dead_on_unwind writable sret(%"class.cxx20::expected.43") align 4, ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader17loadCoreSortIndexERNS_3AST9Component9SortIndexINS3_8CoreSortEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader17loadCoreSortIndexERNS_3AST9Component9SortIndexINS3_8CoreSortEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected.0", align 4
   %5 = alloca %"class.cxx20::unexpected", align 4
   %6 = alloca %"class.WasmEdge::ErrCode", align 4

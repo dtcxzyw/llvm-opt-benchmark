@@ -34,7 +34,7 @@ $_ZNK9NumberSeq4lastEv = comdat any
 @_ZN12TruncatedSeqD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN12TruncatedSeqD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6AbsSeqC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, double noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN6AbsSeqC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 12), (16, 56)) %0, double noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV6AbsSeq, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -256,7 +256,7 @@ _ZNK6AbsSeq9dvarianceEv.exit.thread:              ; preds = %9, %1, %_ZNK6AbsSeq
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9NumberSeqC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, double noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN9NumberSeqC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 12), (16, 72)) %0, double noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -304,7 +304,7 @@ define hidden noundef zeroext i1 @_ZN9NumberSeq10check_numsEPS_iPS0_(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9NumberSeq3addEd(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, double noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN9NumberSeq3addEd(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((56, 64)) %0, double noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -361,7 +361,7 @@ define hidden void @_ZN9NumberSeq3addEd(ptr nocapture noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12TruncatedSeqC2Eid(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, double noundef %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN12TruncatedSeqC2Eid(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 12), (16, 72)) %0, i32 noundef %1, double noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -400,7 +400,7 @@ define hidden void @_ZN12TruncatedSeqC2Eid(ptr nocapture noundef nonnull align 8
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12TruncatedSeqD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN12TruncatedSeqD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV12TruncatedSeq, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8

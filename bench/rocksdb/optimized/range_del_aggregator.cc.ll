@@ -292,7 +292,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25TruncatedRangeDelIteratorC2ESt10unique_ptrINS_32FragmentedRangeTombstoneIteratorESt14default_deleteIS2_EEPKNS_21InternalKeyComparatorEPKNS_11InternalKeyESB_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %iter, ptr noundef %icmp, ptr noundef %smallest, ptr noundef %largest) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25TruncatedRangeDelIteratorC2ESt10unique_ptrINS_32FragmentedRangeTombstoneIteratorESt14default_deleteIS2_EEPKNS_21InternalKeyComparatorEPKNS_11InternalKeyESB_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 32)) %this, ptr nocapture noundef %iter, ptr noundef %icmp, ptr noundef %smallest, ptr noundef %largest) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pik_status = alloca %"class.rocksdb::Status", align 8
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
@@ -1089,7 +1089,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @_ZN7rocksdb32FragmentedRangeTombstoneIterator13SeekToTopLastEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25TruncatedRangeDelIterator15SplitBySnapshotERKSt6vectorImSaImEE(ptr noalias sret(%"class.std::map") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(24) %snapshots) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25TruncatedRangeDelIterator15SplitBySnapshotERKSt6vectorImSaImEE(ptr noalias sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(24) %snapshots) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::unique_ptr", align 8
   %truncated_iter.i.i = alloca %"class.std::unique_ptr.63", align 8
@@ -1324,7 +1324,7 @@ _ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb23ForwardRangeDelIteratorC2EPKNS_21InternalKeyComparatorE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef %icmp) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23ForwardRangeDelIteratorC2EPKNS_21InternalKeyComparatorE(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 16), (24, 28), (32, 40)) %this, ptr noundef %icmp) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont10:
   store ptr %icmp, ptr %this, align 8
   %unused_idx_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2203,7 +2203,7 @@ if.end5:                                          ; preds = %_ZNK7rocksdb25Trunc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb23ForwardRangeDelIterator10InvalidateEv(ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23ForwardRangeDelIterator10InvalidateEv(ptr noundef nonnull align 8 dereferenceable(304) initializes((8, 16), (176, 184)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %unused_idx_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %unused_idx_, align 8
@@ -2281,7 +2281,7 @@ _ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb23ReverseRangeDelIteratorC2EPKNS_21InternalKeyComparatorE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef %icmp) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23ReverseRangeDelIteratorC2EPKNS_21InternalKeyComparatorE(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 16), (24, 28), (32, 40)) %this, ptr noundef %icmp) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont10:
   store ptr %icmp, ptr %this, align 8
   %unused_idx_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -3168,7 +3168,7 @@ if.end5:                                          ; preds = %_ZNK7rocksdb25Trunc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb23ReverseRangeDelIterator10InvalidateEv(ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23ReverseRangeDelIterator10InvalidateEv(ptr noundef nonnull align 8 dereferenceable(304) initializes((8, 16), (176, 184)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %unused_idx_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %unused_idx_, align 8
@@ -9082,7 +9082,7 @@ _ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_23ReverseRangeDelIter
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIterD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIterD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIterE, i64 16), ptr %this, align 8
   %cur_end_key_ = getelementptr inbounds i8, ptr %this, i64 240
@@ -9135,7 +9135,7 @@ _ZN7rocksdb10BinaryHeapIPNS_25TruncatedRangeDelIteratorENS_21StartKeyMinComparat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIterD0Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIterD0Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIterE, i64 16), ptr %this, align 8
   %cur_end_key_.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -9290,7 +9290,7 @@ land.end:                                         ; preds = %_ZNK7rocksdb12_GLOB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIter11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIter11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(280) initializes((176, 184)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i1.i = alloca %"struct.rocksdb::ParsedInternalKey", align 8
   %ref.tmp.i.i65 = alloca %"struct.rocksdb::ParsedInternalKey", align 8
@@ -10421,7 +10421,7 @@ return:                                           ; preds = %_ZNK7rocksdb25Trunc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIter6statusEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK7rocksdb12_GLOBAL__N_128TruncatedRangeDelMergingIter6statusEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !520

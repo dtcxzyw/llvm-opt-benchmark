@@ -3050,7 +3050,7 @@ define internal noundef i32 @hash_aset_noinsert(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @hash_aset_insert(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 %3) #8 {
+define internal noundef i32 @hash_aset_insert(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i64 noundef %2, i32 %3) #8 {
   %5 = inttoptr i64 %2 to ptr
   %.val = load i64, ptr %5, align 8
   store i64 %.val, ptr %1, align 8
@@ -3074,7 +3074,7 @@ hash_aset_str.exit:                               ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @hash_aset_str_insert(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @hash_aset_str_insert(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i64 noundef %2, i32 noundef %3) #0 {
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %5, label %hash_aset_str.exit
 
@@ -11050,7 +11050,7 @@ define internal noundef i32 @rb_hash_update_callback_noinsert(ptr nocapture read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @rb_hash_update_callback_insert(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 %3) #8 {
+define internal noundef i32 @rb_hash_update_callback_insert(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i64 noundef %2, i32 %3) #8 {
   %5 = inttoptr i64 %2 to ptr
   %.val = load i64, ptr %5, align 8
   store i64 %.val, ptr %1, align 8

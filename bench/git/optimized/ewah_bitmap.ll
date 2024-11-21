@@ -1108,7 +1108,7 @@ return:                                           ; preds = %if.then7.i, %if.els
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ewah_iterator_init(ptr nocapture noundef writeonly %it, ptr nocapture noundef readonly %parent) local_unnamed_addr #5 {
+define dso_local void @ewah_iterator_init(ptr nocapture noundef writeonly initializes((0, 60)) %it, ptr nocapture noundef readonly %parent) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %parent, align 8
   store ptr %0, ptr %it, align 8

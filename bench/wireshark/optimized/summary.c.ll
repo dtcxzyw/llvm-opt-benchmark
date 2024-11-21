@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [5 x i8] c"%02x\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @summary_fill_in(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @summary_fill_in(ptr noundef %0, ptr noundef initializes((0, 24), (32, 68), (72, 84), (88, 112)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.iface_summary_info_tag, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8

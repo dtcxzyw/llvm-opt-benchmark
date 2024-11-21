@@ -581,7 +581,7 @@ define dso_local void @hashrescan(ptr noundef %0, ptr noundef readonly %1, i32 %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @hashgettuple(ptr noundef %0, i32 noundef %1) #0 {
+define dso_local zeroext i1 @hashgettuple(ptr noundef initializes((112, 113)) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 112

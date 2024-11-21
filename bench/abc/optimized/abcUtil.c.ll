@@ -5277,7 +5277,7 @@ define ptr @Abc_NodeRecognizeMux(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkPrepareTwoNtks(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr nocapture noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkPrepareTwoNtks(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef initializes((0, 4)) %6, ptr nocapture noundef initializes((0, 4)) %7, i32 noundef %8) local_unnamed_addr #0 {
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
   switch i32 %3, label %55 [
@@ -5436,7 +5436,7 @@ declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_NtkStrash(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NodeCollectFanins(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Abc_NodeCollectFanins(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr i8, ptr %0, i64 28
@@ -5535,7 +5535,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NodeCollectFanouts(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Abc_NodeCollectFanouts(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr i8, ptr %0, i64 44
@@ -9335,7 +9335,7 @@ Vec_IntPush.exit59:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkReverseTopoOrder(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Abc_NtkReverseTopoOrder(ptr nocapture noundef initializes((424, 432)) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val24 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val24, i64 4
@@ -9659,7 +9659,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkReverseTopoOrderTest(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Abc_NtkReverseTopoOrderTest(ptr nocapture noundef initializes((424, 432)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
@@ -10528,7 +10528,7 @@ Vec_IntFillExtra.exit:                            ; preds = %54, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_NtkTransferPhases(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define void @Abc_NtkTransferPhases(ptr nocapture noundef initializes((384, 392)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val17 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val17, i64 4

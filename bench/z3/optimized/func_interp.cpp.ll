@@ -162,7 +162,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10func_entryC2ER11ast_managerjPKP4exprS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %arity, ptr nocapture noundef readonly %args, ptr noundef %result) unnamed_addr #3 align 2 {
+define hidden void @_ZN10func_entryC2ER11ast_managerjPKP4exprS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %arity, ptr nocapture noundef readonly %args, ptr noundef %result) unnamed_addr #3 align 2 {
 entry:
   store i8 1, ptr %this, align 8
   %m_result = getelementptr inbounds i8, ptr %this, i64 8
@@ -417,7 +417,7 @@ _ZN11ast_manager7dec_refEP3ast.exit12:            ; preds = %for.end, %if.then.i
 declare void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11func_interpC2ER11ast_managerj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %arity) unnamed_addr #4 align 2 {
+define hidden void @_ZN11func_interpC2ER11ast_managerj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 12), (16, 33), (40, 56)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %arity) unnamed_addr #4 align 2 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_arity = getelementptr inbounds i8, ptr %this, i64 8
@@ -2982,7 +2982,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK11func_interp21get_array_interp_coreEP9func_decl(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readonly %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK11func_interp21get_array_interp_coreEP9func_decl(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readonly %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
@@ -4509,7 +4509,7 @@ _ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK11func_interp16get_array_interpEP9func_decl(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK11func_interp16get_array_interpEP9func_decl(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_array_interp = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_array_interp, align 8

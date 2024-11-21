@@ -118,7 +118,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK7b2Mat3312GetInverse22EPS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef writeonly %M) local_unnamed_addr #2 align 2 {
+define void @_ZNK7b2Mat3312GetInverse22EPS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef writeonly initializes((0, 36)) %M) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
   %ey = getelementptr inbounds i8, ptr %this, i64 12
@@ -153,7 +153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK7b2Mat3315GetSymInverse33EPS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef writeonly %M) local_unnamed_addr #3 align 2 {
+define void @_ZNK7b2Mat3315GetSymInverse33EPS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef writeonly initializes((0, 36)) %M) local_unnamed_addr #3 align 2 {
 entry:
   %ey = getelementptr inbounds i8, ptr %this, i64 12
   %ez = getelementptr inbounds i8, ptr %this, i64 24

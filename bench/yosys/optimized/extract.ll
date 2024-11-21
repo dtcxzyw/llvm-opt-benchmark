@@ -20961,7 +20961,7 @@ _ZNSt12_Vector_baseIN10SubCircuit6Solver10MineResultESaIS2_EED2Ev.exit: ; preds 
 declare void @_ZN5Yosys7log_popEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116SubCircuitSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_116SubCircuitSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_116SubCircuitSolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 136
@@ -22558,7 +22558,7 @@ declare noundef zeroext i1 @_ZN10SubCircuit6Solver15userCompareEdgeERKNSt7__cxx1
 declare noundef zeroext i1 @_ZN10SubCircuit6Solver17userCheckSolutionERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116SubCircuitSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_116SubCircuitSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN12_GLOBAL__N_116SubCircuitSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void

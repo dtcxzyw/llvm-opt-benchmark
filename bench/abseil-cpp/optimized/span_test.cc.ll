@@ -29804,7 +29804,7 @@ ehcleanup:                                        ; preds = %lpad.i, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144IntSpanOrderComparisonTest_CompareSpans_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_144IntSpanOrderComparisonTest_CompareSpans_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -29832,7 +29832,7 @@ _ZN12_GLOBAL__N_126IntSpanOrderComparisonTestD2Ev.exit: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144IntSpanOrderComparisonTest_CompareSpans_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_144IntSpanOrderComparisonTest_CompareSpans_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -32489,7 +32489,7 @@ eh.resume:                                        ; preds = %lpad479, %_ZN7testi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126IntSpanOrderComparisonTestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_126IntSpanOrderComparisonTestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_ = getelementptr inbounds i8, ptr %this, i64 80
@@ -32555,7 +32555,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_155IntSpanOrderComparisonTest_SpanOfConstAndContainer_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_155IntSpanOrderComparisonTest_SpanOfConstAndContainer_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -32583,7 +32583,7 @@ _ZN12_GLOBAL__N_126IntSpanOrderComparisonTestD2Ev.exit: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_155IntSpanOrderComparisonTest_SpanOfConstAndContainer_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_155IntSpanOrderComparisonTest_SpanOfConstAndContainer_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -34394,7 +34394,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_157IntSpanOrderComparisonTest_SpanOfMutableAndContainer_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_157IntSpanOrderComparisonTest_SpanOfMutableAndContainer_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -34422,7 +34422,7 @@ _ZN12_GLOBAL__N_126IntSpanOrderComparisonTestD2Ev.exit: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_157IntSpanOrderComparisonTest_SpanOfMutableAndContainer_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_157IntSpanOrderComparisonTest_SpanOfMutableAndContainer_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -36233,7 +36233,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_142IntSpanOrderComparisonTest_EqualSpans_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_142IntSpanOrderComparisonTest_EqualSpans_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -36261,7 +36261,7 @@ _ZN12_GLOBAL__N_126IntSpanOrderComparisonTestD2Ev.exit: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_142IntSpanOrderComparisonTest_EqualSpans_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_142IntSpanOrderComparisonTest_EqualSpans_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -36327,7 +36327,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140IntSpanOrderComparisonTest_Subspans_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_140IntSpanOrderComparisonTest_Subspans_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -36355,7 +36355,7 @@ _ZN12_GLOBAL__N_126IntSpanOrderComparisonTestD2Ev.exit: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140IntSpanOrderComparisonTest_Subspans_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_140IntSpanOrderComparisonTest_Subspans_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -37242,7 +37242,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_142IntSpanOrderComparisonTest_EmptySpans_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_142IntSpanOrderComparisonTest_EmptySpans_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -37270,7 +37270,7 @@ _ZN12_GLOBAL__N_126IntSpanOrderComparisonTestD2Ev.exit: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_142IntSpanOrderComparisonTest_EmptySpans_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_142IntSpanOrderComparisonTest_EmptySpans_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_126IntSpanOrderComparisonTestE, i64 16), ptr %this, align 8
   %vec_after_.i.i = getelementptr inbounds i8, ptr %this, i64 80

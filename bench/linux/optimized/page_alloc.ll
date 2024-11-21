@@ -1644,7 +1644,7 @@ define dso_local ptr @__pageblock_pfn_to_page(i64 noundef %0, i64 noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define dso_local void @post_alloc_hook(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
+define dso_local void @post_alloc_hook(ptr noundef initializes((40, 48)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_free, i32 2) #22
           to label %4 [label %11], !srcloc !29
 
@@ -5320,7 +5320,7 @@ select.unfold:                                    ; preds = %74
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @prep_new_page(ptr noundef nonnull %0, i32 noundef range(i32 0, 11) %1, i32 noundef %2, i32 noundef range(i32 0, 4096) %3) unnamed_addr #0 align 16 {
+define internal fastcc void @prep_new_page(ptr noundef nonnull initializes((40, 48)) %0, i32 noundef range(i32 0, 11) %1, i32 noundef %2, i32 noundef range(i32 0, 4096) %3) unnamed_addr #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_free, i32 2) #22
           to label %7 [label %.thread], !srcloc !29
 
@@ -8016,7 +8016,7 @@ define dso_local ptr @page_frag_alloc_align(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__page_frag_cache_refill(ptr nocapture noundef writeonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__page_frag_cache_refill(ptr nocapture noundef writeonly initializes((0, 8), (10, 12)) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = or i32 %1, 860160
   %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #23, !srcloc !105
@@ -8814,7 +8814,7 @@ define internal fastcc void @__build_all_zonelists(ptr noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @setup_zone_pageset(ptr noundef %0) local_unnamed_addr #16 section ".meminit.text" align 16 {
+define dso_local void @setup_zone_pageset(ptr noundef initializes((96, 112)) %0) local_unnamed_addr #16 section ".meminit.text" align 16 {
   %2 = tail call noalias dereferenceable_or_null(64) ptr @__alloc_percpu(i64 noundef 64, i64 noundef 8) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %2, ptr %3, align 8
@@ -9197,7 +9197,7 @@ define dso_local void @setup_per_cpu_pageset() local_unnamed_addr #16 section ".
 declare dso_local ptr @next_online_pgdat(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: write)
-define dso_local void @zone_pcp_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #18 section ".meminit.text" align 16 {
+define dso_local void @zone_pcp_init(ptr nocapture noundef writeonly initializes((96, 124)) %0) local_unnamed_addr #18 section ".meminit.text" align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @boot_pageset, ptr %2, align 32
   %3 = getelementptr inbounds i8, ptr %0, i64 104

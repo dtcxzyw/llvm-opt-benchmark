@@ -131,7 +131,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18quantifier_hoisterC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 {
+define hidden void @_ZN18quantifier_hoisterC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 80)
   tail call void @_ZN18quantifier_hoister4implC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(80) %call, ptr noundef nonnull align 8 dereferenceable(976) %m)
@@ -219,7 +219,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18quantifier_hoisterclEP4exprR10ref_vectorI3app11ast_managerERbR7obj_refIS0_S4_Ebb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %fml, ptr noundef nonnull align 8 dereferenceable(16) %vars, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %is_fa, ptr noundef nonnull align 8 dereferenceable(16) %result, i1 noundef zeroext %use_fresh, i1 noundef zeroext %rewrite_ok) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN18quantifier_hoisterclEP4exprR10ref_vectorI3app11ast_managerERbR7obj_refIS0_S4_Ebb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %fml, ptr noundef nonnull align 8 dereferenceable(16) %vars, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %is_fa, ptr noundef nonnull align 8 dereferenceable(16) %result, i1 noundef zeroext %use_fresh, i1 noundef zeroext %rewrite_ok) local_unnamed_addr #3 align 2 {
 entry:
   %qt.i = alloca i32, align 4
   %0 = load ptr, ptr %this, align 8

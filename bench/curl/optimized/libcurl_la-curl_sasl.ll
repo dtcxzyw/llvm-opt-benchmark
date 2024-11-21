@@ -240,7 +240,7 @@ return:                                           ; preds = %for.inc.i, %if.then
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Curl_sasl_init(ptr nocapture noundef %sasl, ptr nocapture noundef readonly %data, ptr noundef %params) local_unnamed_addr #4 {
+define hidden void @Curl_sasl_init(ptr nocapture noundef initializes((0, 12), (16, 30)) %sasl, ptr nocapture noundef readonly %data, ptr noundef %params) local_unnamed_addr #4 {
 entry:
   %httpauth = getelementptr inbounds i8, ptr %data, i64 472
   %0 = load i64, ptr %httpauth, align 8
@@ -320,7 +320,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_sasl_start(ptr nocapture noundef %sasl, ptr noundef %data, i1 noundef zeroext %force_ir, ptr nocapture noundef writeonly %progress) local_unnamed_addr #0 {
+define hidden i32 @Curl_sasl_start(ptr nocapture noundef initializes((28, 30)) %sasl, ptr noundef %data, i1 noundef zeroext %force_ir, ptr nocapture noundef writeonly initializes((0, 4)) %progress) local_unnamed_addr #0 {
 entry:
   %resp = alloca %struct.bufref, align 8
   %hostname = alloca ptr, align 8
@@ -693,7 +693,7 @@ declare i64 @Curl_bufref_len(ptr noundef) local_unnamed_addr #1
 declare void @Curl_bufref_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_sasl_continue(ptr nocapture noundef %sasl, ptr noundef %data, i32 noundef %code, ptr nocapture noundef writeonly %progress) local_unnamed_addr #0 {
+define hidden i32 @Curl_sasl_continue(ptr nocapture noundef %sasl, ptr noundef %data, i32 noundef %code, ptr nocapture noundef writeonly initializes((0, 4)) %progress) local_unnamed_addr #0 {
 entry:
   %resp = alloca %struct.bufref, align 8
   %hostname = alloca ptr, align 8

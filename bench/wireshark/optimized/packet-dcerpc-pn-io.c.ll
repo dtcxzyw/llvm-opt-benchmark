@@ -16911,7 +16911,7 @@ define internal fastcc i32 @dissect_ChannelProperties(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_RS_BlockHeader(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_RS_BlockHeader(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull initializes((0, 2)) %6, ptr noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca i16, align 2
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1

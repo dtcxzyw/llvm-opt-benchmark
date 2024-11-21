@@ -5526,7 +5526,7 @@ return:                                           ; preds = %while.body.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TLSX_KeyShare_Establish(ptr noundef %ssl, ptr nocapture noundef writeonly %doHelloRetry) local_unnamed_addr #0 {
+define i32 @TLSX_KeyShare_Establish(ptr noundef %ssl, ptr nocapture noundef writeonly initializes((0, 4)) %doHelloRetry) local_unnamed_addr #0 {
 entry:
   %clientKSE = alloca ptr, align 8
   %searched = alloca i8, align 1
@@ -7679,7 +7679,7 @@ return:                                           ; preds = %if.end176, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -394, 1) i32 @TLSX_ParseVersion(ptr noundef %ssl, ptr nocapture noundef readonly %input, i16 noundef zeroext %length, i8 noundef zeroext %msgType, ptr nocapture noundef writeonly %found) local_unnamed_addr #0 {
+define range(i32 -394, 1) i32 @TLSX_ParseVersion(ptr noundef %ssl, ptr nocapture noundef readonly %input, i16 noundef zeroext %length, i8 noundef zeroext %msgType, ptr nocapture noundef writeonly initializes((0, 4)) %found) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %found, align 4
   %conv = zext i16 %length to i32

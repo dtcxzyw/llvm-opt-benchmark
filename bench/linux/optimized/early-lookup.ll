@@ -279,7 +279,7 @@ define internal fastcc range(i32 -22, 1) i32 @devt_from_devname(ptr nocapture no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -22, 1) i32 @devt_from_devnum(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @devt_from_devnum(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

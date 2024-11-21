@@ -5878,7 +5878,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivateD2Ev(ptr noundef nonnull align 8 dereferenceable(9400) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivateD2Ev(ptr noundef nonnull align 8 dereferenceable(9400) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear18TheoryArithPrivateE, i64 16), ptr %this, align 8
   %d_treeLog = getelementptr inbounds i8, ptr %this, i64 8584
@@ -7006,7 +7006,7 @@ _ZN4cvc58internal8DenseMapINS0_6theory5arith6linear10BoundsInfoEED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivateD0Ev(ptr noundef nonnull align 8 dereferenceable(9400) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivateD0Ev(ptr noundef nonnull align 8 dereferenceable(9400) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivateD2Ev(ptr noundef nonnull align 8 dereferenceable(9400) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
@@ -7172,7 +7172,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate14ModelExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate14ModelExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
   %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -7182,7 +7182,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate14ModelExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate14ModelExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
   %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -32980,7 +32980,7 @@ if.end:                                           ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate12replayLogRecEPNS3_18ApproximateSimplexEiPNS3_10ConstraintEi(ptr noalias sret(%"class.std::vector.867") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9400) %this, ptr noundef %approx, i32 noundef %nid, ptr noundef %bc, i32 noundef %depth) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate12replayLogRecEPNS3_18ApproximateSimplexEiPNS3_10ConstraintEi(ptr noalias sret(%"class.std::vector.867") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(9400) %this, ptr noundef %approx, i32 noundef %nid, ptr noundef %bc, i32 noundef %depth) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %ref.tmp.i = alloca %"struct.std::pair.692", align 8
   %ref.tmp.i.i324 = alloca %"struct.std::pair.692", align 8
@@ -44737,7 +44737,7 @@ eh.resume:                                        ; preds = %ehcleanup80, %lpad6
 declare noundef zeroext i1 @_ZNK4cvc58internal8TypeNode11isRealOrIntEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate8preCheckENS1_6Theory6EffortE(ptr nocapture noundef nonnull align 8 dereferenceable(9400) %this, i32 noundef %level) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate8preCheckENS1_6Theory6EffortE(ptr nocapture noundef nonnull align 8 dereferenceable(9400) initializes((8808, 8809), (8812, 8816)) %this, i32 noundef %level) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 cleanup.done13:
   %d_containing.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_containing.i, align 8
@@ -47635,7 +47635,7 @@ entry:
 declare void @_ZN4cvc58internal6theory5arith14BranchAndBound21branchIntegerVariableENS0_12NodeTemplateILb0EEENS0_8RationalE(ptr sret(%"class.std::vector.262") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory5arith6linear18TheoryArithPrivate13cutAllBoundedEv(ptr noalias nocapture sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9400) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory5arith6linear18TheoryArithPrivate13cutAllBoundedEv(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(9400) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %d_partialModel = getelementptr inbounds i8, ptr %this, i64 1416
@@ -47872,7 +47872,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate7explainENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.cvc5::internal::TrustNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9400) %this, ptr nocapture noundef readonly %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate7explainENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.cvc5::internal::TrustNode") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(9400) %this, ptr nocapture noundef readonly %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.691", align 8
   %ref.tmp12 = alloca %"class.cvc5::internal::TrustNode", align 8

@@ -186,7 +186,7 @@ define dso_local i32 @gen4_emit_flush_vcs(ptr noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local noundef ptr @gen3_emit_breadcrumb(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef ptr @gen3_emit_breadcrumb(ptr nocapture noundef %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr i8, ptr %1, i64 4
   store i32 33554432, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -245,7 +245,7 @@ define dso_local noundef ptr @gen3_emit_breadcrumb(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local noundef ptr @gen5_emit_breadcrumb(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef ptr @gen5_emit_breadcrumb(ptr nocapture noundef %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr i8, ptr %1, i64 4
   store i32 33554432, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 40

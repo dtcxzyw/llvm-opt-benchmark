@@ -304,7 +304,7 @@ define internal noundef range(i32 0, 2) i32 @uhci_irq(ptr noundef %0) #2 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @uhci_pci_init(ptr noundef %0) #2 align 16 {
+define internal noundef i32 @uhci_pci_init(ptr noundef initializes((608, 616)) %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 608
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %4 = load i64, ptr %3, align 8
@@ -450,7 +450,7 @@ define internal noundef i32 @uhci_pci_init(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -16, 1) i32 @uhci_start(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 -16, 1) i32 @uhci_start(ptr noundef initializes((744, 748)) %0) #2 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 608

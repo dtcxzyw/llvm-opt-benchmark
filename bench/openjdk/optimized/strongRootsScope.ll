@@ -27,7 +27,7 @@ define hidden void @_ZN9MarkScopeD2Ev(ptr nocapture nonnull readnone align 1 %0)
 declare void @_ZN7nmethod24oops_do_marking_epilogueEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16StrongRootsScopeC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16StrongRootsScopeC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN7nmethod24oops_do_marking_prologueEv() #2
   store i32 %1, ptr %0, align 4
   %.not = icmp eq i32 %1, 0

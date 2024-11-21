@@ -1418,7 +1418,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm25getAddressSanitizerParamsERKNS_6TripleEibPmPiPb(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm25getAddressSanitizerParamsERKNS_6TripleEibPmPiPb(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 1)) %5) local_unnamed_addr #0 {
   %7 = alloca %"struct.(anonymous namespace)::ShadowMapping", align 8
   call fastcc void @_ZL16getShadowMappingRKN4llvm6TripleEib(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i1 noundef zeroext %2)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1434,7 +1434,7 @@ define dso_local void @_ZN4llvm25getAddressSanitizerParamsERKNS_6TripleEibPmPiPb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16getShadowMappingRKN4llvm6TripleEib(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @_ZL16getShadowMappingRKN4llvm6TripleEib(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 4), (8, 18)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
 switch.edge:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
@@ -1814,7 +1814,7 @@ _ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %switch.edge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm14ASanAccessInfoC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(7) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm14ASanAccessInfoC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(7) initializes((0, 7)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   store i32 %1, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = trunc i32 %1 to i8
@@ -1832,7 +1832,7 @@ define dso_local void @_ZN4llvm14ASanAccessInfoC2Ei(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm14ASanAccessInfoC2Ebbh(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(7) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm14ASanAccessInfoC2Ebbh(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(7) initializes((0, 7)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #2 align 2 {
   %5 = zext i1 %1 to i8
   %6 = zext i1 %2 to i8
   %7 = select i1 %1, i32 32, i32 0
@@ -1981,7 +1981,7 @@ _ZN4llvm11raw_ostreamlsEc.exit9:                  ; preds = %56, %58
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm20AddressSanitizerPassC2ERKNS_23AddressSanitizerOptionsEbbNS_12AsanDtorKindENS_12AsanCtorKindE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(17) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm20AddressSanitizerPassC2ERKNS_23AddressSanitizerOptionsEbbNS_12AsanDtorKindENS_12AsanCtorKindE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) initializes((0, 22), (24, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(17) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 align 2 {
   %7 = zext i1 %2 to i8
   %8 = zext i1 %3 to i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 20, i1 false)
@@ -12447,7 +12447,7 @@ _ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit: ; preds = %.lr.ph.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_122ModuleAddressSanitizer20CreateAsanModuleDtorEv(ptr nocapture noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_122ModuleAddressSanitizer20CreateAsanModuleDtorEv(ptr nocapture noundef nonnull align 8 dereferenceable(280) initializes((264, 272)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::InsertPosition", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca [1 x ptr], align 8

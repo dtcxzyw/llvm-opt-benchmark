@@ -1772,7 +1772,7 @@ define noundef zeroext i1 @"_ZN64_$LT$salsa..runtime..SharedState$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5salsa7runtime11ActiveQuery3new17h8da1348acb6df5dfE(ptr noalias nocapture noundef writeonly sret({ { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }) align 8 dereferenceable(80) %0, i64 %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define void @_ZN5salsa7runtime11ActiveQuery3new17h8da1348acb6df5dfE(ptr noalias nocapture noundef writeonly sret({ { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }) align 8 dereferenceable(80) initializes((0, 77)) %0, i64 %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 76
@@ -1991,7 +1991,7 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery18add_synthetic_read17h2bf4062
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5salsa7runtime11ActiveQuery9revisions17h325c3965a1f26070E(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, i32, i8, [3 x i8] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @_ZN5salsa7runtime11ActiveQuery9revisions17h325c3965a1f26070E(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, i32, i8, [3 x i8] }) align 8 dereferenceable(24) initializes((0, 21)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !20, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
   br i1 %4, label %9, label %5
@@ -2177,7 +2177,7 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa7runtime11ActiveQuery16take_inputs_from17hfac13cca678552ffE(ptr noalias noundef align 8 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #3 {
+define hidden void @_ZN5salsa7runtime11ActiveQuery16take_inputs_from17hfac13cca678552ffE(ptr noalias noundef align 8 dereferenceable(80) initializes((72, 77)) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8, !range !181, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 72

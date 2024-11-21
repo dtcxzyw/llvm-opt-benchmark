@@ -417,7 +417,7 @@ $_ZTVN4llvm13format_objectIJcmEEE = comdat any
 @_ZN4llvm15DWARFDebugFrameD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm15DWARFDebugFrameD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm5dwarf14UnwindLocation17createUnspecifiedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5dwarf14UnwindLocation17createUnspecifiedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 initializes((0, 12), (16, 17), (56, 57), (64, 65)) %0) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %2, align 4
@@ -433,7 +433,7 @@ define dso_local void @_ZN4llvm5dwarf14UnwindLocation17createUnspecifiedEv(ptr d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm5dwarf14UnwindLocation15createUndefinedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5dwarf14UnwindLocation15createUndefinedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 initializes((0, 12), (16, 17), (56, 57), (64, 65)) %0) local_unnamed_addr #0 align 2 {
   store i32 1, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %2, align 4
@@ -449,7 +449,7 @@ define dso_local void @_ZN4llvm5dwarf14UnwindLocation15createUndefinedEv(ptr dea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm5dwarf14UnwindLocation10createSameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5dwarf14UnwindLocation10createSameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 initializes((0, 12), (16, 17), (56, 57), (64, 65)) %0) local_unnamed_addr #0 align 2 {
   store i32 2, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %2, align 4
@@ -465,7 +465,7 @@ define dso_local void @_ZN4llvm5dwarf14UnwindLocation10createSameEv(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm5dwarf14UnwindLocation16createIsConstantEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5dwarf14UnwindLocation16createIsConstantEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 initializes((0, 20), (56, 57), (64, 65)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   store i32 6, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %3, align 4
@@ -481,7 +481,7 @@ define dso_local void @_ZN4llvm5dwarf14UnwindLocation16createIsConstantEi(ptr de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm5dwarf14UnwindLocation21createIsCFAPlusOffsetEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5dwarf14UnwindLocation21createIsCFAPlusOffsetEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 initializes((0, 20), (56, 57), (64, 65)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   store i32 3, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %3, align 4
@@ -497,7 +497,7 @@ define dso_local void @_ZN4llvm5dwarf14UnwindLocation21createIsCFAPlusOffsetEi(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm5dwarf14UnwindLocation21createAtCFAPlusOffsetEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5dwarf14UnwindLocation21createAtCFAPlusOffsetEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 initializes((0, 20), (56, 57), (64, 65)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   store i32 3, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %3, align 4
@@ -513,7 +513,7 @@ define dso_local void @_ZN4llvm5dwarf14UnwindLocation21createAtCFAPlusOffsetEi(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm5dwarf14UnwindLocation26createIsRegisterPlusOffsetEjiSt8optionalIjE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 %0, i32 noundef %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5dwarf14UnwindLocation26createIsRegisterPlusOffsetEjiSt8optionalIjE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 initializes((0, 20), (56, 57), (64, 65)) %0, i32 noundef %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   store i32 4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %5, align 4
@@ -532,7 +532,7 @@ define dso_local void @_ZN4llvm5dwarf14UnwindLocation26createIsRegisterPlusOffse
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm5dwarf14UnwindLocation26createAtRegisterPlusOffsetEjiSt8optionalIjE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 %0, i32 noundef %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5dwarf14UnwindLocation26createAtRegisterPlusOffsetEjiSt8optionalIjE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 initializes((0, 20), (56, 57), (64, 65)) %0, i32 noundef %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   store i32 4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %5, align 4
@@ -548,7 +548,7 @@ define dso_local void @_ZN4llvm5dwarf14UnwindLocation26createAtRegisterPlusOffse
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm5dwarf14UnwindLocation23createIsDWARFExpressionENS_15DWARFExpressionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 %0, ptr nocapture noundef readonly byval(%"class.llvm::DWARFExpression") align 8 %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm5dwarf14UnwindLocation23createIsDWARFExpressionENS_15DWARFExpressionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 initializes((0, 12), (16, 17), (24, 57), (64, 65)) %0, ptr nocapture noundef readonly byval(%"class.llvm::DWARFExpression") align 8 %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i32 5, ptr %0, align 8
@@ -566,7 +566,7 @@ define dso_local void @_ZN4llvm5dwarf14UnwindLocation23createIsDWARFExpressionEN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm5dwarf14UnwindLocation23createAtDWARFExpressionENS_15DWARFExpressionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 %0, ptr nocapture noundef readonly byval(%"class.llvm::DWARFExpression") align 8 %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm5dwarf14UnwindLocation23createAtDWARFExpressionENS_15DWARFExpressionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::dwarf::UnwindLocation") align 8 initializes((0, 12), (16, 17), (24, 57), (64, 65)) %0, ptr nocapture noundef readonly byval(%"class.llvm::DWARFExpression") align 8 %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i32 5, ptr %0, align 8
@@ -8472,7 +8472,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %300, %302
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15DWARFDebugFrameC2ENS_6Triple8ArchTypeEbm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugFrameC2ENS_6Triple8ArchTypeEbm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 5), (8, 40)) %0, i32 noundef %1, i1 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %2 to i8
   store i32 %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -9975,7 +9975,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN4llvm5dwarf10Frame
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm15DWARFDebugFrame4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt8optionalImE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, i64 %3, i8 %4) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4llvm15DWARFDebugFrame4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt8optionalImE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef initializes((22, 23)) %2, i64 %3, i8 %4) local_unnamed_addr #3 align 2 {
   %6 = alloca %"struct.llvm::DIDumpOptions", align 8
   %7 = alloca %"struct.llvm::DIDumpOptions", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4

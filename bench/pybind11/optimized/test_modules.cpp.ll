@@ -32310,7 +32310,7 @@ declare ptr @PyNumber_Long(ptr noundef) local_unnamed_addr #5
 declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZ22test_submodule_modulesRN8pybind117module_EEN1AC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZ22test_submodule_modulesRN8pybind117module_EEN1AC2Ei(ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct._Guard, align 8
   %4 = alloca %"struct.std::type_index", align 8
   %5 = alloca i64, align 8
@@ -39036,7 +39036,7 @@ _ZN8pybind1118reinterpret_borrowINS_7module_EEET_NS_6handleE.exit: ; preds = %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN8pybind116class_IZZ22test_submodule_modulesRNS_7module_EENK3$_0clEvE5Dupe1JEEC2IJEEENS_6handleEPKcDpRKT_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN8pybind116class_IZZ22test_submodule_modulesRNS_7module_EENK3$_0clEvE5Dupe1JEEC2IJEEENS_6handleEPKcDpRKT_"(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::type_record", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 72

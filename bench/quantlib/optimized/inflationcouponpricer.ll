@@ -653,7 +653,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24YoYInflationCouponPricerC2ENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24YoYInflationCouponPricerC2ENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::shared_ptr.40", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -1124,7 +1124,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_29YoYOptionletVolatilitySurfaceEE4Li
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24YoYInflationCouponPricerC1ENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24YoYInflationCouponPricerC1ENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((96, 100), (104, 112)) %this, ptr nocapture noundef %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::shared_ptr.40", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -1467,7 +1467,7 @@ ehcleanup14:                                      ; preds = %lpad9, %lpad.i, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24YoYInflationCouponPricerC2ENS_6HandleINS_29YoYOptionletVolatilitySurfaceEEENS1_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %capletVol, ptr nocapture noundef %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24YoYInflationCouponPricerC2ENS_6HandleINS_29YoYOptionletVolatilitySurfaceEEENS1_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %capletVol, ptr nocapture noundef %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp18 = alloca %"class.boost::shared_ptr", align 8
@@ -1950,7 +1950,7 @@ ehcleanup28:                                      ; preds = %lpad22, %lpad12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24YoYInflationCouponPricerC1ENS_6HandleINS_29YoYOptionletVolatilitySurfaceEEENS1_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef %capletVol, ptr nocapture noundef %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24YoYInflationCouponPricerC1ENS_6HandleINS_29YoYOptionletVolatilitySurfaceEEENS1_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((96, 100), (104, 112)) %this, ptr nocapture noundef %capletVol, ptr nocapture noundef %nominalTermStructure) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp13 = alloca %"class.boost::shared_ptr", align 8
@@ -4075,7 +4075,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24YoYInflationCouponPricer10initializeERKNS_15InflationCouponE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(160) %coupon) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24YoYInflationCouponPricer10initializeERKNS_15InflationCouponE(ptr noundef nonnull align 8 dereferenceable(80) initializes((48, 56)) %this, ptr noundef nonnull align 8 dereferenceable(160) %coupon) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

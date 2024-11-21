@@ -177,7 +177,7 @@ define linkonce_odr hidden void @_ZN9SemaphoreD2Ev(ptr noundef nonnull align 8 d
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22JfrThreadGroupPointersC2E6HandleP8_jobject(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr %1, ptr noundef %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN22JfrThreadGroupPointersC2E6HandleP8_jobject(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr %1, ptr noundef %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -241,7 +241,7 @@ define hidden void @_ZN22JfrThreadGroupPointers14clear_weak_refEv(ptr nocapture 
 declare void @_ZN10JNIHandles19destroy_weak_globalEP8_jobject(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21JfrThreadGroupsHelperC2EPK10JavaThreadP6Thread(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN21JfrThreadGroupsHelperC2EPK10JavaThreadP6Thread(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #21
   %5 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 10, i32 noundef 8) #21
   store i32 0, ptr %4, align 4
@@ -553,7 +553,7 @@ declare noundef ptr @_ZN10JNIHandles16make_weak_globalE6HandleN17AllocFailStrate
 declare noundef ptr @_ZN21java_lang_ThreadGroup6parentEP7oopDesc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrThreadGroup19JfrThreadGroupEntryC2EPKcR22JfrThreadGroupPointers(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef readonly %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrThreadGroup19JfrThreadGroupEntryC2EPKcR22JfrThreadGroupPointers(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef readonly %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %.not.i = icmp eq ptr %1, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
@@ -613,7 +613,7 @@ define hidden void @_ZN14JfrThreadGroup19JfrThreadGroupEntry21set_thread_group_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14JfrThreadGroup19JfrThreadGroupEntry16set_thread_groupER22JfrThreadGroupPointers(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN14JfrThreadGroup19JfrThreadGroupEntry16set_thread_groupER22JfrThreadGroupPointers(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 40)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
@@ -715,7 +715,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %15, %11, %7, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrThreadGroupC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrThreadGroupC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 16) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4
@@ -1280,7 +1280,7 @@ _ZNK14JfrThreadGroup19JfrThreadGroupEntry12thread_groupEv.exit: ; preds = %13, %
 declare noundef ptr @_ZN21java_lang_ThreadGroup4nameEP7oopDesc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14JfrThreadGroup9add_entryEPNS_19JfrThreadGroupEntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN14JfrThreadGroup9add_entryEPNS_19JfrThreadGroupEntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   %3 = load i64, ptr @_ZZL7next_idvE23_current_threadgroup_id, align 8
   %4 = add i64 %3, 1
   store i64 %4, ptr @_ZZL7next_idvE23_current_threadgroup_id, align 8

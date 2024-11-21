@@ -225,7 +225,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.11 = private unnamed_addr constant [61 x i8] c"Use -c for a list of objects without details of differences.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef initializes((0, 1856)) %6) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1856) %6, i8 0, i64 1856, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 80
   store i32 1, ptr %8, align 8

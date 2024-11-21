@@ -4321,7 +4321,7 @@ declare i32 @SSL_stream_reset(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @run_script_child_thread(ptr nocapture noundef %arg) #1 {
+define internal noundef i32 @run_script_child_thread(ptr nocapture noundef initializes((48, 56)) %arg) #1 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   %script = getelementptr inbounds i8, ptr %arg, i64 8

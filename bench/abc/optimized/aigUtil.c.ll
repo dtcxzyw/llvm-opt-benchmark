@@ -523,7 +523,7 @@ define void @Aig_ManCleanNext(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Aig_ObjCleanData_rec(ptr nocapture noundef %0) local_unnamed_addr #7 {
+define void @Aig_ObjCleanData_rec(ptr nocapture noundef initializes((40, 48)) %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val5 = load i64, ptr %2, align 8
   %3 = and i64 %.val5, 7
@@ -685,7 +685,7 @@ Vec_PtrPushUnique.exit:                           ; preds = %21, %Vec_PtrPush.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ObjCollectMulti(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define void @Aig_ObjCollectMulti(ptr noundef %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   tail call void @Aig_ObjCollectMulti_rec(ptr noundef %0, ptr noundef %0, ptr noundef %1)
@@ -3868,7 +3868,7 @@ Vec_PtrGrow.exit:                                 ; preds = %3, %26
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Aig_ManCounterExampleValueStart(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define void @Aig_ManCounterExampleValueStart(ptr nocapture noundef initializes((304, 312)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
 .critedge:
   %2 = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i32, ptr %2, align 4
@@ -4256,7 +4256,7 @@ define range(i32 0, 2) i32 @Aig_ManCounterExampleValueLookup(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ManCounterExampleValueTest(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @Aig_ManCounterExampleValueTest(ptr nocapture noundef initializes((304, 312)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
 Aig_ManObj.exit:
   %2 = getelementptr i8, ptr %0, i64 32
   %.val13 = load ptr, ptr %2, align 8

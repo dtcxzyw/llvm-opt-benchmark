@@ -56,7 +56,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @aio_add_ready_handler(ptr noundef %ready_list, ptr noundef %node, i32 noundef %revents) local_unnamed_addr #1 {
+define dso_local void @aio_add_ready_handler(ptr noundef %ready_list, ptr noundef initializes((6, 8)) %node, i32 noundef %revents) local_unnamed_addr #1 {
 entry:
   %node_ready = getelementptr inbounds i8, ptr %node, i64 80
   %le_prev = getelementptr inbounds i8, ptr %node, i64 88
@@ -1581,7 +1581,7 @@ declare i64 @aio_compute_timeout(ptr noundef) local_unnamed_addr #3
 declare void @aio_notify_accept(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @aio_context_setup(ptr noundef %ctx) local_unnamed_addr #2 {
+define dso_local void @aio_context_setup(ptr noundef initializes((572, 584)) %ctx) local_unnamed_addr #2 {
 entry:
   %fdmon_ops = getelementptr inbounds i8, ptr %ctx, i64 576
   store ptr @fdmon_poll_ops, ptr %fdmon_ops, align 8
@@ -1624,7 +1624,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @aio_context_set_poll_params(ptr noundef %ctx, i64 noundef %max_ns, i64 noundef %grow, i64 noundef %shrink, ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
+define dso_local void @aio_context_set_poll_params(ptr noundef initializes((520, 552)) %ctx, i64 noundef %max_ns, i64 noundef %grow, i64 noundef %shrink, ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
 entry:
   %poll_max_ns = getelementptr inbounds i8, ptr %ctx, i64 528
   store i64 %max_ns, ptr %poll_max_ns, align 8
@@ -1639,7 +1639,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @aio_context_set_aio_params(ptr noundef %ctx, i64 noundef %max_batch, ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
+define dso_local void @aio_context_set_aio_params(ptr noundef initializes((552, 560)) %ctx, i64 noundef %max_batch, ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
 entry:
   %aio_max_batch = getelementptr inbounds i8, ptr %ctx, i64 552
   store i64 %max_batch, ptr %aio_max_batch, align 8

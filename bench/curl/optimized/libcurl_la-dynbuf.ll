@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_crealloc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_dyn_init(ptr nocapture noundef writeonly %s, i64 noundef %toobig) local_unnamed_addr #0 {
+define hidden void @Curl_dyn_init(ptr nocapture noundef writeonly initializes((0, 32)) %s, i64 noundef %toobig) local_unnamed_addr #0 {
 entry:
   %toobig3 = getelementptr inbounds i8, ptr %s, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s, i8 0, i64 24, i1 false)
@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_dyn_free(ptr nocapture noundef %s) local_unnamed_addr #1 {
+define hidden void @Curl_dyn_free(ptr nocapture noundef initializes((8, 24)) %s) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %1 = load ptr, ptr %s, align 8

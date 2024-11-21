@@ -1939,7 +1939,7 @@ define dso_local void @pci_bus_set_current_state(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @__pci_dev_set_current_state(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #10 align 16 {
+define internal noundef i32 @__pci_dev_set_current_state(ptr nocapture noundef writeonly initializes((152, 156)) %0, ptr nocapture noundef readonly %1) #10 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 %3, ptr %4, align 8
@@ -10514,7 +10514,7 @@ define dso_local range(i32 0, 256) i32 @pcie_get_width_cap(ptr noundef %0) #5 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 4032001) i32 @pcie_bandwidth_capable(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, 4032001) i32 @pcie_bandwidth_capable(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #5 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

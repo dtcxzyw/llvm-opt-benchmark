@@ -441,7 +441,7 @@ _ZN17QArrayDataPointerIP11_rtp_packetED2Ev.exit:  ; preds = %1, %_ZN17QArrayData
 declare void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14RtpAudioStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(7680) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14RtpAudioStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(7680) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV14RtpAudioStream, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 7392
   %3 = getelementptr inbounds i8, ptr %0, i64 7408
@@ -988,7 +988,7 @@ _ZN5QListIP11_rtp_packetE5clearEv.exit:           ; preds = %._crit_edge, %_ZN17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14RtpAudioStream5resetEd(ptr noundef nonnull align 8 dereferenceable(7680) %0, double noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14RtpAudioStream5resetEd(ptr noundef nonnull align 8 dereferenceable(7680) initializes((7440, 7448), (7464, 7472), (7496, 7500), (7648, 7650)) %0, double noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1240,7 +1240,7 @@ define i64 @_ZN14RtpAudioStream15getAudioRoutingEv(ptr nocapture noundef nonnull
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14RtpAudioStream15setAudioRoutingE12AudioRouting(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7680) %0, i64 %1) local_unnamed_addr #14 align 2 {
+define void @_ZN14RtpAudioStream15setAudioRoutingE12AudioRouting(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7680) initializes((7480, 7488)) %0, i64 %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 7480
   store i64 %1, ptr %3, align 8
   ret void
@@ -3167,7 +3167,7 @@ _ZN5QListIdED2Ev.exit19:                          ; preds = %.thread, %.loopexit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14RtpAudioStream13visualSamplesEi(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 %0, ptr noundef nonnull align 8 dereferenceable(7680) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14RtpAudioStream13visualSamplesEi(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(7680) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -3305,7 +3305,7 @@ _ZN5QListIdE6appendEd.exit23:                     ; preds = %47
 declare noundef double @_Z5qQNaNv() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14RtpAudioStream23outOfSequenceTimestampsEb(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 %0, ptr noundef nonnull align 8 dereferenceable(7680) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14RtpAudioStream23outOfSequenceTimestampsEb(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(7680) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   br i1 %2, label %5, label %16
 
@@ -3407,7 +3407,7 @@ _ZN5QListIdEC2ERKS0_.exit:                        ; preds = %42, %16, %14, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14RtpAudioStream20outOfSequenceSamplesEi(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(7680) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14RtpAudioStream20outOfSequenceSamplesEi(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(7680) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = sitofp i32 %2 to double
@@ -3448,7 +3448,7 @@ define void @_ZN14RtpAudioStream20outOfSequenceSamplesEi(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14RtpAudioStream23jitterDroppedTimestampsEb(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 %0, ptr noundef nonnull align 8 dereferenceable(7680) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14RtpAudioStream23jitterDroppedTimestampsEb(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(7680) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   br i1 %2, label %5, label %16
 
@@ -3550,7 +3550,7 @@ _ZN5QListIdEC2ERKS0_.exit:                        ; preds = %42, %16, %14, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14RtpAudioStream20jitterDroppedSamplesEi(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(7680) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14RtpAudioStream20jitterDroppedSamplesEi(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(7680) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = sitofp i32 %2 to double
@@ -3591,7 +3591,7 @@ define void @_ZN14RtpAudioStream20jitterDroppedSamplesEi(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14RtpAudioStream24wrongTimestampTimestampsEb(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 %0, ptr noundef nonnull align 8 dereferenceable(7680) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14RtpAudioStream24wrongTimestampTimestampsEb(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(7680) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   br i1 %2, label %5, label %16
 
@@ -3693,7 +3693,7 @@ _ZN5QListIdEC2ERKS0_.exit:                        ; preds = %42, %16, %14, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14RtpAudioStream21wrongTimestampSamplesEi(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(7680) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14RtpAudioStream21wrongTimestampSamplesEi(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(7680) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = sitofp i32 %2 to double
@@ -3734,7 +3734,7 @@ define void @_ZN14RtpAudioStream21wrongTimestampSamplesEi(ptr dead_on_unwind noa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14RtpAudioStream25insertedSilenceTimestampsEb(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 %0, ptr noundef nonnull align 8 dereferenceable(7680) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14RtpAudioStream25insertedSilenceTimestampsEb(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(7680) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   br i1 %2, label %5, label %16
 
@@ -3836,7 +3836,7 @@ _ZN5QListIdEC2ERKS0_.exit:                        ; preds = %42, %16, %14, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14RtpAudioStream22insertedSilenceSamplesEi(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(7680) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14RtpAudioStream22insertedSilenceSamplesEi(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(7680) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = sitofp i32 %2 to double

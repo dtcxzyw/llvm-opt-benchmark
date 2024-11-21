@@ -977,7 +977,7 @@ declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #5
 declare ptr @str_copy(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @stable_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local void @stable_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = zext i32 %1 to i64
   %4 = mul nuw nsw i64 %3, 24
   %5 = tail call ptr @calloc_arena(i64 noundef %4) #12
@@ -995,7 +995,7 @@ define dso_local void @stable_init(ptr nocapture noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @stable_clear(ptr nocapture noundef %0) local_unnamed_addr #8 {
+define dso_local void @stable_clear(ptr nocapture noundef initializes((0, 4)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1204,7 +1204,7 @@ sentry_find.exit:                                 ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @htable_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local void @htable_init(ptr nocapture noundef writeonly initializes((0, 4), (8, 16)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = zext i32 %1 to i64
   %4 = mul nuw nsw i64 %3, 24
   %5 = tail call ptr @calloc_arena(i64 noundef %4) #12

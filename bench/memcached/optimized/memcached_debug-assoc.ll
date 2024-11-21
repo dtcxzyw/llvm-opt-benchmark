@@ -194,7 +194,7 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #6
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @assoc_insert(ptr noundef %it, i32 noundef %hv) local_unnamed_addr #7 {
+define dso_local noundef i32 @assoc_insert(ptr noundef initializes((16, 24)) %it, i32 noundef %hv) local_unnamed_addr #7 {
 entry:
   %.b7 = load i1, ptr @expanding, align 1
   %.pre = load i32, ptr @hashpower, align 4
@@ -586,7 +586,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @assoc_iterate(ptr nocapture noundef %iterp, ptr nocapture noundef writeonly %it) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @assoc_iterate(ptr nocapture noundef %iterp, ptr nocapture noundef writeonly initializes((0, 8)) %it) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %it, align 8
   %bucket_locked = getelementptr inbounds i8, ptr %iterp, i64 24

@@ -1715,7 +1715,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11processor_tC2EPK12isa_parser_tPK5cfg_tP7simif_tjbP8_IO_FILERSo(ptr noundef nonnull align 8 dereferenceable(659880) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(8) %7) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11processor_tC2EPK12isa_parser_tPK5cfg_tP7simif_tjbP8_IO_FILERSo(ptr noundef nonnull align 8 dereferenceable(659880) initializes((0, 9), (12, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(8) %7) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::allocator.108", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::function", align 8
@@ -128717,7 +128717,7 @@ define void @_ZN11processor_t18set_mmu_capabilityEi(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11processor_t5resetEv(ptr noundef nonnull align 8 dereferenceable(659880) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11processor_t5resetEv(ptr noundef nonnull align 8 dereferenceable(659880) initializes((3796, 3800)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::pair.293", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -134607,7 +134607,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11processor_tD2Ev(ptr noundef nonnull align 8 dereferenceable(659880) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11processor_tD2Ev(ptr noundef nonnull align 8 dereferenceable(659880) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11processor_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 3800
   %3 = load i8, ptr %2, align 8
@@ -135245,7 +135245,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7state_t5resetEP11processor_tm(ptr noundef nonnull align 8 dereferenceable(3680) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7state_t5resetEP11processor_tm(ptr noundef nonnull align 8 dereferenceable(3680) initializes((0, 776), (832, 852)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::shared_ptr<csr_t>>, std::allocator<std::pair<const unsigned long, std::shared_ptr<csr_t>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %5 = alloca %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::shared_ptr<csr_t>>, std::allocator<std::pair<const unsigned long, std::shared_ptr<csr_t>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %6 = alloca %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::shared_ptr<csr_t>>, std::allocator<std::pair<const unsigned long, std::shared_ptr<csr_t>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
@@ -182777,7 +182777,7 @@ _ZNSt12__shared_ptrI15smcntrpmf_csr_tLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11processor_t9set_debugEb(ptr nocapture noundef nonnull align 8 dereferenceable(659880) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11processor_t9set_debugEb(ptr nocapture noundef nonnull align 8 dereferenceable(659880) initializes((8, 9)) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair.293", align 8
   %4 = zext i1 %1 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -182861,7 +182861,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11processor_t13set_histogramEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(659880) %0, i1 noundef zeroext %1) local_unnamed_addr #14 align 2 {
+define void @_ZN11processor_t13set_histogramEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(659880) initializes((3800, 3801)) %0, i1 noundef zeroext %1) local_unnamed_addr #14 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 3800
   store i8 %3, ptr %4, align 8
@@ -182869,7 +182869,7 @@ define void @_ZN11processor_t13set_histogramEb(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11processor_t18enable_log_commitsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(659880) %0) local_unnamed_addr #14 align 2 {
+define void @_ZN11processor_t18enable_log_commitsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(659880) initializes((3801, 3802)) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3801
   store i8 1, ptr %2, align 1
   ret void
@@ -183429,7 +183429,7 @@ define noundef range(i64 3, 2) i64 @_ZN11processor_t18legalize_privilegeEm(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11processor_t13set_privilegeEmb(ptr nocapture noundef nonnull align 8 dereferenceable(659880) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
+define void @_ZN11processor_t13set_privilegeEmb(ptr nocapture noundef nonnull align 8 dereferenceable(659880) initializes((952, 962), (963, 964)) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %5)
@@ -183534,7 +183534,7 @@ define noundef nonnull ptr @_ZN11processor_t20get_privilege_stringEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11processor_t16enter_debug_modeEh(ptr nocapture noundef nonnull align 8 dereferenceable(659880) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define void @_ZN11processor_t16enter_debug_modeEh(ptr nocapture noundef nonnull align 8 dereferenceable(659880) initializes((952, 962), (963, 964), (2248, 2249), (4089, 4090)) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
 _ZN11processor_t13set_privilegeEmb.exit:
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = getelementptr inbounds i8, ptr %0, i64 2248
@@ -204492,7 +204492,7 @@ define noundef zeroext i1 @_ZN11processor_t5storeEmmPKh(ptr nocapture noundef no
 declare void @_ZN16mip_or_mie_csr_t15write_with_maskEmm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11processor_t15trigger_updatedERKSt6vectorIPN8triggers9trigger_tESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(659880) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN11processor_t15trigger_updatedERKSt6vectorIPN8triggers9trigger_tESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(659880) initializes((4090, 4091)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %4)

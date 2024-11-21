@@ -581,7 +581,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core6chttp220TransportFlowControlC2ESt17basic_string_viewIcSt11char_traitsIcEEbPNS_11MemoryOwnerE(ptr noundef nonnull align 8 dereferenceable(240) %this, i64 %name.coerce0, ptr %name.coerce1, i1 noundef zeroext %enable_bdp_probe, ptr noundef %memory_owner) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core6chttp220TransportFlowControlC2ESt17basic_string_viewIcSt11char_traitsIcEEbPNS_11MemoryOwnerE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 17)) %this, i64 %name.coerce0, ptr %name.coerce1, i1 noundef zeroext %enable_bdp_probe, ptr noundef %memory_owner) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.grpc_core::BasicMemoryQuota::PressureInfo", align 8
   %ref.tmp = alloca %"class.grpc_core::PidController::Args", align 8
@@ -812,7 +812,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core6chttp217StreamFlowControlC2EPNS0_20TransportFlowControlE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %tfc) unnamed_addr #11 align 2 {
+define void @_ZN9grpc_core6chttp217StreamFlowControlC2EPNS0_20TransportFlowControlE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 32), (40, 41)) %this, ptr noundef %tfc) unnamed_addr #11 align 2 {
 entry:
   store ptr %tfc, ptr %this, align 8
   %min_progress_size_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -902,7 +902,7 @@ declare void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11c
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core6chttp220TransportFlowControl12UpdateActionENS0_17FlowControlActionE(ptr noalias nocapture writeonly sret(%"class.grpc_core::chttp2::FlowControlAction") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, ptr nocapture noundef byval(%"class.grpc_core::chttp2::FlowControlAction") align 8 %action) local_unnamed_addr #10 align 2 {
+define void @_ZN9grpc_core6chttp220TransportFlowControl12UpdateActionENS0_17FlowControlActionE(ptr noalias nocapture writeonly sret(%"class.grpc_core::chttp2::FlowControlAction") align 4 initializes((0, 20)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, ptr nocapture noundef byval(%"class.grpc_core::chttp2::FlowControlAction") align 8 %action) local_unnamed_addr #10 align 2 {
 entry:
   %announced_stream_total_over_incoming_window_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %announced_stream_total_over_incoming_window_.i, align 8
@@ -1118,7 +1118,7 @@ if.end15:                                         ; preds = %memptr.end, %entry
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core6chttp220TransportFlowControl21SetAckedInitialWindowEj(ptr noalias nocapture writeonly sret(%"class.grpc_core::chttp2::FlowControlAction") align 4 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, i32 noundef %value) local_unnamed_addr #10 align 2 {
+define void @_ZN9grpc_core6chttp220TransportFlowControl21SetAckedInitialWindowEj(ptr noalias nocapture writeonly sret(%"class.grpc_core::chttp2::FlowControlAction") align 4 initializes((0, 5), (8, 20)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(240) initializes((232, 236)) %this, i32 noundef %value) local_unnamed_addr #10 align 2 {
 entry:
   %acked_init_window_ = getelementptr inbounds i8, ptr %this, i64 232
   store i32 %value, ptr %acked_init_window_, align 8
@@ -1151,7 +1151,7 @@ if.end10:                                         ; preds = %if.then, %entry
 }
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core6chttp220TransportFlowControl14PeriodicUpdateEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::chttp2::FlowControlAction") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core6chttp220TransportFlowControl14PeriodicUpdateEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::chttp2::FlowControlAction") align 4 initializes((0, 5), (8, 20)) %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i4 = alloca %"struct.grpc_core::BasicMemoryQuota::PressureInfo", align 8
   %ref.tmp.i = alloca %"struct.grpc_core::BasicMemoryQuota::PressureInfo", align 8
@@ -1957,7 +1957,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9grpc_core6chttp217StreamFlowControl12UpdateActionENS0_17FlowControlActionE(ptr noalias nocapture writeonly sret(%"class.grpc_core::chttp2::FlowControlAction") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef byval(%"class.grpc_core::chttp2::FlowControlAction") align 8 %action) local_unnamed_addr #13 align 2 {
+define void @_ZN9grpc_core6chttp217StreamFlowControl12UpdateActionENS0_17FlowControlActionE(ptr noalias nocapture writeonly sret(%"class.grpc_core::chttp2::FlowControlAction") align 4 initializes((0, 20)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef byval(%"class.grpc_core::chttp2::FlowControlAction") align 8 %action) local_unnamed_addr #13 align 2 {
 entry:
   %min_progress_size_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %min_progress_size_.i.i, align 8

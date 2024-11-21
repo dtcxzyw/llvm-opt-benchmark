@@ -309,7 +309,7 @@ declare void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull al
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17IntegralCdsEngineC2ERKNS_6PeriodENS_6HandleINS_31DefaultProbabilityTermStructureEEEdNS4_INS_18YieldTermStructureEEERKN5boost8optionalIbEE(ptr noundef nonnull align 8 dereferenceable(450) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %step, ptr nocapture noundef %probability, double noundef %recoveryRate, ptr nocapture noundef %discountCurve, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %includeSettlementDateFlows) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17IntegralCdsEngineC2ERKNS_6PeriodENS_6HandleINS_31DefaultProbabilityTermStructureEEEdNS4_INS_18YieldTermStructureEEERKN5boost8optionalIbEE(ptr noundef nonnull align 8 dereferenceable(450) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %step, ptr nocapture noundef %probability, double noundef %recoveryRate, ptr nocapture noundef %discountCurve, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %includeSettlementDateFlows) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp7 = alloca %"class.boost::shared_ptr", align 8

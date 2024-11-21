@@ -196,7 +196,7 @@ declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #1
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @create_app(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @create_app(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [4097 x i8], align 16
   %8 = alloca %struct.pmix_cli_result_t, align 8
   %9 = alloca %struct.pmix_value, align 8

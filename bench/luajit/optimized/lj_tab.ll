@@ -839,7 +839,7 @@ return:                                           ; preds = %do.body, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_tab_set(ptr noundef %L, ptr noundef %t, ptr noundef %key) local_unnamed_addr #0 {
+define hidden ptr @lj_tab_set(ptr noundef %L, ptr noundef initializes((10, 11)) %t, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %k.i27 = alloca %union.TValue, align 8
   %k.i = alloca %union.TValue, align 8

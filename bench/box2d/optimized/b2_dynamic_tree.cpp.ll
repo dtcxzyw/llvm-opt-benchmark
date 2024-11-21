@@ -14,7 +14,7 @@ $__clang_call_terminate = comdat any
 @_ZN13b2DynamicTreeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN13b2DynamicTreeD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13b2DynamicTreeC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define void @_ZN13b2DynamicTreeC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 24)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 -1, ptr %this, align 8
   %m_nodeCapacity = getelementptr inbounds i8, ptr %this, i64 20

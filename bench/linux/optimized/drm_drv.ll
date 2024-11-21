@@ -411,7 +411,7 @@ declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) l
 declare dso_local void @__drm_err(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_dev_unregister(ptr noundef %0) #0 align 16 {
+define dso_local void @drm_dev_unregister(ptr noundef initializes((88, 89)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store i8 0, ptr %2, align 8
   tail call void @drm_client_dev_unregister(ptr noundef %0) #10
@@ -598,7 +598,7 @@ drm_minor_unregister.exit6:                       ; preds = %drm_minor_unregiste
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @drm_dev_enter(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef zeroext i1 @drm_dev_enter(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 align 16 {
   %3 = tail call i32 @__srcu_read_lock(ptr noundef nonnull @drm_unplug_srcu) #10
   store i32 %3, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 108
@@ -641,7 +641,7 @@ define dso_local void @drm_dev_exit(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_dev_unplug(ptr noundef %0) #0 align 16 {
+define dso_local void @drm_dev_unplug(ptr noundef initializes((88, 89), (108, 109)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 108
   store i8 1, ptr %2, align 4
   tail call void @synchronize_srcu(ptr noundef nonnull @drm_unplug_srcu) #10

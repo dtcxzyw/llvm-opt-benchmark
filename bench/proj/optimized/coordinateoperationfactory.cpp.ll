@@ -827,7 +827,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN5osgeo4proj4util8optionalINS1_6common9DataEpoc
 @_ZN5osgeo4proj9operation39MyPROJStringExportableHorizNullVerticalD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5osgeo4proj9operation39MyPROJStringExportableHorizNullVerticalD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj9operation26CoordinateOperationContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj9operation26CoordinateOperationContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -855,7 +855,7 @@ define void @_ZN5osgeo4proj9operation26CoordinateOperationContextD0Ev(ptr nounde
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %2 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #30, !noalias !4
@@ -876,7 +876,7 @@ _ZN5osgeo4proj8internal11make_uniqueINS0_9operation26CoordinateOperationContext7
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationContextC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationContextC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationContextE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1978,7 +1978,7 @@ _ZNSt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationContextESt14default
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj9operation26CoordinateOperationFactoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj9operation26CoordinateOperationFactoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationFactoryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -2002,7 +2002,7 @@ define void @_ZN5osgeo4proj9operation26CoordinateOperationFactoryD0Ev(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationFactoryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -5741,7 +5741,7 @@ _ZNKSt4lessISt4pairIN5osgeo4proj2io16AuthorityFactory10ObjectTypeENSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactory7Private23findOpsInRegistryDirectERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESD_RNS3_7ContextERb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.35") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactory7Private23findOpsInRegistryDirectERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESD_RNS3_7ContextERb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.35") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::list", align 8
   %7 = alloca %"class.std::__cxx11::list", align 8
   %8 = alloca %"class.std::vector.196", align 8
@@ -6652,7 +6652,7 @@ _ZNSt7__cxx114listISt4pairINS_12basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5osgeo4proj9operationL23getCandidateAuthoritiesERKSt10shared_ptrINS0_2io16AuthorityFactoryEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5osgeo4proj9operationL23getCandidateAuthoritiesERKSt10shared_ptrINS0_2io16AuthorityFactoryEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.196", align 8
   %6 = load ptr, ptr %1, align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2io16AuthorityFactory12getAuthorityB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #31
@@ -12834,7 +12834,7 @@ _ZNSt7__cxx1110_List_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11G
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5osgeo4proj9operationL12applyInverseERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaIS9_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr %.8.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5osgeo4proj9operationL12applyInverseERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaIS9_EE(ptr dead_on_unwind noalias writable align 8 initializes((0, 24)) %0, ptr %.0.val, ptr %.8.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.dropbox::oxygen::nn.44", align 8
   %3 = ptrtoint ptr %.8.val to i64
   %4 = ptrtoint ptr %.0.val to i64
@@ -21021,7 +21021,7 @@ declare void @_ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv(ptr dea
 declare void @_ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.41") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactory7Private30createOperationsWithDatumPivotERSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaISB_EERKNS7_IS8_INS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESK_SR_PKNSF_11GeodeticCRSESU_RNS3_7ContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactory7Private30createOperationsWithDatumPivotERSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEESaISB_EERKNS7_IS8_INS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESK_SR_PKNSF_11GeodeticCRSESU_RNS3_7ContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(80) initializes((24, 25)) %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::list.204", align 8
   %10 = alloca %"class.dropbox::oxygen::nn.122", align 8
   %11 = alloca %"class.std::__cxx11::list.204", align 8
@@ -90330,7 +90330,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18Po
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactory7Private35createOperationsGeogToVertFromGeoidERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESD_PKNS8_11VerticalCRSERNS3_7ContextE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.35") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(80) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactory7Private35createOperationsGeogToVertFromGeoidERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESD_PKNS8_11VerticalCRSERNS3_7ContextE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.35") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(80) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::util::BaseObjectNNPtr", align 8
   %7 = alloca %"class.std::shared_ptr.733", align 8
   %8 = alloca %"class.std::allocator.98", align 1
@@ -98630,7 +98630,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactory7Private46createOperationsGeogToVertWithIntermediateVertERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESD_SK_PKNS8_11VerticalCRSERNS3_7ContextE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.35") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(80) %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactory7Private46createOperationsGeogToVertWithIntermediateVertERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESD_SK_PKNS8_11VerticalCRSERNS3_7ContextE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.35") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(80) initializes((26, 27)) %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::shared_ptr.111", align 8
   %9 = alloca %"class.std::vector.404", align 8
   %10 = alloca %"class.dropbox::oxygen::nn.409", align 8
@@ -100638,7 +100638,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactory7Private45createOperationsGeogToVertWithAlternativeGeogERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESD_RNS3_7ContextE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.35") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(80) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj9operation26CoordinateOperationFactory7Private45createOperationsGeogToVertWithAlternativeGeogERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESD_RNS3_7ContextE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.35") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(80) initializes((25, 26)) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.35", align 8
   %6 = alloca %"class.std::shared_ptr.41", align 8
   %7 = alloca %"class.std::shared_ptr.111", align 8
@@ -106722,7 +106722,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19Coordina
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5osgeo4proj9operation26CoordinateOperationFactory7Private30createOperationsCompoundToGeogERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESD_SK_RNS3_7ContextEPKNS8_11CompoundCRSEPKNS8_13GeographicCRSERSt6vectorINS6_IS7_INS1_19CoordinateOperationEEEESaISW_EEENK3$_1clB5cxx11ERKSY_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, ptr readonly %.0.val1, ptr readnone %.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5osgeo4proj9operation26CoordinateOperationFactory7Private30createOperationsCompoundToGeogERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEERKNS0_4util8optionalINS0_6common9DataEpochEEESD_SK_RNS3_7ContextEPKNS8_11CompoundCRSEPKNS8_13GeographicCRSERSt6vectorINS6_IS7_INS1_19CoordinateOperationEEEESaISW_EEENK3$_1clB5cxx11ERKSY_"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture readonly %.0.val, ptr readonly %.0.val1, ptr readnone %.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.dropbox::oxygen::nn.40", align 8
   %3 = alloca %"class.std::shared_ptr.41", align 8
   %4 = alloca %"class.dropbox::oxygen::nn.40", align 8
@@ -107153,7 +107153,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5osgeo4proj9operationL6getOpsERKN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5osgeo4proj9operationL6getOpsERKN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr %.0.val, ptr %.8.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [1 x %"class.dropbox::oxygen::nn.44"], align 8
   %3 = icmp eq ptr %.0.val, null
   br i1 %3, label %.thread, label %4
@@ -114330,7 +114330,7 @@ _ZNKSt14default_deleteIN5osgeo4proj9operation26CoordinateOperationContextEEclEPS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5osgeo4proj9operation26CoordinateOperationFactory6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.530") align 8 %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj9operation26CoordinateOperationFactory6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.dropbox::oxygen::nn.530") align 8 initializes((0, 8)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5osgeo4proj9operation26CoordinateOperationFactoryESt14default_deleteIS3_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30, !noalias !341
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9operation26CoordinateOperationFactoryE, i64 16), ptr %1, align 8, !noalias !341
@@ -118666,7 +118666,7 @@ declare hidden void @_ZNK5osgeo4proj2io16AuthorityFactory26createGeodeticCRSFrom
 declare void @_ZN5osgeo4proj6common9DataEpochD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5osgeo4proj9operationL15createPROJBasedERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS0_2io21IPROJStringExportableEEEERKNS8_IS9_INS0_3crs3CRSEEEESL_RKSI_RKSt6vectorINS8_IS9_INS0_8metadata18PositionalAccuracyEEEESaISS_EEb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext %7) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5osgeo4proj9operationL15createPROJBasedERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS0_2io21IPROJStringExportableEEEERKNS8_IS9_INS0_3crs3CRSEEEESL_RKSI_RKSt6vectorINS8_IS9_INS0_8metadata18PositionalAccuracyEEEESaISS_EEb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext %7) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.dropbox::oxygen::nn.604", align 8
   call void @_ZN5osgeo4proj9operation18PROJBasedOperation6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS0_2io21IPROJStringExportableEEEEbRKNS9_ISA_INS0_3crs3CRSEEEESM_RKSJ_RKSt6vectorINS9_ISA_INS0_8metadata18PositionalAccuracyEEEESaIST_EEb(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.604") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i1 noundef zeroext %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !348)

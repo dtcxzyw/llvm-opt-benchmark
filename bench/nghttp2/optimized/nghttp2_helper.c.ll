@@ -72,7 +72,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.nghttp2_http2_strerror = private unnamed_addr constant [14 x ptr] [ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57], align 8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_put_uint16be(ptr nocapture noundef writeonly %buf, i16 noundef zeroext %n) local_unnamed_addr #0 {
+define hidden void @nghttp2_put_uint16be(ptr nocapture noundef writeonly initializes((0, 2)) %buf, i16 noundef zeroext %n) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i16 @htons(i16 noundef zeroext %n) #11
   store i16 %call, ptr %buf, align 1
@@ -86,7 +86,7 @@ declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_put_uint32be(ptr nocapture noundef writeonly %buf, i32 noundef %n) local_unnamed_addr #0 {
+define hidden void @nghttp2_put_uint32be(ptr nocapture noundef writeonly initializes((0, 4)) %buf, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @htonl(i32 noundef %n) #11
   store i32 %call, ptr %buf, align 1

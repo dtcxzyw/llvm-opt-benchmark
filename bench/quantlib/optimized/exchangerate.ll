@@ -1359,7 +1359,7 @@ _ZN8QuantLib8CurrencyD2Ev.exit:                   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12ExchangeRate5chainERKS0_S2_(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::ExchangeRate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %r1, ptr noundef nonnull align 8 dereferenceable(80) %r2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12ExchangeRate5chainERKS0_S2_(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::ExchangeRate") align 8 initializes((0, 44), (48, 80)) %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %r1, ptr noundef nonnull align 8 dereferenceable(80) %r2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"class.boost::shared_ptr.0", align 8
   %ref.tmp2 = alloca %"class.boost::shared_ptr.0", align 8

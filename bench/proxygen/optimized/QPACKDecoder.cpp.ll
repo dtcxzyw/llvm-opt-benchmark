@@ -133,7 +133,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen12QPACKDecoder15decodeStreamingEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEjPNS_5HPACK17StreamingCallbackE(ptr noundef nonnull align 8 dereferenceable(336) %this, i64 noundef %streamID, ptr noundef %block, i32 noundef %totalBytes, ptr noundef %streamingCb) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen12QPACKDecoder15decodeStreamingEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEjPNS_5HPACK17StreamingCallbackE(ptr noundef nonnull align 8 dereferenceable(336) initializes((16, 17)) %this, i64 noundef %streamID, ptr noundef %block, i32 noundef %totalBytes, ptr noundef %streamingCb) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cursor = alloca %"class.folly::io::Cursor", align 8
   %dbuf = alloca %"class.proxygen::HPACKDecodeBuffer", align 8
@@ -401,7 +401,7 @@ ehcleanup107:                                     ; preds = %lpad61, %lpad16, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8proxygen12QPACKDecoder12decodePrefixERNS_17HPACKDecodeBufferE(ptr nocapture noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8proxygen12QPACKDecoder12decodePrefixERNS_17HPACKDecodeBufferE(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((16, 17)) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %wireRIC = alloca i64, align 8
   %ref.tmp = alloca %"class.google::LogMessage", align 8
@@ -1210,7 +1210,7 @@ return:                                           ; preds = %if.else20, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8proxygen12QPACKDecoder20decodeIndexedHeaderQERNS_17HPACKDecodeBufferEjbPNS_5HPACK17StreamingCallbackEPSt6vectorINS_11HPACKHeaderESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf, i32 noundef %prefixLength, i1 noundef zeroext %aboveBase, ptr noundef %streamingCb, ptr noundef %emitted) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8proxygen12QPACKDecoder20decodeIndexedHeaderQERNS_17HPACKDecodeBufferEjbPNS_5HPACK17StreamingCallbackEPSt6vectorINS_11HPACKHeaderESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(336) initializes((16, 17)) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf, i32 noundef %prefixLength, i1 noundef zeroext %aboveBase, ptr noundef %streamingCb, ptr noundef %emitted) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %index = alloca i64, align 8
@@ -2197,7 +2197,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen12QPACKDecoder30decodeEncoderStreamInstructionERNS_17HPACKDecodeBufferE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen12QPACKDecoder30decodeEncoderStreamInstructionERNS_17HPACKDecodeBufferE(ptr noundef nonnull align 8 dereferenceable(336) initializes((228, 232)) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %emitted = alloca %"class.std::vector", align 8
   %ref.tmp26 = alloca %"class.google::LogMessageFatal", align 8

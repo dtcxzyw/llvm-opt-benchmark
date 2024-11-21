@@ -1827,7 +1827,7 @@ define void @Aig_ManReportImprovement(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ManSetRegNum(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Aig_ManSetRegNum(ptr noundef initializes((104, 116)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 136

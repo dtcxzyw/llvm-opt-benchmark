@@ -126,7 +126,7 @@ define range(i32 0, 104) i32 @mqs_setup_image(ptr noundef %0, ptr noundef %1) lo
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @mqs_image_has_queues(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @mqs_image_has_queues(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -275,7 +275,7 @@ define range(i32 0, 104) i32 @mqs_setup_process(ptr noundef %0, ptr noundef %1) 
 declare i64 @ompi_fetch_int(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 146) i32 @mqs_process_has_queues(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 0, 146) i32 @mqs_process_has_queues(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -1074,7 +1074,7 @@ define range(i32 0, 103) i32 @mqs_setup_operation_iterator(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @opal_free_list_t_init_parser(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc void @opal_free_list_t_init_parser(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 112)) %2, i64 noundef %3) unnamed_addr #2 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8

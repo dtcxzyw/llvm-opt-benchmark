@@ -933,7 +933,7 @@ declare dso_local void @acpi_evaluation_failure_warn(ptr noundef, ptr noundef, i
 declare dso_local i32 @acpi_bus_get_status(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_pci_link_get_current(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc i32 @acpi_pci_link_get_current(ptr nocapture noundef initializes((24, 28)) %0) unnamed_addr #2 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8

@@ -109,7 +109,7 @@ $_ZTVN4llvh13format_objectIJhEEE = comdat any
 @_ZN4llvh16raw_null_ostreamD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4llvh16raw_null_ostreamD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh11raw_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh11raw_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11raw_ostreamE, i64 16), ptr %this, align 8
   %BufferMode = getelementptr inbounds i8, ptr %this, i64 32
@@ -242,7 +242,7 @@ if.end:                                           ; preds = %_ZN4llvh11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %BufferStart, i64 noundef %Size, i32 noundef %Mode) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((16, 32)) %this, ptr noundef %BufferStart, i64 noundef %Size, i32 noundef %Mode) local_unnamed_addr #0 align 2 {
 entry:
   %BufferMode = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %BufferMode, align 8
@@ -3348,14 +3348,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_code(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %EC) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_code(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 41), (48, 52), (56, 64)) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %EC) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS5_10FileAccessENS5_9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %EC, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS5_10FileAccessENS5_9OpenFlagsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %EC, i32 noundef %Disp, i32 noundef %Access, i32 noundef %Flags) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS5_10FileAccessENS5_9OpenFlagsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 41), (48, 52), (56, 64)) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %EC, i32 noundef %Disp, i32 noundef %Access, i32 noundef %Flags) unnamed_addr #0 align 2 {
 entry:
   %Filename.i = alloca %"class.llvh::StringRef", align 8
   %FD.i = alloca i32, align 4
@@ -3482,28 +3482,28 @@ _ZN4llvh14raw_fd_ostreamC2Eibb.exit:              ; preds = %if.then.i4, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %EC, i32 noundef %Disp) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 41), (48, 52), (56, 64)) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %EC, i32 noundef %Disp) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS5_10FileAccessENS5_9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %EC, i32 noundef %Disp, i32 noundef 2, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs10FileAccessE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %EC, i32 noundef %Access) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs10FileAccessE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 41), (48, 52), (56, 64)) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %EC, i32 noundef %Access) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS5_10FileAccessENS5_9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %EC, i32 noundef 0, i32 noundef %Access, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %EC, i32 noundef %Flags) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 41), (48, 52), (56, 64)) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %EC, i32 noundef %Flags) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4llvh14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS5_10FileAccessENS5_9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr %Filename.coerce0, i64 %Filename.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %EC, i32 noundef 0, i32 noundef 2, i32 noundef %Flags)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14raw_fd_ostreamC2Eibb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, i32 noundef %fd, i1 noundef zeroext %shouldClose, i1 noundef zeroext %unbuffered) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14raw_fd_ostreamC2Eibb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 41), (48, 52), (56, 64)) %this, i32 noundef %fd, i1 noundef zeroext %shouldClose, i1 noundef zeroext %unbuffered) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %shouldClose to i8
   %BufferMode.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -3562,7 +3562,7 @@ if.end19:                                         ; preds = %if.else, %if.then17
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14raw_fd_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14raw_fd_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3700,7 +3700,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14raw_fd_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14raw_fd_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4llvh14raw_fd_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -3770,7 +3770,7 @@ declare ptr @__errno_location() local_unnamed_addr #12
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14raw_fd_ostream5closeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14raw_fd_ostream5closeEv(ptr noundef nonnull align 8 dereferenceable(72) initializes((40, 41)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ShouldClose = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %ShouldClose, align 8
@@ -4250,7 +4250,7 @@ init.end:                                         ; preds = %init, %init.check, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh18raw_string_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh18raw_string_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 16), ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -4291,7 +4291,7 @@ _ZN4llvh11raw_ostreamD2Ev.exit:                   ; preds = %_ZN4llvh11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh18raw_string_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh18raw_string_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 16), ptr %this, align 8
   %OutBufCur.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -4409,7 +4409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh16raw_null_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh16raw_null_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11raw_ostreamE, i64 16), ptr %this, align 8
   %BufferMode.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -4432,7 +4432,7 @@ _ZN4llvh17raw_pwrite_streamD2Ev.exit:             ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh16raw_null_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh16raw_null_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh11raw_ostreamE, i64 16), ptr %this, align 8
   %BufferMode.i.i.i = getelementptr inbounds i8, ptr %this, i64 32

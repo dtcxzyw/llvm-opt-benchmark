@@ -1553,7 +1553,7 @@ entry:
 declare void @object_initialize(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @memory_region_do_init(ptr noundef %mr, ptr noundef %owner, ptr noundef %name, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc void @memory_region_do_init(ptr noundef initializes((56, 80), (112, 128), (232, 240)) %mr, ptr noundef %owner, ptr noundef %name, i64 noundef %size) unnamed_addr #0 {
 entry:
   %coerce.sroa.0.0.insert.ext = zext i64 %size to i128
   %size1 = getelementptr inbounds i8, ptr %mr, i64 112
@@ -5633,7 +5633,7 @@ memory_region_update_coalesced_range.exit:        ; preds = %for.end.i, %entry
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @memory_region_set_flush_coalesced(ptr nocapture noundef writeonly %mr) local_unnamed_addr #9 {
+define dso_local void @memory_region_set_flush_coalesced(ptr nocapture noundef writeonly initializes((46, 47)) %mr) local_unnamed_addr #9 {
 entry:
   %flush_coalesced_mmio = getelementptr inbounds i8, ptr %mr, i64 46
   store i8 1, ptr %flush_coalesced_mmio, align 2
@@ -6113,7 +6113,7 @@ if.end20:                                         ; preds = %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_region_add_subregion(ptr noundef %mr, i64 noundef %offset, ptr noundef %subregion) local_unnamed_addr #0 {
+define dso_local void @memory_region_add_subregion(ptr noundef %mr, i64 noundef %offset, ptr noundef initializes((176, 180)) %subregion) local_unnamed_addr #0 {
 entry:
   %priority = getelementptr inbounds i8, ptr %subregion, i64 176
   store i32 0, ptr %priority, align 16
@@ -6246,7 +6246,7 @@ memory_region_update_container_subregions.exit:   ; preds = %done.i, %land.rhs.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_region_add_subregion_overlap(ptr noundef %mr, i64 noundef %offset, ptr noundef %subregion, i32 noundef %priority) local_unnamed_addr #0 {
+define dso_local void @memory_region_add_subregion_overlap(ptr noundef %mr, i64 noundef %offset, ptr noundef initializes((176, 180)) %subregion, i32 noundef %priority) local_unnamed_addr #0 {
 entry:
   %priority1 = getelementptr inbounds i8, ptr %subregion, i64 176
   store i32 %priority, ptr %priority1, align 16
@@ -6542,7 +6542,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @memory_region_find(ptr noalias nocapture sret(%struct.MemoryRegionSection) align 16 %agg.result, ptr noundef %mr, i64 noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local void @memory_region_find(ptr noalias nocapture sret(%struct.MemoryRegionSection) align 16 initializes((0, 64)) %agg.result, ptr noundef %mr, i64 noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.MemoryRegionSection, align 16
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #19
@@ -6615,7 +6615,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @memory_region_find_rcu(ptr noalias nocapture nonnull writeonly align 16 %agg.result, ptr noundef readonly %mr, i64 noundef %addr, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc void @memory_region_find_rcu(ptr noalias nocapture nonnull writeonly align 16 initializes((0, 64)) %agg.result, ptr noundef readonly %mr, i64 noundef %addr, i64 noundef %size) unnamed_addr #0 {
 entry:
   %range27 = alloca %struct.AddrRange, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %agg.result, i8 0, i64 64, i1 false)
@@ -7760,7 +7760,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_init(ptr noundef %as, ptr noundef %root, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local void @address_space_init(ptr noundef initializes((24, 44), (48, 64)) %as, ptr noundef %root, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %root, null
   br i1 %tobool.not.i, label %memory_region_ref.exit, label %land.lhs.true.i

@@ -1307,7 +1307,7 @@ return:                                           ; preds = %if.then13.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith8rewriter12removeToRealENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.0") align 8 %agg.result, ptr nocapture noundef readonly %t) local_unnamed_addr #3 {
+define hidden void @_ZN4cvc58internal6theory5arith8rewriter12removeToRealENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.0") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %t) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %t, align 8
   %d_kind.i = getelementptr inbounds i8, ptr %0, i64 8

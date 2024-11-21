@@ -43,7 +43,7 @@ $_ZN7mitsuba6SpiralD0Ev = comdat any
 @_ZN7mitsuba6SpiralC1ERKNS_6VectorIjLm2EEES4_jj = unnamed_addr alias void (ptr, ptr, ptr, i32, i32), ptr @_ZN7mitsuba6SpiralC2ERKNS_6VectorIjLm2EEES4_jj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7mitsuba6SpiralC2ERKNS_6VectorIjLm2EEES4_jj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba6SpiralC2ERKNS_6VectorIjLm2EEES4_jj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) initializes((0, 12), (16, 116)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 .critedge:
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
@@ -97,7 +97,7 @@ define void @_ZN7mitsuba6SpiralC2ERKNS_6VectorIjLm2EEES4_jj(ptr nocapture nounde
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7mitsuba6Spiral5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(116) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN7mitsuba6Spiral5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(116) initializes((80, 96), (108, 116)) %0) local_unnamed_addr #0 align 2 {
 _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4div_ERKS3_.exit.critedge:
   %1 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 0, ptr %1, align 4

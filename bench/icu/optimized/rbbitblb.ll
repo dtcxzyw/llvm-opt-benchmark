@@ -24,7 +24,7 @@ $_ZN6icu_7515MaybeStackArrayIPvLi16EED2Ev = comdat any
 @_ZN6icu_7519RBBIStateDescriptorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7519RBBIStateDescriptorD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516RBBITableBuilderC2EPNS_15RBBIRuleBuilderEPPNS_8RBBINodeER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this, ptr noundef %rb, ptr noundef %rootNode, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516RBBITableBuilderC2EPNS_15RBBIRuleBuilderEPPNS_8RBBINodeER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 52)) %this, ptr noundef %rb, ptr noundef %rootNode, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %rb, ptr %this, align 8
   %fTree = getelementptr inbounds i8, ptr %this, i64 8
@@ -4372,7 +4372,7 @@ for.end53:                                        ; preds = %for.inc51, %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7519RBBIStateDescriptorC2EiP10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %lastInputSymbol, ptr noundef %fStatus) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7519RBBIStateDescriptorC2EiP10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 1), (4, 12), (16, 28), (32, 48)) %this, i32 noundef %lastInputSymbol, ptr noundef %fStatus) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8
   %fAccepting = getelementptr inbounds i8, ptr %this, i64 4

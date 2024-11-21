@@ -224,7 +224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq17socks_connecter_t20set_auth_method_noneEv(ptr noundef nonnull align 8 dereferenceable(3032) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN3zmq17socks_connecter_t20set_auth_method_noneEv(ptr noundef nonnull align 8 dereferenceable(3032) initializes((2952, 2956)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %_auth_method = getelementptr inbounds i8, ptr %this, i64 2952
   store i32 0, ptr %_auth_method, align 8
@@ -239,7 +239,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq17socks_connecter_t21set_auth_method_basicERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(3032) %this, ptr noundef nonnull align 8 dereferenceable(32) %username_, ptr noundef nonnull align 8 dereferenceable(32) %password_) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq17socks_connecter_t21set_auth_method_basicERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(3032) initializes((2952, 2956)) %this, ptr noundef nonnull align 8 dereferenceable(32) %username_, ptr noundef nonnull align 8 dereferenceable(32) %password_) local_unnamed_addr #0 align 2 {
 entry:
   %_auth_method = getelementptr inbounds i8, ptr %this, i64 2952
   store i32 2, ptr %_auth_method, align 8

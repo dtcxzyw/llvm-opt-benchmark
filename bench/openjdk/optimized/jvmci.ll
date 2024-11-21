@@ -122,7 +122,7 @@ $_ZTV12EventLogBaseI22FormatStringLogMessageILm256EEE = comdat any
 @_ZN25CompilerThreadCanCallJavaD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN25CompilerThreadCanCallJavaD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN25CompilerThreadCanCallJavaC2EP10JavaThreadb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   store ptr null, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
@@ -274,7 +274,7 @@ _ZN5JVMCI23get_shared_library_pathEPcmb.exit:     ; preds = %_ZN5JVMCI23get_shar
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN5JVMCI18get_shared_libraryERPcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN5JVMCI18get_shared_libraryERPcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [4097 x i8], align 16
   %4 = alloca [1024 x i8], align 16
   %5 = load ptr, ptr @_ZN5JVMCI22_shared_library_handleE, align 8

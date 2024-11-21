@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [5 x i8] c"%u%n\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parse_backup_label(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local void @parse_backup_label(ptr noundef %0, ptr nocapture noundef %1, ptr noundef initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

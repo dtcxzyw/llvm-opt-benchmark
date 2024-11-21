@@ -157,7 +157,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue22NGC2ERKNS_14CompileContextEmj(ptr noundef nonnull align 8 dereferenceable(1104) %this, ptr noundef nonnull align 8 dereferenceable(320) %in_cc, i64 noundef %num_patterns, i32 noundef %in_somPrecision) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue22NGC2ERKNS_14CompileContextEmj(ptr noundef nonnull align 8 dereferenceable(1104) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(320) %in_cc, i64 noundef %num_patterns, i32 noundef %in_somPrecision) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %grey = getelementptr inbounds i8, ptr %in_cc, i64 24
   %somMaxRevNfaLength = getelementptr inbounds i8, ptr %in_cc, i64 160

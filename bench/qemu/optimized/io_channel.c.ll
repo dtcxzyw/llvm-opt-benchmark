@@ -829,7 +829,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qio_channel_set_follow_coroutine_ctx(ptr nocapture noundef writeonly %ioc, i1 noundef zeroext %enabled) local_unnamed_addr #5 {
+define dso_local void @qio_channel_set_follow_coroutine_ctx(ptr nocapture noundef writeonly initializes((88, 89)) %ioc, i1 noundef zeroext %enabled) local_unnamed_addr #5 {
 entry:
   %frombool = zext i1 %enabled to i8
   %follow_coroutine_ctx = getelementptr inbounds i8, ptr %ioc, i64 88

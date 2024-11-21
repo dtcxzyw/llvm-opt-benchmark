@@ -200,7 +200,7 @@ $_ZTSSt10logical_orIxE = comdat any
 @_ZTSN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalE = internal constant [63 x i8] c"N5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111conditionalE\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost6locale11gnu_gettext6lambda7compileEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::locale::gnu_gettext::lambda::plural_expr") align 8 %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6locale11gnu_gettext6lambda7compileEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::locale::gnu_gettext::lambda::plural_expr") align 8 initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.boost::locale::gnu_gettext::lambda::(anonymous namespace)::parser", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15

@@ -427,7 +427,7 @@ declare noundef ptr @_ZNK5clang10LambdaExpr15getCallOperatorEv(ptr noundef nonnu
 declare noundef zeroext i1 @_ZNK5clang11ParmVarDecl13hasDefaultArgEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12ast_matchers11MatchFinder11MatchResultC2ERKNS0_10BoundNodesEPNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang12ast_matchers11MatchFinder11MatchResultC2ERKNS0_10BoundNodesEPNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #2 align 2 {
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, clang::DynTypedNode>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, clang::DynTypedNode>>, std::less<void>>::_Alloc_node", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
@@ -513,7 +513,7 @@ define dso_local void @_ZN5clang12ast_matchers11MatchFinder23ParsingDoneTestCall
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12ast_matchers11MatchFinderC2ENS1_18MatchFinderOptionsE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr %1, i8 %2) unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang12ast_matchers11MatchFinderC2ENS1_18MatchFinderOptionsE(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 192)) %0, ptr %1, i8 %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, i8 0, i64 192, i1 false)
@@ -2528,7 +2528,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit: ; preds = %_ZN5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12ast_matchers11MatchFinder14newASTConsumerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.901") align 8 %0, ptr noundef nonnull align 8 dereferenceable(376) %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang12ast_matchers11MatchFinder14newASTConsumerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.901") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(376) %1) local_unnamed_addr #2 align 2 {
 _ZNSt10unique_ptrIN5clang12ast_matchers8internal12_GLOBAL__N_116MatchASTConsumerESt14default_deleteIS4_EED2Ev.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %.val1 = load ptr, ptr %2, align 8
@@ -2742,7 +2742,7 @@ _ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor5matchERKNS_12Dyn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -3496,7 +3496,7 @@ define internal void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12ast_matchers11MatchFinder32registerTestCallbackAfterParsingEPNS1_23ParsingDoneTestCallbackE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang12ast_matchers11MatchFinder32registerTestCallbackAfterParsingEPNS1_23ParsingDoneTestCallbackE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((368, 376)) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %1, ptr %3, align 8
   ret void
@@ -4911,7 +4911,7 @@ declare noundef zeroext i1 @_ZNK5clang12ast_matchers8internal15DynTypedMatcher7m
 declare i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4TypeE(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #24
   ret void
@@ -6167,7 +6167,7 @@ define internal noundef zeroext i1 @_ZNK5clang12ast_matchers8internal12_GLOBAL__
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor37setMatchingChildrenNotSpelledInSourceEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) %0, i1 noundef zeroext %1) unnamed_addr #6 align 2 {
+define internal void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor37setMatchingChildrenNotSpelledInSourceEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) initializes((10, 11)) %0, i1 noundef zeroext %1) unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %3, ptr %4, align 2

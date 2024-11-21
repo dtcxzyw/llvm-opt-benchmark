@@ -381,7 +381,7 @@ if.end:                                           ; preds = %open_pack_bitmap.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @load_bitmap(ptr noundef %r, ptr nocapture noundef %bitmap_git) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @load_bitmap(ptr noundef %r, ptr nocapture noundef initializes((80, 88), (144, 152)) %bitmap_git) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #18
   %bitmaps = getelementptr inbounds i8, ptr %bitmap_git, i64 80

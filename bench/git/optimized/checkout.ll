@@ -790,7 +790,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @parse_options_dup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @checkout_main(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %opts, ptr noundef %options, ptr noundef %usagestr, ptr noundef nonnull %new_branch_info) unnamed_addr #0 {
+define internal fastcc i32 @checkout_main(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull initializes((28, 32), (40, 44), (768, 776)) %opts, ptr noundef %options, ptr noundef %usagestr, ptr noundef nonnull %new_branch_info) unnamed_addr #0 {
 entry:
   %sb.i.i42.i.i = alloca %struct.strbuf, align 8
   %msg.i.i.i = alloca %struct.strbuf, align 8
@@ -5287,7 +5287,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @repo_get_oid_mb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setup_new_branch_info_and_source_tree(ptr noundef nonnull %new_branch_info, ptr nocapture noundef nonnull writeonly %opts, ptr noundef nonnull %rev, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc void @setup_new_branch_info_and_source_tree(ptr noundef nonnull initializes((0, 8)) %new_branch_info, ptr nocapture noundef nonnull writeonly initializes((808, 816)) %opts, ptr noundef nonnull %rev, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %branch_rev = alloca %struct.object_id, align 4
   %call = tail call ptr @xstrdup(ptr noundef %arg) #16

@@ -529,7 +529,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11StatWatcherC2EPNS_2fs11BindingDataEN2v85LocalINS4_6ObjectEEEb(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %binding_data, ptr %wrap.coerce, i1 noundef zeroext %use_bigint) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11StatWatcherC2EPNS_2fs11BindingDataEN2v85LocalINS4_6ObjectEEEb(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this, ptr noundef %binding_data, ptr %wrap.coerce, i1 noundef zeroext %use_bigint) unnamed_addr #3 align 2 {
 _ZNK4node17BaseObjectPtrImplINS_2fs11BindingDataELb0EE12pointer_dataEv.exit.i:
   %frombool = zext i1 %use_bigint to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11StatWatcherE, i64 16), ptr %this, align 8

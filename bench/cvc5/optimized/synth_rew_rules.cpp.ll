@@ -502,7 +502,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13preprocessing6passes17SynthRewRulesPass15getGrammarsFromERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEm(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %assertions, i64 noundef %nvars) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing6passes17SynthRewRulesPass15getGrammarsFromERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEm(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %assertions, i64 noundef %nvars) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tlGrammarTypes = alloca %"class.std::map", align 8
   %ttp = alloca %"struct.std::pair", align 8
@@ -735,7 +735,7 @@ ehcleanup10:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13preprocessing6passes17SynthRewRulesPass24constructTopLevelGrammarERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEm(ptr noalias sret(%"class.std::map") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %assertions, i64 noundef %nvars) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing6passes17SynthRewRulesPass24constructTopLevelGrammarERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEm(ptr noalias sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %assertions, i64 noundef %nvars) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__second.i.i.i.i.i.i.i5261 = alloca %"class.std::tuple.289", align 1
   %agg.tmp6.i.i.i.i.i.i5262 = alloca %"class.std::tuple.329", align 8

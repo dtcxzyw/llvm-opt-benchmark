@@ -129,7 +129,7 @@ return:                                           ; preds = %land.rhs.i, %while.
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @trace_event_iter_init_all(ptr nocapture noundef writeonly %iter) local_unnamed_addr #3 {
+define dso_local void @trace_event_iter_init_all(ptr nocapture noundef writeonly initializes((0, 32)) %iter) local_unnamed_addr #3 {
 entry:
   %group_id = getelementptr inbounds i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
@@ -217,7 +217,7 @@ return:                                           ; preds = %if.end25, %while.co
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @trace_event_iter_init_pattern(ptr nocapture noundef writeonly %iter, ptr noundef %pattern) local_unnamed_addr #3 {
+define dso_local void @trace_event_iter_init_pattern(ptr nocapture noundef writeonly initializes((0, 32)) %iter, ptr noundef %pattern) local_unnamed_addr #3 {
 entry:
   %group_id.i = getelementptr inbounds i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)
@@ -228,7 +228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @trace_event_iter_init_group(ptr nocapture noundef writeonly %iter, i64 noundef %group_id) local_unnamed_addr #3 {
+define dso_local void @trace_event_iter_init_group(ptr nocapture noundef writeonly initializes((0, 32)) %iter, i64 noundef %group_id) local_unnamed_addr #3 {
 entry:
   %group_id.i = getelementptr inbounds i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iter, i8 0, i64 16, i1 false)

@@ -114,21 +114,21 @@ define noundef i32 @_ZNK4LIEF2PE9RichEntry5countEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE9RichEntry2idEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE9RichEntry2idEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 10)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE9RichEntry8build_idEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE9RichEntry8build_idEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((10, 12)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 10
   store i16 %1, ptr %3, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE9RichEntry5countEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE9RichEntry5countEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void

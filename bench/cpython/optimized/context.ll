@@ -72,7 +72,7 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_init(ptr noundef %ctx, i64 noundef %prec) local_unnamed_addr #0 {
+define hidden void @mpd_init(ptr noundef initializes((0, 48)) %ctx, i64 noundef %prec) local_unnamed_addr #0 {
 entry:
   store i64 38, ptr %ctx, align 8
   %emax.i = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -116,7 +116,7 @@ return:                                           ; preds = %if.end, %mpd_addsta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mpd_defaultcontext(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #5 {
+define hidden void @mpd_defaultcontext(ptr nocapture noundef writeonly initializes((0, 48)) %ctx) local_unnamed_addr #5 {
 entry:
   store i64 38, ptr %ctx, align 8
   %emax = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -179,7 +179,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mpd_maxcontext(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #5 {
+define hidden void @mpd_maxcontext(ptr nocapture noundef writeonly initializes((0, 48)) %ctx) local_unnamed_addr #5 {
 entry:
   store i64 999999999999999999, ptr %ctx, align 8
   %emax = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -202,7 +202,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mpd_basiccontext(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #5 {
+define hidden void @mpd_basiccontext(ptr nocapture noundef writeonly initializes((0, 48)) %ctx) local_unnamed_addr #5 {
 entry:
   store i64 9, ptr %ctx, align 8
   %emax = getelementptr inbounds i8, ptr %ctx, i64 8

@@ -2805,7 +2805,7 @@ declare void @die_errno(ptr noundef, ...) local_unnamed_addr #4
 declare void @write_or_die(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @filter_object(ptr noundef %path, i32 noundef range(i32 0, 65536) %mode, ptr noundef %oid, ptr nocapture noundef nonnull %buf, ptr noundef nonnull %size) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @filter_object(ptr noundef %path, i32 noundef range(i32 0, 65536) %mode, ptr noundef %oid, ptr nocapture noundef nonnull initializes((0, 8)) %buf, ptr noundef nonnull %size) unnamed_addr #0 {
 entry:
   %ca.i = alloca %struct.conv_attrs, align 8
   %type = alloca i32, align 4
@@ -2886,7 +2886,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @git_env_bool(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_contents(ptr noundef %opt, ptr noundef %line, ptr noundef %output, ptr noundef %data) #0 {
+define internal void @parse_cmd_contents(ptr noundef initializes((8, 12)) %opt, ptr noundef %line, ptr noundef %output, ptr noundef %data) #0 {
 entry:
   %batch_mode = getelementptr inbounds i8, ptr %opt, i64 8
   store i32 0, ptr %batch_mode, align 8
@@ -2895,7 +2895,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_info(ptr noundef %opt, ptr noundef %line, ptr noundef %output, ptr noundef %data) #0 {
+define internal void @parse_cmd_info(ptr noundef initializes((8, 12)) %opt, ptr noundef %line, ptr noundef %output, ptr noundef %data) #0 {
 entry:
   %batch_mode = getelementptr inbounds i8, ptr %opt, i64 8
   store i32 1, ptr %batch_mode, align 8

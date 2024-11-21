@@ -3391,7 +3391,7 @@ define dso_local void @__pm_runtime_use_autosuspend(ptr noundef %0, i1 noundef z
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pm_runtime_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @pm_runtime_init(ptr noundef initializes((452, 460)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 452
   store i32 2, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 456

@@ -147,7 +147,7 @@ psa_lock_key_slot.exit:                           ; preds = %.thread51, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr null, ptr %1, align 8
@@ -363,7 +363,7 @@ define hidden noundef range(i32 -135, 1) i32 @psa_validate_key_persistence(i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_open_key(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden i32 @psa_open_key(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = call i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef nonnull %3)
   %.not = icmp eq i32 %4, 0
@@ -521,7 +521,7 @@ psa_unlock_key_slot.exit:                         ; preds = %10, %3, %.loopexit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_psa_get_stats(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
+define hidden void @mbedtls_psa_get_stats(ptr nocapture noundef writeonly initializes((0, 64)) %0) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 8

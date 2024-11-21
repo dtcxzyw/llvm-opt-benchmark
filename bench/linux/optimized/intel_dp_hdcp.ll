@@ -654,7 +654,7 @@ define internal i32 @intel_dp_hdcp_capable(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 4, 3) i32 @intel_dp_hdcp2_capable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal range(i32 4, 3) i32 @intel_dp_hdcp2_capable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #0 align 16 {
   %3 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #7
   %4 = getelementptr inbounds i8, ptr %0, i64 1976

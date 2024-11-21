@@ -17961,7 +17961,7 @@ declare i32 @SSL_CTX_remove_session(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @SSL_CTX_sess_set_get_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define internal ptr @get_session_cb(ptr nocapture readnone %ssl, ptr nocapture readnone %id, i32 %len, ptr nocapture noundef writeonly %copy) #8 {
+define internal ptr @get_session_cb(ptr nocapture readnone %ssl, ptr nocapture readnone %id, i32 %len, ptr nocapture noundef writeonly initializes((0, 4)) %copy) #8 {
 entry:
   %0 = load i32, ptr @get_called, align 4
   %inc = add nsw i32 %0, 1
@@ -20322,7 +20322,7 @@ declare i32 @SSL_stateless(ptr noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_stateless_cookie_generate_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @generate_stateless_cookie_callback(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %cookie, ptr nocapture noundef writeonly %cookie_len) #15 {
+define internal noundef i32 @generate_stateless_cookie_callback(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly initializes((0, 12)) %cookie, ptr nocapture noundef writeonly initializes((0, 8)) %cookie_len) #15 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %cookie, ptr noundef nonnull align 1 dereferenceable(12) @cookie_magic_value, i64 12, i1 false)
   store i64 12, ptr %cookie_len, align 8
@@ -21987,7 +21987,7 @@ declare i32 @SSL_CTX_use_serverinfo_ex(ptr noundef, i32 noundef, ptr noundef, i6
 declare i32 @SSL_CTX_use_serverinfo(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @serverinfo_custom_parse_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr noundef %in, i64 noundef %inlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef writeonly %parse_arg) #1 {
+define internal noundef i32 @serverinfo_custom_parse_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr noundef %in, i64 noundef %inlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef writeonly initializes((0, 4)) %parse_arg) #1 {
 entry:
   %call = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 6230, ptr noundef nonnull @.str.901, ptr noundef nonnull @.str.1151, ptr noundef %in, i64 noundef %inlen, ptr noundef nonnull getelementptr inbounds (i8, ptr @serverinfo_custom_v1, i64 4), i64 noundef 3) #23
   store i32 %call, ptr %parse_arg, align 4

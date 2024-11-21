@@ -2808,7 +2808,7 @@ freesrnode.exit:                                  ; preds = %124, %newarc.exit84
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @specialcolors(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @specialcolors(ptr nocapture noundef initializes((112, 120)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3043,7 +3043,7 @@ freesubreandsiblings.exit:                        ; preds = %freesubreandsibling
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @numst(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc i32 @numst(ptr nocapture noundef initializes((4, 8)) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = add i32 %1, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %4, align 4

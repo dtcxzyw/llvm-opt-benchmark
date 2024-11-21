@@ -3231,7 +3231,7 @@ define internal void @VE4_SSE2(ptr nocapture noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @RD4_SSE2(ptr nocapture noundef %0) #1 {
+define internal void @RD4_SSE2(ptr nocapture noundef initializes((0, 4), (32, 36), (64, 68), (96, 100)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -33
   %3 = load i64, ptr %2, align 1
   %4 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
@@ -3287,7 +3287,7 @@ define internal void @RD4_SSE2(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @VR4_SSE2(ptr nocapture noundef %0) #1 {
+define internal void @VR4_SSE2(ptr nocapture noundef initializes((0, 4), (32, 36), (64, 68), (96, 100)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -3352,7 +3352,7 @@ define internal void @VR4_SSE2(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @LD4_SSE2(ptr nocapture noundef %0) #1 {
+define internal void @LD4_SSE2(ptr nocapture noundef initializes((0, 4), (32, 36), (64, 68), (96, 100)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load i64, ptr %2, align 1
   %4 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
@@ -3393,7 +3393,7 @@ define internal void @LD4_SSE2(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @VL4_SSE2(ptr nocapture noundef %0) #1 {
+define internal void @VL4_SSE2(ptr nocapture noundef initializes((0, 4), (32, 36), (64, 68), (96, 100)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load i64, ptr %2, align 1
   %4 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0

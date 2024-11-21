@@ -72,7 +72,7 @@ define noundef ptr @jv_parser_new(i32 noundef %0) local_unnamed_addr #0 {
 declare ptr @jv_mem_alloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parser_init(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @parser_init(ptr noundef initializes((0, 68), (72, 128), (200, 204)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %1, ptr %3, align 4
   %4 = and i32 %1, 2
@@ -139,7 +139,7 @@ define internal fastcc void @parser_init(ptr noundef %0, i32 noundef %1) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jv_parser_free(ptr noundef %0) local_unnamed_addr #0 {
+define void @jv_parser_free(ptr noundef initializes((64, 68)) %0) local_unnamed_addr #0 {
   tail call fastcc void @parser_reset(ptr noundef %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
@@ -1231,7 +1231,7 @@ declare { i64, ptr } @jv_invalid_with_msg(i64, ptr) local_unnamed_addr #1
 declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parser_reset(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @parser_reset(ptr nocapture noundef initializes((64, 68)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2

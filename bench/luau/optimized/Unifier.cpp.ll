@@ -3252,7 +3252,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau7Unifier15mismatchContextE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau7UnifierC2ENS_7NotNullINS_10NormalizerEEENS1_INS_5ScopeEEERKNS_8LocationENS_8VarianceEPNS_6TxnLogE(ptr noundef nonnull align 8 dereferenceable(289) %0, ptr %1, ptr %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7UnifierC2ENS_7NotNullINS_10NormalizerEEENS1_INS_5ScopeEEERKNS_8LocationENS_8VarianceEPNS_6TxnLogE(ptr noundef nonnull align 8 dereferenceable(289) initializes((0, 64), (72, 104), (112, 146)) %0, ptr %1, ptr %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 312
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %0, align 8
@@ -23263,7 +23263,7 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
 declare void @_ZN4Luau6TxnLog7popSeenEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau7Unifier16makeChildUnifierEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Unifier") align 8 %0, ptr noundef nonnull align 8 dereferenceable(289) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7Unifier16makeChildUnifierEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Unifier") align 8 initializes((0, 64), (72, 104), (112, 146), (152, 161), (168, 214), (216, 221), (224, 280), (284, 285), (288, 289)) %0, ptr noundef nonnull align 8 dereferenceable(289) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -23500,7 +23500,7 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit:  ; preds = %_ZSt8_DestroyIPN4Lu
 declare void @_ZN4Luau6TxnLog13concatAsUnionES0_NS_7NotNullINS_9TypeArenaEEE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7Unifier20combineLogsIntoUnionESt6vectorINS_6TxnLogESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::TxnLog") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(289) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7Unifier20combineLogsIntoUnionESt6vectorINS_6TxnLogESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::TxnLog") align 8 initializes((0, 32), (40, 72), (80, 114)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(289) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::TxnLog", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 288
   %6 = load i8, ptr %5, align 8
@@ -27624,7 +27624,7 @@ _ZN4Luau7VariantIJNS_12TypeMismatchENS_13UnknownSymbolENS_15UnknownPropertyENS_9
 declare void @_ZN4Luau12TypeMismatchC1EPKNS_4TypeES3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef, ptr noundef, i32 noundef) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7Unifier27combineLogsIntoIntersectionESt6vectorINS_6TxnLogESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::TxnLog") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(289) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7Unifier27combineLogsIntoIntersectionESt6vectorINS_6TxnLogESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::TxnLog") align 8 initializes((0, 32), (40, 72), (80, 114)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(289) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::TxnLog", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 288
   %6 = load i8, ptr %5, align 8
@@ -32133,7 +32133,7 @@ _ZN4Luau6detail14DenseHashTableISt4pairIPKNS_4TypeES5_ES2_IS6_NS_7VariantIJNS_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau7Unifier15enableNewSolverEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(289) %0) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN4Luau7Unifier15enableNewSolverEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(289) initializes((144, 145), (288, 289)) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144

@@ -563,7 +563,7 @@ define dso_local void @_ZN5clang13OpenCLOptions7supportEN4llvm9StringRefEb(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13OpenCLOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13OpenCLOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.clang::OpenCLOptions::OpenCLOptionInfo", align 4
   %3 = alloca %"struct.clang::OpenCLOptions::OpenCLOptionInfo", align 4
   %4 = alloca %"struct.clang::OpenCLOptions::OpenCLOptionInfo", align 4

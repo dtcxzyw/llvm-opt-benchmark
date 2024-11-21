@@ -1093,7 +1093,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17asserted_formulasC2ER11ast_managerR10smt_paramsRK10params_ref(ptr noundef nonnull align 8 dereferenceable(7260) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(800) %sp, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17asserted_formulasC2ER11ast_managerR10smt_paramsRK10params_ref(ptr noundef nonnull align 8 dereferenceable(7260) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(800) %sp, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.params_ref, align 8
   store ptr %m, ptr %this, align 8
@@ -2567,7 +2567,7 @@ if.end12:                                         ; preds = %if.then10, %sw.epil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17asserted_formulasD2Ev(ptr noundef nonnull align 8 dereferenceable(7260) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17asserted_formulasD2Ev(ptr noundef nonnull align 8 dereferenceable(7260) initializes((6504, 6512)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ng_lift_ite = getelementptr inbounds i8, ptr %this, i64 6504
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17asserted_formulas11ng_lift_iteE, i64 16), ptr %m_ng_lift_ite, align 8

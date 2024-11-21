@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.pollfd = type { i32, i16, i16 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_quic_reactor_init(ptr nocapture noundef %rtor, ptr noundef %tick_cb, ptr noundef %tick_cb_arg, i64 %initial_tick_deadline.coerce) local_unnamed_addr #0 {
+define void @ossl_quic_reactor_init(ptr nocapture noundef initializes((0, 4), (16, 20), (32, 56)) %rtor, ptr noundef %tick_cb, ptr noundef %tick_cb_arg, i64 %initial_tick_deadline.coerce) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %rtor, align 8
   %poll_w = getelementptr inbounds i8, ptr %rtor, i64 16
@@ -30,7 +30,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_quic_reactor_set_poll_r(ptr nocapture noundef %rtor, ptr noundef readonly %r) local_unnamed_addr #0 {
+define void @ossl_quic_reactor_set_poll_r(ptr nocapture noundef initializes((0, 4)) %rtor, ptr noundef readonly %r) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %r, null
   br i1 %cmp, label %if.then, label %if.else
@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_quic_reactor_set_poll_w(ptr nocapture noundef %rtor, ptr noundef readonly %w) local_unnamed_addr #0 {
+define void @ossl_quic_reactor_set_poll_w(ptr nocapture noundef initializes((16, 20)) %rtor, ptr noundef readonly %w) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %w, null
   %poll_w = getelementptr inbounds i8, ptr %rtor, i64 16
@@ -158,7 +158,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_reactor_tick(ptr nocapture noundef %rtor, i32 noundef %flags) local_unnamed_addr #4 {
+define noundef i32 @ossl_quic_reactor_tick(ptr nocapture noundef initializes((32, 40)) %rtor, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %res = alloca %struct.quic_tick_result_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %res, i8 0, i64 16, i1 false)

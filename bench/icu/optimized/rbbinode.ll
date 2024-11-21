@@ -487,7 +487,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758RBBINodeC2ENS0_8NodeTypeE(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %t) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758RBBINodeC2ENS0_8NodeTypeE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 4), (8, 44), (48, 58), (112, 121), (124, 131)) %this, i32 noundef %t) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %fText = getelementptr inbounds i8, ptr %this, i64 48
@@ -591,7 +591,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758RBBINodeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(160) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758RBBINodeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 4), (8, 44), (48, 58)) %this, ptr noundef nonnull align 8 dereferenceable(160) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %fText = getelementptr inbounds i8, ptr %this, i64 48

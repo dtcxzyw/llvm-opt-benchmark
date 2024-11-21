@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.avifGetExifTiffHeaderOffset.tiffHeaderLE = private unnamed_addr constant [4 x i8] c"II*\00", align 1
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 18) i32 @avifGetExifTiffHeaderOffset(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 18) i32 @avifGetExifTiffHeaderOffset(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   store i64 0, ptr %2, align 8
   %4 = icmp ugt i64 %1, 4
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
@@ -44,7 +44,7 @@ define hidden range(i32 0, 18) i32 @avifGetExifTiffHeaderOffset(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 18) i32 @avifGetExifOrientationOffset(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 18) i32 @avifGetExifOrientationOffset(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.avifROData, align 8
   %5 = alloca %struct.avifROStream, align 8
   %6 = alloca i32, align 4

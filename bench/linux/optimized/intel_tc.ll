@@ -2760,7 +2760,7 @@ define internal void @xelpdp_tc_phy_disconnect(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @adlp_tc_phy_init(ptr nocapture noundef %0) #0 align 16 {
+define internal void @adlp_tc_phy_init(ptr nocapture noundef initializes((256, 261)) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 132
@@ -3848,7 +3848,7 @@ assert_tc_port_power_enabled.exit5:               ; preds = %96, %114
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @adlp_tc_phy_disconnect(ptr noundef %0) #0 align 16 {
+define internal void @adlp_tc_phy_disconnect(ptr noundef initializes((48, 56)) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 132
@@ -4536,7 +4536,7 @@ define internal i32 @icl_tc_phy_cold_off_domain(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @icl_tc_phy_init(ptr nocapture noundef %0) #0 align 16 {
+define internal void @icl_tc_phy_init(ptr nocapture noundef initializes((256, 261)) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 132

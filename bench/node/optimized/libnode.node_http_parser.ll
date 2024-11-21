@@ -4421,7 +4421,7 @@ declare void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 derefe
 declare void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_111BindingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_111BindingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i64 16), ptr %this, align 8
   %parser_buffer = getelementptr inbounds i8, ptr %this, i64 32
@@ -4440,7 +4440,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_111BindingDataD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_111BindingDataD0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i64 16), ptr %this, align 8
   %parser_buffer.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -5118,7 +5118,7 @@ declare ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 der
 declare void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_16ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(1848) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_16ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(1848) initializes((0, 8), (56, 64), (1728, 1736), (1752, 1760)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -5246,7 +5246,7 @@ arraydestroy.done8:                               ; preds = %_ZN4node12_GLOBAL__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_16ParserD0Ev(ptr noundef nonnull align 8 dereferenceable(1848) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_16ParserD0Ev(ptr noundef nonnull align 8 dereferenceable(1848) initializes((0, 8), (56, 64), (1728, 1736), (1752, 1760)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node12_GLOBAL__N_16ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(1848) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -5478,7 +5478,7 @@ _ZN4node16OnScopeLeaveImplIZNS_12_GLOBAL__N_16Parser12OnStreamReadElRK8uv_buf_tE
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn56_N4node12_GLOBAL__N_16ParserD1Ev(ptr noundef %this) unnamed_addr #11 align 2 {
+define internal void @_ZThn56_N4node12_GLOBAL__N_16ParserD1Ev(ptr noundef initializes((-56, -48), (0, 8), (1672, 1680), (1696, 1704)) %this) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN4node12_GLOBAL__N_16ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(1848) %0) #20
@@ -5486,7 +5486,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn56_N4node12_GLOBAL__N_16ParserD0Ev(ptr noundef %this) unnamed_addr #11 align 2 {
+define internal void @_ZThn56_N4node12_GLOBAL__N_16ParserD0Ev(ptr noundef initializes((-56, -48), (0, 8), (1672, 1680), (1696, 1704)) %this) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN4node12_GLOBAL__N_16ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(1848) %0) #20
@@ -5657,7 +5657,7 @@ declare void @_ZN4node21LowMemoryNotificationEv() local_unnamed_addr #0
 declare void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4node12_GLOBAL__N_16Parser7ExecuteEPKcm(ptr noundef nonnull align 8 dereferenceable(1848) %this, ptr noundef %data, i64 noundef %len) unnamed_addr #3 align 2 {
+define internal fastcc noundef ptr @_ZN4node12_GLOBAL__N_16Parser7ExecuteEPKcm(ptr noundef nonnull align 8 dereferenceable(1848) initializes((1777, 1778), (1784, 1800)) %this, ptr noundef %data, i64 noundef %len) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::EscapableHandleScope", align 8
   %realm_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -8202,7 +8202,7 @@ declare void @_ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListene
 declare ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_115ConnectionsListD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_115ConnectionsListD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 96
@@ -8216,7 +8216,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_115ConnectionsListD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_115ConnectionsListD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 96

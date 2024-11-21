@@ -5700,13 +5700,13 @@ define internal fastcc void @_ZN19pyo3_macros_backend6module20set_module_attribu
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend6module18PyModulePyO3Option5Crate17h657f22038988d59fE(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend6module18PyModulePyO3Option5Crate17h657f22038988d59fE(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 56)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend6module18PyModulePyO3Option4Name17hf8a403ef8e262aceE(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend6module18PyModulePyO3Option4Name17hf8a403ef8e262aceE(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 40)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
@@ -5714,7 +5714,7 @@ define hidden void @_ZN19pyo3_macros_backend6module18PyModulePyO3Option4Name17hf
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend6module18PyModulePyO3Option6Module17hec5bae3d56c953d2E(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr align 8 %1, i32 %2) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend6module18PyModulePyO3Option6Module17hec5bae3d56c953d2E(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 20)) %0, ptr align 8 %1, i32 %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

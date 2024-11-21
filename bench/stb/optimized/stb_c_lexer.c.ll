@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stb_c_lexer_init(ptr nocapture noundef writeonly %lexer, ptr noundef %input_stream, ptr noundef %input_stream_end, ptr noundef %string_store, i32 noundef %store_length) local_unnamed_addr #0 {
+define void @stb_c_lexer_init(ptr nocapture noundef writeonly initializes((0, 36)) %lexer, ptr noundef %input_stream, ptr noundef %input_stream_end, ptr noundef %string_store, i32 noundef %store_length) local_unnamed_addr #0 {
 entry:
   store ptr %input_stream, ptr %lexer, align 8
   %eof = getelementptr inbounds i8, ptr %lexer, i64 8
@@ -75,7 +75,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @stb__clex_token(ptr nocapture noundef writeonly %lexer, i32 noundef %token, ptr noundef %start, ptr noundef %end) local_unnamed_addr #0 {
+define noundef i32 @stb__clex_token(ptr nocapture noundef writeonly initializes((16, 24), (40, 64)) %lexer, i32 noundef %token, ptr noundef %start, ptr noundef %end) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %token to i64
   %token1 = getelementptr inbounds i8, ptr %lexer, i64 56
@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @stb__clex_eof(ptr nocapture noundef writeonly %lexer) local_unnamed_addr #0 {
+define noundef i32 @stb__clex_eof(ptr nocapture noundef writeonly initializes((56, 64)) %lexer) local_unnamed_addr #0 {
 entry:
   %token = getelementptr inbounds i8, ptr %lexer, i64 56
   store i64 256, ptr %token, align 8
@@ -144,7 +144,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @stb__clex_parse_suffixes(ptr nocapture noundef writeonly %lexer, i64 noundef %tokenid, ptr noundef %start, ptr noundef %cur, ptr nocapture noundef readnone %suffixes) local_unnamed_addr #0 {
+define noundef i32 @stb__clex_parse_suffixes(ptr nocapture noundef writeonly initializes((16, 24), (40, 64)) %lexer, i64 noundef %tokenid, ptr noundef %start, ptr noundef %cur, ptr nocapture noundef readnone %suffixes) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %cur, i64 -1
   %sext = shl i64 %tokenid, 32
@@ -161,7 +161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 256) i32 @stb__clex_parse_char(ptr noundef %p, ptr nocapture noundef writeonly %q) local_unnamed_addr #4 {
+define range(i32 -1, 256) i32 @stb__clex_parse_char(ptr noundef %p, ptr nocapture noundef writeonly initializes((0, 8)) %q) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %p, align 1
   %cmp = icmp eq i8 %0, 92

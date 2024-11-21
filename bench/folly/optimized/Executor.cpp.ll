@@ -310,7 +310,7 @@ declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 der
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly26getExecutorBlockingContextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional") align 8 %agg.result) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly26getExecutorBlockingContextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional") align 8 initializes((0, 1), (32, 33)) %agg.result) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly22executor_blocking_listE)
   %1 = load ptr, ptr %0, align 8, !tbaa !23
@@ -341,7 +341,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #15
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly21ExecutorBlockingGuardC2ENS0_9PermitTagE(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21ExecutorBlockingGuardC2ENS0_9PermitTagE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ex.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ex.i.i, i8 0, i64 24, i1 false)
@@ -356,7 +356,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly21ExecutorBlockingGuardC2ENS0_8TrackTagEPNS_8ExecutorENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %ex, ptr %tag.coerce0, ptr %tag.coerce1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21ExecutorBlockingGuardC2ENS0_8TrackTagEPNS_8ExecutorENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %ex, ptr %tag.coerce0, ptr %tag.coerce1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ex.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ex.i.i, i8 0, i64 24, i1 false)
@@ -383,7 +383,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly21ExecutorBlockingGuardC2ENS0_11ProhibitTagEPNS_8ExecutorENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %ex, ptr %tag.coerce0, ptr %tag.coerce1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21ExecutorBlockingGuardC2ENS0_11ProhibitTagEPNS_8ExecutorENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %ex, ptr %tag.coerce0, ptr %tag.coerce1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ex.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ex.i.i, i8 0, i64 24, i1 false)

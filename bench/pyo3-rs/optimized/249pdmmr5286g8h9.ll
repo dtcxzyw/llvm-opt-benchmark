@@ -159,7 +159,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ca6e988e113f9f3b293ee61d3a823dd5.166 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.165, [16 x i8] c"S\00\00\00\00\00\00\00\17\00\00\00\01\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
@@ -862,7 +862,7 @@ _ZN17pyo3_build_config5impl_20PythonImplementation10from_soabi17h30a7db2481523c0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig18from_cargo_dep_env17ha1be7e4bab438489E(ptr nocapture writeonly sret([160 x i8]) align 8 %0) unnamed_addr #0 {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig18from_cargo_dep_env17ha1be7e4bab438489E(ptr nocapture writeonly sret([160 x i8]) align 8 initializes((0, 8)) %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
@@ -912,7 +912,7 @@ _ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig20generate_import_libs17hcbee444dbdd8dc39E(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr nocapture readnone align 8 %1) unnamed_addr #1 {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig20generate_import_libs17hcbee444dbdd8dc39E(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 8)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #1 {
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
@@ -1228,7 +1228,7 @@ define zeroext i1 @_ZN17pyo3_build_config5impl_20PythonImplementation10is_graalp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_20PythonImplementation10from_soabi17h30a7db2481523c07E(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @_ZN17pyo3_build_config5impl_20PythonImplementation10from_soabi17h30a7db2481523c07E(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 9)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
@@ -1334,7 +1334,7 @@ define zeroext i1 @"_ZN85_$LT$pyo3_build_config..impl_..PythonImplementation$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$pyo3_build_config..impl_..PythonImplementation$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1202e372ead01e0cE"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @"_ZN93_$LT$pyo3_build_config..impl_..PythonImplementation$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1202e372ead01e0cE"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 9)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [24 x i8], align 8
@@ -2174,7 +2174,7 @@ define zeroext i1 @"_ZN74_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN82_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h71b6ad70faf8e870E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @"_ZN82_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h71b6ad70faf8e870E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr align 1 %1, i64 %2, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.93, i64 8)
   br i1 %5, label %8, label %6
@@ -2217,7 +2217,7 @@ define void @"_ZN82_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$core..str
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_10BuildFlags3new17hee3e55cefd833770E(ptr nocapture writeonly sret([48 x i8]) align 8 %0) unnamed_addr #0 {
+define void @_ZN17pyo3_build_config5impl_10BuildFlags3new17hee3e55cefd833770E(ptr nocapture writeonly sret([48 x i8]) align 8 initializes((0, 48)) %0) unnamed_addr #0 {
   %2 = alloca [48 x i8], align 8
   call void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17hba43ba269d4b54b6E"(ptr nonnull sret([48 x i8]) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
@@ -3099,7 +3099,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_27default_lib_name_for_target17h5eb932eb1ad3895bE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, i8 %1, i8 %2, i8 %3, i1 zeroext %4, ptr align 8 %5) unnamed_addr #0 {
+define void @_ZN17pyo3_build_config5impl_27default_lib_name_for_target17h5eb932eb1ad3895bE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, i8 %1, i8 %2, i8 %3, i1 zeroext %4, ptr align 8 %5) unnamed_addr #0 {
   %7 = alloca [24 x i8], align 8
   %8 = alloca [32 x i8], align 8
   %9 = alloca [48 x i8], align 8

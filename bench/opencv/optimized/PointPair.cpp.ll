@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5logos9PointPairC1EPNS_5PointES2_ = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5logos9PointPairC2EPNS_5PointES2_
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @_ZN5logos9PointPairC2EPNS_5PointES2_(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN5logos9PointPairC2EPNS_5PointES2_(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 20), (28, 36)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8

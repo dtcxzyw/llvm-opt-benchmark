@@ -178,7 +178,7 @@ _ZN8facebook5velox4bits14nextPowerOfTwoEm.exit:   ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6memory9MmapArenaC2Em(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %capacityBytes) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory9MmapArenaC2Em(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (32, 36), (40, 48)) %this, i64 noundef %capacityBytes) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i.i = alloca %"class.std::tuple", align 8
   %ref.tmp10.i.i = alloca %"class.std::tuple.43", align 1
@@ -2006,7 +2006,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad
 declare void @_ZN8facebook5velox13succinctBytesB5cxx11Emi(ptr sret(%"class.std::__cxx11::basic_string") align 8, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6memory17ManagedMmapArenasC2Em(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %singleArenaCapacity) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory17ManagedMmapArenasC2Em(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 20), (24, 32)) %this, i64 noundef %singleArenaCapacity) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arena = alloca %"class.std::shared_ptr", align 8
   %ref.tmp = alloca i64, align 8

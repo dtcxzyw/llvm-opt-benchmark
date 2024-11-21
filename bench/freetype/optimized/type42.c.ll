@@ -94,7 +94,7 @@ define internal ptr @T42_Get_Interface(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @T42_Face_Init(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal i32 @T42_Face_Init(ptr nocapture readnone %0, ptr noundef initializes((0, 8), (776, 792), (808, 816)) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.T1_TokenRec_, align 8
   %8 = alloca i32, align 4
@@ -1383,14 +1383,14 @@ define internal ptr @t42_get_ps_font_name(ptr nocapture noundef readonly %0) #6 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @t42_ps_get_font_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #7 {
+define internal noundef i32 @t42_ps_get_font_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 56)) %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @t42_ps_get_font_extra(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #7 {
+define internal noundef i32 @t42_ps_get_font_extra(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 2)) %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load i16, ptr %3, align 8
   store i16 %4, ptr %1, align 2
@@ -2325,7 +2325,7 @@ t42_is_space.exit.thread:                         ; preds = %168, %160, %92, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @t42_parse_sfnts(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal void @t42_parse_sfnts(ptr nocapture noundef initializes((800, 808)) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32

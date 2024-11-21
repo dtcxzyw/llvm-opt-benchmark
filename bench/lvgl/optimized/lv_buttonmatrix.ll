@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_buttonmatrix_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_buttonmatrix_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 100)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 0, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 92

@@ -947,7 +947,7 @@ cleanup_entry.exit11:                             ; preds = %.loopexit.i8, %156
 declare dso_local ptr @xt_alloc_table_info(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull initializes((0, 8), (12, 52)) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.xt_mtdtor_param, align 8
   %6 = alloca %struct.xt_tgdtor_param, align 8
   %7 = alloca %struct.xt_mtdtor_param, align 8

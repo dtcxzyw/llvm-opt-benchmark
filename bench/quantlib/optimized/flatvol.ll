@@ -804,7 +804,7 @@ unreachable:                                      ; preds = %invoke.cont20
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib7FlatVolC2ERKSt6vectorIdSaIdEERKN5boost10shared_ptrINS_28PiecewiseConstantCorrelationEEERKNS_20EvolutionDescriptionEmS5_S5_(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %corr, ptr noundef nonnull align 8 dereferenceable(128) %evolution, i64 noundef %numberOfFactors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %initialRates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %displacements) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib7FlatVolC2ERKSt6vectorIdSaIdEERKN5boost10shared_ptrINS_28PiecewiseConstantCorrelationEEERKNS_20EvolutionDescriptionEmS5_S5_(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %corr, ptr noundef nonnull align 8 dereferenceable(128) %evolution, i64 noundef %numberOfFactors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %initialRates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %displacements) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Matrix", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -3700,7 +3700,7 @@ _ZNSt6vectorIN8QuantLib6MatrixESaIS1_EED2Ev.exit19: ; preds = %invoke.cont.i12, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14FlatVolFactoryC2EddSt6vectorIdSaIdEES3_NS_6HandleINS_18YieldTermStructureEEEd(ptr noundef nonnull align 8 dereferenceable(232) %this, double noundef %longTermCorrelation, double noundef %beta, ptr nocapture noundef %times, ptr nocapture noundef %vols, ptr nocapture noundef %yieldCurve, double noundef %displacement) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14FlatVolFactoryC2EddSt6vectorIdSaIdEES3_NS_6HandleINS_18YieldTermStructureEEEd(ptr noundef nonnull align 8 dereferenceable(232) initializes((16, 20), (24, 32)) %this, double noundef %longTermCorrelation, double noundef %beta, ptr nocapture noundef %times, ptr nocapture noundef %vols, ptr nocapture noundef %yieldCurve, double noundef %displacement) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::LinearInterpolation", align 8
   %ref.tmp2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8

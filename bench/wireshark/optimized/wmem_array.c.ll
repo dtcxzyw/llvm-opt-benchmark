@@ -87,7 +87,7 @@ define void @wmem_array_grow(ptr nocapture noundef %0, i32 noundef %1) local_unn
 declare noalias ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_array_set_null_terminator(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @wmem_array_set_null_terminator(ptr nocapture noundef initializes((32, 33)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 28

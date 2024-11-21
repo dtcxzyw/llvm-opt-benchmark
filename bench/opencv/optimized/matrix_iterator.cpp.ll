@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN2cv22SparseMatConstIteratorC1EPKNS_9SparseMatE = unnamed_addr alias void (ptr, ptr), ptr @_ZN2cv22SparseMatConstIteratorC2EPKNS_9SparseMatE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv15NAryMatIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv15NAryMatIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 28), (32, 52), (56, 64)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 0, ptr %3, align 8
@@ -38,7 +38,7 @@ define void @_ZN2cv15NAryMatIteratorC2Ev(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv15NAryMatIteratorC2EPPKNS_3MatEPS1_i(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define void @_ZN2cv15NAryMatIteratorC2EPPKNS_3MatEPS1_i(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 28), (32, 52), (56, 64)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 0, ptr %6, align 8
@@ -574,7 +574,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %103, %113
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv15NAryMatIteratorC2EPPKNS_3MatEPPhi(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define void @_ZN2cv15NAryMatIteratorC2EPPKNS_3MatEPPhi(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 28), (32, 52), (56, 64)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 0, ptr %6, align 8
@@ -810,7 +810,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN2cv15NAryMatIteratorppEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::NAryMatIterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define void @_ZN2cv15NAryMatIteratorppEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::NAryMatIterator") align 8 initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %4 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   ret void
@@ -1337,7 +1337,7 @@ define void @_ZN2cv16MatConstIterator4seekEPKib(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN2cv22SparseMatConstIteratorC2EPKNS_9SparseMatE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define void @_ZN2cv22SparseMatConstIteratorC2EPKNS_9SparseMatE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

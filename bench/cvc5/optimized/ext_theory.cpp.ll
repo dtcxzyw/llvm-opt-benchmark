@@ -522,7 +522,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory17ExtTheoryCallback13isExtfReducedEiNS0_12NodeTemplateILb1EEES4_RSt6vectorIS4_SaIS4_EERNS1_12ExtReducedIdE(ptr nocapture nonnull readnone align 8 %this, i32 %effort, ptr noundef nonnull %n, ptr nocapture readnone %on, ptr nocapture nonnull readnone align 8 %exp, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %id) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory17ExtTheoryCallback13isExtfReducedEiNS0_12NodeTemplateILb1EEES4_RSt6vectorIS4_SaIS4_EERNS1_12ExtReducedIdE(ptr nocapture nonnull readnone align 8 %this, i32 %effort, ptr noundef nonnull %n, ptr nocapture readnone %on, ptr nocapture nonnull readnone align 8 %exp, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %id) unnamed_addr #3 align 2 {
 entry:
   store i32 1, ptr %id, align 4
   %call = tail call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %n)
@@ -1237,7 +1237,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory9ExtTheory11collectVarsENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::vector.403") align 8 %agg.result, ptr noundef nonnull %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory9ExtTheory11collectVarsENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::vector.403") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %visited = alloca %"class.std::set", align 8
   %worklist = alloca %"class.std::vector.403", align 8
@@ -5360,7 +5360,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory9ExtTheory9getActiveEv(ptr noalias sret(%"class.std::vector.403") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(576) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory9ExtTheory9getActiveEv(ptr noalias sret(%"class.std::vector.403") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(576) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -6930,7 +6930,7 @@ return:                                           ; preds = %if.end3.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory9ExtTheory9getActiveENS0_4kind6Kind_tE(ptr noalias sret(%"class.std::vector.403") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(576) %this, i32 noundef %k) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory9ExtTheory9getActiveENS0_4kind6Kind_tE(ptr noalias sret(%"class.std::vector.403") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(576) %this, i32 noundef %k) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)

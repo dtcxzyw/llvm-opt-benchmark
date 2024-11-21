@@ -207,7 +207,7 @@ declare i32 @onigenc_unicode_property_name_to_ctype(ptr noundef, ptr noundef, pt
 declare i32 @onigenc_unicode_is_code_ctype(i32 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #5 {
+define internal i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef %2) #5 {
   store i32 128, ptr %1, align 4
   %4 = tail call i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, ptr noundef %2) #7
   ret i32 %4

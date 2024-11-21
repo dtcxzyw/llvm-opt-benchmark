@@ -3379,7 +3379,7 @@ define linkonce_odr hidden void @_ZN4llvm2gi16MatchTableRecordD2Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable7CommentENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable7CommentENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -3408,7 +3408,7 @@ define dso_local void @_ZN4llvm2gi10MatchTable7CommentENS_9StringRefE(ptr dead_o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable6OpcodeENS_9StringRefEi(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable6OpcodeENS_9StringRefEi(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator.27", align 1
   %7 = icmp sgt i32 %3, 0
@@ -3443,7 +3443,7 @@ define dso_local void @_ZN4llvm2gi10MatchTable6OpcodeENS_9StringRefEi(ptr dead_o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable10NamedValueEjNS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, i32 noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable10NamedValueEjNS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, i32 noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator.27", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
@@ -3472,7 +3472,7 @@ define dso_local void @_ZN4llvm2gi10MatchTable10NamedValueEjNS_9StringRefE(ptr d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable10NamedValueEjNS_9StringRefEl(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, i32 noundef %1, ptr %2, i64 %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable10NamedValueEjNS_9StringRefEl(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, i32 noundef %1, ptr %2, i64 %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::allocator.27", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
@@ -3501,7 +3501,7 @@ define dso_local void @_ZN4llvm2gi10MatchTable10NamedValueEjNS_9StringRefEl(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable10NamedValueEjNS_9StringRefES2_(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, i32 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable10NamedValueEjNS_9StringRefES2_(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, i32 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
 _ZN4llvmplERKNS_5TwineES2_.exit:
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::allocator.27", align 1
@@ -3629,7 +3629,7 @@ _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %11, %16, %19, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable10NamedValueEjNS_9StringRefES2_l(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, i32 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, i64 noundef %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable10NamedValueEjNS_9StringRefES2_l(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, i32 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, i64 noundef %6) local_unnamed_addr #0 align 2 {
 _ZN4llvmplERKNS_5TwineES2_.exit:
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %8 = alloca %"class.std::allocator.27", align 1
@@ -3684,7 +3684,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable8IntValueEjl(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable8IntValueEjl(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.27", align 1
   %6 = alloca %"class.std::allocator.27", align 1
@@ -4086,7 +4086,7 @@ _ZN4llvm11SmallStringILj16EED2Ev.exit:            ; preds = %4, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable5LabelEj(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable5LabelEj(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::allocator.27", align 1
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -4142,7 +4142,7 @@ define dso_local void @_ZN4llvm2gi10MatchTable5LabelEj(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi10MatchTable10JumpTargetEj(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi10MatchTable10JumpTargetEj(ptr dead_on_unwind noalias writable sret(%"struct.llvm::gi::MatchTableRecord") align 8 initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::allocator.27", align 1
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -9342,7 +9342,7 @@ define dso_local noundef zeroext i16 @_ZN4llvm2gi11RuleMatcher15updateGISelFlagE
 declare noundef zeroext i1 @_ZNK4llvm6Record20getValueAsBitOrUnsetENS_9StringRefERb(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi11RuleMatcher13setGISelFlagsEPKNS_6RecordE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::SaveAndRestore") align 8 %0, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi11RuleMatcher13setGISelFlagsEPKNS_6RecordE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::SaveAndRestore") align 8 initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
@@ -9463,7 +9463,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi11RuleMatcher23defineComplexSubOperandENS_9StringRefEPNS_6RecordEjjS2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr %2, i64 %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi11RuleMatcher23defineComplexSubOperandENS_9StringRefEPNS_6RecordEjjS2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr %2, i64 %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.27", align 1
@@ -18139,7 +18139,7 @@ define dso_local void @_ZNK4llvm2gi30VectorSplatImmPredicateMatcher20emitPredica
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi34GenericInstructionPredicateMatcherC2EjNS_15TreePredicateFnE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi34GenericInstructionPredicateMatcherC2EjNS_15TreePredicateFnE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20)) %0, i32 noundef %1, ptr %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::TreePredicateFn", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %2, ptr %4, align 8

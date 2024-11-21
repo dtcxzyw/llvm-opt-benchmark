@@ -163,7 +163,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @nf_conntrack_udp_init_net(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @nf_conntrack_udp_init_net(ptr nocapture noundef writeonly initializes((2520, 2528)) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2520
   store i64 515396075550000, ptr %2, align 4
   ret void

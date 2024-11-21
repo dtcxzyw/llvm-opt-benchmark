@@ -549,7 +549,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @tdefl_init(ptr noundef %d, ptr noundef %pPut_buf_func, ptr noundef %pPut_buf_user, i32 noundef %flags) local_unnamed_addr #6 {
+define hidden noundef i32 @tdefl_init(ptr noundef initializes((0, 32), (36, 48), (84, 100), (112, 132)) %d, ptr noundef %pPut_buf_func, ptr noundef %pPut_buf_user, i32 noundef %flags) local_unnamed_addr #6 {
 entry:
   store ptr %pPut_buf_func, ptr %d, align 8
   %m_pPut_buf_user = getelementptr inbounds i8, ptr %d, i64 8
@@ -4833,7 +4833,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %pSrc_buf, i64 noundef %src_buf_len, ptr nocapture noundef %pOut_len, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %pSrc_buf, i64 noundef %src_buf_len, ptr nocapture noundef initializes((0, 8)) %pOut_len, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %decomp = alloca %struct.tinfl_decompressor_tag, align 8
   %src_buf_size = alloca i64, align 8
@@ -7543,7 +7543,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %pImage, i32 noundef %w, i32 noundef %h, i32 noundef %num_chans, ptr nocapture noundef %pLen_out, i32 noundef %level, i32 noundef %flip) local_unnamed_addr #4 {
+define hidden ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %pImage, i32 noundef %w, i32 noundef %h, i32 noundef %num_chans, ptr nocapture noundef initializes((0, 8)) %pLen_out, i32 noundef %level, i32 noundef %flip) local_unnamed_addr #4 {
 entry:
   %in_buf_size.addr.i46 = alloca i64, align 8
   %in_buf_size.addr.i44 = alloca i64, align 8
@@ -8007,7 +8007,7 @@ return:                                           ; preds = %entry, %for.end140,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @tdefl_write_image_to_png_file_in_memory(ptr noundef %pImage, i32 noundef %w, i32 noundef %h, i32 noundef %num_chans, ptr nocapture noundef %pLen_out) local_unnamed_addr #4 {
+define hidden ptr @tdefl_write_image_to_png_file_in_memory(ptr noundef %pImage, i32 noundef %w, i32 noundef %h, i32 noundef %num_chans, ptr nocapture noundef initializes((0, 8)) %pLen_out) local_unnamed_addr #4 {
 entry:
   %call = tail call ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %pImage, i32 noundef %w, i32 noundef %h, i32 noundef %num_chans, ptr noundef %pLen_out, i32 noundef 6, i32 noundef 0)
   ret ptr %call
@@ -11313,7 +11313,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_writer_init_heap(ptr noundef %pZip, i64 noundef %size_to_reserve_at_beginning, i64 noundef %initial_allocation_size) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_writer_init_heap(ptr noundef initializes((80, 88)) %pZip, i64 noundef %size_to_reserve_at_beginning, i64 noundef %initial_allocation_size) local_unnamed_addr #4 {
 lor.lhs.false.i:
   %m_pWrite = getelementptr inbounds i8, ptr %pZip, i64 80
   store ptr @mz_zip_heap_write_func, ptr %m_pWrite, align 8
@@ -11575,7 +11575,7 @@ return:                                           ; preds = %lor.lhs.false6, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mz_zip_writer_init_file(ptr noundef %pZip, ptr nocapture noundef readonly %pFilename, i64 noundef %size_to_reserve_at_beginning) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mz_zip_writer_init_file(ptr noundef initializes((80, 88)) %pZip, ptr nocapture noundef readonly %pFilename, i64 noundef %size_to_reserve_at_beginning) local_unnamed_addr #4 {
 lor.lhs.false.i:
   %buf = alloca [4096 x i8], align 16
   %m_pWrite = getelementptr inbounds i8, ptr %pZip, i64 80
@@ -12264,7 +12264,7 @@ return:                                           ; preds = %while.cond.i, %whil
 declare i64 @time(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mz_zip_time_t_to_dos_time(i64 noundef %time, ptr nocapture noundef nonnull writeonly %pDOS_time, ptr nocapture noundef nonnull writeonly %pDOS_date) unnamed_addr #4 {
+define internal fastcc void @mz_zip_time_t_to_dos_time(i64 noundef %time, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %pDOS_time, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %pDOS_date) unnamed_addr #4 {
 entry:
   %time.addr = alloca i64, align 8
   store i64 %time, ptr %time.addr, align 8

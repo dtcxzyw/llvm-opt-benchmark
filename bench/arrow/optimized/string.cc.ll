@@ -374,7 +374,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal11SplitStringESt17basic_string_viewIcSt11char_traitsIcEEcl(ptr noalias nocapture sret(%"class.std::vector") align 8 %agg.result, i64 %v.coerce0, ptr %v.coerce1, i8 noundef signext %delimiter, i64 noundef %limit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal11SplitStringESt17basic_string_viewIcSt11char_traitsIcEEcl(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, i64 %v.coerce0, ptr %v.coerce1, i8 noundef signext %delimiter, i64 noundef %limit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp = icmp sgt i64 %limit, 0

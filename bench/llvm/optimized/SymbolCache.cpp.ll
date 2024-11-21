@@ -587,7 +587,7 @@ $_ZTVN4llvm8codeview13CodeViewErrorE = comdat any
 @_ZN4llvm3pdb11SymbolCacheC1ERNS0_13NativeSessionEPNS0_9DbiStreamE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm3pdb11SymbolCacheC2ERNS0_13NativeSessionEPNS0_9DbiStreamE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11SymbolCacheC2ERNS0_13NativeSessionEPNS0_9DbiStreamE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb11SymbolCacheC2ERNS0_13NativeSessionEPNS0_9DbiStreamE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 60), (64, 84), (88, 156), (160, 180), (184, 204), (208, 228), (232, 252), (256, 276)) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, ptr noundef %2) unnamed_addr #0 align 2 {
 _ZNSt6vectorISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit:
   %3 = alloca %"class.std::unique_ptr.42", align 8
   %4 = alloca %"class.std::unique_ptr.50", align 8
@@ -700,7 +700,7 @@ declare noundef nonnull align 8 dereferenceable(352) ptr @_ZNK4llvm3pdb9DbiStrea
 declare noundef i32 @_ZNK4llvm3pdb13DbiModuleList14getModuleCountEv(ptr noundef nonnull align 8 dereferenceable(352)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11SymbolCache20createTypeEnumeratorENS_8codeview12TypeLeafKindE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.82") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb11SymbolCache20createTypeEnumeratorENS_8codeview12TypeLeafKindE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.82") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::vector.90", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #16
   store ptr %5, ptr %4, align 8
@@ -728,7 +728,7 @@ _ZNSt6vectorIN4llvm8codeview12TypeLeafKindESaIS2_EED2Ev.exit: ; preds = %3, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11SymbolCache20createTypeEnumeratorESt6vectorINS_8codeview12TypeLeafKindESaIS4_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.82") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb11SymbolCache20createTypeEnumeratorESt6vectorINS_8codeview12TypeLeafKindESaIS4_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.82") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon.400, align 1
@@ -864,7 +864,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare void @_ZN4llvm3pdb15NativeEnumTypesC1ERNS0_13NativeSessionERNS_8codeview24LazyRandomTypeCollectionESt6vectorINS4_12TypeLeafKindESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(584), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11SymbolCache23createGlobalsEnumeratorENS_8codeview10SymbolKindE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.82") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb11SymbolCache23createGlobalsEnumeratorENS_8codeview10SymbolKindE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.82") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::vector.208", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
   %6 = load ptr, ptr %1, align 8
@@ -5795,7 +5795,7 @@ _ZNK4llvm3pdb11SymbolCache13getSymbolByIdEj.exit: ; preds = %678, %_ZNKSt14defau
 declare noundef zeroext i1 @_ZNK4llvm3pdb13NativeSession24moduleIndexForSectOffsetEjjRt(ptr noundef nonnull align 8 dereferenceable(584), i32 noundef, i32 noundef, ptr noundef nonnull align 2 dereferenceable(2)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11SymbolCache20getOrCreateCompilandEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.288") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb11SymbolCache20getOrCreateCompilandEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.288") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.253", align 8
   %5 = alloca %"class.std::unique_ptr.42", align 8
   %6 = alloca %"class.llvm::pdb::DbiModuleDescriptor", align 8
@@ -10540,7 +10540,7 @@ declare void @_ZN4llvm3pdb16NativeLineNumberC1ERKNS0_13NativeSessionENS_8codevie
 declare void @_ZNK4llvm3pdb13DbiModuleList19getModuleDescriptorEj(ptr dead_on_unwind writable sret(%"class.llvm::pdb::DbiModuleDescriptor") align 8, ptr noundef nonnull align 8 dereferenceable(352), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb11SymbolCache17getSourceFileByIdEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.390") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb11SymbolCache17getSourceFileByIdEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.390") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %13, label %_ZNSt10unique_ptrIN4llvm3pdb16NativeSourceFileESt14default_deleteIS2_EED2Ev.exit
 

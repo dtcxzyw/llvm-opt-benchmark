@@ -1310,7 +1310,7 @@ declare ptr @PyObject_GetItemData(ptr noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromVoidPtr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @heapctype_init(ptr nocapture noundef writeonly %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #6 {
+define internal noundef i32 @heapctype_init(ptr nocapture noundef writeonly initializes((16, 20)) %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #6 {
 entry:
   %value = getelementptr inbounds i8, ptr %self, i64 16
   store i32 10, ptr %value, align 8
@@ -1398,7 +1398,7 @@ declare void @PyObject_Free(ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @heapctypesubclass_init(ptr nocapture noundef writeonly %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #6 {
+define internal noundef i32 @heapctypesubclass_init(ptr nocapture noundef writeonly initializes((16, 20), (24, 28)) %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #6 {
 entry:
   %value.i = getelementptr inbounds i8, ptr %self, i64 16
   store i32 10, ptr %value.i, align 8
@@ -1601,7 +1601,7 @@ Py_DECREF.exit:                                   ; preds = %Py_XDECREF.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @heapctypewithbuffer_getbuffer(ptr noundef %self, ptr noundef %view, i32 noundef %flags) #0 {
+define internal i32 @heapctypewithbuffer_getbuffer(ptr noundef initializes((24, 28)) %self, ptr noundef %view, i32 noundef %flags) #0 {
 entry:
   %buffer = getelementptr inbounds i8, ptr %self, i64 24
   store i8 49, ptr %buffer, align 8
@@ -1634,7 +1634,7 @@ cond.end:                                         ; preds = %entry
 declare i32 @PyBuffer_FillInfo(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @heapctypesetattr_init(ptr nocapture noundef writeonly %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #6 {
+define internal noundef i32 @heapctypesetattr_init(ptr nocapture noundef writeonly initializes((16, 24)) %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #6 {
 entry:
   %value = getelementptr inbounds i8, ptr %self, i64 16
   store i64 10, ptr %value, align 8

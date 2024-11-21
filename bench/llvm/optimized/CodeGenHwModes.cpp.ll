@@ -83,7 +83,7 @@ $_ZNSt8_Rb_treeIPN4llvm6RecordESt4pairIKS2_NS0_12HwModeSelectEESt10_Select1stIS6
 @_ZN4llvm14CodeGenHwModesC1ERNS_12RecordKeeperE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm14CodeGenHwModesC2ERNS_12RecordKeeperE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6HwModeC2EPNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6HwModeC2EPNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -396,7 +396,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %38, %40
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12HwModeSelectC2EPNS_6RecordERNS_14CodeGenHwModesE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12HwModeSelectC2EPNS_6RecordERNS_14CodeGenHwModesE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -981,7 +981,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %75, %77
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14CodeGenHwModesC2ERNS_12RecordKeeperE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14CodeGenHwModesC2ERNS_12RecordKeeperE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 28), (32, 56), (64, 68), (72, 80)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.std::pair.70", align 8

@@ -1476,7 +1476,7 @@ _ZN4cvc57context3CDOIbED2Ev.exit:                 ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(680) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith6linear22ArithCongruenceManagerE, i64 16), ptr %this, align 8
   %d_pfGenExplain = getelementptr inbounds i8, ptr %this, i64 608
@@ -1591,7 +1591,7 @@ _ZN4cvc57context8CDRaisedD2Ev.exit:               ; preds = %_ZN4cvc58internal8D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(680) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(680) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -1599,7 +1599,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManager10finishInitEPNS1_2eq14EqualityEngineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(680) %this, ptr noundef nonnull %ee) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManager10finishInitEPNS1_2eq14EqualityEngineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(680) initializes((584, 592), (616, 624)) %this, ptr noundef nonnull %ee) local_unnamed_addr #3 align 2 {
 entry:
   %d_ee = getelementptr inbounds i8, ptr %this, i64 584
   store ptr %ee, ptr %d_ee, align 8
@@ -2205,7 +2205,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManager18getNextPropagationEv(ptr noalias sret(%"class.cvc5::internal::NodeTemplate.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(680) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear22ArithCongruenceManager18getNextPropagationEv(ptr noalias sret(%"class.cvc5::internal::NodeTemplate.0") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(680) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 432
   %0 = load i64, ptr %d_data.i.i.i.i, align 8

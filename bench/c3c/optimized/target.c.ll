@@ -3513,7 +3513,7 @@ define internal fastcc zeroext i1 @slice_strcmp(ptr nocapture readonly %0, i64 %
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x86features_from_cpu(ptr noundef nonnull %0, i32 noundef range(i32 0, -1) %1) unnamed_addr #2 {
+define internal fastcc void @x86features_from_cpu(ptr noundef nonnull initializes((0, 24)) %0, i32 noundef range(i32 0, -1) %1) unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   switch i32 %1, label %11 [
     i32 6, label %3
@@ -3619,7 +3619,7 @@ declare void @scratch_buffer_append(ptr noundef) local_unnamed_addr #4
 declare ptr @scratch_buffer_copy() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x86_features_from_host(ptr noundef nonnull %0) unnamed_addr #2 {
+define internal fastcc void @x86_features_from_host(ptr noundef nonnull initializes((0, 24)) %0) unnamed_addr #2 {
   %2 = tail call ptr @LLVMGetHostCPUFeatures() #17
   %3 = load i8, ptr @debug_log, align 1
   %4 = trunc i8 %3 to i1
@@ -3796,7 +3796,7 @@ declare ptr @LLVMGetHostCPUName() local_unnamed_addr #4
 declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #2 {
+define internal fastcc void @x86_features_add_feature(ptr noundef nonnull initializes((16, 24)) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br label %tailrecurse

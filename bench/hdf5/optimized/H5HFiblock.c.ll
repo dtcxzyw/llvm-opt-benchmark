@@ -2871,7 +2871,7 @@ H5HF__iblock_dirty.exit:                          ; preds = %183
 declare i32 @H5HF__hdr_empty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF__man_iblock_entry_addr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define noundef i32 @H5HF__man_iblock_entry_addr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 344
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64

@@ -45721,7 +45721,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEENS0_9void_typeERZ18test_submodule_stlRNS_7module_EE4$_11EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESO_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEENS0_9void_typeERZ18test_submodule_stlRNS_7module_EE4$_11EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESO_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %3 = alloca [1 x %"struct.std::pair.639"], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1478)
@@ -50350,7 +50350,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callISt6vectorISt5arrayINSt7__cxx114listISt13unordered_mapINS6_12basic_stringIcSt11char_traitsIcESaIcEEE12RValueCasterSt4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEESaISN_EEELm2EESaISQ_EENS0_9void_typeERZ18test_submodule_stlRNS_7module_EE4$_18EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESZ_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callISt6vectorISt5arrayINSt7__cxx114listISt13unordered_mapINS6_12basic_stringIcSt11char_traitsIcESaIcEEE12RValueCasterSt4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SE_EEESaISN_EEELm2EESaISQ_EENS0_9void_typeERZ18test_submodule_stlRNS_7module_EE4$_18EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESZ_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.RValueCaster, align 1
   %3 = alloca %struct.RValueCaster, align 1
   %4 = alloca %struct.RValueCaster, align 1
@@ -94789,7 +94789,7 @@ _ZNSt6vectorIPZ18test_submodule_stlRN8pybind117module_EE11PlaceholderSaIS4_EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callISt6vectorIPZ18test_submodule_stlRNS_7module_EE11PlaceholderSaIS8_EENS0_9void_typeERZ18test_submodule_stlS6_E4$_54EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callISt6vectorIPZ18test_submodule_stlRNS_7module_EE11PlaceholderSaIS8_EENS0_9void_typeERZ18test_submodule_stlS6_E4$_54EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESF_E4typeEOT1_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct._Guard, align 8
   %3 = alloca %"struct.std::type_index", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

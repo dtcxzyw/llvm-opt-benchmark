@@ -2884,7 +2884,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #13
 declare ptr @dnsquery(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4) unnamed_addr #0 {
   %6 = alloca [513 x i8], align 16
   %7 = alloca %struct.MemoryStruct, align 8
   %8 = alloca ptr, align 8
@@ -3262,7 +3262,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 17) i32 @create_curl_handle(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @create_curl_handle(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   store ptr null, ptr %1, align 8
   %4 = tail call ptr @curl_easy_init() #23

@@ -470,7 +470,7 @@ _ZN6hermes2vm9GCPointerINS0_15StringPrimitiveEE3setERNS0_11PointerBaseEPS2_RNS0_
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm8JSRegExp18initializeBytecodeEN4llvh8ArrayRefIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture readonly %bytecode.coerce0, i64 %bytecode.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm8JSRegExp18initializeBytecodeEN4llvh8ArrayRefIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((24, 37)) %this, ptr nocapture readonly %bytecode.coerce0, i64 %bytecode.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %syntaxFlags = getelementptr inbounds i8, ptr %bytecode.coerce0, i64 4
   %0 = load i8, ptr %syntaxFlags, align 1
@@ -1564,7 +1564,7 @@ _ZN6hermes2vm9GCPointerINS0_8JSObjectEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGC
 declare noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm8JSRegExp6searchENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15StringPrimitiveEEEj(ptr noalias sret(%"class.hermes::vm::CallResult.231") align 8 %agg.result, ptr nocapture readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %strHandle.coerce, i32 noundef %searchStartOffset) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm8JSRegExp6searchENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15StringPrimitiveEEEj(ptr noalias sret(%"class.hermes::vm::CallResult.231") align 8 initializes((64, 65)) %agg.result, ptr nocapture readonly %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %strHandle.coerce, i32 noundef %searchStartOffset) local_unnamed_addr #0 align 2 {
 entry:
   %matchResult = alloca %"class.hermes::vm::CallResult.231", align 8
   %ref.tmp11 = alloca %"class.llvh::SmallVector", align 8

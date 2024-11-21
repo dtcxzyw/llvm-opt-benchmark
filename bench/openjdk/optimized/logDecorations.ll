@@ -59,7 +59,7 @@ declare noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef, i8 nound
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14LogDecorationsC2EN8LogLevel4typeERK9LogTagSetRK13LogDecorators(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(112) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 {
+define hidden void @_ZN14LogDecorationsC2EN8LogLevel4typeERK9LogTagSetRK13LogDecorators(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(112) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 {
   %5 = load i32, ptr %3, align 4
   %6 = and i32 %5, 11
   %or.cond12.not = icmp eq i32 %6, 0

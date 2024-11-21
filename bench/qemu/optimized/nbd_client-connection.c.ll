@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [2 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qemu_coroutine_yield, ptr @.str.17, ptr @.str.18, i32 101, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_co_establish_connection, ptr @.str.17, ptr @.str.19, i32 292, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @nbd_client_connection_enable_retry(ptr nocapture noundef writeonly %conn) local_unnamed_addr #0 {
+define dso_local void @nbd_client_connection_enable_retry(ptr nocapture noundef writeonly initializes((113, 114)) %conn) local_unnamed_addr #0 {
 entry:
   %do_retry = getelementptr inbounds i8, ptr %conn, i64 113
   store i8 1, ptr %do_retry, align 1

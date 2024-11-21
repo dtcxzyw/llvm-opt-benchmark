@@ -586,7 +586,7 @@ define dso_local noundef range(i32 -7, 1) i32 @dynevent_str_add(ptr noundef %0, 
 declare dso_local i32 @seq_buf_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @dynevent_cmd_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #7 align 16 {
+define dso_local void @dynevent_cmd_init(ptr nocapture noundef writeonly initializes((0, 56)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #7 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %6, i8 0, i64 32, i1 false)
   store ptr %1, ptr %0, align 8
@@ -614,7 +614,7 @@ define dso_local void @dynevent_cmd_init(ptr nocapture noundef writeonly %0, ptr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @dynevent_arg_init(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) local_unnamed_addr #7 align 16 {
+define dso_local void @dynevent_arg_init(ptr nocapture noundef writeonly initializes((0, 16)) %0, i8 noundef zeroext %1) local_unnamed_addr #7 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp eq i8 %1, 0
   %4 = select i1 %3, i8 32, i8 %1
@@ -624,7 +624,7 @@ define dso_local void @dynevent_arg_init(ptr nocapture noundef writeonly %0, i8 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @dynevent_arg_pair_init(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 16 {
+define dso_local void @dynevent_arg_pair_init(ptr nocapture noundef writeonly initializes((0, 24)) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = icmp eq i8 %1, 0
   %5 = select i1 %4, i8 32, i8 %1

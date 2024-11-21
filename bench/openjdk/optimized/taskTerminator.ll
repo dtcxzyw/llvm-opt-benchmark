@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN14TaskTerminatorD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14TaskTerminatorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN14TaskTerminator12DelayContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14TaskTerminator12DelayContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -30,7 +30,7 @@ define hidden void @_ZN14TaskTerminator12DelayContextC2Ev(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN14TaskTerminator12DelayContext27reset_hard_spin_informationEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14TaskTerminator12DelayContext27reset_hard_spin_informationEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((4, 12)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = load i64, ptr @WorkStealingHardSpins, align 8
@@ -113,7 +113,7 @@ declare void @_ZN2os11naked_yieldEv() local_unnamed_addr #3
 declare i32 @SpinPause() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14TaskTerminatorC2EjP17TaskQueueSetSuper(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN14TaskTerminatorC2EjP17TaskQueueSetSuper(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 4), (8, 16)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8

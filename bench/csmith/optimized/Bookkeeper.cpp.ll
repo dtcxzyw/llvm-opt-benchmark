@@ -1664,7 +1664,7 @@ define dso_local noundef i32 @_Z10calc_totalRKSt6vectorIiSaIiEE(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10Bookkeeper20record_address_takenEPK8Variable(ptr nocapture noundef %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN10Bookkeeper20record_address_takenEPK8Variable(ptr nocapture noundef initializes((84, 85)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 84

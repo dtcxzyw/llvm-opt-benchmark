@@ -145,7 +145,7 @@ while.end:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc20DynamicVectorDecoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN5o3dgc20DynamicVectorDecoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((0, 68)) %this) unnamed_addr #1 align 2 {
 entry:
   %m_params = getelementptr inbounds i8, ptr %this, i64 48
   store i64 10, ptr %m_params, align 8

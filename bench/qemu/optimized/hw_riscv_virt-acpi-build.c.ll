@@ -471,7 +471,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @virt_acpi_build_reset(ptr nocapture noundef writeonly %build_opaque) #4 {
+define internal void @virt_acpi_build_reset(ptr nocapture noundef writeonly initializes((24, 25)) %build_opaque) #4 {
 entry:
   %patched = getelementptr inbounds i8, ptr %build_opaque, i64 24
   store i8 0, ptr %patched, align 8

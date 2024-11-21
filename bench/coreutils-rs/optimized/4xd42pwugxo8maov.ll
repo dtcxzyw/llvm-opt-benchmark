@@ -188,7 +188,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.bcb2ad54d7f72eda4f6359c0592d322e.194.llvm.10907310164025772830 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.bcb2ad54d7f72eda4f6359c0592d322e.186.llvm.10907310164025772830, [16 x i8] c"\19\00\00\00\00\00\00\00[\00\00\00\1D\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN119_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..range..ValueRange$GT$$GT$15into_resettable17hcb359cb67c7f5a26E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @"_ZN119_$LT$I$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..range..ValueRange$GT$$GT$15into_resettable17hcb359cb67c7f5a26E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

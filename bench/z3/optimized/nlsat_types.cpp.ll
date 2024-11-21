@@ -25,7 +25,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN5nlsat9ineq_atomC2ENS_4atom4kindEjPKPN10polynomial10polynomialEPKbj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %k, i32 noundef %sz, ptr nocapture noundef readonly %ps, ptr nocapture noundef readonly %is_even, i32 noundef %max_var) unnamed_addr #3 align 2 {
+define hidden void @_ZN5nlsat9ineq_atomC2ENS_4atom4kindEjPKPN10polynomial10polynomialEPKbj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, i32 noundef %k, i32 noundef %sz, ptr nocapture noundef readonly %ps, ptr nocapture noundef readonly %is_even, i32 noundef %max_var) unnamed_addr #3 align 2 {
 entry:
   store i32 %k, ptr %this, align 8
   %m_ref_count.i = getelementptr inbounds i8, ptr %this, i64 4
@@ -475,7 +475,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5nlsat9root_atomC2ENS_4atom4kindEjjPN10polynomial10polynomialE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %x, i32 noundef %i, ptr noundef %p) unnamed_addr #6 align 2 {
+define hidden void @_ZN5nlsat9root_atomC2ENS_4atom4kindEjjPN10polynomial10polynomialE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, i32 noundef %k, i32 noundef %x, i32 noundef %i, ptr noundef %p) unnamed_addr #6 align 2 {
 entry:
   store i32 %k, ptr %this, align 8
   %m_ref_count.i = getelementptr inbounds i8, ptr %this, i64 4

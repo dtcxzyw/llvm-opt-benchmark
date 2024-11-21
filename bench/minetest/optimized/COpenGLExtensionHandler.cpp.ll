@@ -679,7 +679,7 @@ $_ZTIN3irr5video18COpenGLCoreFeatureE = comdat any
 @_ZN3irr5video23COpenGLExtensionHandlerC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3irr5video23COpenGLExtensionHandlerC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video23COpenGLExtensionHandlerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1872) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video23COpenGLExtensionHandlerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1872) initializes((0, 6), (8, 541), (544, 556), (560, 1872)) %this) unnamed_addr #0 align 2 {
 entry:
   store <4 x i8> <i8 0, i8 0, i8 1, i8 1>, ptr %this, align 8, !tbaa !3
   %MaxUserClipPlanes = getelementptr inbounds i8, ptr %this, i64 4
@@ -743,7 +743,7 @@ for.body:                                         ; preds = %for.body, %entry
 declare void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15IContextManagerEb(ptr noundef nonnull align 8 dereferenceable(1872) %this, ptr noundef %cmgr, i1 noundef zeroext %stencilBuffer) local_unnamed_addr #2 align 2 {
+define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15IContextManagerEb(ptr noundef nonnull align 8 dereferenceable(1872) initializes((56, 58)) %this, ptr noundef %cmgr, i1 noundef zeroext %stencilBuffer) local_unnamed_addr #2 align 2 {
 entry:
   %ret.i3970 = alloca float, align 4
   %__dnew.i.i3953 = alloca i64, align 8

@@ -16903,7 +16903,7 @@ _find_context_by_id.exit:                         ; preds = %19
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_g_prep_set_env(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @gres_g_prep_set_env(ptr noundef initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   store ptr null, ptr %0, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %30, label %4
@@ -19476,7 +19476,7 @@ _accumulate_job_gres_alloc.exit:                  ; preds = %17, %29, %22, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8) unnamed_addr #2 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -20259,7 +20259,7 @@ define internal fastcc void @_step_state_delete(ptr noundef %0) unnamed_addr #2 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef writeonly %8, i32 noundef %9, i32 noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr noundef writeonly %13) local_unnamed_addr #2 {
+define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef writeonly initializes((0, 8)) %8, i32 noundef %9, i32 noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr noundef writeonly %13) local_unnamed_addr #2 {
   %15 = alloca i64, align 8
   %16 = alloca i32, align 4
   %17 = alloca ptr, align 8
@@ -28312,7 +28312,7 @@ define internal fastcc void @_filter_gres_per_task(ptr noundef %0, ptr noundef %
 declare i32 @slurm_unpack_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_unpack_gres_slurmd_conf(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) #2 {
+define internal range(i32 -1, 1) i32 @_unpack_gres_slurmd_conf(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 zeroext %1, ptr noundef %2) #2 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4

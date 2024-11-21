@@ -922,7 +922,7 @@ define dso_local noundef range(i32 1, 0) i32 @_ZNK4llvm16CodeGenInstAlias13Resul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16CodeGenInstAliasC2EPNS_6RecordERNS_13CodeGenTargetE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(724) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16CodeGenInstAliasC2EPNS_6RecordERNS_13CodeGenTargetE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(724) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

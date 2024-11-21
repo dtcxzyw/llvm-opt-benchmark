@@ -429,7 +429,7 @@ declare i32 @opal_show_help_init() local_unnamed_addr #7
 declare i32 @opal_error_register(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @opal_err2str(i32 noundef %0, ptr nocapture noundef writeonly %1) #9 {
+define internal noundef i32 @opal_err2str(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #9 {
   %switch.tableidx = add i32 %0, 70
   %3 = icmp ult i32 %switch.tableidx, 71
   br i1 %3, label %switch.lookup, label %5

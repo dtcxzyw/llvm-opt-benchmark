@@ -14158,7 +14158,7 @@ requote_identifier.exit:                          ; preds = %385, %.thread169.th
 declare void @PQclear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_identifier(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @parse_identifier(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, ptr nocapture noundef initializes((0, 1)) %4) unnamed_addr #0 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %7 = add i64 %6, 1
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8

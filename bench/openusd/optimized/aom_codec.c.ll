@@ -299,7 +299,7 @@ define hidden i32 @aom_codec_set_option(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_internal_error(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ...) local_unnamed_addr #3 {
+define hidden void @aom_internal_error(ptr noundef initializes((0, 8)) %0, i32 noundef %1, ptr noundef readonly %2, ...) local_unnamed_addr #3 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4

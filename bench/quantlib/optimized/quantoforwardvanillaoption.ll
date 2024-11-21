@@ -898,7 +898,7 @@ entry:
 declare void @_ZN8QuantLib20ForwardVanillaOptionC2EdRKNS_4DateERKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS5_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(240), ptr noundef, double noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 1, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26QuantoForwardVanillaOptionC1EdRKNS_4DateERKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS5_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(264) %this, double noundef %moneyness, ptr noundef nonnull align 8 dereferenceable(8) %resetDate, ptr noundef nonnull align 1 %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26QuantoForwardVanillaOptionC1EdRKNS_4DateERKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS5_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(264) initializes((264, 272), (280, 284), (288, 296)) %this, double noundef %moneyness, ptr noundef nonnull align 8 dereferenceable(8) %resetDate, ptr noundef nonnull align 1 %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !33

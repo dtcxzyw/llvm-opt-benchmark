@@ -47,7 +47,7 @@ $_ZTIN8QuantLib20VolatilityCompositorE = comdat any
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17ConstantEstimator9calculateERKNS_10TimeSeriesIdSt3mapINS_4DateEdSt4lessIS3_ESaISt4pairIKS3_dEEEEE(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::TimeSeries") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(48) %volatilitySeries) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17ConstantEstimator9calculateERKNS_10TimeSeriesIdSt3mapINS_4DateEdSt4lessIS3_ESaISt4pairIKS3_dEEEEE(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::TimeSeries") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(48) %volatilitySeries) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %u = alloca %"class.std::vector", align 8
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8

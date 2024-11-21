@@ -843,7 +843,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_758Collator19getAvailableLocalesERi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #5 align 2 {
+define noundef ptr @_ZN6icu_758Collator19getAvailableLocalesERi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #5 align 2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -1130,14 +1130,14 @@ _ZN6icu_758Collator14getDisplayNameERKNS_6LocaleES3_RNS_13UnicodeStringE.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758CollatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #8 align 2 {
+define void @_ZN6icu_758CollatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758CollatorE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758CollatorC2E18UColAttributeValue18UNormalizationMode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i32 noundef %0, i32 noundef %1) unnamed_addr #8 align 2 {
+define void @_ZN6icu_758CollatorC2E18UColAttributeValue18UNormalizationMode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %0, i32 noundef %1) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758CollatorE, i64 16), ptr %this, align 8
   ret void
@@ -1158,7 +1158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758CollatorC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %other) unnamed_addr #8 align 2 {
+define void @_ZN6icu_758CollatorC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %other) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758CollatorE, i64 16), ptr %this, align 8
   ret void
@@ -1310,7 +1310,7 @@ return:                                           ; preds = %entry, %_ZN6icu_75L
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_758CFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758CFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758CFactoryE, i64 16), ptr %this, align 8
   %_delegate = getelementptr inbounds i8, ptr %this, i64 80

@@ -1036,7 +1036,7 @@ define dso_local noundef i64 @_ZN4llvm18DbgValueHistoryMap12startClobberESt4pair
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18DbgValueHistoryMap5Entry8endEntryEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm18DbgValueHistoryMap5Entry8endEntryEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   ret void

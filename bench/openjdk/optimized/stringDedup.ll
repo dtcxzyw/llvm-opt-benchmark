@@ -305,13 +305,13 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE148ELS1_0ELS1_0ELS1_
 declare void @_ZN11StringDedup10StorageUse10relinquishEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11StringDedup8RequestsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup8RequestsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 0, i64 25, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup8RequestsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN11StringDedup8RequestsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(25) initializes((24, 25)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -355,7 +355,7 @@ _ZN11StringDedup8Requests5flushEv.exit:           ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup8Requests5flushEv(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11StringDedup8Requests5flushEv(ptr nocapture noundef nonnull align 8 dereferenceable(25) initializes((24, 25)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

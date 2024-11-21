@@ -425,7 +425,7 @@ $_ZTVSt23_Sp_counted_ptr_inplaceIN6hermes19SourceMapTranslatorESaIvELN9__gnu_cxx
 @_ZN6hermes3hbc14BCProviderLazyC1EPNS0_16BytecodeFunctionE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN6hermes3hbc14BCProviderLazyC2EPNS0_16BytecodeFunctionE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc17BCProviderFromSrcC2ESt10unique_ptrINS0_14BytecodeModuleESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr nocapture noundef %module) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc17BCProviderFromSrcC2ESt10unique_ptrINS0_14BytecodeModuleESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 9), (12, 184), (192, 248)) %this, ptr nocapture noundef %module) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 16), ptr %this, align 8
   %options_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2430,7 +2430,7 @@ _ZN6hermes35CodeGenerationSettings_DumpSettingsD2Ev.exit14: ; preds = %_ZN4llvh1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc14BCProviderLazyC2EPNS0_16BytecodeFunctionE(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef %bytecodeFunction) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc14BCProviderLazyC2EPNS0_16BytecodeFunctionE(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 9), (12, 184), (192, 248)) %this, ptr noundef %bytecodeFunction) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 16), ptr %this, align 8
   %options_.i = getelementptr inbounds i8, ptr %this, i64 8

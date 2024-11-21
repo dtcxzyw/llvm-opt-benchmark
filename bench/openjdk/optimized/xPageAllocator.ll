@@ -188,7 +188,7 @@ declare void @_Z21XStatUnitOpsPerSecond15LogTargetHandleRK12XStatSamplerRK19XSta
 declare void @_ZN18XStatCriticalPhaseC1EPKcb(ptr noundef nonnull align 8 dereferenceable(121), ptr noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XPageAllocatorC2EP8XWorkersmmm(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XPageAllocatorC2EP8XWorkersmmm(ptr noundef nonnull align 8 dereferenceable(609) initializes((0, 40)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 align 2 {
   %6 = alloca %class.XPreTouchTask, align 8
   %7 = alloca %class.GCLogPreciousHandle, align 8
   %8 = alloca %class.GCLogPreciousHandle, align 8
@@ -545,7 +545,7 @@ _ZN14XPageAllocator19alloc_page_or_stallEP15XPageAllocation.exit: ; preds = %29
 declare void @_ZN8XWorkers7run_allEP5XTask(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XPageAllocator9free_pageEP5XPageb(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14XPageAllocator9free_pageEP5XPageb(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef initializes((96, 104)) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -709,7 +709,7 @@ define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZNK14XPageAllocat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14XPageAllocator5statsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.XPageAllocatorStats) align 8 %0, ptr noundef nonnull align 8 dereferenceable(609) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14XPageAllocator5statsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.XPageAllocatorStats) align 8 initializes((0, 24), (32, 72)) %0, ptr noundef nonnull align 8 dereferenceable(609) %1) local_unnamed_addr #1 align 2 {
 _ZN7XLockerI5XLockED2Ev.exit:
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #14
   %3 = getelementptr inbounds i8, ptr %1, i64 392
@@ -750,7 +750,7 @@ _ZN7XLockerI5XLockED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN14XPageAllocator16reset_statisticsEv(ptr noundef nonnull align 8 dereferenceable(609) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN14XPageAllocator16reset_statisticsEv(ptr noundef nonnull align 8 dereferenceable(609) initializes((456, 464)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 456
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 432
@@ -2042,7 +2042,7 @@ _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %90, %93, %_ZN14XPag
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XPageAllocator15free_page_innerEP5XPageb(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14XPageAllocator15free_page_innerEP5XPageb(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef initializes((96, 104)) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8

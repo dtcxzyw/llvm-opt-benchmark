@@ -127,7 +127,7 @@ declare void @sysbus_init_irq(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @qdev_init_clock_in(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cadence_uart_refclk_update(ptr noundef %opaque, i32 %event) #0 {
+define internal void @cadence_uart_refclk_update(ptr noundef initializes((1208, 1216)) %opaque, i32 %event) #0 {
 entry:
   tail call fastcc void @uart_parameters_setup(ptr noundef %opaque)
   ret void
@@ -651,7 +651,7 @@ return:                                           ; preds = %entry, %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @uart_parameters_setup(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @uart_parameters_setup(ptr noundef initializes((1208, 1216)) %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %ssp = alloca %struct.QEMUSerialSetParams, align 4

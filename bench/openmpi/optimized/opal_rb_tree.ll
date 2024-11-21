@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_rb_tree_construct(ptr noundef %0) #0 {
+define internal void @opal_rb_tree_construct(ptr noundef initializes((16, 24), (48, 56)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %2, align 16
   %3 = load i32, ptr @opal_class_init_epoch, align 4

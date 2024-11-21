@@ -297,7 +297,7 @@ return:                                           ; preds = %if.end, %invoke.con
 declare i32 @eventfd_write(i32 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17grpc_event_engine12experimental15EventFdWakeupFdD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental15EventFdWakeupFdD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental15EventFdWakeupFdE, i64 16), ptr %this, align 8
   %read_fd_.i = getelementptr inbounds i8, ptr %this, i64 8

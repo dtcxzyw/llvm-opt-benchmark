@@ -106,7 +106,7 @@ $_ZNSt5dequeIN3re23NFA6ThreadESaIS2_EE17_M_reallocate_mapEmb = comdat any
 @_ZN3re23NFAD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3re23NFAD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re23NFAC2EPNS_4ProgE(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef %prog) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re23NFAC2EPNS_4ProgE(ptr noundef nonnull align 8 dereferenceable(233) initializes((40, 44), (48, 84), (88, 216)) %this, ptr noundef %prog) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %q0_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %q0_, align 8
@@ -1015,7 +1015,7 @@ terminate.lpad:                                   ; preds = %call2.i.noexc, %if.
 declare noundef i32 @_ZN3re24Prog10EmptyFlagsEN4absl7debian211string_viewEPKc(ptr, i64, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3re23NFA4StepEPNS_11SparseArrayIPNS0_6ThreadEEES5_iN4absl7debian211string_viewEPKc(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr nocapture noundef %runq, ptr nocapture noundef %nextq, i32 noundef %c, ptr %context.coerce0, i64 %context.coerce1, ptr noundef %p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN3re23NFA4StepEPNS_11SparseArrayIPNS0_6ThreadEEES5_iN4absl7debian211string_viewEPKc(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr nocapture noundef %runq, ptr nocapture noundef initializes((0, 4)) %nextq, i32 noundef %c, ptr %context.coerce0, i64 %context.coerce1, ptr noundef %p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   store i32 0, ptr %nextq, align 8

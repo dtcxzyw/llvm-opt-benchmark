@@ -2298,7 +2298,7 @@ lpad:                                             ; preds = %while.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter18LoadLWO2ProceduralEjRNS_3LWO7TextureE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %this, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %tex) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11LWOImporter18LoadLWO2ProceduralEjRNS_3LWO7TextureE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %this, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((92, 93)) %tex) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str.41)
@@ -2308,7 +2308,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter16LoadLWO2GradientEjRNS_3LWO7TextureE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %this, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %tex) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11LWOImporter16LoadLWO2GradientEjRNS_3LWO7TextureE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %this, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((92, 93)) %tex) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str.42)

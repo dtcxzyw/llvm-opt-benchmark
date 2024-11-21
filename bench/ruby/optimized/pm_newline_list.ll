@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @pm_newline_list_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pm_newline_list_init(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 8) #6
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %4, ptr %5, align 8

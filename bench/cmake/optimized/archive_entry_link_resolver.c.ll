@@ -33,7 +33,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @archive_entry_linkresolver_set_strategy(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @archive_entry_linkresolver_set_strategy(ptr nocapture noundef writeonly initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = and i32 %1, 16711680
   %4 = add nsw i32 %3, -65536
   %5 = lshr exact i32 %4, 16
@@ -403,7 +403,7 @@ define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 nou
 declare void @archive_entry_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @archive_entry_linkify(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define dso_local void @archive_entry_linkify(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #4 {
   store ptr null, ptr %2, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, null

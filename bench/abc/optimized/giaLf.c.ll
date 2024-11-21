@@ -604,7 +604,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Lf_ManComputeSwitching(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define void @Lf_ManComputeSwitching(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @Gia_ManComputeSwitchProbs(ptr noundef %0, i32 noundef 48, i32 noundef 16, i32 noundef 0) #30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   tail call void @free(ptr noundef %3) #30
@@ -771,7 +771,7 @@ Lf_CutArea.exit:                                  ; preds = %2, %Lf_CutSwitches.
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull ptr @Lf_ObjCutBestNew(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull returned %2) unnamed_addr #10 {
+define internal fastcc noundef nonnull ptr @Lf_ObjCutBestNew(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull returned initializes((8, 16)) %2) unnamed_addr #10 {
   %4 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 176
@@ -3915,7 +3915,7 @@ Lf_CutGetSign.exit:                               ; preds = %128, %.Lf_CutGetSig
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Lf_CutParams(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, float noundef %3) unnamed_addr #8 {
+define internal fastcc void @Lf_CutParams(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((8, 16)) %1, i32 noundef %2, float noundef %3) unnamed_addr #8 {
   %5 = getelementptr inbounds i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, -4194305
@@ -14250,7 +14250,7 @@ Vec_PtrFreeData.exit124:                          ; preds = %106, %Vec_PtrFreeDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Lf_ManSetDefaultPars(ptr nocapture noundef writeonly %0) local_unnamed_addr #15 {
+define void @Lf_ManSetDefaultPars(ptr nocapture noundef writeonly initializes((0, 264)) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, i8 0, i64 232, i1 false)
   store i32 6, ptr %0, align 8

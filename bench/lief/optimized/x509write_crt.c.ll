@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [4 x i8] c"U\1D\0E\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_x509write_crt_init(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_x509write_crt_init(ptr noundef initializes((0, 112)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @mbedtls_mpi_init(ptr noundef nonnull %2) #8
@@ -46,27 +46,27 @@ declare void @mbedtls_asn1_free_named_data_list(ptr noundef) local_unnamed_addr 
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_x509write_crt_set_version(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @mbedtls_x509write_crt_set_version(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #3 {
   store i32 %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_x509write_crt_set_md_alg(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @mbedtls_x509write_crt_set_md_alg(ptr nocapture noundef writeonly initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_x509write_crt_set_subject_key(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @mbedtls_x509write_crt_set_subject_key(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_x509write_crt_set_issuer_key(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @mbedtls_x509write_crt_set_issuer_key(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret void

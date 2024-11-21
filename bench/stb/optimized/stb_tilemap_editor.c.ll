@@ -371,7 +371,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbte_set_spacing(ptr nocapture noundef writeonly %tm, i32 noundef %spacing_x, i32 noundef %spacing_y, i32 noundef %palette_spacing_x, i32 noundef %palette_spacing_y) local_unnamed_addr #4 {
+define void @stbte_set_spacing(ptr nocapture noundef writeonly initializes((800012, 800028)) %tm, i32 noundef %spacing_x, i32 noundef %spacing_y, i32 noundef %palette_spacing_x, i32 noundef %palette_spacing_y) local_unnamed_addr #4 {
 entry:
   %spacing_x1 = getelementptr inbounds i8, ptr %tm, i64 800012
   store i32 %spacing_x, ptr %spacing_x1, align 4
@@ -543,7 +543,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbte_get_dimensions(ptr nocapture noundef readonly %tm, ptr nocapture noundef writeonly %max_x, ptr nocapture noundef writeonly %max_y) local_unnamed_addr #9 {
+define void @stbte_get_dimensions(ptr nocapture noundef readonly %tm, ptr nocapture noundef writeonly initializes((0, 4)) %max_x, ptr nocapture noundef writeonly initializes((0, 4)) %max_y) local_unnamed_addr #9 {
 entry:
   %max_x1 = getelementptr inbounds i8, ptr %tm, i64 800000
   %0 = load i32, ptr %max_x1, align 8
@@ -582,7 +582,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbte_get_link(ptr nocapture noundef readnone %tm, i32 noundef %x, i32 noundef %y, ptr nocapture noundef writeonly %destx, ptr nocapture noundef writeonly %desty) local_unnamed_addr #4 {
+define void @stbte_get_link(ptr nocapture noundef readnone %tm, i32 noundef %x, i32 noundef %y, ptr nocapture noundef writeonly initializes((0, 4)) %destx, ptr nocapture noundef writeonly initializes((0, 4)) %desty) local_unnamed_addr #4 {
 entry:
   store i32 -1, ptr %destx, align 4
   store i32 -1, ptr %desty, align 4
@@ -660,7 +660,7 @@ return:                                           ; preds = %lor.lhs.false7, %en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__choose_category(ptr nocapture noundef %tm, i32 noundef %category) local_unnamed_addr #7 {
+define void @stbte__choose_category(ptr nocapture noundef initializes((800036, 800040)) %tm, i32 noundef %category) local_unnamed_addr #7 {
 entry:
   %cur_category = getelementptr inbounds i8, ptr %tm, i64 800036
   store i32 %category, ptr %cur_category, align 4
@@ -730,7 +730,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__compute_tileinfo(ptr nocapture noundef %tm) local_unnamed_addr #12 {
+define void @stbte__compute_tileinfo(ptr nocapture noundef initializes((800848, 800852)) %tm) local_unnamed_addr #12 {
 entry:
   %num_categories = getelementptr inbounds i8, ptr %tm, i64 800848
   store i32 0, ptr %num_categories, align 8
@@ -1012,7 +1012,7 @@ if.end:                                           ; preds = %stbte__compute_tile
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__write_undo(ptr nocapture noundef %tm, i16 noundef signext %value) local_unnamed_addr #13 {
+define void @stbte__write_undo(ptr nocapture noundef initializes((800876, 800877)) %tm, i16 noundef signext %value) local_unnamed_addr #13 {
 entry:
   %undo_pos = getelementptr inbounds i8, ptr %tm, i64 801044
   %0 = load i32, ptr %undo_pos, align 4
@@ -1042,7 +1042,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__write_redo(ptr nocapture noundef %tm, i16 noundef signext %value) local_unnamed_addr #13 {
+define void @stbte__write_redo(ptr nocapture noundef initializes((800876, 800877)) %tm, i16 noundef signext %value) local_unnamed_addr #13 {
 entry:
   %undo_pos = getelementptr inbounds i8, ptr %tm, i64 801044
   %0 = load i32, ptr %undo_pos, align 4
@@ -1072,7 +1072,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__begin_undo(ptr nocapture noundef %tm) local_unnamed_addr #13 {
+define void @stbte__begin_undo(ptr nocapture noundef initializes((800876, 800877), (801052, 801056)) %tm) local_unnamed_addr #13 {
 entry:
   %redo_len = getelementptr inbounds i8, ptr %tm, i64 801052
   store i32 0, ptr %redo_len, align 4
@@ -1235,7 +1235,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__redo_record(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %i, i32 noundef %v) local_unnamed_addr #13 {
+define void @stbte__redo_record(ptr nocapture noundef initializes((800876, 800877)) %tm, i32 noundef %x, i32 noundef %y, i32 noundef %i, i32 noundef %v) local_unnamed_addr #13 {
 entry:
   %conv = trunc i32 %v to i16
   %undo_pos.i = getelementptr inbounds i8, ptr %tm, i64 801044
@@ -1456,7 +1456,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbte__redo_record_prop(ptr nocapture noundef %tm, i32 noundef %x, i32 noundef %y, i32 noundef %i, i16 noundef signext %s0, i16 noundef signext %s1) local_unnamed_addr #13 {
+define void @stbte__redo_record_prop(ptr nocapture noundef initializes((800876, 800877)) %tm, i32 noundef %x, i32 noundef %y, i32 noundef %i, i16 noundef signext %s0, i16 noundef signext %s1) local_unnamed_addr #13 {
 entry:
   %undo_pos.i = getelementptr inbounds i8, ptr %tm, i64 801044
   %0 = load i32, ptr %undo_pos.i, align 4
@@ -4419,7 +4419,7 @@ if.end77:                                         ; preds = %20, %sw.epilog, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbte__compute_digits(ptr nocapture noundef %tm) local_unnamed_addr #9 {
+define void @stbte__compute_digits(ptr nocapture noundef initializes((800872, 800876)) %tm) local_unnamed_addr #9 {
 entry:
   %max_x = getelementptr inbounds i8, ptr %tm, i64 800000
   %0 = load i32, ptr %max_x, align 8
@@ -6116,7 +6116,7 @@ if.end28:                                         ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbte__fillrect(ptr nocapture noundef %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %fill) local_unnamed_addr #12 {
+define void @stbte__fillrect(ptr nocapture noundef initializes((800876, 800877), (801052, 801056)) %tm, i32 noundef %x0, i32 noundef %y0, i32 noundef %x1, i32 noundef %y1, i32 noundef %fill) local_unnamed_addr #12 {
 entry:
   %redo_len.i = getelementptr inbounds i8, ptr %tm, i64 801052
   store i32 0, ptr %redo_len.i, align 4
@@ -6435,7 +6435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbte__copy_properties(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #9 {
+define void @stbte__copy_properties(ptr nocapture noundef writeonly initializes((0, 4)) %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #9 {
 entry:
   %0 = load float, ptr %src, align 4
   store float %0, ptr %dest, align 4

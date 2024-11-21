@@ -63,7 +63,7 @@ $_ZN7logging17MakeCheckOpStringImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsI
 @_ZN3net17HpackHuffmanTableD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net17HpackHuffmanTableD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net17HpackHuffmanTable11DecodeEntryC2Ev(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net17HpackHuffmanTable11DecodeEntryC2Ev(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) initializes((0, 4)) %this) unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 2
   %length = getelementptr inbounds i8, ptr %this, i64 1
@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net17HpackHuffmanTable11DecodeEntryC2Ehht(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) %this, i8 noundef zeroext %next_table_index, i8 noundef zeroext %length, i16 noundef zeroext %symbol_id) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net17HpackHuffmanTable11DecodeEntryC2Ehht(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) initializes((0, 4)) %this, i8 noundef zeroext %next_table_index, i8 noundef zeroext %length, i16 noundef zeroext %symbol_id) unnamed_addr #0 align 2 {
 entry:
   store i8 %next_table_index, ptr %this, align 2
   %length3 = getelementptr inbounds i8, ptr %this, i64 1
@@ -95,7 +95,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net17HpackHuffmanTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net17HpackHuffmanTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((0, 96)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 96, i1 false)
   ret void

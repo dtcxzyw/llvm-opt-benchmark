@@ -1003,7 +1003,7 @@ cleanup:                                          ; preds = %nbd_read16.exit.thr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 2) i32 @nbd_opt_info_or_go(ptr noundef %ioc, i32 noundef range(i32 6, 8) %opt, ptr noundef %info, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @nbd_opt_info_or_go(ptr noundef %ioc, i32 noundef range(i32 6, 8) %opt, ptr noundef initializes((40, 42)) %info, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_now.i.i238 = alloca %struct.timeval, align 8
   %_now.i.i224 = alloca %struct.timeval, align 8
@@ -1708,7 +1708,7 @@ return:                                           ; preds = %entry, %for.end17
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @nbd_receive_export_list(ptr noundef %ioc, ptr noundef %tlscreds, ptr noundef %hostname, ptr nocapture noundef writeonly %info, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @nbd_receive_export_list(ptr noundef %ioc, ptr noundef %tlscreds, ptr noundef %hostname, ptr nocapture noundef writeonly initializes((0, 8)) %info, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %context.i = alloca ptr, align 8
   %sioc = alloca ptr, align 8

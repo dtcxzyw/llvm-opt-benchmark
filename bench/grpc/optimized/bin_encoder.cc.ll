@@ -358,7 +358,7 @@ do.end:                                           ; preds = %do.body
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z46grpc_chttp2_base64_encode_and_huffman_compressRK10grpc_slicePj(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(32) %input, ptr nocapture noundef %wire_size) local_unnamed_addr #0 {
+define void @_Z46grpc_chttp2_base64_encode_and_huffman_compressRK10grpc_slicePj(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(32) %input, ptr nocapture noundef initializes((0, 4)) %wire_size) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %input, align 8
   %tobool.not = icmp eq ptr %0, null

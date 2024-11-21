@@ -589,7 +589,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare ptr @__archive_read_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @header_odc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 -30, 1) i32 @header_odc(ptr noundef initializes((16, 20), (24, 32)) %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 65537, ptr %7, align 8
@@ -2604,7 +2604,7 @@ atol16.exit159:                                   ; preds = %316, %320
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef initializes((16, 20), (24, 32)) %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 65539, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2766,7 +2766,7 @@ define internal range(i32 -30, 1) i32 @header_bin_be(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @header_bin_le(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 -30, 1) i32 @header_bin_le(ptr noundef initializes((16, 20), (24, 32)) %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 65538, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24

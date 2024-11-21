@@ -371,7 +371,7 @@ define hidden noundef ptr @_ZN15G1CollectionSet11phase_timesEv(ptr nocapture nou
 declare noundef ptr @_ZNK8G1Policy11phase_timesEv(ptr noundef nonnull align 8 dereferenceable(552)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1CollectionSetC2EP15G1CollectedHeapP8G1Policy(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN15G1CollectionSetC2EP15G1CollectedHeapP8G1Policy(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -440,7 +440,7 @@ define hidden void @_ZN15G1CollectionSet22abandon_all_candidatesEv(ptr noundef n
 declare void @_ZN25G1CollectionSetCandidatesD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1CollectionSet19init_region_lengthsEjj(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15G1CollectionSet19init_region_lengthsEjj(ptr noundef nonnull align 8 dereferenceable(160) initializes((104, 116)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 108
@@ -537,7 +537,7 @@ _ZN15G1CollectedHeap14old_set_removeEP12G1HeapRegion.exit: ; preds = %2, %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN15G1CollectionSet26start_incremental_buildingEv(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN15G1CollectionSet26start_incremental_buildingEv(ptr noundef nonnull align 8 dereferenceable(160) initializes((144, 148)) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1539,7 +1539,7 @@ define hidden void @_ZN15G1CollectionSet31finalize_initial_collection_setEdP17G1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN15G1CollectionSet32finalize_optional_for_evacuationEd(ptr noundef nonnull align 8 dereferenceable(160) %0, double noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN15G1CollectionSet32finalize_optional_for_evacuationEd(ptr noundef nonnull align 8 dereferenceable(160) initializes((144, 148)) %0, double noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.G1CollectionCandidateRegionList, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %4, align 8

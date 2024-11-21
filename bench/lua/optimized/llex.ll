@@ -325,7 +325,7 @@ declare hidden void @luaH_finishset(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare hidden void @luaC_step(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaX_setinput(ptr noundef %L, ptr nocapture noundef %ls, ptr noundef %z, ptr noundef %source, i32 noundef %firstchar) local_unnamed_addr #0 {
+define hidden void @luaX_setinput(ptr noundef %L, ptr nocapture noundef initializes((0, 12), (16, 20), (32, 36), (48, 72), (96, 112)) %ls, ptr noundef %z, ptr noundef %source, i32 noundef %firstchar) local_unnamed_addr #0 {
 entry:
   %t = getelementptr inbounds i8, ptr %ls, i64 16
   store i32 0, ptr %t, align 8
@@ -365,7 +365,7 @@ entry:
 declare hidden ptr @luaM_saferealloc_(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaX_next(ptr noundef %ls) local_unnamed_addr #0 {
+define hidden void @luaX_next(ptr noundef initializes((8, 12)) %ls) local_unnamed_addr #0 {
 entry:
   %linenumber = getelementptr inbounds i8, ptr %ls, i64 4
   %0 = load i32, ptr %linenumber, align 4

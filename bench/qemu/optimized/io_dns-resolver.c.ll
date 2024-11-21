@@ -376,7 +376,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qio_dns_resolver_lookup_result(ptr nocapture noundef readnone %resolver, ptr noundef %task, ptr nocapture noundef writeonly %naddrs, ptr nocapture noundef %addrs) local_unnamed_addr #0 {
+define dso_local void @qio_dns_resolver_lookup_result(ptr nocapture noundef readnone %resolver, ptr noundef %task, ptr nocapture noundef writeonly initializes((0, 8)) %naddrs, ptr nocapture noundef initializes((0, 8)) %addrs) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qio_task_get_result_pointer(ptr noundef %task) #7
   store i64 0, ptr %naddrs, align 8

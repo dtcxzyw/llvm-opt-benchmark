@@ -5546,7 +5546,7 @@ define internal range(i32 0, 2) i32 @spl_array_has_dimension(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @spl_array_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @spl_array_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
   %5 = load ptr, ptr %4, align 8
@@ -5716,7 +5716,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @spl_array_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal ptr @spl_array_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -88
   store ptr %4, ptr %1, align 8
   store i32 1, ptr %2, align 4
@@ -6163,7 +6163,7 @@ define internal noundef ptr @spl_array_get_iterator(ptr nocapture readnone %0, p
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_hash_key(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_hash_key(ptr noundef nonnull initializes((16, 17)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %4, align 8
   br label %5
@@ -6786,7 +6786,7 @@ declare void @zend_hash_internal_pointer_reset_ex(ptr noundef, ptr noundef) loca
 declare i32 @zend_hash_get_current_key_type_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_array_create_ht_iter(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @spl_array_create_ht_iter(ptr noundef %0, ptr nocapture noundef initializes((16, 20)) %1) unnamed_addr #0 {
   %3 = tail call i32 @zend_hash_get_current_pos(ptr noundef %0) #11
   %4 = tail call i32 @zend_hash_iterator_add(ptr noundef %0, i32 noundef %3) #11
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -7380,7 +7380,7 @@ define internal void @spl_array_it_rewind(ptr nocapture noundef readonly %0) #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noalias noundef ptr @spl_array_it_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #8 {
+define internal noalias noundef ptr @spl_array_it_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #8 {
   store i32 1, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %4, ptr %1, align 8

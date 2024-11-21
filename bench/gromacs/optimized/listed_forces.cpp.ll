@@ -88,7 +88,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN12ListedForcesD1Ev = unnamed_addr alias void (ptr), ptr @_ZN12ListedForcesD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ListedForcesC2ERK14gmx_ffparams_tiiSt6bitsetILm4EEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(2816) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %2, i32 noundef %3, i64 %4, ptr noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12ListedForcesC2ERK14gmx_ffparams_tiiSt6bitsetILm4EEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(2816) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %2, i32 noundef %3, i64 %4, ptr noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN22InteractionDefinitionsC1ERK14gmx_ffparams_t(ptr noundef nonnull align 8 dereferenceable(2736) %7, ptr noundef nonnull align 8 dereferenceable(104) %1)
@@ -627,7 +627,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit: ; pre
 declare void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN12ListedForcesC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2816) %0, ptr nocapture noundef nonnull align 8 dereferenceable(2816) %1) unnamed_addr #9 align 2 {
+define void @_ZN12ListedForcesC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2816) initializes((0, 72)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(2816) %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

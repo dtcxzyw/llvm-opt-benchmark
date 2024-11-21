@@ -1516,7 +1516,7 @@ _ZN8QuantLib13CommodityTypeD2Ev.exit:             ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12EnergyFutureC1EiNS_8QuantityENS_17CommodityUnitCostEN5boost10shared_ptrINS_14CommodityIndexEEERKNS_13CommodityTypeERKNS4_ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_3anyESt4lessISG_ESaISt4pairIKSG_SH_EEEEE(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %buySell, ptr nocapture noundef %quantity, ptr nocapture noundef %tradePrice, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %secondaryCosts) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12EnergyFutureC1EiNS_8QuantityENS_17CommodityUnitCostEN5boost10shared_ptrINS_14CommodityIndexEEERKNS_13CommodityTypeERKNS4_ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_3anyESt4lessISG_ESaISt4pairIKSG_SH_EEEEE(ptr noundef nonnull align 8 dereferenceable(312) initializes((312, 320), (328, 332), (336, 344)) %this, i32 noundef %buySell, ptr nocapture noundef %quantity, ptr nocapture noundef %tradePrice, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %secondaryCosts) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::CommodityType", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -2169,7 +2169,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib12EnergyFuture19performCalculationsEv(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib12EnergyFuture19performCalculationsEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((16, 24)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %retval.i = alloca %"class.QuantLib::Date", align 8

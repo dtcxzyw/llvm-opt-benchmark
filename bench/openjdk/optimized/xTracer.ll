@@ -148,7 +148,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @_ZN7XTracerC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7XTracerC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7XTracerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN7XTracerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 9, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12

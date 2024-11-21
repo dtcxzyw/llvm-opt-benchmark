@@ -1107,7 +1107,7 @@ lor.end:                                          ; preds = %land.rhs.i.i, %lor.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z21get_literal_atom_signR11ast_managerP4exprRS2_Rb(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %n, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %atom, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %sign) local_unnamed_addr #3 {
+define hidden void @_Z21get_literal_atom_signR11ast_managerP4exprRS2_Rb(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %n, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %atom, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %sign) local_unnamed_addr #3 {
 entry:
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %n, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
@@ -1438,7 +1438,7 @@ return:                                           ; preds = %if.else, %if.else4,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z6mk_notRK7obj_refI4expr11ast_managerE(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e) local_unnamed_addr #3 {
+define hidden void @_Z6mk_notRK7obj_refI4expr11ast_managerE(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e) local_unnamed_addr #3 {
 entry:
   %m_manager.i = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load ptr, ptr %m_manager.i, align 8
@@ -2611,7 +2611,7 @@ return:                                           ; preds = %sw.default, %sw.bb1
 declare noundef ptr @_ZN11ast_manager11mk_distinctEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(976), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z11mk_distinctRK10ref_vectorI4expr11ast_managerE(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) local_unnamed_addr #3 {
+define hidden void @_Z11mk_distinctRK10ref_vectorI4expr11ast_managerE(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %args, align 8
   %m_nodes.i = getelementptr inbounds i8, ptr %args, i64 8
@@ -5790,7 +5790,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZplR7obj_refI4expr11ast_managerES3_(ptr noalias nocapture writeonly sret(%class.obj_ref.33) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 {
+define hidden void @_ZplR7obj_refI4expr11ast_managerES3_(ptr noalias nocapture writeonly sret(%class.obj_ref.33) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 {
 entry:
   %arith.i = alloca %class.arith_util, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %a, i64 8

@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [6 x i8] c"<eof>\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lj_lex_setup(ptr noundef %L, ptr noundef %ls) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lj_lex_setup(ptr noundef %L, ptr noundef initializes((0, 16), (32, 48), (52, 60), (112, 120), (144, 172), (176, 180)) %ls) local_unnamed_addr #0 {
 cond.false.i61:
   %sz.i74 = alloca i64, align 8
   %sz.i50 = alloca i64, align 8
@@ -534,7 +534,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_lex_next(ptr noundef %ls) local_unnamed_addr #0 {
+define hidden void @lj_lex_next(ptr noundef initializes((116, 120)) %ls) local_unnamed_addr #0 {
 entry:
   %linenumber = getelementptr inbounds i8, ptr %ls, i64 112
   %0 = load i32, ptr %linenumber, align 8
@@ -566,7 +566,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 13, 11) i32 @lex_scan(ptr noundef %ls, ptr noundef %tv) unnamed_addr #0 {
+define internal fastcc range(i32 13, 11) i32 @lex_scan(ptr noundef initializes((64, 72)) %ls, ptr noundef %tv) unnamed_addr #0 {
 entry:
   %sz.i440 = alloca i64, align 8
   %sz.i416 = alloca i64, align 8

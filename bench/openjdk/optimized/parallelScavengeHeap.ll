@@ -394,7 +394,7 @@ declare void @_ZN15CPUTimeCounters14create_counterEN13CPUTimeGroups11CPUTimeType
 declare void @_ZN18ParallelInitLogger5printEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ParallelScavengeHeap25initialize_serviceabilityEv(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ParallelScavengeHeap25initialize_serviceabilityEv(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((104, 144)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 224, i8 noundef zeroext 9, i32 noundef 0) #15
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -755,13 +755,13 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap17requires_barriersE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN20ParallelScavengeHeap12mem_allocateEmPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN20ParallelScavengeHeap12mem_allocateEmPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN20ParallelScavengeHeap17mem_allocate_workEmbPb(ptr noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, i1 noundef zeroext false, ptr noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN20ParallelScavengeHeap17mem_allocate_workEmbPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, i64 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN20ParallelScavengeHeap17mem_allocate_workEmbPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, i64 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.VM_ParallelCollectForAllocation, align 8
   store i8 0, ptr %3, align 1
   %6 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
@@ -2012,7 +2012,7 @@ define hidden void @_ZN20ParallelScavengeHeap18prepare_for_verifyEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ParallelScavengeHeap22create_ps_heap_summaryEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.PSHeapSummary) align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20ParallelScavengeHeap22create_ps_heap_summaryEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.PSHeapSummary) align 8 initializes((0, 184)) %0, ptr noundef nonnull align 8 dereferenceable(264) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.VirtualSpaceSummary, align 8
   %4 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2335,7 +2335,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_43ELS1
 declare noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK20ParallelScavengeHeap17get_pre_gc_valuesEv(ptr dead_on_unwind noalias writable sret(%class.PreGenGCValues) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK20ParallelScavengeHeap17get_pre_gc_valuesEv(ptr dead_on_unwind noalias writable sret(%class.PreGenGCValues) align 8 initializes((0, 64)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -2828,7 +2828,7 @@ define hidden void @_ZN20ParallelScavengeHeap14verify_nmethodEP7nmethod(ptr noca
 declare void @_ZN19ScavengableNMethods14verify_nmethodEP7nmethod(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ParallelScavengeHeap15memory_managersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ParallelScavengeHeap15memory_managersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) unnamed_addr #0 align 2 {
 _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit5:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -2850,7 +2850,7 @@ _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ParallelScavengeHeap12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.3) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ParallelScavengeHeap12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.3) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) unnamed_addr #0 align 2 {
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit9:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 3, i32 noundef 8) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 4

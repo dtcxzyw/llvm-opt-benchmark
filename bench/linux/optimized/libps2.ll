@@ -45,7 +45,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ps2_interrup
 @llvm.compiler.used = appending global [15 x ptr] [ptr @__UNIQUE_ID___addressable___ps2_command322, ptr @__UNIQUE_ID___addressable_ps2_begin_command312, ptr @__UNIQUE_ID___addressable_ps2_command323, ptr @__UNIQUE_ID___addressable_ps2_drain316, ptr @__UNIQUE_ID___addressable_ps2_end_command313, ptr @__UNIQUE_ID___addressable_ps2_init325, ptr @__UNIQUE_ID___addressable_ps2_interrupt326, ptr @__UNIQUE_ID___addressable_ps2_is_keyboard_id317, ptr @__UNIQUE_ID___addressable_ps2_sendbyte311, ptr @__UNIQUE_ID___addressable_ps2_sliced_command324, ptr @__UNIQUE_ID_author327, ptr @__UNIQUE_ID_description328, ptr @__UNIQUE_ID_file329, ptr @__UNIQUE_ID_license330, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ps2_sendbyte(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2) #0 align 16 {
+define dso_local i32 @ps2_sendbyte(ptr noundef initializes((81, 82)) %0, i8 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 208
   tail call void @_raw_spin_lock_irq(ptr noundef %5) #7
@@ -60,7 +60,7 @@ define dso_local i32 @ps2_sendbyte(ptr noundef %0, i8 noundef zeroext %1, i32 no
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ps2_do_sendbyte(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ps2_do_sendbyte(ptr noundef initializes((81, 82)) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.wait_queue_entry, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 81
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -705,7 +705,7 @@ define dso_local i32 @ps2_sliced_command(ptr noundef %0, i8 noundef zeroext %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ps2_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local void @ps2_init(ptr noundef initializes((88, 104)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 96

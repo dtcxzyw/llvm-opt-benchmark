@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @random_int_.r2_ = internal unnamed_addr global i32 1, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @FLAC__replaygain_synthesis__init_dither_context(ptr nocapture noundef writeonly %d, i32 noundef %bits, i32 noundef %shapingtype) local_unnamed_addr #0 {
+define dso_local void @FLAC__replaygain_synthesis__init_dither_context(ptr nocapture noundef writeonly initializes((0, 1052), (1084, 1092)) %d, i32 noundef %bits, i32 noundef %shapingtype) local_unnamed_addr #0 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %shapingtype, i32 0)
   %spec.store.select2 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 3)

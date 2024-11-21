@@ -665,7 +665,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic8Endpoint7Options4FromEPNS_11EnvironmentEN2v85LocalINS5_5ValueEEE(ptr noalias sret(%"class.v8::Maybe") align 8 %agg.result, ptr noundef %env, ptr %value.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic8Endpoint7Options4FromEPNS_11EnvironmentEN2v85LocalINS5_5ValueEEE(ptr noalias sret(%"class.v8::Maybe") align 8 initializes((0, 1), (8, 24), (152, 226), (228, 232)) %agg.result, ptr noundef %env, ptr %value.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %params = alloca %"class.v8::Local.9", align 8
   %options = alloca %"struct.node::quic::Endpoint::Options", align 8
@@ -2973,7 +2973,7 @@ _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit52: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic8Endpoint3UDPC2EPS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %endpoint) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic8Endpoint3UDPC2EPS1_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef %endpoint) unnamed_addr #3 align 2 {
 entry:
   %cb.addr.i.i = alloca ptr, align 8
   %arg.addr.i.i = alloca ptr, align 8
@@ -7759,7 +7759,7 @@ cleanup.cont:                                     ; preds = %if.then.i5, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic8Endpoint11FindSessionERKNS0_3CIDE(ptr noalias nocapture sret(%"class.node::BaseObjectPtrImpl.441") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1520) %this, ptr noundef nonnull align 8 dereferenceable(48) %cid) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic8Endpoint11FindSessionERKNS0_3CIDE(ptr noalias nocapture sret(%"class.node::BaseObjectPtrImpl.441") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1520) %this, ptr noundef nonnull align 8 dereferenceable(48) %cid) local_unnamed_addr #3 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %sessions_ = getelementptr inbounds i8, ptr %this, i64 1232
@@ -10535,7 +10535,7 @@ entry:
 declare i64 @uv_hrtime() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic8Endpoint23SocketAddressInfoTraits5TouchERKNS_13SocketAddressEPNS2_4TypeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %address, ptr nocapture noundef writeonly %type) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic8Endpoint23SocketAddressInfoTraits5TouchERKNS_13SocketAddressEPNS2_4TypeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %address, ptr nocapture noundef writeonly initializes((24, 32)) %type) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call i64 @uv_hrtime() #21
   %timestamp = getelementptr inbounds i8, ptr %type, i64 24

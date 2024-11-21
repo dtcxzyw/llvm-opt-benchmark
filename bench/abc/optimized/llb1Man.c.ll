@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Llb_ManPrepareVarMap(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Llb_ManPrepareVarMap(ptr nocapture noundef initializes((104, 136)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -286,7 +286,7 @@ Vec_IntStartFull.exit91:                          ; preds = %Vec_IntAlloc.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_ManPrepareVarLimits(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @Llb_ManPrepareVarLimits(ptr nocapture noundef initializes((88, 104)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 32

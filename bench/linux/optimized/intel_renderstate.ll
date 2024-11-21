@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [39 x i8] c"[drm] *ERROR* only %d relocs resolved\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_renderstate_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_renderstate_init(ptr noundef initializes((0, 88)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)

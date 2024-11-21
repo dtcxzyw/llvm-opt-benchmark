@@ -308,7 +308,7 @@ declare void @_ZNK25cmMakefileTargetGenerator13GetConfigNameB5cxx11Ev(ptr dead_o
 declare void @_ZN25cmMakefileTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1064)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN32cmMakefileLibraryTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1128) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN32cmMakefileLibraryTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1128) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV32cmMakefileLibraryTargetGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1096
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
@@ -319,7 +319,7 @@ define dso_local void @_ZN32cmMakefileLibraryTargetGeneratorD2Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN32cmMakefileLibraryTargetGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(1128) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN32cmMakefileLibraryTargetGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(1128) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV32cmMakefileLibraryTargetGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1096
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18

@@ -875,7 +875,7 @@ declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @pack64(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdbd_unpack_id_rc_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define range(i32 -1, 1) i32 @slurmdbd_unpack_id_rc_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1080, ptr noundef nonnull @__func__.slurmdbd_unpack_id_rc_msg) #5
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %1, 9983
@@ -968,7 +968,7 @@ declare void @fatal(ptr noundef, ...) local_unnamed_addr #2
 declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdbd_unpack_usage_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdbd_unpack_usage_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1135, ptr noundef nonnull @__func__.slurmdbd_unpack_usage_msg) #5
   store ptr %5, ptr %0, align 8
   switch i32 %2, label %8 [
@@ -1031,7 +1031,7 @@ declare void @slurmdbd_free_usage_msg(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdbd_unpack_fini_msg(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdbd_unpack_fini_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1181, ptr noundef nonnull @__func__.slurmdbd_unpack_fini_msg) #5
   store ptr %4, ptr %0, align 8
   %5 = tail call i32 @unpack16(ptr noundef %4, ptr noundef %2) #5
@@ -1864,7 +1864,7 @@ declare i32 @slurmdb_unpack_instance_rec(ptr noundef, i16 noundef zeroext, ptr n
 declare void @slurmdb_destroy_instance_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_unpack_job_start_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @_unpack_job_start_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2154,7 +2154,7 @@ define internal range(i32 -1, 1) i32 @_unpack_job_start_msg(ptr nocapture nounde
 declare void @slurmdbd_free_job_start_msg(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_unpack_job_heavy_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @_unpack_job_heavy_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2200,7 +2200,7 @@ define internal range(i32 -1, 1) i32 @_unpack_job_heavy_msg(ptr nocapture nounde
 declare void @slurmdbd_free_job_heavy_msg(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_unpack_buffer(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @_unpack_buffer(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 zeroext %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr null, ptr %4, align 8
@@ -2950,7 +2950,7 @@ declare i32 @unpack_msg(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_unpack_received_msg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_acct_coord_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_acct_coord_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3008,7 +3008,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_acct_coord_msg(ptr nocaptur
 declare i32 @slurmdb_unpack_archive_rec(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_cluster_tres_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_cluster_tres_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__._unpack_cluster_tres_msg) #5
@@ -3044,7 +3044,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_cluster_tres_msg(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_job_complete_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_complete_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3169,7 +3169,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_complete_msg(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_job_suspend_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_job_suspend_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 616, ptr noundef nonnull @__func__._unpack_job_suspend_msg) #5
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %1, 9983
@@ -3221,7 +3221,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_suspend_msg(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_modify_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_modify_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 698, ptr noundef nonnull @__func__._unpack_modify_msg) #5
   store ptr %5, ptr %0, align 8
   %trunc = trunc nuw i32 %2 to i16
@@ -3293,7 +3293,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_modify_msg(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_node_state_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_node_state_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3423,7 +3423,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_state_msg(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_step_complete_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_step_complete_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 96, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 919, ptr noundef nonnull @__func__._unpack_step_complete_msg) #5
   store ptr %5, ptr %0, align 8
@@ -3519,7 +3519,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_step_complete_msg(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_step_start_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_step_start_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3654,7 +3654,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_step_start_msg(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_register_ctld_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_register_ctld_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 12, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 843, ptr noundef nonnull @__func__._unpack_register_ctld_msg) #5
   store ptr %5, ptr %0, align 8
@@ -3715,7 +3715,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_register_ctld_msg(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_roll_usage_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_roll_usage_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 879, ptr noundef nonnull @__func__._unpack_roll_usage_msg) #5
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %1, 9983

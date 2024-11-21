@@ -908,7 +908,7 @@ declare void @_ZN4node6crypto13SecureContext9CreateSSLEv(ptr sret(%"class.std::u
 declare void @_ZN4node6crypto13SecureContext21SetGetSessionCallbackEPFP14ssl_session_stP6ssl_stPKhiPiE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN4node6crypto12_GLOBAL__N_118GetSessionCallbackEP6ssl_stPKhiPi(ptr noundef %s, ptr nocapture readnone %key, i32 %len, ptr nocapture noundef writeonly %copy) #3 {
+define internal noundef ptr @_ZN4node6crypto12_GLOBAL__N_118GetSessionCallbackEP6ssl_stPKhiPi(ptr noundef %s, ptr nocapture readnone %key, i32 %len, ptr nocapture noundef writeonly initializes((0, 4)) %copy) #3 {
 entry:
   %call = tail call ptr @SSL_get_ex_data(ptr noundef %s, i32 noundef 0) #23
   store i32 0, ptr %copy, align 4
@@ -1052,7 +1052,7 @@ cleanup:                                          ; preds = %if.end.i.i, %if.end
 declare noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7TLSWrap7InitSSLEv(ptr noundef nonnull align 8 dereferenceable(457) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7TLSWrap7InitSSLEv(ptr noundef nonnull align 8 dereferenceable(457) initializes((304, 320)) %this) local_unnamed_addr #3 align 2 {
 _ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit5:
   %ref.tmp = alloca %"class.std::unique_ptr.23", align 8
   %ref.tmp3 = alloca %"class.std::unique_ptr.23", align 8
@@ -1143,7 +1143,7 @@ if.end41:                                         ; preds = %if.then33, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7TLSWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(457) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7TLSWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(457) initializes((0, 8), (56, 64), (120, 128)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto7TLSWrapE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -1337,7 +1337,7 @@ declare void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N4node6crypto7TLSWrapD1Ev(ptr noundef %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZThn56_N4node6crypto7TLSWrapD1Ev(ptr noundef initializes((-56, -48), (0, 8), (64, 72)) %this) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN4node6crypto7TLSWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(457) %0) #23
@@ -1345,7 +1345,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N4node6crypto7TLSWrapD1Ev(ptr noundef %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZThn120_N4node6crypto7TLSWrapD1Ev(ptr noundef initializes((-120, -112), (-64, -56), (0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN4node6crypto7TLSWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(457) %0) #23
@@ -1353,7 +1353,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7TLSWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(457) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7TLSWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(457) initializes((0, 8), (56, 64), (120, 128)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node6crypto7TLSWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(457) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -1364,7 +1364,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N4node6crypto7TLSWrapD0Ev(ptr noundef %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZThn56_N4node6crypto7TLSWrapD0Ev(ptr noundef initializes((-56, -48), (0, 8), (64, 72)) %this) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN4node6crypto7TLSWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(457) %0) #23
@@ -1373,7 +1373,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N4node6crypto7TLSWrapD0Ev(ptr noundef %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZThn120_N4node6crypto7TLSWrapD0Ev(ptr noundef initializes((-120, -112), (-64, -56), (0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN4node6crypto7TLSWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(457) %0) #23
@@ -6751,7 +6751,7 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node6crypto7TLSWrap13WaitForCertCbEPFvPvES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(457) %this, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN4node6crypto7TLSWrap13WaitForCertCbEPFvPvES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(457) initializes((400, 416)) %this, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #13 align 2 {
 entry:
   %cert_cb_ = getelementptr inbounds i8, ptr %this, i64 400
   store ptr %cb, ptr %cert_cb_, align 8
@@ -18140,7 +18140,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %if.then.i, %if.els
 declare void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull align 8 dereferenceable(2872), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
@@ -18171,7 +18171,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8
@@ -18239,7 +18239,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_1ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_1ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
@@ -18270,7 +18270,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap6EncOutEvE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8
@@ -18897,7 +18897,7 @@ cleanup:                                          ; preds = %sw.epilog, %_ZStplI
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
@@ -18928,7 +18928,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6crypto7TLSWrap7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8

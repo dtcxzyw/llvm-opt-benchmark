@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [26 x i8] c"mailmap is not a blob: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @read_mailmap(ptr noundef %map) local_unnamed_addr #0 {
+define dso_local i32 @read_mailmap(ptr noundef initializes((32, 40)) %map) local_unnamed_addr #0 {
 entry:
   %oid.i = alloca %struct.object_id, align 4
   %size.i = alloca i64, align 8

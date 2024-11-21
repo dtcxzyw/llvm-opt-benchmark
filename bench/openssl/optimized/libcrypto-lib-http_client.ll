@@ -1647,7 +1647,7 @@ return:                                           ; preds = %if.end10, %if.then8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @OSSL_HTTP_REQ_CTX_nbio_d2i(ptr noundef %rctx, ptr nocapture noundef writeonly %pval, ptr noundef %it) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @OSSL_HTTP_REQ_CTX_nbio_d2i(ptr noundef %rctx, ptr nocapture noundef writeonly initializes((0, 8)) %pval, ptr noundef %it) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr null, ptr %pval, align 8

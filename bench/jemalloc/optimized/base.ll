@@ -1550,7 +1550,7 @@ base_edata_heap_insert.exit:                      ; preds = %if.then.i.i8, %if.e
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @base_stats_get(ptr noundef %tsdn, ptr noundef %base, ptr nocapture noundef writeonly %allocated, ptr nocapture noundef writeonly %edata_allocated, ptr nocapture noundef writeonly %rtree_allocated, ptr nocapture noundef writeonly %resident, ptr nocapture noundef writeonly %mapped, ptr nocapture noundef writeonly %n_thp) local_unnamed_addr #1 {
+define hidden void @base_stats_get(ptr noundef %tsdn, ptr noundef %base, ptr nocapture noundef writeonly initializes((0, 8)) %allocated, ptr nocapture noundef writeonly initializes((0, 8)) %edata_allocated, ptr nocapture noundef writeonly initializes((0, 8)) %rtree_allocated, ptr nocapture noundef writeonly initializes((0, 8)) %resident, ptr nocapture noundef writeonly initializes((0, 8)) %mapped, ptr nocapture noundef writeonly initializes((0, 8)) %n_thp) local_unnamed_addr #1 {
 entry:
   %lock.i.i = getelementptr inbounds i8, ptr %base, i64 104
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #10

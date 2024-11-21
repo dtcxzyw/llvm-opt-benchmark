@@ -61,7 +61,7 @@ $_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE = comdat any
 @_ZN4llvm3opt6OptionC1EPKNS0_8OptTable4InfoEPKS2_ = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm3opt6OptionC2EPKNS0_8OptTable4InfoEPKS2_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3opt6OptionC2EPKNS0_8OptTable4InfoEPKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3opt6OptionC2EPKNS0_8OptTable4InfoEPKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -1404,7 +1404,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN4llvm3opt3ArgEJRKNS1_6OptionERNS0_9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3opt6Option6acceptERKNS0_7ArgListENS_9StringRefEbRj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr %3, i64 %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3opt6Option6acceptERKNS0_7ArgListENS_9StringRefEbRj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr %3, i64 %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"class.llvm::SmallString.15", align 8
   %9 = alloca %"class.std::unique_ptr", align 8
   %10 = alloca %"class.llvm::Twine", align 8

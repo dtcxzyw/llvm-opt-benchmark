@@ -737,7 +737,7 @@ declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %header, ptr nocapture noundef %cipher) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %header, ptr nocapture noundef initializes((0, 8)) %cipher) local_unnamed_addr #0 {
 entry:
   %header.addr = alloca ptr, align 8
   store ptr null, ptr %cipher, align 8

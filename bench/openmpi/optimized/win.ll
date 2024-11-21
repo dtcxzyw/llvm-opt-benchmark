@@ -57,7 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_errors_are_fatal = external global %struct.ompi_predefined_errhandler_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_win_construct(ptr noundef %0) #0 {
+define internal void @ompi_win_construct(ptr noundef initializes((96, 104)) %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -1582,7 +1582,7 @@ opal_obj_run_destructors.exit25:                  ; preds = %.lr.ph.i22, %50
 declare void @opal_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_win_get_name(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @ompi_win_get_name(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @opal_uses_threads, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %9
@@ -1615,7 +1615,7 @@ define noundef i32 @ompi_win_get_name(ptr noundef %0, ptr noundef %1, ptr nocapt
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @ompi_win_group(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define noundef i32 @ompi_win_group(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

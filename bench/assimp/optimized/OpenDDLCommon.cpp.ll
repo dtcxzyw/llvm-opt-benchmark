@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN10ODDLParser7ContextD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10ODDLParser7ContextD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10ODDLParser4TextC2EPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %buffer, i64 noundef %numChars) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ODDLParser4TextC2EPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef readonly %buffer, i64 noundef %numChars) unnamed_addr #0 align 2 {
 _ZN10ODDLParser4Text5clearEv.exit.i:
   %cmp.not.i = icmp eq i64 %numChars, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
@@ -44,7 +44,7 @@ _ZN10ODDLParser4Text3setEPKcm.exit:               ; preds = %_ZN10ODDLParser4Tex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10ODDLParser4Text3setEPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %buffer, i64 noundef %numChars) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10ODDLParser4Text3setEPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %this, ptr nocapture noundef readonly %buffer, i64 noundef %numChars) local_unnamed_addr #0 align 2 {
 entry:
   %m_buffer.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_buffer.i, align 8
@@ -77,7 +77,7 @@ if.end:                                           ; preds = %if.then, %_ZN10ODDL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ODDLParser4TextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ODDLParser4TextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_buffer.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_buffer.i, align 8
@@ -94,7 +94,7 @@ _ZN10ODDLParser4Text5clearEv.exit:                ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ODDLParser4Text5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10ODDLParser4Text5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_buffer = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_buffer, align 8
@@ -178,7 +178,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ODDLParser4NameC2ENS_8NameTypeEPNS_4TextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i32 noundef %type, ptr noundef %id) unnamed_addr #8 align 2 {
+define hidden void @_ZN10ODDLParser4NameC2ENS_8NameTypeEPNS_4TextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %this, i32 noundef %type, ptr noundef %id) unnamed_addr #8 align 2 {
 entry:
   store i32 %type, ptr %this, align 8
   %m_id = getelementptr inbounds i8, ptr %this, i64 8
@@ -217,7 +217,7 @@ delete.end:                                       ; preds = %_ZN10ODDLParser4Tex
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10ODDLParser4NameC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ODDLParser4NameC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %name, align 8
   store i32 %0, ptr %this, align 8
@@ -264,14 +264,14 @@ lpad:                                             ; preds = %if.then.i.i
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ODDLParser9ReferenceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN10ODDLParser9ReferenceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10ODDLParser9ReferenceC2EmPPNS_4NameE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %numrefs, ptr nocapture noundef readonly %names) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ODDLParser9ReferenceC2EmPPNS_4NameE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, i64 noundef %numrefs, ptr nocapture noundef readonly %names) unnamed_addr #0 align 2 {
 entry:
   store i64 %numrefs, ptr %this, align 8
   %m_referencedName = getelementptr inbounds i8, ptr %this, i64 8
@@ -303,7 +303,7 @@ if.end:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10ODDLParser9ReferenceC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ref) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ODDLParser9ReferenceC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ref) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %ref, align 8
   store i64 %0, ptr %this, align 8
@@ -496,7 +496,7 @@ return:                                           ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ODDLParser8PropertyC2EPNS_4TextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %id) unnamed_addr #8 align 2 {
+define hidden void @_ZN10ODDLParser8PropertyC2EPNS_4TextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %id) unnamed_addr #8 align 2 {
 entry:
   store ptr %id, ptr %this, align 8
   %m_value = getelementptr inbounds i8, ptr %this, i64 8
@@ -625,7 +625,7 @@ delete.notnull17:                                 ; preds = %if.end12
 declare void @_ZN10ODDLParser5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ODDLParser13DataArrayListC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN10ODDLParser13DataArrayListC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   ret void
@@ -759,7 +759,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ODDLParser7ContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN10ODDLParser7ContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   ret void

@@ -595,7 +595,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_payload_hdr(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3) #0 {
+define internal noundef i32 @dissect_payload_hdr(ptr nocapture noundef initializes((0, 1)) %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3) #0 {
   tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef 0, i32 noundef 10) #2
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
   store i8 %5, ptr %0, align 1

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @the_repository = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @default_negotiator_init(ptr nocapture noundef writeonly %negotiator) local_unnamed_addr #0 {
+define dso_local void @default_negotiator_init(ptr nocapture noundef writeonly initializes((0, 48)) %negotiator) local_unnamed_addr #0 {
 entry:
   store ptr @known_common, ptr %negotiator, align 8
   %add_tip = getelementptr inbounds i8, ptr %negotiator, i64 8
@@ -83,7 +83,7 @@ if.end:                                           ; preds = %rev_list_push.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_tip(ptr nocapture noundef %n, ptr noundef %c) #0 {
+define internal void @add_tip(ptr nocapture noundef initializes((0, 8)) %n, ptr noundef %c) #0 {
 entry:
   store ptr null, ptr %n, align 8
   %data = getelementptr inbounds i8, ptr %n, i64 40
@@ -120,7 +120,7 @@ rev_list_push.exit:                               ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @next(ptr nocapture noundef %n) #0 {
+define internal ptr @next(ptr nocapture noundef initializes((0, 16)) %n) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %n, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %n, i8 0, i64 16, i1 false)

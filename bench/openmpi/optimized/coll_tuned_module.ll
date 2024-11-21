@@ -698,7 +698,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 {
+define internal fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = zext i32 %0 to i64

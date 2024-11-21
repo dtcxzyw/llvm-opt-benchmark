@@ -2236,7 +2236,7 @@ _ZN5clang4Sema11ContextRAIID2Ev.exit:             ; preds = %107, %"_ZZN5clang4S
 declare void @_ZN5clang13CXXRecordDecl18setLambdaNumberingENS0_15LambdaNumberingE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef byval(%"struct.clang::CXXRecordDecl::LambdaNumbering") align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema16buildLambdaScopeEPNS_4sema15LambdaScopeInfoEPNS_13CXXMethodDeclENS_11SourceRangeENS_20LambdaCaptureDefaultENS_14SourceLocationEbb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(17560) %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i64 %3, i32 noundef %4, i32 %5, i1 noundef zeroext %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema16buildLambdaScopeEPNS_4sema15LambdaScopeInfoEPNS_13CXXMethodDeclENS_11SourceRangeENS_20LambdaCaptureDefaultENS_14SourceLocationEbb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(17560) %0, ptr nocapture noundef writeonly initializes((1552, 1568), (1584, 1596), (1600, 1602)) %1, ptr noundef %2, i64 %3, i32 noundef %4, i32 %5, i1 noundef zeroext %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1560
   store ptr %2, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 72
@@ -9509,7 +9509,7 @@ declare void @_ZN5clang9BlockDecl11setCapturesERNS_10ASTContextEN4llvm8ArrayRefI
 declare noundef ptr @_ZN5clang4StmtnwEmRKNS_10ASTContextEj(i64 noundef, ptr noundef nonnull align 8 dereferenceable(23096), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema43LambdaScopeForCallOperatorInstantiationRAIIC2ERS0_PNS_12FunctionDeclENS_30MultiLevelTemplateArgumentListERNS_23LocalInstantiationScopeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(140) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema43LambdaScopeForCallOperatorInstantiationRAIIC2ERS0_PNS_12FunctionDeclENS_30MultiLevelTemplateArgumentListERNS_23LocalInstantiationScopeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(140) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.llvm::SmallVector.1461", align 8

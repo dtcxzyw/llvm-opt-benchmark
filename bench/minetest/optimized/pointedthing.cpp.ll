@@ -80,7 +80,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN12PointedThingC2ERKN3irr4core8vector3dIsEES5_S5_RKNS2_IfEES8_tf16PointabilityType(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(69) %this, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %under, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %above, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %real_under, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %point, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %normal, i16 noundef zeroext %box_id, float noundef %distSq, i8 noundef zeroext %pointab) unnamed_addr #3 align 2 {
+define dso_local void @_ZN12PointedThingC2ERKN3irr4core8vector3dIsEES5_S5_RKNS2_IfEES8_tf16PointabilityType(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(69) initializes((0, 1), (2, 22), (24, 62), (64, 69)) %this, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %under, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %above, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %real_under, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %point, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %normal, i16 noundef zeroext %box_id, float noundef %distSq, i8 noundef zeroext %pointab) unnamed_addr #3 align 2 {
 entry:
   store i8 1, ptr %this, align 4, !tbaa !4
   %node_undersurface = getelementptr inbounds i8, ptr %this, i64 2
@@ -112,7 +112,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN12PointedThingC2EtRKN3irr4core8vector3dIfEES5_S5_f16PointabilityType(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(69) %this, i16 noundef zeroext %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %point, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %normal, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %raw_normal, float noundef %distSq, i8 noundef zeroext %pointab) unnamed_addr #3 align 2 {
+define dso_local void @_ZN12PointedThingC2EtRKN3irr4core8vector3dIfEES5_S5_f16PointabilityType(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(69) initializes((0, 1), (2, 22), (24, 62), (64, 69)) %this, i16 noundef zeroext %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %point, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %normal, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %raw_normal, float noundef %distSq, i8 noundef zeroext %pointab) unnamed_addr #3 align 2 {
 entry:
   store i8 2, ptr %this, align 4, !tbaa !4
   %node_undersurface = getelementptr inbounds i8, ptr %this, i64 2

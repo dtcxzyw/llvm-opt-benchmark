@@ -26081,7 +26081,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 declare noundef ptr @_Z5mk_orR11ast_managerjPKP4expr(ptr noundef nonnull align 8 dereferenceable(976), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt10theory_str27aut_path_rewrite_constraintEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1800) %this, ptr noundef %cond, ptr noundef %ch_var) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt10theory_str27aut_path_rewrite_constraintEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1800) %this, ptr noundef %cond, ptr noundef %ch_var) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %char_val = alloca i32, align 4
   %str_const = alloca %class.zstring, align 8

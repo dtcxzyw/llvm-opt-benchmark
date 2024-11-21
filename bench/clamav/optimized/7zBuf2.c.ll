@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @DynBuf_Construct(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @DynBuf_Construct(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @DynBuf_SeekToBeg(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @DynBuf_SeekToBeg(ptr nocapture noundef writeonly initializes((16, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   ret void
@@ -71,7 +71,7 @@ define range(i32 0, 2) i32 @DynBuf_Write(ptr nocapture noundef %0, ptr nocapture
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define void @DynBuf_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @DynBuf_Free(ptr nocapture noundef initializes((8, 24)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

@@ -32,7 +32,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define dso_local void @_ZN4absl15random_internal26ComputeDistributionMomentsENS_4SpanIKdEE(ptr noalias nocapture writeonly sret(%"struct.absl::random_internal::DistributionMoments") align 8 %agg.result, ptr readonly %data_points.coerce0, i64 %data_points.coerce1) local_unnamed_addr #3 {
+define dso_local void @_ZN4absl15random_internal26ComputeDistributionMomentsENS_4SpanIKdEE(ptr noalias nocapture writeonly sret(%"struct.absl::random_internal::DistributionMoments") align 8 initializes((0, 16)) %agg.result, ptr readonly %data_points.coerce0, i64 %data_points.coerce1) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, i8 0, i64 16, i1 false)
   %add.ptr.i = getelementptr inbounds double, ptr %data_points.coerce0, i64 %data_points.coerce1

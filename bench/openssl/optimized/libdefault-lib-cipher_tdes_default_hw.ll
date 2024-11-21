@@ -294,7 +294,7 @@ if.end:                                           ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_cipher_hw_tdes_ede2_initkey(ptr noundef %ctx, ptr noundef %key, i64 %keylen) #2 {
+define internal noundef i32 @ossl_cipher_hw_tdes_ede2_initkey(ptr noundef initializes((576, 584)) %ctx, ptr noundef %key, i64 %keylen) #2 {
 entry:
   %tstream = getelementptr inbounds i8, ptr %ctx, i64 576
   store ptr null, ptr %tstream, align 8

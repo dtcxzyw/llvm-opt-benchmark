@@ -1425,7 +1425,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN18OpenImageIO_v2_6_012ImageBufAlgo10PixelStatsaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull align 8 dereferenceable(216) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN18OpenImageIO_v2_6_012ImageBufAlgo10PixelStatsaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(216) initializes((8, 24), (32, 48), (56, 72), (80, 96), (104, 120), (128, 144), (152, 168), (176, 192), (200, 216)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(216) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4655,7 +4655,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17computePixelStatsERNS0_10PixelStatsERKNS_8ImageBufENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(216) %stats, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17computePixelStatsERNS0_10PixelStatsERKNS_8ImageBufENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(216) initializes((8, 24), (32, 48), (56, 72), (80, 96), (104, 120), (128, 144), (152, 168), (176, 192), (200, 216)) %stats, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats", align 8
   call void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo17computePixelStatsERKNS_8ImageBufENS_3ROIEi(ptr nonnull sret(%"struct.OpenImageIO_v2_6_0::ImageBufAlgo::PixelStats") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads)
@@ -5289,7 +5289,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IffEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IffEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
@@ -6186,7 +6186,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit273: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IfhEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IfhEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
@@ -7082,7 +7082,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit272: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_If4halfEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_If4halfEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
@@ -7982,7 +7982,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit272: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IftEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IftEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
@@ -8885,7 +8885,7 @@ declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08ImageBuf4copyERKS0_NS_8TypeD
 declare void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IhfEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IhfEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
@@ -9788,7 +9788,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit272: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IhhEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IhhEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
@@ -10681,7 +10681,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit275: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_Ih4halfEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_Ih4halfEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
@@ -11587,7 +11587,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit272: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IhtEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IhtEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
@@ -12480,7 +12480,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit274: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halffEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halffEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
@@ -13380,7 +13380,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit272: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halfhEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halfhEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
@@ -14279,7 +14279,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit272: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halfS1_EEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halfS1_EEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
@@ -15182,7 +15182,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit275: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halftEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_I4halftEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
@@ -16081,7 +16081,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit272: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_ItfEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_ItfEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
@@ -16984,7 +16984,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit272: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IthEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IthEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.155", align 8
@@ -17877,7 +17877,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit274: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_It4halfEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_It4halfEEbRKNS_8ImageBufES4_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.160", align 8
@@ -18783,7 +18783,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit272: ; preds = %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IttEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_0L8compare_IttEEbRKNS_8ImageBufES3_ffffRNS_12ImageBufAlgo14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef %failrelative, float noundef %warnrelative, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 64)) %result, ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %a = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
   %b = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.165", align 8
@@ -19678,7 +19678,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit275: ; preds = %ehcl
 declare noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08ImageBuf11initializedEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo7compareERKNS_8ImageBufES3_ffRNS0_14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, ptr nocapture noundef nonnull align 8 dereferenceable(72) %result, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo7compareERKNS_8ImageBufES3_ffRNS0_14CompareResultsENS_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %result, ptr nocapture noundef readonly byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 noundef %nthreads) local_unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %"struct.OpenImageIO_v2_6_0::ImageBufAlgo::CompareResults", align 8
   call void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo7compareERKNS_8ImageBufES3_ffffNS_3ROIEi(ptr nonnull sret(%"struct.OpenImageIO_v2_6_0::ImageBufAlgo::CompareResults") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull align 8 dereferenceable(16) %B, float noundef %failthresh, float noundef %warnthresh, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, i32 poison)

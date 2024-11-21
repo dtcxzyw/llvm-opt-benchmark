@@ -5702,7 +5702,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear9listToSetENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.std::set") align 8 %agg.result, ptr nocapture noundef %l) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear9listToSetENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef %l) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate.37", align 8
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8

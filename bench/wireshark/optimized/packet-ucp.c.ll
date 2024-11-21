@@ -2299,7 +2299,7 @@ ucp_handle_string.exit19:                         ; preds = %36, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_00R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @add_00R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((8, 12)) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   store i32 2, ptr %5, align 4
@@ -2565,7 +2565,7 @@ ucp_handle_string.exit22:                         ; preds = %39, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_01R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @add_01R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((8, 12)) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef 1) #4
@@ -3527,7 +3527,7 @@ ucp_handle_string.exit10:                         ; preds = %22, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_06R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @add_06R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((8, 12)) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   store i32 2, ptr %5, align 4
@@ -5652,7 +5652,7 @@ ucp_handle_byte.exit43:                           ; preds = %ucp_handle_string.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_30R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @add_30R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((8, 12)) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   store i32 2, ptr %5, align 4

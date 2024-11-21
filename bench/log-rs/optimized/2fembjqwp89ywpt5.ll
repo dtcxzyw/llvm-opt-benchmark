@@ -335,7 +335,7 @@ define { i64, i64 } @_ZN3log11LevelFilter4iter17h40e26bb49b533d28E() unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN61_$LT$log..RecordBuilder$u20$as$u20$core..default..Default$GT$7default17h5ce100ac8a91d6ffE"(ptr noalias nocapture noundef writeonly sret({ { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }) align 8 dereferenceable(128) %0) unnamed_addr #5 {
+define void @"_ZN61_$LT$log..RecordBuilder$u20$as$u20$core..default..Default$GT$7default17h5ce100ac8a91d6ffE"(ptr noalias nocapture noundef writeonly sret({ { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, i32 }, { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } } } }) align 8 dereferenceable(128) initializes((0, 8), (24, 32), (48, 76), (80, 120)) %0) unnamed_addr #5 {
   store i64 2, ptr %0, align 8
   %.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 8
@@ -359,7 +359,7 @@ define void @"_ZN61_$LT$log..RecordBuilder$u20$as$u20$core..default..Default$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN63_$LT$log..MetadataBuilder$u20$as$u20$core..default..Default$GT$7default17h83ed7f6b1698377fE"(ptr noalias nocapture noundef writeonly sret({ { i64, { ptr, i64 } } }) align 8 dereferenceable(24) %0) unnamed_addr #5 {
+define void @"_ZN63_$LT$log..MetadataBuilder$u20$as$u20$core..default..Default$GT$7default17h83ed7f6b1698377fE"(ptr noalias nocapture noundef writeonly sret({ { i64, { ptr, i64 } } }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #5 {
   store i64 3, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @_ZN3log6logger3NOP17he6d7cdcfa0245171E.llvm.778753998846166598, ptr %.sroa.4.0..sroa_idx, align 8

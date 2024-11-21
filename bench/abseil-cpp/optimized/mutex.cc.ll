@@ -4967,7 +4967,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl9ConditionC2EPFbPvES1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %func, ptr noundef %arg) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4absl9ConditionC2EPFbPvES1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %func, ptr noundef %arg) unnamed_addr #10 align 2 {
 entry:
   %arrayinit.end = getelementptr inbounds i8, ptr %this, i64 16
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -4990,7 +4990,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl9ConditionC2EPKb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %cond) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4absl9ConditionC2EPKb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %cond) unnamed_addr #10 align 2 {
 entry:
   %arrayinit.end = getelementptr inbounds i8, ptr %this, i64 16
   %0 = getelementptr inbounds i8, ptr %this, i64 8

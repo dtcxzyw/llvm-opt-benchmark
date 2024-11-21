@@ -35,7 +35,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11bioinspired12RetinaFilterC2Ejjbibdd(ptr noundef nonnull align 8 dereferenceable(1217) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i1 noundef zeroext %5, double noundef %6, double noundef %7) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11bioinspired12RetinaFilterC2Ejjbibdd(ptr noundef nonnull align 8 dereferenceable(1217) initializes((16, 40)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i1 noundef zeroext %5, double noundef %6, double noundef %7) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = zext i1 %3 to i8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %10, align 8
@@ -491,7 +491,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit35:               ; preds = %.lr.ph.i.i.i32.preh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11bioinspired12RetinaFilter19setGlobalParametersEfffffffffbbfff(ptr noundef nonnull align 8 dereferenceable(1217) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, float noundef %12, float noundef %13, float noundef %14) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv11bioinspired12RetinaFilter19setGlobalParametersEfffffffffbbfff(ptr noundef nonnull align 8 dereferenceable(1217) initializes((184, 192), (196, 204), (1209, 1211), (1212, 1216)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, float noundef %12, float noundef %13, float noundef %14) local_unnamed_addr #3 align 2 {
   %16 = zext i1 %10 to i8
   %17 = zext i1 %11 to i8
   %18 = getelementptr inbounds i8, ptr %0, i64 1209
@@ -558,7 +558,7 @@ define hidden void @_ZN2cv11bioinspired12RetinaFilter19setGlobalParametersEfffff
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv11bioinspired12RetinaFilter19_setInitPeriodCountEv(ptr nocapture noundef nonnull align 8 dereferenceable(1217) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN2cv11bioinspired12RetinaFilter19_setInitPeriodCountEv(ptr nocapture noundef nonnull align 8 dereferenceable(1217) initializes((4, 12)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8

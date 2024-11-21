@@ -3873,7 +3873,7 @@ eh.resume:                                        ; preds = %ehcleanup8, %lpad
 declare noundef i64 @_ZNK4cvc58internal8TypeNode14getTupleLengthEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory9datatypes10TupleUtils16getTupleElementsENS0_12NodeTemplateILb1EEES5_(ptr noalias sret(%"class.std::vector.126") align 8 %agg.result, ptr noundef %tuple1, ptr noundef %tuple2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory9datatypes10TupleUtils16getTupleElementsENS0_12NodeTemplateILb1EEES5_(ptr noalias sret(%"class.std::vector.126") align 8 initializes((0, 24)) %agg.result, ptr noundef %tuple1, ptr noundef %tuple2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elementsA = alloca %"class.std::vector.126", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8

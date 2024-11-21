@@ -239,7 +239,7 @@ define hidden noundef ptr @pj_webmerc(ptr noundef writeonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z36pj_projection_specific_setup_webmercP8PJconsts(ptr noundef returned writeonly %0) local_unnamed_addr #5 {
+define hidden noundef ptr @_Z36pj_projection_specific_setup_webmercP8PJconsts(ptr noundef returned writeonly initializes((104, 120), (488, 496)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 488
   store double 1.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112

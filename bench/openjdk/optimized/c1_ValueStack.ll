@@ -141,7 +141,7 @@ $_ZTV3Phi = comdat any
 @_ZN10ValueStackC1EPS_NS_4KindEi = hidden unnamed_addr alias void (ptr, ptr, i32, i32), ptr @_ZN10ValueStackC2EPS_NS_4KindEi
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ValueStackC2EP7IRScopePS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ValueStackC2EP7IRScopePS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) initializes((0, 81)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -198,7 +198,7 @@ _ZN13GrowableArrayIP11InstructionEC2Ei.exit:      ; preds = %_ZN13GrowableArrayI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ValueStackC2EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ValueStackC2EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 81)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8

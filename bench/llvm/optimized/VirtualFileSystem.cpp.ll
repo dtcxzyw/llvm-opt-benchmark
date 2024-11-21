@@ -1098,7 +1098,7 @@ _ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit:       ; preds = %2, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs10FileSystem10equivalentERKNS_5TwineES4_(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(34) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs10FileSystem10equivalentERKNS_5TwineES4_(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.16") align 8 initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(34) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::ErrorOr.12", align 8
   %6 = alloca %"class.llvm::ErrorOr.12", align 8
   %7 = load ptr, ptr %1, align 8
@@ -1181,7 +1181,7 @@ _ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit14:     ; preds = %_ZN4llvm7ErrorOrINS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs17getRealFileSystemEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm3vfs17getRealFileSystemEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = load atomic i8, ptr @_ZGVZN4llvm3vfs17getRealFileSystemEvE2FS acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %12, !prof !4
@@ -1255,7 +1255,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #9
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs24createPhysicalFileSystemEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.26") align 8 %0) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm3vfs24createPhysicalFileSystemEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.26") align 8 initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = alloca %"class.llvm::SmallString", align 8
   %3 = alloca %"class.llvm::SmallString", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -1422,7 +1422,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_114RealFileSystemESt14default_deleteIS1_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs17OverlayFileSystemC2ENS_18IntrusiveRefCntPtrINS0_10FileSystemEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs17OverlayFileSystemC2ENS_18IntrusiveRefCntPtrINS0_10FileSystemEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN4llvm3vfs17OverlayFileSystemE, i64 16), ptr %0, align 8
@@ -1975,7 +1975,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %28, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs6detail11DirIterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs6detail11DirIterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm3vfs6detail11DirIterImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %2) #27
@@ -2815,7 +2815,7 @@ define dso_local void @_ZNK4llvm3vfs6detail19NewInMemoryNodeInfo10makeStatusEv(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs18InMemoryFileSystemC2Eb(ptr noundef nonnull align 8 dereferenceable(57) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs18InMemoryFileSystemC2Eb(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 12), (16, 24)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::vfs::Status", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = zext i1 %1 to i8
@@ -2897,7 +2897,7 @@ define linkonce_odr hidden void @_ZN4llvm3vfs6detail17InMemoryDirectoryC2ENS0_6S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs18InMemoryFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs18InMemoryFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN4llvm3vfs18InMemoryFileSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -4112,7 +4112,7 @@ _ZN4llvm3vfs6detail16NamedNodeOrErrorD2Ev.exit:   ; preds = %23, %26, %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs18InMemoryFileSystem15openFileForReadERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(57) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs18InMemoryFileSystem15openFileForReadERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.2") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(57) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::vfs::detail::NamedNodeOrError", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK4llvm3vfs18InMemoryFileSystem10lookupNodeERKNS_5TwineEbm(ptr dead_on_unwind nonnull writable sret(%"class.llvm::vfs::detail::NamedNodeOrError") align 8 %4, ptr noundef nonnull align 8 dereferenceable(57) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, i1 noundef zeroext true, i64 noundef 0)
@@ -4662,7 +4662,7 @@ _ZN4llvm7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit:
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local { i32, ptr } @_ZN4llvm3vfs18InMemoryFileSystem7isLocalERKNS_5TwineERb(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) unnamed_addr #13 align 2 {
+define dso_local { i32, ptr } @_ZN4llvm3vfs18InMemoryFileSystem7isLocalERKNS_5TwineERb(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2) unnamed_addr #13 align 2 {
   store i8 0, ptr %2, align 1
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #29
   %.fca.1.insert = insertvalue { i32, ptr } { i32 0, ptr poison }, ptr %4, 1
@@ -4732,7 +4732,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %28, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs21RedirectingFileSystemC2ENS_18IntrusiveRefCntPtrINS0_10FileSystemEEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs21RedirectingFileSystemC2ENS_18IntrusiveRefCntPtrINS0_10FileSystemEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 12), (16, 40)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::ErrorOr.8", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -5226,7 +5226,7 @@ declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr n
 declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem9dir_beginERKNS_5TwineERSt10error_code(ptr dead_on_unwind noalias writable sret(%"class.llvm::vfs::directory_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem9dir_beginERKNS_5TwineERSt10error_code(ptr dead_on_unwind noalias writable sret(%"class.llvm::vfs::directory_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::SmallString.127", align 8
   %7 = alloca %"class.llvm::ErrorOr.130", align 8
@@ -6681,7 +6681,7 @@ _ZNSt10shared_ptrIN4llvm3vfs6detail11DirIterImplEEaSEOS4_.exit: ; preds = %2, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_129RedirectingFSDirRemapIterImplEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm3vfs18directory_iteratorEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_129RedirectingFSDirRemapIterImplEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4llvm3vfs18directory_iteratorEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr null, ptr %0, align 8
@@ -6987,7 +6987,7 @@ _ZN4llvm3vfs18directory_iteratorC2ERKS1_.exit:    ; preds = %2, %14, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_120CombiningDirIterImplEJRN4llvm11SmallVectorINS2_3vfs18directory_iteratorELj2EEERSt10error_codeEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_120CombiningDirIterImplEJRN4llvm11SmallVectorINS2_3vfs18directory_iteratorELj2EEERSt10error_codeEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #30, !noalias !162
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7166,7 +7166,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm3vfs21RedirectingFileSystem17getOverlayF
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem14setFallthroughEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, i1 noundef zeroext %1) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem14setFallthroughEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((120, 124)) %0, i1 noundef zeroext %1) local_unnamed_addr #14 align 2 {
   %spec.select = select i1 %1, i32 0, i32 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %spec.select, ptr %3, align 8
@@ -7174,14 +7174,14 @@ define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem14setFallthroughEb(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem14setRedirectionENS1_12RedirectKindE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem14setRedirectionENS1_12RedirectKindE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((120, 124)) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3vfs21RedirectingFileSystem8getRootsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.169") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3vfs21RedirectingFileSystem8getRootsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.169") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7833,7 +7833,7 @@ define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem21visitChildFileSystem
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem6createESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS3_EEPFvRKNS_12SMDiagnosticEPvENS_9StringRefESA_NS_18IntrusiveRefCntPtrINS0_10FileSystemEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.184") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem6createESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS3_EEPFvRKNS_12SMDiagnosticEPvENS_9StringRefESA_NS_18IntrusiveRefCntPtrINS0_10FileSystemEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.184") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.llvm::SourceMgr", align 8
@@ -8873,7 +8873,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm3vfs21RedirectingFileSystem5EntryESt14default_
 declare void @_ZN4llvm4yaml6StreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem6createENS_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEEbRNS0_10FileSystemE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.184") align 8 %0, ptr %1, i64 %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(12) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem6createENS_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEEbRNS0_10FileSystemE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.184") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(12) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = alloca %"class.llvm::StringMap", align 8
   %8 = alloca %"class.llvm::SmallString", align 8
@@ -10566,7 +10566,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit6:          ; preds = %_ZN4llvm7ErrorOrINS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs4File11getWithPathENS_7ErrorOrISt10unique_ptrIS1_St14default_deleteIS1_EEEERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.2") align 8 %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs4File11getWithPathENS_7ErrorOrISt10unique_ptrIS1_St14default_deleteIS1_EEEERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.2") align 8 initializes((0, 4)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::ErrorOr.12", align 8
   %5 = alloca %"class.llvm::ErrorOr.8", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10689,7 +10689,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_3vfs4FileESt14default_deleteIS3_EEEC2EOS7_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem15openFileForReadERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs21RedirectingFileSystem15openFileForReadERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.2") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.llvm::SmallString.127", align 8
   %6 = alloca %"class.llvm::ErrorOr.2", align 8
@@ -11210,7 +11210,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit82:         ; preds = %.critedge, %252
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_119FileWithFixedStatusEJSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS5_EERNS4_6StatusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(81) %2) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_119FileWithFixedStatusEJSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS5_EERNS4_6StatusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(81) %2) unnamed_addr #0 {
 _ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EED2Ev.exit:
   %3 = alloca %"class.llvm::vfs::Status", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #30
@@ -11466,7 +11466,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %_ZN4llvm7ErrorOrINS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs14getVFSFromYAMLESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEPFvRKNS_12SMDiagnosticEPvENS_9StringRefES9_NS_18IntrusiveRefCntPtrINS0_10FileSystemEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.26") align 8 %0, ptr nocapture noundef %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm3vfs14getVFSFromYAMLESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEPFvRKNS_12SMDiagnosticEPvENS_9StringRefES9_NS_18IntrusiveRefCntPtrINS0_10FileSystemEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.26") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN4llvm3vfs21RedirectingFileSystemESt14default_deleteIS2_EED2Ev.exit:
   %7 = alloca %"class.std::unique_ptr.184", align 8
   %8 = alloca %"class.std::unique_ptr.53", align 8
@@ -12824,7 +12824,7 @@ _ZN12_GLOBAL__N_110JSONWriterD2Ev.exit:           ; preds = %_ZN12_GLOBAL__N_110
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3vfs28recursive_directory_iteratorC2ERNS0_10FileSystemERKNS_5TwineERSt10error_code(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3vfs28recursive_directory_iteratorC2ERNS0_10FileSystemERKNS_5TwineERSt10error_code(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
 _ZN4llvm3vfs18directory_iteratorD2Ev.exit:
   %4 = alloca %"class.llvm::vfs::directory_iterator", align 8
   store ptr %1, ptr %0, align 8
@@ -14326,7 +14326,7 @@ _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114RealFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114RealFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN12_GLOBAL__N_114RealFileSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -14369,7 +14369,7 @@ _ZNSt8optionalIN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114RealFileSystemD0Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114RealFileSystemD0Ev(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN12_GLOBAL__N_114RealFileSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -14525,7 +14525,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %56, %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.2") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15764,7 +15764,7 @@ declare void @_ZN4llvm3sys2fs21openNativeFileForReadERKNS_5TwineENS1_9OpenFlagsE
 declare { i32, ptr } @_ZN4llvm16errorToErrorCodeENS_5ErrorE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_18RealFileD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_18RealFileD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_18RealFileE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call { i32, ptr } @_ZN4llvm3sys2fs9closeFileERi(ptr noundef nonnull align 4 dereferenceable(4) %2) #27
@@ -15778,7 +15778,7 @@ define internal void @_ZN12_GLOBAL__N_18RealFileD2Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_18RealFileD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_18RealFileD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_18RealFileE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call { i32, ptr } @_ZN4llvm3sys2fs9closeFileERi(ptr noundef nonnull align 4 dereferenceable(4) %2) #27
@@ -16175,7 +16175,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113RealFSDirIterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113RealFSDirIterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113RealFSDirIterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -16258,7 +16258,7 @@ _ZN4llvm3sys2fs18directory_iteratorD2Ev.exit:     ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113RealFSDirIterD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113RealFSDirIterD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_113RealFSDirIterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -17584,7 +17584,7 @@ _ZSt4copyIPKcPcET0_T_S4_S3_.exit31:               ; preds = %20, %19, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_119InMemoryFileAdaptorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_119InMemoryFileAdaptorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm3vfs6detail12_GLOBAL__N_119InMemoryFileAdaptorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -17592,7 +17592,7 @@ define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_119InMemoryFileAdaptorD2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_119InMemoryFileAdaptorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_119InMemoryFileAdaptorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm3vfs6detail12_GLOBAL__N_119InMemoryFileAdaptorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -17629,7 +17629,7 @@ define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_119InMemoryFileAdaptor6sta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_119InMemoryFileAdaptor9getBufferERKNS_5TwineElbb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture nonnull readnone align 8 %2, i64 %3, i1 noundef zeroext %4, i1 zeroext %5) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_119InMemoryFileAdaptor9getBufferERKNS_5TwineElbb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture nonnull readnone align 8 %2, i64 %3, i1 noundef zeroext %4, i1 zeroext %5) unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit:
   %6 = alloca %"class.std::unique_ptr.53", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21922,7 +21922,7 @@ _ZN12_GLOBAL__N_120CombiningDirIterImpl16incrementDirIterEb.exit: ; preds = %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120CombiningDirIterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120CombiningDirIterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_120CombiningDirIterImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 220
@@ -22048,7 +22048,7 @@ _ZN4llvm3vfs18directory_iteratorD2Ev.exit:        ; preds = %_ZN4llvm9StringSetI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120CombiningDirIterImplD0Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120CombiningDirIterImplD0Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_120CombiningDirIterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 232) #31
   ret void
@@ -22253,7 +22253,7 @@ _ZN4llvm15SmallVectorImplINS_3vfs18directory_iteratorEED2Ev.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFSt10unique_ptrINS_3vfs6detail12InMemoryNodeESt14default_deleteIS4_EENS3_19NewInMemoryNodeInfoEEE11callback_fnIZNS2_18InMemoryFileSystem7addFileERKNS_5TwineElS1_INS_12MemoryBufferES5_ISG_EESt8optionalIjESK_SJ_INS_3sys2fs9file_typeEESJ_INSM_5permsEEE3$_0EES7_lS8_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.103") align 8 %0, i64 %1, ptr nocapture noundef %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFSt10unique_ptrINS_3vfs6detail12InMemoryNodeESt14default_deleteIS4_EENS3_19NewInMemoryNodeInfoEEE11callback_fnIZNS2_18InMemoryFileSystem7addFileERKNS_5TwineElS1_INS_12MemoryBufferES5_ISG_EESt8optionalIjESK_SJ_INS_3sys2fs9file_typeEESJ_INSM_5permsEEE3$_0EES7_lS8_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.103") align 8 initializes((0, 8)) %0, i64 %1, ptr nocapture noundef %2) #0 align 2 {
   %4 = alloca %"class.llvm::vfs::Status", align 8
   %5 = alloca %"class.llvm::vfs::Status", align 8
   %6 = alloca %"class.std::unique_ptr.444", align 8
@@ -22476,7 +22476,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit15:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFSt10unique_ptrINS_3vfs6detail12InMemoryNodeESt14default_deleteIS4_EENS3_19NewInMemoryNodeInfoEEE11callback_fnIZNS2_18InMemoryFileSystem12addFileNoOwnERKNS_5TwineElRKNS_15MemoryBufferRefESt8optionalIjESK_SJ_INS_3sys2fs9file_typeEESJ_INSM_5permsEEE3$_0EES7_lS8_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.103") align 8 %0, i64 %1, ptr nocapture noundef %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFSt10unique_ptrINS_3vfs6detail12InMemoryNodeESt14default_deleteIS4_EENS3_19NewInMemoryNodeInfoEEE11callback_fnIZNS2_18InMemoryFileSystem12addFileNoOwnERKNS_5TwineElRKNS_15MemoryBufferRefESt8optionalIjESK_SJ_INS_3sys2fs9file_typeEESJ_INSM_5permsEEE3$_0EES7_lS8_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.103") align 8 initializes((0, 8)) %0, i64 %1, ptr nocapture noundef %2) #0 align 2 {
   %4 = alloca %"class.llvm::vfs::Status", align 8
   %5 = alloca %"class.llvm::vfs::Status", align 8
   %6 = alloca %"class.std::unique_ptr.444", align 8
@@ -22539,7 +22539,7 @@ _ZN4llvm3vfs6detail19NewInMemoryNodeInfoD2Ev.exit: ; preds = %"_ZZN4llvm3vfs18In
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFSt10unique_ptrINS_3vfs6detail12InMemoryNodeESt14default_deleteIS4_EENS3_19NewInMemoryNodeInfoEEE11callback_fnIZNS2_18InMemoryFileSystem11addHardLinkERKNS_5TwineESF_E3$_0EES7_lS8_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.103") align 8 %0, i64 noundef %1, ptr nocapture noundef %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFSt10unique_ptrINS_3vfs6detail12InMemoryNodeESt14default_deleteIS4_EENS3_19NewInMemoryNodeInfoEEE11callback_fnIZNS2_18InMemoryFileSystem11addHardLinkERKNS_5TwineESF_E3$_0EES7_lS8_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.103") align 8 initializes((0, 8)) %0, i64 noundef %1, ptr nocapture noundef %2) #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
@@ -22618,7 +22618,7 @@ _ZN4llvm3vfs6detail19NewInMemoryNodeInfoD2Ev.exit: ; preds = %_ZNSt10unique_ptrI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_116InMemoryHardLinkD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_116InMemoryHardLinkD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3vfs6detail12InMemoryNodeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -22626,7 +22626,7 @@ define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_116InMemoryHardLinkD2Ev(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_116InMemoryHardLinkD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_116InMemoryHardLinkD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3vfs6detail12InMemoryNodeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -22704,7 +22704,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFSt10unique_ptrINS_3vfs6detail12InMemoryNodeESt14default_deleteIS4_EENS3_19NewInMemoryNodeInfoEEE11callback_fnIZNS2_18InMemoryFileSystem15addSymbolicLinkERKNS_5TwineESF_lSt8optionalIjESH_SG_INS_3sys2fs5permsEEE3$_0EES7_lS8_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.103") align 8 %0, i64 noundef %1, ptr nocapture noundef %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFSt10unique_ptrINS_3vfs6detail12InMemoryNodeESt14default_deleteIS4_EENS3_19NewInMemoryNodeInfoEEE11callback_fnIZNS2_18InMemoryFileSystem15addSymbolicLinkERKNS_5TwineESF_lSt8optionalIjESH_SG_INS_3sys2fs5permsEEE3$_0EES7_lS8_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.103") align 8 initializes((0, 8)) %0, i64 noundef %1, ptr nocapture noundef %2) #0 align 2 {
 _ZNSt10unique_ptrIN4llvm3vfs6detail12_GLOBAL__N_120InMemorySymbolicLinkESt14default_deleteIS4_EED2Ev.exit:
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -22800,7 +22800,7 @@ _ZN4llvm3vfs6detail19NewInMemoryNodeInfoD2Ev.exit: ; preds = %_ZNSt10unique_ptrI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_120InMemorySymbolicLinkD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_120InMemorySymbolicLinkD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3vfs6detail12_GLOBAL__N_120InMemorySymbolicLinkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(81) %2) #27
@@ -22813,7 +22813,7 @@ define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_120InMemorySymbolicLinkD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_120InMemorySymbolicLinkD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm3vfs6detail12_GLOBAL__N_120InMemorySymbolicLinkD0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm3vfs6detail12_GLOBAL__N_120InMemorySymbolicLinkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(81) %2) #27
@@ -23262,7 +23262,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %_ZN12_GLOBAL__N_116
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129RedirectingFSDirRemapIterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_129RedirectingFSDirRemapIterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_129RedirectingFSDirRemapIterImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -23347,7 +23347,7 @@ _ZN4llvm3vfs18directory_iteratorD2Ev.exit:        ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129RedirectingFSDirRemapIterImplD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_129RedirectingFSDirRemapIterImplD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_129RedirectingFSDirRemapIterImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -24002,7 +24002,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_3vfs21RedirectingFileSystem5EntryELb1EE18u
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119FileWithFixedStatusD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119FileWithFixedStatusD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_119FileWithFixedStatusE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(81) %2) #27
@@ -24024,7 +24024,7 @@ _ZNSt10unique_ptrIN4llvm3vfs4FileESt14default_deleteIS2_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119FileWithFixedStatusD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119FileWithFixedStatusD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_119FileWithFixedStatusE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(81) %2) #27

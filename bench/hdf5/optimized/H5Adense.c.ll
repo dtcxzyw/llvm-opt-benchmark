@@ -2996,7 +2996,7 @@ declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @H5O__attr_update_shared(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_write_bt2_cb2(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 {
+define internal noundef i32 @H5A__dense_write_bt2_cb2(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #5 {
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %0, align 8
   store i8 1, ptr %2, align 1
@@ -3008,7 +3008,7 @@ declare i32 @H5HF_write(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @H5HF_op(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5A__dense_copy_fh_cb(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5A__dense_copy_fh_cb(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((16, 24)) %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @H5O_msg_decode(ptr noundef %4, ptr noundef null, i32 noundef 12, i64 noundef %1, ptr noundef %0) #6
   %6 = getelementptr inbounds i8, ptr %2, i64 16

@@ -522,7 +522,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal13preprocessing4util12ITEUtilitiesD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing4util12ITEUtilitiesD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal13preprocessing4util12ITEUtilitiesE, i64 16), ptr %this, align 8
   %d_simplifier = getelementptr inbounds i8, ptr %this, i64 32
@@ -577,7 +577,7 @@ _ZNSt10unique_ptrIN4cvc58internal13preprocessing4util22ContainsTermITEVisitorESt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal13preprocessing4util12ITEUtilitiesD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing4util12ITEUtilitiesD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal13preprocessing4util12ITEUtilitiesE, i64 16), ptr %this, align 8
   %d_simplifier.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -5736,7 +5736,7 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEEbSt4hashIS3_ESt8equal_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal13preprocessing4util22ContainsTermITEVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN4cvc58internal13preprocessing4util22ContainsTermITEVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((32, 40)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %0, align 8
@@ -6740,7 +6740,7 @@ lpad:                                             ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal13preprocessing4util18IncomingArcCounterC2Ebb(ptr noundef nonnull align 8 dereferenceable(58) %this, i1 noundef zeroext %skipVars, i1 noundef zeroext %skipConstants) unnamed_addr #8 align 2 {
+define hidden void @_ZN4cvc58internal13preprocessing4util18IncomingArcCounterC2Ebb(ptr noundef nonnull align 8 dereferenceable(58) initializes((32, 40)) %this, i1 noundef zeroext %skipVars, i1 noundef zeroext %skipConstants) unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %skipVars to i8
   %frombool1 = zext i1 %skipConstants to i8
@@ -7812,7 +7812,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESaIS6_ENSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal13preprocessing4util13ITECompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing4util13ITECompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal13preprocessing4util13ITECompressorE, i64 16), ptr %this, align 8
   tail call void @_ZN4cvc58internal13preprocessing4util13ITECompressor5resetEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
@@ -8070,7 +8070,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal13preprocessing4util13ITECompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal13preprocessing4util13ITECompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN4cvc58internal13preprocessing4util13ITECompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -14061,7 +14061,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 declare void @_ZN4cvc58internal13preprocessing17AssertionPipeline7replaceEmNS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(164), i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal13preprocessing4util20TermITEHeightCounterC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN4cvc58internal13preprocessing4util20TermITEHeightCounterC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((32, 40)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %0, align 8
@@ -15387,7 +15387,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PSt6vectorIS3_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal13preprocessing4util13ITESimplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing4util13ITESimplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(696) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal13preprocessing4util13ITESimplifierE, i64 16), ptr %this, align 8
   invoke void @_ZN4cvc58internal13preprocessing4util13ITESimplifier18clearSimpITECachesEv(ptr noundef nonnull align 8 dereferenceable(696) %this)
@@ -15893,7 +15893,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal13preprocessing4util13ITESimplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(696) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal13preprocessing4util13ITESimplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(696) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN4cvc58internal13preprocessing4util13ITESimplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -30185,7 +30185,7 @@ ehcleanup308:                                     ; preds = %lpad.i.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13preprocessing4util17ITECareSimplifierC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing4util17ITECareSimplifierC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp4 = alloca i8, align 1
@@ -30554,7 +30554,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13preprocessing4util17ITECareSimplifier9getNewSetEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::preprocessing::util::ITECareSimplifier::CareSetPtr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing4util17ITECareSimplifier9getNewSetEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::preprocessing::util::ITECareSimplifier::CareSetPtr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_usedSets = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_usedSets, align 8
@@ -30624,7 +30624,7 @@ return:                                           ; preds = %_ZNSt3setIN4cvc58in
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13preprocessing4util17ITECareSimplifier10CareSetPtr5mkNewERS3_(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::preprocessing::util::ITECareSimplifier::CareSetPtr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %simp) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing4util17ITECareSimplifier10CareSetPtr5mkNewERS3_(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::preprocessing::util::ITECareSimplifier::CareSetPtr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %simp) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
   store ptr %simp, ptr %call, align 8

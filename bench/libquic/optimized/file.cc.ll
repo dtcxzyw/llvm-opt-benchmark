@@ -53,7 +53,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN4base4FileD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base4FileD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base4File4InfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base4File4InfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 10), (16, 40)) %this) unnamed_addr #0 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %is_directory = getelementptr inbounds i8, ptr %this, i64 8
@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base4FileC2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base4FileC2Ev(ptr noundef nonnull align 8 dereferenceable(50) initializes((0, 4)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -1, ptr %this, align 8
   %tracing_path_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -146,7 +146,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base4FileC2ERKNS_8FilePathEj(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i32 noundef %flags) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base4FileC2ERKNS_8FilePathEj(ptr noundef nonnull align 8 dereferenceable(50) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i32 noundef %flags) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -1, ptr %this, align 8
   %tracing_path_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -253,7 +253,7 @@ return:                                           ; preds = %invoke.cont10, %if.
 declare void @_ZN4base11FileTracing13ScopedEnablerD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base4FileC2Ei(ptr noundef nonnull align 8 dereferenceable(50) %this, i32 noundef %platform_file) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base4FileC2Ei(ptr noundef nonnull align 8 dereferenceable(50) initializes((0, 4)) %this, i32 noundef %platform_file) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %platform_file, ptr %this, align 8
   %tracing_path_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -292,7 +292,7 @@ ehcleanup14:                                      ; preds = %ehcleanup13, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base4FileC2ENS0_5ErrorE(ptr noundef nonnull align 8 dereferenceable(50) %this, i32 noundef %error_details) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base4FileC2ENS0_5ErrorE(ptr noundef nonnull align 8 dereferenceable(50) initializes((0, 4)) %this, i32 noundef %error_details) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -1, ptr %this, align 8
   %tracing_path_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -331,7 +331,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base4FileC2EOS0_(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(50) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base4FileC2EOS0_(ptr noundef nonnull align 8 dereferenceable(50) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(50) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef i32 @_ZN4base4File16TakePlatformFileEv(ptr noundef nonnull align 8 dereferenceable(50) %other)
   store i32 %call, ptr %this, align 8
@@ -439,7 +439,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base4File20CreateForAsyncHandleEi(ptr noalias sret(%"class.base::File") align 8 %agg.result, i32 noundef %platform_file) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base4File20CreateForAsyncHandleEi(ptr noalias sret(%"class.base::File") align 8 initializes((0, 4)) %agg.result, i32 noundef %platform_file) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %platform_file, ptr %agg.result, align 8
   %tracing_path_.i = getelementptr inbounds i8, ptr %agg.result, i64 8

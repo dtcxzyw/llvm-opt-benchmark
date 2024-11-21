@@ -826,7 +826,7 @@ declare i32 @stbir__min(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @stbir__max(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__calculate_in_pixel_range(ptr nocapture noundef writeonly %first_pixel, ptr nocapture noundef writeonly %last_pixel, float noundef %out_pixel_center, float noundef %out_filter_radius, float noundef %inv_scale, float noundef %out_shift, i32 noundef %input_size, i32 noundef %edge) local_unnamed_addr #2 {
+define void @stbir__calculate_in_pixel_range(ptr nocapture noundef writeonly initializes((0, 4)) %first_pixel, ptr nocapture noundef writeonly initializes((0, 4)) %last_pixel, float noundef %out_pixel_center, float noundef %out_filter_radius, float noundef %inv_scale, float noundef %out_shift, i32 noundef %input_size, i32 noundef %edge) local_unnamed_addr #2 {
 entry:
   %sub = fsub float %out_pixel_center, %out_filter_radius
   %add = fadd float %out_pixel_center, %out_filter_radius
@@ -1069,7 +1069,7 @@ if.end44:                                         ; preds = %for.end18, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__calculate_out_pixel_range(ptr nocapture noundef writeonly %first_pixel, ptr nocapture noundef writeonly %last_pixel, float noundef %in_pixel_center, float noundef %in_pixels_radius, float noundef %scale, float noundef %out_shift, i32 noundef %out_size) local_unnamed_addr #2 {
+define void @stbir__calculate_out_pixel_range(ptr nocapture noundef writeonly initializes((0, 4)) %first_pixel, ptr nocapture noundef writeonly initializes((0, 4)) %last_pixel, float noundef %in_pixel_center, float noundef %in_pixels_radius, float noundef %scale, float noundef %out_shift, i32 noundef %out_size) local_unnamed_addr #2 {
 entry:
   %sub = fsub float %in_pixel_center, %in_pixels_radius
   %add = fadd float %in_pixel_center, %in_pixels_radius
@@ -24780,7 +24780,7 @@ stbir__encode_scanline.exit:                      ; preds = %if.end.i, %if.then8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__decode_and_resample_for_vertical_gather_loop(ptr nocapture noundef readonly %stbir_info, ptr nocapture noundef %split_info, i32 noundef %n) local_unnamed_addr #2 {
+define void @stbir__decode_and_resample_for_vertical_gather_loop(ptr nocapture noundef readonly %stbir_info, ptr nocapture noundef initializes((12, 16)) %split_info, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %split_info, align 8
   tail call void @stbir__decode_scanline(ptr noundef %stbir_info, i32 noundef %n, ptr noundef %0)
@@ -25911,7 +25911,7 @@ for.end128:                                       ; preds = %for.inc126, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbir__set_sampler(ptr nocapture noundef %samp, i32 noundef %filter, ptr noundef %kernel, ptr noundef %support, i32 noundef %edge, ptr nocapture noundef readonly %scale_info, i32 noundef %always_gather, ptr noundef %user_data) local_unnamed_addr #2 {
+define void @stbir__set_sampler(ptr nocapture noundef initializes((16, 32), (68, 116), (128, 132)) %samp, i32 noundef %filter, ptr noundef %kernel, ptr noundef %support, i32 noundef %edge, ptr nocapture noundef readonly %scale_info, i32 noundef %always_gather, ptr noundef %user_data) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %filter, 0
   br i1 %cmp, label %if.then, label %if.end9
@@ -27327,7 +27327,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir__update_info_from_resize(ptr nocapture noundef %info, ptr nocapture noundef readonly %resize) local_unnamed_addr #15 {
+define void @stbir__update_info_from_resize(ptr nocapture noundef initializes((304, 328), (336, 368), (424, 432), (456, 464)) %info, ptr nocapture noundef readonly %resize) local_unnamed_addr #15 {
 entry:
   %input_data_type = getelementptr inbounds i8, ptr %resize, i64 136
   %0 = load i32, ptr %input_data_type, align 8
@@ -27880,7 +27880,7 @@ return:                                           ; preds = %stbir__clip.exit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbir__init_and_set_layout(ptr noundef %resize, i32 noundef %pixel_layout, i32 noundef %data_type) local_unnamed_addr #8 {
+define void @stbir__init_and_set_layout(ptr noundef initializes((56, 64), (96, 104)) %resize, i32 noundef %pixel_layout, i32 noundef %data_type) local_unnamed_addr #8 {
 entry:
   %input_cb = getelementptr inbounds i8, ptr %resize, i64 56
   store ptr null, ptr %input_cb, align 8
@@ -27923,7 +27923,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbir_resize_init(ptr noundef %resize, ptr noundef %input_pixels, i32 noundef %input_w, i32 noundef %input_h, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout, i32 noundef %data_type) local_unnamed_addr #16 {
+define void @stbir_resize_init(ptr noundef initializes((8, 24), (56, 80), (96, 112), (116, 120)) %resize, ptr noundef %input_pixels, i32 noundef %input_w, i32 noundef %input_h, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_w, i32 noundef %output_h, i32 noundef %output_stride_in_bytes, i32 noundef %pixel_layout, i32 noundef %data_type) local_unnamed_addr #16 {
 entry:
   %input_pixels1 = getelementptr inbounds i8, ptr %resize, i64 8
   store ptr %input_pixels, ptr %input_pixels1, align 8
@@ -27980,7 +27980,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbir_set_datatypes(ptr nocapture noundef %resize, i32 noundef %input_type, i32 noundef %output_type) local_unnamed_addr #17 {
+define void @stbir_set_datatypes(ptr nocapture noundef initializes((136, 144)) %resize, i32 noundef %input_type, i32 noundef %output_type) local_unnamed_addr #17 {
 entry:
   %input_data_type = getelementptr inbounds i8, ptr %resize, i64 136
   store i32 %input_type, ptr %input_data_type, align 8
@@ -28006,7 +28006,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir_set_pixel_callbacks(ptr nocapture noundef %resize, ptr noundef %input_cb, ptr noundef %output_cb) local_unnamed_addr #18 {
+define void @stbir_set_pixel_callbacks(ptr nocapture noundef initializes((56, 64), (96, 104)) %resize, ptr noundef %input_cb, ptr noundef %output_cb) local_unnamed_addr #18 {
 entry:
   %input_cb1 = getelementptr inbounds i8, ptr %resize, i64 56
   store ptr %input_cb, ptr %input_cb1, align 8
@@ -28036,7 +28036,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbir_set_user_data(ptr nocapture noundef %resize, ptr noundef %user_data) local_unnamed_addr #18 {
+define void @stbir_set_user_data(ptr nocapture noundef initializes((0, 8)) %resize, ptr noundef %user_data) local_unnamed_addr #18 {
 entry:
   store ptr %user_data, ptr %resize, align 8
   %samplers = getelementptr inbounds i8, ptr %resize, i64 192
@@ -28060,7 +28060,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbir_set_buffer_ptrs(ptr nocapture noundef %resize, ptr noundef %input_pixels, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_stride_in_bytes) local_unnamed_addr #17 {
+define void @stbir_set_buffer_ptrs(ptr nocapture noundef initializes((8, 16), (64, 72), (104, 112)) %resize, ptr noundef %input_pixels, i32 noundef %input_stride_in_bytes, ptr noundef %output_pixels, i32 noundef %output_stride_in_bytes) local_unnamed_addr #17 {
 entry:
   %input_pixels1 = getelementptr inbounds i8, ptr %resize, i64 8
   store ptr %input_pixels, ptr %input_pixels1, align 8
@@ -28090,7 +28090,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @stbir_set_edgemodes(ptr nocapture noundef writeonly %resize, i32 noundef %horizontal_edge, i32 noundef %vertical_edge) local_unnamed_addr #16 {
+define noundef i32 @stbir_set_edgemodes(ptr nocapture noundef writeonly initializes((120, 124), (152, 160)) %resize, i32 noundef %horizontal_edge, i32 noundef %vertical_edge) local_unnamed_addr #16 {
 entry:
   %horizontal_edge1 = getelementptr inbounds i8, ptr %resize, i64 152
   store i32 %horizontal_edge, ptr %horizontal_edge1, align 8
@@ -28102,7 +28102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @stbir_set_filters(ptr nocapture noundef writeonly %resize, i32 noundef %horizontal_filter, i32 noundef %vertical_filter) local_unnamed_addr #16 {
+define noundef i32 @stbir_set_filters(ptr nocapture noundef writeonly initializes((120, 124), (144, 152)) %resize, i32 noundef %horizontal_filter, i32 noundef %vertical_filter) local_unnamed_addr #16 {
 entry:
   %horizontal_filter1 = getelementptr inbounds i8, ptr %resize, i64 144
   store i32 %horizontal_filter, ptr %horizontal_filter1, align 8
@@ -28114,7 +28114,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @stbir_set_filter_callbacks(ptr nocapture noundef writeonly %resize, ptr noundef %horizontal_filter, ptr noundef %horizontal_support, ptr noundef %vertical_filter, ptr noundef %vertical_support) local_unnamed_addr #16 {
+define noundef i32 @stbir_set_filter_callbacks(ptr nocapture noundef writeonly initializes((120, 124), (160, 192)) %resize, ptr noundef %horizontal_filter, ptr noundef %horizontal_support, ptr noundef %vertical_filter, ptr noundef %vertical_support) local_unnamed_addr #16 {
 entry:
   %horizontal_filter_kernel = getelementptr inbounds i8, ptr %resize, i64 160
   store ptr %horizontal_filter, ptr %horizontal_filter_kernel, align 8
@@ -28130,7 +28130,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @stbir_set_pixel_layouts(ptr nocapture noundef writeonly %resize, i32 noundef %input_pixel_layout, i32 noundef %output_pixel_layout) local_unnamed_addr #16 {
+define noundef i32 @stbir_set_pixel_layouts(ptr nocapture noundef writeonly initializes((120, 124), (128, 136)) %resize, i32 noundef %input_pixel_layout, i32 noundef %output_pixel_layout) local_unnamed_addr #16 {
 entry:
   %input_pixel_layout_public = getelementptr inbounds i8, ptr %resize, i64 128
   store i32 %input_pixel_layout, ptr %input_pixel_layout_public, align 8
@@ -28142,7 +28142,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @stbir_set_non_pm_alpha_speed_over_quality(ptr nocapture noundef writeonly %resize, i32 noundef %non_pma_alpha_speed_over_quality) local_unnamed_addr #16 {
+define noundef i32 @stbir_set_non_pm_alpha_speed_over_quality(ptr nocapture noundef writeonly initializes((116, 124)) %resize, i32 noundef %non_pma_alpha_speed_over_quality) local_unnamed_addr #16 {
 entry:
   %fast_alpha = getelementptr inbounds i8, ptr %resize, i64 116
   store i32 %non_pma_alpha_speed_over_quality, ptr %fast_alpha, align 4
@@ -28152,7 +28152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @stbir_set_input_subrect(ptr nocapture noundef writeonly %resize, double noundef %s0, double noundef %t0, double noundef %s1, double noundef %t1) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @stbir_set_input_subrect(ptr nocapture noundef writeonly initializes((24, 56), (120, 124)) %resize, double noundef %s0, double noundef %t0, double noundef %s1, double noundef %t1) local_unnamed_addr #16 {
 entry:
   %input_s0 = getelementptr inbounds i8, ptr %resize, i64 24
   store double %s0, ptr %input_s0, align 8
@@ -28190,7 +28190,7 @@ return:                                           ; preds = %lor.lhs.false4, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @stbir_set_output_pixel_subrect(ptr nocapture noundef %resize, i32 noundef %subx, i32 noundef %suby, i32 noundef %subw, i32 noundef %subh) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @stbir_set_output_pixel_subrect(ptr nocapture noundef initializes((80, 96), (120, 124)) %resize, i32 noundef %subx, i32 noundef %suby, i32 noundef %subw, i32 noundef %subh) local_unnamed_addr #8 {
 entry:
   %output_subx = getelementptr inbounds i8, ptr %resize, i64 80
   store i32 %subx, ptr %output_subx, align 8
@@ -28232,7 +28232,7 @@ return:                                           ; preds = %lor.lhs.false4, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @stbir_set_pixel_subrect(ptr nocapture noundef %resize, i32 noundef %subx, i32 noundef %suby, i32 noundef %subw, i32 noundef %subh) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @stbir_set_pixel_subrect(ptr nocapture noundef initializes((24, 56), (80, 96), (120, 124)) %resize, i32 noundef %subx, i32 noundef %suby, i32 noundef %subw, i32 noundef %subh) local_unnamed_addr #8 {
 entry:
   %conv = sitofp i32 %subx to double
   %output_w = getelementptr inbounds i8, ptr %resize, i64 72

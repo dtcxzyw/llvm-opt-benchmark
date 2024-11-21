@@ -444,7 +444,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @desc_ring_reset(ptr nocapture noundef writeonly %ring) local_unnamed_addr #3 {
+define dso_local void @desc_ring_reset(ptr nocapture noundef writeonly initializes((0, 28)) %ring) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %ring, i8 0, i64 28, i1 false)
   ret void
@@ -470,7 +470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @desc_ring_set_consume(ptr nocapture noundef writeonly %ring, ptr noundef %consume, i32 noundef %vector) local_unnamed_addr #3 {
+define dso_local void @desc_ring_set_consume(ptr nocapture noundef writeonly initializes((56, 68)) %ring, ptr noundef %consume, i32 noundef %vector) local_unnamed_addr #3 {
 entry:
   %consume1 = getelementptr inbounds i8, ptr %ring, i64 56
   store ptr %consume, ptr %consume1, align 8

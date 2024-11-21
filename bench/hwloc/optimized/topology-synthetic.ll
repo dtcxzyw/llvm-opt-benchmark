@@ -3348,7 +3348,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #13 {
+define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #13 {
   %3 = alloca ptr, align 8
   %4 = call i64 @strtoull(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #22
   %5 = load ptr, ptr %3, align 8

@@ -599,7 +599,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @cba_pdev_link(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+define hidden void @cba_pdev_link(ptr nocapture noundef readnone %0, ptr noundef initializes((8, 16)) %1, ptr nocapture noundef initializes((8, 16)) %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %4, ptr %5, align 8
@@ -618,7 +618,7 @@ define hidden void @cba_pdev_link(ptr nocapture noundef readnone %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @cba_ldev_link(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+define hidden void @cba_ldev_link(ptr nocapture noundef readnone %0, ptr noundef initializes((32, 40)) %1, ptr nocapture noundef initializes((8, 16)) %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %4, ptr %5, align 8
@@ -637,7 +637,7 @@ define hidden void @cba_ldev_link(ptr nocapture noundef readnone %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @cba_ldev_link_acco(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+define hidden void @cba_ldev_link_acco(ptr nocapture noundef readnone %0, ptr noundef initializes((40, 48)) %1, ptr nocapture noundef initializes((8, 16)) %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   store ptr %4, ptr %5, align 8

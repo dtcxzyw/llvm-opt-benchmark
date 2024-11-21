@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.BN_mod_inverse = private unnamed_addr constant [15 x i8] c"BN_mod_inverse\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @int_bn_mod_inverse(ptr noundef %in, ptr noundef %a, ptr noundef %n, ptr noundef %ctx, ptr nocapture noundef writeonly %pnoinv) local_unnamed_addr #0 {
+define ptr @int_bn_mod_inverse(ptr noundef %in, ptr noundef %a, ptr noundef %n, ptr noundef %ctx, ptr nocapture noundef writeonly initializes((0, 4)) %pnoinv) local_unnamed_addr #0 {
 entry:
   %local_B.i = alloca %struct.bignum_st, align 8
   %local_A.i = alloca %struct.bignum_st, align 8

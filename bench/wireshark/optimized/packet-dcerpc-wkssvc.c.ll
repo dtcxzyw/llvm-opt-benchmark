@@ -5994,7 +5994,7 @@ declare i32 @dissect_ndr_wchar_cvstring(ptr noundef, i32 noundef, ptr noundef, p
 declare void @cb_wstr_postprocess(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetWkstaGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetWkstaGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.650, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaGetInfo_server_name, align 4
@@ -6007,7 +6007,7 @@ define internal i32 @wkssvc_dissect_NetWkstaGetInfo_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetWkstaGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetWkstaGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.650, ptr %8, align 8
@@ -6032,7 +6032,7 @@ define internal i32 @wkssvc_dissect_NetWkstaGetInfo_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetWkstaSetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetWkstaSetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.651, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaSetInfo_server_name, align 4
@@ -6051,7 +6051,7 @@ define internal i32 @wkssvc_dissect_NetWkstaSetInfo_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetWkstaSetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetWkstaSetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.651, ptr %8, align 8
@@ -6076,7 +6076,7 @@ define internal i32 @wkssvc_dissect_NetWkstaSetInfo_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetWkstaEnumUsers_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetWkstaEnumUsers_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.652, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaEnumUsers_server_name, align 4
@@ -6095,7 +6095,7 @@ define internal i32 @wkssvc_dissect_NetWkstaEnumUsers_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetWkstaEnumUsers_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetWkstaEnumUsers_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.652, ptr %8, align 8
@@ -6126,7 +6126,7 @@ define internal i32 @wkssvc_dissect_NetWkstaEnumUsers_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrWkstaUserGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrWkstaUserGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.653, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaUserGetInfo_unknown, align 4
@@ -6139,7 +6139,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaUserGetInfo_request(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrWkstaUserGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrWkstaUserGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.653, ptr %8, align 8
@@ -6164,7 +6164,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaUserGetInfo_response(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrWkstaUserSetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrWkstaUserSetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.654, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaUserSetInfo_unknown, align 4
@@ -6183,7 +6183,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaUserSetInfo_request(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrWkstaUserSetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrWkstaUserSetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.654, ptr %8, align 8
@@ -6208,7 +6208,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaUserSetInfo_response(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetWkstaTransportEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetWkstaTransportEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.655, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetWkstaTransportEnum_server_name, align 4
@@ -6227,7 +6227,7 @@ define internal i32 @wkssvc_dissect_NetWkstaTransportEnum_request(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetWkstaTransportEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetWkstaTransportEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.655, ptr %8, align 8
@@ -6258,7 +6258,7 @@ define internal i32 @wkssvc_dissect_NetWkstaTransportEnum_response(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrWkstaTransportAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrWkstaTransportAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.656, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaTransportAdd_server_name, align 4
@@ -6277,7 +6277,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaTransportAdd_request(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrWkstaTransportAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrWkstaTransportAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.656, ptr %8, align 8
@@ -6302,7 +6302,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaTransportAdd_response(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrWkstaTransportDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrWkstaTransportDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.657, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrWkstaTransportDel_server_name, align 4
@@ -6318,7 +6318,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaTransportDel_request(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrWkstaTransportDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrWkstaTransportDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.657, ptr %8, align 8
@@ -6340,7 +6340,7 @@ define internal i32 @wkssvc_dissect_NetrWkstaTransportDel_response(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrUseAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrUseAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.658, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseAdd_server_name, align 4
@@ -6359,7 +6359,7 @@ define internal i32 @wkssvc_dissect_NetrUseAdd_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrUseAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrUseAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.658, ptr %8, align 8
@@ -6384,7 +6384,7 @@ define internal i32 @wkssvc_dissect_NetrUseAdd_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrUseGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrUseGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.659, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseGetInfo_server_name, align 4
@@ -6400,7 +6400,7 @@ define internal i32 @wkssvc_dissect_NetrUseGetInfo_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrUseGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrUseGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.659, ptr %8, align 8
@@ -6425,7 +6425,7 @@ define internal i32 @wkssvc_dissect_NetrUseGetInfo_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrUseDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrUseDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.660, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseDel_server_name, align 4
@@ -6441,7 +6441,7 @@ define internal i32 @wkssvc_dissect_NetrUseDel_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrUseDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrUseDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.660, ptr %8, align 8
@@ -6463,7 +6463,7 @@ define internal i32 @wkssvc_dissect_NetrUseDel_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrUseEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrUseEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.661, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrUseEnum_server_name, align 4
@@ -6482,7 +6482,7 @@ define internal i32 @wkssvc_dissect_NetrUseEnum_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrUseEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrUseEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.661, ptr %8, align 8
@@ -6513,7 +6513,7 @@ define internal i32 @wkssvc_dissect_NetrUseEnum_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrMessageBufferSend_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrMessageBufferSend_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.662, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrMessageBufferSend_server_name, align 4
@@ -6535,7 +6535,7 @@ define internal i32 @wkssvc_dissect_NetrMessageBufferSend_request(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrMessageBufferSend_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrMessageBufferSend_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.662, ptr %8, align 8
@@ -6557,7 +6557,7 @@ define internal i32 @wkssvc_dissect_NetrMessageBufferSend_response(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrWorkstationStatisticsGet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrWorkstationStatisticsGet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.663, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrWorkstationStatisticsGet_server_name, align 4
@@ -6576,7 +6576,7 @@ define internal i32 @wkssvc_dissect_NetrWorkstationStatisticsGet_request(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrWorkstationStatisticsGet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrWorkstationStatisticsGet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.663, ptr %8, align 8
@@ -6601,7 +6601,7 @@ define internal i32 @wkssvc_dissect_NetrWorkstationStatisticsGet_response(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrLogonDomainNameAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrLogonDomainNameAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.664, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrLogonDomainNameAdd_domain_name, align 4
@@ -6611,7 +6611,7 @@ define internal i32 @wkssvc_dissect_NetrLogonDomainNameAdd_request(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrLogonDomainNameAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrLogonDomainNameAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.664, ptr %8, align 8
@@ -6633,7 +6633,7 @@ define internal i32 @wkssvc_dissect_NetrLogonDomainNameAdd_response(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrLogonDomainNameDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrLogonDomainNameDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.665, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrLogonDomainNameDel_domain_name, align 4
@@ -6643,7 +6643,7 @@ define internal i32 @wkssvc_dissect_NetrLogonDomainNameDel_request(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrLogonDomainNameDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrLogonDomainNameDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.665, ptr %8, align 8
@@ -6665,7 +6665,7 @@ define internal i32 @wkssvc_dissect_NetrLogonDomainNameDel_response(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrJoinDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrJoinDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.666, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrJoinDomain_server_name, align 4
@@ -6690,7 +6690,7 @@ define internal i32 @wkssvc_dissect_NetrJoinDomain_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrJoinDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrJoinDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.666, ptr %8, align 8
@@ -6712,7 +6712,7 @@ define internal i32 @wkssvc_dissect_NetrJoinDomain_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrUnjoinDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrUnjoinDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.667, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrUnjoinDomain_server_name, align 4
@@ -6731,7 +6731,7 @@ define internal i32 @wkssvc_dissect_NetrUnjoinDomain_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrUnjoinDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrUnjoinDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.667, ptr %8, align 8
@@ -6753,7 +6753,7 @@ define internal i32 @wkssvc_dissect_NetrUnjoinDomain_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.668, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrRenameMachineInDomain_server_name, align 4
@@ -6775,7 +6775,7 @@ define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain_request(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.668, ptr %8, align 8
@@ -6797,7 +6797,7 @@ define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain_response(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrValidateName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrValidateName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.669, ptr %8, align 8
@@ -6823,7 +6823,7 @@ define internal i32 @wkssvc_dissect_NetrValidateName_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrValidateName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrValidateName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.669, ptr %8, align 8
@@ -6845,7 +6845,7 @@ define internal i32 @wkssvc_dissect_NetrValidateName_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrGetJoinInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrGetJoinInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.670, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrGetJoinInformation_server_name, align 4
@@ -6858,7 +6858,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinInformation_request(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrGetJoinInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrGetJoinInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.670, ptr %8, align 8
@@ -6886,7 +6886,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinInformation_response(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrGetJoinableOus_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrGetJoinableOus_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.671, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrGetJoinableOus_server_name, align 4
@@ -6908,7 +6908,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinableOus_request(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrGetJoinableOus_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrGetJoinableOus_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.671, ptr %8, align 8
@@ -6936,7 +6936,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinableOus_response(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrJoinDomain2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrJoinDomain2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.672, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrJoinDomain2_server_name, align 4
@@ -6961,7 +6961,7 @@ define internal i32 @wkssvc_dissect_NetrJoinDomain2_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrJoinDomain2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrJoinDomain2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.672, ptr %8, align 8
@@ -6983,7 +6983,7 @@ define internal i32 @wkssvc_dissect_NetrJoinDomain2_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrUnjoinDomain2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrUnjoinDomain2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.673, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrUnjoinDomain2_server_name, align 4
@@ -7002,7 +7002,7 @@ define internal i32 @wkssvc_dissect_NetrUnjoinDomain2_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrUnjoinDomain2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrUnjoinDomain2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.673, ptr %8, align 8
@@ -7024,7 +7024,7 @@ define internal i32 @wkssvc_dissect_NetrUnjoinDomain2_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.674, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrRenameMachineInDomain2_server_name, align 4
@@ -7046,7 +7046,7 @@ define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain2_request(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.674, ptr %8, align 8
@@ -7068,7 +7068,7 @@ define internal i32 @wkssvc_dissect_NetrRenameMachineInDomain2_response(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrValidateName2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrValidateName2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.675, ptr %8, align 8
@@ -7094,7 +7094,7 @@ define internal i32 @wkssvc_dissect_NetrValidateName2_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrValidateName2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrValidateName2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.675, ptr %8, align 8
@@ -7116,7 +7116,7 @@ define internal i32 @wkssvc_dissect_NetrValidateName2_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrGetJoinableOus2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrGetJoinableOus2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.676, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrGetJoinableOus2_server_name, align 4
@@ -7138,7 +7138,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinableOus2_request(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrGetJoinableOus2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrGetJoinableOus2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.676, ptr %8, align 8
@@ -7166,7 +7166,7 @@ define internal i32 @wkssvc_dissect_NetrGetJoinableOus2_response(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrAddAlternateComputerName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrAddAlternateComputerName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.677, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrAddAlternateComputerName_server_name, align 4
@@ -7188,7 +7188,7 @@ define internal i32 @wkssvc_dissect_NetrAddAlternateComputerName_request(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrAddAlternateComputerName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrAddAlternateComputerName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.677, ptr %8, align 8
@@ -7210,7 +7210,7 @@ define internal i32 @wkssvc_dissect_NetrAddAlternateComputerName_response(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrRemoveAlternateComputerName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrRemoveAlternateComputerName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.678, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrRemoveAlternateComputerName_server_name, align 4
@@ -7232,7 +7232,7 @@ define internal i32 @wkssvc_dissect_NetrRemoveAlternateComputerName_request(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrRemoveAlternateComputerName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrRemoveAlternateComputerName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.678, ptr %8, align 8
@@ -7254,7 +7254,7 @@ define internal i32 @wkssvc_dissect_NetrRemoveAlternateComputerName_response(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrSetPrimaryComputername_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrSetPrimaryComputername_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.679, ptr %7, align 8
   %8 = load i32, ptr @hf_wkssvc_wkssvc_NetrSetPrimaryComputername_server_name, align 4
@@ -7276,7 +7276,7 @@ define internal i32 @wkssvc_dissect_NetrSetPrimaryComputername_request(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrSetPrimaryComputername_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrSetPrimaryComputername_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.679, ptr %8, align 8
@@ -7298,7 +7298,7 @@ define internal i32 @wkssvc_dissect_NetrSetPrimaryComputername_response(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrEnumerateComputerNames_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrEnumerateComputerNames_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.680, ptr %8, align 8
@@ -7318,7 +7318,7 @@ define internal i32 @wkssvc_dissect_NetrEnumerateComputerNames_request(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wkssvc_dissect_NetrEnumerateComputerNames_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @wkssvc_dissect_NetrEnumerateComputerNames_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.680, ptr %8, align 8

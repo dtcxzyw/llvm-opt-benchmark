@@ -6311,7 +6311,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb10LDBCommandC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERKSt6vectorIS7_SaIS7_EEbSL_(ptr noundef nonnull align 8 dereferenceable(2064) %this, ptr noundef nonnull align 8 dereferenceable(48) %options, ptr noundef nonnull align 8 dereferenceable(24) %flags, i1 noundef zeroext %is_read_only, ptr noundef nonnull align 8 dereferenceable(24) %valid_cmd_line_options) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb10LDBCommandC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERKSt6vectorIS7_SaIS7_EEbSL_(ptr noundef nonnull align 8 dereferenceable(2064) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(48) %options, ptr noundef nonnull align 8 dereferenceable(24) %flags, i1 noundef zeroext %is_read_only, ptr noundef nonnull align 8 dereferenceable(24) %valid_cmd_line_options) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %frombool = zext i1 %is_read_only to i8
@@ -8748,7 +8748,7 @@ return:                                           ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb10LDBCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb10LDBCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2064) initializes((400, 401)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %db_write_buffer_size = alloca i32, align 4
   %ref.tmp = alloca %"class.rocksdb::LDBCommandExecuteResult", align 8
@@ -13497,7 +13497,7 @@ eh.resume:                                        ; preds = %lpad29, %lpad31, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15DBLoaderCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2067) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb15DBLoaderCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2067) initializes((400, 401)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb10LDBCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   %create_if_missing_ = getelementptr inbounds i8, ptr %this, i64 281
@@ -25039,7 +25039,7 @@ eh.resume:                                        ; preds = %arraydestroy.body21
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21ReduceDBLevelsCommand11PrepareArgsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr noalias nonnull sret(%"class.std::vector.3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %db_path, i32 noundef %new_levels, i1 noundef zeroext %print_old_level) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21ReduceDBLevelsCommand11PrepareArgsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr noalias nonnull sret(%"class.std::vector.3") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %db_path, i32 noundef %new_levels, i1 noundef zeroext %print_old_level) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -32767,7 +32767,7 @@ declare void @_ZN7rocksdb10WriteBatch3PutEPNS_18ColumnFamilyHandleERKNS_5SliceES
 declare void @_ZN7rocksdb10WriteBatchD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15BatchPutCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2088) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb15BatchPutCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2088) initializes((400, 401)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb10LDBCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   %create_if_missing_ = getelementptr inbounds i8, ptr %this, i64 281
@@ -36111,7 +36111,7 @@ _ZN7rocksdb6StatusD2Ev.exit10:                    ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb10PutCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2128) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb10PutCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2128) initializes((400, 401)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb10LDBCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   %create_if_missing_ = getelementptr inbounds i8, ptr %this, i64 281
@@ -37019,7 +37019,7 @@ _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EED2Ev.exit21: ; preds = %ehcleanup26, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16PutEntityCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2144) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb16PutEntityCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2144) initializes((400, 401)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb10LDBCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   %create_if_missing_ = getelementptr inbounds i8, ptr %this, i64 281
@@ -38263,7 +38263,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23CheckConsistencyCommand9DoCommandEv(ptr noundef nonnull align 8 dereferenceable(2064) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23CheckConsistencyCommand9DoCommandEv(ptr noundef nonnull align 8 dereferenceable(2064) initializes((403, 404), (1224, 1228)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.rocksdb::Status", align 8
   %paranoid_checks = getelementptr inbounds i8, ptr %this, i64 403
@@ -38933,7 +38933,7 @@ eh.resume:                                        ; preds = %lpad4, %lpad6, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13RepairCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2065) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13RepairCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2065) initializes((400, 401)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN7rocksdb10LDBCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   %verbose_ = getelementptr inbounds i8, ptr %this, i64 2064
@@ -44305,7 +44305,7 @@ declare void @_ZN7rocksdb13SstFileWriter6FinishEPNS_19ExternalSstFileInfoE(ptr s
 declare void @_ZN7rocksdb13SstFileWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb28WriteExternalSstFilesCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2096) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb28WriteExternalSstFilesCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2096) initializes((400, 401)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb10LDBCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   %create_if_missing_ = getelementptr inbounds i8, ptr %this, i64 281
@@ -45310,7 +45310,7 @@ eh.resume:                                        ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb29IngestExternalSstFilesCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2102) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb29IngestExternalSstFilesCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2102) initializes((400, 401)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7rocksdb10LDBCommand19OverrideBaseOptionsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this)
   %create_if_missing_ = getelementptr inbounds i8, ptr %this, i64 281
@@ -54570,7 +54570,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115InMemoryHandler5PutCFEjRKNS_5SliceES4_(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115InMemoryHandler5PutCFEjRKNS_5SliceES4_(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %row_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %row_, align 8
@@ -54840,7 +54840,7 @@ eh.resume:                                        ; preds = %lpad16, %lpad18, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115InMemoryHandler7MergeCFEjRKNS_5SliceES4_(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115InMemoryHandler7MergeCFEjRKNS_5SliceES4_(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %row_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %row_, align 8
@@ -54879,7 +54879,7 @@ entry:
 declare void @_ZN7rocksdb10WriteBatch7Handler7LogDataERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115InMemoryHandler16MarkBeginPrepareEb(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %this, i1 noundef zeroext %unprepare) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115InMemoryHandler16MarkBeginPrepareEb(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %this, i1 noundef zeroext %unprepare) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %row_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %row_, align 8
@@ -54945,7 +54945,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115InMemoryHandler8MarkNoopEb(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %this, i1 zeroext %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115InMemoryHandler8MarkNoopEb(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(18) %this, i1 zeroext %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %row_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %row_, align 8

@@ -393,7 +393,7 @@ declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc56parser14Smt2TermParserC2ERNS0_9Smt2LexerERNS0_9Smt2StateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(33178) %lex, ptr noundef nonnull align 8 dereferenceable(512) %state) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc56parser14Smt2TermParserC2ERNS0_9Smt2LexerERNS0_9Smt2StateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(33178) %lex, ptr noundef nonnull align 8 dereferenceable(512) %state) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser14Smt2TermParserE, i64 16), ptr %this, align 8
   %d_lex = getelementptr inbounds i8, ptr %this, i64 8
@@ -8195,7 +8195,7 @@ declare noundef ptr @_ZNK4cvc56parser11ParserState9getSolverEv(ptr noundef nonnu
 declare noundef i32 @_ZN4cvc56parser5Lexer9nextTokenEv(ptr noundef nonnull align 8 dereferenceable(32892)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser14Smt2TermParser32continueParseQualifiedIdentifierEb(ptr noalias sret(%"struct.cvc5::ParseOp") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %isOperator) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser14Smt2TermParser32continueParseQualifiedIdentifierEb(ptr noalias sret(%"struct.cvc5::ParseOp") align 8 initializes((0, 4)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %isOperator) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.cvc5::ParseOp", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8517,7 +8517,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser14Smt2TermParser30continueParseIndexedIdentifierEb(ptr noalias sret(%"struct.cvc5::ParseOp") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %isOperator) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser14Smt2TermParser30continueParseIndexedIdentifierEb(ptr noalias sret(%"struct.cvc5::ParseOp") align 8 initializes((0, 4)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %isOperator) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i = alloca i64, align 8
   %__guard.i = alloca %struct._Guard, align 8
@@ -9580,7 +9580,7 @@ declare noundef zeroext i1 @_ZN4cvc56parser9Smt2State9isClosureERKNSt7__cxx1112b
 declare void @_ZN4cvc56parser11ParserState9pushScopeEb(ptr noundef nonnull align 8 dereferenceable(168), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser14Smt2TermParser18parseSortedVarListB5cxx11Ev(ptr noalias sret(%"class.std::vector.65") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser14Smt2TermParser18parseSortedVarListB5cxx11Ev(ptr noalias sret(%"class.std::vector.65") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %t = alloca %"class.cvc5::Sort", align 8
@@ -11677,7 +11677,7 @@ _ZNSt12_Vector_baseISt4pairIN4cvc57ParseOpESt6vectorINS1_4TermESaIS4_EEESaIS7_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser14Smt2TermParser13parseTermListEv(ptr noalias sret(%"class.std::vector.53") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser14Smt2TermParser13parseTermListEv(ptr noalias sret(%"class.std::vector.53") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"class.cvc5::Term", align 8
   %d_lex = getelementptr inbounds i8, ptr %this, i64 8
@@ -12797,7 +12797,7 @@ ehcleanup82:                                      ; preds = %ehcleanup66, %lpad5
 declare void @_ZN4cvc54SortC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser14Smt2TermParser16parseNumeralListB5cxx11Ev(ptr noalias sret(%"class.std::vector.113") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser14Smt2TermParser16parseNumeralListB5cxx11Ev(ptr noalias sret(%"class.std::vector.113") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -13007,7 +13007,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser14Smt2TermParser13parseSortListEv(ptr noalias sret(%"class.std::vector.118") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser14Smt2TermParser13parseSortListEv(ptr noalias sret(%"class.std::vector.118") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.cvc5::Sort", align 8
   %d_lex = getelementptr inbounds i8, ptr %this, i64 8
@@ -13227,7 +13227,7 @@ eh.resume:                                        ; preds = %lpad20, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser14Smt2TermParser15parseSymbolListB5cxx11ENS0_16DeclarationCheckENS0_10SymbolTypeE(ptr noalias sret(%"class.std::vector.113") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %check, i32 noundef %type) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser14Smt2TermParser15parseSymbolListB5cxx11ENS0_16DeclarationCheckENS0_10SymbolTypeE(ptr noalias sret(%"class.std::vector.113") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %check, i32 noundef %type) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sym = alloca %"class.std::__cxx11::basic_string", align 8
   %d_lex = getelementptr inbounds i8, ptr %this, i64 8
@@ -14670,7 +14670,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser14Smt2TermParser17parseDatatypesDefEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ImSaImEE(ptr noalias sret(%"class.std::vector.131") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %isCo, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dnames, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %arities) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser14Smt2TermParser17parseDatatypesDefEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS2_ImSaImEE(ptr noalias sret(%"class.std::vector.131") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %isCo, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dnames, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %arities) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.cvc5::Sort", align 8
   %params = alloca %"class.std::vector.118", align 8

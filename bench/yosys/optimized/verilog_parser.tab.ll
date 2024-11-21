@@ -18025,7 +18025,7 @@ define internal fastcc noundef ptr @_ZL10checkRangePN5Yosys3AST7AstNodeES2_(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15addWiretypeNodePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys3AST7AstNodeE(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15addWiretypeNodePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5Yosys3AST7AstNodeE(ptr noundef %0, ptr nocapture noundef initializes((148, 149)) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 148
   store i8 1, ptr %3, align 4
   %4 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #36
@@ -18986,7 +18986,7 @@ _ZNSt3mapIN5Yosys5RTLIL8IdStringEPNS0_3AST7AstNodeESt4lessIS2_ESaISt4pairIKS2_S5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19rewriteAsMemoryNodePN5Yosys3AST7AstNodeES2_(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @_ZL19rewriteAsMemoryNodePN5Yosys3AST7AstNodeES2_(ptr nocapture noundef initializes((4, 8)) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 7, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
@@ -19524,7 +19524,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE9push_backERKS3_.exit: ; preds = %33, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL16addAsgnBinopStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_NS4_11AstNodeTypeES6_24FRONTEND_VERILOG_YYLTYPESC_(ptr noundef %0, ptr noundef returned %1, i32 noundef %2, ptr noundef %3, i64 %4, ptr nocapture noundef readonly byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL16addAsgnBinopStmtPN5Yosys7hashlib4dictINS_5RTLIL8IdStringEPNS_3AST7AstNodeENS0_8hash_opsIS3_EEEES6_NS4_11AstNodeTypeES6_24FRONTEND_VERILOG_YYLTYPESC_(ptr noundef %0, ptr noundef returned %1, i32 noundef %2, ptr noundef initializes((264, 280)) %3, i64 %4, ptr nocapture noundef readonly byval(%struct.FRONTEND_VERILOG_YYLTYPE) align 8 %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
   %.sroa.3.0.extract.shift = lshr i64 %4, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32

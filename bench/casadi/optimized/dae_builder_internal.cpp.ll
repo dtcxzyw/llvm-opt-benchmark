@@ -3761,7 +3761,7 @@ switch.lookup:                                    ; preds = %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi8VariableC2ExxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(400) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi8VariableC2ExxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_2MXE(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 40)) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [1 x i64], align 8
   %7 = alloca double, align 8
   store i64 %1, ptr %0, align 8
@@ -4032,7 +4032,7 @@ declare void @_ZN6casadi2MXC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 declare void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi8Variable10export_xmlERKNS_18DaeBuilderInternalE(ptr dead_on_unwind noalias writable sret(%"struct.casadi::XmlNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi8Variable10export_xmlERKNS_18DaeBuilderInternalE(ptr dead_on_unwind noalias writable sret(%"struct.casadi::XmlNode") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5328,7 +5328,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi18DaeBuilderInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(1177) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi18DaeBuilderInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(1177) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi18DaeBuilderInternalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 504
   %3 = load ptr, ptr %2, align 8
@@ -20280,7 +20280,7 @@ define void @_ZN6casadi18DaeBuilderInternal13iso_8601_timeB5cxx11Ev(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal24generate_model_variablesEv(ptr dead_on_unwind noalias writable sret(%"struct.casadi::XmlNode") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal24generate_model_variablesEv(ptr dead_on_unwind noalias writable sret(%"struct.casadi::XmlNode") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.casadi::XmlNode", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -20355,7 +20355,7 @@ _ZNSt6vectorIN6casadi7XmlNodeESaIS1_EE9push_backEOS1_.exit: ; preds = %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal24generate_model_structureEv(ptr dead_on_unwind noalias writable sret(%"struct.casadi::XmlNode") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal24generate_model_structureEv(ptr dead_on_unwind noalias writable sret(%"struct.casadi::XmlNode") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26031,7 +26031,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt10scie
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal9start_allEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.8") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal9start_allEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.8") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 504
   %4 = load ptr, ptr %3, align 8
@@ -30317,7 +30317,7 @@ _ZNK6casadi18DaeBuilderInternal3varEm.exit:       ; preds = %85
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal3varERKSt6vectorImSaImEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal3varERKSt6vectorImSaImEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -30707,7 +30707,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit20:     ; preds = %_ZSt8_DestroyIPN6ca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal4ddefEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal4ddefEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 824
   %4 = getelementptr inbounds i8, ptr %1, i64 832
@@ -32689,7 +32689,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit20:     ; preds = %_ZSt8_DestroyIPN6ca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal4wdefEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal4wdefEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 848
   %4 = getelementptr inbounds i8, ptr %1, i64 856
@@ -35196,7 +35196,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit210:    ; preds = %_ZSt8_DestroyIPN6ca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal5inputENS0_20DaeBuilderInternalInE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK6casadi18DaeBuilderInternal5inputENS0_20DaeBuilderInternalInE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   switch i32 %2, label %24 [
     i32 0, label %4
     i32 1, label %6
@@ -35571,7 +35571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal6outputENS0_21DaeBuilderInternalOutE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK6casadi18DaeBuilderInternal6outputENS0_21DaeBuilderInternalOutE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   switch i32 %2, label %10 [
     i32 0, label %4
     i32 1, label %5
@@ -38322,7 +38322,7 @@ define noundef zeroext i1 @_ZNK6casadi18DaeBuilderInternal12has_variableERKNSt7_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal13all_variablesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal13all_variablesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 504
   %4 = getelementptr inbounds i8, ptr %1, i64 512
@@ -40860,7 +40860,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIPN6ca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal3odeEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal3odeEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -41157,7 +41157,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc44, %98
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal3algEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal3algEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -41454,7 +41454,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc44, %98
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal4quadEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal4quadEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -41751,7 +41751,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc44, %98
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal4ydefEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal4ydefEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 872
   %4 = getelementptr inbounds i8, ptr %1, i64 880
@@ -55437,7 +55437,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit42:     ; preds = %_ZSt8_DestroyIPN6ca
 declare void @_ZN6casadi8FunctionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listINS_2MXEERKSt6vectorISA_SaISA_EERKSC_IS6_SaIS6_EESK_RKSt3mapIS6_NS_11GenericTypeESt4lessIS6_ESaISt4pairIS7_SM_EEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr, i64, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal4cdefEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal4cdefEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1177) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 800
   %4 = getelementptr inbounds i8, ptr %1, i64 808
@@ -59982,7 +59982,7 @@ _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal9attributeENS_9AttributeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.8") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1177) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal9attributeENS_9AttributeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.8") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(1177) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -60437,7 +60437,7 @@ _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi18DaeBuilderInternal16string_attributeENS_9AttributeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1177) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi18DaeBuilderInternal16string_attributeENS_9AttributeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(1177) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %3, i64 8

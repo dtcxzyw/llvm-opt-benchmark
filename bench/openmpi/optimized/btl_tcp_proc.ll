@@ -78,7 +78,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [69 x i8] c"Unable to find reachable pairing between local and remote interfaces\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_btl_tcp_proc_construct(ptr noundef %0) #0 {
+define internal void @mca_btl_tcp_proc_construct(ptr noundef initializes((40, 80), (152, 160)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   %3 = load i32, ptr @opal_class_init_epoch, align 4
@@ -1798,7 +1798,7 @@ declare i32 @getpid() local_unnamed_addr #5
 declare ptr @opal_net_get_hostname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @mca_btl_tcp_proc_tosocks(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @mca_btl_tcp_proc_tosocks(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 128)) %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i8, ptr %3, align 4

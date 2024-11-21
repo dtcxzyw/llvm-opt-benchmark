@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3ozz9animation11BlendingJobC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3ozz9animation11BlendingJobC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation11BlendingJob5LayerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3ozz9animation11BlendingJob5LayerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 4), (8, 40)) %0) unnamed_addr #0 align 2 {
   store float 0.000000e+00, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -23,7 +23,7 @@ define dso_local void @_ZN3ozz9animation11BlendingJob5LayerC2Ev(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation11BlendingJobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3ozz9animation11BlendingJobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 4), (8, 72)) %0) unnamed_addr #0 align 2 {
   store float 0x3FB99999A0000000, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)

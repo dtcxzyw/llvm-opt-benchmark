@@ -509,7 +509,7 @@ return:                                           ; preds = %for.end181, %if.the
 declare i32 @SHA1_Init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @tls1_sha1_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %md_out) unnamed_addr #5 {
+define internal void @tls1_sha1_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly initializes((0, 20)) %md_out) unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   %shr = lshr i32 %0, 24

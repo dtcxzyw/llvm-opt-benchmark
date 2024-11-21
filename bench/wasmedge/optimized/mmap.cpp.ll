@@ -12,7 +12,7 @@ $__clang_call_terminate = comdat any
 @_ZN8WasmEdge4MMapD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8WasmEdge4MMapD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.stat, align 8
   store ptr null, ptr %0, align 8
   %4 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #12

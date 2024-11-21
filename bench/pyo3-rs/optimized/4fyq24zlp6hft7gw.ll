@@ -123,7 +123,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.859c971086dc2330fefd4e5113c8592c.118 = private unnamed_addr constant <{ [11 x i8] }> <{ [11 x i8] c"PyClassImpl" }>, align 1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend6pyimpl16PyImplPyO3Option5Crate17h516307f6ddda2dcdE(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN19pyo3_macros_backend6pyimpl16PyImplPyO3Option5Crate17h516307f6ddda2dcdE(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 56)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   ret void
 }

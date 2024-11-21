@@ -1391,7 +1391,7 @@ RB_FL_SET.exit69:                                 ; preds = %RB_FL_SET.exit67, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @rb_setup_fake_str(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define dso_local noundef i64 @rb_setup_fake_str(ptr noundef initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = tail call i32 @rb_enc_to_index(ptr noundef %3) #32
   store i64 3221233669, ptr %0, align 8
   %.not.i = icmp eq ptr %1, null
@@ -5651,7 +5651,7 @@ rb_enc_asciicompat.exit:                          ; preds = %rb_enc_asciicompat.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_enc_strlen_cr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define hidden i64 @rb_enc_strlen_cr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #1 {
   store i32 0, ptr %3, align 4
   %5 = getelementptr i8, ptr %2, i64 16
   %.val76 = load i32, ptr %5, align 8
@@ -7244,7 +7244,7 @@ define hidden ptr @rb_str_to_cstr(i64 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @str_null_check(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #1 {
+define internal fastcc ptr @str_null_check(i64 noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #1 {
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8, !noalias !120
   %5 = and i64 %4, 8192

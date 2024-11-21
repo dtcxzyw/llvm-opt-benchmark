@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.80e9a30ce82117d8bd52f3be3e9fb032.1 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.80e9a30ce82117d8bd52f3be3e9fb032.0, [16 x i8] c"\19\00\00\00\00\00\00\00>\00\00\00\09\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13logos_codegen4util9MaybeVoid7replace17h83b027c4d82091f4E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 {
+define hidden void @_ZN13logos_codegen4util9MaybeVoid7replace17h83b027c4d82091f4E(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
@@ -16,7 +16,7 @@ define hidden void @_ZN13logos_codegen4util9MaybeVoid7replace17h83b027c4d82091f4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13logos_codegen4util9MaybeVoid4take17hee9224ede371c24eE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN13logos_codegen4util9MaybeVoid4take17hee9224ede371c24eE(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture align 8 %1) unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i64 -9223372036854775807, ptr %1, align 8
   ret void

@@ -215,7 +215,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN7rocksdb10LDBOptionsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb10LDBOptionsC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb10LDBOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb10LDBOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)

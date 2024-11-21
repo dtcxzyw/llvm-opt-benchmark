@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [51 x i8] c"Nwk_NodeIfToHop(): Computing local AIG has failed.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Nwk_ManSetIfParsDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Nwk_ManSetIfParsDefault(ptr nocapture noundef writeonly initializes((0, 352)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %2, i8 0, i64 336, i1 false)
   store i32 6, ptr %0, align 8
@@ -940,7 +940,7 @@ declare ptr @Tim_ManDup(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @Nwk_ManMinimumBase(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Nwk_MappingIf(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define ptr @Nwk_MappingIf(ptr noundef %0, ptr noundef %1, ptr noundef initializes((288, 296)) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 136
   %.val26 = load i32, ptr %4, align 8
   %5 = sext i32 %.val26 to i64

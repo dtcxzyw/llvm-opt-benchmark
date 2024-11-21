@@ -7726,7 +7726,7 @@ declare void @initThreadedIO() local_unnamed_addr #4
 declare void @set_jemalloc_bg_thread(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @populateCommandLegacyRangeSpec(ptr nocapture noundef %c) local_unnamed_addr #0 {
+define dso_local void @populateCommandLegacyRangeSpec(ptr nocapture noundef initializes((232, 288)) %c) local_unnamed_addr #0 {
 entry:
   %legacy_range_key_spec = getelementptr inbounds i8, ptr %c, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %legacy_range_key_spec, i8 0, i64 56, i1 false)
@@ -7925,7 +7925,7 @@ entry:
 declare ptr @sdscatfmt(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @commandAddSubcommand(ptr noundef %parent, ptr noundef %subcommand, ptr noundef %declared_name) local_unnamed_addr #0 {
+define dso_local void @commandAddSubcommand(ptr noundef %parent, ptr noundef initializes((208, 212), (296, 304)) %subcommand, ptr noundef %declared_name) local_unnamed_addr #0 {
 entry:
   %subcommands_dict = getelementptr inbounds i8, ptr %parent, i64 288
   %0 = load ptr, ptr %subcommands_dict, align 8
@@ -13941,7 +13941,7 @@ declare i64 @hdr_value_at_percentile(ptr noundef, double noundef) local_unnamed_
 declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getSafeInfoString(ptr noundef %s, i64 noundef %len, ptr nocapture noundef writeonly %tmp) local_unnamed_addr #0 {
+define dso_local ptr @getSafeInfoString(ptr noundef %s, i64 noundef %len, ptr nocapture noundef writeonly initializes((0, 8)) %tmp) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %tmp, align 8
   %call = tail call ptr @mempbrk(ptr noundef %s, i64 noundef %len, ptr noundef nonnull @unsafe_info_chars, i64 noundef 4) #40

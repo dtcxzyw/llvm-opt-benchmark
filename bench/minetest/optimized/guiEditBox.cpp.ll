@@ -206,7 +206,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
@@ -478,7 +478,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10GUIEditBox16setOverrideColorEN3irr5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) %this, i32 %color.coerce) unnamed_addr #9 align 2 {
+define dso_local void @_ZN10GUIEditBox16setOverrideColorEN3irr5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) initializes((320, 321), (412, 416)) %this, i32 %color.coerce) unnamed_addr #9 align 2 {
 entry:
   %m_override_color = getelementptr inbounds i8, ptr %this, i64 412
   store i32 %color.coerce, ptr %m_override_color, align 4, !tbaa !59
@@ -499,7 +499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10GUIEditBox19enableOverrideColorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) %this, i1 noundef zeroext %enable) unnamed_addr #9 align 2 {
+define dso_local void @_ZN10GUIEditBox19enableOverrideColorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) initializes((320, 321)) %this, i1 noundef zeroext %enable) unnamed_addr #9 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %m_override_color_enabled = getelementptr inbounds i8, ptr %this, i64 320
@@ -508,7 +508,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10GUIEditBox11setWordWrapEb(ptr noundef nonnull align 8 dereferenceable(496) %this, i1 noundef zeroext %enable) unnamed_addr #7 align 2 {
+define dso_local void @_ZN10GUIEditBox11setWordWrapEb(ptr noundef nonnull align 8 dereferenceable(496) initializes((321, 322)) %this, i1 noundef zeroext %enable) unnamed_addr #7 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %m_word_wrap = getelementptr inbounds i8, ptr %this, i64 321
@@ -521,7 +521,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10GUIEditBox12setMultiLineEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) %this, i1 noundef zeroext %enable) unnamed_addr #9 align 2 {
+define dso_local void @_ZN10GUIEditBox12setMultiLineEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) initializes((322, 323)) %this, i1 noundef zeroext %enable) unnamed_addr #9 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %m_multiline = getelementptr inbounds i8, ptr %this, i64 322
@@ -530,7 +530,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10GUIEditBox13setAutoScrollEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) %this, i1 noundef zeroext %enable) unnamed_addr #9 align 2 {
+define dso_local void @_ZN10GUIEditBox13setAutoScrollEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) initializes((323, 324)) %this, i1 noundef zeroext %enable) unnamed_addr #9 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %m_autoscroll = getelementptr inbounds i8, ptr %this, i64 323
@@ -539,7 +539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10GUIEditBox14setPasswordBoxEbw(ptr noundef nonnull align 8 dereferenceable(496) %this, i1 noundef zeroext %password_box, i32 noundef signext %password_char) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10GUIEditBox14setPasswordBoxEbw(ptr noundef nonnull align 8 dereferenceable(496) initializes((325, 326)) %this, i1 noundef zeroext %password_box, i32 noundef signext %password_char) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %password_box to i8
   %m_passwordbox = getelementptr inbounds i8, ptr %this, i64 325
@@ -596,7 +596,7 @@ if.end:                                           ; preds = %invoke.cont.i.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10GUIEditBox16setTextAlignmentEN3irr3gui14EGUI_ALIGNMENTES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) %this, i32 noundef %horizontal, i32 noundef %vertical) unnamed_addr #9 align 2 {
+define dso_local void @_ZN10GUIEditBox16setTextAlignmentEN3irr3gui14EGUI_ALIGNMENTES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) initializes((384, 392)) %this, i32 noundef %horizontal, i32 noundef %vertical) unnamed_addr #9 align 2 {
 entry:
   %m_halign = getelementptr inbounds i8, ptr %this, i64 384
   store i32 %horizontal, ptr %m_halign, align 8, !tbaa !66
@@ -753,7 +753,7 @@ if.end:                                           ; preds = %if.then, %_ZN3irr4c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10GUIEditBox6setMaxEj(ptr noundef nonnull align 8 dereferenceable(496) %this, i32 noundef %max) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10GUIEditBox6setMaxEj(ptr noundef nonnull align 8 dereferenceable(496) initializes((408, 412)) %this, i32 noundef %max) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   %m_max = getelementptr inbounds i8, ptr %this, i64 408
@@ -1150,7 +1150,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10GUIEditBox13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) %this, i1 noundef zeroext %border) unnamed_addr #9 align 2 {
+define dso_local void @_ZN10GUIEditBox13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) initializes((324, 325)) %this, i1 noundef zeroext %border) unnamed_addr #9 align 2 {
 entry:
   %frombool = zext i1 %border to i8
   %m_border = getelementptr inbounds i8, ptr %this, i64 324
@@ -1159,7 +1159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10GUIEditBox11setWritableEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) %this, i1 noundef zeroext %can_write_text) unnamed_addr #9 align 2 {
+define dso_local void @_ZN10GUIEditBox11setWritableEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) initializes((432, 433)) %this, i1 noundef zeroext %can_write_text) unnamed_addr #9 align 2 {
 entry:
   %frombool = zext i1 %can_write_text to i8
   %m_writable = getelementptr inbounds i8, ptr %this, i64 432

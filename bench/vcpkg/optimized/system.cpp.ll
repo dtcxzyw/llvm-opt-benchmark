@@ -209,7 +209,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN5vcpkg14get_
 declare i32 @getpid() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg19to_cpu_architectureENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional") align 4 %0, ptr %1, i64 %2) local_unnamed_addr #2 {
+define dso_local void @_ZN5vcpkg19to_cpu_architectureENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional") align 4 initializes((0, 1), (4, 5)) %0, ptr %1, i64 %2) local_unnamed_addr #2 {
   %4 = tail call noundef zeroext i1 @_ZN5vcpkg7Strings29case_insensitive_ascii_equalsENS_10StringViewES1_(ptr %1, i64 %2, ptr nonnull @.str, i64 3)
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   br i1 %4, label %6, label %7
@@ -399,7 +399,7 @@ define dso_local noundef i32 @_ZN5vcpkg18get_host_processorEv() local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg32get_supported_host_architecturesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg32get_supported_host_architecturesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN5vcpkg15CPUArchitectureESaIS1_EE9push_backEOS1_.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %1 = getelementptr inbounds i8, ptr %0, i64 8

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [34 x i8] c"Aig_ManDupRepr: Check has failed.\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @Aig_ManReprStart(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Aig_ManReprStart(ptr nocapture noundef writeonly initializes((256, 268)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   store i32 %1, ptr %3, align 8
   %4 = sext i32 %1 to i64
@@ -24,7 +24,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Aig_ManReprStop(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @Aig_ManReprStop(ptr nocapture noundef initializes((264, 268)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1074,7 +1074,7 @@ Aig_ManRemapRepr.exit.thread:                     ; preds = %Aig_ManRemapRepr.ex
 declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ManMarkValidChoices(ptr noundef %0) local_unnamed_addr #6 {
+define void @Aig_ManMarkValidChoices(ptr noundef initializes((248, 256)) %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val37 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val37, i64 4

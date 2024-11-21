@@ -80,7 +80,7 @@ declare void @_Z21ZStatUnitOpsPerSecond15LogTargetHandleRK12ZStatSamplerRK19ZSta
 declare void @_ZN12ZStatCounterC1EPKcS1_PFv15LogTargetHandleRK12ZStatSamplerRK19ZStatSamplerHistoryE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22ZPageCacheFlushClosureC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN22ZPageCacheFlushClosureC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22ZPageCacheFlushClosure, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -828,7 +828,7 @@ _ZN10ZPageCache9free_pageEP5ZPage.exit.thread:    ; preds = %_ZN10ZPageCache9fre
 declare noundef ptr @_ZN5ZPage5splitE9ZPageTypem(ptr noundef nonnull align 8 dereferenceable(192), i8 noundef zeroext, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ZPageCache9free_pageEP5ZPage(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10ZPageCache9free_pageEP5ZPage(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef initializes((176, 192)) %1) local_unnamed_addr #2 align 2 {
   %3 = load i8, ptr %1, align 8
   switch i8 %3, label %39 [
     i8 0, label %4
@@ -1479,7 +1479,7 @@ define hidden noundef i64 @_ZN10ZPageCache18flush_for_uncommitEmP5ZListI5ZPageEP
 declare noundef double @_ZN2os11elapsedTimeEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ZPageCache15set_last_commitEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10ZPageCache15set_last_commitEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 64)) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #9
   %3 = tail call double @llvm.ceil.f64(double %2)
   %4 = fptoui double %3 to i64

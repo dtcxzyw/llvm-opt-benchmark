@@ -2792,7 +2792,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb18SeqnoToTimeMapping4CopyEm(ptr noalias sret(%"class.rocksdb::SeqnoToTimeMapping") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %this, i64 noundef %smallest_seqno) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb18SeqnoToTimeMapping4CopyEm(ptr noalias sret(%"class.rocksdb::SeqnoToTimeMapping") align 8 initializes((0, 96)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %this, i64 noundef %smallest_seqno) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %agg.tmp1.i.i.i = alloca %"struct.std::_Deque_iterator", align 8

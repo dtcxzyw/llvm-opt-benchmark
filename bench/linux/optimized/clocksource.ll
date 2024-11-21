@@ -1377,7 +1377,7 @@ define internal fastcc void @clocksource_select_watchdog(i1 noundef zeroext %0) 
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @clocksource_change_rating(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define dso_local void @clocksource_change_rating(ptr noundef initializes((72, 76)) %0, i32 noundef %1) #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @clocksource_mutex) #16
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @watchdog_lock) #16
   %4 = getelementptr inbounds i8, ptr %0, i64 56

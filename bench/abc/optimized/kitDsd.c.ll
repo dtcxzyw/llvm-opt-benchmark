@@ -2893,7 +2893,7 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i22, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Kit_DsdGetSupports(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define i32 @Kit_DsdGetSupports(ptr nocapture noundef initializes((16, 24)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i64
@@ -3954,7 +3954,7 @@ select.unfold.i319:                               ; preds = %select.unfold.i319,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Kit_DsdTruthComputeTwo(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define ptr @Kit_DsdTruthComputeTwo(ptr noundef %0, ptr noundef initializes((16, 24)) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i64
@@ -4542,7 +4542,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %K
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_DsdTruthPartialTwo(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define void @Kit_DsdTruthPartialTwo(ptr noundef %0, ptr noundef initializes((16, 24)) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @Kit_DsdTruthComputeTwo(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %5)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %Kit_TruthCopy.exit, label %8
@@ -4828,7 +4828,7 @@ define ptr @Kit_DsdNonDsdPrimeMax(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Kit_DsdNonDsdSupports(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define i32 @Kit_DsdNonDsdSupports(ptr nocapture noundef initializes((16, 24)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i64

@@ -4725,7 +4725,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @PMIx_server_register_nspace(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @opcbfunc(i32 noundef %0, ptr noundef %1) #0 {
+define internal void @opcbfunc(i32 noundef %0, ptr noundef initializes((212, 216)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 212
   store i32 %0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 120
@@ -4750,7 +4750,7 @@ declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #3
 declare void @PMIx_Info_destruct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @cndbfunc(i32 noundef %0, ptr noundef %1) #0 {
+define internal void @cndbfunc(i32 noundef %0, ptr noundef initializes((212, 216)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 212
   store i32 %0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 120

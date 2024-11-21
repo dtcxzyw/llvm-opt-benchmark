@@ -1730,7 +1730,7 @@ declare i32 @mz_zip_reader_close(ptr noundef) local_unnamed_addr #1
 declare void @mz_zip_reader_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19getFileBufferByPathEPvR13mz_zip_file_sNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::vector.17") align 8 %agg.result, ptr noundef %reader, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %info, ptr noundef nonnull %filepath) #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19getFileBufferByPathEPvR13mz_zip_file_sNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::vector.17") align 8 initializes((0, 24)) %agg.result, ptr noundef %reader, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %info, ptr noundef nonnull %filepath) #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filepath) #17
@@ -1890,7 +1890,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 declare i32 @mz_zip_reader_entry_save_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24getFileBufferByExtensionEPvR13mz_zip_file_sNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::vector.17") align 8 %agg.result, ptr noundef %reader, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %info, ptr noundef %extension) #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24getFileBufferByExtensionEPvR13mz_zip_file_sNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::vector.17") align 8 initializes((0, 24)) %agg.result, ptr noundef %reader, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %info, ptr noundef %extension) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %root = alloca %"class.std::__cxx11::basic_string", align 8
   %ext = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1977,7 +1977,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %ehcleanup14.thread,
 declare noundef i32 @_ZN19OpenColorIO_v2_4dev8Platform10StrcasecmpEPKcS2_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev28getFileStringFromArchiveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PFSt6vectorIhSaIhEEPvR13mz_zip_file_sS5_E(ptr noalias nocapture sret(%"class.std::vector.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filepath, ptr noundef nonnull align 8 dereferenceable(32) %archivePath, ptr nocapture noundef readonly %fn) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev28getFileStringFromArchiveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PFSt6vectorIhSaIhEEPvR13mz_zip_file_sS5_E(ptr noalias nocapture sret(%"class.std::vector.17") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filepath, ptr noundef nonnull align 8 dereferenceable(32) %archivePath, ptr nocapture noundef readonly %fn) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %file_info = alloca ptr, align 8
   %reader = alloca ptr, align 8
@@ -2239,14 +2239,14 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare i32 @mz_zip_reader_goto_next_entry(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24getFileBufferFromArchiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noalias nocapture sret(%"class.std::vector.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filepath, ptr noundef nonnull align 8 dereferenceable(32) %archivePath) local_unnamed_addr #0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24getFileBufferFromArchiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noalias nocapture sret(%"class.std::vector.17") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filepath, ptr noundef nonnull align 8 dereferenceable(32) %archivePath) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev28getFileStringFromArchiveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PFSt6vectorIhSaIhEEPvR13mz_zip_file_sS5_E(ptr sret(%"class.std::vector.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filepath, ptr noundef nonnull align 8 dereferenceable(32) %archivePath, ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev19getFileBufferByPathEPvR13mz_zip_file_sNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev35getFileBufferFromArchiveByExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noalias nocapture sret(%"class.std::vector.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %extension, ptr noundef nonnull align 8 dereferenceable(32) %archivePath) local_unnamed_addr #0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev35getFileBufferFromArchiveByExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noalias nocapture sret(%"class.std::vector.17") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %extension, ptr noundef nonnull align 8 dereferenceable(32) %archivePath) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev28getFileStringFromArchiveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PFSt6vectorIhSaIhEEPvR13mz_zip_file_sS5_E(ptr sret(%"class.std::vector.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %extension, ptr noundef nonnull align 8 dereferenceable(32) %archivePath, ptr noundef nonnull @_ZN19OpenColorIO_v2_4dev24getFileBufferByExtensionEPvR13mz_zip_file_sNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE)
   ret void
@@ -2634,7 +2634,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev16CIOPOciozArchive10getLutDataEPKc(ptr noalias nocapture writeonly sret(%"class.std::vector.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %filepath) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev16CIOPOciozArchive10getLutDataEPKc(ptr noalias nocapture writeonly sret(%"class.std::vector.17") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %filepath) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.17", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -1313,7 +1313,7 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9TransformC2ERKSt10shared_ptrINS1_7MapBaseEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %map) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9TransformC2ERKSt10shared_ptrINS1_7MapBaseEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %map) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %affine = alloca %"class.std::shared_ptr.3", align 8
   %ref.tmp15 = alloca %"class.std::shared_ptr", align 8
@@ -2096,7 +2096,7 @@ _ZNSt12__shared_ptrIN7openvdb5v11_04math9AffineMapELN9__gnu_cxx12_Lock_policyE2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math9TransformC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_04math9TransformC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %other, align 8, !noalias !25
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
@@ -10385,7 +10385,7 @@ _ZN7openvdb5v11_04math4Mat4IdE7setMat3ERKNS1_4Mat3IdEE.exit: ; preds = %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_04math9Transform12indexToWorldERKNS1_9CoordBBoxE(ptr noalias nocapture sret(%"class.openvdb::v11_0::math::BBox") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %indexBBox) local_unnamed_addr #3 align 2 {
+define void @_ZNK7openvdb5v11_04math9Transform12indexToWorldERKNS1_9CoordBBoxE(ptr noalias nocapture sret(%"class.openvdb::v11_0::math::BBox") align 8 initializes((0, 48)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %indexBBox) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.openvdb::v11_0::math::BBox", align 8
   %0 = load i32, ptr %indexBBox, align 4, !noalias !146
@@ -10421,7 +10421,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_04math9Transform12indexToWorldERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias nocapture sret(%"class.openvdb::v11_0::math::BBox") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %indexBBox) local_unnamed_addr #3 align 2 {
+define void @_ZNK7openvdb5v11_04math9Transform12indexToWorldERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias nocapture sret(%"class.openvdb::v11_0::math::BBox") align 8 initializes((0, 48)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %indexBBox) local_unnamed_addr #3 align 2 {
 entry:
   %corners = alloca [8 x %"class.openvdb::v11_0::math::Vec3"], align 16
   %ref.tmp35 = alloca %"class.openvdb::v11_0::math::Vec3", align 8
@@ -10548,7 +10548,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_04math9Transform12worldToIndexERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias nocapture writeonly sret(%"class.openvdb::v11_0::math::BBox") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %worldBBox) local_unnamed_addr #3 align 2 {
+define void @_ZNK7openvdb5v11_04math9Transform12worldToIndexERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias nocapture writeonly sret(%"class.openvdb::v11_0::math::BBox") align 8 initializes((0, 48)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %worldBBox) local_unnamed_addr #3 align 2 {
 entry:
   %indexMin = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %indexMax = alloca %"class.openvdb::v11_0::math::Vec3", align 8
@@ -10561,7 +10561,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_04math15calculateBoundsERKNS1_9TransformERKNS1_4Vec3IdEES8_RS6_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %minWS, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %maxWS, ptr nocapture noundef nonnull align 8 dereferenceable(24) %minIS, ptr nocapture noundef nonnull align 8 dereferenceable(24) %maxIS) local_unnamed_addr #3 {
+define void @_ZN7openvdb5v11_04math15calculateBoundsERKNS1_9TransformERKNS1_4Vec3IdEES8_RS6_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %minWS, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %maxWS, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %minIS, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %maxIS) local_unnamed_addr #3 {
 entry:
   %corners = alloca [8 x %"class.openvdb::v11_0::math::Vec3"], align 16
   %pre_image = alloca %"class.openvdb::v11_0::math::Vec3", align 8
@@ -10664,7 +10664,7 @@ for.end47:                                        ; preds = %for.inc45
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_04math9Transform24worldToIndexCellCenteredERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias nocapture writeonly sret(%"class.openvdb::v11_0::math::CoordBBox") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %worldBBox) local_unnamed_addr #3 align 2 {
+define void @_ZNK7openvdb5v11_04math9Transform24worldToIndexCellCenteredERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias nocapture writeonly sret(%"class.openvdb::v11_0::math::CoordBBox") align 4 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %worldBBox) local_unnamed_addr #3 align 2 {
 entry:
   %indexMin = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %indexMax = alloca %"class.openvdb::v11_0::math::Vec3", align 8
@@ -10717,7 +10717,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_04math9Transform24worldToIndexNodeCenteredERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias nocapture writeonly sret(%"class.openvdb::v11_0::math::CoordBBox") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %worldBBox) local_unnamed_addr #3 align 2 {
+define void @_ZNK7openvdb5v11_04math9Transform24worldToIndexNodeCenteredERKNS1_4BBoxINS1_4Vec3IdEEEE(ptr noalias nocapture writeonly sret(%"class.openvdb::v11_0::math::CoordBBox") align 4 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %worldBBox) local_unnamed_addr #3 align 2 {
 entry:
   %indexMin = alloca %"class.openvdb::v11_0::math::Vec3", align 8
   %indexMax = alloca %"class.openvdb::v11_0::math::Vec3", align 8

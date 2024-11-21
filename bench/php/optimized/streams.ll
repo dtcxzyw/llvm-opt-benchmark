@@ -1879,7 +1879,7 @@ _php_stream_write.exit.thread:                    ; preds = %_php_stream_write.e
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @_php_stream_stat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @_php_stream_stat(ptr noundef %0, ptr noundef initializes((0, 144)) %1) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %1, i8 0, i64 144, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -4547,7 +4547,7 @@ define i32 @_php_stream_rmdir(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @_php_stream_stat_path(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define i32 @_php_stream_stat_path(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 144)) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)

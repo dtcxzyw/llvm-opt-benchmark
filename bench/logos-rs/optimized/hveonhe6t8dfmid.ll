@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN13logos_codegen6parser10definition21bytes_to_regex_string6DIGITS17hef2a86d211e0c0abE = internal unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"0123456789abcdef" }>, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13logos_codegen6parser10definition10Definition3new17h38f3ce1f9e5c6448E(ptr nocapture writeonly sret([72 x i8]) align 8 %0, i64 %1, ptr %2) unnamed_addr #0 {
+define hidden void @_ZN13logos_codegen6parser10definition10Definition3new17h38f3ce1f9e5c6448E(ptr nocapture writeonly sret([72 x i8]) align 8 initializes((0, 24), (32, 40), (64, 65)) %0, i64 %1, ptr %2) unnamed_addr #0 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8

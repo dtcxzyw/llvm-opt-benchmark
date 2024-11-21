@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [42 x i8] c"jump out of a finally block is disallowed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @init_op_array(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @init_op_array(ptr noundef initializes((0, 160), (168, 240)) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
   store i8 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %4, align 1
@@ -3093,7 +3093,7 @@ define internal void @zend_extension_op_array_dtor_handler(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_recalc_live_ranges(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @zend_recalc_live_ranges(ptr noundef initializes((128, 132)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   tail call void @_efree(ptr noundef nonnull %4) #13

@@ -712,7 +712,7 @@ _ZNSt10unique_ptrIN5arrow8internal3Uri4ImplESt14default_deleteIS3_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal3UriC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %u) unnamed_addr #8 align 2 {
+define void @_ZN5arrow8internal3UriC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %u) unnamed_addr #8 align 2 {
 entry:
   %0 = load i64, ptr %u, align 8
   store i64 %0, ptr %this, align 8

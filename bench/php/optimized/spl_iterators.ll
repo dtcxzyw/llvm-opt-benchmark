@@ -12177,7 +12177,7 @@ define internal void @spl_dual_it_free_storage(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -136
   %5 = tail call ptr @zend_get_gc_buffer_create() #10
   %6 = getelementptr inbounds i8, ptr %0, i64 -104

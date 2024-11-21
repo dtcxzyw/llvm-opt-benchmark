@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow4util8bit_util4avx220bits_to_indexes_avx2EiiPKhPiPtt(i32 noundef %bit_to_search, i32 noundef %num_bits, ptr nocapture noundef readonly %bits, ptr nocapture noundef %num_indexes, ptr nocapture noundef writeonly %indexes, i16 noundef zeroext %base_index) local_unnamed_addr #0 {
+define void @_ZN5arrow4util8bit_util4avx220bits_to_indexes_avx2EiiPKhPiPtt(i32 noundef %bit_to_search, i32 noundef %num_bits, ptr nocapture noundef readonly %bits, ptr nocapture noundef initializes((0, 4)) %num_indexes, ptr nocapture noundef writeonly %indexes, i16 noundef zeroext %base_index) local_unnamed_addr #0 {
 entry:
   %byte_indexes.i6 = alloca [64 x i8], align 16
   %byte_indexes.i = alloca [64 x i8], align 16

@@ -2644,7 +2644,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @dictInitIterator(ptr nocapture noundef writeonly %iter, ptr noundef %d) local_unnamed_addr #13 {
+define dso_local void @dictInitIterator(ptr nocapture noundef writeonly initializes((0, 40)) %iter, ptr noundef %d) local_unnamed_addr #13 {
 entry:
   store ptr %d, ptr %iter, align 8
   %table = getelementptr inbounds i8, ptr %iter, i64 16
@@ -2657,7 +2657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @dictInitSafeIterator(ptr nocapture noundef writeonly %iter, ptr noundef %d) local_unnamed_addr #13 {
+define dso_local void @dictInitSafeIterator(ptr nocapture noundef writeonly initializes((0, 40)) %iter, ptr noundef %d) local_unnamed_addr #13 {
 entry:
   store ptr %d, ptr %iter, align 8
   %table.i = getelementptr inbounds i8, ptr %iter, i64 16

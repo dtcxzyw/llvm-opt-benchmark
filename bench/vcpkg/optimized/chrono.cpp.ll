@@ -42,7 +42,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN5vcpkg12ElapsedTimerC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN5vcpkg12ElapsedTimerC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg11to_utc_timeERKl(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN5vcpkg11to_utc_timeERKl(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional") align 8 initializes((0, 1), (8, 9)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.tm, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %4 = call ptr @gmtime_r(ptr noundef nonnull %1, ptr noundef nonnull %3) #12
@@ -71,7 +71,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg12ElapsedTimerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg12ElapsedTimerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #12
   store i64 %2, ptr %0, align 8
   ret void
@@ -225,7 +225,7 @@ _ZNK5vcpkg11ElapsedTime9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg5CTime3nowEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.1") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg5CTime3nowEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.1") align 8 initializes((0, 1), (8, 9)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca i64, align 8
   %4 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #12
@@ -306,7 +306,7 @@ define dso_local void @_ZNK5vcpkg5CTime9to_stringB5cxx11Ev(ptr dead_on_unwind no
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg5CTime5parseENS_11ZStringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.1") align 8 %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5vcpkg5CTime5parseENS_11ZStringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.1") align 8 initializes((0, 1), (8, 9)) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.vcpkg::CTime", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %4, i64 20
@@ -474,7 +474,7 @@ define dso_local i64 @_ZNK5vcpkg5CTime13to_time_pointEv(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg27get_current_date_time_localEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.tm) align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg27get_current_date_time_localEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.tm) align 8 initializes((0, 56)) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #12
   %4 = sdiv i64 %3, 1000000000

@@ -819,7 +819,7 @@ _ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjED2Ev.exit: ; preds = %
 declare void @_ZN3smt12theory_arrayD2Ev(ptr noundef nonnull align 8 dereferenceable(444)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt17theory_array_fullD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt17theory_array_fullD2Ev(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt17theory_array_fullE, i64 16), ptr %this, align 8
   %m_var_data_full = getelementptr inbounds i8, ptr %this, i64 448
@@ -962,7 +962,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt17theory_array_fullD0Ev(ptr noundef nonnull align 8 dereferenceable(608) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN3smt17theory_array_fullD0Ev(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN3smt17theory_array_fullD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20

@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_ecjpake_init(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_ecjpake_init(ptr noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @mbedtls_ecp_group_init(ptr noundef nonnull %2) #14
@@ -99,7 +99,7 @@ declare void @mbedtls_ecp_point_free(ptr noundef) local_unnamed_addr #1
 declare void @mbedtls_mpi_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecjpake_setup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ecjpake_setup(ptr noundef initializes((0, 8), (256, 260)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 256
   store i32 %1, ptr %7, align 8
   %8 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %2) #14
@@ -779,7 +779,7 @@ define internal fastcc i32 @ecjpake_zkp_write(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecjpake_derive_secret(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ecjpake_derive_secret(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_ecp_point, align 8
   %8 = alloca %struct.mbedtls_mpi, align 8
   %9 = alloca %struct.mbedtls_mpi, align 8

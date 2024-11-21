@@ -689,7 +689,7 @@ return:                                           ; preds = %entry, %wc_strlcpy.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wolfSSL_RefInit(ptr noundef %ref, ptr nocapture noundef writeonly %err) local_unnamed_addr #1 {
+define void @wolfSSL_RefInit(ptr noundef %ref, ptr nocapture noundef writeonly initializes((0, 4)) %err) local_unnamed_addr #1 {
 entry:
   %call.i = tail call i32 @pthread_mutex_init(ptr noundef %ref, ptr noundef null) #15
   %cmp.i = icmp eq i32 %call.i, 0
@@ -717,7 +717,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wolfSSL_RefInc(ptr noundef %ref, ptr nocapture noundef writeonly %err) local_unnamed_addr #1 {
+define void @wolfSSL_RefInc(ptr noundef %ref, ptr nocapture noundef writeonly initializes((0, 4)) %err) local_unnamed_addr #1 {
 entry:
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %ref) #15
   %cmp.i = icmp eq i32 %call.i, 0
@@ -756,7 +756,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wolfSSL_RefDec(ptr noundef %ref, ptr nocapture noundef writeonly %isZero, ptr nocapture noundef writeonly %err) local_unnamed_addr #1 {
+define void @wolfSSL_RefDec(ptr noundef %ref, ptr nocapture noundef writeonly initializes((0, 4)) %isZero, ptr nocapture noundef writeonly initializes((0, 4)) %err) local_unnamed_addr #1 {
 entry:
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %ref) #15
   %cmp.i = icmp eq i32 %call.i, 0

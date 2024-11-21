@@ -3348,7 +3348,7 @@ _ZNK12_GLOBAL__N_121PointerSortingChecker16checkASTCodeBodyEPKN5clang4DeclERNS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 12), (16, 24)) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.408", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1115", align 8
   %.sroa.02 = alloca [12 x i8], align 8

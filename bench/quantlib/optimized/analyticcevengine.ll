@@ -933,7 +933,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @_ZN8QuantLib13CEVCalculatorC2Eddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, double noundef %f0, double noundef %alpha, double noundef %beta) unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib13CEVCalculatorC2Eddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, double noundef %f0, double noundef %alpha, double noundef %beta) unnamed_addr #11 align 2 {
 entry:
   store double %f0, ptr %this, align 8, !tbaa !39
   %alpha_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1991,7 +1991,7 @@ unreachable:                                      ; preds = %invoke.cont103
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17AnalyticCEVEngineC2EdddNS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(368) %this, double noundef %f0, double noundef %alpha, double noundef %beta, ptr nocapture noundef %discountCurve) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17AnalyticCEVEngineC2EdddNS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(368) initializes((16, 20), (24, 32)) %this, double noundef %f0, double noundef %alpha, double noundef %beta, ptr nocapture noundef %discountCurve) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %f0.addr = alloca double, align 8
   %alpha.addr = alloca double, align 8

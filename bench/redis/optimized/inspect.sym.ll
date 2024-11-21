@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @arena_bin_offsets = external local_unnamed_addr global [39 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @inspect_extent_util_stats_get(ptr noundef %tsdn, ptr noundef %ptr, ptr nocapture noundef writeonly %nfree, ptr nocapture noundef writeonly %nregs, ptr nocapture noundef writeonly %size) local_unnamed_addr #0 {
+define hidden void @inspect_extent_util_stats_get(ptr noundef %tsdn, ptr noundef %ptr, ptr nocapture noundef writeonly initializes((0, 8)) %nfree, ptr nocapture noundef writeonly initializes((0, 8)) %nregs, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i = alloca %struct.rtree_ctx_s, align 8
   %tmp.i = alloca %struct.rtree_contents_s, align 8
@@ -99,7 +99,7 @@ if.end14:                                         ; preds = %if.else, %if.then4,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @inspect_extent_util_stats_verbose_get(ptr noundef %tsdn, ptr noundef %ptr, ptr nocapture noundef writeonly %nfree, ptr nocapture noundef %nregs, ptr nocapture noundef writeonly %size, ptr nocapture noundef writeonly %bin_nfree, ptr nocapture noundef writeonly %bin_nregs, ptr nocapture noundef writeonly %slabcur_addr) local_unnamed_addr #0 {
+define hidden void @inspect_extent_util_stats_verbose_get(ptr noundef %tsdn, ptr noundef %ptr, ptr nocapture noundef writeonly initializes((0, 8)) %nfree, ptr nocapture noundef initializes((0, 8)) %nregs, ptr nocapture noundef writeonly initializes((0, 8)) %size, ptr nocapture noundef writeonly initializes((0, 8)) %bin_nfree, ptr nocapture noundef writeonly initializes((0, 8)) %bin_nregs, ptr nocapture noundef writeonly initializes((0, 8)) %slabcur_addr) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i = alloca %struct.rtree_ctx_s, align 8
   %tmp.i = alloca %struct.rtree_contents_s, align 8

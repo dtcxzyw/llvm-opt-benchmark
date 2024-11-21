@@ -335,7 +335,7 @@ common.ret:                                       ; preds = %33, %"_ZN4core3ptr7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore3new17h7099ac4f49726efdE(ptr noalias nocapture noundef writeonly sret({ ptr, { [1 x i64], ptr, [1 x i64] } }) align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore3new17h7099ac4f49726efdE(ptr noalias nocapture noundef writeonly sret({ ptr, { [1 x i64], ptr, [1 x i64] } }) align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0, ptr noundef nonnull %1) unnamed_addr #2 {
   store ptr %1, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %.sroa.3.0..sroa_idx, align 8

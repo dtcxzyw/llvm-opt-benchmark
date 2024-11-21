@@ -1028,7 +1028,7 @@ _ZN4core3str11validations15next_code_point17h24423c71b47f8f25E.exit.thread.i.i: 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN59_$LT$sha3..Shake128Core$u20$as$u20$crypto_common..Reset$GT$5reset17hd22e00cf78af6436E.llvm.5874913677940797345"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(208) %0) unnamed_addr #3 {
+define hidden void @"_ZN59_$LT$sha3..Shake128Core$u20$as$u20$crypto_common..Reset$GT$5reset17hd22e00cf78af6436E.llvm.5874913677940797345"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(208) initializes((0, 208)) %0) unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 200, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 200
   store i64 24, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -1036,7 +1036,7 @@ define hidden void @"_ZN59_$LT$sha3..Shake128Core$u20$as$u20$crypto_common..Rese
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN59_$LT$sha3..Shake256Core$u20$as$u20$crypto_common..Reset$GT$5reset17hc12305a6e3ff7f14E.llvm.5874913677940797345"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(208) %0) unnamed_addr #3 {
+define hidden void @"_ZN59_$LT$sha3..Shake256Core$u20$as$u20$crypto_common..Reset$GT$5reset17hc12305a6e3ff7f14E.llvm.5874913677940797345"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(208) initializes((0, 208)) %0) unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 200, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 200
   store i64 24, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8

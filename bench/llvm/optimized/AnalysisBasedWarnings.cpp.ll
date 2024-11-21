@@ -1464,7 +1464,7 @@ define dso_local void @_ZN5clang4sema21AnalysisBasedWarnings6PolicyC2Ev(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4sema21AnalysisBasedWarningsC2ERNS_4SemaE(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang4sema21AnalysisBasedWarningsC2ERNS_4SemaE(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5clang4sema21AnalysisBasedWarnings6PolicyC1Ev(ptr noundef nonnull align 4 dereferenceable(1) %3) #22
@@ -6431,7 +6431,7 @@ declare void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull 
 declare noundef i32 @_ZNK5clang12FunctionDecl21getOverloadedOperatorEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_127CheckFallThroughDiagnostics15MakeForFunctionEPKN5clang4DeclE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_127CheckFallThroughDiagnostics15MakeForFunctionEPKN5clang4DeclE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 initializes((0, 28)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load i32, ptr %4, align 8
@@ -6496,7 +6496,7 @@ declare noundef zeroext i1 @_ZNK5clang12FunctionDecl23isTemplateInstantiationEv(
 declare void @_ZN5clang12threadSafety23runThreadSafetyAnalysisERNS_19AnalysisDeclContextERNS0_19ThreadSafetyHandlerEPPNS0_9BeforeSetE(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(9), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -6520,7 +6520,7 @@ _ZNSt7__cxx114listISt4pairIS1_IN5clang14SourceLocationENS2_17PartialDiagnosticEE
 declare void @_ZN5clang8consumed16ConsumedAnalyzer3runERNS_19AnalysisDeclContextE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -6544,7 +6544,7 @@ _ZNSt7__cxx114listISt4pairIS1_IN5clang14SourceLocationENS2_17PartialDiagnosticEE
 declare void @_ZN5clang33runUninitializedVariablesAnalysisERKNS_11DeclContextERKNS_3CFGERNS_19AnalysisDeclContextERNS_22UninitVariablesHandlerERNS_28UninitVariablesAnalysisStatsE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122UninitValsDiagReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN12_GLOBAL__N_122UninitValsDiagReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   %2 = alloca %"class.clang::UninitUse", align 8
   %3 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %4 = alloca %"class.clang::DeclarationName", align 8
@@ -13007,7 +13007,7 @@ _ZNK5clang8SemaBase20ImmediateDiagBuilderlsINS_9FixItHintEvEERKS1_OT_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -16713,14 +16713,14 @@ _ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter13enterFunctionEPKNS_12FunctionDeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) %0, ptr noundef %1) unnamed_addr #15 align 2 {
+define internal void @_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter13enterFunctionEPKNS_12FunctionDeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) initializes((56, 64)) %0, ptr noundef %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter13leaveFunctionEPKNS_12FunctionDeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) %0, ptr nocapture readnone %1) unnamed_addr #15 align 2 {
+define internal void @_ZN5clang12threadSafety12_GLOBAL__N_120ThreadSafetyReporter13leaveFunctionEPKNS_12FunctionDeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) initializes((56, 64)) %0, ptr nocapture readnone %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %3, align 8
   ret void
@@ -18896,7 +18896,7 @@ _ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang8consumed12_GLOBAL__N_123ConsumedWarningsHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -20265,7 +20265,7 @@ _ZNSt6vectorISt10unique_ptrIN5clang8consumed16ConsumedStateMapESt14default_delet
 declare void @_ZN5clang8consumed27ConsumedWarningsHandlerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122UninitValsDiagReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN12_GLOBAL__N_122UninitValsDiagReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN12_GLOBAL__N_122UninitValsDiagReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 96) #25
   ret void
@@ -25985,7 +25985,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvm12D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13CreateIfFixitRN5clang4SemaEPKNS_4StmtES4_S4_bRNS_9FixItHintES6_(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(57) %5, ptr noundef nonnull align 8 dereferenceable(57) %6) unnamed_addr #1 {
+define internal fastcc void @_ZL13CreateIfFixitRN5clang4SemaEPKNS_4StmtES4_S4_bRNS_9FixItHintES6_(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 21)) %5, ptr noundef nonnull align 8 dereferenceable(57) %6) unnamed_addr #1 {
   %8 = alloca %"class.clang::FixItHint", align 8
   %9 = alloca %"class.clang::FixItHint", align 8
   %10 = alloca %"class.clang::FixItHint", align 8
@@ -40988,7 +40988,7 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117FallthroughMapperEE18TraverseSwitchStmtEPNS_10SwitchStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117FallthroughMapperEE18TraverseSwitchStmtEPNS_10SwitchStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::iterator_range.1916", align 8
   %5 = alloca %"struct.clang::StmtIterator", align 8
   store i8 1, ptr %0, align 8

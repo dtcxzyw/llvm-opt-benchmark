@@ -57,7 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [7 x i8] c"%u %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InitArchiveFmt_Tar(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @InitArchiveFmt_Tar(ptr noundef initializes((216, 360), (368, 384), (392, 408), (592, 600), (632, 640), (648, 656)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr @_ArchiveEntry, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 224
@@ -222,7 +222,7 @@ define dso_local void @InitArchiveFmt_Tar(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ArchiveEntry(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal void @_ArchiveEntry(ptr nocapture readnone %0, ptr nocapture noundef initializes((144, 152)) %1) #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = tail call ptr @pg_malloc0(i64 noundef 16) #18
   %5 = getelementptr inbounds i8, ptr %1, i64 128

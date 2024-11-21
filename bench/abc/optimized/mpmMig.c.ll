@@ -65,7 +65,7 @@ Mig_ManAppendObj.exit:
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Mig_ManStop(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Mig_ManStop(ptr nocapture noundef initializes((80, 84)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -201,7 +201,7 @@ define void @Mig_ManStop(ptr nocapture noundef %0) local_unnamed_addr #2 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Mig_ManTypeNum(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define i32 @Mig_ManTypeNum(ptr nocapture noundef initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %4, align 4
@@ -289,7 +289,7 @@ Mig_ObjNodeType.exit:                             ; preds = %Mig_ObjIsAnd.exit.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Mig_ManAndNum(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define i32 @Mig_ManAndNum(ptr nocapture noundef initializes((80, 84)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = getelementptr i8, ptr %0, i64 28
   %.val.i = load i32, ptr %3, align 4
@@ -368,7 +368,7 @@ Mig_ManTypeNum.exit:                              ; preds = %7, %._crit_edge.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Mig_ManXorNum(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define i32 @Mig_ManXorNum(ptr nocapture noundef initializes((80, 84)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = getelementptr i8, ptr %0, i64 28
   %.val.i = load i32, ptr %3, align 4
@@ -454,7 +454,7 @@ Mig_ManTypeNum.exit:                              ; preds = %7, %._crit_edge.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Mig_ManMuxNum(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define i32 @Mig_ManMuxNum(ptr nocapture noundef initializes((80, 84)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = getelementptr i8, ptr %0, i64 28
   %.val.i = load i32, ptr %3, align 4
@@ -1035,7 +1035,7 @@ Mig_ObjIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Mig_ManSuppSizeTest(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define noundef i32 @Mig_ManSuppSizeTest(ptr nocapture noundef initializes((80, 84)) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)

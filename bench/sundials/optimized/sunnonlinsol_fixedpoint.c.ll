@@ -960,7 +960,7 @@ define noundef i32 @SUNNonlinSolSetMaxIters_FixedPoint(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolGetNumIters_FixedPoint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define noundef i32 @SUNNonlinSolGetNumIters_FixedPoint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 152
   %5 = load i64, ptr %4, align 8
@@ -969,7 +969,7 @@ define noundef i32 @SUNNonlinSolGetNumIters_FixedPoint(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolGetCurIter_FixedPoint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define noundef i32 @SUNNonlinSolGetCurIter_FixedPoint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load i32, ptr %4, align 8
@@ -978,7 +978,7 @@ define noundef i32 @SUNNonlinSolGetCurIter_FixedPoint(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolGetNumConvFails_FixedPoint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define noundef i32 @SUNNonlinSolGetNumConvFails_FixedPoint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 160
   %5 = load i64, ptr %4, align 8
@@ -1026,7 +1026,7 @@ define noundef i32 @SUNNonlinSolSetDamping_FixedPoint(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNNonlinSolGetSysFn_FixedPoint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define noundef i32 @SUNNonlinSolGetSysFn_FixedPoint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8

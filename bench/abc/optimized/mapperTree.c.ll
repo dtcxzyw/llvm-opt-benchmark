@@ -1709,7 +1709,7 @@ define i32 @Map_CalculatePhase(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Map_CalculatePhase6(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #13 {
+define void @Map_CalculatePhase6(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #13 {
   %6 = load i32, ptr %2, align 4
   store i32 %6, ptr %4, align 4
   %7 = getelementptr inbounds i8, ptr %2, i64 4

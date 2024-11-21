@@ -1610,7 +1610,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16IRChangedPrinterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16IRChangedPrinterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm14ChangeReporterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -2526,7 +2526,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15IRChangedTesterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15IRChangedTesterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm14ChangeReporterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -4593,7 +4593,7 @@ _ZNKSt14default_deleteIN4llvm3Any11StorageBaseEEclEPS2_.exit.i.i44: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22PrintIRInstrumentation20popPassRunDescriptorENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::PrintIRInstrumentation::PassRunDescriptor") align 8 %0, ptr noundef nonnull align 8 dereferenceable(204) %1, ptr nocapture readnone %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm22PrintIRInstrumentation20popPassRunDescriptorENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::PrintIRInstrumentation::PassRunDescriptor") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(204) %1, ptr nocapture readnone %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %6 = load ptr, ptr %5, align 8, !noalias !40
@@ -6684,7 +6684,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm22PrintIRInstrumentation30shouldPri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22PrintIRInstrumentation17registerCallbacksERNS_28PassInstrumentationCallbacksE(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(1464) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm22PrintIRInstrumentation17registerCallbacksERNS_28PassInstrumentationCallbacksE(ptr noundef nonnull align 8 dereferenceable(204) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1464) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -8127,7 +8127,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit:  ; preds = %319, %"_ZN4llvm28Pa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm34PreservedCFGCheckerInstrumentation3CFGC2EPKNS_8FunctionEb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm34PreservedCFGCheckerInstrumentation3CFGC2EPKNS_8FunctionEb(ptr noundef nonnull align 8 dereferenceable(56) initializes((24, 25), (32, 52)) %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"struct.std::pair", align 8
@@ -11208,7 +11208,7 @@ define dso_local void @_ZN4llvm21VerifyInstrumentation17registerCallbacksERNS_28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19InLineChangePrinterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19InLineChangePrinterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm14ChangeReporterINS_7IRDataTINS_9EmptyDataEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -15164,7 +15164,7 @@ _ZNSt4pairIN4llvm9StringRefENS0_9FuncDataTINS0_9EmptyDataEEEEC2IS1_RS4_TnNSt9ena
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6DCDataC2ERKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6DCDataC2ERKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 {
 _ZNK4llvm10BasicBlock13getTerminatorEv.exit:
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::allocator", align 1
@@ -15541,7 +15541,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit2:           ; preds = %14, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6DCDataC2ERKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6DCDataC2ERKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -15589,7 +15589,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %13, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm20DotCfgChangeReporterC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i1 noundef zeroext %1) unnamed_addr #12 align 2 {
+define dso_local void @_ZN4llvm20DotCfgChangeReporterC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 34), (36, 48)) %0, i1 noundef zeroext %1) unnamed_addr #12 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -23259,7 +23259,7 @@ _ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EEaSEDn.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20DotCfgChangeReporterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20DotCfgChangeReporterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm20DotCfgChangeReporterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -24194,7 +24194,7 @@ define dso_local void @_ZN4llvm27PrintCrashIRInstrumentation17registerCallbacksE
 declare void @_ZN4llvm3sys16AddSignalHandlerEPFvPvES1_(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm24StandardInstrumentations17registerCallbacksERNS_28PassInstrumentationCallbacksEPNS_15AnalysisManagerINS_6ModuleEJEEE(ptr noundef nonnull align 8 dereferenceable(1066) %0, ptr noundef nonnull align 8 dereferenceable(1464) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm24StandardInstrumentations17registerCallbacksERNS_28PassInstrumentationCallbacksEPNS_15AnalysisManagerINS_6ModuleEJEEE(ptr noundef nonnull align 8 dereferenceable(1066) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1464) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.anon.353, align 8
   %5 = alloca %class.anon.352, align 8
   %6 = alloca %class.anon.351, align 8
@@ -30338,7 +30338,7 @@ _ZN4llvm3AnyD2Ev.exit:                            ; preds = %"_ZZN4llvm24PrintPa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefENS_3AnyEEE8MoveImplIZNS_24PrintPassInstrumentation17registerCallbacksERNS_28PassInstrumentationCallbacksEE3$_0EEvPvSA_"(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #18 align 2 {
+define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefENS_3AnyEEE8MoveImplIZNS_24PrintPassInstrumentation17registerCallbacksERNS_28PassInstrumentationCallbacksEE3$_0EEvPvSA_"(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef %1) #18 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30819,7 +30819,7 @@ _ZN4llvm3AnyD2Ev.exit:                            ; preds = %"_ZZN4llvm24PrintPa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefENS_3AnyEEE8MoveImplIZNS_24PrintPassInstrumentation17registerCallbacksERNS_28PassInstrumentationCallbacksEE3$_1EEvPvSA_"(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #18 align 2 {
+define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefENS_3AnyEEE8MoveImplIZNS_24PrintPassInstrumentation17registerCallbacksERNS_28PassInstrumentationCallbacksEE3$_1EEvPvSA_"(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef %1) #18 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30893,7 +30893,7 @@ _ZN4llvm3AnyD2Ev.exit:                            ; preds = %"_ZZN4llvm24PrintPa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefENS_3AnyERKNS_17PreservedAnalysesEEE8MoveImplIZNS_24PrintPassInstrumentation17registerCallbacksERNS_28PassInstrumentationCallbacksEE3$_2EEvPvSD_"(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #18 align 2 {
+define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefENS_3AnyERKNS_17PreservedAnalysesEEE8MoveImplIZNS_24PrintPassInstrumentation17registerCallbacksERNS_28PassInstrumentationCallbacksEE3$_2EEvPvSD_"(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef %1) #18 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30965,7 +30965,7 @@ _ZN4llvm3AnyD2Ev.exit:                            ; preds = %_ZN4llvm3AnyC2IRKNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefERKNS_17PreservedAnalysesEEE8MoveImplIZNS_24PrintPassInstrumentation17registerCallbacksERNS_28PassInstrumentationCallbacksEE3$_3EEvPvSC_"(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #18 align 2 {
+define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJNS_9StringRefERKNS_17PreservedAnalysesEEE8MoveImplIZNS_24PrintPassInstrumentation17registerCallbacksERNS_28PassInstrumentationCallbacksEE3$_3EEvPvSC_"(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef %1) #18 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

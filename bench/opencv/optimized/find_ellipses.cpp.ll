@@ -161,7 +161,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8ximgproc19EllipseDetectorImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv8ximgproc19EllipseDetectorImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 60)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -194,7 +194,7 @@ define hidden void @_ZN2cv8ximgproc19EllipseDetectorImplC2Ev(ptr nocapture nound
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8ximgproc19EllipseDetectorImpl13setParametersEfff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv8ximgproc19EllipseDetectorImpl13setParametersEfff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((32, 40), (44, 52)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   store float %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 44
@@ -802,7 +802,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit116:                 ; preds = %_ZSt11nth_elementIN
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc19EllipseDetectorImpl13getFastCenterERSt6vectorINS_6Point_IiEESaIS4_EES7_RNS0_11EllipseDataE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(96) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc19EllipseDetectorImpl13getFastCenterERSt6vectorINS_6Point_IiEESaIS4_EES7_RNS0_11EllipseDataE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 1), (12, 16)) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Point_", align 8
   %6 = alloca %"class.cv::Point_", align 8
   %7 = alloca %"class.std::vector", align 8
@@ -16332,7 +16332,7 @@ declare void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc19EllipseDetectorImpl6detectERNS_4Mat_IhEERSt6vectorINS0_7EllipseESaIS6_EE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc19EllipseDetectorImpl6detectERNS_4Mat_IhEERSt6vectorINS0_7EllipseESaIS6_EE(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((52, 60), (96, 104)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat_", align 8
   %5 = alloca %"class.cv::MatExpr", align 8
   %6 = alloca %"class.cv::Mat_", align 8

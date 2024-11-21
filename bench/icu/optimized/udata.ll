@@ -510,7 +510,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517UDataPathIteratorC2EPKcS2_S2_S2_aP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(241) %this, ptr noundef %inPath, ptr noundef %pkg, ptr noundef %item, ptr noundef %inSuffix, i8 noundef signext %doCheckLastFour, ptr noundef %pErrorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517UDataPathIteratorC2EPKcS2_S2_S2_aP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(241) initializes((24, 36)) %this, ptr noundef %inPath, ptr noundef %pkg, ptr noundef %item, ptr noundef %inSuffix, i8 noundef signext %doCheckLastFour, ptr noundef %pErrorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   %ref.tmp = alloca %"class.icu_75::StringPiece", align 8

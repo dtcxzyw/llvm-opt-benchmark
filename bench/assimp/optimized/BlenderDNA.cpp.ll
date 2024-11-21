@@ -2067,7 +2067,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp7Blender3DNA16ExtractArraySizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr nocapture noundef writeonly %array_sizes) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp7Blender3DNA16ExtractArraySizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr nocapture noundef writeonly initializes((0, 16)) %array_sizes) local_unnamed_addr #1 align 2 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %array_sizes, i64 8
   store i64 1, ptr %arrayidx, align 8

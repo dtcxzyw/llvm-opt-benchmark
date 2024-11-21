@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [35 x i8] c"must be greater than or equal to 0\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_random_pcgoneseq128xslrr64_seed128(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @php_random_pcgoneseq128xslrr64_seed128(ptr nocapture noundef writeonly initializes((0, 16)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.sroa.0.0.insert.ext.i13 = zext i64 %1 to i128
   %.sroa.02.0.insert.insert.i = add nuw nsw i128 %.sroa.0.0.insert.ext.i13, 117397592171526113268558934119004209487
   %4 = lshr i128 %.sroa.02.0.insert.insert.i, 64

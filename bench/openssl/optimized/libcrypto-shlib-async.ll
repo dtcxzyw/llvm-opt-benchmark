@@ -59,7 +59,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @async_fibre_swapcontext(ptr noundef %o, ptr noundef %n) unnamed_addr #0 {
+define internal fastcc void @async_fibre_swapcontext(ptr noundef initializes((1168, 1172)) %o, ptr noundef %n) unnamed_addr #0 {
 entry:
   %env_init = getelementptr inbounds i8, ptr %o, i64 1168
   store i32 1, ptr %env_init, align 8

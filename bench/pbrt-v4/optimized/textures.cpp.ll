@@ -1380,7 +1380,7 @@ declare { <2 x float>, float } @_ZNK4pbrt19ParameterDictionary14GetOneVector3fER
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt16TextureMapping3D6CreateERKNS_19ParameterDictionaryERKNS_9TransformEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::TextureMapping3D") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(108) %parameters, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %renderFromTexture, ptr nocapture noundef readnone %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt16TextureMapping3D6CreateERKNS_19ParameterDictionaryERKNS_9TransformEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::TextureMapping3D") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(108) %parameters, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %renderFromTexture, ptr nocapture noundef readnone %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.pbrt::Transform", align 4
   %mInv.i.i = getelementptr inbounds i8, ptr %renderFromTexture, i64 64
@@ -8870,7 +8870,7 @@ eh.resume:                                        ; preds = %ehcleanup42, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt19GPUFloatPtexTextureC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ColorEncodingEfN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef readonly %encoding, float noundef %scale, ptr %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt19GPUFloatPtexTextureC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ColorEncodingEfN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef readonly %encoding, float noundef %scale, ptr %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp.i = alloca %"class.pbrt::ColorEncoding", align 8
   %tex = alloca %"class.pbrt::FloatPtexTexture", align 8
@@ -9659,7 +9659,7 @@ _ZN4pbrt12StringPrintfIJRKN4pstd6vectorIfNS1_3pmr21polymorphic_allocatorIfEEEEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt22GPUSpectrumPtexTextureC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ColorEncodingEfNS_12SpectrumTypeEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef readonly %encoding, float noundef %scale, i32 noundef %spectrumType, ptr %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22GPUSpectrumPtexTextureC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ColorEncodingEfNS_12SpectrumTypeEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 4), (8, 40)) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef readonly %encoding, float noundef %scale, i32 noundef %spectrumType, ptr %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp.i = alloca %"class.pbrt::ColorEncoding", align 8
   %tex = alloca %"class.pbrt::SpectrumPtexTexture", align 8
@@ -11058,7 +11058,7 @@ ehcleanup18:                                      ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt12FloatTexture6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9TransformERKNS_26TextureParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEb(ptr noalias nocapture writeonly sret(%"class.pbrt::FloatTexture") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 4 dereferenceable(128) %renderFromTexture, ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %loc, ptr %alloc.coerce, i1 noundef zeroext %gpu) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt12FloatTexture6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9TransformERKNS_26TextureParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEb(ptr noalias nocapture writeonly sret(%"class.pbrt::FloatTexture") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 4 dereferenceable(128) %renderFromTexture, ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %loc, ptr %alloc.coerce, i1 noundef zeroext %gpu) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"class.pbrt::Transform", align 4
   %ref.tmp6 = alloca %"class.pbrt::FloatTexture", align 8
@@ -11285,7 +11285,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 declare void @_ZNK4pbrt26TextureParameterDictionary12ReportUnusedEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt15SpectrumTexture6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9TransformERKNS_26TextureParameterDictionaryENS_12SpectrumTypeEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEb(ptr noalias nocapture writeonly sret(%"class.pbrt::SpectrumTexture") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 4 dereferenceable(128) %renderFromTexture, ptr noundef nonnull align 8 dereferenceable(16) %parameters, i32 noundef %spectrumType, ptr noundef %loc, i64 %alloc.coerce, i1 noundef zeroext %gpu) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt15SpectrumTexture6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9TransformERKNS_26TextureParameterDictionaryENS_12SpectrumTypeEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEb(ptr noalias nocapture writeonly sret(%"class.pbrt::SpectrumTexture") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 4 dereferenceable(128) %renderFromTexture, ptr noundef nonnull align 8 dereferenceable(16) %parameters, i32 noundef %spectrumType, ptr noundef %loc, i64 %alloc.coerce, i1 noundef zeroext %gpu) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp6 = alloca %"class.pbrt::SpectrumTexture", align 8
   %coerce.val.ip = inttoptr i64 %alloc.coerce to ptr

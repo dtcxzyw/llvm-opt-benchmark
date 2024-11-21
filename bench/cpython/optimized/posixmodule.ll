@@ -23240,7 +23240,7 @@ return:                                           ; preds = %iov_cleanup.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr nocapture noundef nonnull %iov, ptr nocapture noundef nonnull %buf, ptr noundef %seq, i64 noundef range(i64 0, -9223372036854775808) %cnt, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr nocapture noundef nonnull initializes((0, 8)) %iov, ptr nocapture noundef nonnull %buf, ptr noundef %seq, i64 noundef range(i64 0, -9223372036854775808) %cnt, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
 entry:
   %cmp = icmp samesign ugt i64 %cnt, 576460752303423487
   br i1 %cmp, label %cond.end.thread, label %cond.end

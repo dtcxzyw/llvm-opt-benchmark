@@ -169,7 +169,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30btKinematicCharacterControllerC2EP24btPairCachingGhostObjectP13btConvexShapefRK9btVector3(ptr noundef nonnull align 8 dereferenceable(319) %this, ptr noundef %ghostObject, ptr noundef %convexShape, float noundef %stepHeight, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %up) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN30btKinematicCharacterControllerC2EP24btPairCachingGhostObjectP13btConvexShapefRK9btVector3(ptr noundef nonnull align 8 dereferenceable(319) initializes((0, 8), (16, 56), (68, 76), (80, 100), (116, 132), (164, 168), (220, 228), (232, 241), (268, 319)) %this, ptr noundef %ghostObject, ptr noundef %convexShape, float noundef %stepHeight, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %up) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   %ref.tmp.i.i = alloca %class.btVector3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV30btKinematicCharacterController, i64 16), ptr %this, align 8
@@ -396,7 +396,7 @@ return:                                           ; preds = %if.end, %_ZN30btKin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btKinematicCharacterController13setStepHeightEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) %this, float noundef %h) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController13setStepHeightEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) initializes((76, 80)) %this, float noundef %h) local_unnamed_addr #2 align 2 {
 entry:
   %m_stepHeight = getelementptr inbounds i8, ptr %this, i64 76
   store float %h, ptr %m_stepHeight, align 4
@@ -404,7 +404,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local void @_ZN30btKinematicCharacterController11setMaxSlopeEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) %this, float noundef %slopeRadians) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController11setMaxSlopeEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) initializes((60, 68)) %this, float noundef %slopeRadians) local_unnamed_addr #3 align 2 {
 entry:
   %m_maxSlopeRadians = getelementptr inbounds i8, ptr %this, i64 60
   store float %slopeRadians, ptr %m_maxSlopeRadians, align 4
@@ -451,7 +451,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN30btKinematicCharacterControllerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(319) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN30btKinematicCharacterControllerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(319) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV30btKinematicCharacterController, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -488,7 +488,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldED2Ev.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN30btKinematicCharacterControllerD0Ev(ptr noundef nonnull align 8 dereferenceable(319) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN30btKinematicCharacterControllerD0Ev(ptr noundef nonnull align 8 dereferenceable(319) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV30btKinematicCharacterController, i64 16), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -544,7 +544,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(319) %this, ptr noundef %collisionWorld) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN30btKinematicCharacterController22recoverFromPenetrationEP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(319) initializes((148, 164)) %this, ptr noundef %collisionWorld) local_unnamed_addr #1 align 2 {
 entry:
   %minAabb = alloca %class.btVector3, align 4
   %maxAabb = alloca %class.btVector3, align 4
@@ -831,7 +831,7 @@ for.end81:                                        ; preds = %for.inc79, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30btKinematicCharacterController6stepUpEP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(319) %this, ptr noundef %world) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN30btKinematicCharacterController6stepUpEP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(319) initializes((168, 184)) %this, ptr noundef %world) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %start = alloca %class.btTransform, align 4
   %end = alloca %class.btTransform, align 4
@@ -1319,7 +1319,7 @@ if.end21:                                         ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30btKinematicCharacterController20stepForwardAndStrafeEP16btCollisionWorldRK9btVector3(ptr noundef nonnull align 8 dereferenceable(319) %this, ptr noundef %collisionWorld, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %walkMove) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN30btKinematicCharacterController20stepForwardAndStrafeEP16btCollisionWorldRK9btVector3(ptr noundef nonnull align 8 dereferenceable(319) initializes((168, 184)) %this, ptr noundef %collisionWorld, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %walkMove) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %start = alloca %class.btTransform, align 4
   %end = alloca %class.btTransform, align 4
@@ -2349,7 +2349,7 @@ return:                                           ; preds = %if.end218, %if.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(319) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %walkDirection) unnamed_addr #9 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController16setWalkDirectionERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(319) initializes((84, 116), (279, 280)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %walkDirection) unnamed_addr #9 align 2 {
 entry:
   %m_useWalkDirection = getelementptr inbounds i8, ptr %this, i64 279
   store i8 1, ptr %m_useWalkDirection, align 1
@@ -2397,7 +2397,7 @@ _ZL19getNormalizedVectorRK9btVector3.exit:        ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN30btKinematicCharacterController26setVelocityForTimeIntervalERK9btVector3f(ptr nocapture noundef nonnull align 8 dereferenceable(319) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %velocity, float noundef %timeInterval) unnamed_addr #9 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController26setVelocityForTimeIntervalERK9btVector3f(ptr nocapture noundef nonnull align 8 dereferenceable(319) initializes((84, 116), (279, 280)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %velocity, float noundef %timeInterval) unnamed_addr #9 align 2 {
 entry:
   %m_useWalkDirection = getelementptr inbounds i8, ptr %this, i64 279
   store i8 0, ptr %m_useWalkDirection, align 1
@@ -2449,7 +2449,7 @@ _ZL19getNormalizedVectorRK9btVector3.exit:        ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN30btKinematicCharacterController18setAngularVelocityERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %velocity) unnamed_addr #10 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController18setAngularVelocityERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) initializes((116, 132)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %velocity) unnamed_addr #10 align 2 {
 entry:
   %m_AngVel = getelementptr inbounds i8, ptr %this, i64 116
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_AngVel, ptr noundef nonnull align 4 dereferenceable(16) %velocity, i64 16, i1 false)
@@ -2464,7 +2464,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN30btKinematicCharacterController17setLinearVelocityERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(319) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %velocity) unnamed_addr #12 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController17setLinearVelocityERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(319) initializes((84, 100)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %velocity) unnamed_addr #12 align 2 {
 entry:
   %m_walkDirection = getelementptr inbounds i8, ptr %this, i64 84
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_walkDirection, ptr noundef nonnull align 4 dereferenceable(16) %velocity, i64 16, i1 false)
@@ -2597,7 +2597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30btKinematicCharacterController5resetEP16btCollisionWorld(ptr nocapture noundef nonnull align 8 dereferenceable(319) %this, ptr nocapture noundef readonly %collisionWorld) unnamed_addr #13 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController5resetEP16btCollisionWorld(ptr nocapture noundef nonnull align 8 dereferenceable(319) initializes((36, 44), (84, 100), (276, 278), (280, 284)) %this, ptr nocapture noundef readonly %collisionWorld) unnamed_addr #13 align 2 {
 entry:
   %m_verticalVelocity = getelementptr inbounds i8, ptr %this, i64 36
   store float 0.000000e+00, ptr %m_verticalVelocity, align 4
@@ -2691,7 +2691,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30btKinematicCharacterController7preStepEP16btCollisionWorld(ptr nocapture noundef nonnull align 8 dereferenceable(319) %this, ptr nocapture readnone %collisionWorld) unnamed_addr #1 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController7preStepEP16btCollisionWorld(ptr nocapture noundef nonnull align 8 dereferenceable(319) initializes((148, 164), (168, 200)) %this, ptr nocapture readnone %collisionWorld) unnamed_addr #1 align 2 {
 entry:
   %retval.i = alloca %class.btQuaternion, align 8
   %m_ghostObject = getelementptr inbounds i8, ptr %this, i64 16
@@ -3109,7 +3109,7 @@ while.end:                                        ; preds = %while.body, %while.
 declare float @llvm.fmuladd.f32(float, float, float) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btKinematicCharacterController12setFallSpeedEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) %this, float noundef %fallSpeed) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController12setFallSpeedEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) initializes((44, 48)) %this, float noundef %fallSpeed) local_unnamed_addr #2 align 2 {
 entry:
   %m_fallSpeed = getelementptr inbounds i8, ptr %this, i64 44
   store float %fallSpeed, ptr %m_fallSpeed, align 4
@@ -3117,7 +3117,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btKinematicCharacterController12setJumpSpeedEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) %this, float noundef %jumpSpeed) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController12setJumpSpeedEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) initializes((48, 56)) %this, float noundef %jumpSpeed) local_unnamed_addr #2 align 2 {
 entry:
   %m_jumpSpeed = getelementptr inbounds i8, ptr %this, i64 48
   store float %jumpSpeed, ptr %m_jumpSpeed, align 8
@@ -3127,7 +3127,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btKinematicCharacterController16setMaxJumpHeightEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) %this, float noundef %maxJumpHeight) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController16setMaxJumpHeightEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) initializes((56, 60)) %this, float noundef %maxJumpHeight) local_unnamed_addr #2 align 2 {
 entry:
   %m_maxJumpHeight = getelementptr inbounds i8, ptr %this, i64 56
   store float %maxJumpHeight, ptr %m_maxJumpHeight, align 8
@@ -3145,7 +3145,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN30btKinematicCharacterController4jumpERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(319) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v) unnamed_addr #16 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController4jumpERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(319) initializes((36, 40), (48, 52), (132, 148), (277, 278), (300, 316)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v) unnamed_addr #16 align 2 {
 entry:
   %0 = load float, ptr %v, align 4
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %v, i64 4
@@ -3523,7 +3523,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btKinematicCharacterController22setMaxPenetrationDepthEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) %this, float noundef %d) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController22setMaxPenetrationDepthEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) initializes((32, 36)) %this, float noundef %d) local_unnamed_addr #2 align 2 {
 entry:
   %m_maxPenetrationDepth = getelementptr inbounds i8, ptr %this, i64 32
   store float %d, ptr %m_maxPenetrationDepth, align 8
@@ -3592,7 +3592,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btKinematicCharacterController16setUpInterpolateEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) %this, i1 noundef zeroext %value) unnamed_addr #2 align 2 {
+define dso_local void @_ZN30btKinematicCharacterController16setUpInterpolateEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(319) initializes((316, 317)) %this, i1 noundef zeroext %value) unnamed_addr #2 align 2 {
 entry:
   %frombool = zext i1 %value to i8
   %m_interpolateUp = getelementptr inbounds i8, ptr %this, i64 316

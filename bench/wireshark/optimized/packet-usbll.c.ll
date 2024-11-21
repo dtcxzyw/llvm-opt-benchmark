@@ -380,7 +380,7 @@ define hidden void @proto_register_usbll() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @lpm_link_state_str(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @lpm_link_state_str(ptr nocapture noundef writeonly initializes((0, 11)) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 1
   br i1 %3, label %4, label %5
 
@@ -3593,7 +3593,7 @@ declare i32 @sanitize_usb_max_packet_size(i8 noundef zeroext, i32 noundef, i32 n
 declare ptr @get_existing_usb_ep_conv_info(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @usbll_set_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext range(i8 0, 11) %5) unnamed_addr #2 {
+define internal fastcc void @usbll_set_address(ptr noundef %0, ptr noundef %1, ptr noundef initializes((160, 256), (348, 352)) %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext range(i8 0, 11) %5) unnamed_addr #2 {
   %7 = getelementptr inbounds i8, ptr %2, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @wmem_alloc0(ptr noundef %8, i64 noundef 3) #13

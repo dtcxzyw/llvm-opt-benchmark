@@ -317,7 +317,7 @@ _ZN17grpc_event_engine12experimental22CreateEventEngineInnerEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental21GetDefaultEventEngineEN9grpc_core14SourceLocationE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr %location.coerce0, i32 %location.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental21GetDefaultEventEngineEN9grpc_core14SourceLocationE(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((8, 16)) %agg.result, ptr %location.coerce0, i32 %location.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN17grpc_event_engine12experimental12_GLOBAL__N_14g_muE)

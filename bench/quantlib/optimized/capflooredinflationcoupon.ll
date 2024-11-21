@@ -597,7 +597,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31CappedFlooredYoYInflationCoupon9setCommonEdd(ptr nocapture noundef nonnull align 8 dereferenceable(232) %this, double noundef %cap, double noundef %floor) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31CappedFlooredYoYInflationCoupon9setCommonEdd(ptr nocapture noundef nonnull align 8 dereferenceable(232) initializes((208, 210)) %this, double noundef %cap, double noundef %floor) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp41 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1498,7 +1498,7 @@ _ZN5boost10shared_ptrIN8QuantLib17YoYInflationIndexEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31CappedFlooredYoYInflationCouponC1ERKN5boost10shared_ptrINS_18YoYInflationCouponEEEdd(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %underlying, double noundef %cap, double noundef %floor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31CappedFlooredYoYInflationCouponC1ERKN5boost10shared_ptrINS_18YoYInflationCouponEEEdd(ptr noundef nonnull align 8 dereferenceable(232) initializes((232, 240), (248, 252), (256, 264)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %underlying, double noundef %cap, double noundef %floor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %ref.tmp26 = alloca %"class.QuantLib::Period", align 8

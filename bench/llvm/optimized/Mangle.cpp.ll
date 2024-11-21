@@ -2371,7 +2371,7 @@ declare noundef ptr @_ZNK5clang8Selector24getIdentifierInfoForSlotEj(ptr noundef
 declare void @_ZNK5clang8Selector5printERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16ASTNameGeneratorC2ERNS_10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang16ASTNameGeneratorC2ERNS_10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #1 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %3 = tail call noalias noundef nonnull dereferenceable(520) ptr @_Znwm(i64 noundef 520) #21, !noalias !31
   %4 = tail call noundef ptr @_ZN5clang10ASTContext19createMangleContextEPKNS_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef null) #20, !noalias !31

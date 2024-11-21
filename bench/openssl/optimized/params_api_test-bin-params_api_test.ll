@@ -1751,7 +1751,7 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef %cmp, i64 noundef range(i64 4, 9) %width) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef nonnull initializes((32, 40)) %param, ptr noundef %cmp, i64 noundef range(i64 4, 9) %width) unnamed_addr #0 {
 entry:
   %i32 = alloca i32, align 4
   %i64 = alloca i64, align 8

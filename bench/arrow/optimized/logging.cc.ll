@@ -192,7 +192,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow4util8ArrowLogC2EPKciNS0_13ArrowLogLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef %file_name, i32 noundef %line_number, i32 noundef %severity) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow4util8ArrowLogC2EPKciNS0_13ArrowLogLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr noundef %file_name, i32 noundef %line_number, i32 noundef %severity) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util8ArrowLogE, i64 16), ptr %this, align 8
   %logging_provider_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -247,7 +247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow4util8ArrowLogD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #3 align 2 {
+define void @_ZN5arrow4util8ArrowLogD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util8ArrowLogE, i64 16), ptr %this, align 8
   %logging_provider_ = getelementptr inbounds i8, ptr %this, i64 8

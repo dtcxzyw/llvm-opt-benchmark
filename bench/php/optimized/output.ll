@@ -1338,7 +1338,7 @@ define i32 @php_output_get_level() local_unnamed_addr #0 {
 declare i32 @zend_stack_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @php_output_get_contents(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_output_get_contents(ptr nocapture noundef writeonly initializes((8, 12)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %3
@@ -1374,7 +1374,7 @@ define range(i32 -1, 1) i32 @php_output_get_contents(ptr nocapture noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @php_output_get_length(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
+define range(i32 -1, 1) i32 @php_output_get_length(ptr nocapture noundef writeonly initializes((8, 12)) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @output_globals, i64 24), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
@@ -1528,7 +1528,7 @@ php_output_handler_init.exit:                     ; preds = %18, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @php_output_handler_default_func(ptr nocapture readnone %0, ptr nocapture noundef %1) #8 {
+define internal noundef i32 @php_output_handler_default_func(ptr nocapture readnone %0, ptr nocapture noundef initializes((40, 64)) %1) #8 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -2390,7 +2390,7 @@ define range(i32 -1, 1) i32 @php_output_handler_hook(i32 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_output_handler_dtor(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @php_output_handler_dtor(ptr nocapture noundef initializes((12, 24), (32, 56)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %3

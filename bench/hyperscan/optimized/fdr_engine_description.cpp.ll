@@ -39,7 +39,7 @@ $_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EE17_M_realloc_insertIJRKNS0_12F
 @_ZN3ue220FDREngineDescriptionC1ERKNS_12FDREngineDefE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN3ue220FDREngineDescriptionC2ERKNS_12FDREngineDefE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue220FDREngineDescriptionC2ERKNS_12FDREngineDefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %def) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue220FDREngineDescriptionC2ERKNS_12FDREngineDefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 20), (24, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %def) unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %def, align 8
   %cpu_features = getelementptr inbounds i8, ptr %def, i64 16

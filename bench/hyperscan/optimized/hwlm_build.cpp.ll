@@ -150,7 +150,7 @@ $_ZTSN3ue212bytecode_ptrI3FDRE7deleterIS1_EE = comdat any
 @_ZN3ue29HWLMProtoD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3ue29HWLMProtoD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3ue29HWLMProtoC2EhSt6vectorINS_11hwlmLiteralESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(97) %this, i8 noundef zeroext %engType_in, ptr nocapture noundef %lits_in) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29HWLMProtoC2EhSt6vectorINS_11hwlmLiteralESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(97) initializes((0, 1), (8, 48), (56, 60), (64, 72)) %this, i8 noundef zeroext %engType_in, ptr nocapture noundef %lits_in) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 %engType_in, ptr %this, align 8
   %fdrEng = getelementptr inbounds i8, ptr %this, i64 8
@@ -183,7 +183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ue29HWLMProtoC2EhSt10unique_ptrINS_20FDREngineDescriptionESt14default_deleteIS2_EESt6vectorINS_11hwlmLiteralESaIS7_EESt3mapIjS6_IjSaIjEESt4lessIjESaISt4pairIKjSC_EEEb(ptr noundef nonnull align 8 dereferenceable(97) %this, i8 noundef zeroext %engType_in, ptr nocapture noundef %eng_in, ptr nocapture noundef %lits_in, ptr noundef %bucketToLits_in, i1 noundef zeroext %make_small_in) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29HWLMProtoC2EhSt10unique_ptrINS_20FDREngineDescriptionESt14default_deleteIS2_EESt6vectorINS_11hwlmLiteralESaIS7_EESt3mapIjS6_IjSaIjEESt4lessIjESaISt4pairIKjSC_EEEb(ptr noundef nonnull align 8 dereferenceable(97) initializes((0, 1), (8, 48), (56, 60), (64, 72)) %this, i8 noundef zeroext %engType_in, ptr nocapture noundef %eng_in, ptr nocapture noundef %lits_in, ptr noundef %bucketToLits_in, i1 noundef zeroext %make_small_in) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 %engType_in, ptr %this, align 8
   %fdrEng = getelementptr inbounds i8, ptr %this, i64 8
@@ -257,7 +257,7 @@ _ZNSt3mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIKjS2_EEEC2EOS9_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ue29HWLMProtoC2EhSt10unique_ptrINS_22TeddyEngineDescriptionESt14default_deleteIS2_EESt6vectorINS_11hwlmLiteralESaIS7_EESt3mapIjS6_IjSaIjEESt4lessIjESaISt4pairIKjSC_EEEb(ptr noundef nonnull align 8 dereferenceable(97) %this, i8 noundef zeroext %engType_in, ptr nocapture noundef %eng_in, ptr nocapture noundef %lits_in, ptr noundef %bucketToLits_in, i1 noundef zeroext %make_small_in) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29HWLMProtoC2EhSt10unique_ptrINS_22TeddyEngineDescriptionESt14default_deleteIS2_EESt6vectorINS_11hwlmLiteralESaIS7_EESt3mapIjS6_IjSaIjEESt4lessIjESaISt4pairIKjSC_EEEb(ptr noundef nonnull align 8 dereferenceable(97) initializes((0, 1), (8, 48), (56, 60), (64, 72)) %this, i8 noundef zeroext %engType_in, ptr nocapture noundef %eng_in, ptr nocapture noundef %lits_in, ptr noundef %bucketToLits_in, i1 noundef zeroext %make_small_in) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 %engType_in, ptr %this, align 8
   %fdrEng = getelementptr inbounds i8, ptr %this, i64 8

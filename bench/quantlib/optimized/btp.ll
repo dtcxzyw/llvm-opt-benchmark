@@ -2962,7 +2962,7 @@ _ZN5boost15optional_detail13optional_baseIN8QuantLib6PeriodEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib5CCTEUC1ERKNS_4DateEdRKNS_6HandleINS_18YieldTermStructureEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, double noundef %spread, ptr noundef nonnull align 8 dereferenceable(16) %fwdCurve, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %issueDate) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib5CCTEUC1ERKNS_4DateEdRKNS_6HandleINS_18YieldTermStructureEEES3_S3_(ptr noundef nonnull align 8 dereferenceable(248) initializes((248, 256), (264, 268), (272, 280)) %this, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, double noundef %spread, ptr noundef nonnull align 8 dereferenceable(16) %fwdCurve, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %issueDate) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i16 = alloca %"class.QuantLib::Period", align 4
   %ref.tmp.i = alloca %"class.boost::shared_ptr.152", align 8
@@ -4672,7 +4672,7 @@ _ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3BTPC1ERKNS_4DateEdS3_S3_(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, double noundef %fixedRate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %issueDate) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3BTPC1ERKNS_4DateEdS3_S3_(ptr noundef nonnull align 8 dereferenceable(288) initializes((288, 296), (304, 308), (312, 320)) %this, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, double noundef %fixedRate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %issueDate) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp = alloca %"class.QuantLib::Schedule", align 8
   %ref.tmp = alloca %"class.QuantLib::Period", align 8
@@ -5969,7 +5969,7 @@ ehcleanup38:                                      ; preds = %ehcleanup37, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3BTPC1ERKNS_4DateEddS3_S3_(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, double noundef %fixedRate, double noundef %redemption, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %issueDate) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3BTPC1ERKNS_4DateEddS3_S3_(ptr noundef nonnull align 8 dereferenceable(288) initializes((288, 296), (304, 308), (312, 320)) %this, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, double noundef %fixedRate, double noundef %redemption, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %issueDate) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp = alloca %"class.QuantLib::Schedule", align 8
   %ref.tmp = alloca %"class.QuantLib::Period", align 8
@@ -6812,7 +6812,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 declare noundef double @_ZNK8QuantLib4Bond5yieldENS0_5PriceERKNS_10DayCounterENS_11CompoundingENS_9FrequencyENS_4DateEdmd(ptr noundef nonnull align 8 dereferenceable(248), double, i32, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, i64, double noundef, i64 noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16RendistatoBasketC2ERKSt6vectorIN5boost10shared_ptrINS_3BTPEEESaIS5_EERKS1_IdSaIdEES1_INS_6HandleINS_5QuoteEEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %btps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %outstandings, ptr nocapture noundef %cleanPriceQuotes) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16RendistatoBasketC2ERKSt6vectorIN5boost10shared_ptrINS_3BTPEEESaIS5_EERKS1_IdSaIdEES1_INS_6HandleINS_5QuoteEEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(224) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %btps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %outstandings, ptr nocapture noundef %cleanPriceQuotes) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8329,7 +8329,7 @@ _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib3BTPEEESaIS4_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20RendistatoCalculatorC2EN5boost10shared_ptrINS_16RendistatoBasketEEENS2_INS_7EuriborEEENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %basket, ptr nocapture noundef %euriborIndex, ptr nocapture noundef %discountCurve) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20RendistatoCalculatorC2EN5boost10shared_ptrINS_16RendistatoBasketEEENS2_INS_7EuriborEEENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 12), (16, 64)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %basket, ptr nocapture noundef %euriborIndex, ptr nocapture noundef %discountCurve) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp65 = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp76 = alloca %"class.boost::shared_ptr", align 8
@@ -10007,7 +10007,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20RendistatoCalculatorC1EN5boost10shared_ptrINS_16RendistatoBasketEEENS2_INS_7EuriborEEENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef %basket, ptr nocapture noundef %euriborIndex, ptr nocapture noundef %discountCurve) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20RendistatoCalculatorC1EN5boost10shared_ptrINS_16RendistatoBasketEEENS2_INS_7EuriborEEENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(256) initializes((272, 276), (280, 288)) %this, ptr nocapture noundef %basket, ptr nocapture noundef %euriborIndex, ptr nocapture noundef %discountCurve) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp60 = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp71 = alloca %"class.boost::shared_ptr", align 8
@@ -13914,7 +13914,7 @@ _ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %_ZN8QuantLib8Observ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib35RendistatoEquivalentSwapLengthQuoteC2EN5boost10shared_ptrINS_20RendistatoCalculatorEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %r) unnamed_addr #13 align 2 {
+define void @_ZN8QuantLib35RendistatoEquivalentSwapLengthQuoteC2EN5boost10shared_ptrINS_20RendistatoCalculatorEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %r) unnamed_addr #13 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -13945,7 +13945,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib35RendistatoEquivalentSwapLengthQuoteC1EN5boost10shared_ptrINS_20RendistatoCalculatorEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %r) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib35RendistatoEquivalentSwapLengthQuoteC1EN5boost10shared_ptrINS_20RendistatoCalculatorEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((40, 44), (48, 56)) %this, ptr nocapture noundef %r) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   %1 = getelementptr inbounds i8, ptr %this, i64 40
@@ -13996,7 +13996,7 @@ return:                                           ; preds = %entry, %lpad
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib35RendistatoEquivalentSwapSpreadQuoteC2EN5boost10shared_ptrINS_20RendistatoCalculatorEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %r) unnamed_addr #13 align 2 {
+define void @_ZN8QuantLib35RendistatoEquivalentSwapSpreadQuoteC2EN5boost10shared_ptrINS_20RendistatoCalculatorEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %r) unnamed_addr #13 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -14027,7 +14027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib35RendistatoEquivalentSwapSpreadQuoteC1EN5boost10shared_ptrINS_20RendistatoCalculatorEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %r) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib35RendistatoEquivalentSwapSpreadQuoteC1EN5boost10shared_ptrINS_20RendistatoCalculatorEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((40, 44), (48, 56)) %this, ptr nocapture noundef %r) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   %1 = getelementptr inbounds i8, ptr %this, i64 40

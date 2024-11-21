@@ -60,7 +60,7 @@ return:                                           ; preds = %entry, %sw.bb1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @block_writer_init(ptr nocapture noundef writeonly %bw, i8 noundef zeroext %typ, ptr noundef %buf, i32 noundef %block_size, i32 noundef %header_off, i32 noundef %hash_size) local_unnamed_addr #2 {
+define dso_local void @block_writer_init(ptr nocapture noundef writeonly initializes((0, 28), (40, 44), (56, 64), (72, 76)) %bw, i8 noundef zeroext %typ, ptr noundef %buf, i32 noundef %block_size, i32 noundef %header_off, i32 noundef %hash_size) local_unnamed_addr #2 {
 entry:
   store ptr %buf, ptr %bw, align 8
   %hash_size2 = getelementptr inbounds i8, ptr %bw, i64 20
@@ -587,7 +587,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare { ptr, ptr } @malloc_block_source() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @block_reader_start(ptr noundef %br, ptr nocapture noundef %it) local_unnamed_addr #8 {
+define dso_local void @block_reader_start(ptr noundef %br, ptr nocapture noundef initializes((0, 4), (8, 16), (24, 32)) %it) local_unnamed_addr #8 {
 entry:
   %br1 = getelementptr inbounds i8, ptr %it, i64 8
   store ptr %br, ptr %br1, align 8
@@ -610,7 +610,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @block_iter_copy_from(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #4 {
+define dso_local void @block_iter_copy_from(ptr noundef initializes((0, 4), (8, 16), (24, 32)) %dest, ptr noundef %src) local_unnamed_addr #4 {
 entry:
   %br = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load ptr, ptr %br, align 8

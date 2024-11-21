@@ -206,7 +206,7 @@ define internal void @zm_info_json(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @zm_globals_ctor_json(ptr nocapture noundef writeonly %0) #2 {
+define internal void @zm_globals_ctor_json(ptr nocapture noundef writeonly initializes((0, 12)) %0) #2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 4

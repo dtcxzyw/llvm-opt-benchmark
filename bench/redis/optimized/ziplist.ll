@@ -712,7 +712,7 @@ return:                                           ; preds = %if.end135, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zipEntry(ptr noundef %p, ptr nocapture noundef nonnull writeonly %e) unnamed_addr #4 {
+define internal fastcc void @zipEntry(ptr noundef %p, ptr nocapture noundef nonnull writeonly initializes((0, 8), (20, 21)) %e) unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %p, align 1
   %cmp = icmp ult i8 %0, -2

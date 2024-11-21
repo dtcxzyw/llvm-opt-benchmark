@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_list_item_t_class = external global %struct.opal_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_io_base_file_select(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @mca_io_base_file_select(ptr noundef initializes((140, 144), (952, 960)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.avail_io_t, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104

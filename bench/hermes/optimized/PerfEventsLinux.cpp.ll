@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [13 x i8] c"major-faults\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes2vm15instrumentation11PerfCounter10ensureInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes2vm15instrumentation11PerfCounter10ensureInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %pe = alloca %struct.perf_event_attr, align 8
   %0 = getelementptr inbounds i8, ptr %pe, i64 16

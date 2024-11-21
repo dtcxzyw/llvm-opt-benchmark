@@ -803,7 +803,7 @@ $_ZZN5boost4math20binomial_coefficientIeNS0_8policies6policyINS2_14default_polic
 @_ZN8QuantLib13TCopulaPolicyC1ERKSt6vectorIS1_IdSaIdEESaIS3_EERKNS0_10initTraitsE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8QuantLib13TCopulaPolicyC2ERKSt6vectorIS1_IdSaIdEESaIS3_EERKNS0_10initTraitsE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13TCopulaPolicyC2ERKSt6vectorIS1_IdSaIdEESaIS3_EERKNS0_10initTraitsE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %factorWeights, ptr noundef nonnull align 8 dereferenceable(24) %vals) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13TCopulaPolicyC2ERKSt6vectorIS1_IdSaIdEESaIS3_EERKNS0_10initTraitsE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 96)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %factorWeights, ptr noundef nonnull align 8 dereferenceable(24) %vals) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tOrder = alloca i32, align 4
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8

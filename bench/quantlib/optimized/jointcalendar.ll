@@ -124,7 +124,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib13JointCalendar4ImplEEE = comda
 @_ZN8QuantLib13JointCalendarC1ERKSt6vectorINS_8CalendarESaIS2_EENS_17JointCalendarRuleE = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN8QuantLib13JointCalendarC2ERKSt6vectorINS_8CalendarESaIS2_EENS_17JointCalendarRuleE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13JointCalendar4ImplC2ERKNS_8CalendarES4_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c2, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendar4ImplC2ERKNS_8CalendarES4_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c2, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !3
@@ -292,7 +292,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13JointCalendar4ImplC2ERKNS_8CalendarES4_S4_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c3, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendar4ImplC2ERKNS_8CalendarES4_S4_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c3, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !3
@@ -507,7 +507,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13JointCalendar4ImplC2ERKNS_8CalendarES4_S4_S4_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c4, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendar4ImplC2ERKNS_8CalendarES4_S4_S4_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c4, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !3
@@ -777,7 +777,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib13JointCalendar4ImplC2ESt6vectorINS_8CalendarESaIS3_EENS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %cv, i32 noundef %r) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendar4ImplC2ESt6vectorINS_8CalendarESaIS3_EENS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %cv, i32 noundef %r) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !3
@@ -2454,7 +2454,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13JointCalendarC2ERKNS_8CalendarES3_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c1, ptr noundef nonnull align 8 dereferenceable(16) %c2, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendarC2ERKNS_8CalendarES3_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %c1, ptr noundef nonnull align 8 dereferenceable(16) %c2, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -2619,7 +2619,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13JointCalendarC2ERKNS_8CalendarES3_S3_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c1, ptr noundef nonnull align 8 dereferenceable(16) %c2, ptr noundef nonnull align 8 dereferenceable(16) %c3, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendarC2ERKNS_8CalendarES3_S3_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %c1, ptr noundef nonnull align 8 dereferenceable(16) %c2, ptr noundef nonnull align 8 dereferenceable(16) %c3, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -2778,7 +2778,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.body,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13JointCalendarC2ERKNS_8CalendarES3_S3_S3_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %c1, ptr noundef nonnull align 8 dereferenceable(16) %c2, ptr noundef nonnull align 8 dereferenceable(16) %c3, ptr noundef nonnull align 8 dereferenceable(16) %c4, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendarC2ERKNS_8CalendarES3_S3_S3_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %c1, ptr noundef nonnull align 8 dereferenceable(16) %c2, ptr noundef nonnull align 8 dereferenceable(16) %c3, ptr noundef nonnull align 8 dereferenceable(16) %c4, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -2937,7 +2937,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.body,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13JointCalendarC2ERKSt6vectorINS_8CalendarESaIS2_EENS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cv, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendarC2ERKSt6vectorINS_8CalendarESaIS2_EENS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cv, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %agg.tmp = alloca %"class.std::vector", align 8

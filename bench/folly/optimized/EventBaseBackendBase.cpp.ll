@@ -33,7 +33,7 @@ $_ZNSt12out_of_rangeC2EOS_ = comdat any
 @_ZTVSt12out_of_range = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, ptr noundef %evb) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((64, 72), (120, 128)) %this, ptr noundef %evb) local_unnamed_addr #0 align 2 {
 entry:
   %evb_ = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %evb, ptr %evb_, align 8, !tbaa !7
@@ -54,7 +54,7 @@ cond.end:                                         ; preds = %cond.true, %entry
 declare noundef ptr @_ZNK5folly9EventBase15getLibeventBaseEv(ptr noundef nonnull align 16 dereferenceable(584)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %evb) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) initializes((120, 128)) %this, ptr noundef %evb) local_unnamed_addr #0 align 2 {
 entry:
   %evb_ = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %evb, ptr %evb_, align 8, !tbaa !7

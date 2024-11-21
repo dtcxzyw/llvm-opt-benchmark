@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.25 = private unnamed_addr constant [29 x i8] c"\09subslice%d: %u EUs (0x%hx)\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @intel_sseu_set_info(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_sseu_set_info(ptr nocapture noundef writeonly initializes((168, 171)) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   store i8 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 169
@@ -1579,7 +1579,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cherryview_sseu_info_init(ptr nocapture noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @cherryview_sseu_info_init(ptr nocapture noundef initializes((4968, 4969), (5136, 5139)) %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4968
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1786,7 +1786,7 @@ define internal fastcc void @cherryview_sseu_info_init(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hsw_sseu_info_init(ptr nocapture noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @hsw_sseu_info_init(ptr nocapture noundef initializes((4968, 4969)) %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4968
   %4 = getelementptr inbounds i8, ptr %2, i64 7168
@@ -2528,7 +2528,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #6
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gen11_compute_sseu_info(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #3 align 16 {
+define internal fastcc void @gen11_compute_sseu_info(ptr noundef initializes((8, 9)) %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 169
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64

@@ -5326,7 +5326,7 @@ return:                                           ; preds = %copy_conditional.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @point_double(ptr nocapture noundef nonnull %x_out, ptr nocapture noundef nonnull writeonly %y_out, ptr nocapture noundef nonnull writeonly %z_out, ptr nocapture noundef nonnull readonly %x_in, ptr nocapture noundef nonnull readonly %y_in, ptr nocapture noundef nonnull readonly %z_in) unnamed_addr #6 {
+define internal fastcc void @point_double(ptr nocapture noundef nonnull initializes((0, 32)) %x_out, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %y_out, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %z_out, ptr nocapture noundef nonnull readonly %x_in, ptr nocapture noundef nonnull readonly %y_in, ptr nocapture noundef nonnull readonly %z_in) unnamed_addr #6 {
 entry:
   %0 = load i64, ptr %x_in, align 8
   %arrayidx2.i = getelementptr inbounds i8, ptr %x_in, i64 8

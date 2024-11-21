@@ -178,7 +178,7 @@ declare ptr @_PyFrame_New_NoTrack(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_PyFrame_Copy(ptr noundef %src, ptr nocapture noundef writeonly %dest) local_unnamed_addr #2 {
+define hidden void @_PyFrame_Copy(ptr noundef %src, ptr nocapture noundef writeonly initializes((8, 16)) %dest) local_unnamed_addr #2 {
 entry:
   %localsplus = getelementptr inbounds i8, ptr %src, i64 72
   %stacktop = getelementptr inbounds i8, ptr %src, i64 64

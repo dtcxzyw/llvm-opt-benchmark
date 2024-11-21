@@ -684,7 +684,7 @@ define weak_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV1C2ImEERKNS0_7detail
 declare hidden void @_ZN4LIEF2PE19LoadConfigurationV0C2ImEERKNS0_7details21load_configuration_v0IT_EE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE19LoadConfigurationV119guard_cf_flags_listEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE19LoadConfigurationV119guard_cf_flags_listEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   %4 = getelementptr inbounds i8, ptr %0, i64 8

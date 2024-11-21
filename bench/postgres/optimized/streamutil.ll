@@ -1252,7 +1252,7 @@ define dso_local i64 @feGetCurrentTimestamp() local_unnamed_addr #7 {
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @feTimestampDifference(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #8 {
+define dso_local void @feTimestampDifference(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #8 {
   %5 = sub i64 %1, %0
   %6 = icmp slt i64 %5, 1
   br i1 %6, label %11, label %7
@@ -1281,7 +1281,7 @@ define dso_local zeroext i1 @feTimestampDifferenceExceeds(i64 noundef %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @fe_sendint64(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define dso_local void @fe_sendint64(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #8 {
   %3 = tail call i64 @llvm.bswap.i64(i64 %0)
   store i64 %3, ptr %1, align 1
   ret void

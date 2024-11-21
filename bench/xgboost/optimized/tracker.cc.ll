@@ -616,7 +616,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10collective7TrackerC2ERKNS_4JsonE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define void @_ZN7xgboost10collective7TrackerC2ERKNS_4JsonE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 9), (12, 20), (24, 33)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -1332,7 +1332,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10collective12RabitTracker11WorkerProxyC2EiNS0_9TCPSocketENS0_11SockAddressE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef byval(%"class.xgboost::collective::SockAddress") align 8 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10collective12RabitTracker11WorkerProxyC2EiNS0_9TCPSocketENS0_11SockAddressE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 5)) %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef byval(%"class.xgboost::collective::SockAddress") align 8 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"struct.xgboost::collective::proto::PeerInfo", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2095,7 +2095,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10collective12RabitTrackerC2ERKNS_4JsonE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10collective12RabitTrackerC2ERKNS_4JsonE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 9), (12, 20), (24, 33)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::collective::SockAddress", align 4
   %4 = alloca %"class.xgboost::collective::TCPSocket", align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

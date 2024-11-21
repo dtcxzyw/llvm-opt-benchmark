@@ -1642,7 +1642,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh23ItaniumPartialDemanglerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN4llvh23ItaniumPartialDemanglerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %Context = getelementptr inbounds i8, ptr %this, i64 8
@@ -1785,7 +1785,7 @@ delete.end:                                       ; preds = %_ZN4llvh16itanium_d
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4llvh23ItaniumPartialDemanglerC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %Other) unnamed_addr #5 align 2 {
+define hidden void @_ZN4llvh23ItaniumPartialDemanglerC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %Other) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %Other, align 8
   store ptr %0, ptr %this, align 8

@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [10 x i8] c"codes %d\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BZ2_bsInitWrite(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @BZ2_bsInitWrite(ptr nocapture noundef writeonly initializes((640, 648)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 644
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 640

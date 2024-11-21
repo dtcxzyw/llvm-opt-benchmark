@@ -60,7 +60,7 @@ define hidden noundef ptr @pj_nzmg(ptr noundef writeonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @_Z33pj_projection_specific_setup_nzmgP8PJconsts(ptr noundef returned writeonly %0) local_unnamed_addr #1 {
+define hidden noundef ptr @_Z33pj_projection_specific_setup_nzmgP8PJconsts(ptr noundef returned writeonly initializes((104, 120), (168, 176), (184, 192), (440, 472)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   store double 0x415854E500000000, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 184

@@ -142,7 +142,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @readline_set_completion_index(ptr nocapture noundef writeonly %rs, i32 noundef %index) local_unnamed_addr #3 {
+define dso_local void @readline_set_completion_index(ptr nocapture noundef writeonly initializes((10796, 10800)) %rs, i32 noundef %index) local_unnamed_addr #3 {
 entry:
   %completion_index = getelementptr inbounds i8, ptr %rs, i64 10796
   store i32 %index, ptr %completion_index, align 4
@@ -717,7 +717,7 @@ readline_update.exit:                             ; preds = %if.end39.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @readline_completion(ptr noundef %rs) unnamed_addr #0 {
+define internal fastcc void @readline_completion(ptr noundef initializes((10792, 10796)) %rs) unnamed_addr #0 {
 entry:
   %nb_completions = getelementptr inbounds i8, ptr %rs, i64 10792
   store i32 0, ptr %nb_completions, align 8
@@ -1302,7 +1302,7 @@ entry:
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @readline_restart(ptr nocapture noundef writeonly %rs) local_unnamed_addr #3 {
+define dso_local void @readline_restart(ptr nocapture noundef writeonly initializes((4096, 4104)) %rs) local_unnamed_addr #3 {
 entry:
   %cmd_buf_index = getelementptr inbounds i8, ptr %rs, i64 4096
   store i32 0, ptr %cmd_buf_index, align 8

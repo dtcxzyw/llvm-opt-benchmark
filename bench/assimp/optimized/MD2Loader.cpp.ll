@@ -133,7 +133,7 @@ $_ZTV17DeadlyImportError = comdat any
 @_ZN6Assimp11MD2ImporterC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp11MD2ImporterC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3MD217LookupNormalIndexEhR10aiVector3tIfE(i8 noundef zeroext %iNormalIndex, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %vOut) local_unnamed_addr #0 {
+define hidden void @_ZN6Assimp3MD217LookupNormalIndexEhR10aiVector3tIfE(i8 noundef zeroext %iNormalIndex, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %vOut) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i8 %iNormalIndex, -95
   br i1 %cmp, label %if.then, label %if.end
@@ -189,7 +189,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11MD2Importer15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %this, ptr noundef nonnull %pImp) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11MD2Importer15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((72, 76)) %this, ptr noundef nonnull %pImp) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.1, i32 noundef -1)
   %configFrameID = getelementptr inbounds i8, ptr %this, i64 72

@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [2 x i8] c"+\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @view_ctrl_pad_create(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @view_ctrl_pad_create(ptr noundef %0, ptr nocapture noundef initializes((56, 256)) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @lv_tabview_create(ptr noundef %0) #3
   tail call void @lv_tabview_set_tab_bar_size(ptr noundef %4, i32 noundef 50) #3

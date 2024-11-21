@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Type_create_f90_integer = weak alias i32 (i32, ptr), ptr @PMPI_Type_create_f90_integer
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Type_create_f90_integer(i32 noundef %0, ptr noundef %1) #0 {
+define i32 @PMPI_Type_create_f90_integer(i32 noundef %0, ptr noundef initializes((0, 8)) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca [1 x ptr], align 8

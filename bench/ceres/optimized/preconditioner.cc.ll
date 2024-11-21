@@ -79,7 +79,7 @@ define hidden noundef range(i32 6, 4) i32 @_ZN5ceres8internal14Preconditioner28P
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal33SparseMatrixPreconditionerWrapperC2EPKNS0_12SparseMatrixERKNS0_14Preconditioner7OptionsE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal33SparseMatrixPreconditionerWrapperC2EPKNS0_12SparseMatrixERKNS0_14Preconditioner7OptionsE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 64)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal33SparseMatrixPreconditionerWrapperE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

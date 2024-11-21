@@ -24,7 +24,7 @@ declare void @ossl_ec_GFp_simple_group_finish(ptr noundef) #1
 declare void @ossl_ec_GFp_simple_group_clear_finish(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ec_GFp_nist_group_copy(ptr noundef %dest, ptr noundef %src) #2 {
+define i32 @ossl_ec_GFp_nist_group_copy(ptr noundef initializes((136, 144)) %dest, ptr noundef %src) #2 {
 entry:
   %field_mod_func = getelementptr inbounds i8, ptr %src, i64 136
   %0 = load ptr, ptr %field_mod_func, align 8

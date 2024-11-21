@@ -162,7 +162,7 @@ glib_autoptr_cleanup_QCryptoBlock.exit:           ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @qcrypto_block_headerlen_hdr_init_func(ptr nocapture readnone %block, i64 noundef %headerlen, ptr nocapture noundef writeonly %opaque, ptr nocapture readnone %errp) #3 {
+define internal noundef i32 @qcrypto_block_headerlen_hdr_init_func(ptr nocapture readnone %block, i64 noundef %headerlen, ptr nocapture noundef writeonly initializes((0, 8)) %opaque, ptr nocapture readnone %errp) #3 {
 entry:
   store i64 %headerlen, ptr %opaque, align 8
   ret i32 0

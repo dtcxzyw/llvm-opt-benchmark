@@ -595,7 +595,7 @@ declare void @_ZN6icu_756number24LocalizedNumberFormatterD1Ev(ptr noundef nonnul
 declare void @_ZN6icu_756FormatD2Ev(ptr noundef nonnull align 8 dereferenceable(322)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number4impl32LocalizedNumberFormatterAsFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number4impl32LocalizedNumberFormatterAsFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i64 16), ptr %this, align 8
   %fLocale = getelementptr inbounds i8, ptr %this, i64 824
@@ -1060,7 +1060,7 @@ declare void @_ZNK6icu_7531FormattedValueStringBuilderImpl20getAllFieldPositions
 declare void @_ZN6icu_7528FieldPositionIteratorHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK6icu_756number4impl32LocalizedNumberFormatterAsFormat11parseObjectERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %parse_pos) unnamed_addr #10 align 2 {
+define void @_ZNK6icu_756number4impl32LocalizedNumberFormatterAsFormat11parseObjectERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((12, 16)) %parse_pos) unnamed_addr #10 align 2 {
 entry:
   %errorIndex.i = getelementptr inbounds i8, ptr %parse_pos, i64 12
   store i32 0, ptr %errorIndex.i, align 4

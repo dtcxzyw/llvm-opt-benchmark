@@ -24,7 +24,7 @@ $_ZTIN8QuantLib13StepConditionINS_5ArrayEEE = comdat any
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib20FdmSnapshotConditionC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, double noundef %t) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20FdmSnapshotConditionC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, double noundef %t) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib20FdmSnapshotConditionE, i64 16), ptr %this, align 8, !tbaa !3
   %t_ = getelementptr inbounds nuw i8, ptr %this, i64 8

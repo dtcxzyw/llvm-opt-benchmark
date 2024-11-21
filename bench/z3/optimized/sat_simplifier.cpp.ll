@@ -866,7 +866,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat10simplifierC2ERNS_6solverERK10params_ref(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(4408) %_s, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat10simplifierC2ERNS_6solverERK10params_ref(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 12), (16, 56), (64, 80), (88, 104), (248, 288)) %this, ptr noundef nonnull align 8 dereferenceable(4408) %_s, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   store ptr %_s, ptr %this, align 8
   %m_num_calls = getelementptr inbounds i8, ptr %this, i64 8
@@ -1126,7 +1126,7 @@ lpad:                                             ; preds = %land.rhs, %invoke.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3sat10simplifier16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(288) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN3sat10simplifier16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(288) initializes((196, 236)) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_num_bce = getelementptr inbounds i8, ptr %this, i64 196
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %m_num_bce, i8 0, i64 40, i1 false)
@@ -2869,7 +2869,7 @@ _ZN6vectorIcLb0EjE6resizeIbEEvjT_z.exit:          ; preds = %_ZNK3sat6solver8num
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat10simplifier10initializeEv(ptr noundef nonnull align 8 dereferenceable(288) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat10simplifier10initializeEv(ptr noundef nonnull align 8 dereferenceable(288) initializes((56, 60), (80, 81)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_need_cleanup = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %m_need_cleanup, align 8
@@ -6861,7 +6861,7 @@ if.end9:                                          ; preds = %_ZN3sat15clause_use
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat10simplifier8elim_litERNS_6clauseENS_7literalE(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 4 dereferenceable(20) %c, i32 %l.coerce) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat10simplifier8elim_litERNS_6clauseENS_7literalE(ptr noundef nonnull align 8 dereferenceable(288) initializes((80, 81)) %this, ptr noundef nonnull align 4 dereferenceable(20) %c, i32 %l.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp4.i = alloca %"class.sat::status", align 8
   %agg.tmp1.i = alloca %"class.sat::justification", align 8

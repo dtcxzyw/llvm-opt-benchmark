@@ -96,7 +96,7 @@ $_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cx
 @_ZN8QuantLib33RatePseudoRootJacobianAllElementsC1ERKNS_6MatrixEmmRKSt6vectorIdSaIdEES6_ = unnamed_addr alias void (ptr, ptr, i64, i64, ptr, ptr), ptr @_ZN8QuantLib33RatePseudoRootJacobianAllElementsC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEES6_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31RatePseudoRootJacobianNumericalC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEERKS4_IS1_SaIS1_EES8_(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoRoot, i64 noundef %aliveIndex, i64 noundef %numeraire, ptr noundef nonnull align 8 dereferenceable(24) %taus, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoBumps, ptr noundef nonnull align 8 dereferenceable(24) %displacements) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31RatePseudoRootJacobianNumericalC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEERKS4_IS1_SaIS1_EES8_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoRoot, i64 noundef %aliveIndex, i64 noundef %numeraire, ptr noundef nonnull align 8 dereferenceable(24) %taus, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoBumps, ptr noundef nonnull align 8 dereferenceable(24) %displacements) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %aliveIndex.addr = alloca i64, align 8
   %numeraire.addr = alloca i64, align 8
@@ -2496,7 +2496,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 declare double @exp(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22RatePseudoRootJacobianC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEERKS4_IS1_SaIS1_EES6_(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoRoot, i64 noundef %aliveIndex, i64 noundef %numeraire, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %taus, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoBumps, ptr nocapture noundef %displacements) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22RatePseudoRootJacobianC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEERKS4_IS1_SaIS1_EES6_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoRoot, i64 noundef %aliveIndex, i64 noundef %numeraire, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %taus, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoBumps, ptr nocapture noundef %displacements) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %numberRates = alloca i64, align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -4554,7 +4554,7 @@ unreachable:                                      ; preds = %invoke.cont65, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib33RatePseudoRootJacobianAllElementsC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEES6_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoRoot, i64 noundef %aliveIndex, i64 noundef %numeraire, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %taus, ptr nocapture noundef %displacements) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib33RatePseudoRootJacobianAllElementsC2ERKNS_6MatrixEmmRKSt6vectorIdSaIdEES6_(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudoRoot, i64 noundef %aliveIndex, i64 noundef %numeraire, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %taus, ptr nocapture noundef %displacements) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp19 = alloca %"class.std::__cxx11::basic_string", align 8

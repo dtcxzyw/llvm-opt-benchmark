@@ -253,7 +253,7 @@ check_7zip_header_in_sfx.exit:                    ; preds = %19, %25, %38, %17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_read_format_7zip_read_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal i32 @archive_read_format_7zip_read_header(ptr noundef initializes((16, 20)) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct._7z_header_info, align 8
@@ -1039,7 +1039,7 @@ slurp_central_directory.exit:                     ; preds = %26, %skip_sfx.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_read_format_7zip_read_data(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal i32 @archive_read_format_7zip_read_data(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 2072
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -1554,7 +1554,7 @@ read_consume.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @decode_encoded_header_info(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @decode_encoded_header_info(ptr noundef %0, ptr nocapture noundef initializes((0, 104)) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2072
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -5096,7 +5096,7 @@ define internal zeroext i8 @ppmd_read(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_StreamsInfo(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_StreamsInfo(ptr noundef %0, ptr nocapture noundef initializes((0, 104)) %1) unnamed_addr #0 {
   %3 = alloca %struct._7z_digests, align 8
   %4 = alloca %struct._7z_digests, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 2072
@@ -7234,7 +7234,7 @@ define internal fastcc i64 @folder_uncompressed_size(ptr nocapture noundef reado
 declare void @archive_entry_set_is_metadata_encrypted(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @init_decompression(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @init_decompression(ptr noundef %0, ptr noundef initializes((296, 312)) %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = alloca %struct.lzma_options_delta, align 8
   %6 = alloca [4 x %struct.lzma_filter], align 16
   %7 = load i64, ptr %2, align 8

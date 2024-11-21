@@ -201,7 +201,7 @@ define hidden void @av1_reset_entropy_context(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_reset_loop_filter_delta(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden void @av1_reset_loop_filter_delta(ptr nocapture noundef writeonly initializes((10752, 10753)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 10752
   store i8 0, ptr %3, align 16
   %.inv = icmp slt i32 %1, 2

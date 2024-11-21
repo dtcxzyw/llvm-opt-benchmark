@@ -3522,7 +3522,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal void @construct(ptr noundef %0) #0 {
+define internal void @construct(ptr noundef initializes((120, 124)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 124
@@ -3559,7 +3559,7 @@ define internal void @destruct(ptr nocapture noundef %0) #0 {
 declare void @PMIx_Proc_construct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @rqcon(ptr noundef %0) #0 {
+define internal void @rqcon(ptr noundef initializes((680, 688), (728, 740), (744, 808)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 680
   store ptr null, ptr %2, align 8
   %3 = load i32, ptr @pmix_class_init_epoch, align 4

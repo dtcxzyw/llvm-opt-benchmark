@@ -993,7 +993,7 @@ default.unreachable:                              ; preds = %"_ZN98_$LT$alloc..v
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3cfg8cfg_expr7CfgExpr5parse17h7cb66b764350fd8dE.llvm.2681043041644741927(ptr noalias nocapture noundef writeonly sret({ [24 x i8], i8, [23 x i8] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define hidden void @_ZN3cfg8cfg_expr7CfgExpr5parse17h7cb66b764350fd8dE.llvm.2681043041644741927(ptr noalias nocapture noundef writeonly sret({ [24 x i8], i8, [23 x i8] }) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   %4 = alloca { ptr, ptr, {} }, align 8
   %5 = alloca { [24 x i8], i8, [23 x i8] }, align 8
@@ -8474,7 +8474,7 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3ops8function5FnMut8call_mut17hf1c31149fff6fa1fE.llvm.2681043041644741927(ptr noalias nocapture noundef writeonly sret({ [24 x i8], i8, [23 x i8] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2) unnamed_addr #0 {
+define hidden void @_ZN4core3ops8function5FnMut8call_mut17hf1c31149fff6fa1fE.llvm.2681043041644741927(ptr noalias nocapture noundef writeonly sret({ [24 x i8], i8, [23 x i8] }) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2) unnamed_addr #0 {
   %4 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   %5 = alloca { ptr, ptr, {} }, align 8
   %6 = alloca { [24 x i8], i8, [23 x i8] }, align 8
@@ -8594,7 +8594,7 @@ define hidden { i64, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h39e4563719cc3832E"(ptr noalias nocapture noundef writeonly sret({ [24 x i8], i8, [23 x i8] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2) unnamed_addr #2 {
+define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h39e4563719cc3832E"(ptr noalias nocapture noundef writeonly sret({ [24 x i8], i8, [23 x i8] }) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2) unnamed_addr #2 {
   %4 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   %5 = alloca { ptr, ptr, {} }, align 8
   %6 = alloca { [24 x i8], i8, [23 x i8] }, align 8
@@ -12431,7 +12431,7 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core4iter6traits8iterator8Iterator8find_map17hd0867de830f12de7E.llvm.2681043041644741927(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core4iter6traits8iterator8Iterator8find_map17hd0867de830f12de7E.llvm.2681043041644741927(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   call void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h55f136864faa1ca1E.llvm.2681043041644741927(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
@@ -13421,7 +13421,7 @@ define hidden noundef ptr @"_ZN66_$LT$hir_expand..attrs..RawAttrs$u20$as$u20$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$fst..raw..Stream$LT$A$GT$$u20$as$u20$fst..stream..Streamer$GT$4next17h1dfc0d48574f91a9E"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(128) %1) unnamed_addr #2 {
+define hidden void @"_ZN67_$LT$fst..raw..Stream$LT$A$GT$$u20$as$u20$fst..stream..Streamer$GT$4next17h1dfc0d48574f91a9E"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(128) %1) unnamed_addr #2 {
   %3 = alloca { ptr, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @"_ZN3fst3raw24StreamWithState$LT$A$GT$9next_with17h7a2f90165788c7c1E.llvm.2681043041644741927"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(128) %1)
@@ -13447,7 +13447,7 @@ define hidden void @"_ZN67_$LT$fst..raw..Stream$LT$A$GT$$u20$as$u20$fst..stream.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$fst..raw..Stream$LT$A$GT$$u20$as$u20$fst..stream..Streamer$GT$4next17h1f2e26a63221fc0aE"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(128) %1) unnamed_addr #2 {
+define hidden void @"_ZN67_$LT$fst..raw..Stream$LT$A$GT$$u20$as$u20$fst..stream..Streamer$GT$4next17h1f2e26a63221fc0aE"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(128) %1) unnamed_addr #2 {
   %3 = alloca { ptr, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @"_ZN3fst3raw24StreamWithState$LT$A$GT$9next_with17h32576868561ef92fE.llvm.2681043041644741927"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(128) %1)
@@ -13473,7 +13473,7 @@ define hidden void @"_ZN67_$LT$fst..raw..Stream$LT$A$GT$$u20$as$u20$fst..stream.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$fst..raw..Stream$LT$A$GT$$u20$as$u20$fst..stream..Streamer$GT$4next17hf55fe95c7a627191E"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(128) %1) unnamed_addr #2 {
+define hidden void @"_ZN67_$LT$fst..raw..Stream$LT$A$GT$$u20$as$u20$fst..stream..Streamer$GT$4next17hf55fe95c7a627191E"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(128) %1) unnamed_addr #2 {
   %3 = alloca { ptr, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @"_ZN3fst3raw24StreamWithState$LT$A$GT$9next_with17h9d1fffe58d97ce1dE.llvm.2681043041644741927"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(128) %1)
@@ -19116,7 +19116,7 @@ define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h8fa172fc62f11018
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hc7323335db10f773E.llvm.2681043041644741927"(ptr noalias nocapture noundef writeonly sret({ ptr, i64, i64 }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #10 {
+define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hc7323335db10f773E.llvm.2681043041644741927"(ptr noalias nocapture noundef writeonly sret({ ptr, i64, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp ugt i64 %4, 1
@@ -19225,7 +19225,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h34c59f1e276d06ceE.llvm.2681043041644741927"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #10 {
+define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h34c59f1e276d06ceE.llvm.2681043041644741927"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
@@ -19269,7 +19269,7 @@ define hidden { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4eb4e8bfff6e1241E"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #14 {
+define hidden void @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4eb4e8bfff6e1241E"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #14 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4696)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4699)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
@@ -21357,7 +21357,7 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN7hir_def4attr5Attrs6by_key17h22accb8a4caf9a1cE(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i64 } }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #15 {
+define void @_ZN7hir_def4attr5Attrs6by_key17h22accb8a4caf9a1cE(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #15 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -21545,7 +21545,7 @@ define void @_ZN7hir_def4attr5Attrs3cfg17h86cb7ddc714385feE(ptr noalias nocaptur
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def4attr5Attrs4cfgs17h0a57d3dbb71fe2a5E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, ptr, {} }, { { ptr, i64 } } }, {} }, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
+define void @_ZN7hir_def4attr5Attrs4cfgs17h0a57d3dbb71fe2a5E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, ptr, {} }, { { ptr, i64 } } }, {} }, {} }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
   %3 = tail call { ptr, i64 } @"_ZN71_$LT$hir_expand..attrs..RawAttrs$u20$as$u20$core..ops..deref..Deref$GT$5deref17h27fef37d42fdfddaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !5297
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
@@ -21719,7 +21719,7 @@ define noundef zeroext i1 @_ZN7hir_def4attr5Attrs21has_doc_notable_trait17h70093
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def4attr5Attrs9doc_exprs17head8642a2855c187E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, ptr, {} }, { { ptr, i64 } } }, {} }, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
+define void @_ZN7hir_def4attr5Attrs9doc_exprs17head8642a2855c187E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, ptr, {} }, { { ptr, i64 } } }, {} }, {} }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
   %3 = tail call { ptr, i64 } @"_ZN71_$LT$hir_expand..attrs..RawAttrs$u20$as$u20$core..ops..deref..Deref$GT$5deref17h27fef37d42fdfddaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !5341
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
@@ -21737,7 +21737,7 @@ define void @_ZN7hir_def4attr5Attrs9doc_exprs17head8642a2855c187E(ptr noalias no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def4attr5Attrs11doc_aliases17h6c81739c660433d6E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, [3 x i64] } }, { ptr, [3 x i64] }, { ptr, [3 x i64] } } }) align 8 dereferenceable(96) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
+define void @_ZN7hir_def4attr5Attrs11doc_aliases17h6c81739c660433d6E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, [3 x i64] } }, { ptr, [3 x i64] }, { ptr, [3 x i64] } } }) align 8 dereferenceable(96) initializes((0, 40), (64, 72)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
   %3 = tail call { ptr, i64 } @"_ZN71_$LT$hir_expand..attrs..RawAttrs$u20$as$u20$core..ops..deref..Deref$GT$5deref17h27fef37d42fdfddaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !5348
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
@@ -22108,7 +22108,7 @@ _ZN7hir_def4attr9AttrQuery6exists17h0fb5a9836bf070e9E.exit: ; preds = %.lr.ph.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN92_$LT$hir_def..attr..DocExpr$u20$as$u20$core..convert..From$LT$hir_def..attr..DocAtom$GT$$GT$4from17h1ed4492561b676bbE"(ptr noalias nocapture noundef writeonly sret({ [24 x i8], i8, [23 x i8] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #13 {
+define void @"_ZN92_$LT$hir_def..attr..DocExpr$u20$as$u20$core..convert..From$LT$hir_def..attr..DocAtom$GT$$GT$4from17h1ed4492561b676bbE"(ptr noalias nocapture noundef writeonly sret({ [24 x i8], i8, [23 x i8] }) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   ret void
 }
@@ -22151,7 +22151,7 @@ define { ptr, i64 } @_ZN7hir_def4attr7DocExpr7aliases17hdc6cc4cbd1d25c7cE(ptr no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def4attr14AttrsWithOwner3new17hd4403773454524ebE(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %3) unnamed_addr #2 {
+define void @_ZN7hir_def4attr14AttrsWithOwner3new17hd4403773454524ebE(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %3) unnamed_addr #2 {
   %5 = alloca { i32, [3 x i32] }, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 1168
   %7 = load ptr, ptr %6, align 8, !invariant.load !4, !nonnull !4
@@ -28915,7 +28915,7 @@ _ZN7hir_def4attr13any_has_attrs17h5ea39a9496f73147E.exit: ; preds = %887, %893
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7hir_def4attr13AttrSourceMap3new17h9f936389d01985a5E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define internal fastcc void @_ZN7hir_def4attr13AttrSourceMap3new17h9f936389d01985a5E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 8), (24, 52)) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = alloca { { { { { i64, [1 x i64] }, { i64, [5 x i64] } }, i64 }, {} }, {} }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -29165,7 +29165,7 @@ define { ptr, i32 } @_ZN7hir_def4attr13AttrSourceMap12source_of_id17h735baa4c68f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def4attr9AttrQuery9tt_values17h63e7e6cc4615a65bE(ptr noalias nocapture noundef writeonly sret({ { { ptr, ptr, {} }, { { ptr, i64 } } }, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define void @_ZN7hir_def4attr9AttrQuery9tt_values17h63e7e6cc4615a65bE(ptr noalias nocapture noundef writeonly sret({ { { ptr, ptr, {} }, { { ptr, i64 } } }, {} }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7816)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !7816, !noalias !7819, !nonnull !4, !align !17, !noundef !4
@@ -29229,7 +29229,7 @@ define { ptr, i64 } @_ZN7hir_def4attr9AttrQuery12string_value17hf15189187f747eba
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def4attr9AttrQuery21string_value_unescape17h6deadd4150e437c6E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN7hir_def4attr9AttrQuery21string_value_unescape17h6deadd4150e437c6E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { { ptr, ptr, {} }, { { ptr, i64 } } }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -29324,7 +29324,7 @@ define noundef zeroext i1 @_ZN7hir_def4attr9AttrQuery6exists17h0fb5a9836bf070e9E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def4attr9AttrQuery5attrs17hf03bc5d9de18ada3E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, { { ptr, i64 } } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define void @_ZN7hir_def4attr9AttrQuery5attrs17hf03bc5d9de18ada3E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, { { ptr, i64 } } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !17, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -29846,7 +29846,7 @@ define hidden noalias noundef nonnull ptr @_ZN7hir_def4attr23fields_attrs_source
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN7hir_def5lower8LowerCtx3new17h77481fc1e37ce367E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, { { { i64, [1 x i64] } } }, ptr, i32, [1 x i32] }) align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #15 {
+define void @_ZN7hir_def5lower8LowerCtx3new17h77481fc1e37ce367E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, { { { i64, [1 x i64] } } }, ptr, i32, [1 x i32] }) align 8 dereferenceable(48) initializes((0, 24), (32, 44)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #15 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -29860,7 +29860,7 @@ define void @_ZN7hir_def5lower8LowerCtx3new17h77481fc1e37ce367E(ptr noalias noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN7hir_def5lower8LowerCtx18with_span_map_cell17h7217f444144624e9E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, { { { i64, [1 x i64] } } }, ptr, i32, [1 x i32] }) align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i64 noundef %4, ptr %5) unnamed_addr #15 {
+define void @_ZN7hir_def5lower8LowerCtx18with_span_map_cell17h7217f444144624e9E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, { { { i64, [1 x i64] } } }, ptr, i32, [1 x i32] }) align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i64 noundef %4, ptr %5) unnamed_addr #15 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -50062,7 +50062,7 @@ define hidden noundef nonnull ptr @_ZN7hir_def4body4Body10body_query17h4f581ea3e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7hir_def4body4Body6blocks17hc92d5df7e67a5d1bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, { { ptr, ptr } } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(184) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #13 {
+define void @_ZN7hir_def4body4Body6blocks17hc92d5df7e67a5d1bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, { { ptr, ptr } } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(184) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #13 {
   %5 = getelementptr inbounds i8, ptr %1, i64 104
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %1, i64 112
@@ -50201,7 +50201,7 @@ define noundef zeroext i1 @_ZN7hir_def4body4Body16is_binding_upvar17h74deebebc81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN62_$LT$hir_def..body..Body$u20$as$u20$core..default..Default$GT$7default17hd054c224d1d7186dE"(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64 } }, {} }, {} }, i32, [1 x i32] }) align 8 dereferenceable(184) %0) unnamed_addr #13 {
+define void @"_ZN62_$LT$hir_def..body..Body$u20$as$u20$core..default..Default$GT$7default17hd054c224d1d7186dE"(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64 } }, {} }, {} }, i32, [1 x i32] }) align 8 dereferenceable(184) initializes((0, 124), (128, 180)) %0) unnamed_addr #13 {
   store i64 0, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 16 to ptr), ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -50319,7 +50319,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @"_ZN113_$LT$hir_def..bod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN7hir_def4body13BodySourceMap11expr_syntax17h38d8ecb0e3e8fd04E(ptr noalias nocapture noundef writeonly sret({ [6 x i16], i16, [1 x i16] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(336) %1, i32 noundef %2) unnamed_addr #17 personality ptr @rust_eh_personality {
+define void @_ZN7hir_def4body13BodySourceMap11expr_syntax17h38d8ecb0e3e8fd04E(ptr noalias nocapture noundef writeonly sret({ [6 x i16], i16, [1 x i16] }) align 4 dereferenceable(16) initializes((12, 14)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(336) %1, i32 noundef %2) unnamed_addr #17 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -50597,7 +50597,7 @@ define { i32, i32 } @_ZN7hir_def4body13BodySourceMap15node_macro_file17h5d1134b7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN7hir_def4body13BodySourceMap10pat_syntax17h513d3a03c3e8ba2eE(ptr noalias nocapture noundef writeonly sret({ [6 x i16], i16, [1 x i16] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(336) %1, i32 noundef %2) unnamed_addr #17 personality ptr @rust_eh_personality {
+define void @_ZN7hir_def4body13BodySourceMap10pat_syntax17h513d3a03c3e8ba2eE(ptr noalias nocapture noundef writeonly sret({ [6 x i16], i16, [1 x i16] }) align 4 dereferenceable(16) initializes((12, 14)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(336) %1, i32 noundef %2) unnamed_addr #17 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -50641,7 +50641,7 @@ define void @_ZN7hir_def4body13BodySourceMap10pat_syntax17h513d3a03c3e8ba2eE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7hir_def4body13BodySourceMap17self_param_syntax17h215e17b6e9819900E(ptr noalias nocapture noundef writeonly sret({ [6 x i16], i16, [1 x i16] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(336) %1) unnamed_addr #13 {
+define void @_ZN7hir_def4body13BodySourceMap17self_param_syntax17h215e17b6e9819900E(ptr noalias nocapture noundef writeonly sret({ [6 x i16], i16, [1 x i16] }) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(336) %1) unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   ret void
@@ -51483,7 +51483,7 @@ define hidden noalias noundef nonnull ptr @"_ZN7hir_def7nameres11diagnostics14De
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7hir_def7nameres11diagnostics14DefDiagnostics4iter17h4443735ee50b5e73E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] } }, { ptr, [1 x i64] }, { ptr, [1 x i64] } } }) align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #13 {
+define void @_ZN7hir_def7nameres11diagnostics14DefDiagnostics4iter17h4443735ee50b5e73E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] } }, { ptr, [1 x i64] }, { ptr, [1 x i64] } } }) align 8 dereferenceable(48) initializes((0, 24), (32, 40)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #13 {
   %3 = load ptr, ptr %1, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
   %. = select i1 %4, ptr null, ptr %1
@@ -51498,7 +51498,7 @@ define void @_ZN7hir_def7nameres11diagnostics14DefDiagnostics4iter17h4443735ee50
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic17unresolved_module17h072a2f33bfb022c0E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef nonnull align 8 %4, i64 noundef %5) unnamed_addr #15 {
+define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic17unresolved_module17h072a2f33bfb022c0E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) initializes((0, 24), (64, 65), (88, 92)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef nonnull align 8 %4, i64 noundef %5) unnamed_addr #15 {
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %1, ptr %7, align 8
   store ptr %4, ptr %0, align 8
@@ -51514,7 +51514,7 @@ define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic17unresolved_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic23unresolved_extern_crate17hf8aef3d6a6b650dbE(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #15 {
+define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic23unresolved_extern_crate17hf8aef3d6a6b650dbE(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) initializes((0, 8), (64, 65), (88, 92)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #15 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %1, ptr %5, align 8
   store i32 %2, ptr %0, align 8
@@ -51526,7 +51526,7 @@ define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic23unresolved_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic17unresolved_import17he83bd7bbf39c0c40E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %2, i32 noundef %3) unnamed_addr #13 {
+define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic17unresolved_import17he83bd7bbf39c0c40E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) initializes((0, 16), (64, 65), (88, 92)) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %2, i32 noundef %3) unnamed_addr #13 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %1, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
@@ -51538,7 +51538,7 @@ define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic17unresolved_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic17unconfigured_code17h141be9ad87144215E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %5) unnamed_addr #13 {
+define void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic17unconfigured_code17h141be9ad87144215E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) initializes((0, 92)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %5) unnamed_addr #13 {
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %1, ptr %7, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -51552,7 +51552,7 @@ define void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic17unconfigured_code1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic21unresolved_proc_macro17h4386ffd854dcca5eE(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #13 {
+define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic21unresolved_proc_macro17h4386ffd854dcca5eE(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) initializes((0, 28), (64, 65), (88, 92)) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #13 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %1, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -51564,7 +51564,7 @@ define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic21unresolved_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic11macro_error17hac7eacb56a7c7046E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #13 {
+define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic11macro_error17hac7eacb56a7c7046E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) initializes((0, 65), (88, 92)) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #13 {
   %.sroa.0 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.0)
   %.sroa.0.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 24
@@ -51580,7 +51580,7 @@ define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic11macro_error
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic27macro_expansion_parse_error17h9724eeb1bcb74f97E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 %3, i64 noundef %4) unnamed_addr #13 {
+define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic27macro_expansion_parse_error17h9724eeb1bcb74f97E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) initializes((0, 40), (64, 65), (88, 92)) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 %3, i64 noundef %4) unnamed_addr #13 {
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %1, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -51594,7 +51594,7 @@ define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic27macro_expan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic21unresolved_macro_call17hec02c7931d250b86E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #13 {
+define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic21unresolved_macro_call17hec02c7931d250b86E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) initializes((0, 65), (88, 92)) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #13 {
   %.sroa.0 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -51610,7 +51610,7 @@ define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic21unresolved_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic27unimplemented_builtin_macro17h7e01d8a0887a8045E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #15 {
+define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic27unimplemented_builtin_macro17h7e01d8a0887a8045E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) initializes((0, 8), (64, 65), (88, 92)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #15 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %1, ptr %5, align 8
   store i32 %2, ptr %0, align 8
@@ -51622,7 +51622,7 @@ define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic27unimplement
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic21invalid_derive_target17hb97b3b18be3b0b38E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic21invalid_derive_target17hb97b3b18be3b0b38E(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) initializes((0, 16), (64, 65), (88, 92)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = alloca i32, align 4
   store i32 %4, ptr %6, align 4
   %7 = call noundef i64 @_ZN10hir_expand5attrs6AttrId9ast_index17hdbb9574765b912e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
@@ -51639,7 +51639,7 @@ define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic21invalid_der
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic16malformed_derive17h67e036d3c6932b8bE(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic16malformed_derive17h67e036d3c6932b8bE(ptr noalias nocapture noundef writeonly sret({ { [64 x i8], i8, [23 x i8] }, i32, [1 x i32] }) align 8 dereferenceable(96) initializes((0, 16), (64, 65), (88, 92)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = alloca i32, align 4
   store i32 %4, ptr %6, align 4
   %7 = call noundef i64 @_ZN10hir_expand5attrs6AttrId9ast_index17hdbb9574765b912e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
@@ -51656,7 +51656,7 @@ define hidden void @_ZN7hir_def7nameres11diagnostics13DefDiagnostic16malformed_d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN7hir_def10visibility13RawVisibility7private17h6af8047ad22784adE.llvm.2681043041644741927(ptr noalias nocapture noundef writeonly sret({ i8, [47 x i8] }) align 8 dereferenceable(48) %0) unnamed_addr #2 {
+define hidden void @_ZN7hir_def10visibility13RawVisibility7private17h6af8047ad22784adE.llvm.2681043041644741927(ptr noalias nocapture noundef writeonly sret({ i8, [47 x i8] }) align 8 dereferenceable(48) initializes((0, 2), (8, 48)) %0) unnamed_addr #2 {
   %2 = alloca { { i8, [7 x i8] }, { i64, { [3 x i64] } } }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   call void @_ZN10hir_expand8mod_path7ModPath9from_kind17h55d48786a7d22296E(ptr noalias nocapture noundef nonnull sret({ { i8, [7 x i8] }, { i64, { [3 x i64] } } }) align 8 dereferenceable(40) %2, i64 1)
@@ -51868,7 +51868,7 @@ define hidden void @_ZN7hir_def10visibility13RawVisibility22from_ast_with_span_m
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def10visibility13RawVisibility7resolve17h3e0841e65889ffd1E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 4 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %4) unnamed_addr #2 {
+define void @_ZN7hir_def10visibility13RawVisibility7resolve17h3e0841e65889ffd1E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 4 dereferenceable(16) initializes((0, 1)) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %4) unnamed_addr #2 {
   %6 = alloca { { ptr, ptr, {} } }, align 8
   %7 = alloca { { ptr, ptr, {} } }, align 8
   %8 = alloca { i8, [15 x i8] }, align 4
@@ -53714,7 +53714,7 @@ define void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$27lookup_in
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db14InternUseQuery5in_db17h93bbcc7910d14ba3E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db14InternUseQuery5in_db17h93bbcc7910d14ba3E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14127)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14130)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -53758,7 +53758,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN60_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db20InternUseLookupQuery5in_db17hfc23cd4197a7ee2dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db20InternUseLookupQuery5in_db17hfc23cd4197a7ee2dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14136)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14139)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -53806,7 +53806,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN66_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db22InternExternCrateQuery5in_db17h0456bac8b4a6e73eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db22InternExternCrateQuery5in_db17h0456bac8b4a6e73eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14145)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14148)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -53854,7 +53854,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN68_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db28InternExternCrateLookupQuery5in_db17h81deae2d778b07cdE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db28InternExternCrateLookupQuery5in_db17h81deae2d778b07cdE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14154)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14157)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -53902,7 +53902,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN74_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db19InternFunctionQuery5in_db17h0353df1c61b44ba1E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db19InternFunctionQuery5in_db17h0353df1c61b44ba1E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14163)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14166)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -53950,7 +53950,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN65_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db25InternFunctionLookupQuery5in_db17h33b5dee31cf8455dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db25InternFunctionLookupQuery5in_db17h33b5dee31cf8455dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14172)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14175)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -53998,7 +53998,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN71_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db17InternStructQuery5in_db17h4760c228ab833f05E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db17InternStructQuery5in_db17h4760c228ab833f05E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14181)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14184)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54046,7 +54046,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN63_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db23InternStructLookupQuery5in_db17h89eeb9daf6a666fcE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db23InternStructLookupQuery5in_db17h89eeb9daf6a666fcE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14190)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14193)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54094,7 +54094,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN69_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db16InternUnionQuery5in_db17h2300622c2f039bfdE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db16InternUnionQuery5in_db17h2300622c2f039bfdE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14199)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14202)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54142,7 +54142,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN62_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db22InternUnionLookupQuery5in_db17h7e930e12e7a1562eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db22InternUnionLookupQuery5in_db17h7e930e12e7a1562eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14208)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14211)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54190,7 +54190,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN68_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db15InternEnumQuery5in_db17h61bc126d9c5c5a51E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db15InternEnumQuery5in_db17h61bc126d9c5c5a51E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14217)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14220)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54238,7 +54238,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN61_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db21InternEnumLookupQuery5in_db17h2dc3fcfd237df028E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db21InternEnumLookupQuery5in_db17h2dc3fcfd237df028E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14226)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14229)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54286,7 +54286,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN67_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db22InternEnumVariantQuery5in_db17h7489df82e7083cbaE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db22InternEnumVariantQuery5in_db17h7489df82e7083cbaE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14235)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14238)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54334,7 +54334,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN68_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db28InternEnumVariantLookupQuery5in_db17h44e3f2ef563a72deE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db28InternEnumVariantLookupQuery5in_db17h44e3f2ef563a72deE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14244)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14247)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54382,7 +54382,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN74_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db16InternConstQuery5in_db17h1f39b740136469b4E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db16InternConstQuery5in_db17h1f39b740136469b4E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14253)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14256)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54430,7 +54430,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN62_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db22InternConstLookupQuery5in_db17ha8557db945b52cebE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db22InternConstLookupQuery5in_db17ha8557db945b52cebE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14262)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14265)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54478,7 +54478,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN68_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db17InternStaticQuery5in_db17hfe8707840e351597E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db17InternStaticQuery5in_db17hfe8707840e351597E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14271)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14274)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54526,7 +54526,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN63_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db23InternStaticLookupQuery5in_db17hd98d410219e1cfbdE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db23InternStaticLookupQuery5in_db17hd98d410219e1cfbdE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14283)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54574,7 +54574,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN69_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db16InternTraitQuery5in_db17h9d2e93ec2566c603E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db16InternTraitQuery5in_db17h9d2e93ec2566c603E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14289)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14292)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54622,7 +54622,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN62_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db22InternTraitLookupQuery5in_db17h88a84e1ab639c61cE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db22InternTraitLookupQuery5in_db17h88a84e1ab639c61cE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14298)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14301)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54670,7 +54670,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN68_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db21InternTraitAliasQuery5in_db17h6f360cc5fb265cfdE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db21InternTraitAliasQuery5in_db17h6f360cc5fb265cfdE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14307)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14310)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54718,7 +54718,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN67_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db27InternTraitAliasLookupQuery5in_db17hf60bdeec4e6c4733E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db27InternTraitAliasLookupQuery5in_db17hf60bdeec4e6c4733E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14316)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14319)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54766,7 +54766,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN73_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db20InternTypeAliasQuery5in_db17hddcba716d424fb86E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db20InternTypeAliasQuery5in_db17hddcba716d424fb86E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14325)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14328)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54814,7 +54814,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN66_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db26InternTypeAliasLookupQuery5in_db17h02c0ff20098dc5f3E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db26InternTypeAliasLookupQuery5in_db17h02c0ff20098dc5f3E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14334)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14337)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54862,7 +54862,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN72_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db15InternImplQuery5in_db17h600a86cfb50f624cE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db15InternImplQuery5in_db17h600a86cfb50f624cE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14343)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14346)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54910,7 +54910,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN61_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db21InternImplLookupQuery5in_db17hbd6459beda240c65E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db21InternImplLookupQuery5in_db17hbd6459beda240c65E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14352)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14355)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -54958,7 +54958,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN67_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db22InternExternBlockQuery5in_db17h429e5cc7b68897e0E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db22InternExternBlockQuery5in_db17h429e5cc7b68897e0E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14361)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14364)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55006,7 +55006,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN68_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db28InternExternBlockLookupQuery5in_db17h23467614a4998110E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db28InternExternBlockLookupQuery5in_db17h23467614a4998110E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14370)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14373)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55054,7 +55054,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN74_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db17InternMacro2Query5in_db17h2cc712c24e03d955E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db17InternMacro2Query5in_db17h2cc712c24e03d955E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14379)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14382)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55102,7 +55102,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN63_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db23InternMacro2LookupQuery5in_db17hbcb6d46e44307bbaE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db23InternMacro2LookupQuery5in_db17hbcb6d46e44307bbaE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14388)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14391)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55150,7 +55150,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN69_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db20InternProcMacroQuery5in_db17h052f5b75e1eb97f2E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db20InternProcMacroQuery5in_db17h052f5b75e1eb97f2E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14397)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14400)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55198,7 +55198,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN66_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db26InternProcMacroLookupQuery5in_db17h3bda91d60428e113E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db26InternProcMacroLookupQuery5in_db17h3bda91d60428e113E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14406)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14409)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55246,7 +55246,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN72_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db21InternMacroRulesQuery5in_db17h7bb470309bf825bbE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db21InternMacroRulesQuery5in_db17h7bb470309bf825bbE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14415)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14418)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55294,7 +55294,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN67_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db27InternMacroRulesLookupQuery5in_db17h804aec50bec67a9eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db27InternMacroRulesLookupQuery5in_db17h804aec50bec67a9eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14424)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14427)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55342,7 +55342,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN73_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db16InternBlockQuery5in_db17h6b5011401cddc1caE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db16InternBlockQuery5in_db17h6b5011401cddc1caE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14433)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14436)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55390,7 +55390,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN62_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db22InternBlockLookupQuery5in_db17hce943d046c5ec1f5E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db22InternBlockLookupQuery5in_db17hce943d046c5ec1f5E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14442)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14445)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55438,7 +55438,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN68_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db25InternAnonymousConstQuery5in_db17h7da51674a00b7a1aE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db25InternAnonymousConstQuery5in_db17h7da51674a00b7a1aE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14451)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14454)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55486,7 +55486,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN71_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db31InternAnonymousConstLookupQuery5in_db17h4ed34f4a692a1e34E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db31InternAnonymousConstLookupQuery5in_db17h4ed34f4a692a1e34E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14460)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14463)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55534,7 +55534,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db22InternInTypeConstQuery5in_db17he39e1620ee69ecb1E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db22InternInTypeConstQuery5in_db17he39e1620ee69ecb1E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14469)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14472)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -55582,7 +55582,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN68_$LT$hir_def..db..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db28InternInTypeConstLookupQuery5in_db17h514d202c478e5fb7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db28InternInTypeConstLookupQuery5in_db17h514d202c478e5fb7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14478)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14481)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60265,7 +60265,7 @@ define void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$19include_macr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db25ExpandProcAttrMacrosQuery5in_db17h5ea981623292384fE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db25ExpandProcAttrMacrosQuery5in_db17h5ea981623292384fE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15800)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15803)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60309,7 +60309,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN71_$LT$hir_def..db..E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db17FileItemTreeQuery5in_db17hf249d38e1d64e7a3E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db17FileItemTreeQuery5in_db17hf249d38e1d64e7a3E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15809)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15812)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60363,7 +60363,7 @@ define noundef nonnull ptr @"_ZN81_$LT$hir_def..db..FileItemTreeQuery$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db18BlockItemTreeQuery5in_db17h9d76f6db8704475dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db18BlockItemTreeQuery5in_db17h9d76f6db8704475dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15818)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15821)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60417,7 +60417,7 @@ define noundef nonnull ptr @"_ZN82_$LT$hir_def..db..BlockItemTreeQuery$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db16CrateDefMapQuery5in_db17h68aea37b963bb3d0E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db16CrateDefMapQuery5in_db17h68aea37b963bb3d0E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15827)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15830)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60471,7 +60471,7 @@ define noundef nonnull ptr @"_ZN80_$LT$hir_def..db..CrateDefMapQuery$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db16BlockDefMapQuery5in_db17h8e2f272bab1ed610E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db16BlockDefMapQuery5in_db17h8e2f272bab1ed610E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15836)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15839)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60525,7 +60525,7 @@ define noundef nonnull ptr @"_ZN80_$LT$hir_def..db..BlockDefMapQuery$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db13MacroDefQuery5in_db17h0ceb352cf275a7a7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db13MacroDefQuery5in_db17h0ceb352cf275a7a7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15845)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15848)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60579,7 +60579,7 @@ define void @"_ZN77_$LT$hir_def..db..MacroDefQuery$u20$as$u20$salsa..plumbing..Q
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db30StructDataWithDiagnosticsQuery5in_db17hc4a0c6fc86025a5aE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db30StructDataWithDiagnosticsQuery5in_db17hc4a0c6fc86025a5aE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15854)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15857)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60633,7 +60633,7 @@ define { ptr, ptr } @"_ZN94_$LT$hir_def..db..StructDataWithDiagnosticsQuery$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db29UnionDataWithDiagnosticsQuery5in_db17h9490e58ed4e194c9E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db29UnionDataWithDiagnosticsQuery5in_db17h9490e58ed4e194c9E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15863)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15866)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60687,7 +60687,7 @@ define { ptr, ptr } @"_ZN93_$LT$hir_def..db..UnionDataWithDiagnosticsQuery$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db13EnumDataQuery5in_db17had996fd2694d7981E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db13EnumDataQuery5in_db17had996fd2694d7981E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15872)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15875)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60741,7 +60741,7 @@ define noundef nonnull ptr @"_ZN77_$LT$hir_def..db..EnumDataQuery$u20$as$u20$sal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db35EnumVariantDataWithDiagnosticsQuery5in_db17h739abc457f720279E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db35EnumVariantDataWithDiagnosticsQuery5in_db17h739abc457f720279E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15881)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15884)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60795,7 +60795,7 @@ define { ptr, ptr } @"_ZN99_$LT$hir_def..db..EnumVariantDataWithDiagnosticsQuery
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db28ImplDataWithDiagnosticsQuery5in_db17h54cf3b7fe8d24303E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db28ImplDataWithDiagnosticsQuery5in_db17h54cf3b7fe8d24303E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15890)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15893)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60849,7 +60849,7 @@ define { ptr, ptr } @"_ZN92_$LT$hir_def..db..ImplDataWithDiagnosticsQuery$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db29TraitDataWithDiagnosticsQuery5in_db17h2f5ee672ca74520fE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db29TraitDataWithDiagnosticsQuery5in_db17h2f5ee672ca74520fE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15899)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15902)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60903,7 +60903,7 @@ define { ptr, ptr } @"_ZN93_$LT$hir_def..db..TraitDataWithDiagnosticsQuery$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db19TraitAliasDataQuery5in_db17hfb0baec3c077cd14E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db19TraitAliasDataQuery5in_db17hfb0baec3c077cd14E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15908)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15911)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -60957,7 +60957,7 @@ define noundef nonnull ptr @"_ZN83_$LT$hir_def..db..TraitAliasDataQuery$u20$as$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db18TypeAliasDataQuery5in_db17h52193e53e677c62eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db18TypeAliasDataQuery5in_db17h52193e53e677c62eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15917)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15920)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61011,7 +61011,7 @@ define noundef nonnull ptr @"_ZN82_$LT$hir_def..db..TypeAliasDataQuery$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db17FunctionDataQuery5in_db17h5d3e96a44b0459a5E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db17FunctionDataQuery5in_db17h5d3e96a44b0459a5E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15926)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15929)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61065,7 +61065,7 @@ define noundef nonnull ptr @"_ZN81_$LT$hir_def..db..FunctionDataQuery$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db14ConstDataQuery5in_db17h0f70da116ce58c29E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db14ConstDataQuery5in_db17h0f70da116ce58c29E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15935)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15938)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61119,7 +61119,7 @@ define noundef nonnull ptr @"_ZN78_$LT$hir_def..db..ConstDataQuery$u20$as$u20$sa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db15StaticDataQuery5in_db17h17dc922745552a0bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db15StaticDataQuery5in_db17h17dc922745552a0bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15944)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15947)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61173,7 +61173,7 @@ define noundef nonnull ptr @"_ZN79_$LT$hir_def..db..StaticDataQuery$u20$as$u20$s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db15Macro2DataQuery5in_db17h01f511986bf54dc4E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db15Macro2DataQuery5in_db17h01f511986bf54dc4E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15953)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15956)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61227,7 +61227,7 @@ define noundef nonnull ptr @"_ZN79_$LT$hir_def..db..Macro2DataQuery$u20$as$u20$s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db19MacroRulesDataQuery5in_db17h3ea1aa6835bbc925E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db19MacroRulesDataQuery5in_db17h3ea1aa6835bbc925E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15962)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15965)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61281,7 +61281,7 @@ define noundef nonnull ptr @"_ZN83_$LT$hir_def..db..MacroRulesDataQuery$u20$as$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db18ProcMacroDataQuery5in_db17hdc83efbd147f160dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db18ProcMacroDataQuery5in_db17hdc83efbd147f160dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15971)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15974)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61335,7 +61335,7 @@ define noundef nonnull ptr @"_ZN82_$LT$hir_def..db..ProcMacroDataQuery$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db24ExternCrateDeclDataQuery5in_db17h56736d256e385319E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db24ExternCrateDeclDataQuery5in_db17h56736d256e385319E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15980)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15983)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61389,7 +61389,7 @@ define noundef nonnull ptr @"_ZN88_$LT$hir_def..db..ExternCrateDeclDataQuery$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db22BodyWithSourceMapQuery5in_db17h37f139a2c4aa8cf1E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db22BodyWithSourceMapQuery5in_db17h37f139a2c4aa8cf1E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15989)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15992)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61443,7 +61443,7 @@ define { ptr, ptr } @"_ZN86_$LT$hir_def..db..BodyWithSourceMapQuery$u20$as$u20$s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db9BodyQuery5in_db17h31ce07520e33e190E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db9BodyQuery5in_db17h31ce07520e33e190E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15998)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16001)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61521,7 +61521,7 @@ _ZN7hir_def4body4Body10body_query17h4f581ea3e516b18cE.llvm.2681043041644741927.e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db15ExprScopesQuery5in_db17he6f60fb1a1642d83E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db15ExprScopesQuery5in_db17he6f60fb1a1642d83E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16018)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16021)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61575,7 +61575,7 @@ define noundef nonnull ptr @"_ZN79_$LT$hir_def..db..ExprScopesQuery$u20$as$u20$s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db18GenericParamsQuery5in_db17h633eadd576298edaE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db18GenericParamsQuery5in_db17h633eadd576298edaE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16027)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16030)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61629,7 +61629,7 @@ define noundef nonnull ptr @"_ZN82_$LT$hir_def..db..GenericParamsQuery$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db16FieldsAttrsQuery5in_db17hf6179cd85e274ad0E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db16FieldsAttrsQuery5in_db17hf6179cd85e274ad0E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16036)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16039)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61683,7 +61683,7 @@ define noundef nonnull ptr @"_ZN80_$LT$hir_def..db..FieldsAttrsQuery$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db25FieldsAttrsSourceMapQuery5in_db17h09dde009fd5dd089E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db25FieldsAttrsSourceMapQuery5in_db17h09dde009fd5dd089E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16045)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16048)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61737,7 +61737,7 @@ define noalias noundef nonnull ptr @"_ZN89_$LT$hir_def..db..FieldsAttrsSourceMap
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db10AttrsQuery5in_db17h6d3bde5ab32abe19E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db10AttrsQuery5in_db17h6d3bde5ab32abe19E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16054)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16057)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61791,7 +61791,7 @@ define noundef ptr @"_ZN74_$LT$hir_def..db..AttrsQuery$u20$as$u20$salsa..plumbin
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db13LangItemQuery5in_db17ha93fd82477ee05ecE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db13LangItemQuery5in_db17ha93fd82477ee05ecE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16063)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16066)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61845,7 +61845,7 @@ define { i32, i32 } @"_ZN77_$LT$hir_def..db..LangItemQuery$u20$as$u20$salsa..plu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db14ImportMapQuery5in_db17hd1e2904056053db9E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db14ImportMapQuery5in_db17hd1e2904056053db9E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16072)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16075)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61899,7 +61899,7 @@ define noundef nonnull ptr @"_ZN78_$LT$hir_def..db..ImportMapQuery$u20$as$u20$sa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db22FieldVisibilitiesQuery5in_db17h518bb4d88c7336a6E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db22FieldVisibilitiesQuery5in_db17h518bb4d88c7336a6E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16081)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16084)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -61953,7 +61953,7 @@ define noundef nonnull ptr @"_ZN86_$LT$hir_def..db..FieldVisibilitiesQuery$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db23FunctionVisibilityQuery5in_db17h61e0a356f501627dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db23FunctionVisibilityQuery5in_db17h61e0a356f501627dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16090)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16093)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -62007,7 +62007,7 @@ define void @"_ZN87_$LT$hir_def..db..FunctionVisibilityQuery$u20$as$u20$salsa..p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db20ConstVisibilityQuery5in_db17h6a890bd2bbfb9bb4E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db20ConstVisibilityQuery5in_db17h6a890bd2bbfb9bb4E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16099)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16102)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -62061,7 +62061,7 @@ define void @"_ZN84_$LT$hir_def..db..ConstVisibilityQuery$u20$as$u20$salsa..plum
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db19CrateLangItemsQuery5in_db17h239761e8b7a44a89E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db19CrateLangItemsQuery5in_db17h239761e8b7a44a89E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16108)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16111)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -62115,7 +62115,7 @@ define noundef ptr @"_ZN83_$LT$hir_def..db..CrateLangItemsQuery$u20$as$u20$salsa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db24NotableTraitsInDepsQuery5in_db17h82d1b95af386ca4bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db24NotableTraitsInDepsQuery5in_db17h82d1b95af386ca4bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16117)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16120)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -62169,7 +62169,7 @@ define { ptr, i64 } @"_ZN88_$LT$hir_def..db..NotableTraitsInDepsQuery$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db23CrateNotableTraitsQuery5in_db17hef24df6bac65561eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db23CrateNotableTraitsQuery5in_db17hef24df6bac65561eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16126)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16129)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -62223,7 +62223,7 @@ define { ptr, i64 } @"_ZN87_$LT$hir_def..db..CrateNotableTraitsQuery$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db23CrateSupportsNoStdQuery5in_db17h80541889a4ea9fa6E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db23CrateSupportsNoStdQuery5in_db17h80541889a4ea9fa6E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16135)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16138)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -62277,7 +62277,7 @@ define noundef zeroext i1 @"_ZN87_$LT$hir_def..db..CrateSupportsNoStdQuery$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def2db22IncludeMacroInvocQuery5in_db17h38ee4bf4e814bac9E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @_ZN7hir_def2db22IncludeMacroInvocQuery5in_db17h38ee4bf4e814bac9E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16144)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16147)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -68670,7 +68670,7 @@ define noundef zeroext i1 @"_ZN79_$LT$hir_def..item_tree.._..InternalBitFlags$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN101_$LT$hir_def..item_tree.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h5f3414f50321de71E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #15 {
+define void @"_ZN101_$LT$hir_def..item_tree.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h5f3414f50321de71E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #15 {
   store ptr @anon.d0f8bd43c5d672c7cf4a1c9a6984c189.472, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 7, ptr %.sroa.4.0..sroa_idx, align 8
@@ -68730,7 +68730,7 @@ define noundef zeroext i1 @"_ZN7hir_def9item_tree1_77_$LT$impl$u20$core..fmt..Up
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN7hir_def9item_tree1_99_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$hir_def..item_tree..FnFlags$GT$9into_iter17hbf35b561ba9c2e82E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #15 {
+define void @"_ZN7hir_def9item_tree1_99_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$hir_def..item_tree..FnFlags$GT$9into_iter17hbf35b561ba9c2e82E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #15 {
   store ptr @anon.d0f8bd43c5d672c7cf4a1c9a6984c189.472, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 7, ptr %.sroa.4.0..sroa_idx, align 8
@@ -68909,7 +68909,7 @@ define noundef zeroext i1 @"_ZN79_$LT$hir_def..data..adt.._..InternalBitFlags$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN101_$LT$hir_def..data..adt.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbd5c98fd44ac1adbE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #15 {
+define void @"_ZN101_$LT$hir_def..data..adt.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbd5c98fd44ac1adbE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #15 {
   store ptr @anon.d0f8bd43c5d672c7cf4a1c9a6984c189.480, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 7, ptr %.sroa.4.0..sroa_idx, align 8
@@ -68969,7 +68969,7 @@ define noundef zeroext i1 @"_ZN7hir_def4data3adt1_81_$LT$impl$u20$core..fmt..Upp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN7hir_def4data3adt1_103_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$hir_def..data..adt..StructFlags$GT$9into_iter17h4678df94b980a335E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #15 {
+define void @"_ZN7hir_def4data3adt1_103_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$hir_def..data..adt..StructFlags$GT$9into_iter17h4678df94b980a335E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #15 {
   store ptr @anon.d0f8bd43c5d672c7cf4a1c9a6984c189.480, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 7, ptr %.sroa.4.0..sroa_idx, align 8

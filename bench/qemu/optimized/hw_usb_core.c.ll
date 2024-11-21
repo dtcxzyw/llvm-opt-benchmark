@@ -1832,7 +1832,7 @@ if.end:                                           ; preds = %entry
 declare void @qemu_iovec_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define dso_local void @usb_ep_reset(ptr noundef %dev) local_unnamed_addr #7 {
+define dso_local void @usb_ep_reset(ptr noundef initializes((4392, 4393), (4394, 4404)) %dev) local_unnamed_addr #7 {
 entry:
   %ep_ctl = getelementptr inbounds i8, ptr %dev, i64 4392
   store i8 0, ptr %ep_ctl, align 8
@@ -1896,7 +1896,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
-define dso_local void @usb_ep_init(ptr noundef %dev) local_unnamed_addr #7 {
+define dso_local void @usb_ep_init(ptr noundef initializes((4392, 4393), (4394, 4404)) %dev) local_unnamed_addr #7 {
 entry:
   %ep_ctl.i = getelementptr inbounds i8, ptr %dev, i64 4392
   store i8 0, ptr %ep_ctl.i, align 8

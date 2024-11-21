@@ -9479,7 +9479,7 @@ _ZN2cv8internal15IntrinsicParamsD2Ev.exit256:     ; preds = %742, %_ZN2cv8intern
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv8internal15IntrinsicParams4InitERKNS_3VecIdLi2EEES5_RKNS2_IdLi4EEERKd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) local_unnamed_addr #10 align 2 {
+define void @_ZN2cv8internal15IntrinsicParams4InitERKNS_3VecIdLi2EEES5_RKNS2_IdLi4EEERKd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) local_unnamed_addr #10 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
@@ -21398,7 +21398,7 @@ define noundef zeroext i1 @_ZN2cv7fisheye8solvePnPERKNS_11_InputArrayES3_S3_S3_R
 declare noundef zeroext i1 @_ZN2cv8solvePnPERKNS_11_InputArrayES2_S2_S2_RKNS_12_OutputArrayES5_bi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8internal15IntrinsicParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8internal15IntrinsicParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 96)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3VecIdLi2EE3allEd.exit.critedge:
   %1 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
@@ -21414,7 +21414,7 @@ _ZN2cv3VecIdLi2EE3allEd.exit.critedge:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8internal15IntrinsicParamsC2ENS_3VecIdLi2EEES3_NS2_IdLi4EEEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, double noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8internal15IntrinsicParamsC2ENS_3VecIdLi2EEES3_NS2_IdLi4EEEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 32)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, double noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load double, ptr %1, align 8
   store double %6, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8

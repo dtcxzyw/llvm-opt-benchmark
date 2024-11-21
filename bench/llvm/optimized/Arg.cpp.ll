@@ -49,7 +49,7 @@ $_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE = comdat any
 @_ZN4llvm3opt3ArgD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3opt3ArgD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3opt3ArgC2ENS0_6OptionENS_9StringRefEjPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr %1, ptr %2, ptr %3, i64 %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3opt3ArgC2ENS0_6OptionENS_9StringRefEjPKS1_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 44)) %0, ptr %1, ptr %2, ptr %3, i64 %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.23.0..sroa_idx, align 8
@@ -77,7 +77,7 @@ define dso_local void @_ZN4llvm3opt3ArgC2ENS0_6OptionENS_9StringRefEjPKS1_(ptr n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3opt3ArgC2ENS0_6OptionENS_9StringRefEjPKcPKS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr %1, ptr %2, ptr %3, i64 %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3opt3ArgC2ENS0_6OptionENS_9StringRefEjPKcPKS1_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 44)) %0, ptr %1, ptr %2, ptr %3, i64 %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.24.0..sroa_idx, align 8
@@ -121,7 +121,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %8, %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3opt3ArgC2ENS0_6OptionENS_9StringRefEjPKcS5_PKS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr %1, ptr %2, ptr %3, i64 %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3opt3ArgC2ENS0_6OptionENS_9StringRefEjPKcS5_PKS1_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 44)) %0, ptr %1, ptr %2, ptr %3, i64 %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.25.0..sroa_idx, align 8

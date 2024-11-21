@@ -595,7 +595,7 @@ entry:
 declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7binding4DLib21SaveInGlobalHandleMapEPNS_11node_moduleE(ptr nocapture noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %mp) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4node7binding4DLib21SaveInGlobalHandleMapEPNS_11node_moduleE(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((80, 81)) %this, ptr noundef %mp) local_unnamed_addr #5 align 2 {
 entry:
   %has_entry_in_global_handle_map_ = getelementptr inbounds i8, ptr %this, i64 80
   store i8 1, ptr %has_entry_in_global_handle_map_, align 8
@@ -641,7 +641,7 @@ do.end5:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node7binding4DLib33GetSavedModuleFromGlobalHandleMapEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef ptr @_ZN4node7binding4DLib33GetSavedModuleFromGlobalHandleMapEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((80, 81)) %this) local_unnamed_addr #5 align 2 {
 entry:
   %has_entry_in_global_handle_map_ = getelementptr inbounds i8, ptr %this, i64 80
   store i8 1, ptr %has_entry_in_global_handle_map_, align 8

@@ -10545,7 +10545,7 @@ declare void @glPopAttrib() local_unnamed_addr #2
 declare void @glPopMatrix() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN25VisibilityCheck_ShadowMapC2ERN3glw7ContextE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN25VisibilityCheck_ShadowMapC2ERN3glw7ContextE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 24), (32, 72), (288, 352)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.20", align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 8

@@ -489,14 +489,14 @@ declare void @_ZN16LRUMaxHeapPolicyC1Ev(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN20LRUCurrentHeapPolicyC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18ReferenceProcessor16enable_discoveryEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN18ReferenceProcessor16enable_discoveryEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((16, 17)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ReferenceProcessorC2EP17BoolObjectClosurejjbS1_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN18ReferenceProcessorC2EP17BoolObjectClosurejjbS1_(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 19), (20, 32), (40, 88)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %4 to i8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ReferenceProcessor, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -682,7 +682,7 @@ define hidden noundef i64 @_ZNK18ReferenceProcessor11total_countEP14DiscoveredLi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ReferenceProcessor29process_discovered_referencesER16RefProcProxyTaskR28ReferenceProcessorPhaseTimes(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ReferenceProcessorStats) align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(41) %2, ptr noundef nonnull align 8 dereferenceable(184) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18ReferenceProcessor29process_discovered_referencesER16RefProcProxyTaskR28ReferenceProcessorPhaseTimes(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ReferenceProcessorStats) align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) initializes((16, 17)) %1, ptr noundef nonnull align 8 dereferenceable(41) %2, ptr noundef nonnull align 8 dereferenceable(184) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.RefProcTotalPhaseTimesTracker, align 8
   %6 = alloca %class.RefProcTotalPhaseTimesTracker, align 8
   %7 = alloca %class.RefProcTotalPhaseTimesTracker, align 8
@@ -1392,7 +1392,7 @@ define hidden void @_ZN36BarrierEnqueueDiscoveredFieldClosure7enqueueEPP12HeapWo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22DiscoveredListIterator9load_ptrsEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22DiscoveredListIterator9load_ptrsEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((32, 56)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
@@ -2345,7 +2345,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18ReferenceProcessor20set_active_mt_degreeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN18ReferenceProcessor20set_active_mt_degreeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((20, 24), (40, 44)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -2734,7 +2734,7 @@ _ZN14DiscoveredList8set_headEP7oopDesc.exit77:    ; preds = %110, %99, %97, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ReferenceProcessor8run_taskER11RefProcTaskR16RefProcProxyTaskb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(41) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18ReferenceProcessor8run_taskER11RefProcTaskR16RefProcProxyTaskb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(41) initializes((24, 41)) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %15, label %6
@@ -4068,7 +4068,7 @@ define hidden noundef zeroext i1 @_ZNK23RefProcMTDegreeAdjuster15use_max_threads
 declare noundef i32 @_ZN2os22active_processor_countEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23RefProcMTDegreeAdjusterC2EP18ReferenceProcessorNS0_13RefProcPhasesEm(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN23RefProcMTDegreeAdjusterC2EP18ReferenceProcessorNS0_13RefProcPhasesEm(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 40

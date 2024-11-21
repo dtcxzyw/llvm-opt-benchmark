@@ -223,7 +223,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN12vframeStreamC1EP7oopDesc6Handle = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN12vframeStreamC2EP7oopDesc6Handle
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6vframeC2EPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5064) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN6vframeC2EPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5064) initializes((0, 45), (48, 64)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV6vframe, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2356,7 +2356,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %38, %35, %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11entryVFrameC2EPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5064) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN11entryVFrameC2EPK5framePK11RegisterMapP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5064) initializes((0, 45), (48, 64)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV6vframe, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2421,7 +2421,7 @@ _ZN14externalVFrameC2EPK5framePK11RegisterMapP10JavaThread.exit: ; preds = %4, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11MonitorInfoC2EP7oopDescP9BasicLockbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN11MonitorInfoC2EP7oopDescP9BasicLockbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((0, 26)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %6, align 8
@@ -2516,7 +2516,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit12:            ; preds = %_ZN10HandleArea15al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12vframeStreamC2EP10JavaThread6Handleb(ptr noundef nonnull align 8 dereferenceable(5104) %0, ptr noundef %1, ptr %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN12vframeStreamC2EP10JavaThread6Handleb(ptr noundef nonnull align 8 dereferenceable(5104) initializes((0, 37), (40, 5048), (5080, 5089), (5096, 5104)) %0, ptr noundef %1, ptr %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %class.RegisterMap, align 8
   %6 = alloca %class.frame, align 8
   %7 = alloca %class.frame, align 8
@@ -2800,7 +2800,7 @@ _ZNK5frame14is_first_frameEv.exit.thread14:       ; preds = %86, %97, %_ZNK5fram
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12vframeStreamC2EP7oopDesc6Handle(ptr noundef nonnull align 8 dereferenceable(5104) %0, ptr noundef %1, ptr %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN12vframeStreamC2EP7oopDesc6Handle(ptr noundef nonnull align 8 dereferenceable(5104) initializes((0, 37), (40, 5048), (5080, 5089), (5096, 5104)) %0, ptr noundef %1, ptr %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.RegisterMap, align 8
   %5 = alloca %class.frame, align 8
   call void @_ZN11RegisterMapC1EP7oopDescNS_9UpdateMapE(ptr noundef nonnull align 8 dereferenceable(4983) %4, ptr noundef %1, i32 noundef 1) #11

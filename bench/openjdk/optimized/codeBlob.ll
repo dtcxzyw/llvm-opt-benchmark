@@ -238,7 +238,7 @@ declare noundef i32 @_ZNK10CodeBuffer21total_relocation_sizeEv(ptr noundef nonnu
 declare noundef i32 @_ZNK10CodeBuffer18total_content_sizeEv(ptr noundef nonnull align 8 dereferenceable(448)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8CodeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull %3, i32 noundef %4, i16 noundef zeroext %5, i16 noundef signext %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #1 align 2 {
+define hidden void @_ZN8CodeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr nocapture noundef nonnull align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull %3, i32 noundef %4, i16 noundef zeroext %5, i16 noundef signext %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #1 align 2 {
   %11 = zext i1 %9 to i8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV8CodeBlob, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
@@ -301,7 +301,7 @@ _ZN8CodeBlob12set_oop_mapsEP9OopMapSet.exit:      ; preds = %10, %44
 declare noundef i32 @_ZNK10CodeBuffer15total_offset_ofEPK11CodeSection(ptr noundef nonnull align 8 dereferenceable(448), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8CodeBlob12set_oop_mapsEP9OopMapSet(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8CodeBlob12set_oop_mapsEP9OopMapSet(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -317,7 +317,7 @@ define hidden void @_ZN8CodeBlob12set_oop_mapsEP9OopMapSet(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN8CodeBlobC2EPKc12CodeBlobKindit(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #3 align 2 {
+define hidden void @_ZN8CodeBlobC2EPKc12CodeBlobKindit(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV8CodeBlob, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %6, align 8
@@ -435,7 +435,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %17, %19
 declare void @_ZN12Disassembler6decodeEP8CodeBlobP12outputStream(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull %3, i32 noundef %4, i16 noundef zeroext %5, i16 noundef signext %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #1 align 2 {
+define hidden void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull %3, i32 noundef %4, i16 noundef zeroext %5, i16 noundef signext %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #1 align 2 {
   %11 = zext i1 %9 to i8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV8CodeBlob, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
@@ -773,7 +773,7 @@ declare void @_ZN5Forte13register_stubEPKcPhS2_(ptr noundef, ptr noundef, ptr no
 declare void @_ZN11JvmtiExport27post_dynamic_code_generatedEPKcPKvS3_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN10BufferBlobC2EPKc12CodeBlobKindi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #3 align 2 {
+define hidden void @_ZN10BufferBlobC2EPKc12CodeBlobKindi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV8CodeBlob, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
@@ -973,7 +973,7 @@ define hidden noundef ptr @_ZN10BufferBlobnwEmj(i64 noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10BufferBlobC2EPKc12CodeBlobKindP10CodeBufferi(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull %3, i32 noundef %4) unnamed_addr #1 align 2 {
+define hidden void @_ZN10BufferBlobC2EPKc12CodeBlobKindP10CodeBufferi(ptr noundef nonnull align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull %3, i32 noundef %4) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV8CodeBlob, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %6, align 8
@@ -1237,7 +1237,7 @@ define hidden void @_ZN10BufferBlob4freeEPS_(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11AdapterBlobC2EiP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN11AdapterBlobC2EiP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(54) initializes((0, 54)) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV8CodeBlob, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
@@ -1506,7 +1506,7 @@ define hidden noundef ptr @_ZN10VtableBlobnwEmj(i64 noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN10VtableBlobC2EPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN10VtableBlobC2EPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV8CodeBlob, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
@@ -1792,7 +1792,7 @@ _ZN21ThreadInVMfromUnknownD2Ev.exit:              ; preds = %_ZN13MemoryService2
 declare void @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11RuntimeStubC2EPKcP10CodeBufferisiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i16 noundef signext %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #1 align 2 {
+define hidden void @_ZN11RuntimeStubC2EPKcP10CodeBufferisiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i16 noundef signext %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #1 align 2 {
   tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef %1, i8 noundef zeroext 6, ptr noundef %2, i32 noundef %3, i16 noundef zeroext 56, i16 noundef signext %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11RuntimeStub, i64 16), ptr %0, align 8
   ret void
@@ -1977,7 +1977,7 @@ define hidden noundef nonnull ptr @_ZN13SingletonBlobnwEmj(i64 noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18DeoptimizationBlobC2EP10CodeBufferiP9OopMapSetiiii(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 align 2 {
+define hidden void @_ZN18DeoptimizationBlobC2EP10CodeBufferiP9OopMapSetiiii(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 54)) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 align 2 {
   tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef nonnull @.str.13, i8 noundef zeroext 7, ptr noundef %1, i32 noundef %2, i16 noundef zeroext 80, i16 noundef signext -1, i32 noundef %7, ptr noundef %3, i1 noundef zeroext false)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV18DeoptimizationBlob, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2140,7 +2140,7 @@ _ZN21ThreadInVMfromUnknownD2Ev.exit:              ; preds = %_ZN11MutexLockerD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16UncommonTrapBlobC2EP10CodeBufferiP9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
+define hidden void @_ZN16UncommonTrapBlobC2EP10CodeBufferiP9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
   tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef nonnull @.str.15, i8 noundef zeroext 10, ptr noundef %1, i32 noundef %2, i16 noundef zeroext 56, i16 noundef signext -1, i32 noundef %4, ptr noundef %3, i1 noundef zeroext false)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV16UncommonTrapBlob, i64 16), ptr %0, align 8
   ret void
@@ -2287,7 +2287,7 @@ _ZN21ThreadInVMfromUnknownD2Ev.exit:              ; preds = %_ZN11MutexLockerD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ExceptionBlobC2EP10CodeBufferiP9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
+define hidden void @_ZN13ExceptionBlobC2EP10CodeBufferiP9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
   tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef nonnull @.str.16, i8 noundef zeroext 8, ptr noundef %1, i32 noundef %2, i16 noundef zeroext 56, i16 noundef signext -1, i32 noundef %4, ptr noundef %3, i1 noundef zeroext false)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV13ExceptionBlob, i64 16), ptr %0, align 8
   ret void
@@ -2434,7 +2434,7 @@ _ZN21ThreadInVMfromUnknownD2Ev.exit:              ; preds = %_ZN11MutexLockerD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13SafepointBlobC2EP10CodeBufferiP9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
+define hidden void @_ZN13SafepointBlobC2EP10CodeBufferiP9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
   tail call void @_ZN11RuntimeBlobC2EPKc12CodeBlobKindP10CodeBufferitsiP9OopMapSetb(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef nonnull @.str.17, i8 noundef zeroext 9, ptr noundef %1, i32 noundef %2, i16 noundef zeroext 56, i16 noundef signext -1, i32 noundef %4, ptr noundef %3, i1 noundef zeroext false)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV13SafepointBlob, i64 16), ptr %0, align 8
   ret void
@@ -2581,7 +2581,7 @@ _ZN21ThreadInVMfromUnknownD2Ev.exit:              ; preds = %_ZN11MutexLockerD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10UpcallStubC2EPKcP10CodeBufferiP8_jobject8ByteSize(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 align 2 {
+define hidden void @_ZN10UpcallStubC2EPKcP10CodeBufferiP8_jobject8ByteSize(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 54)) %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV8CodeBlob, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8

@@ -9822,7 +9822,7 @@ cleanup179:                                       ; preds = %if.end48, %if.end41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModelC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS5_INS0_8CallableEEE(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %obj.coerce, ptr %compareFn.coerce) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModelC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS5_INS0_8CallableEEE(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %obj.coerce, ptr %compareFn.coerce) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %this, align 8
   %runtime_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -10041,7 +10041,7 @@ _ZN6hermes2vm13MutableHandleINS0_8JSObjectEEC2ERNS0_15HandleRootOwnerEPS2_.exit7
 declare noundef i32 @_ZN6hermes2vm9quickSortEPNS0_9SortModelEjj(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %this, align 8
   %gcScope_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -12997,7 +12997,7 @@ cleanup:                                          ; preds = %if.end143, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModelD0Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN6hermes2vm12_GLOBAL__N_117StandardSortModelD0Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i64 16), ptr %this, align 8
   %gcScope_.i = getelementptr inbounds i8, ptr %this, i64 16

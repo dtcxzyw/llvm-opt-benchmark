@@ -98,7 +98,7 @@ define dso_local ptr @nfs_pgio_current_mirror(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nfs_pgheader_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local void @nfs_pgheader_init(ptr noundef %0, ptr noundef initializes((0, 16), (32, 40), (64, 72), (80, 96), (104, 120), (128, 132)) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
@@ -1972,7 +1972,7 @@ declare dso_local ptr @rpc_run_task(ptr noundef) local_unnamed_addr #2
 declare dso_local void @rpc_put_task(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @nfs_pageio_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #4 align 16 {
+define dso_local void @nfs_pageio_init(ptr noundef initializes((0, 32), (40, 80), (136, 148)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #4 align 16 {
   %8 = getelementptr inbounds i8, ptr %0, i64 150
   %9 = load i8, ptr %8, align 2
   %10 = and i8 %9, -2
@@ -2022,7 +2022,7 @@ define dso_local void @nfs_pageio_init(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @nfs_generic_pgio(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @nfs_generic_pgio(ptr noundef %0, ptr noundef initializes((808, 812)) %1) #0 align 16 {
   %3 = alloca %struct.nfs_commit_info, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3062,7 +3062,7 @@ define internal fastcc void @nfs_pageio_cleanup_request(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs_pageio_resend(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef i32 @nfs_pageio_resend(ptr noundef initializes((56, 72)) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   store ptr %3, ptr %3, align 8

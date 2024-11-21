@@ -48,7 +48,7 @@ $_ZN26GrowableArrayWithAllocatorIP6ciType13GrowableArrayIS1_EE9expand_toEi = com
 @_ZN11ciSignatureC1EP7ciKlassRK18constantPoolHandleP8ciSymbol = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN11ciSignatureC2EP7ciKlassRK18constantPoolHandleP8ciSymbol
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ciSignatureC2EP7ciKlassRK18constantPoolHandleP8ciSymbol(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ciSignatureC2EP7ciKlassRK18constantPoolHandleP8ciSymbol(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 40)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %class.SignatureStream, align 8
   store ptr %3, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8

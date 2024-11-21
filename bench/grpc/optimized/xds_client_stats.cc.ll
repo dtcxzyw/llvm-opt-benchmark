@@ -138,7 +138,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core19XdsClusterDropStatsC2ENS_13RefCountedPtrINS_9XdsClientEEERKNS_12XdsBootstrap9XdsServerESt17basic_string_viewIcSt11char_traitsIcEESB_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef %xds_client, ptr noundef nonnull align 8 dereferenceable(8) %lrs_server, i64 %cluster_name.coerce0, ptr %cluster_name.coerce1, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %eds_service_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core19XdsClusterDropStatsC2ENS_13RefCountedPtrINS_9XdsClientEEERKNS_12XdsBootstrap9XdsServerESt17basic_string_viewIcSt11char_traitsIcEESB_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 80), (88, 92), (96, 104)) %this, ptr nocapture noundef %xds_client, ptr noundef nonnull align 8 dereferenceable(8) %lrs_server, i64 %cluster_name.coerce0, ptr %cluster_name.coerce1, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %eds_service_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -364,7 +364,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core19XdsClusterDropStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core19XdsClusterDropStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i1 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -575,7 +575,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core19XdsClusterDropStats19GetSnapshotAndResetEv(ptr noalias sret(%"struct.grpc_core::XdsClusterDropStats::Snapshot") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core19XdsClusterDropStats19GetSnapshotAndResetEv(ptr noalias sret(%"struct.grpc_core::XdsClusterDropStats::Snapshot") align 8 initializes((16, 20), (24, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 0, ptr %0, align 8
@@ -798,7 +798,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23XdsClusterLocalityStatsC2ENS_13RefCountedPtrINS_9XdsClientEEERKNS_12XdsBootstrap9XdsServerESt17basic_string_viewIcSt11char_traitsIcEESB_NS1_INS_15XdsLocalityNameEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef %xds_client, ptr noundef nonnull align 8 dereferenceable(8) %lrs_server, i64 %cluster_name.coerce0, ptr %cluster_name.coerce1, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %eds_service_name, ptr nocapture noundef %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23XdsClusterLocalityStatsC2ENS_13RefCountedPtrINS_9XdsClientEEERKNS_12XdsBootstrap9XdsServerESt17basic_string_viewIcSt11char_traitsIcEESB_NS1_INS_15XdsLocalityNameEEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 72)) %this, ptr nocapture noundef %xds_client, ptr noundef nonnull align 8 dereferenceable(8) %lrs_server, i64 %cluster_name.coerce0, ptr %cluster_name.coerce1, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %eds_service_name, ptr nocapture noundef %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i.i = alloca [3 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1102,7 +1102,7 @@ _ZNSt10unique_ptrIA_N9grpc_core23XdsClusterLocalityStats5StatsESt14default_delet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core23XdsClusterLocalityStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23XdsClusterLocalityStatsD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca [3 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1381,7 +1381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23XdsClusterLocalityStats19GetSnapshotAndResetEv(ptr noalias sret(%"struct.grpc_core::XdsClusterLocalityStats::Snapshot") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23XdsClusterLocalityStats19GetSnapshotAndResetEv(ptr noalias sret(%"struct.grpc_core::XdsClusterLocalityStats::Snapshot") align 8 initializes((0, 32), (40, 44), (48, 56)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.93", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.96", align 1

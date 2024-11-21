@@ -444,7 +444,7 @@ rb_shape_get_shape_id.exit:                       ; preds = %1, %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_next_shape_internal(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 256) %2, ptr nocapture noundef nonnull writeonly %3, i1 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc ptr @get_next_shape_internal(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 256) %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   store i8 0, ptr %3, align 1

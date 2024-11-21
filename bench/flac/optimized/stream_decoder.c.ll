@@ -2923,7 +2923,7 @@ return:                                           ; preds = %if.then24, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @read_frame_(ptr noundef %decoder, ptr nocapture noundef nonnull writeonly %got_a_frame, i32 noundef range(i32 0, 2) %do_full_decode) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_frame_(ptr noundef %decoder, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %got_a_frame, i32 noundef range(i32 0, 2) %do_full_decode) unnamed_addr #0 {
 entry:
   %zero.i = alloca i32, align 4
   %x.i77.i = alloca i32, align 4
@@ -6891,7 +6891,7 @@ return:                                           ; preds = %skip, %if.end33, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @read_metadata_cuesheet_(ptr nocapture noundef readonly %decoder, ptr noundef nonnull %obj) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_metadata_cuesheet_(ptr nocapture noundef readonly %decoder, ptr noundef nonnull initializes((0, 160)) %obj) unnamed_addr #0 {
 entry:
   %x = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %obj, i8 0, i64 160, i1 false)

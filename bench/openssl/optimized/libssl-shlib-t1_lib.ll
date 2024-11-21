@@ -1636,7 +1636,7 @@ return:                                           ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @tls1_get_formatlist(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %pformats, ptr nocapture noundef writeonly %num_formats) local_unnamed_addr #6 {
+define void @tls1_get_formatlist(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly initializes((0, 8)) %pformats, ptr nocapture noundef writeonly initializes((0, 8)) %num_formats) local_unnamed_addr #6 {
 entry:
   %ecpointformats = getelementptr inbounds i8, ptr %s, i64 2544
   %0 = load ptr, ptr %ecpointformats, align 8
@@ -2981,7 +2981,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_set_client_disabled(ptr noundef %s) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ssl_set_client_disabled(ptr noundef initializes((920, 928)) %s) local_unnamed_addr #2 {
 entry:
   %mask_a = getelementptr inbounds i8, ptr %s, i64 924
   store i32 0, ptr %mask_a, align 4
@@ -3321,7 +3321,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_set_server_sigalgs(ptr noundef %s) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls1_set_server_sigalgs(ptr noundef initializes((5360, 5368)) %s) local_unnamed_addr #2 {
 entry:
   %shared_sigalgs = getelementptr inbounds i8, ptr %s, i64 5352
   %0 = load ptr, ptr %shared_sigalgs, align 8
@@ -3511,7 +3511,7 @@ return:                                           ; preds = %for.inc44.us, %for.
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_process_sigalgs(ptr noundef %s) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls1_process_sigalgs(ptr noundef initializes((5360, 5368)) %s) local_unnamed_addr #2 {
 entry:
   %valid_flags = getelementptr inbounds i8, ptr %s, i64 912
   %0 = load ptr, ptr %valid_flags, align 8
@@ -3944,7 +3944,7 @@ return:                                           ; preds = %for.inc28, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 7) i32 @tls_get_ticket_from_client(ptr noundef %s, ptr nocapture noundef readonly %hello, ptr nocapture noundef writeonly %ret) local_unnamed_addr #2 {
+define range(i32 0, 7) i32 @tls_get_ticket_from_client(ptr noundef initializes((2528, 2532)) %s, ptr nocapture noundef readonly %hello, ptr nocapture noundef writeonly initializes((0, 8)) %ret) local_unnamed_addr #2 {
 entry:
   store ptr null, ptr %ret, align 8
   %ticket_expected = getelementptr inbounds i8, ptr %s, i64 2528
@@ -3991,7 +3991,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 7) i32 @tls_decrypt_ticket(ptr noundef %s, ptr noundef %etick, i64 noundef %eticklen, ptr nocapture noundef readonly %sess_id, i64 noundef %sesslen, ptr nocapture noundef writeonly %psess) local_unnamed_addr #2 {
+define range(i32 0, 7) i32 @tls_decrypt_ticket(ptr noundef %s, ptr noundef %etick, i64 noundef %eticklen, ptr nocapture noundef readonly %sess_id, i64 noundef %sesslen, ptr nocapture noundef writeonly initializes((0, 8)) %psess) local_unnamed_addr #2 {
 entry:
   %p = alloca ptr, align 8
   %slen = alloca i32, align 4
@@ -7352,7 +7352,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_choose_sigalg(ptr noundef %s, i32 noundef %fatalerrs) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @tls_choose_sigalg(ptr noundef initializes((856, 872)) %s, i32 noundef %fatalerrs) local_unnamed_addr #2 {
 entry:
   %gname.i = alloca [50 x i8], align 16
   %cert = getelementptr inbounds i8, ptr %s, i64 864

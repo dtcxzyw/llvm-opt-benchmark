@@ -303,7 +303,7 @@ define dso_local void @intel_uc_driver_remove(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_uc_reset_prepare(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_uc_reset_prepare(ptr noundef initializes((2952, 2953)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
   %3 = getelementptr inbounds i8, ptr %0, i64 2952
   store i8 1, ptr %3, align 8
@@ -460,7 +460,7 @@ define dso_local void @intel_uc_reset(ptr noundef %0, i32 noundef %1) local_unna
 declare dso_local void @intel_guc_submission_reset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_uc_reset_finish(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_uc_reset_finish(ptr noundef initializes((2952, 2953)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
   %3 = getelementptr inbounds i8, ptr %0, i64 2952
   store i8 0, ptr %3, align 8

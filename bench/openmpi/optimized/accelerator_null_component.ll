@@ -162,7 +162,7 @@ define internal noundef i32 @accelerator_null_memmove(i32 %0, i32 %1, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @accelerator_null_mem_alloc(i32 %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #3 {
+define internal noundef i32 @accelerator_null_mem_alloc(i32 %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i64 noundef %2) #3 {
   %4 = tail call noalias ptr @malloc(i64 noundef %2) #9
   store ptr %4, ptr %1, align 8
   ret i32 0

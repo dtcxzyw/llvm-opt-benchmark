@@ -925,7 +925,7 @@ eh.resume:                                        ; preds = %eh.resume.sink.spli
 declare void @_ZN6icu_7513BasicTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7517RuleBasedTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517RuleBasedTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(105) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517RuleBasedTimeZoneE, i64 16), ptr %this, align 8
   %fHistoricTransitions.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -1677,7 +1677,7 @@ declare noundef double @_ZN6icu_755Grego11fieldsToDayEiii(i32 noundef, i32 nound
 declare double @llvm.fmuladd.f64(double, double, double) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7517RuleBasedTimeZone17getOffsetInternalEdaiiRiS1_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %date, i8 noundef signext %local, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %rawOffset, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %dstOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7517RuleBasedTimeZone17getOffsetInternalEdaiiRiS1_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %date, i8 noundef signext %local, i32 noundef %NonExistingTimeOpt, i32 noundef %DuplicatedTimeOpt, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %rawOffset, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dstOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   store i32 0, ptr %rawOffset, align 4
   store i32 0, ptr %dstOffset, align 4
@@ -1785,14 +1785,14 @@ if.end47:                                         ; preds = %entry, %if.then44, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7517RuleBasedTimeZone9getOffsetEdaRiS1_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %date, i8 noundef signext %local, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %rawOffset, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %dstOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7517RuleBasedTimeZone9getOffsetEdaRiS1_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %date, i8 noundef signext %local, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %rawOffset, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dstOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK6icu_7517RuleBasedTimeZone17getOffsetInternalEdaiiRiS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %date, i8 noundef signext %local, i32 noundef 4, i32 noundef 12, ptr noundef nonnull align 4 dereferenceable(4) %rawOffset, ptr noundef nonnull align 4 dereferenceable(4) %dstOffset, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7517RuleBasedTimeZone18getOffsetFromLocalEd20UTimeZoneLocalOptionS1_RiS2_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %date, i32 noundef %nonExistingTimeOpt, i32 noundef %duplicatedTimeOpt, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %rawOffset, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %dstOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7517RuleBasedTimeZone18getOffsetFromLocalEd20UTimeZoneLocalOptionS1_RiS2_R10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %date, i32 noundef %nonExistingTimeOpt, i32 noundef %duplicatedTimeOpt, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %rawOffset, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dstOffset, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK6icu_7517RuleBasedTimeZone17getOffsetInternalEdaiiRiS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %date, i8 noundef signext 1, i32 noundef %nonExistingTimeOpt, i32 noundef %duplicatedTimeOpt, ptr noundef nonnull align 4 dereferenceable(4) %rawOffset, ptr noundef nonnull align 4 dereferenceable(4) %dstOffset, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void

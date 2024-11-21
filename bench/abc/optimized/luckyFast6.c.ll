@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Extra_Truth6ChangePhase.Truth6 = internal unnamed_addr constant [6 x i64] [i64 -6148914691236517206, i64 -3689348814741910324, i64 -1085102592571150096, i64 -71777214294589696, i64 -281470681808896, i64 -4294967296], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @resetPCanonPermArray_6Vars(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @resetPCanonPermArray_6Vars(ptr nocapture noundef writeonly initializes((0, 6)) %0) local_unnamed_addr #0 {
   store i8 97, ptr %0, align 1
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 98, ptr %2, align 1
@@ -818,7 +818,7 @@ Extra_Truth6MinimumRoundMany_noEBFC.exit:         ; preds = %47, %132, %Extra_Tr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @luckyCanonicizer_final_fast_6Vars(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #6 {
+define i64 @luckyCanonicizer_final_fast_6Vars(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #6 {
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = call i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef nonnull %5, i32 noundef 6, ptr noundef %2, ptr noundef %1) #9
@@ -831,7 +831,7 @@ define i64 @luckyCanonicizer_final_fast_6Vars(i64 noundef %0, ptr noundef %1, pt
 declare i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i64 @luckyCanonicizer_final_fast_6Vars1(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #6 {
+define i64 @luckyCanonicizer_final_fast_6Vars1(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #6 {
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = call i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef nonnull %5, i32 noundef 6, ptr noundef %2, ptr noundef %1) #9

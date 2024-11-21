@@ -1322,7 +1322,7 @@ define dso_local ptr @rb_prev(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local void @rb_replace_node(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local void @rb_replace_node(ptr noundef readonly %0, ptr noundef initializes((0, 24)) %1, ptr noundef %2) #1 align 16 {
   %4 = load i64, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %1, ptr noundef align 8 dereferenceable(24) %0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1376,7 +1376,7 @@ define dso_local void @rb_replace_node(ptr noundef readonly %0, ptr noundef %1, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rb_replace_node_rcu(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local void @rb_replace_node_rcu(ptr noundef readonly %0, ptr noundef initializes((0, 24)) %1, ptr noundef %2) #0 align 16 {
   %4 = load i64, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %1, ptr noundef align 8 dereferenceable(24) %0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16

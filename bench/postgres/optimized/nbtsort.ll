@@ -1588,7 +1588,7 @@ declare void @tuplesort_attach_shared(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @InstrStartParallelQuery() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_bt_parallel_scan_and_sort(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @_bt_parallel_scan_and_sort(ptr noundef initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca %struct.BTBuildState, align 8
   %9 = tail call ptr @palloc0(i64 noundef 16) #10
   store i8 1, ptr %9, align 8

@@ -511,7 +511,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcow2_compress_pool_func(ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @qcow2_compress_pool_func(ptr nocapture noundef initializes((32, 40)) %opaque) #0 {
 entry:
   %func = getelementptr inbounds i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %func, align 8

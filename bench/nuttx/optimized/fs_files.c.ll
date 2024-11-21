@@ -632,7 +632,7 @@ declare zeroext i1 @spawn_file_is_duplicateable(ptr noundef, i32 noundef, i1 nou
 declare i32 @file_dup2(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -11, 1) i32 @fs_getfilep(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -11, 1) i32 @fs_getfilep(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   store ptr null, ptr %1, align 8
   %4 = tail call ptr @nxsched_get_files() #10

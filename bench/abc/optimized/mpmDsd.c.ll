@@ -1248,7 +1248,7 @@ define void @Mpm_ManPrintPerm(i32 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Mpm_ManPrecomputePerms(ptr noundef %0) local_unnamed_addr #0 {
+define void @Mpm_ManPrecomputePerms(ptr noundef initializes((6944, 6952), (11296, 11304)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = tail call i32 @Extra_Factorial(i32 noundef 6) #21

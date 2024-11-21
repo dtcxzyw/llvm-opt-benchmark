@@ -13087,7 +13087,7 @@ _ZN12_GLOBAL__N_114HostBufferImplD2Ev.exit:       ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_114HostBufferImpl3mapERKN3ade4util9DynMdSpanILm6EEENS1_11IDataBuffer6AccessE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::IDataBuffer::MapId") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, i32 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114HostBufferImpl3mapERKN3ade4util9DynMdSpanILm6EEENS1_11IDataBuffer6AccessE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::IDataBuffer::MapId") align 8 initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, i32 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.ade::util::DynMdView", align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 136
   %7 = load ptr, ptr %6, align 8
@@ -13178,7 +13178,7 @@ define internal void @_ZN12_GLOBAL__N_114HostBufferImpl12finalizeReadERKN3ade4ut
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN12_GLOBAL__N_114HostBufferImpl9alignmentERKN3ade4util9DynMdSpanILm6EEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ade::util::DynMdSize") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) unnamed_addr #14 align 2 {
+define internal void @_ZN12_GLOBAL__N_114HostBufferImpl9alignmentERKN3ade4util9DynMdSpanILm6EEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ade::util::DynMdSize") align 8 initializes((24, 32)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %2, i64 48
   %6 = load i64, ptr %5, align 8

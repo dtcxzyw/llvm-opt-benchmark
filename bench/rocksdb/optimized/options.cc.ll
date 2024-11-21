@@ -374,7 +374,7 @@ $_ZTVSt15_Sp_counted_ptrIPKN7rocksdb12FilterPolicyELN9__gnu_cxx12_Lock_policyE2E
 @_ZN7rocksdb11ReadOptionsC1ENS_3Env10IOActivityE = unnamed_addr alias void (ptr, i8), ptr @_ZN7rocksdb11ReadOptionsC2ENS_3Env10IOActivityE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb27AdvancedColumnFamilyOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb27AdvancedColumnFamilyOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 12), (16, 25), (32, 65), (72, 100), (104, 148), (152, 166), (168, 200)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end.i.i.i.i.i.i.i:
   store i32 2, ptr %this, align 8
   %min_write_buffer_number_to_merge = getelementptr inbounds i8, ptr %this, i64 4
@@ -710,7 +710,7 @@ _ZNSt12__shared_ptrIKN7rocksdb14SliceTransformELN9__gnu_cxx12_Lock_policyE2EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb27AdvancedColumnFamilyOptionsC2ERKNS_7OptionsE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull readonly align 8 dereferenceable(1508) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb27AdvancedColumnFamilyOptionsC2ERKNS_7OptionsE(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 12), (16, 25), (32, 65), (72, 100), (104, 136)) %this, ptr noundef nonnull readonly align 8 dereferenceable(1508) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i32, align 4
   %add.ptr = getelementptr inbounds i8, ptr %options, i64 688
@@ -1614,7 +1614,7 @@ _ZNSt12__shared_ptrIN7rocksdb18MemTableRepFactoryELN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb19ColumnFamilyOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(820) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19ColumnFamilyOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(820) initializes((0, 12), (16, 25), (32, 65), (72, 100), (104, 148), (152, 166), (168, 200)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.rocksdb::BlockBasedTableOptions", align 8
   tail call void @_ZN7rocksdb27AdvancedColumnFamilyOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %this)
@@ -2892,7 +2892,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9DBOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb9DBOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(688) initializes((0, 65), (68, 76), (80, 105), (112, 136)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.46", align 1
   %ref.tmp2 = alloca %"class.std::allocator.46", align 1
@@ -6731,7 +6731,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN7rocksdb7Options18PrepareForBulkLoadEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(1508) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb7Options18PrepareForBulkLoadEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(1508) initializes((212, 216), (220, 224), (688, 696), (824, 836), (840, 848), (888, 896), (904, 920), (1384, 1388), (1424, 1425)) %this) local_unnamed_addr #8 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 688
   %level0_file_num_compaction_trigger = getelementptr inbounds i8, ptr %this, i64 1384
@@ -6986,7 +6986,7 @@ _ZNSt12__shared_ptrIN7rocksdb15MemoryAllocatorELN9__gnu_cxx12_Lock_policyE2EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN7rocksdb19ColumnFamilyOptions18OptimizeForSmallDbEPSt10shared_ptrINS_5CacheEE(ptr noundef nonnull returned align 8 dereferenceable(820) %this, ptr noundef readonly %cache) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb19ColumnFamilyOptions18OptimizeForSmallDbEPSt10shared_ptrINS_5CacheEE(ptr noundef nonnull returned align 8 dereferenceable(820) initializes((152, 160), (216, 232), (568, 576), (720, 728)) %this, ptr noundef readonly %cache) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_options = alloca %"struct.rocksdb::BlockBasedTableOptions", align 8
   %write_buffer_size = getelementptr inbounds i8, ptr %this, i64 568
@@ -7213,7 +7213,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN7rocksdb9DBOptions18OptimizeForSmallDbEPSt10shared_ptrINS_5CacheEE(ptr noundef nonnull returned align 8 dereferenceable(688) %this, ptr noundef readonly %cache) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb9DBOptions18OptimizeForSmallDbEPSt10shared_ptrINS_5CacheEE(ptr noundef nonnull returned align 8 dereferenceable(688) initializes((68, 76)) %this, ptr noundef readonly %cache) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i32, align 4
   %ref.tmp2 = alloca %"class.std::shared_ptr.18", align 8
@@ -7530,7 +7530,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN7rocksdb7Options18DisableExtraChecksEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(1508) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb7Options18DisableExtraChecksEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(1508) initializes((1059, 1060)) %this) local_unnamed_addr #8 align 2 {
 entry:
   %force_consistency_checks = getelementptr inbounds i8, ptr %this, i64 1059
   store i8 0, ptr %force_consistency_checks, align 1
@@ -7538,7 +7538,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN7rocksdb7Options11OldDefaultsEii(ptr noundef nonnull returned writeonly align 8 dereferenceable(1508) %this, i32 noundef %rocksdb_major_version, i32 noundef %rocksdb_minor_version) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb7Options11OldDefaultsEii(ptr noundef nonnull returned writeonly align 8 dereferenceable(1508) initializes((68, 72), (498, 499)) %this, i32 noundef %rocksdb_major_version, i32 noundef %rocksdb_minor_version) local_unnamed_addr #8 align 2 {
 entry:
   %cmp.i = icmp slt i32 %rocksdb_major_version, 5
   br i1 %cmp.i, label %if.end.i, label %lor.lhs.false.i
@@ -7680,7 +7680,7 @@ if.end19:                                         ; preds = %if.end19.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN7rocksdb9DBOptions11OldDefaultsEii(ptr noundef nonnull returned writeonly align 8 dereferenceable(688) %this, i32 noundef %rocksdb_major_version, i32 noundef %rocksdb_minor_version) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb9DBOptions11OldDefaultsEii(ptr noundef nonnull returned writeonly align 8 dereferenceable(688) initializes((68, 72), (498, 499)) %this, i32 noundef %rocksdb_major_version, i32 noundef %rocksdb_minor_version) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp slt i32 %rocksdb_major_version, 4
   br i1 %cmp, label %if.end.thread, label %lor.lhs.false
@@ -8387,7 +8387,7 @@ _ZNSt12__shared_ptrIKN7rocksdb12FilterPolicyELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 declare noundef ptr @_ZN7rocksdb20NewBloomFilterPolicyEdb(double noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN7rocksdb19ColumnFamilyOptions28OptimizeLevelStyleCompactionEm(ptr noundef nonnull returned align 8 dereferenceable(820) %this, i64 noundef %memtable_memory_budget) local_unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb19ColumnFamilyOptions28OptimizeLevelStyleCompactionEm(ptr noundef nonnull returned align 8 dereferenceable(820) initializes((0, 8), (152, 160), (232, 233), (568, 576), (696, 700), (720, 728)) %this, i64 noundef %memtable_memory_budget) local_unnamed_addr #0 align 2 {
 entry:
   %div7 = lshr i64 %memtable_memory_budget, 2
   %write_buffer_size = getelementptr inbounds i8, ptr %this, i64 568
@@ -8539,7 +8539,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN7rocksdb19ColumnFamilyOptions32OptimizeUniversalStyleCompactionEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(820) %this, i64 noundef %memtable_memory_budget) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb19ColumnFamilyOptions32OptimizeUniversalStyleCompactionEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(820) initializes((0, 8), (232, 233), (252, 256), (568, 576)) %this, i64 noundef %memtable_memory_budget) local_unnamed_addr #8 align 2 {
 entry:
   %div1 = lshr i64 %memtable_memory_budget, 2
   %write_buffer_size = getelementptr inbounds i8, ptr %this, i64 568
@@ -8555,7 +8555,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN7rocksdb9DBOptions19IncreaseParallelismEi(ptr noundef nonnull returned align 8 dereferenceable(688) %this, i32 noundef %total_threads) local_unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN7rocksdb9DBOptions19IncreaseParallelismEi(ptr noundef nonnull returned align 8 dereferenceable(688) initializes((208, 212)) %this, i32 noundef %total_threads) local_unnamed_addr #0 align 2 {
 entry:
   %max_background_jobs = getelementptr inbounds i8, ptr %this, i64 208
   store i32 %total_threads, ptr %max_background_jobs, align 8
@@ -8574,7 +8574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb11ReadOptionsC2Ebb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(154) %this, i1 noundef zeroext %_verify_checksums, i1 noundef zeroext %_fill_cache) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11ReadOptionsC2Ebb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(154) initializes((0, 56), (64, 65), (72, 77), (80, 154)) %this, i1 noundef zeroext %_verify_checksums, i1 noundef zeroext %_fill_cache) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %_verify_checksums to i8
   %frombool1 = zext i1 %_fill_cache to i8
@@ -8605,7 +8605,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb11ReadOptionsC2ENS_3Env10IOActivityE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(154) %this, i8 noundef zeroext %_io_activity) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11ReadOptionsC2ENS_3Env10IOActivityE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(154) initializes((0, 56), (64, 65), (72, 77), (80, 154)) %this, i8 noundef zeroext %_io_activity) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rate_limiter_priority = getelementptr inbounds i8, ptr %this, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %this, i8 0, i64 44, i1 false)

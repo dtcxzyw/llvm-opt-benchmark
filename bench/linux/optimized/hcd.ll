@@ -1913,7 +1913,7 @@ define internal fastcc i32 @unlink1(ptr noundef %0, ptr noundef %1, i32 noundef 
 declare dso_local void @usb_put_dev(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__usb_hcd_giveback_urb(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @__usb_hcd_giveback_urb(ptr noundef initializes((8, 16)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 80
@@ -3971,7 +3971,7 @@ define dso_local void @usb_hcd_platform_shutdown(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_hcd_setup_local_mem(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local i32 @usb_hcd_setup_local_mem(ptr nocapture noundef initializes((600, 608)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   store i64 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8

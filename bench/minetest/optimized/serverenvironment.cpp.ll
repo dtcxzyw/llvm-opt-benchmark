@@ -1072,7 +1072,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12ABMWithStateC2EP19ActiveBlockModifier(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr noundef %abm_) unnamed_addr #4 align 2 {
+define dso_local void @_ZN12ABMWithStateC2EP19ActiveBlockModifier(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr noundef %abm_) unnamed_addr #4 align 2 {
 entry:
   store ptr %abm_, ptr %this, align 8, !tbaa !15
   %timer = getelementptr inbounds i8, ptr %this, i64 8
@@ -2395,7 +2395,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #11
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10LBMManager21loadIntroductionTimesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8IGameDefj(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(32) %times, ptr noundef %gamedef, i32 noundef %now) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10LBMManager21loadIntroductionTimesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8IGameDefj(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 1)) %this, ptr noundef nonnull align 8 dereferenceable(32) %times, ptr noundef %gamedef, i32 noundef %now) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i222 = alloca %"class.std::tuple.985", align 8
   %ref.tmp10.i223 = alloca %"class.std::tuple.929", align 1
@@ -12286,7 +12286,7 @@ declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 nounde
 declare noundef zeroext i1 @_ZN2fs10PathExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17ServerEnvironment15loadDefaultMetaEv(ptr noundef nonnull align 8 dereferenceable(952) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17ServerEnvironment15loadDefaultMetaEv(ptr noundef nonnull align 8 dereferenceable(952) initializes((616, 617)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #36

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_spinbox_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_spinbox_constructor(ptr nocapture readnone %0, ptr noundef initializes((160, 176)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i32 0, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -337,7 +337,7 @@ declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_spinbox_set_value(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_spinbox_set_value(ptr noundef initializes((160, 164)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %4 = load i32, ptr %3, align 4, !tbaa !15
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %4)
@@ -577,7 +577,7 @@ define void @lv_spinbox_set_digit_format(ptr noundef %0, i32 noundef %1, i32 nou
 declare i64 @lv_pow(i64 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_spinbox_set_step(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_spinbox_set_step(ptr noundef initializes((172, 176)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 %1, ptr %3, align 4, !tbaa !14
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef %0)
@@ -585,7 +585,7 @@ define void @lv_spinbox_set_step(ptr noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_spinbox_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_spinbox_set_range(ptr noundef initializes((164, 172)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 %2, ptr %4, align 4, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168

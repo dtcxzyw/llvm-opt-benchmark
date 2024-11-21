@@ -28475,7 +28475,7 @@ return:                                           ; preds = %if.then.i, %_ZN11fl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef nonnull writeonly %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %end.i.i.i = alloca ptr, align 8
@@ -28882,7 +28882,7 @@ return:                                           ; preds = %if.then.i, %_ZN11fl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef nonnull writeonly %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias nocapture writeonly align 1 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %end.i.i.i = alloca ptr, align 8
@@ -35244,7 +35244,7 @@ declare double @acos(double noundef) local_unnamed_addr #13
 declare double @atan(double noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb(ptr noalias nocapture sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %name, i32 noundef %dtoken, i1 noundef zeroext %check, ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef %req, ptr nocapture noundef writeonly %destmatch) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb(ptr noalias nocapture sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %name, i32 noundef %dtoken, i1 noundef zeroext %check, ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef %req, ptr nocapture noundef writeonly initializes((0, 1)) %destmatch) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -47521,7 +47521,7 @@ return:                                           ; preds = %if.then200, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN11flatbuffers6Parser9ParseJsonEPKcS2_(ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %json, ptr noundef %json_filename) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN11flatbuffers6Parser9ParseJsonEPKcS2_(ptr noundef nonnull align 8 dereferenceable(1784) initializes((504, 508), (520, 542), (544, 554), (560, 568)) %this, ptr noundef %json, ptr noundef %json_filename) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.flatbuffers::CheckedError", align 1
   %ref.tmp2 = alloca %"class.flatbuffers::CheckedError", align 1
@@ -50150,7 +50150,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK11flatbuffers6Parser25GetIncludedFilesRecursiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::set.93") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull align 8 dereferenceable(32) %file_name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK11flatbuffers6Parser25GetIncludedFilesRecursiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::set.93") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull align 8 dereferenceable(32) %file_name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %to_process = alloca %"class.std::__cxx11::list", align 8
   %current = alloca %"class.std::__cxx11::basic_string", align 8
@@ -50471,7 +50471,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers6Parser9SerializeEv(ptr noundef nonnull align 8 dereferenceable(1784) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers6Parser9SerializeEv(ptr noundef nonnull align 8 dereferenceable(1784) initializes((504, 508), (520, 542), (544, 554), (560, 568)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i400 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i401 = alloca %"class.std::__cxx11::basic_string", align 8

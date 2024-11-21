@@ -2105,7 +2105,7 @@ define internal range(i32 0, 2) i32 @devm_input_device_match(ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @input_set_timestamp(ptr nocapture noundef writeonly %0, i64 noundef %1) #0 align 16 {
+define dso_local void @input_set_timestamp(ptr nocapture noundef writeonly initializes((1328, 1352)) %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1328
   %4 = getelementptr i8, ptr %0, i64 1336
   store i64 %1, ptr %4, align 8
@@ -2153,7 +2153,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local void @dump_stack() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @input_enable_softrepeat(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define dso_local void @input_enable_softrepeat(ptr nocapture noundef writeonly initializes((296, 304), (312, 320)) %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 296
   store ptr @input_repeat_key, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 312
@@ -5616,7 +5616,7 @@ define internal noundef range(i32 0, 66) i32 @input_proc_devices_poll(ptr nounde
 declare dso_local i32 @seq_open(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @input_devices_seq_start(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal ptr @input_devices_seq_start(ptr nocapture noundef writeonly initializes((114, 115)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull @input_mutex) #19
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 114
@@ -5927,7 +5927,7 @@ define internal i32 @input_proc_handlers_open(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @input_handlers_seq_start(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal ptr @input_handlers_seq_start(ptr nocapture noundef writeonly initializes((114, 115)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull @input_mutex) #19
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5
@@ -5956,7 +5956,7 @@ define internal ptr @input_handlers_seq_start(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @input_handlers_seq_next(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal ptr @input_handlers_seq_next(ptr nocapture noundef writeonly initializes((112, 114)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load i64, ptr %2, align 8
   %6 = trunc i64 %5 to i16

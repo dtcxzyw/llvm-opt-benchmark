@@ -304,7 +304,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #2
 declare i32 @AnalyzeSamples(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @grabbag__replaygain_get_album(ptr nocapture noundef writeonly %gain, ptr nocapture noundef writeonly %peak) local_unnamed_addr #0 {
+define dso_local void @grabbag__replaygain_get_album(ptr nocapture noundef writeonly initializes((0, 4)) %gain, ptr nocapture noundef writeonly initializes((0, 4)) %peak) local_unnamed_addr #0 {
 entry:
   %call = tail call float @GetAlbumGain() #15
   store float %call, ptr %gain, align 4
@@ -318,7 +318,7 @@ entry:
 declare float @GetAlbumGain() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @grabbag__replaygain_get_title(ptr nocapture noundef writeonly %gain, ptr nocapture noundef writeonly %peak) local_unnamed_addr #0 {
+define dso_local void @grabbag__replaygain_get_title(ptr nocapture noundef writeonly initializes((0, 4)) %gain, ptr nocapture noundef writeonly initializes((0, 4)) %peak) local_unnamed_addr #0 {
 entry:
   %call = tail call float @GetTitleGain() #15
   store float %call, ptr %gain, align 4
@@ -482,7 +482,7 @@ if.end15:                                         ; preds = %if.end15.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @error_callback_(ptr nocapture readnone %decoder, i32 %status, ptr nocapture noundef writeonly %client_data) #3 {
+define internal void @error_callback_(ptr nocapture readnone %decoder, i32 %status, ptr nocapture noundef writeonly initializes((12, 16)) %client_data) #3 {
 entry:
   %error = getelementptr inbounds i8, ptr %client_data, i64 12
   store i32 1, ptr %error, align 4
@@ -687,7 +687,7 @@ return:                                           ; preds = %if.end4, %entry, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr nocapture noundef nonnull %chain, ptr nocapture noundef nonnull %block) unnamed_addr #0 {
+define internal fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr nocapture noundef nonnull initializes((0, 8)) %chain, ptr nocapture noundef nonnull %block) unnamed_addr #0 {
 entry:
   %call = tail call ptr @FLAC__metadata_chain_new() #15
   store ptr %call, ptr %chain, align 8
@@ -945,7 +945,7 @@ return:                                           ; preds = %if.end4, %entry, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @grabbag__replaygain_load_from_vorbiscomment(ptr noundef %block, i32 noundef %album_mode, i32 noundef %strict, ptr nocapture noundef writeonly %reference, ptr nocapture noundef writeonly %gain, ptr nocapture noundef writeonly %peak) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @grabbag__replaygain_load_from_vorbiscomment(ptr noundef %block, i32 noundef %album_mode, i32 noundef %strict, ptr nocapture noundef writeonly initializes((0, 8)) %reference, ptr nocapture noundef writeonly %gain, ptr nocapture noundef writeonly %peak) local_unnamed_addr #0 {
 entry:
   %s.i46 = alloca [32 x i8], align 16
   %end.i47 = alloca ptr, align 8

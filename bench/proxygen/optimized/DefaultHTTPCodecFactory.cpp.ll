@@ -75,7 +75,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen23DefaultHTTPCodecFactoryC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this, i1 noundef zeroext %forceHTTP1xCodecTo1_1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen23DefaultHTTPCodecFactoryC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %this, i1 noundef zeroext %forceHTTP1xCodecTo1_1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %forceHTTP1xCodecTo1_1 to i8
   %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8

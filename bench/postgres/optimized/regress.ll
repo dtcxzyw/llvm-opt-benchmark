@@ -2538,7 +2538,7 @@ define noundef nonnull ptr @pg_finfo_test_opclass_options_func() local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @test_opclass_options_func(ptr nocapture noundef writeonly %0) local_unnamed_addr #12 {
+define noundef i64 @test_opclass_options_func(ptr nocapture noundef writeonly initializes((28, 29)) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %2, align 4
   ret i64 0

@@ -272,7 +272,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib32LongstaffSchwartzMultiPathPricer8PathInfoC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %numberOfTimes) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib32LongstaffSchwartzMultiPathPricer8PathInfoC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %this, i64 noundef %numberOfTimes) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i = icmp eq i64 %numberOfTimes, 0
   br i1 %cmp.not.i, label %_ZN8QuantLib5ArrayC2Emd.exit.thread, label %for.body.i.i.i.preheader.i
@@ -381,7 +381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib32LongstaffSchwartzMultiPathPricerC2ERKN5boost10shared_ptrINS_10PathPayoffEEERKSt6vectorImSaImEES7_INS_6HandleINS_18YieldTermStructureEEESaISE_EENS_5ArrayEmNS_14LsmBasisSystem14PolynomialTypeE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %timePositions, ptr nocapture noundef %forwardTermStructures, ptr nocapture noundef %discounts, i64 noundef %polynomialOrder, i32 noundef %polynomialType) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib32LongstaffSchwartzMultiPathPricerC2ERKN5boost10shared_ptrINS_10PathPayoffEEERKSt6vectorImSaImEES7_INS_6HandleINS_18YieldTermStructureEEESaISE_EENS_5ArrayEmNS_14LsmBasisSystem14PolynomialTypeE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 9), (16, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %timePositions, ptr nocapture noundef %forwardTermStructures, ptr nocapture noundef %discounts, i64 noundef %polynomialOrder, i32 noundef %polynomialType) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

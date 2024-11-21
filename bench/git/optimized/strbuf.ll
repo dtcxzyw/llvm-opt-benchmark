@@ -168,7 +168,7 @@ return:                                           ; preds = %do.cond.i, %return.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strbuf_init(ptr nocapture noundef writeonly %sb, i64 noundef %hint) local_unnamed_addr #2 {
+define dso_local void @strbuf_init(ptr nocapture noundef writeonly initializes((0, 24)) %sb, i64 noundef %hint) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
   switch i64 %hint, label %if.then35.i [
@@ -338,7 +338,7 @@ if.end:                                           ; preds = %if.then, %strbuf_gr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strbuf_attach(ptr nocapture noundef %sb, ptr noundef %buf, i64 noundef %len, i64 noundef %alloc) local_unnamed_addr #2 {
+define dso_local void @strbuf_attach(ptr nocapture noundef initializes((8, 16)) %sb, ptr noundef %buf, i64 noundef %len, i64 noundef %alloc) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %sb, align 8
   %tobool.not.i = icmp eq i64 %0, 0
@@ -3602,7 +3602,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @strbuf_getwholeline_fd(ptr nocapture noundef %sb, i32 noundef %fd, i32 noundef %term) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @strbuf_getwholeline_fd(ptr nocapture noundef initializes((8, 16)) %sb, i32 noundef %fd, i32 noundef %term) local_unnamed_addr #2 {
 entry:
   %ch = alloca i8, align 1
   %len2.i = getelementptr inbounds i8, ptr %sb, i64 8

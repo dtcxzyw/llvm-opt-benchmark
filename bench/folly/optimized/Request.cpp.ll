@@ -3487,7 +3487,7 @@ _ZN5folly11RequestData20releaseRefDeleteOnlyEv.exit: ; preds = %delete.notnull.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext5StateC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext5StateC2Ev(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 22), (24, 40)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %active_.i = getelementptr inbounds i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this, i8 0, i64 20, i1 false)
@@ -8620,7 +8620,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext10copyAsRootERKS0_l(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ctx, i64 noundef %rootid) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext10copyAsRootERKS0_l(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ctx, i64 noundef %rootid) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !325)
   store ptr null, ptr %agg.result, align 8, !tbaa !328, !alias.scope !325
@@ -8718,7 +8718,7 @@ entry:
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext11copyAsChildERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ctx) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext11copyAsChildERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ctx) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
   store ptr null, ptr %agg.result, align 8, !tbaa !328, !alias.scope !337
@@ -16478,7 +16478,7 @@ cond.end:                                         ; preds = %cond.false.i, %cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext16accessAllThreadsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::RequestContext::StaticContextAccessor") align 8 %agg.result) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext16accessAllThreadsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::RequestContext::StaticContextAccessor") align 8 initializes((0, 28)) %agg.result) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.folly::ThreadLocalPtr<folly::SingletonThreadLocal<folly::RequestContext::StaticContext, folly::RequestContext>::Wrapper, folly::RequestContext>::Accessor", align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
@@ -16599,7 +16599,7 @@ declare noundef i32 @_ZN5folly18threadlocal_detail14StaticMetaBase8allocateEPNS1
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext24getRootIdsFromAllThreadsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.222") align 8 %agg.result) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext24getRootIdsFromAllThreadsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.222") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %"class.folly::ThreadLocalPtr<folly::SingletonThreadLocal<folly::RequestContext::StaticContext, folly::RequestContext>::Wrapper, folly::RequestContext>::Accessor", align 8
@@ -16933,7 +16933,7 @@ _ZN5folly20SingletonThreadLocalINS_14RequestContext13StaticContextES1_NS_6detail
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext21setShallowCopyContextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext21setShallowCopyContextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN5folly12_GLOBAL__N_122getStaticContextCalledE)
   store i8 1, ptr %0, align 1, !tbaa !101

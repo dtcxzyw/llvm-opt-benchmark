@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.crypto_aead_aes256gcm_state_ = type { [512 x i8] }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define noundef i32 @crypto_aead_aes256gcm_beforenm(ptr nocapture noundef nonnull %st_, ptr nocapture noundef nonnull readonly %k) local_unnamed_addr #0 {
+define noundef i32 @crypto_aead_aes256gcm_beforenm(ptr nocapture noundef nonnull initializes((0, 240)) %st_, ptr nocapture noundef nonnull readonly %k) local_unnamed_addr #0 {
 entry:
   %k.val = load <2 x i64>, ptr %k, align 1
   %0 = getelementptr i8, ptr %k, i64 16

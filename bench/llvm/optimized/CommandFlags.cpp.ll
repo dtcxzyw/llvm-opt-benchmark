@@ -1529,7 +1529,7 @@ define dso_local void @_ZN4llvm7codegen7getMCPUB5cxx11Ev(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7codegen9getMAttrsB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm7codegen9getMAttrsB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE6MAttrsB5cxx11, i64 136), align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE6MAttrsB5cxx11, i64 128), align 8
   %4 = ptrtoint ptr %2 to i64
@@ -6763,7 +6763,7 @@ declare void @_ZN4llvm12MemoryBuffer7getFileERKNS_5TwineEbbbSt8optionalINS_5Alig
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7codegen33InitTargetOptionsFromCodeGenFlagsERKNS_6TripleE(ptr dead_on_unwind noalias writable sret(%"class.llvm::TargetOptions") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm7codegen33InitTargetOptionsFromCodeGenFlagsERKNS_6TripleE(ptr dead_on_unwind noalias writable sret(%"class.llvm::TargetOptions") align 8 initializes((0, 8), (12, 20), (24, 28), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::MCTargetOptions", align 8
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -8321,7 +8321,7 @@ define dso_local void @_ZN4llvm7codegen21setFunctionAttributesENS_9StringRefES1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7codegen28createTargetMachineForTripleENS_9StringRefENS_15CodeGenOptLevelE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm7codegen28createTargetMachineForTripleENS_9StringRefENS_15CodeGenOptLevelE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Triple", align 8
   %7 = alloca %"class.llvm::Twine", align 8

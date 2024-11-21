@@ -394,7 +394,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ShenandoahPhaseTimingsC2Ej(ptr noundef nonnull align 8 dereferenceable(30352) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN22ShenandoahPhaseTimingsC2Ej(ptr noundef nonnull align 8 dereferenceable(30352) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   store i32 %1, ptr %0, align 8
   br label %3
 
@@ -1438,7 +1438,7 @@ declare noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenc
 declare noundef double @_ZNK6HdrSeq10percentileEd(ptr noundef nonnull align 8 dereferenceable(80), double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30ShenandoahWorkerTimingsTrackerC2EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define hidden void @_ZN30ShenandoahWorkerTimingsTrackerC2EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 20), (24, 51)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1680
   %7 = load ptr, ptr %6, align 8

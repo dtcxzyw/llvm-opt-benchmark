@@ -874,7 +874,7 @@ define hidden void @_ZN16G1YoungCollector29wait_for_root_region_scanningEv(ptr n
 declare noundef zeroext i1 @_ZN16G1ConcurrentMark36wait_until_root_region_scan_finishedEv(ptr noundef nonnull align 8 dereferenceable(1849)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1YoungCollector24calculate_collection_setEP10G1EvacInfod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly %1, double noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1YoungCollector24calculate_collection_setEP10G1EvacInfod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.G1PrintCollectionSetClosure, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 624
@@ -995,7 +995,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1YoungCollector27pre_evacuate_collection_setEP10G1EvacInfo(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1YoungCollector27pre_evacuate_collection_setEP10G1EvacInfo(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.G1PrintCollectionSetClosure, align 8
   %4 = alloca %class.G1PreEvacuateCollectionSetBatchTask, align 8
   %5 = alloca %class.G1PrepareEvacuationTask, align 8
@@ -1923,7 +1923,7 @@ define hidden noundef zeroext i1 @_ZNK16G1YoungCollector17evacuation_pinnedEv(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1YoungCollectorC2EN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1YoungCollectorC2EN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 13)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

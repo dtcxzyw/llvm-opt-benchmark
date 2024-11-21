@@ -2203,7 +2203,7 @@ declare hidden i32 @lj_str_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare hidden void @lj_err_comp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_meta_istype(ptr noundef %L, i32 noundef %ra, i32 noundef %tp) local_unnamed_addr #0 {
+define hidden void @lj_meta_istype(ptr noundef initializes((40, 48)) %L, i32 noundef %ra, i32 noundef %tp) local_unnamed_addr #0 {
 entry:
   %base = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8

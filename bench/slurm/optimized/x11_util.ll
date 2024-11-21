@@ -96,7 +96,7 @@ define noundef nonnull ptr @x11_flags2str(i16 noundef zeroext %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @x11_get_display(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @x11_get_display(ptr nocapture noundef writeonly %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.stat, align 8
   store ptr null, ptr %1, align 8

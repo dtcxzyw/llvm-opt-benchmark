@@ -23,7 +23,7 @@ $_ZN4absl24synchronization_internal11GraphCycles3RepD2Ev = comdat any
 @_ZN4absl24synchronization_internal11GraphCyclesD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4absl24synchronization_internal11GraphCyclesD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl24synchronization_internal11GraphCyclesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl24synchronization_internal11GraphCyclesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZN4absl24synchronization_internal12_GLOBAL__N_18arena_muE monotonic, align 4
   %and.i.i.i.i = and i32 %0, 1
@@ -3201,7 +3201,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4absl24synchronization_internal11GraphCycles13GetStackTraceENS0_7GraphIdEPPPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %id.coerce, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZN4absl24synchronization_internal11GraphCycles13GetStackTraceENS0_7GraphIdEPPPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %id.coerce, ptr nocapture noundef writeonly initializes((0, 8)) %ptr) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %.val = load ptr, ptr %0, align 8

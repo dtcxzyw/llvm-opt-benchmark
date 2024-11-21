@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN15ProcSmapsParserD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15ProcSmapsParserD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ProcSmapsParserC2EP8_IO_FILE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ProcSmapsParserC2EP8_IO_FILE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
@@ -252,7 +252,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN15ProcSmapsParser10parse_nextER13ProcSmapsInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(1120) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN15ProcSmapsParser10parse_nextER13ProcSmapsInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(1120) initializes((0, 17), (37, 38), (1064, 1120)) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 37
   store i8 0, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 1064

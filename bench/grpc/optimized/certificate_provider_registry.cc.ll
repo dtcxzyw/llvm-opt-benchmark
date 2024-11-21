@@ -227,7 +227,7 @@ return:                                           ; preds = %_ZNKSt4lessISt17bas
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core27CertificateProviderRegistry7Builder5BuildEv(ptr noalias sret(%"class.grpc_core::CertificateProviderRegistry") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27CertificateProviderRegistry7Builder5BuildEv(ptr noalias sret(%"class.grpc_core::CertificateProviderRegistry") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::map", align 8
   %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 8

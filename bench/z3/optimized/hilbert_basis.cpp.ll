@@ -338,7 +338,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13hilbert_basisC2ER8reslimit(ptr noundef nonnull align 8 dereferenceable(127) %this, ptr noundef nonnull align 8 dereferenceable(40) %lim) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13hilbert_basisC2ER8reslimit(ptr noundef nonnull align 8 dereferenceable(127) initializes((0, 72), (88, 100), (112, 120), (124, 127)) %this, ptr noundef nonnull align 8 dereferenceable(40) %lim) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont13:
   store ptr %lim, ptr %this, align 8
   %m_ineqs = getelementptr inbounds i8, ptr %this, i64 8
@@ -1856,7 +1856,7 @@ _ZNK13hilbert_basis5index4sizeEv.exit:            ; preds = %while.body.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN13hilbert_basis16reset_statisticsEv(ptr nocapture noundef nonnull align 8 dereferenceable(127) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN13hilbert_basis16reset_statisticsEv(ptr nocapture noundef nonnull align 8 dereferenceable(127) initializes((88, 100)) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_stats = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %m_stats, i8 0, i64 12, i1 false)

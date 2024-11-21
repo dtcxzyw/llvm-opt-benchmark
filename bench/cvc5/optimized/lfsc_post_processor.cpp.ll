@@ -270,7 +270,7 @@ declare noundef ptr @_ZNK4cvc58internal16ProofNodeManager10getCheckerEv(ptr noun
 declare void @_ZN4cvc58internal24ProofNodeUpdaterCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal5proof28LfscProofPostprocessCallback16initializeUpdateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal5proof28LfscProofPostprocessCallback16initializeUpdateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((40, 41)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_numIgnoredScopes = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %d_numIgnoredScopes, align 8

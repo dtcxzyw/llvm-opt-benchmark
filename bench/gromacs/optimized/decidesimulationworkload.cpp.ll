@@ -66,7 +66,7 @@ define linkonce_odr void @_ZN3gmx16EnumerationArrayINS_14MtsForceGroupsENSt7__cx
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx24createSimulationWorkloadERK10t_inputrecbRKNS_23DevelopmentFeatureFlagsEbbb10PmeRunModebbbbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::SimulationWorkload") align 1 %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(5) %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12) local_unnamed_addr #3 {
+define void @_ZN3gmx24createSimulationWorkloadERK10t_inputrecbRKNS_23DevelopmentFeatureFlagsEbbb10PmeRunModebbbbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::SimulationWorkload") align 1 initializes((0, 10), (12, 15)) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(5) %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12) local_unnamed_addr #3 {
   %14 = zext i1 %4 to i8
   %15 = zext i1 %6 to i8
   %16 = zext i1 %8 to i8
@@ -352,7 +352,7 @@ declare noundef zeroext i1 @_ZNK12ListedForces14haveCpuBondedsEv(ptr noundef non
 declare noundef zeroext i1 @_ZNK3gmx15ListedForcesGpu16haveInteractionsEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22DomainLifetimeWorkloadERKNS_18SimulationWorkloadE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::StepWorkload") align 1 %0, i32 noundef %1, ptr readonly %2, ptr readnone %3, i64 noundef %4, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 1 dereferenceable(24) %6) local_unnamed_addr #5 {
+define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22DomainLifetimeWorkloadERKNS_18SimulationWorkloadE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::StepWorkload") align 1 initializes((0, 20)) %0, i32 noundef %1, ptr readonly %2, ptr readnone %3, i64 noundef %4, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 1 dereferenceable(24) %6) local_unnamed_addr #5 {
   %8 = icmp eq ptr %2, %3
   br i1 %8, label %15, label %9
 

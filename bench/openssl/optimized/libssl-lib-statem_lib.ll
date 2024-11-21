@@ -592,7 +592,7 @@ declare i32 @ssl3_init_finished_mac(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 786692) i32 @ssl_get_min_max_version(ptr noundef %s, ptr nocapture noundef writeonly %min_version, ptr nocapture noundef writeonly %max_version, ptr noundef writeonly %real_max) local_unnamed_addr #1 {
+define range(i32 0, 786692) i32 @ssl_get_min_max_version(ptr noundef %s, ptr nocapture noundef writeonly initializes((0, 4)) %min_version, ptr nocapture noundef writeonly %max_version, ptr noundef writeonly %real_max) local_unnamed_addr #1 {
 entry:
   %method2 = getelementptr inbounds i8, ptr %s, i64 24
   %0 = load ptr, ptr %method2, align 8
@@ -4240,7 +4240,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 786692) i32 @ssl_choose_server_version(ptr noundef %s, ptr nocapture noundef readonly %hello, ptr nocapture noundef writeonly %dgrd) local_unnamed_addr #1 {
+define range(i32 0, 786692) i32 @ssl_choose_server_version(ptr noundef initializes((2388, 2392)) %s, ptr nocapture noundef readonly %hello, ptr nocapture noundef writeonly %dgrd) local_unnamed_addr #1 {
 entry:
   %best_method = alloca ptr, align 8
   %method = getelementptr inbounds i8, ptr %s, i64 24

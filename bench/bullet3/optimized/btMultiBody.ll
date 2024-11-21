@@ -50,7 +50,7 @@ $_ZNK11btMatrix3x311getRotationER12btQuaternion = comdat any
 @_ZN11btMultiBodyD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN11btMultiBodyD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11btMultiBody16spatialTransformERK11btMatrix3x3RK9btVector3S5_S5_RS3_S6_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %rotation_matrix, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %displacement, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %top_in, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %bottom_in, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %top_out, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %bottom_out) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN11btMultiBody16spatialTransformERK11btMatrix3x3RK9btVector3S5_S5_RS3_S6_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %rotation_matrix, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %displacement, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %top_in, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %bottom_in, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %top_out, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %bottom_out) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load float, ptr %rotation_matrix, align 4
   %1 = load float, ptr %top_in, align 4
@@ -142,7 +142,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11btMultiBodyC2EifRK9btVector3bbb(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %n_links, float noundef %mass, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %inertia, i1 noundef zeroext %fixedBase, i1 noundef zeroext %canSleep, i1 zeroext %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11btMultiBodyC2EifRK9btVector3bbb(ptr noundef nonnull align 8 dereferenceable(640) initializes((0, 108), (180, 188), (192, 201), (212, 220), (224, 233), (244, 252), (256, 265), (276, 284), (288, 297), (308, 316), (320, 329), (340, 348), (352, 361), (368, 565), (568, 580), (584, 613), (616, 626), (628, 640)) %this, i32 noundef %n_links, float noundef %mass, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %inertia, i1 noundef zeroext %fixedBase, i1 noundef zeroext %canSleep, i1 zeroext %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont79:
   %ref.tmp78 = alloca %struct.btMultibodyLink, align 8
   %frombool = zext i1 %fixedBase to i8
@@ -607,7 +607,7 @@ if.end16:                                         ; preds = %for.inc13, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN11btMultiBody21clearConstraintForcesEv(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN11btMultiBody21clearConstraintForcesEv(ptr nocapture noundef nonnull align 8 dereferenceable(640) initializes((140, 172)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_baseConstraintForce = getelementptr inbounds i8, ptr %this, i64 140
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 180
@@ -639,7 +639,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN11btMultiBody21clearForcesAndTorquesEv(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN11btMultiBody21clearForcesAndTorquesEv(ptr nocapture noundef nonnull align 8 dereferenceable(640) initializes((108, 140)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_baseForce = getelementptr inbounds i8, ptr %this, i64 108
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 180
@@ -833,7 +833,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11btMultiBodyD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11btMultiBodyD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(640) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV11btMultiBody, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 352
@@ -1020,7 +1020,7 @@ _ZN20btAlignedObjectArrayI15btMultibodyLinkED2Ev.exit: ; preds = %_ZN20btAligned
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11btMultiBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11btMultiBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(640) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN11btMultiBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %this) #26
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
@@ -4164,7 +4164,7 @@ _ZNK11btMultiBody15localDirToWorldEiRK9btVector3.exit158: ; preds = %entry, %whi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK11btMultiBody22compTreeLinkVelocitiesEP9btVector3S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, ptr nocapture noundef %omega, ptr nocapture noundef %vel) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZNK11btMultiBody22compTreeLinkVelocitiesEP9btVector3S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, ptr nocapture noundef initializes((0, 16)) %omega, ptr nocapture noundef initializes((0, 16)) %vel) local_unnamed_addr #12 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 180
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -4776,7 +4776,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %this, float noundef %dt, ptr nocapture noundef nonnull align 8 dereferenceable(25) %scratch_r, ptr nocapture noundef nonnull align 8 dereferenceable(25) %scratch_v, ptr nocapture noundef nonnull align 8 dereferenceable(25) %scratch_m, i1 noundef zeroext %isConstraintPass, i1 noundef zeroext %jointFeedbackInWorldSpace, i1 noundef zeroext %jointFeedbackInJointFrame) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) initializes((638, 639)) %this, float noundef %dt, ptr nocapture noundef nonnull align 8 dereferenceable(25) %scratch_r, ptr nocapture noundef nonnull align 8 dereferenceable(25) %scratch_v, ptr nocapture noundef nonnull align 8 dereferenceable(25) %scratch_m, i1 noundef zeroext %isConstraintPass, i1 noundef zeroext %jointFeedbackInWorldSpace, i1 noundef zeroext %jointFeedbackInJointFrame) local_unnamed_addr #5 align 2 {
 entry:
   %D = alloca [36 x float], align 16
   %invD_times_Y = alloca [6 x float], align 16
@@ -10192,7 +10192,7 @@ if.end137:                                        ; preds = %if.end137.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK11btMultiBody12solveImatrixERK20btSpatialForceVectorR21btSpatialMotionVector(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %rhs, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) %result) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK11btMultiBody12solveImatrixERK20btSpatialForceVectorR21btSpatialMotionVector(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %rhs, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) initializes((0, 32)) %result) local_unnamed_addr #0 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 180
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -10743,7 +10743,7 @@ for.end26:                                        ; preds = %for.cond2.for.inc24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK11btMultiBody12solveImatrixERK9btVector3S2_Pf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rhs_top, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rhs_bot, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK11btMultiBody12solveImatrixERK9btVector3S2_Pf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rhs_top, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rhs_bot, ptr nocapture noundef writeonly initializes((0, 24)) %result) local_unnamed_addr #0 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 180
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -14918,7 +14918,7 @@ if.end:                                           ; preds = %for.end375, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11btMultiBody6wakeUpEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN11btMultiBody6wakeUpEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((562, 563), (568, 572)) %this) local_unnamed_addr #15 align 2 {
 entry:
   %m_sleepTimer = getelementptr inbounds i8, ptr %this, i64 568
   store float 0.000000e+00, ptr %m_sleepTimer, align 8
@@ -14928,7 +14928,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11btMultiBody9goToSleepEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN11btMultiBody9goToSleepEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((562, 563)) %this) local_unnamed_addr #15 align 2 {
 entry:
   %m_awake = getelementptr inbounds i8, ptr %this, i64 562
   store i8 0, ptr %m_awake, align 2

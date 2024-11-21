@@ -1009,7 +1009,7 @@ declare i32 @Gia_ManHashMux(ptr noundef, i32 noundef, i32 noundef, i32 noundef) 
 declare i32 @Gia_ManHashMaj(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Bac_ManExtract(ptr nocapture noundef %0, i32 noundef %1, i32 %2) local_unnamed_addr #0 {
+define ptr @Bac_ManExtract(ptr nocapture noundef initializes((68, 72), (84, 88), (100, 104), (116, 120)) %0, i32 noundef %1, i32 %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 1
@@ -6647,7 +6647,7 @@ Bac_NtkMoveNames.exit:                            ; preds = %317, %.preheader.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Bac_ManBlastTest(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef ptr @Bac_ManBlastTest(ptr nocapture noundef initializes((68, 72), (84, 88), (100, 104), (116, 120)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Bac_ManExtract(ptr noundef %0, i32 noundef 1, i32 poison)
   %3 = tail call fastcc ptr @Bac_ManDupUserBoxes(ptr noundef readonly %0)
   tail call void @Bac_ManMarkNodesGia(ptr noundef readonly %0, ptr noundef %2)

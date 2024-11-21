@@ -351,7 +351,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local void @ZSTD_customFree(ptr noundef, ptr noundef byval(%struct.ZSTD_customMem) align 8) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ZSTD_copyDCtx(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 align 16 {
+define dso_local void @ZSTD_copyDCtx(ptr nocapture noundef writeonly initializes((0, 30216)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(30216) %0, ptr noundef align 8 dereferenceable(30216) %1, i64 30216, i1 false)
   ret void
 }
@@ -428,7 +428,7 @@ define dso_local i64 @ZSTD_frameHeaderSize(ptr nocapture noundef readonly %0, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i64 @ZSTD_getFrameHeader_advanced(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 align 16 {
+define dso_local i64 @ZSTD_getFrameHeader_advanced(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 align 16 {
   %5 = icmp eq i32 %3, 0
   %6 = select i1 %5, i64 5, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
@@ -625,7 +625,7 @@ default.unreachable8:                             ; preds = %95, %78
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i64 @ZSTD_getFrameHeader(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 16 {
+define dso_local i64 @ZSTD_getFrameHeader(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 align 16 {
   %4 = tail call i64 @ZSTD_getFrameHeader_advanced(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0)
   ret i64 %4
 }
@@ -1932,7 +1932,7 @@ define dso_local range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -119, 1) i64 @ZSTD_decodeFrameHeader(ptr noundef initializes((29928, 29968)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 29928
   %6 = getelementptr inbounds i8, ptr %0, i64 30088
@@ -2266,7 +2266,7 @@ declare dso_local i64 @FSE_readNCount(ptr noundef, ptr noundef, ptr noundef, ptr
 declare dso_local void @ZSTD_buildFSETable(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i64 @ZSTD_decompressBegin(ptr noundef %0) local_unnamed_addr #7 align 16 {
+define dso_local noundef i64 @ZSTD_decompressBegin(ptr noundef initializes((10296, 10300), (26684, 26696), (29888, 29928), (29968, 30000), (30184, 30188)) %0) local_unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 30088
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -2305,7 +2305,7 @@ define dso_local noundef i64 @ZSTD_decompressBegin(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -30, 1) i64 @ZSTD_decompressBegin_usingDict(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -30, 1) i64 @ZSTD_decompressBegin_usingDict(ptr noundef initializes((10296, 10300), (26684, 26696), (29888, 29928), (29968, 30000), (30184, 30188)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 30088
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -2405,7 +2405,7 @@ define dso_local noundef range(i64 -30, 1) i64 @ZSTD_decompressBegin_usingDict(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @ZSTD_decompressBegin_usingDDict(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i64 @ZSTD_decompressBegin_usingDDict(ptr noundef initializes((10296, 10300), (26684, 26696), (29888, 29912), (29920, 29928), (29968, 30000), (30184, 30188)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %13, label %4
 
@@ -2945,7 +2945,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refPrefix(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr noundef initializes((30176, 30184), (30192, 30196), (30212, 30216), (30292, 30296)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 30212
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 30292
@@ -3035,7 +3035,7 @@ define dso_local noundef range(i64 -60, 1) i64 @ZSTD_DCtx_reset(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 1, 6) i64 @ZSTD_initDStream(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 1, 6) i64 @ZSTD_initDStream(ptr nocapture noundef initializes((30176, 30184), (30192, 30196), (30212, 30216), (30292, 30296)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 30212
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 30292
@@ -3054,7 +3054,7 @@ define dso_local range(i64 1, 6) i64 @ZSTD_initDStream(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDDict(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDDict(ptr nocapture noundef initializes((30212, 30216), (30292, 30296)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 30212
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 30292
@@ -3316,7 +3316,7 @@ define dso_local noundef range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local range(i64 1, 6) i64 @ZSTD_resetDStream(ptr nocapture noundef %0) local_unnamed_addr #7 align 16 {
+define dso_local range(i64 1, 6) i64 @ZSTD_resetDStream(ptr nocapture noundef initializes((30212, 30216), (30292, 30296)) %0) local_unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 30212
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 30292

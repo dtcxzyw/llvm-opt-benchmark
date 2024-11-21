@@ -44,7 +44,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib8TimeGridC1Edm = unnamed_addr alias void (ptr, double, i64), ptr @_ZN8QuantLib8TimeGridC2Edm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib8TimeGridC2Edm(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, double noundef %end, i64 noundef %steps) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib8TimeGridC2Edm(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %this, double noundef %end, i64 noundef %steps) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

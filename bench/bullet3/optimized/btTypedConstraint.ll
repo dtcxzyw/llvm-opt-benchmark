@@ -60,7 +60,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBody(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(744) %rbA) unnamed_addr #1 align 2 {
+define dso_local void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBody(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 30), (32, 36), (40, 72)) %this, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(744) %rbA) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %type, ptr %0, align 8
@@ -128,7 +128,7 @@ lpad:                                             ; preds = %init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(744) %rbA, ptr noundef nonnull align 8 dereferenceable(744) %rbB) unnamed_addr #2 align 2 {
+define dso_local void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 30), (32, 36), (40, 72)) %this, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(744) %rbA, ptr noundef nonnull align 8 dereferenceable(744) %rbB) unnamed_addr #2 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %type, ptr %0, align 8
@@ -217,7 +217,7 @@ return:                                           ; preds = %if.then9, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef writeonly %dataBuffer, ptr noundef %serializer) unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef writeonly initializes((0, 64)) %dataBuffer, ptr noundef %serializer) unnamed_addr #1 align 2 {
 entry:
   %m_rbA = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_rbA, align 8
@@ -419,7 +419,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 declare void @_ZN11btRigidBody12setMassPropsEfRK9btVector3(ptr noundef nonnull align 8 dereferenceable(744), float noundef, ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local void @_ZN14btAngularLimit3setEfffff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(29) %this, float noundef %low, float noundef %high, float noundef %_softness, float noundef %_biasFactor, float noundef %_relaxationFactor) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN14btAngularLimit3setEfffff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(29) initializes((0, 20)) %this, float noundef %low, float noundef %high, float noundef %_softness, float noundef %_biasFactor, float noundef %_relaxationFactor) local_unnamed_addr #6 align 2 {
 entry:
   %sub = fsub float %high, %low
   %div = fmul float %sub, 5.000000e-01
@@ -455,7 +455,7 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @_ZN14btAngularLimit4testEf(ptr nocapture noundef nonnull align 4 dereferenceable(29) %this, float noundef %angle) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN14btAngularLimit4testEf(ptr nocapture noundef nonnull align 4 dereferenceable(29) initializes((20, 29)) %this, float noundef %angle) local_unnamed_addr #7 align 2 {
 entry:
   %m_correction = getelementptr inbounds i8, ptr %this, i64 20
   %m_sign = getelementptr inbounds i8, ptr %this, i64 24

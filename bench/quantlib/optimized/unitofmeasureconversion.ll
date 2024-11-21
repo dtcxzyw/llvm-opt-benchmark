@@ -137,7 +137,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib23UnitOfMeasureConversionEEE = comd
 @_ZN8QuantLib23UnitOfMeasureConversion4DataC1ERKS0_S3_ = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8QuantLib23UnitOfMeasureConversion4DataC2ERKS0_S3_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23UnitOfMeasureConversionC2ERKNS_13CommodityTypeERKNS_13UnitOfMeasureES6_d(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %source, ptr noundef nonnull align 8 dereferenceable(16) %target, double noundef %conversionFactor) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23UnitOfMeasureConversionC2ERKNS_13CommodityTypeERKNS_13UnitOfMeasureES6_d(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %source, ptr noundef nonnull align 8 dereferenceable(16) %target, double noundef %conversionFactor) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conversionFactor.addr = alloca double, align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -404,7 +404,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23UnitOfMeasureConversionC2ERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %r1, ptr noundef nonnull align 8 dereferenceable(16) %r2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23UnitOfMeasureConversionC2ERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %r1, ptr noundef nonnull align 8 dereferenceable(16) %r2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -609,7 +609,7 @@ lpad:                                             ; preds = %cond.true.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23UnitOfMeasureConversion4DataC2ERKNS_13CommodityTypeERKNS_13UnitOfMeasureES7_dNS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %commodityType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %target, double noundef %conversionFactor, i32 noundef %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23UnitOfMeasureConversion4DataC2ERKNS_13CommodityTypeERKNS_13UnitOfMeasureES7_dNS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 60)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %commodityType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %target, double noundef %conversionFactor, i32 noundef %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1209,7 +1209,7 @@ _ZN5boost10shared_ptrIN8QuantLib13CommodityType4DataEED2Ev.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23UnitOfMeasureConversion4DataC2ERKS0_S3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(16) %r1, ptr noundef nonnull align 8 dereferenceable(16) %r2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23UnitOfMeasureConversion4DataC2ERKS0_S3_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 48)) %this, ptr noundef nonnull align 8 dereferenceable(16) %r1, ptr noundef nonnull align 8 dereferenceable(16) %r2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.boost::shared_ptr.2", align 8
   %ref.tmp5 = alloca %"class.boost::shared_ptr.2", align 8

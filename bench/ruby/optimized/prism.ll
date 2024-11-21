@@ -186,7 +186,7 @@ define hidden noundef nonnull ptr @pm_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_parser_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @pm_parser_init(ptr noundef initializes((0, 24)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = getelementptr i8, ptr %1, i64 %2
@@ -511,7 +511,7 @@ declare ptr @pm_options_scope_local_get(ptr noundef, i64 noundef) local_unnamed_
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @pm_parser_register_encoding_changed_callback(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden void @pm_parser_register_encoding_changed_callback(ptr nocapture noundef writeonly initializes((480, 488)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 480
   store ptr %1, ptr %3, align 8
   ret void
@@ -9517,7 +9517,7 @@ char_is_identifier_utf8.exit:                     ; preds = %40, %34, %32, %20, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn uwtable
-define internal fastcc void @lex_mode_push_string(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #11 {
+define internal fastcc void @lex_mode_push_string(ptr noundef initializes((624, 632)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #11 {
   %6 = alloca %struct.pm_lex_mode, align 8
   %7 = zext i1 %1 to i8
   %8 = zext i1 %2 to i8
@@ -9774,7 +9774,7 @@ char_is_identifier.exit.thread:                   ; preds = %19, %83, %68, %60, 
 declare zeroext i1 @pm_char_is_decimal_digit(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 44, 62) i32 @lex_numeric(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 44, 62) i32 @lex_numeric(ptr noundef initializes((584, 586)) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -10349,7 +10349,7 @@ match_eol.exit:                                   ; preds = %peek_at.exit11.i.i,
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn uwtable
-define internal fastcc void @lex_mode_push_list(ptr noundef %0, i1 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #11 {
+define internal fastcc void @lex_mode_push_list(ptr noundef initializes((624, 632)) %0, i1 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #11 {
   %4 = alloca %struct.pm_lex_mode, align 8
   %5 = zext i1 %1 to i8
   switch i8 %2, label %6 [
@@ -10454,7 +10454,7 @@ lex_mode_push.exit:                               ; preds = %29, %32, %33
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn uwtable
-define internal fastcc void @lex_mode_push_list_eof(ptr noundef %0) unnamed_addr #11 {
+define internal fastcc void @lex_mode_push_list_eof(ptr noundef initializes((624, 632)) %0) unnamed_addr #11 {
   %.sroa.11 = alloca [29 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 29, ptr nonnull %.sroa.11)
   %.sroa.11.3..sroa_idx = getelementptr inbounds i8, ptr %.sroa.11, i64 3
@@ -10516,7 +10516,7 @@ lex_mode_push_list.exit:                          ; preds = %9, %12, %13
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn uwtable
-define internal fastcc void @lex_mode_push_string_eof(ptr noundef %0) unnamed_addr #11 {
+define internal fastcc void @lex_mode_push_string_eof(ptr noundef initializes((624, 632)) %0) unnamed_addr #11 {
   %.sroa.12 = alloca [33 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %.sroa.12)
   %.sroa.12.3..sroa_idx = getelementptr inbounds i8, ptr %.sroa.12, i64 3
@@ -30725,7 +30725,7 @@ pm_alloc_node.exit:                               ; preds = %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parse_method_definition_name(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @parse_method_definition_name(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 4), (8, 24)) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 304
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %15 [
@@ -35074,7 +35074,7 @@ define internal fastcc void @pm_interpolated_regular_expression_node_append(ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pm_interpolated_regular_expression_node_closing_set(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #15 {
+define internal fastcc void @pm_interpolated_regular_expression_node_closing_set(ptr nocapture noundef nonnull initializes((16, 24), (64, 80)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8

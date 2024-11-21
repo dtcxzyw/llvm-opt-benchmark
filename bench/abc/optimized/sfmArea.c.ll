@@ -972,7 +972,7 @@ define range(i32 0, 2) i32 @Abc_ObjHasDupFanouts(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_ObjChangeEval(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @Abc_ObjChangeEval(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @Mio_GateReadCell(ptr noundef %7) #12
@@ -1199,7 +1199,7 @@ declare i32 @Abc_NodeIsInv(ptr noundef) local_unnamed_addr #1
 declare i32 @Abc_NodeIsBuf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_ObjChangeUpdate(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @Abc_ObjChangeUpdate(ptr nocapture noundef initializes((56, 64)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef initializes((4, 8)) %4) local_unnamed_addr #0 {
   %6 = mul nsw i32 %1, 3
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds i32, ptr %3, i64 %7

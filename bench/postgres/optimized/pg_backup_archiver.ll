@@ -294,7 +294,7 @@ define dso_local noundef ptr @NewDumpOptions() local_unnamed_addr #0 {
 declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @InitDumpOptions(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define dso_local void @InitDumpOptions(ptr nocapture noundef writeonly initializes((0, 176)) %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 0, i64 176, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 140
   store i8 1, ptr %2, align 4
@@ -910,7 +910,7 @@ declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_u
 declare void @exit_nicely(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SetArchiveOptions(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @SetArchiveOptions(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -1750,7 +1750,7 @@ define internal fastcc void @StrictNamesCheck(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RestoreArchive(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @RestoreArchive(ptr noundef initializes((660, 664)) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca [64 x i8], align 16
   %4 = alloca i64, align 8
@@ -3473,7 +3473,7 @@ RestoreOutput.exit:                               ; preds = %735
 declare ptr @supports_compression(ptr noundef byval(%struct.pg_compress_specification) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @buildTocEntryArrays(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @buildTocEntryArrays(ptr nocapture noundef initializes((520, 536)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 516
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, 1
@@ -3916,7 +3916,7 @@ define internal fastcc range(i32 0, 3) i32 @_tocEntryRestorePass(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 13) i32 @restore_toc_entry(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 13) i32 @restore_toc_entry(ptr noundef initializes((672, 680)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -5046,7 +5046,7 @@ define dso_local void @EndRestoreLOs(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @StartRestoreLO(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @StartRestoreLO(ptr noundef initializes((640, 648)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 68608
@@ -5779,7 +5779,7 @@ define dso_local noundef i64 @WriteOffset(ptr noundef %0, i64 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 256) i32 @ReadOffset(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @ReadOffset(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   store i64 0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
@@ -6374,7 +6374,7 @@ define internal void @mark_dump_job_done(ptr nocapture readnone %0, ptr nocaptur
 declare void @WaitForWorkers(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @WriteDataChunksForTocEntry(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @WriteDataChunksForTocEntry(ptr noundef initializes((536, 544)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 536
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 80
@@ -9006,7 +9006,7 @@ declare noundef i64 @ftello(ptr nocapture noundef) local_unnamed_addr #11
 declare noundef i32 @fseeko(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 13) i32 @parallel_restore(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 13) i32 @parallel_restore(ptr noundef initializes((92, 96), (672, 680)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 0, ptr %3, align 4
   %4 = tail call fastcc i32 @restore_toc_entry(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)

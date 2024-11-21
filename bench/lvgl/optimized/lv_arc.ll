@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_arc_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_arc_constructor, ptr null, ptr @lv_arc_event, ptr null, ptr @.str, i32 0, i32 0, i8 -127, i8 7, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_arc_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_arc_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 96), (100, 112)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 0, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 76
@@ -1209,7 +1209,7 @@ define void @lv_arc_set_bg_angles(ptr noundef %0, float noundef %1, float nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_arc_set_rotation(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_arc_set_rotation(ptr noundef initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #0 {
 .preheader.preheader:
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %.lobit = lshr i32 %1, 31
@@ -1359,14 +1359,14 @@ define void @lv_arc_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_arc_set_change_rate(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @lv_arc_set_change_rate(ptr nocapture noundef writeonly initializes((100, 104)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %1, ptr %3, align 4, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_arc_set_knob_offset(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @lv_arc_set_knob_offset(ptr nocapture noundef writeonly initializes((112, 114)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = trunc i32 %1 to i16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i16 %3, ptr %4, align 8, !tbaa !48
@@ -1556,7 +1556,7 @@ get_angle.exit:                                   ; preds = %6, %16, %20, %40, %
 declare void @lv_obj_update_layout(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_center(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc void @get_center(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #0 {
   %4 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 18) #7
   %5 = ptrtoint ptr %4 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %5 to i32

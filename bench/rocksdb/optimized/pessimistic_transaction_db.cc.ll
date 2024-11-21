@@ -700,7 +700,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24PessimisticTransactionDBC2EPNS_2DBERKNS_20TransactionDBOptionsE(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24PessimisticTransactionDBC2EPNS_2DBERKNS_20TransactionDBOptionsE(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 56)) %this, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.rocksdb::DBOptions", align 8
   %db_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2147,7 +2147,7 @@ _ZNSt12__shared_ptrIN7rocksdb6LoggerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24PessimisticTransactionDBC2EPNS_11StackableDBERKNS_20TransactionDBOptionsE(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24PessimisticTransactionDBC2EPNS_11StackableDBERKNS_20TransactionDBOptionsE(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 32)) %this, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %db_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %db, ptr %db_.i.i, align 8
@@ -2246,7 +2246,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb24PessimisticTransactionDBD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24PessimisticTransactionDBD2Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24PessimisticTransactionDBE, i64 16), ptr %this, align 8
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
@@ -5448,7 +5448,7 @@ declare void @_ZN7rocksdb6DBImpl4OpenERKNS_9DBOptionsERKNSt7__cxx1112basic_strin
 declare void @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13TransactionDB6WrapDBEPNS_2DBERKNS_20TransactionDBOptionsERKSt6vectorImSaImEERKS6_IPNS_18ColumnFamilyHandleESaISC_EEPPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options, ptr noundef nonnull align 8 dereferenceable(24) %compaction_enabled_cf_indices, ptr noundef nonnull align 8 dereferenceable(24) %handles, ptr nocapture noundef writeonly %dbptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13TransactionDB6WrapDBEPNS_2DBERKNS_20TransactionDBOptionsERKSt6vectorImSaImEERKS6_IPNS_18ColumnFamilyHandleESaISC_EEPPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options, ptr noundef nonnull align 8 dereferenceable(24) %compaction_enabled_cf_indices, ptr noundef nonnull align 8 dereferenceable(24) %handles, ptr nocapture noundef writeonly initializes((0, 8)) %dbptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.rocksdb::TransactionDBOptions", align 8
   %ref.tmp8.i = alloca %"struct.rocksdb::TransactionDBOptions", align 8
@@ -5728,7 +5728,7 @@ _ZN7rocksdb12_GLOBAL__N_121WrapAnotherDBInternalINS_2DBEEENS_6StatusEPT_RKNS_20T
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13TransactionDB15WrapStackableDBEPNS_11StackableDBERKNS_20TransactionDBOptionsERKSt6vectorImSaImEERKS6_IPNS_18ColumnFamilyHandleESaISC_EEPPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options, ptr noundef nonnull align 8 dereferenceable(24) %compaction_enabled_cf_indices, ptr noundef nonnull align 8 dereferenceable(24) %handles, ptr nocapture noundef writeonly %dbptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13TransactionDB15WrapStackableDBEPNS_11StackableDBERKNS_20TransactionDBOptionsERKSt6vectorImSaImEERKS6_IPNS_18ColumnFamilyHandleESaISC_EEPPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options, ptr noundef nonnull align 8 dereferenceable(24) %compaction_enabled_cf_indices, ptr noundef nonnull align 8 dereferenceable(24) %handles, ptr nocapture noundef writeonly initializes((0, 8)) %dbptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.rocksdb::TransactionDBOptions", align 8
   %ref.tmp8.i = alloca %"struct.rocksdb::TransactionDBOptions", align 8
@@ -8907,7 +8907,7 @@ return:                                           ; preds = %if.end, %_ZN7rocksd
 declare void @_ZN7rocksdb6DBImpl25CreateTimestampedSnapshotEmm(ptr sret(%"struct.std::pair.518") align 8, ptr noundef nonnull align 64 dereferenceable(6660), i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb24PessimisticTransactionDB22GetTimestampedSnapshotEm(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.427") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %this, i64 noundef %ts) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb24PessimisticTransactionDB22GetTimestampedSnapshotEm(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.427") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %this, i64 noundef %ts) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIKN7rocksdb12SnapshotImplEED2Ev.exit:
   %ref.tmp = alloca %"class.std::shared_ptr.522", align 8
   %db_impl_ = getelementptr inbounds i8, ptr %this, i64 32

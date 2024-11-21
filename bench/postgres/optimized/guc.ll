@@ -1398,7 +1398,7 @@ define dso_local void @guc_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_guc_variables(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @get_guc_variables(ptr nocapture noundef initializes((0, 4)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
   %3 = load ptr, ptr @guc_hashtab, align 8
   %4 = tail call i64 @hash_get_num_entries(ptr noundef %3) #29
@@ -2119,7 +2119,7 @@ define dso_local void @InitializeGUCOptions() local_unnamed_addr #0 {
 declare void @pg_timezone_initialize() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitializeOneGUCOption(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @InitializeOneGUCOption(ptr nocapture noundef initializes((40, 68), (72, 88), (120, 140)) %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -9256,7 +9256,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_explain_guc_options(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @get_explain_guc_options(ptr nocapture noundef initializes((0, 4)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 4
   %2 = load ptr, ptr @guc_hashtab, align 8
   %3 = tail call i64 @hash_get_num_entries(ptr noundef %2) #29
@@ -9612,7 +9612,7 @@ config_enum_lookup_by_value.exit:                 ; preds = %86, %2, %69, %75, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @convert_int_from_base_unit(i64 noundef range(i64 1, 2147483648) %0, i32 noundef range(i32 1, 2130706433) %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #19 {
+define internal fastcc void @convert_int_from_base_unit(i64 noundef range(i64 1, 2147483648) %0, i32 noundef range(i32 1, 2130706433) %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3) unnamed_addr #19 {
   store ptr null, ptr %3, align 8
   %5 = and i32 %1, 251658240
   %.not = icmp eq i32 %5, 0
@@ -9663,7 +9663,7 @@ define internal fastcc void @convert_int_from_base_unit(i64 noundef range(i64 1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @convert_real_from_base_unit(double noundef %0, i32 noundef range(i32 1, 2130706433) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #20 {
+define internal fastcc void @convert_real_from_base_unit(double noundef %0, i32 noundef range(i32 1, 2130706433) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3) unnamed_addr #20 {
   store ptr null, ptr %3, align 8
   %5 = and i32 %1, 251658240
   %.not = icmp eq i32 %5, 0
@@ -10517,7 +10517,7 @@ define internal void @guc_restore_error_context_callback(ptr noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ParseLongOption(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @ParseLongOption(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strcspn(ptr noundef %0, ptr noundef nonnull @.str.88) #30
   %5 = getelementptr i8, ptr %0, i64 %4
   %6 = load i8, ptr %5, align 1
@@ -10571,7 +10571,7 @@ declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @TransformGUCArray(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local void @TransformGUCArray(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   store ptr null, ptr %1, align 8

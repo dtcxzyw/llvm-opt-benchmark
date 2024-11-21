@@ -111,7 +111,7 @@ declare void @shres_destroy(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @block_copy_set_copy_opts(ptr nocapture noundef %s, i1 noundef zeroext %use_copy_range, i1 noundef zeroext %compress) local_unnamed_addr #2 {
+define dso_local void @block_copy_set_copy_opts(ptr nocapture noundef initializes((104, 108)) %s, i1 noundef zeroext %use_copy_range, i1 noundef zeroext %compress) local_unnamed_addr #2 {
 entry:
   %write_flags = getelementptr inbounds i8, ptr %s, i64 40
   %0 = load i32, ptr %write_flags, align 8
@@ -334,7 +334,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @qemu_co_mutex_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @block_copy_set_progress_meter(ptr nocapture noundef writeonly %s, ptr noundef %pm) local_unnamed_addr #7 {
+define dso_local void @block_copy_set_progress_meter(ptr nocapture noundef writeonly initializes((144, 152)) %s, ptr noundef %pm) local_unnamed_addr #7 {
 entry:
   %progress = getelementptr inbounds i8, ptr %s, i64 144
   store ptr %pm, ptr %progress, align 8
@@ -574,7 +574,7 @@ return:                                           ; preds = %if.end11, %if.end
 declare i32 @qemu_co_timeout(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_copy_async_co_entry(ptr noundef %opaque) #0 {
+define internal void @block_copy_async_co_entry(ptr noundef initializes((96, 104)) %opaque) #0 {
 glib_autoptr_cleanup_GraphLockable.exit:
   tail call void @bdrv_graph_co_rdlock() #14
   %call1 = tail call i32 @block_copy_common(ptr noundef %opaque)
@@ -838,7 +838,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_copy_common(ptr noundef %call_state) #0 {
+define internal i32 @block_copy_common(ptr noundef initializes((96, 104)) %call_state) #0 {
 entry:
   %0 = load ptr, ptr %call_state, align 8
   %lock = getelementptr inbounds i8, ptr %0, i64 48
@@ -1655,7 +1655,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %block_copy_chunk_si
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, -2147483648) i32 @block_copy_block_status(ptr nocapture noundef readonly %s, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum) #0 {
+define internal range(i32 0, -2147483648) i32 @block_copy_block_status(ptr nocapture noundef readonly %s, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %pnum) #0 {
 entry:
   %num = alloca i64, align 8
   %skip_unallocated = getelementptr inbounds i8, ptr %s, i64 128

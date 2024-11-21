@@ -176,7 +176,7 @@ $_ZN5folly6detail18pretty_name_zarrayImNS0_14pretty_tag_gccEE6zarrayE = comdat a
 @_ZN5folly6detail18pretty_name_zarrayImNS0_14pretty_tag_gccEE6zarrayE = linkonce_odr constant %"struct.folly::c_array.30" { [14 x i8] c"unsigned long\00" }, comdat, align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly9toDynamicIN8proxygen19PersistentCachedPskEEENS_7dynamicERKT_(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %cached) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly9toDynamicIN8proxygen19PersistentCachedPskEEENS_7dynamicERKT_(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %cached) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -211,7 +211,7 @@ define dso_local range(i32 -116, 1) i32 @sock_diag_check_cookie(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sock_diag_save_cookie(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local void @sock_diag_save_cookie(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   %3 = getelementptr inbounds i8, ptr %0, i64 88

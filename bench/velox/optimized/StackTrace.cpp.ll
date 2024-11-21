@@ -164,7 +164,7 @@ $_ZGVZZN5folly13usingTCMallocEvENKUlvE_clEvE3ptr = comdat any
 @_ZN8facebook5velox7process10StackTraceC1ERKS2_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN8facebook5velox7process10StackTraceC2ERKS2_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox7process10StackTraceC2Ei(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %skipFrames) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox7process10StackTraceC2Ei(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 25)) %this, i32 noundef %skipFrames) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %this, i8 0, i64 25, i1 false)
@@ -405,7 +405,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox7process10StackTraceC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox7process10StackTraceC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 25)) %this, ptr noundef nonnull align 8 dereferenceable(96) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bt_vector_flag_ = getelementptr inbounds i8, ptr %this, i64 24
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 28

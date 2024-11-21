@@ -222,7 +222,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #8 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19FdmVPPStepConditionC2ERKNS_25FdmVPPStepConditionParamsEmRKNS_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS_23FdmInnerValueCalculatorEEESA_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %params, i64 noundef %nStates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mesh, ptr nocapture noundef %gasPrice, ptr nocapture noundef %sparkSpreadPrice) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19FdmVPPStepConditionC2ERKNS_25FdmVPPStepConditionParamsEmRKNS_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS_23FdmInnerValueCalculatorEEESA_(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 136)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %params, i64 noundef %nStates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mesh, ptr nocapture noundef %gasPrice, ptr nocapture noundef %sparkSpreadPrice) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i52 = alloca { i64, i64 }, align 8
   %ref.tmp.i53 = alloca %"class.std::function", align 8

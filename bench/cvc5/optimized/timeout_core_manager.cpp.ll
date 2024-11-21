@@ -4909,7 +4909,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal3smt18TimeoutCoreManager18recordCurrentModelERbRSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(456) %this, ptr nocapture noundef nonnull align 1 dereferenceable(1) %allAssertsSat, ptr nocapture noundef nonnull align 8 dereferenceable(24) %nextInclude) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal3smt18TimeoutCoreManager18recordCurrentModelERbRSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(456) %this, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %allAssertsSat, ptr nocapture noundef nonnull align 8 dereferenceable(24) %nextInclude) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.688", align 8
   %a = alloca %"class.cvc5::internal::NodeTemplate", align 8

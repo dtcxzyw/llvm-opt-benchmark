@@ -887,7 +887,7 @@ define internal fastcc void @Dsd_TreeCollectNodesDfs_rec(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Dsd_TreeCollectNodesDfsOne(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+define noalias noundef ptr @Dsd_TreeCollectNodesDfsOne(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #8 {
   %4 = alloca i32, align 4
   %5 = ptrtoint ptr %1 to i64
   %6 = and i64 %5, -2

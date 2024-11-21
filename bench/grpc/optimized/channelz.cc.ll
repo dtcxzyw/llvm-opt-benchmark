@@ -375,7 +375,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz8BaseNodeC2ENS1_10EntityTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %type, ptr noundef nonnull %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz8BaseNodeC2ENS1_10EntityTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 20), (24, 32)) %this, i32 noundef %type, ptr noundef nonnull %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
@@ -412,7 +412,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core8channelz8BaseNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz8BaseNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 16), ptr %this, align 8
   %uuid_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -2055,7 +2055,7 @@ if.end86:                                         ; preds = %entry, %_ZN9grpc_co
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz11ChannelNodeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmb(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull %target, i64 noundef %channel_tracer_max_nodes, i1 noundef zeroext %is_internal_channel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz11ChannelNodeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmb(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 20), (24, 32)) %this, ptr noundef nonnull %target, i64 noundef %channel_tracer_max_nodes, i1 noundef zeroext %is_internal_channel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %cond = zext i1 %is_internal_channel to i32
@@ -5549,7 +5549,7 @@ eh.resume:                                        ; preds = %ehcleanup12, %ehcle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core8channelz10ServerNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz10ServerNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8channelz10ServerNodeE, i64 16), ptr %this, align 8
   %child_listen_sockets_ = getelementptr inbounds i8, ptr %this, i64 208
@@ -9422,7 +9422,7 @@ entry:
 declare void @_Z31grpc_channel_arg_pointer_createPcPvPK23grpc_arg_pointer_vtable(ptr sret(%struct.grpc_arg) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz10SocketNode8Security18GetFromChannelArgsEPK17grpc_channel_args(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.52") align 8 %agg.result, ptr noundef %args) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core8channelz10SocketNode8Security18GetFromChannelArgsEPK17grpc_channel_args(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.52") align 8 initializes((0, 8)) %agg.result, ptr noundef %args) local_unnamed_addr #3 align 2 {
 entry:
   %call.i = tail call noundef ptr @_Z22grpc_channel_args_findPK17grpc_channel_argsPKc(ptr noundef %args, ptr noundef nonnull @.str.35)
   %cmp.i = icmp eq ptr %call.i, null
@@ -9451,7 +9451,7 @@ cond.end:                                         ; preds = %_Z30grpc_channel_ar
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz10SocketNodeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_NS_13RefCountedPtrINS1_8SecurityEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %local, ptr noundef %remote, ptr noundef nonnull %name, ptr nocapture noundef %security) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz10SocketNodeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_NS_13RefCountedPtrINS1_8SecurityEEE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 20), (24, 32)) %this, ptr noundef %local, ptr noundef %remote, ptr noundef nonnull %name, ptr nocapture noundef %security) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name) #24
@@ -13576,7 +13576,7 @@ ehcleanup346:                                     ; preds = %lpad153, %lpad.i134
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz16ListenSocketNodeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %local_addr, ptr noundef nonnull %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz16ListenSocketNodeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 20), (24, 32)) %this, ptr noundef %local_addr, ptr noundef nonnull %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name) #24

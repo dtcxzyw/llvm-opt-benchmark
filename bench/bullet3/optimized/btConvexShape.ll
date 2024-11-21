@@ -19,7 +19,7 @@ $_ZNK16btCollisionShape28calculateSerializeBufferSizeEv = comdat any
 @_ZN13btConvexShapeD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN13btConvexShapeD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13btConvexShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN13btConvexShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %this) unnamed_addr #0 align 2 {
 entry:
   %m_shapeType.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 35, ptr %m_shapeType.i, align 8
@@ -50,7 +50,7 @@ entry:
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK13btConvexShape7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dir, ptr nocapture noundef nonnull align 4 dereferenceable(4) %min, ptr nocapture noundef nonnull align 4 dereferenceable(4) %max, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %witnesPtMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %witnesPtMax) unnamed_addr #4 align 2 {
+define dso_local void @_ZNK13btConvexShape7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dir, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %min, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %max, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %witnesPtMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %witnesPtMax) unnamed_addr #4 align 2 {
 entry:
   %localAxis = alloca %class.btVector3, align 8
   %ref.tmp8 = alloca %class.btVector3, align 8

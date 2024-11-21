@@ -14,7 +14,7 @@ define noundef i32 @WebPGetMuxVersion() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ChunkInit(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
+define hidden void @ChunkInit(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -551,7 +551,7 @@ define hidden i64 @ChunkListDiskSize(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @MuxImageInit(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
+define hidden void @MuxImageInit(ptr nocapture noundef writeonly initializes((0, 56)) %0) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
@@ -1338,7 +1338,7 @@ define hidden range(i32 0, 2) i32 @MuxHasAlpha(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden nonnull ptr @MuxEmitRiffHeader(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden nonnull ptr @MuxEmitRiffHeader(ptr noundef writeonly initializes((0, 12)) %0, i64 noundef %1) local_unnamed_addr #1 {
   store i8 82, ptr %0, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 73, ptr %3, align 1

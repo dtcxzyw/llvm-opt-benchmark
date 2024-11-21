@@ -41,7 +41,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN16StackFrameStreamC1EP10JavaThreadbbb = hidden unnamed_addr alias void (ptr, ptr, i1, i1, i1), ptr @_ZN16StackFrameStreamC2EP10JavaThreadbbb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16StackFrameStreamC2EP10JavaThreadbbb(ptr noundef nonnull align 8 dereferenceable(5041) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 zeroext %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN16StackFrameStreamC2EP10JavaThreadbbb(ptr noundef nonnull align 8 dereferenceable(5041) initializes((0, 37), (40, 56)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %class.frame, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 32

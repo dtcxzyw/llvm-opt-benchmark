@@ -690,7 +690,7 @@ declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define void @ASN1_STRING_set0(ptr nocapture noundef %str, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
+define void @ASN1_STRING_set0(ptr nocapture noundef initializes((0, 4)) %str, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %data1 = getelementptr inbounds i8, ptr %str, i64 8
   %0 = load ptr, ptr %data1, align 8
@@ -850,7 +850,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ASN1_STRING_length_set(ptr nocapture noundef writeonly %x, i32 noundef %len) local_unnamed_addr #11 {
+define void @ASN1_STRING_length_set(ptr nocapture noundef writeonly initializes((0, 4)) %x, i32 noundef %len) local_unnamed_addr #11 {
 entry:
   store i32 %len, ptr %x, align 8
   ret void

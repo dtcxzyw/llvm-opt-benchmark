@@ -3790,7 +3790,7 @@ Aig_ManObj.exit:                                  ; preds = %64, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_ManFlowCollectAndMarkCone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Llb_ManFlowCollectAndMarkCone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %1, i64 4
@@ -4041,7 +4041,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_ManFlowGetObjSet(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @Llb_ManFlowGetObjSet(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((4, 8)) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %3, 0
@@ -4857,7 +4857,7 @@ Llb_ManResultPrint.exit:                          ; preds = %96, %.critedge.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Llb_BddSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #8 {
+define void @Llb_BddSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 112)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 80, i1 false)
   store i32 1000000, ptr %0, align 8

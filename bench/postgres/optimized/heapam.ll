@@ -136,7 +136,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.heap_xlog_lock_updated = private unnamed_addr constant [23 x i8] c"heap_xlog_lock_updated\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @heap_setscanlimits(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @heap_setscanlimits(ptr nocapture noundef writeonly initializes((60, 68)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -145,7 +145,7 @@ define dso_local void @heap_setscanlimits(ptr nocapture noundef writeonly %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heapgetpage(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local void @heapgetpage(ptr nocapture noundef initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 76
   %5 = load i32, ptr %4, align 4
@@ -589,7 +589,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 declare void @PredicateLockRelation(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @initscan(ptr nocapture noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc void @initscan(ptr nocapture noundef initializes((56, 60), (64, 69), (72, 80), (92, 98), (104, 112)) %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -810,7 +810,7 @@ define internal fastcc void @initscan(ptr nocapture noundef %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_rescan(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #1 {
+define dso_local void @heap_rescan(ptr nocapture noundef initializes((56, 60), (64, 69), (72, 76), (92, 98), (104, 112)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #1 {
   br i1 %2, label %7, label %24
 
 7:                                                ; preds = %6
@@ -2531,7 +2531,7 @@ define dso_local noundef zeroext i1 @heap_getnextslot_tidrange(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_fetch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @heap_fetch(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 24)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   %.val53 = load i16, ptr %6, align 2
   %7 = getelementptr i8, ptr %2, i64 6
@@ -3245,7 +3245,7 @@ define dso_local void @FreeBulkInsertState(ptr noundef %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReleaseBulkInsertStatePin(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define dso_local void @ReleaseBulkInsertStatePin(ptr nocapture noundef initializes((12, 20)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -5213,7 +5213,7 @@ declare void @UnlockTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @HeapTupleHeaderAdjustCmax(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #1 {
+define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #1 {
   %5 = alloca [1600 x i8], align 16
   %6 = alloca [1600 x i64], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -7810,7 +7810,7 @@ define dso_local void @simple_heap_update(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @heap_lock_tuple(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #1 {
+define dso_local i32 @heap_lock_tuple(ptr noundef %0, ptr noundef initializes((0, 4), (12, 24)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr nocapture noundef initializes((0, 4)) %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -9847,7 +9847,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_prepare_freeze_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @heap_prepare_freeze_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((0, 10)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -15251,7 +15251,7 @@ declare i32 @MultiXactIdCreate(i32 noundef, i32 noundef, i32 noundef, i32 nounde
 declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @test_lockmode_for_conflict(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 5) i32 @test_lockmode_for_conflict(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %4) unnamed_addr #1 {
 get_mxact_status_for_lock.exit:
   store i8 0, ptr %4, align 1
   %5 = zext i32 %2 to i64

@@ -134,7 +134,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 declare void @_ZN9QTextEditD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8MdiChild7newFileEv(ptr noundef nonnull align 8 dereferenceable(153) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8MdiChild7newFileEv(ptr noundef nonnull align 8 dereferenceable(153) initializes((152, 153)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
@@ -1364,7 +1364,7 @@ define void @_ZN8MdiChild12strippedNameERK7QString(ptr dead_on_unwind noalias wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8MdiChild10closeEventEP11QCloseEvent(ptr noundef nonnull align 8 dereferenceable(153) %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 2 {
+define void @_ZN8MdiChild10closeEventEP11QCloseEvent(ptr noundef nonnull align 8 dereferenceable(153) %0, ptr nocapture noundef writeonly initializes((12, 13)) %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_ZN8MdiChild9maybeSaveEv(ptr noundef nonnull align 8 dereferenceable(153) %0)
   %spec.select = zext i1 %3 to i8
   %4 = getelementptr inbounds i8, ptr %1, i64 12

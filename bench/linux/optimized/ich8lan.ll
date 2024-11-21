@@ -2005,7 +2005,7 @@ define internal fastcc i32 @e1000_init_phy_workarounds_pchlan(ptr noundef %0) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @e1000_get_variants_ich8lan(ptr noundef %0) #0 align 16 {
+define internal i32 @e1000_get_variants_ich8lan(ptr noundef initializes((1726, 1728), (2240, 2242), (2243, 2246), (2500, 2504), (2584, 2588)) %0) #0 align 16 {
   %2 = alloca i16, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 1464
   %4 = getelementptr inbounds i8, ptr %0, i64 1488
@@ -6156,7 +6156,7 @@ declare dso_local i32 @e1000e_get_auto_rd_done(ptr noundef) local_unnamed_addr #
 declare dso_local i32 @e1000e_phy_init_script_igp3(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @e1000_valid_nvm_bank_detect_ich8lan(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @e1000_valid_nvm_bank_detect_ich8lan(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4

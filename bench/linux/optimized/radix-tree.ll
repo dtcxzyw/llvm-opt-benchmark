@@ -68,7 +68,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_idr_destroy:
 @llvm.compiler.used = appending global [22 x ptr] [ptr @__UNIQUE_ID___addressable_idr_destroy404, ptr @__UNIQUE_ID___addressable_idr_preload390, ptr @__UNIQUE_ID___addressable_radix_tree_delete388, ptr @__UNIQUE_ID___addressable_radix_tree_delete_item387, ptr @__UNIQUE_ID___addressable_radix_tree_gang_lookup379, ptr @__UNIQUE_ID___addressable_radix_tree_gang_lookup_tag382, ptr @__UNIQUE_ID___addressable_radix_tree_gang_lookup_tag_slot383, ptr @__UNIQUE_ID___addressable_radix_tree_insert355, ptr @__UNIQUE_ID___addressable_radix_tree_iter_delete386, ptr @__UNIQUE_ID___addressable_radix_tree_iter_resume371, ptr @__UNIQUE_ID___addressable_radix_tree_lookup357, ptr @__UNIQUE_ID___addressable_radix_tree_lookup_slot356, ptr @__UNIQUE_ID___addressable_radix_tree_maybe_preload319, ptr @__UNIQUE_ID___addressable_radix_tree_next_chunk376, ptr @__UNIQUE_ID___addressable_radix_tree_preload318, ptr @__UNIQUE_ID___addressable_radix_tree_preloads311, ptr @__UNIQUE_ID___addressable_radix_tree_replace_slot365, ptr @__UNIQUE_ID___addressable_radix_tree_tag_clear369, ptr @__UNIQUE_ID___addressable_radix_tree_tag_get370, ptr @__UNIQUE_ID___addressable_radix_tree_tag_set368, ptr @__UNIQUE_ID___addressable_radix_tree_tagged389, ptr @__radix_tree_preload.__UNIQUE_ID___addressable___SCK__preempt_schedule315], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @radix_tree_node_rcu_free(ptr noundef %0) #0 align 16 {
+define dso_local void @radix_tree_node_rcu_free(ptr noundef initializes((16, 552)) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -24
   %3 = getelementptr i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(536) %3, i8 0, i64 536, i1 false)
@@ -1448,7 +1448,7 @@ define dso_local noundef range(i32 0, 2) i32 @radix_tree_tag_get(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noalias noundef ptr @radix_tree_iter_resume(ptr nocapture readnone %0, ptr nocapture noundef %1) #5 align 16 {
+define dso_local noalias noundef ptr @radix_tree_iter_resume(ptr nocapture readnone %0, ptr nocapture noundef initializes((8, 24)) %1) #5 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = add i64 %3, 1
   store i64 %4, ptr %1, align 8
@@ -3184,7 +3184,7 @@ define dso_local void @radix_tree_init() local_unnamed_addr #7 section ".init.te
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal void @radix_tree_node_ctor(ptr noundef %0) #8 align 16 {
+define internal void @radix_tree_node_ctor(ptr noundef initializes((0, 576)) %0) #8 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(576) %0, i8 0, i64 576, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store volatile ptr %2, ptr %2, align 8

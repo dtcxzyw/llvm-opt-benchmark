@@ -27997,7 +27997,7 @@ list_length.exit.thread:                          ; preds = %3, %list_length.exi
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SplitColQualList(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @SplitColQualList(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((0, 8)) %2, ptr noundef %3) unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %.not29 = icmp eq ptr %0, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
@@ -29323,7 +29323,7 @@ declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @makeJsonKeyValue(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @parser_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define dso_local void @parser_init(ptr nocapture noundef writeonly initializes((128, 136)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr null, ptr %2, align 8
   ret void

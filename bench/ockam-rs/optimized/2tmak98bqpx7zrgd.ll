@@ -24368,7 +24368,7 @@ common.ret:                                       ; preds = %301, %163, %146, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN157_$LT$ockam_identity..credentials..retriever..remote_retriever..remote_retriever..RemoteCredentialRetrieverTimingOptions$u20$as$u20$core..default..Default$GT$7default17hd2ede5304a721e6fE"(ptr noalias nocapture noundef writeonly sret({ i64, i64, { i64, i32 }, { i64, i32 }, { i64, i32 } }) align 8 dereferenceable(64) %0) unnamed_addr #7 {
+define void @"_ZN157_$LT$ockam_identity..credentials..retriever..remote_retriever..remote_retriever..RemoteCredentialRetrieverTimingOptions$u20$as$u20$core..default..Default$GT$7default17hd2ede5304a721e6fE"(ptr noalias nocapture noundef writeonly sret({ i64, i64, { i64, i32 }, { i64, i32 }, { i64, i32 } }) align 8 dereferenceable(64) initializes((0, 28), (32, 44), (48, 60)) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 15, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -25105,7 +25105,7 @@ define void @_ZN14ockam_identity11credentials9retriever16remote_retriever16remot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14ockam_identity11credentials9retriever16remote_retriever16remote_retriever25RemoteCredentialRetriever18notify_subscribers17he3b86dd3d31ec571E(ptr noalias nocapture noundef writeonly sret({ [162 x i64], ptr, [1 x i8], i8, [6 x i8] }) align 8 dereferenceable(1312) %0, ptr noalias noundef readonly align 8 dereferenceable(296) %1) unnamed_addr #7 {
+define void @_ZN14ockam_identity11credentials9retriever16remote_retriever16remote_retriever25RemoteCredentialRetriever18notify_subscribers17he3b86dd3d31ec571E(ptr noalias nocapture noundef writeonly sret({ [162 x i64], ptr, [1 x i8], i8, [6 x i8] }) align 8 dereferenceable(1312) initializes((1296, 1304), (1305, 1306)) %0, ptr noalias noundef readonly align 8 dereferenceable(296) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1296
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1305
@@ -25691,7 +25691,7 @@ _ZN14ockam_identity11credentials9retriever16remote_retriever16remote_retriever25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14ockam_identity11credentials9retriever16remote_retriever16remote_retriever25RemoteCredentialRetriever18get_new_credential17hff8231c5a346327eE(ptr noalias nocapture noundef writeonly sret({ [82 x i64], ptr, [1 x i8], i8, [5862 x i8] }) align 8 dereferenceable(6528) %0, ptr noalias noundef readonly align 8 dereferenceable(296) %1) unnamed_addr #7 {
+define void @_ZN14ockam_identity11credentials9retriever16remote_retriever16remote_retriever25RemoteCredentialRetriever18get_new_credential17hff8231c5a346327eE(ptr noalias nocapture noundef writeonly sret({ [82 x i64], ptr, [1 x i8], i8, [5862 x i8] }) align 8 dereferenceable(6528) initializes((656, 664), (665, 666)) %0, ptr noalias noundef readonly align 8 dereferenceable(296) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 656
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 665

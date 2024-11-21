@@ -1674,7 +1674,7 @@ return:                                           ; preds = %entry, %_ZN4node13M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node2fs18FileHandleReadWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node2fs18FileHandleReadWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(552) initializes((56, 64)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11ReqWrapBaseE, i64 16), ptr %0, align 8
@@ -1693,7 +1693,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N4node2fs18FileHandleReadWrapD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZThn56_N4node2fs18FileHandleReadWrapD1Ev(ptr noundef initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11ReqWrapBaseE, i64 16), ptr %this, align 8
@@ -1712,7 +1712,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node2fs18FileHandleReadWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(552) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node2fs18FileHandleReadWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(552) initializes((56, 64)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11ReqWrapBaseE, i64 16), ptr %0, align 8
@@ -1735,7 +1735,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N4node2fs18FileHandleReadWrapD0Ev(ptr noundef %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZThn56_N4node2fs18FileHandleReadWrapD0Ev(ptr noundef initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11ReqWrapBaseE, i64 16), ptr %this, align 8
@@ -1755,7 +1755,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node2fs9FSReqBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(648) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node2fs9FSReqBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 8), (56, 64)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node2fs9FSReqBaseE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -1813,7 +1813,7 @@ _ZNSt10unique_ptrIN4node2fs18FSContinuationDataESt14default_deleteIS2_EED2Ev.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N4node2fs9FSReqBaseD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZThn56_N4node2fs9FSReqBaseD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node2fs9FSReqBaseE, i64 16), ptr %0, align 8
@@ -3078,7 +3078,7 @@ _ZNSt10unique_ptrIN4node2fs10FileHandle12TransferDataESt14default_deleteIS3_EED2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node2fs10FileHandle12TransferDataC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %fd) unnamed_addr #14 align 2 {
+define dso_local void @_ZN4node2fs10FileHandle12TransferDataC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, i32 noundef %fd) unnamed_addr #14 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node2fs10FileHandle12TransferDataE, i64 16), ptr %this, align 8
   %fd_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -3087,7 +3087,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node2fs10FileHandle12TransferDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node2fs10FileHandle12TransferDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   %arg_convertibles.i.i40 = alloca [2 x %"class.std::unique_ptr.445"], align 16
   %arg_convertibles.i.i = alloca [2 x %"class.std::unique_ptr.445"], align 16
@@ -3302,7 +3302,7 @@ declare i32 @uv_fs_close(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare void @uv_fs_req_cleanup(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node2fs10FileHandle12TransferDataD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node2fs10FileHandle12TransferDataD0Ev(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node2fs10FileHandle12TransferDataD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -4499,7 +4499,7 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node2fs10FileHandle7ReleaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN4node2fs10FileHandle7ReleaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((124, 126)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca %struct.uv_buf_t, align 8
   %fd_.i = getelementptr inbounds i8, ptr %this, i64 120
@@ -4548,7 +4548,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node2fs10FileHandle10AfterCloseEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node2fs10FileHandle10AfterCloseEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((120, 126)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %struct.uv_buf_t, align 8
   %closing_ = getelementptr inbounds i8, ptr %this, i64 124
@@ -5232,7 +5232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZN4node2fs10FileHandle8ReadStopEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this) unnamed_addr #14 align 2 {
+define dso_local noundef i32 @_ZN4node2fs10FileHandle8ReadStopEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((126, 127)) %this) unnamed_addr #14 align 2 {
 entry:
   %reading_ = getelementptr inbounds i8, ptr %this, i64 126
   store i8 0, ptr %reading_, align 2
@@ -5240,7 +5240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZThn56_N4node2fs10FileHandle8ReadStopEv(ptr nocapture noundef writeonly %this) unnamed_addr #14 align 2 {
+define dso_local noundef i32 @_ZThn56_N4node2fs10FileHandle8ReadStopEv(ptr nocapture noundef writeonly initializes((70, 71)) %this) unnamed_addr #14 align 2 {
 entry:
   %reading_.i = getelementptr inbounds i8, ptr %this, i64 70
   store i8 0, ptr %reading_.i, align 2
@@ -6244,7 +6244,7 @@ _ZN4node5Realm14GetBindingDataINS_2fs11BindingDataEEEPT_N2v85LocalINS6_7ContextE
 declare noundef zeroext i1 @_ZNK2v85Value6IsTrueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node2fs15FSReqAfterScopeC2EPNS0_9FSReqBaseEP7uv_fs_s(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %wrap, ptr noundef %req) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node2fs15FSReqAfterScopeC2EPNS0_9FSReqBaseEP7uv_fs_s(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr noundef %wrap, ptr noundef %req) unnamed_addr #3 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %cmp.i = icmp eq ptr %wrap, null

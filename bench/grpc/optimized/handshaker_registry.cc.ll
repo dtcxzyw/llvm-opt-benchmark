@@ -159,7 +159,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core18HandshakerRegistry7Builder5BuildEv(ptr noalias nocapture sret(%"class.grpc_core::HandshakerRegistry") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core18HandshakerRegistry7Builder5BuildEv(ptr noalias nocapture sret(%"class.grpc_core::HandshakerRegistry") align 8 initializes((0, 48)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i8 0, i64 48, i1 false)
   br label %for.body

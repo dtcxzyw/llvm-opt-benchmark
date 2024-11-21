@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @3 = private unnamed_addr constant %struct.ident_t { i32 0, i32 2, i32 0, i32 22, ptr @0 }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7_(i32 noundef %0, i32 noundef %1, ptr %2, ptr %3, ptr %4, ptr %5, ptr noundef byval(%"class.gmx::ArrayRef.0") align 8 %6, i1 noundef zeroext %7, ptr nocapture noundef %8, ptr nocapture noundef writeonly %9) local_unnamed_addr #0 {
+define void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7_(i32 noundef %0, i32 noundef %1, ptr %2, ptr %3, ptr %4, ptr %5, ptr noundef byval(%"class.gmx::ArrayRef.0") align 8 %6, i1 noundef zeroext %7, ptr nocapture noundef initializes((0, 24)) %8, ptr nocapture noundef writeonly %9) local_unnamed_addr #0 {
   %11 = alloca %"class.gmx::ArrayRef", align 8
   %12 = alloca %"class.gmx::ArrayRef.0", align 8
   %13 = alloca i32, align 4

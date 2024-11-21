@@ -228,7 +228,7 @@ _ZNSt3setIN4LIEF2PE17ACCELERATOR_FLAGSESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE19ResourceAccelerator10flags_listEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.0") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE19ResourceAccelerator10flags_listEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.0") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

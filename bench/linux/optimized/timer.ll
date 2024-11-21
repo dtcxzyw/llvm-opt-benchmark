@@ -5108,7 +5108,7 @@ define internal void @timer_update_keys(ptr nocapture readnone %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal fastcc range(i32 0, 576) i32 @calc_wheel_index(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #13 align 16 {
+define internal fastcc range(i32 0, 576) i32 @calc_wheel_index(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) unnamed_addr #13 align 16 {
   %4 = sub i64 %0, %1
   %5 = icmp ult i64 %4, 63
   br i1 %5, label %6, label %10

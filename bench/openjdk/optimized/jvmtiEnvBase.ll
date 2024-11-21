@@ -630,7 +630,7 @@ declare void @_ZN10JvmtiTrace8shutdownEv() local_unnamed_addr #1
 declare void @_ZN20JvmtiEventController11env_disposeEP12JvmtiEnvBase(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12JvmtiEnvBase11env_disposeEv(ptr noundef nonnull align 8 dereferenceable(460) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12JvmtiEnvBase11env_disposeEv(ptr noundef nonnull align 8 dereferenceable(460) initializes((8, 12)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 57084, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 408
@@ -1324,7 +1324,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12JvmtiEnvBase19set_event_callbacksEPK19jvmtiEventCallbacksi(ptr nocapture noundef nonnull align 8 dereferenceable(460) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN12JvmtiEnvBase19set_event_callbacksEPK19jvmtiEventCallbacksi(ptr nocapture noundef nonnull align 8 dereferenceable(460) initializes((40, 352)) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %4, i8 0, i64 312, i1 false)
   %.not = icmp ne ptr %1, null
@@ -5707,7 +5707,7 @@ declare void @_ZN16JvmtiVTSuspender23register_vthread_resumeEP7oopDesc(ptr nound
 declare noundef zeroext i1 @_ZN19JvmtiSuspendControl6resumeEP10JavaThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ResourceTrackerC2EP8JvmtiEnv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ResourceTrackerC2EP8JvmtiEnv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 23) #18
   %4 = icmp eq ptr %3, null
@@ -5804,7 +5804,7 @@ _ZN13GrowableArrayIPhED2Ev.exit:                  ; preds = %.loopexit.thread, %
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 111) i32 @_ZN15ResourceTracker8allocateElPPh(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 111) i32 @_ZN15ResourceTracker8allocateElPPh(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
   %4 = icmp slt i64 %1, 0
   br i1 %4, label %_ZN12JvmtiEnvBase8allocateElPPh.exit, label %5
 
@@ -6210,7 +6210,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %15, %_ZN10HandleAre
 declare void @_ZN27JvmtiVTMSTransitionDisablerC1EP8_jobject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiHandshake7executeEP27JvmtiUnitedHandshakeClosureP17ThreadsListHandleP10JavaThread6Handle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiHandshake7executeEP27JvmtiUnitedHandshakeClosureP17ThreadsListHandleP10JavaThread6Handle(ptr noundef initializes((24, 34)) %0, ptr noundef %1, ptr noundef %2, ptr %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.AdapterClosure, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
@@ -6672,7 +6672,7 @@ define hidden void @_ZN26GetSingleStackTraceClosure10do_vthreadE6Handle(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20VM_GetAllStackTraces4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20VM_GetAllStackTraces4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 28)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
@@ -8216,7 +8216,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18SetFramePopClosure10do_vthreadE6Handle(ptr nocapture noundef nonnull align 8 dereferenceable(60) %0, ptr readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN18SetFramePopClosure10do_vthreadE6Handle(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((16, 20)) %0, ptr readonly %1) unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 800
@@ -8570,7 +8570,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %35, %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20GetStackTraceClosure10do_vthreadE6Handle(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20GetStackTraceClosure10do_vthreadE6Handle(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((16, 20)) %0, ptr readonly %1) unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 800
@@ -8751,7 +8751,7 @@ define hidden void @_ZN23GetFrameLocationClosure9do_threadEP6Thread(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23GetFrameLocationClosure10do_vthreadE6Handle(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN23GetFrameLocationClosure10do_vthreadE6Handle(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((16, 20)) %0, ptr readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZNK6HandleclEv.exit, label %4
 

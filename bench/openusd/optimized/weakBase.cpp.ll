@@ -22,7 +22,7 @@ $_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEE = comdat an
 @_ZN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantD2Ev(ptr noundef nonnull align 8 dereferenceable(15) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantD2Ev(ptr noundef nonnull align 8 dereferenceable(15) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10Tf_RemnantE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i8, ptr %2, align 4
@@ -266,7 +266,7 @@ define noundef nonnull ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10Tf_Remnant20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10Tf_Remnant18EnableNotificationEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(15) %0) unnamed_addr #8 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10Tf_Remnant18EnableNotificationEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(15) initializes((12, 13)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 1, ptr %2, align 4
   ret void

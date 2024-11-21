@@ -32,7 +32,7 @@ $_ZN13b2PulleyJointD0Ev = comdat any
 @_ZN13b2PulleyJointC1EPK16b2PulleyJointDef = unnamed_addr alias void (ptr, ptr), ptr @_ZN13b2PulleyJointC2EPK16b2PulleyJointDef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16b2PulleyJointDef10InitializeEP6b2BodyS1_RK6b2Vec2S4_S4_S4_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %groundA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %groundB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchorA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchorB, float noundef %r) local_unnamed_addr #0 align 2 {
+define void @_ZN16b2PulleyJointDef10InitializeEP6b2BodyS1_RK6b2Vec2S4_S4_S4_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((16, 32), (36, 80)) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %groundA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %groundB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchorA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchorB, float noundef %r) local_unnamed_addr #0 align 2 {
 entry:
   %bodyA = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %bA, ptr %bodyA, align 8
@@ -166,7 +166,7 @@ declare void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferen
 declare float @llvm.fmuladd.f32(float, float, float) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN13b2PulleyJoint23InitVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #4 align 2 {
+define void @_ZN13b2PulleyJoint23InitVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((180, 256)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #4 align 2 {
 entry:
   %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8

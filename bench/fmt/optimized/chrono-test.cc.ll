@@ -4481,7 +4481,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_Z7make_tmv(ptr noalias nocapture writeonly sret(%struct.tm) align 8 %agg.result) local_unnamed_addr #3 {
+define hidden void @_Z7make_tmv(ptr noalias nocapture writeonly sret(%struct.tm) align 8 initializes((0, 56)) %agg.result) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false)
   %tm_mday = getelementptr inbounds i8, ptr %agg.result, i64 12
@@ -4493,7 +4493,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_Z9make_houri(ptr noalias nocapture writeonly sret(%struct.tm) align 8 %agg.result, i32 noundef %h) local_unnamed_addr #3 {
+define hidden void @_Z9make_houri(ptr noalias nocapture writeonly sret(%struct.tm) align 8 initializes((0, 56)) %agg.result, i32 noundef %h) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !5
   %tm_mday.i = getelementptr inbounds i8, ptr %agg.result, i64 12
@@ -4504,7 +4504,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_Z11make_minutei(ptr noalias nocapture writeonly sret(%struct.tm) align 8 %agg.result, i32 noundef %m) local_unnamed_addr #3 {
+define hidden void @_Z11make_minutei(ptr noalias nocapture writeonly sret(%struct.tm) align 8 initializes((0, 56)) %agg.result, i32 noundef %m) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !8
   %tm_mday.i = getelementptr inbounds i8, ptr %agg.result, i64 12
@@ -4515,7 +4515,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_Z11make_secondi(ptr noalias nocapture writeonly sret(%struct.tm) align 8 %agg.result, i32 noundef %s) local_unnamed_addr #3 {
+define hidden void @_Z11make_secondi(ptr noalias nocapture writeonly sret(%struct.tm) align 8 initializes((0, 56)) %agg.result, i32 noundef %s) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i8 0, i64 56, i1 false), !alias.scope !11
   %tm_mday.i = getelementptr inbounds i8, ptr %agg.result, i64 12

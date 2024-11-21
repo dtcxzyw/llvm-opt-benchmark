@@ -111,7 +111,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [23 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched40, ptr @trace_ext4_fc_cleanup.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2051, ptr @trace_ext4_fc_cleanup.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fc_cleanup2050, ptr @trace_ext4_fc_commit_start.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1939, ptr @trace_ext4_fc_commit_start.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fc_commit_start1938, ptr @trace_ext4_fc_commit_stop.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1953, ptr @trace_ext4_fc_commit_stop.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fc_commit_stop1952, ptr @trace_ext4_fc_replay.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1925, ptr @trace_ext4_fc_replay.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fc_replay1924, ptr @trace_ext4_fc_replay_scan.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1911, ptr @trace_ext4_fc_replay_scan.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fc_replay_scan1910, ptr @trace_ext4_fc_stats.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1967, ptr @trace_ext4_fc_stats.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fc_stats1966, ptr @trace_ext4_fc_track_create.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1981, ptr @trace_ext4_fc_track_create.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fc_track_create1980, ptr @trace_ext4_fc_track_inode.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2023, ptr @trace_ext4_fc_track_inode.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fc_track_inode2022, ptr @trace_ext4_fc_track_link.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1995, ptr @trace_ext4_fc_track_link.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fc_track_link1994, ptr @trace_ext4_fc_track_range.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2037, ptr @trace_ext4_fc_track_range.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fc_track_range2036, ptr @trace_ext4_fc_track_unlink.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2009, ptr @trace_ext4_fc_track_unlink.__UNIQUE_ID___addressable___SCK__tp_func_ext4_fc_track_unlink2008], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ext4_fc_init_inode(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ext4_fc_init_inode(ptr noundef initializes((-120, -112)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -120
   store i32 0, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 -116
@@ -2358,7 +2358,7 @@ define dso_local void @ext4_fc_replay_cleanup(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @ext4_fc_init(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 align 16 {
+define dso_local void @ext4_fc_init(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((1392, 1400)) %1) local_unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 1392
   store ptr @ext4_fc_replay, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 872

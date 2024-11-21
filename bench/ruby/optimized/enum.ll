@@ -5503,7 +5503,7 @@ enum_yield.exit:                                  ; preds = %9, %11, %.thread
 declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @MEMO_V1_SET(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @MEMO_V1_SET(ptr noundef initializes((16, 24)) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %3, align 8
   %4 = and i64 %1, 7

@@ -19,7 +19,7 @@ $__clang_call_terminate = comdat any
 @_ZN4FLAC7Encoder4FileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FLAC7Encoder4FileD2Ev
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC7Encoder6StreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC7Encoder6StreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC7Encoder6StreamE, i64 16), ptr %this, align 8
   %encoder_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -31,7 +31,7 @@ entry:
 declare ptr @FLAC__stream_encoder_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC7Encoder6StreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC7Encoder6StreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC7Encoder6StreamE, i64 16), ptr %this, align 8
   %encoder_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -796,7 +796,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC7Encoder4FileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC7Encoder4FileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC7Encoder6StreamE, i64 16), ptr %this, align 8
   %encoder_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -807,7 +807,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC7Encoder4FileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC7Encoder4FileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC7Encoder6StreamE, i64 16), ptr %this, align 8
   %encoder_.i = getelementptr inbounds i8, ptr %this, i64 8

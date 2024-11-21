@@ -566,7 +566,7 @@ define dso_local void @datumSerialize(i64 noundef %0, i1 noundef zeroext %1, i1 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @datumRestore(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i64 @datumRestore(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.0.copyload2 = load i32, ptr %3, align 1
   %4 = getelementptr i8, ptr %3, i64 4

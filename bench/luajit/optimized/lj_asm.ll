@@ -24510,7 +24510,7 @@ return:                                           ; preds = %while.body, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_fusefref(ptr nocapture noundef nonnull %as, ptr nocapture noundef readonly %ir, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc void @asm_fusefref(ptr nocapture noundef nonnull initializes((160, 164), (165, 166)) %as, ptr nocapture noundef readonly %ir, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %mrm = getelementptr inbounds i8, ptr %as, i64 160
   %idx = getelementptr inbounds i8, ptr %as, i64 165
@@ -24768,7 +24768,7 @@ return:                                           ; preds = %ra_alloc1.exit52, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_fusexref(ptr nocapture noundef nonnull %as, i32 noundef range(i32 0, 65536) %ref, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc void @asm_fusexref(ptr nocapture noundef nonnull initializes((160, 164), (165, 166)) %as, i32 noundef range(i32 0, 65536) %ref, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %ir1 = getelementptr inbounds i8, ptr %as, i64 144
   %0 = load ptr, ptr %ir1, align 8
@@ -25015,7 +25015,7 @@ return:                                           ; preds = %ra_alloc1.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_fusearef(ptr nocapture noundef nonnull %as, ptr nocapture noundef readonly %ir, i32 noundef %allow) unnamed_addr #0 {
+define internal fastcc void @asm_fusearef(ptr nocapture noundef nonnull initializes((160, 164)) %as, ptr nocapture noundef readonly %ir, i32 noundef %allow) unnamed_addr #0 {
 entry:
   %0 = load i16, ptr %ir, align 8
   %ir.i = getelementptr inbounds i8, ptr %as, i64 144

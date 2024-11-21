@@ -61,7 +61,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib26EscrowedDividendAdjustmentC2ESt6vectorIN5boost10shared_ptrINS_8DividendEEESaIS5_EENS_6HandleINS_18YieldTermStructureEEESA_St8functionIFdNS_4DateEEEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, ptr nocapture noundef %dividendSchedule, ptr nocapture noundef %rTS, ptr nocapture noundef %qTS, ptr nocapture noundef %toTime, double noundef %maturity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26EscrowedDividendAdjustmentC2ESt6vectorIN5boost10shared_ptrINS_8DividendEEESaIS5_EENS_6HandleINS_18YieldTermStructureEEESA_St8functionIFdNS_4DateEEEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 96)) %this, ptr nocapture noundef %dividendSchedule, ptr nocapture noundef %rTS, ptr nocapture noundef %qTS, ptr nocapture noundef %toTime, double noundef %maturity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %dividendSchedule, align 8, !tbaa !3
   store ptr %0, ptr %this, align 8, !tbaa !3

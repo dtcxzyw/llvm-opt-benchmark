@@ -283,7 +283,7 @@ _ZNSt12__shared_ptrIN4node7KVStoreELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node12RealEnvStore3GetB5cxx11EPKc(ptr noalias sret(%"class.v8::Maybe") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef %key) unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node12RealEnvStore3GetB5cxx11EPKc(ptr noalias sret(%"class.v8::Maybe") align 8 initializes((0, 1)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef %key) unnamed_addr #3 align 2 {
 entry:
   %init_sz = alloca i64, align 8
   %val = alloca %"class.node::MaybeStackBuffer", align 8

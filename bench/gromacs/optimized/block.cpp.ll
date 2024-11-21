@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [16 x i8] c"numElements=%d\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z10init_blockP7t_block(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @_Z10init_blockP7t_block(ptr nocapture noundef writeonly initializes((0, 4), (8, 20)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 1, ptr %2, align 8
@@ -43,7 +43,7 @@ define void @_Z10init_blockP7t_block(ptr nocapture noundef writeonly %0) local_u
 declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11init_blockaP8t_blocka(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @_Z11init_blockaP8t_blocka(ptr nocapture noundef writeonly initializes((0, 4), (8, 20), (24, 40)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
@@ -61,7 +61,7 @@ define void @_Z11init_blockaP8t_blocka(ptr nocapture noundef writeonly %0) local
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z10done_blockP7t_block(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @_Z10done_blockP7t_block(ptr nocapture noundef initializes((0, 4), (16, 20)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -75,7 +75,7 @@ define void @_Z10done_blockP7t_block(ptr nocapture noundef %0) local_unnamed_add
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11done_blockaP8t_blocka(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @_Z11done_blockaP8t_blocka(ptr nocapture noundef initializes((0, 4), (16, 20), (32, 40)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
@@ -91,7 +91,7 @@ define void @_Z11done_blockaP8t_blocka(ptr nocapture noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17stupid_fill_blockP7t_blockib(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define void @_Z17stupid_fill_blockP7t_blockib(ptr nocapture noundef initializes((16, 20)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   br i1 %2, label %4, label %11
 
 4:                                                ; preds = %3

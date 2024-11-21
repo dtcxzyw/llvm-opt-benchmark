@@ -909,7 +909,7 @@ _ZN5boost10shared_ptrIN8QuantLib10IntegratorEED2Ev.exit: ; preds = %_ZN5boost10s
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29AnalyticHestonHullWhiteEngine13setParametersEv(ptr nocapture noundef nonnull align 8 dereferenceable(440) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib29AnalyticHestonHullWhiteEngine13setParametersEv(ptr nocapture noundef nonnull align 8 dereferenceable(440) initializes((424, 440)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Array", align 8
   %ref.tmp3 = alloca %"class.QuantLib::Array", align 8
@@ -1503,7 +1503,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 declare void @_ZN8QuantLib20AnalyticHestonEngine11Integration12gaussLobattoEddmb(ptr dead_on_unwind writable sret(%"class.QuantLib::AnalyticHestonEngine::Integration") align 8, double noundef, double noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29AnalyticHestonHullWhiteEngine6updateEv(ptr noundef nonnull align 8 dereferenceable(440) %this) unnamed_addr #1 align 2 {
+define void @_ZN8QuantLib29AnalyticHestonHullWhiteEngine6updateEv(ptr noundef nonnull align 8 dereferenceable(440) initializes((424, 440)) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN8QuantLib29AnalyticHestonHullWhiteEngine13setParametersEv(ptr noundef nonnull align 8 dereferenceable(440) %this)
   tail call void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(336) %this)
@@ -1518,7 +1518,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn56_N8QuantLib29AnalyticHestonHullWhiteEngine6updateEv(ptr noundef %this) unnamed_addr #10 align 2 {
+define void @_ZThn56_N8QuantLib29AnalyticHestonHullWhiteEngine6updateEv(ptr noundef initializes((368, 384)) %this) unnamed_addr #10 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN8QuantLib29AnalyticHestonHullWhiteEngine13setParametersEv(ptr noundef nonnull align 8 dereferenceable(440) %0)

@@ -42,7 +42,7 @@ define dso_local noundef zeroext i1 @ipv6_ext_hdr(i8 noundef zeroext %0) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #1 align 16 {
+define dso_local i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly initializes((0, 2)) %3) #1 align 16 {
   %5 = alloca %struct.ipv6_opt_hdr, align 2
   %6 = alloca i16, align 2
   %7 = load i8, ptr %2, align 1

@@ -52,7 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [2 x i8] c" \00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_mca_base_var_enum_constructor(ptr nocapture noundef writeonly %0) #0 {
+define internal void @pmix_mca_base_var_enum_constructor(ptr nocapture noundef writeonly initializes((120, 192)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 121
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %3, i8 0, i64 71, i1 false)
@@ -119,7 +119,7 @@ define internal void @pmix_mca_base_var_enum_destructor(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_mca_base_var_enum_flag_constructor(ptr nocapture noundef writeonly %0) #0 {
+define internal void @pmix_mca_base_var_enum_flag_constructor(ptr nocapture noundef writeonly initializes((120, 121), (136, 176), (192, 200)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144
@@ -176,7 +176,7 @@ define internal void @pmix_mca_base_var_enum_flag_destructor(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @pmix_mca_base_var_enum_bool_get_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef i32 @pmix_mca_base_var_enum_bool_get_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
   store i32 2, ptr %1, align 4
   ret i32 0
 }
@@ -307,7 +307,7 @@ define internal noundef i32 @pmix_mca_base_var_enum_bool_sfv(ptr nocapture readn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define internal noundef range(i32 -29, 1) i32 @pmix_mca_base_var_enum_bool_dump(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #3 {
+define internal noundef range(i32 -29, 1) i32 @pmix_mca_base_var_enum_bool_dump(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #3 {
   %3 = tail call noalias dereferenceable_or_null(46) ptr @strdup(ptr noundef nonnull @.str.13) #20
   store ptr %3, ptr %1, align 8
   %.not = icmp eq ptr %3, null
@@ -316,7 +316,7 @@ define internal noundef range(i32 -29, 1) i32 @pmix_mca_base_var_enum_bool_dump(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @enum_get_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal noundef i32 @enum_get_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4
@@ -478,7 +478,7 @@ define internal range(i32 -65, 1) i32 @pmix_mca_base_var_enum_verbose_sfv(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -29, 1) i32 @pmix_mca_base_var_enum_verbose_dump(ptr noundef readonly %0, ptr noundef %1) #1 {
+define internal range(i32 -29, 1) i32 @pmix_mca_base_var_enum_verbose_dump(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1) #1 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %4 = icmp eq ptr %0, null
@@ -543,7 +543,7 @@ enum_dump.exit:                                   ; preds = %19, %.loopexit, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #1 {
   store ptr null, ptr %2, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_var_enum_t_class, i64 56), align 8
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #22
@@ -703,7 +703,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create_flag(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_mca_base_var_enum_create_flag(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #1 {
   store ptr null, ptr %2, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_var_enum_flag_t_class, i64 56), align 8
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #22
@@ -871,7 +871,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -29, 1) i32 @enum_dump(ptr noundef readonly %0, ptr noundef %1) #1 {
+define internal range(i32 -29, 1) i32 @enum_dump(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1) #1 {
   store ptr null, ptr %1, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %.preheader
@@ -1352,7 +1352,7 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -29, 1) i32 @enum_dump_flag(ptr noundef readonly %0, ptr noundef %1) #1 {
+define internal range(i32 -29, 1) i32 @enum_dump_flag(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1) #1 {
   store ptr null, ptr %1, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4

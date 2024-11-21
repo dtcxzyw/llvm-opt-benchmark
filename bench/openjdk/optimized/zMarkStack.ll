@@ -30,7 +30,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN22ZMarkThreadLocalStacksC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN22ZMarkThreadLocalStacksC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN11ZMarkStripeC2Em(ptr noundef nonnull align 64 dereferenceable(128) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZMarkStripeC2Em(ptr noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %3, align 8
@@ -42,7 +42,7 @@ define hidden void @_ZN11ZMarkStripeC2Em(ptr noundef nonnull align 64 dereferenc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN14ZMarkStripeSetC2Em(ptr noundef nonnull align 64 dereferenceable(2112) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14ZMarkStripeSetC2Em(ptr noundef nonnull align 64 dereferenceable(2112) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %.sroa.0 = alloca i64, align 64
   %.sroa.2 = alloca ptr, align 8
   %.sroa.3 = alloca [48 x i8], align 16
@@ -210,7 +210,7 @@ define hidden noundef nonnull ptr @_ZN14ZMarkStripeSet17stripe_for_workerEjj(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22ZMarkThreadLocalStacksC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN22ZMarkThreadLocalStacksC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 136)) %0) unnamed_addr #4 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   ret void
 }

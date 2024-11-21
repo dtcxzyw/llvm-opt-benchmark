@@ -225,7 +225,7 @@ define hidden ptr @lexbor_mem_chunk_destroy(ptr noundef readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_mem_chunk_init(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @lexbor_mem_chunk_init(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.biased.i = add i64 %2, 7
   %4 = and i64 %.biased.i, -8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

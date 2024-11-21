@@ -140,7 +140,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfSt4lessIS5_ESaISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ScopeProfilerC2EP8ProfilerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE17ScopeProfilerType(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %profiler, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, i32 noundef %type) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScopeProfilerC2EP8ProfilerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE17ScopeProfilerType(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %this, ptr noundef %profiler, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, i32 noundef %type) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   store ptr %profiler, ptr %this, align 8, !tbaa !12
@@ -1035,7 +1035,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit105:         ; preds = %lpad15, %lpad
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8ProfilerC2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8ProfilerC2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 40), (48, 52), (56, 64)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ts.i = alloca %struct.timespec, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)

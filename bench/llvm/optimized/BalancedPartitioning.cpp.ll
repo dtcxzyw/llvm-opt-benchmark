@@ -399,7 +399,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %"_ZNSt18condition_v
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write) uwtable
-define dso_local void @_ZN4llvm20BalancedPartitioningC2ERKNS_26BalancedPartitioningConfigE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65544) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm20BalancedPartitioningC2ERKNS_26BalancedPartitioningConfigE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65544) initializes((0, 12)) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float 0.000000e+00, ptr %3, align 8

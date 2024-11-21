@@ -2321,7 +2321,7 @@ define hidden void @png_set_benign_errors(ptr noalias nocapture noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @png_set_check_for_invalid_index(ptr noalias nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden void @png_set_check_for_invalid_index(ptr noalias nocapture noundef writeonly initializes((508, 512)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp slt i32 %1, 1
   %spec.select = sext i1 %3 to i32
   %4 = getelementptr inbounds i8, ptr %0, i64 508

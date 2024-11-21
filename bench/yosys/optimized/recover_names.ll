@@ -95008,7 +95008,7 @@ _ZSt13move_backwardIPSt4pairImiEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_119RecoverModuleWorker9setup_satEPN5Yosys6SatGenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5IdBitERKNS1_7hashlib4dictISC_SC_NSD_8hash_opsISC_EEEERNSE_ISC_iSG_EE(ptr noundef nonnull align 8 dereferenceable(324) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull align 8 dereferenceable(49) %4, ptr noundef nonnull align 8 dereferenceable(49) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_119RecoverModuleWorker9setup_satEPN5Yosys6SatGenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5IdBitERKNS1_7hashlib4dictISC_SC_NSD_8hash_opsISC_EEEERNSE_ISC_iSG_EE(ptr noundef nonnull align 8 dereferenceable(324) %0, ptr noundef nonnull initializes((8, 16)) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull align 8 dereferenceable(49) %4, ptr noundef nonnull align 8 dereferenceable(49) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.Yosys::hashlib::pool", align 8

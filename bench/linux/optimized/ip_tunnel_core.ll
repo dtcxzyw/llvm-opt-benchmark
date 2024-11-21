@@ -1142,7 +1142,7 @@ define dso_local noundef zeroext range(i16 -8826, 9) i16 @ip_tunnel_parse_protoc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @ip_tunnel_netlink_encap_parms(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) #7 align 16 {
+define dso_local noundef zeroext i1 @ip_tunnel_netlink_encap_parms(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #7 align 16 {
   store i64 0, ptr %1, align 2
   %3 = icmp eq ptr %0, null
   br i1 %3, label %37, label %4

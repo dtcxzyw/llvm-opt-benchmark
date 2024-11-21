@@ -1049,7 +1049,7 @@ while.end12:                                      ; preds = %while.end8, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_event_init(ptr nocapture noundef writeonly %ev, i1 noundef zeroext %init) local_unnamed_addr #7 {
+define dso_local void @qemu_event_init(ptr nocapture noundef writeonly initializes((0, 5)) %ev, i1 noundef zeroext %init) local_unnamed_addr #7 {
 entry:
   %not.init = xor i1 %init, true
   %cond = zext i1 %not.init to i32
@@ -1495,7 +1495,7 @@ return:                                           ; preds = %if.then4, %for.end
 declare i32 @pthread_getaffinity_np(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_thread_get_self(ptr nocapture noundef writeonly %thread) local_unnamed_addr #11 {
+define dso_local void @qemu_thread_get_self(ptr nocapture noundef writeonly initializes((0, 8)) %thread) local_unnamed_addr #11 {
 entry:
   %call = tail call i64 @pthread_self() #24
   store i64 %call, ptr %thread, align 8

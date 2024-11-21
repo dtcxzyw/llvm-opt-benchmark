@@ -519,7 +519,7 @@ define void @lv_cache_drop_all(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_cache_set_max_size(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 {
+define void @lv_cache_set_max_size(ptr nocapture noundef writeonly initializes((12, 16)) %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 {
   %4 = trunc i64 %1 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %4, ptr %5, align 4, !tbaa !13
@@ -562,21 +562,21 @@ define zeroext i1 @lv_cache_is_enabled(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_cache_set_compare_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 {
+define void @lv_cache_set_compare_cb(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_cache_set_create_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 {
+define void @lv_cache_set_create_cb(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8, !tbaa !27
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_cache_set_free_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 {
+define void @lv_cache_set_free_cb(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %4, align 8, !tbaa !20
   ret void

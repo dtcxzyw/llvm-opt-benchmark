@@ -227,7 +227,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase4initEv(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase4initEv(ptr noundef nonnull align 8 dereferenceable(168) initializes((136, 153)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %ref.tmp9 = alloca %"class.cvc5::internal::TypeNode", align 8
   %ref.tmp10 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -1695,7 +1695,7 @@ for.end:                                          ; preds = %for.body, %cond.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv(ptr nocapture noundef nonnull align 8 dereferenceable(168) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv(ptr nocapture noundef nonnull align 8 dereferenceable(168) initializes((160, 168)) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_variableCount = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %d_variableCount, align 8

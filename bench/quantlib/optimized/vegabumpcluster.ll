@@ -86,7 +86,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15VegaBumpClusterC2Emmmmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i64 noundef %factorBegin, i64 noundef %factorEnd, i64 noundef %rateBegin, i64 noundef %rateEnd, i64 noundef %stepBegin, i64 noundef %stepEnd) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15VegaBumpClusterC2Emmmmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, i64 noundef %factorBegin, i64 noundef %factorEnd, i64 noundef %rateBegin, i64 noundef %rateEnd, i64 noundef %stepBegin, i64 noundef %stepEnd) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -879,7 +879,7 @@ return:                                           ; preds = %_ZNK5boost10shared_
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib20EvolutionDescription14firstAliveRateEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18VegaBumpCollectionC2ERKN5boost10shared_ptrINS_11MarketModelEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(43) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volStructure, i1 noundef zeroext %factorwiseBumping) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18VegaBumpCollectionC2ERKN5boost10shared_ptrINS_11MarketModelEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(43) initializes((0, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volStructure, i1 noundef zeroext %factorwiseBumping) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %thisCluster = alloca %"class.QuantLib::VegaBumpCluster", align 8
   %thisCluster42 = alloca %"class.QuantLib::VegaBumpCluster", align 8
@@ -1440,7 +1440,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18VegaBumpCollectionC2ESt6vectorINS_15VegaBumpClusterESaIS2_EEN5boost10shared_ptrINS_11MarketModelEEE(ptr noundef nonnull align 8 dereferenceable(43) %this, ptr nocapture noundef %allBumps, ptr nocapture noundef %volStructure) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18VegaBumpCollectionC2ESt6vectorINS_15VegaBumpClusterESaIS2_EEN5boost10shared_ptrINS_11MarketModelEEE(ptr noundef nonnull align 8 dereferenceable(43) initializes((0, 41)) %this, ptr nocapture noundef %allBumps, ptr nocapture noundef %volStructure) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

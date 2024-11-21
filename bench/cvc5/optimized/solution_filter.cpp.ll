@@ -389,7 +389,7 @@ entry:
 declare void @_ZN4cvc58internal6theory11quantifiers9ExprMiner10initializeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEPNS2_12SygusSamplerE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers22SolutionFilterStrength18setLogicallyStrongEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(544) %this, i1 noundef zeroext %isStrong) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers22SolutionFilterStrength18setLogicallyStrongEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(544) initializes((144, 145)) %this, i1 noundef zeroext %isStrong) local_unnamed_addr #5 align 2 {
 entry:
   %frombool = zext i1 %isStrong to i8
   %d_isStrong = getelementptr inbounds i8, ptr %this, i64 144

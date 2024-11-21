@@ -531,7 +531,7 @@ $_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 declare void @_ZN4pbrt14StatRegistererC1EPFvRNS_16StatsAccumulatorEEPFvNS_6Point2IiEEiRNS_21PixelStatsAccumulatorEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt12BVHAggregateC2ESt6vectorINS_9PrimitiveESaIS2_EEiNS0_11SplitMethodE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef %prims, i32 noundef %maxPrimsInNode, i32 noundef %splitMethod) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt12BVHAggregateC2ESt6vectorINS_9PrimitiveESaIS2_EEiNS0_11SplitMethodE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4), (8, 36), (40, 48)) %this, ptr nocapture noundef %prims, i32 noundef %maxPrimsInNode, i32 noundef %splitMethod) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %bvhPrimitives = alloca %"class.std::vector.16", align 8
@@ -6826,7 +6826,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt12BVHAggregate9IntersectERKNS_3RayEf(ptr noalias nocapture writeonly sret(%"class.pstd::optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt12BVHAggregate9IntersectERKNS_3RayEf(ptr noalias nocapture writeonly sret(%"class.pstd::optional") align 8 initializes((256, 257)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dirIsNeg = alloca [3 x i32], align 4
   %nodesToVisit = alloca [64 x i32], align 16
@@ -7785,7 +7785,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt15KdTreeAggregateC2ESt6vectorINS_9PrimitiveESaIS2_EEiifii(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef %p, i32 noundef %isectCost, i32 noundef %traversalCost, float noundef %emptyBonus, i32 noundef %maxPrims, i32 noundef %maxDepth) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt15KdTreeAggregateC2ESt6vectorINS_9PrimitiveESaIS2_EEiifii(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 64), (72, 104)) %this, ptr nocapture noundef %p, i32 noundef %isectCost, i32 noundef %traversalCost, float noundef %emptyBonus, i32 noundef %maxPrims, i32 noundef %maxDepth) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %primBounds = alloca %"class.std::vector.82", align 8
   %b = alloca %"class.pbrt::Bounds3", align 8
@@ -9297,7 +9297,7 @@ return:                                           ; preds = %_ZN4pbrt6Tuple3INS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10KdTreeNode8InitLeafEN4pstd4spanIKiEEPSt6vectorIiSaIiEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr readonly %primNums.coerce0, i64 %primNums.coerce1, ptr nocapture noundef %primitiveIndices) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt10KdTreeNode8InitLeafEN4pstd4spanIKiEEPSt6vectorIiSaIiEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr readonly %primNums.coerce0, i64 %primNums.coerce1, ptr nocapture noundef %primitiveIndices) local_unnamed_addr #1 align 2 {
 entry:
   %call.tr = trunc i64 %primNums.coerce1 to i32
   %0 = shl i32 %call.tr, 2
@@ -10426,7 +10426,7 @@ eh.resume:                                        ; preds = %_ZNSt6vectorIN4pbrt
 declare noundef float @_ZNK4pbrt19ParameterDictionary11GetOneFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32), float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17CreateAcceleratorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS_9PrimitiveESaIS9_EERKNS_19ParameterDictionaryE(ptr noalias nocapture writeonly sret(%"class.pbrt::Primitive") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %prims, ptr noundef nonnull align 8 dereferenceable(108) %parameters) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt17CreateAcceleratorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS_9PrimitiveESaIS9_EERKNS_19ParameterDictionaryE(ptr noalias nocapture writeonly sret(%"class.pbrt::Primitive") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %prims, ptr noundef nonnull align 8 dereferenceable(108) %parameters) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp8 = alloca %"class.std::vector", align 8

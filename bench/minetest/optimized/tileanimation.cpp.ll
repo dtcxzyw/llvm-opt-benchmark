@@ -153,7 +153,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19TileAnimationParams11deSerializeERSit(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i16 noundef zeroext %protocol_ver) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN19TileAnimationParams11deSerializeERSit(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 1)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i16 noundef zeroext %protocol_ver) local_unnamed_addr #3 align 2 {
 entry:
   %buf.i33 = alloca [4 x i8], align 4
   %buf.i31 = alloca [1 x i8], align 1

@@ -491,7 +491,7 @@ _ZN5clang33isFunctionLocalStringLiteralMacroENS_3tok9TokenKindERKNS_11LangOption
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20NumericLiteralParserC2EN4llvm9StringRefENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsERKNS_10TargetInfoERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(131) %0, ptr %1, i64 %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(696) %4, ptr noundef nonnull align 8 dereferenceable(841) %5, ptr noundef nonnull align 8 dereferenceable(489) %6, ptr noundef nonnull align 8 dereferenceable(1304) %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang20NumericLiteralParserC2EN4llvm9StringRefENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsERKNS_10TargetInfoERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(131) initializes((0, 40)) %0, ptr %1, i64 %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(696) %4, ptr noundef nonnull align 8 dereferenceable(841) %5, ptr noundef nonnull align 8 dereferenceable(489) %6, ptr noundef nonnull align 8 dereferenceable(1304) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.clang::DiagnosticBuilder", align 8
   store ptr %4, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7688,7 +7688,7 @@ _ZL39IsEscapeValidInUnevaluatedStringLiteralc.exit.thread: ; preds = %544, %544,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19StringLiteralParserC2EN4llvm8ArrayRefINS_5TokenEEERNS_12PreprocessorENS_23StringLiteralEvalMethodE(ptr noundef nonnull align 8 dereferenceable(662) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3288) %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang19StringLiteralParserC2EN4llvm8ArrayRefINS_5TokenEEERNS_12PreprocessorENS_23StringLiteralEvalMethodE(ptr noundef nonnull align 8 dereferenceable(662) initializes((0, 46)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3288) %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %0, align 8
@@ -7726,7 +7726,7 @@ define dso_local void @_ZN5clang19StringLiteralParserC2EN4llvm8ArrayRefINS_5Toke
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE(ptr noundef nonnull align 8 dereferenceable(662) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang19StringLiteralParser4initEN4llvm8ArrayRefINS_5TokenEEE(ptr noundef nonnull align 8 dereferenceable(662) initializes((660, 661)) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca i32, align 4
@@ -9278,7 +9278,7 @@ _ZN5clang19StringLiteralParser19DiagnoseLexingErrorENS_14SourceLocationE.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19StringLiteralParser19DiagnoseLexingErrorENS_14SourceLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(662) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang19StringLiteralParser19DiagnoseLexingErrorENS_14SourceLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(662) initializes((660, 661)) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 660
   store i8 1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9595,7 +9595,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %118, %124, %23, %_Z
 declare noundef zeroext i1 @_ZN4llvm17ConvertUTF8toWideEjNS_9StringRefERPcRPKh(i32 noundef, ptr, i64, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(841) %2, i32 %3, ptr nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 15, 1408) %8) unnamed_addr #0 {
+define internal fastcc void @_ZL4DiagPN5clang17DiagnosticsEngineERKNS_11LangOptionsENS_13FullSourceLocEPKcS7_S7_j(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef initializes((368, 376)) %1, ptr noundef nonnull align 8 dereferenceable(841) %2, i32 %3, ptr nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef range(i32 15, 1408) %8) unnamed_addr #0 {
   %10 = alloca %"class.clang::DiagnosticBuilder", align 8
   %11 = alloca %"class.clang::CharSourceRange", align 8
   %12 = ptrtoint ptr %6 to i64

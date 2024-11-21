@@ -1023,7 +1023,7 @@ define internal noundef ptr @_ZL15init_data_kwintiP18gmx_ana_selparam_t(i32 %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL10init_kwintPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @_ZL10init_kwintPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %3) #1 {
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
@@ -1200,7 +1200,7 @@ define internal noundef ptr @_ZL16init_data_kwrealiP18gmx_ana_selparam_t(i32 %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL11init_kwrealPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #1 {
+define internal void @_ZL11init_kwrealPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %3) #1 {
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
@@ -1376,7 +1376,7 @@ define internal noalias noundef nonnull ptr @_ZL15init_data_kwstriP18gmx_ana_sel
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL10init_kwstrPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL10init_kwstrPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((8, 16)) %3) #0 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -29448,7 +29448,7 @@ define internal void @_ZL11init_kwevalPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18init_output_kwevalPK10gmx_mtop_tP18gmx_ana_selvalue_tPv(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @_ZL18init_output_kwevalPK10gmx_mtop_tP18gmx_ana_selvalue_tPv(ptr nocapture readnone %0, ptr noundef initializes((4, 8)) %1, ptr nocapture noundef readonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 4

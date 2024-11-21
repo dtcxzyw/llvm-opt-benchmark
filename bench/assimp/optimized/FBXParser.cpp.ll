@@ -216,7 +216,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX7ElementC2ERKNS0_5TokenERNS0_6ParserE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(36) %key_token, ptr nocapture noundef nonnull align 8 dereferenceable(49) %parser) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX7ElementC2ERKNS0_5TokenERNS0_6ParserE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(36) %key_token, ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((16, 24)) %parser) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator.5", align 1
@@ -646,7 +646,7 @@ _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EED2Ev.exit: ; preds = %ehcleanup98, %if
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN6Assimp3FBX6Parser18AdvanceToNextTokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN6Assimp3FBX6Parser18AdvanceToNextTokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((16, 24)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %current = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %current, align 8
@@ -896,7 +896,7 @@ _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EED2Ev.exit: ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX5ScopeC2ERNS0_6ParserEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(49) %parser, i1 noundef zeroext %topLevel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX5ScopeC2ERNS0_6ParserEb(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(49) %parser, i1 noundef zeroext %topLevel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i36 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, Assimp::FBX::Element *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, Assimp::FBX::Element *>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, Assimp::FBX::Element *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, Assimp::FBX::Element *>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
@@ -1485,7 +1485,7 @@ _ZNSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp3FBX
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX6ParserC2ERKSt6vectorIPKNS0_5TokenESaIS5_EERNS_14StackAllocatorEb(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(24) %tokens, ptr noundef nonnull align 8 dereferenceable(40) %allocator, i1 noundef zeroext %is_binary) unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp3FBX6ParserC2ERKSt6vectorIPKNS0_5TokenESaIS5_EERNS_14StackAllocatorEb(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 40), (48, 49)) %this, ptr noundef nonnull align 8 dereferenceable(24) %tokens, ptr noundef nonnull align 8 dereferenceable(40) %allocator, i1 noundef zeroext %is_binary) unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %is_binary to i8
   store ptr %tokens, ptr %this, align 8
@@ -1549,7 +1549,7 @@ _ZN6Assimp3FBX5ScopeD2Ev.exit:                    ; preds = %for.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN6Assimp3FBX14ParseTokenAsIDERKNS0_5TokenERPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %err_out) local_unnamed_addr #3 {
+define hidden noundef i64 @_ZN6Assimp3FBX14ParseTokenAsIDERKNS0_5TokenERPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %err_out) local_unnamed_addr #3 {
 entry:
   %length = alloca i32, align 4
   %out = alloca ptr, align 8
@@ -1779,7 +1779,7 @@ unreachable:                                      ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN6Assimp3FBX15ParseTokenAsDimERKNS0_5TokenERPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %err_out) local_unnamed_addr #3 {
+define hidden noundef i64 @_ZN6Assimp3FBX15ParseTokenAsDimERKNS0_5TokenERPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %err_out) local_unnamed_addr #3 {
 entry:
   %length = alloca i32, align 4
   %out = alloca ptr, align 8
@@ -1856,7 +1856,7 @@ return:                                           ; preds = %if.end20, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef float @_ZN6Assimp3FBX17ParseTokenAsFloatERKNS0_5TokenERPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %err_out) local_unnamed_addr #3 {
+define hidden noundef float @_ZN6Assimp3FBX17ParseTokenAsFloatERKNS0_5TokenERPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %err_out) local_unnamed_addr #3 {
 entry:
   %ret.i = alloca float, align 4
   %temp = alloca [32 x i8], align 16
@@ -1933,7 +1933,7 @@ return:                                           ; preds = %if.end20, %_ZSt4cop
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN6Assimp3FBX15ParseTokenAsIntERKNS0_5TokenERPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %err_out) local_unnamed_addr #3 {
+define hidden noundef i32 @_ZN6Assimp3FBX15ParseTokenAsIntERKNS0_5TokenERPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %err_out) local_unnamed_addr #3 {
 entry:
   %in.addr.i = alloca ptr, align 8
   store ptr null, ptr %err_out, align 8
@@ -2044,7 +2044,7 @@ return:                                           ; preds = %_ZN6Assimp8strtol10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN6Assimp3FBX17ParseTokenAsInt64ERKNS0_5TokenERPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %err_out) local_unnamed_addr #3 {
+define hidden noundef i64 @_ZN6Assimp3FBX17ParseTokenAsInt64ERKNS0_5TokenERPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %err_out) local_unnamed_addr #3 {
 entry:
   %length = alloca i32, align 4
   %out = alloca ptr, align 8
@@ -2113,7 +2113,7 @@ return:                                           ; preds = %if.end9, %if.then18
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX18ParseTokenAsStringB5cxx11ERKNS0_5TokenERPKc(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %err_out) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX18ParseTokenAsStringB5cxx11ERKNS0_5TokenERPKc(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %err_out) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.5", align 1
   %ref.tmp27 = alloca %"class.std::allocator.5", align 1

@@ -710,7 +710,7 @@ define noundef i64 @_ZNK4LIEF2PE16DelayImportEntry4dataEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE16DelayImportEntry4dataEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(90) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE16DelayImportEntry4dataEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(90) initializes((56, 64)) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %1, ptr %3, align 8
   ret void

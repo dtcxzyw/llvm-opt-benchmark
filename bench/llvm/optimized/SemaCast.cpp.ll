@@ -2610,7 +2610,7 @@ _ZN12_GLOBAL__N_113CastOperationD2Ev.exit:        ; preds = %1079, %1085
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113CastOperationC2ERN5clang4SemaENS1_8QualTypeENS1_12ActionResultIPNS1_4ExprELb1EEE(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113CastOperationC2ERN5clang4SemaENS1_8QualTypeENS1_12ActionResultIPNS1_4ExprELb1EEE(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::QualType", align 8
   store i64 %2, ptr %5, align 8
   store ptr %1, ptr %0, align 8

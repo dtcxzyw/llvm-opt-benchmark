@@ -40,7 +40,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @_ZN20ShenandoahMarkBitMapC1E9MemRegionS0_ = hidden unnamed_addr alias void (ptr, ptr, i64, ptr, i64), ptr @_ZN20ShenandoahMarkBitMapC2E9MemRegionS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN20ShenandoahMarkBitMapC2E9MemRegionS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ShenandoahMarkBitMapC2E9MemRegionS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 4), (8, 40)) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr @LogMinObjAlignment, align 4
   store i32 %6, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8

@@ -485,7 +485,7 @@ define ptr @dfilter_expand(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 declare ptr @dfilter_macro_apply(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @dfilter_compile_full(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef zeroext i1 @dfilter_compile_full(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1535,7 +1535,7 @@ declare ptr @g_ptr_array_new_with_free_func(ptr noundef) local_unnamed_addr #4
 declare ptr @g_ptr_array_new() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @df_cell_iter_init(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
+define void @df_cell_iter_init(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #11 {
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8

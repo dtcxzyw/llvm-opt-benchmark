@@ -527,7 +527,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev17ProcessorMetadataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev17ProcessorMetadataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
   %0 = getelementptr inbounds i8, ptr %call, i64 8
@@ -952,7 +952,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK19OpenColorIO_v2_4dev9Processor20getProcessorMetadataEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.45") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev9Processor20getProcessorMetadataEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.45") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -986,7 +986,7 @@ _ZNK19OpenColorIO_v2_4dev9Processor4Impl20getProcessorMetadataEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl20getProcessorMetadataEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.45") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(552) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev9Processor4Impl20getProcessorMetadataEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.45") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(552) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %agg.result, align 8
@@ -2811,7 +2811,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev17ProcessorMetadataELN9__gnu_cxx12_Loc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19OpenColorIO_v2_4dev9Processor4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev9Processor4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(552) initializes((448, 456)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_cpuProcessorCache = getelementptr inbounds i8, ptr %this, i64 448
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12CPUProcessorEEEE, i64 16), ptr %m_cpuProcessorCache, align 8
@@ -4582,7 +4582,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12CPUProcessorELN9__gnu_cxx12_Lock_pol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19OpenColorIO_v2_4dev9Processor4Impl22setProcessorCacheFlagsENS_19ProcessorCacheFlagsE(ptr noundef nonnull align 8 dereferenceable(552) %this, i32 noundef %flags) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev9Processor4Impl22setProcessorCacheFlagsENS_19ProcessorCacheFlagsE(ptr noundef nonnull align 8 dereferenceable(552) initializes((232, 236)) %this, i32 noundef %flags) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_cacheFlags = getelementptr inbounds i8, ptr %this, i64 232
   store i32 %flags, ptr %m_cacheFlags, align 8

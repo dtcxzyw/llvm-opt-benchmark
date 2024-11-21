@@ -519,7 +519,7 @@ if.end10:                                         ; preds = %if.then4, %invoke.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN8facebook5velox9Timestamp10epochToUtcElR2tm(i64 noundef %epoch, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %tm) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN8facebook5velox9Timestamp10epochToUtcElR2tm(i64 noundef %epoch, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 12), (24, 28)) %tm) local_unnamed_addr #8 align 2 {
 entry:
   %div = sdiv i64 %epoch, 86400
   %rem1 = srem i64 %epoch, 86400

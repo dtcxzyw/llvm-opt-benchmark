@@ -436,7 +436,7 @@ define i32 @mca_io_ompio_file_get_size(ptr noundef %0, ptr noundef %1) local_unn
 declare i32 @mca_common_ompio_file_get_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @mca_io_ompio_file_get_amode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define noundef i32 @mca_io_ompio_file_get_amode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 952
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 28
@@ -446,7 +446,7 @@ define noundef i32 @mca_io_ompio_file_get_amode(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @mca_io_ompio_file_get_type_extent(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
+define noundef i32 @mca_io_ompio_file_get_type_extent(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
   %4 = getelementptr i8, ptr %1, i64 48
   %.val = load i64, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 56
@@ -526,7 +526,7 @@ define range(i32 -1, 36) i32 @mca_io_ompio_file_set_atomicity(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_io_ompio_file_get_atomicity(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @mca_io_ompio_file_get_atomicity(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 952
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr @opal_uses_threads, align 1

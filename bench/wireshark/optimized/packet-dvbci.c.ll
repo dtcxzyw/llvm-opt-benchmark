@@ -5031,7 +5031,7 @@ define internal noundef i32 @exp_pdu_data_dvbci_size(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @exp_pdu_data_dvbci_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #6 {
+define internal noundef i32 @exp_pdu_data_dvbci_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 5)) %2, i32 %3) #6 {
   store i8 0, ptr %2, align 1
   %5 = getelementptr i8, ptr %2, i64 1
   store i8 31, ptr %5, align 1

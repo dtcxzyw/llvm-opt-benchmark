@@ -136,7 +136,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type4case4Case15ident_with_case17h93
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13dsl_auto_type9auto_type4case4Case8from_str17hf3a2adfa327dda2fE(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 1 %1, i64 %2, i32 %3) unnamed_addr #0 {
+define hidden void @_ZN13dsl_auto_type9auto_type4case4Case8from_str17hf3a2adfa327dda2fE(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 9)) %0, ptr align 1 %1, i64 %2, i32 %3) unnamed_addr #0 {
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = alloca { { { i64, ptr }, i64 } }, align 8

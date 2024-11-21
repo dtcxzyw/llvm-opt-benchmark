@@ -97,7 +97,7 @@ fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @start_lo_xact(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @start_lo_xact(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %1) unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   %3 = load ptr, ptr @pset, align 8
   %.not = icmp eq ptr %3, null

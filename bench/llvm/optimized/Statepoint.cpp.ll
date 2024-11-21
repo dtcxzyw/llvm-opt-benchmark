@@ -41,7 +41,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm25isStatepointDirectiveAttrENS_9Att
 declare noundef zeroext i1 @_ZNK4llvm9Attribute12hasAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm34parseStatepointDirectivesFromAttrsENS_13AttributeListE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::StatepointDirectives") align 8 %0, ptr %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm34parseStatepointDirectivesFromAttrsENS_13AttributeListE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::StatepointDirectives") align 8 initializes((4, 5), (16, 17)) %0, ptr %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.llvm::AttributeList", align 8

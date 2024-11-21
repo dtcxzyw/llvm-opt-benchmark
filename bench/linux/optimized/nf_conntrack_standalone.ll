@@ -213,7 +213,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #2
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @nf_conntrack_pernet_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @nf_conntrack_pernet_init(ptr noundef initializes((2436, 2437)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2436
   store i8 1, ptr %2, align 4
   %3 = load i32, ptr @nf_conntrack_net_id, align 4

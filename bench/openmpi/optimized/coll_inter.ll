@@ -125,7 +125,7 @@ opal_obj_new.exit.thread:                         ; preds = %28, %ompi_comm_remo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @mca_coll_inter_module_enable(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
+define noundef i32 @mca_coll_inter_module_enable(ptr nocapture noundef writeonly initializes((592, 600)) %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 592
   store ptr %1, ptr %3, align 8
   ret i32 0

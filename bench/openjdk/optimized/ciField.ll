@@ -87,7 +87,7 @@ $_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi = c
 @_ZN7ciFieldC1EP15fieldDescriptor = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN7ciFieldC2EP15fieldDescriptor
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7ciFieldC2EP15ciInstanceKlassiN9Bytecodes4CodeE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN7ciFieldC2EP15ciInstanceKlassiN9Bytecodes4CodeE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 6), (48, 65), (72, 80)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %class.constantPoolHandle, align 8
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -333,7 +333,7 @@ declare noundef zeroext i1 @_ZN10Reflection20verify_member_accessEPK5KlassS2_S2_
 declare void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7ciField15initialize_fromEP15fieldDescriptor(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7ciField15initialize_fromEP15fieldDescriptor(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 6), (8, 16), (40, 45)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 16
@@ -564,7 +564,7 @@ _ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit: ; preds = %119, %60, 
 declare void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7ciFieldC2EP15fieldDescriptor(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN7ciFieldC2EP15fieldDescriptor(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 6), (48, 65), (72, 80)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %3, align 4

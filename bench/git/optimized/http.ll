@@ -3004,7 +3004,7 @@ if.end:                                           ; preds = %if.end16.i, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @run_active_slot(ptr nocapture noundef %slot) local_unnamed_addr #2 {
+define dso_local void @run_active_slot(ptr nocapture noundef initializes((24, 32)) %slot) local_unnamed_addr #2 {
 entry:
   %readfds = alloca %struct.fd_set, align 8
   %writefds = alloca %struct.fd_set, align 8
@@ -3189,7 +3189,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @xsnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 7) i32 @run_one_slot(ptr nocapture noundef %slot, ptr noundef %results) local_unnamed_addr #2 {
+define dso_local range(i32 0, 7) i32 @run_one_slot(ptr nocapture noundef initializes((32, 40)) %slot, ptr noundef %results) local_unnamed_addr #2 {
 entry:
   %num_transfers.i = alloca i32, align 4
   %results1 = getelementptr inbounds i8, ptr %slot, i64 32
@@ -4120,7 +4120,7 @@ declare i32 @parse_oid_hex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @release_http_pack_request(ptr noundef %preq) local_unnamed_addr #2 {
+define dso_local void @release_http_pack_request(ptr noundef initializes((56, 64)) %preq) local_unnamed_addr #2 {
 entry:
   %packfile = getelementptr inbounds i8, ptr %preq, i64 24
   %0 = load ptr, ptr %packfile, align 8

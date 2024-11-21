@@ -8,7 +8,7 @@ $__clang_call_terminate = comdat any
 @_ZN3gmx20HostAllocationPolicyC1ENS_13PinningPolicyE = unnamed_addr alias void (ptr, i32), ptr @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }

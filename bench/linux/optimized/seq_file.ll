@@ -599,7 +599,7 @@ define dso_local i64 @seq_read_iter(ptr nocapture noundef %0, ptr noundef %1) #0
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @traverse(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @traverse(ptr noundef initializes((16, 32), (40, 48)) %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2516,7 +2516,7 @@ define dso_local ptr @seq_hlist_next_rcu(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define dso_local ptr @seq_hlist_start_percpu(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #22 align 16 {
+define dso_local ptr @seq_hlist_start_percpu(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, i64 noundef %2) #22 align 16 {
   %4 = ptrtoint ptr %0 to i64
   store i32 0, ptr %1, align 4
   br label %5

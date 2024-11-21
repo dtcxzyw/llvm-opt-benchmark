@@ -1212,7 +1212,7 @@ define internal fastcc noundef ptr @drm_edid_override_get(ptr noundef %0) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_edid_connector_update(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @drm_edid_connector_update(ptr noundef initializes((200, 212), (220, 224), (240, 252), (256, 353), (354, 358), (360, 370), (372, 376), (384, 394), (1720, 1850), (1852, 1868)) %0, ptr noundef %1) #3 align 16 {
   %3 = alloca %struct.displayid_iter, align 8
   tail call fastcc void @update_display_info(ptr noundef %0, ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #21
@@ -2417,7 +2417,7 @@ drm_probe_ddc.exit:                               ; preds = %26, %29, %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_connector_update_edid_property(ptr noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local i32 @drm_connector_update_edid_property(ptr noundef initializes((200, 212), (220, 224), (240, 252), (256, 353), (354, 358), (360, 370), (372, 376), (384, 394), (1720, 1850), (1852, 1868)) %0, ptr noundef %1) #3 align 16 {
   %3 = alloca %struct.drm_edid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !13
@@ -4302,7 +4302,7 @@ define internal fastcc i32 @get_monitor_name(ptr noundef readonly %0, ptr nounde
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @drm_edid_cta_sad_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 align 16 {
+define dso_local void @drm_edid_cta_sad_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 3)) %1) local_unnamed_addr #10 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = shl i8 %3, 3
   %5 = getelementptr inbounds i8, ptr %0, i64 1
@@ -4321,7 +4321,7 @@ define dso_local void @drm_edid_cta_sad_get(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @drm_edid_cta_sad_set(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 align 16 {
+define dso_local void @drm_edid_cta_sad_set(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 align 16 {
   %3 = load i8, ptr %1, align 1
   %4 = lshr i8 %3, 3
   %5 = and i8 %4, 15
@@ -4892,7 +4892,7 @@ define dso_local range(i32 1, 3) i32 @drm_default_rgb_quant_range(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @update_display_info(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc void @update_display_info(ptr noundef initializes((200, 212), (220, 224), (240, 252), (256, 353), (354, 358), (360, 370), (372, 376), (384, 394), (1720, 1850), (1852, 1868)) %0, ptr noundef %1) unnamed_addr #3 align 16 {
   %3 = alloca %struct.cea_db_iter, align 8
   %4 = alloca %struct.displayid_iter, align 8
   %5 = alloca %struct.displayid_iter, align 8
@@ -9525,7 +9525,7 @@ drm_match_hdmi_mode.exit15:                       ; preds = %88, %.loopexit.spli
 declare dso_local void @hdmi_avi_infoframe_init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_hdmi_avi_infoframe_quant_range(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) #3 align 16 {
+define dso_local void @drm_hdmi_avi_infoframe_quant_range(ptr nocapture noundef writeonly initializes((32, 36), (44, 48)) %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) #3 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 248
   %6 = load i8, ptr %5, align 8, !range !17, !noundef !18
   %7 = icmp eq i8 %6, 0

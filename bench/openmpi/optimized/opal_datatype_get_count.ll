@@ -164,7 +164,7 @@ define i64 @opal_datatype_get_element_count(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_datatype_set_element_count(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define noundef i32 @opal_datatype_set_element_count(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8
   %6 = udiv i64 %1, %5

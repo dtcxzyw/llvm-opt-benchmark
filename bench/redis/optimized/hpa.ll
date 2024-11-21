@@ -53,7 +53,7 @@ declare zeroext i1 @malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @hpa_central_extract(ptr noundef %tsdn, ptr noundef %central, i64 %size, ptr nocapture noundef writeonly %oom) local_unnamed_addr #1 {
+define hidden ptr @hpa_central_extract(ptr noundef %tsdn, ptr noundef %central, i64 %size, ptr nocapture noundef writeonly initializes((0, 1)) %oom) local_unnamed_addr #1 {
 entry:
   %commit = alloca i8, align 1
   %cmp.i = icmp eq ptr %tsdn, null

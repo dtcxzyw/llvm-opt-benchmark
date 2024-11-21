@@ -3087,7 +3087,7 @@ define dso_local void @ipv6_mc_unmap(ptr noundef %0) local_unnamed_addr #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ipv6_mc_remap(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ipv6_mc_remap(ptr noundef initializes((40, 41), (48, 72)) %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @sysctl_mld_qrv, align 4
   %3 = trunc i32 %2 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3139,7 +3139,7 @@ ipv6_mc_up.exit:                                  ; preds = %.preheader.i, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ipv6_mc_up(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ipv6_mc_up(ptr noundef initializes((40, 41), (48, 72)) %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @sysctl_mld_qrv, align 4
   %3 = trunc i32 %2 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3616,7 +3616,7 @@ mld_ifc_event.exit:                               ; preds = %90, %86, %75, %71, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ipv6_mc_init_dev(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ipv6_mc_init_dev(ptr noundef initializes((41, 42), (80, 88)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 41
   store i8 0, ptr %2, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 80
@@ -6647,7 +6647,7 @@ add_grhead.exit:                                  ; preds = %234, %230, %206, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mld_sendpack(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
+define internal fastcc void @mld_sendpack(ptr noundef nonnull initializes((88, 96)) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.nf_hook_state, align 8
   %3 = alloca %struct.flowi6, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 192
@@ -7575,7 +7575,7 @@ define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef nonnull %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mld_gq_start_work(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
+define internal fastcc void @mld_gq_start_work(ptr noundef nonnull initializes((41, 42)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32

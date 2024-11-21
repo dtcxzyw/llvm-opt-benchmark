@@ -191,7 +191,7 @@ define hidden void @_lib_imageinfo_update_message3(ptr nocapture readnone %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #10
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !42

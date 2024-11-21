@@ -1521,7 +1521,7 @@ define hidden noundef ptr @pj_push(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z33pj_projection_specific_setup_pushP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z33pj_projection_specific_setup_pushP8PJconsts(ptr noundef initializes((88, 96), (136, 152)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr @_ZL4pushR8PJ_COORDP8PJconsts, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144
@@ -1921,7 +1921,7 @@ _ZNSt5stackIdSt5dequeIdSaIdEEE3popEv.exit34:      ; preds = %142, %144
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13setup_pushpopP8PJconsts(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL13setup_pushpopP8PJconsts(ptr noundef initializes((88, 96)) %0) unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(4) ptr @calloc(i64 noundef 1, i64 noundef 4) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %2, ptr %3, align 8
@@ -2025,7 +2025,7 @@ define hidden noundef ptr @pj_pop(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z32pj_projection_specific_setup_popP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z32pj_projection_specific_setup_popP8PJconsts(ptr noundef initializes((88, 96), (136, 152)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr @_ZL4pushR8PJ_COORDP8PJconsts, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 136

@@ -23,7 +23,7 @@ $_ZNK18VM_SerialGCCollect4typeEv = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29VM_SerialCollectForAllocation4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN29VM_SerialCollectForAllocation4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((48, 56)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN10SerialHeap4heapEv() #2
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4

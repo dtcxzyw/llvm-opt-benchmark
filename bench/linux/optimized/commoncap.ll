@@ -212,7 +212,7 @@ define dso_local range(i32 -1, 1) i32 @cap_ptrace_traceme(ptr noundef %0) #2 ali
 declare dso_local zeroext i1 @has_ns_capability(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cap_capget(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #2 align 16 {
+define dso_local noundef i32 @cap_capget(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #2 align 16 {
   tail call void @__rcu_read_lock() #14
   %5 = getelementptr inbounds i8, ptr %0, i64 1776
   %6 = load volatile ptr, ptr %5, align 16
@@ -601,7 +601,7 @@ declare dso_local zeroext i1 @capable_wrt_inode_uidgid(ptr noundef, ptr noundef,
 declare dso_local i32 @from_vfsuid(ptr noundef, ptr noundef, i32) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2147483648, 1) i32 @get_vfs_caps_from_disk(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @get_vfs_caps_from_disk(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) local_unnamed_addr #2 align 16 {
   %4 = alloca %struct.vfs_ns_cap_data, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8

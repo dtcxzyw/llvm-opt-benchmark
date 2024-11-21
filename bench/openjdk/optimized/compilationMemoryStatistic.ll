@@ -93,7 +93,7 @@ $_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj7919E15MemStatTabl
 @_ZN30CompilationMemoryStatisticMarkD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN30CompilationMemoryStatisticMarkD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16ArenaStatCounterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16ArenaStatCounterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((0, 50), (56, 76)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %0, i8 0, i64 50, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
@@ -111,7 +111,7 @@ define hidden noundef i64 @_ZNK16ArenaStatCounter16peak_since_startEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16ArenaStatCounter5startEm(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN16ArenaStatCounter5startEm(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((8, 24), (40, 49)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %4, align 8
@@ -125,7 +125,7 @@ define hidden void @_ZN16ArenaStatCounter5startEm(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16ArenaStatCounter3endEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ArenaStatCounter3endEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((40, 49)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1358,7 +1358,7 @@ _Z17compilertype2name12CompilerType.exit:         ; preds = %70, %78
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30CompilationMemoryStatisticMarkC2EPK12DirectiveSet(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN30CompilationMemoryStatisticMarkC2EPK12DirectiveSet(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK12DirectiveSet22should_collect_memstatEv(ptr noundef nonnull align 8 dereferenceable(280) %1) #14
   %4 = zext i1 %3 to i8
   store i8 %4, ptr %0, align 1

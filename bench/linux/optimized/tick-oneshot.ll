@@ -71,7 +71,7 @@ define dso_local void @tick_resume_oneshot() local_unnamed_addr #0 align 16 {
 declare dso_local i64 @ktime_get() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tick_setup_oneshot(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @tick_setup_oneshot(ptr noundef initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   store ptr %1, ptr %0, align 64
   tail call void @clockevents_switch_state(ptr noundef %0, i32 noundef 3) #5
   %4 = tail call i32 @clockevents_program_event(ptr noundef %0, i64 noundef %2, i1 noundef zeroext true) #5

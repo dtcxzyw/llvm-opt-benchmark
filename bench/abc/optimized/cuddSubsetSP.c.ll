@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [15 x i8] c"Out of memory\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_SubsetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Cudd_SubsetShortPaths(ptr noundef initializes((448, 452)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   store i1 false, ptr @memOut, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 448
   br label %7
@@ -589,7 +589,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_SupersetShortPaths(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Cudd_SupersetShortPaths(ptr noundef initializes((448, 452)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = ptrtoint ptr %1 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr

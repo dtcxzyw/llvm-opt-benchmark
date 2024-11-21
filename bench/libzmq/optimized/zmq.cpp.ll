@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [112 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libzmq/libzmq/src/polling_util.hpp\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zmq_version(ptr nocapture noundef writeonly %major_, ptr nocapture noundef writeonly %minor_, ptr nocapture noundef writeonly %patch_) local_unnamed_addr #0 {
+define void @zmq_version(ptr nocapture noundef writeonly initializes((0, 4)) %major_, ptr nocapture noundef writeonly initializes((0, 4)) %minor_, ptr nocapture noundef writeonly initializes((0, 4)) %patch_) local_unnamed_addr #0 {
 entry:
   store i32 4, ptr %major_, align 4
   store i32 3, ptr %minor_, align 4
@@ -2500,7 +2500,7 @@ return:                                           ; preds = %if.end7, %if.then2,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26zmq_poll_build_select_fds_P14zmq_pollitem_tiRi(ptr noalias nocapture sret(%struct.zmq_poll_select_fds_t_) align 8 %agg.result, ptr nocapture noundef readonly %items_, i32 noundef %nitems_, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %rc) local_unnamed_addr #1 {
+define void @_Z26zmq_poll_build_select_fds_P14zmq_pollitem_tiRi(ptr noalias nocapture sret(%struct.zmq_poll_select_fds_t_) align 8 initializes((0, 384), (768, 772)) %agg.result, ptr nocapture noundef readonly %items_, i32 noundef %nitems_, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %rc) local_unnamed_addr #1 {
 entry:
   %zmq_fd_size = alloca i64, align 8
   %notify_fd = alloca i32, align 4

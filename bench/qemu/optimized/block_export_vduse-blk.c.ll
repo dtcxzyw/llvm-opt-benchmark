@@ -354,7 +354,7 @@ entry:
 declare void @blk_add_aio_context_notifier(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_aio_attached(ptr noundef %ctx, ptr nocapture noundef %opaque) #0 {
+define internal void @blk_aio_attached(ptr noundef %ctx, ptr nocapture noundef initializes((24, 32)) %opaque) #0 {
 entry:
   %ctx1 = getelementptr inbounds i8, ptr %opaque, i64 24
   store ptr %ctx, ptr %ctx1, align 8
@@ -595,7 +595,7 @@ vduse_blk_stop_virtqueues.exit:                   ; preds = %vduse_blk_disable_q
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vduse_blk_drained_end(ptr nocapture noundef %opaque) #0 {
+define internal void @vduse_blk_drained_end(ptr nocapture noundef initializes((108, 109)) %opaque) #0 {
 entry:
   %vqs_started.i = getelementptr inbounds i8, ptr %opaque, i64 108
   store i8 1, ptr %vqs_started.i, align 4

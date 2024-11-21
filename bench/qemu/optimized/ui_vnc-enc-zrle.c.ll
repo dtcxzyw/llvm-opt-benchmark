@@ -1298,7 +1298,7 @@ declare void @vnc_write_u8(ptr noundef, i8 noundef zeroext) local_unnamed_addr #
 declare i32 @palette_color(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef %palette, i32 noundef range(i32 8, 33) %bpp_out, i32 noundef %runs, i32 noundef %single_pixels, i32 noundef range(i32 0, 256) %zywrle_level, ptr nocapture noundef nonnull writeonly %use_rle, ptr nocapture noundef nonnull writeonly %use_palette) unnamed_addr #0 {
+define internal fastcc void @zrle_choose_palette_rle(i32 noundef %w, i32 noundef %h, ptr noundef %palette, i32 noundef range(i32 8, 33) %bpp_out, i32 noundef %runs, i32 noundef %single_pixels, i32 noundef range(i32 0, 256) %zywrle_level, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %use_rle, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %use_palette) unnamed_addr #0 {
 entry:
   store i8 0, ptr %use_rle, align 1
   store i8 0, ptr %use_palette, align 1

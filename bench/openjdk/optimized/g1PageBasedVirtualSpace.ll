@@ -64,7 +64,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN23G1PageBasedVirtualSpaceD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN23G1PageBasedVirtualSpaceD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23G1PageBasedVirtualSpaceC2E13ReservedSpacemm(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN23G1PageBasedVirtualSpaceC2E13ReservedSpacemm(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 49), (56, 73), (80, 81)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i8 5, ptr %5, align 8
@@ -178,7 +178,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 declare void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23G1PageBasedVirtualSpaceD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN23G1PageBasedVirtualSpaceD2Ev(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 32), (80, 81)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56

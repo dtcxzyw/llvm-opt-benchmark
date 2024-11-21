@@ -230,7 +230,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18CuckooTableBuilderC2EPNS_18WritableFileWriterEdjjPKNS_10ComparatorEjbbPFmRKNS_5SliceEjmEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_m(ptr noundef nonnull align 8 dereferenceable(977) %this, ptr noundef %file, double noundef %max_hash_table_ratio, i32 noundef %max_num_hash_table, i32 noundef %max_search_depth, ptr noundef %user_comparator, i32 noundef %cuckoo_block_size, i1 noundef zeroext %use_module_hash, i1 noundef zeroext %identity_as_first_hash, ptr noundef %get_slice_hash, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %column_family_name, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id, i64 noundef %file_number) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18CuckooTableBuilderC2EPNS_18WritableFileWriterEdjjPKNS_10ComparatorEjbbPFmRKNS_5SliceEjmEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_SI_m(ptr noundef nonnull align 8 dereferenceable(977) initializes((0, 12), (16, 44), (48, 59), (64, 80)) %this, ptr noundef %file, double noundef %max_hash_table_ratio, i32 noundef %max_num_hash_table, i32 noundef %max_search_depth, ptr noundef %user_comparator, i32 noundef %cuckoo_block_size, i1 noundef zeroext %use_module_hash, i1 noundef zeroext %identity_as_first_hash, ptr noundef %get_slice_hash, i32 noundef %column_family_id, ptr noundef nonnull align 8 dereferenceable(32) %column_family_name, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id, i64 noundef %file_number) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   %ref.tmp11 = alloca %"class.std::allocator.0", align 1
   %ref.tmp14 = alloca %"class.std::allocator.0", align 1
@@ -2628,7 +2628,7 @@ _ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18CuckooTableBuilder6FinishEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(977) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18CuckooTableBuilder6FinishEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(977) initializes((976, 977)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i291 = alloca %"class.std::unique_ptr", align 8
   %ref.tmp.i236 = alloca %"class.std::unique_ptr", align 8
@@ -4284,7 +4284,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_N7rocksdb12stl_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb18CuckooTableBuilder7AbandonEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(977) %this) unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb18CuckooTableBuilder7AbandonEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(977) initializes((976, 977)) %this) unnamed_addr #5 align 2 {
 entry:
   %closed_ = getelementptr inbounds i8, ptr %this, i64 976
   store i8 1, ptr %closed_, align 8

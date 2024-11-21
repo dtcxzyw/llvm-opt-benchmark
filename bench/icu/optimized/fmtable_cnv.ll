@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7511FormattableC1EPKc = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7511FormattableC2EPKc
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7511FormattableC2EPKc(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %stringToCopy) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511FormattableC2EPKc(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (48, 58)) %this, ptr noundef %stringToCopy) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fBogus = getelementptr inbounds i8, ptr %this, i64 48

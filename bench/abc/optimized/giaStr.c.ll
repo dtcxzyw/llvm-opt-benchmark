@@ -1436,7 +1436,7 @@ Vec_IntPush.exit19:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Str_MuxInputsCollect(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Str_MuxInputsCollect(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 4
   %5 = or i64 %4, 1073741824
   store i64 %5, ptr %1, align 4
@@ -1547,7 +1547,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Str_MuxStructCollect(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Str_MuxStructCollect(ptr noundef %0, ptr noundef %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 4
   %5 = or i64 %4, 1073741824
   store i64 %5, ptr %1, align 4
@@ -2229,7 +2229,7 @@ Vec_StrPush.exit57:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Str_MuxStructDump(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Str_MuxStructDump(ptr noundef %0, ptr noundef %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 4
   %5 = or i64 %4, 1073741824
   store i64 %5, ptr %1, align 4
@@ -4828,7 +4828,7 @@ transpose64.exit:                                 ; preds = %216
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @Str_NtkBalanceMulti2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Str_NtkBalanceMulti2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((12, 16)) %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %2, align 4
   %7 = and i32 %6, 15
   %8 = icmp eq i32 %7, 3
@@ -7081,7 +7081,7 @@ common.ret:                                       ; preds = %._crit_edge, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Str_MuxCreate(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #12 {
+define void @Str_MuxCreate(ptr nocapture noundef writeonly initializes((12, 20)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #12 {
   %7 = add i32 %3, 1
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 6
@@ -8298,7 +8298,7 @@ Str_MuxCreate.exit:                               ; preds = %61, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Str_MuxRestructAreaThree(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef i32 @Str_MuxRestructAreaThree(ptr noundef %0, ptr nocapture noundef initializes((8, 12)) %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = sext i32 %5 to i64
   %7 = sub nsw i64 0, %6

@@ -371,7 +371,7 @@ return:                                           ; preds = %fd_free.exit, %sw.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fd_new(ptr nocapture noundef writeonly %bio) #5 {
+define internal noundef i32 @fd_new(ptr nocapture noundef writeonly initializes((40, 44)) %bio) #5 {
 entry:
   %num = getelementptr inbounds i8, ptr %bio, i64 40
   store i32 -1, ptr %num, align 8

@@ -2658,7 +2658,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %.lr.ph37, %Gia_ObjI
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abs_ManSupport1(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define i32 @Abs_ManSupport1(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   tail call void @Gia_ManIncrementTravId(ptr noundef %0) #25
@@ -2836,7 +2836,7 @@ tailrecurse:                                      ; preds = %Gia_ObjIsRo.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abs_ManSupport3(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define i32 @Abs_ManSupport3(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   tail call void @Gia_ManIncrementTravId(ptr noundef %0) #25

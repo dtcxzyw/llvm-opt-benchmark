@@ -101,7 +101,7 @@ entry:
 declare i64 @uv__hrtime(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @uv_close(ptr noundef %handle, ptr noundef %close_cb) local_unnamed_addr #0 {
+define void @uv_close(ptr noundef initializes((24, 32)) %handle, ptr noundef %close_cb) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -227,7 +227,7 @@ declare void @uv__fs_poll_close(ptr noundef) local_unnamed_addr #3
 declare void @uv__signal_close(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @uv__make_close_pending(ptr noundef %handle) local_unnamed_addr #4 {
+define hidden void @uv__make_close_pending(ptr noundef initializes((80, 88)) %handle) local_unnamed_addr #4 {
 entry:
   %loop = getelementptr inbounds i8, ptr %handle, i64 8
   %0 = load ptr, ptr %loop, align 8
@@ -795,7 +795,7 @@ declare void @uv__metrics_update_idle_time(ptr noundef) local_unnamed_addr #3
 declare void @uv__run_check(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @uv_update_time(ptr nocapture noundef writeonly %loop) local_unnamed_addr #0 {
+define void @uv_update_time(ptr nocapture noundef writeonly initializes((544, 552)) %loop) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @uv__hrtime(i32 noundef 1) #23
   %div.i = udiv i64 %call.i, 1000000
@@ -2445,7 +2445,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @uv_os_environ(ptr nocapture noundef %envitems, ptr nocapture noundef writeonly %count) local_unnamed_addr #0 {
+define range(i32 -12, 1) i32 @uv_os_environ(ptr nocapture noundef initializes((0, 8)) %envitems, ptr nocapture noundef writeonly initializes((0, 4)) %count) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %envitems, align 8
   store i32 0, ptr %count, align 4

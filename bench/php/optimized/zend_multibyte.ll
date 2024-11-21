@@ -325,7 +325,7 @@ define internal noundef i64 @dummy_encoding_converter(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dummy_encoding_list_parser(ptr nocapture readnone %0, i64 %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4) #0 {
+define internal noundef i32 @dummy_encoding_list_parser(ptr nocapture readnone %0, i64 %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i1 noundef zeroext %4) #0 {
   br i1 %4, label %6, label %8
 
 6:                                                ; preds = %5

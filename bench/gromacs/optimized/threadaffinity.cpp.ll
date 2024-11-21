@@ -154,7 +154,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z24analyzeThreadsOnThisNodeRKN3gmx24PhysicalNodeCommunicatorEiPiS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define void @_Z24analyzeThreadsOnThisNodeRKN3gmx24PhysicalNodeCommunicatorEiPiS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   store i32 %1, ptr %5, align 4
   store i32 0, ptr %3, align 4

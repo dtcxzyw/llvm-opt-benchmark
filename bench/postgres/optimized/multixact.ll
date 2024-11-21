@@ -1229,7 +1229,7 @@ define dso_local range(i32 1, 0) i32 @ReadNextMultiXactId() local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReadMultiXactIdRange(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @ReadMultiXactIdRange(ptr nocapture noundef initializes((0, 4)) %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MainLWLockArray, align 8
   %4 = getelementptr i8, ptr %3, i64 1664
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 1) #13
@@ -2301,7 +2301,7 @@ SetOffsetVacuumLimit.exit:                        ; preds = %91, %93, %95, %98
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @MultiXactGetCheckptMulti(i1 noundef zeroext %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local void @MultiXactGetCheckptMulti(i1 noundef zeroext %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @MainLWLockArray, align 8
   %7 = getelementptr i8, ptr %6, i64 1664
   %8 = tail call zeroext i1 @LWLockAcquire(ptr noundef %7, i32 noundef 1) #13

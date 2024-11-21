@@ -1249,7 +1249,7 @@ define internal fastcc void @ep_remove_safe(ptr noundef %0, ptr noundef nonnull 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ep_modify(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ep_modify(ptr noundef %0, ptr noundef nonnull initializes((104, 116)) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.name_snapshot, align 8
   %5 = alloca %struct.poll_table_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11

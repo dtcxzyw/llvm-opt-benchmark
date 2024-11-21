@@ -190,7 +190,7 @@ segfeature_active.exit.thread:                    ; preds = %33, %52, %segfeatur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_loop_filter_init(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden void @av1_loop_filter_init(ptr nocapture noundef initializes((23600, 23604)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 19728
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 23600
   store i32 1, ptr %3, align 4
@@ -663,7 +663,7 @@ define hidden void @av1_filter_block_plane_vert(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i8 @set_lpf_parameters(ptr nocapture noundef nonnull writeonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #4 {
+define internal fastcc zeroext i8 @set_lpf_parameters(ptr nocapture noundef nonnull writeonly initializes((0, 4)) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #4 {
   store i32 0, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load i32, ptr %10, align 8

@@ -955,7 +955,7 @@ return:                                           ; preds = %if.else.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12old_intervalC2ER25scoped_dependency_managerIPvE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(72) %m) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12old_intervalC2ER25scoped_dependency_managerIPvE(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 12), (16, 20), (24, 36), (40, 52), (56, 60), (64, 76), (80, 90), (96, 112)) %this, ptr noundef nonnull align 8 dereferenceable(72) %m) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr %m, ptr %this, align 8
   %m_lower = getelementptr inbounds i8, ptr %this, i64 8
@@ -1028,7 +1028,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12old_intervalC2ER25scoped_dependency_managerIPvERK8rationalbPN18dependency_managerINS2_6configEE10dependencyES6_bSB_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(72) %m, ptr noundef nonnull align 8 dereferenceable(32) %lower, i1 noundef zeroext %l_open, ptr noundef %l_dep, ptr noundef nonnull align 8 dereferenceable(32) %upper, i1 noundef zeroext %u_open, ptr noundef %u_dep) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12old_intervalC2ER25scoped_dependency_managerIPvERK8rationalbPN18dependency_managerINS2_6configEE10dependencyES6_bSB_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 12), (16, 20), (24, 36), (40, 48)) %this, ptr noundef nonnull align 8 dereferenceable(72) %m, ptr noundef nonnull align 8 dereferenceable(32) %lower, i1 noundef zeroext %l_open, ptr noundef %l_dep, ptr noundef nonnull align 8 dereferenceable(32) %upper, i1 noundef zeroext %u_open, ptr noundef %u_dep) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_lower = getelementptr inbounds i8, ptr %this, i64 8
@@ -1163,7 +1163,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i.i2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12old_intervalC2ER25scoped_dependency_managerIPvERK11ext_numeralbPN18dependency_managerINS2_6configEE10dependencyES6_bSB_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(72) %m, ptr noundef nonnull align 8 dereferenceable(40) %lower, i1 noundef zeroext %l_open, ptr noundef %l_dep, ptr noundef nonnull align 8 dereferenceable(40) %upper, i1 noundef zeroext %u_open, ptr noundef %u_dep) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12old_intervalC2ER25scoped_dependency_managerIPvERK11ext_numeralbPN18dependency_managerINS2_6configEE10dependencyES6_bSB_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 12), (16, 20), (24, 36), (40, 48)) %this, ptr noundef nonnull align 8 dereferenceable(72) %m, ptr noundef nonnull align 8 dereferenceable(40) %lower, i1 noundef zeroext %l_open, ptr noundef %l_dep, ptr noundef nonnull align 8 dereferenceable(40) %upper, i1 noundef zeroext %u_open, ptr noundef %u_dep) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_lower = getelementptr inbounds i8, ptr %this, i64 8
@@ -1302,7 +1302,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i.i2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12old_intervalC2ER25scoped_dependency_managerIPvERK8rationalPN18dependency_managerINS2_6configEE10dependencyESB_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(72) %m, ptr noundef nonnull align 8 dereferenceable(32) %val, ptr noundef %l_dep, ptr noundef %u_dep) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12old_intervalC2ER25scoped_dependency_managerIPvERK8rationalPN18dependency_managerINS2_6configEE10dependencyESB_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 12), (16, 20), (24, 36), (40, 48)) %this, ptr noundef nonnull align 8 dereferenceable(72) %m, ptr noundef nonnull align 8 dereferenceable(32) %val, ptr noundef %l_dep, ptr noundef %u_dep) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_lower = getelementptr inbounds i8, ptr %this, i64 8
@@ -1432,7 +1432,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i.i2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12old_intervalC2ER25scoped_dependency_managerIPvERK8rationalbbPN18dependency_managerINS2_6configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(72) %m, ptr noundef nonnull align 8 dereferenceable(32) %val, i1 noundef zeroext %open, i1 noundef zeroext %lower, ptr noundef %d) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12old_intervalC2ER25scoped_dependency_managerIPvERK8rationalbbPN18dependency_managerINS2_6configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 12), (16, 20), (24, 36), (40, 52), (56, 60), (64, 76), (80, 88)) %this, ptr noundef nonnull align 8 dereferenceable(72) %m, ptr noundef nonnull align 8 dereferenceable(32) %val, i1 noundef zeroext %open, i1 noundef zeroext %lower, ptr noundef %d) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %class.ext_numeral, align 8
   %ref.tmp8 = alloca %class.ext_numeral, align 8
@@ -1802,7 +1802,7 @@ if.end:                                           ; preds = %.noexc.i.i230, %.no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN12old_intervalaSERKS_(ptr noundef nonnull returned align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %other) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN12old_intervalaSERKS_(ptr noundef nonnull returned align 8 dereferenceable(112) initializes((8, 12)) %this, ptr noundef nonnull align 8 dereferenceable(112) %other) local_unnamed_addr #3 align 2 {
 entry:
   %m_lower = getelementptr inbounds i8, ptr %other, i64 8
   %m_lower2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1977,7 +1977,7 @@ _ZN8rationalaSERKS_.exit:                         ; preds = %if.then.i.i8.i.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN12old_intervalaSEOS_(ptr noundef nonnull returned align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull align 8 dereferenceable(112) %other) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN12old_intervalaSEOS_(ptr noundef nonnull returned align 8 dereferenceable(112) initializes((8, 12), (48, 52), (88, 90), (96, 112)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(112) %other) local_unnamed_addr #6 align 2 {
 entry:
   %m_lower = getelementptr inbounds i8, ptr %other, i64 8
   %m_lower2 = getelementptr inbounds i8, ptr %this, i64 8

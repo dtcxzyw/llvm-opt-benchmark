@@ -323,7 +323,7 @@ if.end4:                                          ; preds = %if.then, %if.then3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @default_init_read_file(ptr noundef %file) unnamed_addr #0 {
+define internal fastcc i32 @default_init_read_file(ptr noundef initializes((144, 152), (160, 168)) %file) unnamed_addr #0 {
 entry:
   %user_data = getelementptr inbounds i8, ptr %file, i64 136
   %0 = load ptr, ptr %user_data, align 8
@@ -954,7 +954,7 @@ return:                                           ; preds = %entry, %if.end11, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @default_init_write_file(ptr noundef %file) unnamed_addr #0 {
+define internal fastcc i32 @default_init_write_file(ptr noundef initializes((144, 152), (168, 176)) %file) unnamed_addr #0 {
 entry:
   %user_data = getelementptr inbounds i8, ptr %file, i64 136
   %0 = load ptr, ptr %user_data, align 8

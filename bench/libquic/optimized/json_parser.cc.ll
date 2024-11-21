@@ -64,7 +64,7 @@ $_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defau
 @_ZN4base8internal10JSONParser13StringBuilderD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base8internal10JSONParser13StringBuilderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base8internal10JSONParserC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this, i32 noundef %options) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base8internal10JSONParserC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((0, 4), (8, 60)) %this, i32 noundef %options) unnamed_addr #0 align 2 {
 entry:
   store i32 %options, ptr %this, align 8
   %start_pos_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -554,7 +554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base8internal10JSONParser11ReportErrorENS_10JSONReader14JsonParseErrorEi(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %code, i32 noundef %column_adjust) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4base8internal10JSONParser11ReportErrorENS_10JSONReader14JsonParseErrorEi(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((48, 60)) %this, i32 noundef %code, i32 noundef %column_adjust) local_unnamed_addr #6 align 2 {
 entry:
   %error_code_ = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %code, ptr %error_code_, align 8
@@ -657,14 +657,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base8internal10JSONParser13StringBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base8internal10JSONParser13StringBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base8internal10JSONParser13StringBuilderC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %pos) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base8internal10JSONParser13StringBuilderC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %pos) unnamed_addr #0 align 2 {
 entry:
   store ptr %pos, ptr %this, align 8
   %length_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -3418,7 +3418,7 @@ declare void @_ZN4base15DictionaryValue4SwapEPS0_(ptr noundef nonnull align 8 de
 declare void @_ZN4base15DictionaryValueD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i64 16), ptr %this, align 8
   %json_ = getelementptr inbounds i8, ptr %this, i64 64
@@ -3438,7 +3438,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i64 16), ptr %this, align 8
   %json_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -3655,7 +3655,7 @@ declare void @_ZN4base9ListValue4SwapEPS0_(ptr noundef nonnull align 8 dereferen
 declare void @_ZN4base9ListValueD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4base8internal12_GLOBAL__N_119ListHiddenRootValueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN4base8internal12_GLOBAL__N_119ListHiddenRootValueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i64 16), ptr %this, align 8
   %json_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -3675,7 +3675,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4base8internal12_GLOBAL__N_119ListHiddenRootValueD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN4base8internal12_GLOBAL__N_119ListHiddenRootValueD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i64 16), ptr %this, align 8
   %json_.i = getelementptr inbounds i8, ptr %this, i64 40

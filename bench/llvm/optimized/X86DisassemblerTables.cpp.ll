@@ -465,7 +465,7 @@ $_ZTVN4llvm13format_objectIJjEEE = comdat any
 @_ZN4llvm15X86Disassembler18DisassemblerTablesD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm15X86Disassembler18DisassemblerTablesD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15X86Disassembler18DisassemblerTablesC2Ev(ptr noundef nonnull align 8 dereferenceable(169) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15X86Disassembler18DisassemblerTablesC2Ev(ptr noundef nonnull align 8 dereferenceable(169) initializes((0, 96), (104, 108), (112, 120)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 0, ptr %2, align 8

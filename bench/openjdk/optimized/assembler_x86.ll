@@ -83,7 +83,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN7AddressC1EiPhN9relocInfo9relocTypeE = hidden unnamed_addr alias void (ptr, i32, ptr, i32), ptr @_ZN7AddressC2EiPhN9relocInfo9relocTypeE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20), (40, 41), (48, 56)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.RelocationHolder, align 8
   %5 = alloca %class.RelocationHolder, align 8
   %6 = alloca %class.RelocationHolder, align 8
@@ -204,7 +204,7 @@ define hidden void @_ZN7Address10make_arrayE12ArrayAddress(ptr dead_on_unwind no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7AddressC2EiPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN7AddressC2EiPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 21), (24, 44)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %class.RelocationHolder, align 8
   %6 = alloca %class.RelocationHolder, align 8
   %7 = alloca %class.RelocationHolder, align 8
@@ -293,7 +293,7 @@ define hidden void @_ZN7AddressC2EiPhN9relocInfo9relocTypeE(ptr noundef nonnull 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind noalias writable sret(%class.Address) align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind noalias writable sret(%class.Address) align 8 initializes((0, 21), (24, 44)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.RelocationHolder, align 8
   %8 = alloca %class.RelocationHolder, align 8
   %9 = load ptr, ptr @_ZN16RelocationHolder4noneE, align 8
@@ -349,7 +349,7 @@ define hidden noundef i32 @_ZN17AbstractAssembler14code_fill_byteEv() local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler15init_attributesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN9Assembler15init_attributesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 28), (32, 40)) %0) local_unnamed_addr #6 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 4294967296
   %.not = icmp eq i64 %3, 0
@@ -377,7 +377,7 @@ define hidden void @_ZN9Assembler15init_attributesEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9Assembler14set_attributesEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN9Assembler14set_attributesEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef initializes((32, 40)) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5006,7 +5006,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef initializes((32, 40)) %6, i1 noundef zeroext %7) local_unnamed_addr #8 align 2 {
   %9 = icmp sgt i32 %3, 15
   %10 = icmp sgt i32 %1, 15
   %11 = icmp sgt i32 %2, 15
@@ -6711,7 +6711,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef initializes((32, 40)) %6) local_unnamed_addr #8 align 2 {
   %8 = load i32, ptr %1, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %9

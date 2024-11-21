@@ -1024,7 +1024,7 @@ return:                                           ; preds = %for.body.i.i.prehea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mpd_setdigits(ptr nocapture noundef %result) local_unnamed_addr #9 {
+define hidden void @mpd_setdigits(ptr nocapture noundef initializes((16, 24)) %result) local_unnamed_addr #9 {
 entry:
   %data.i = getelementptr inbounds i8, ptr %result, i64 40
   %0 = load ptr, ptr %data.i, align 8
@@ -1305,7 +1305,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_zerocoeff(ptr nocapture noundef %result) local_unnamed_addr #8 {
+define hidden void @mpd_zerocoeff(ptr nocapture noundef initializes((16, 32)) %result) local_unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %0 = load i8, ptr %result, align 8
@@ -1636,7 +1636,7 @@ mpd_isodd.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_setspecial(ptr nocapture noundef %result, i8 noundef zeroext %sign, i8 noundef zeroext %type) local_unnamed_addr #8 {
+define hidden void @mpd_setspecial(ptr nocapture noundef initializes((8, 32)) %result, i8 noundef zeroext %sign, i8 noundef zeroext %type) local_unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %0 = load i8, ptr %result, align 8
@@ -1678,7 +1678,7 @@ mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_seterror(ptr nocapture noundef %result, i32 noundef %flags, ptr nocapture noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_seterror(ptr nocapture noundef initializes((8, 32)) %result, i32 noundef %flags, ptr nocapture noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %0 = load i8, ptr %result, align 8
@@ -1722,7 +1722,7 @@ mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsset_ssize(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qsset_ssize(ptr noundef initializes((8, 32)) %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp = icmp slt i64 %a, 0
   br i1 %cmp, label %if.then, label %if.else3.split
@@ -1955,7 +1955,7 @@ return:                                           ; preds = %if.end9.sink.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsset_uint(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qsset_uint(ptr noundef initializes((8, 32)) %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -16
@@ -1984,7 +1984,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsset_i32(ptr noundef %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qsset_i32(ptr noundef initializes((8, 32)) %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = sext i32 %a to i64
   %cmp.i = icmp slt i32 %a, 0
@@ -2026,7 +2026,7 @@ mpd_qsset_ssize.exit:                             ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsset_u32(ptr noundef %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qsset_u32(ptr noundef initializes((8, 32)) %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = zext i32 %a to i64
   %0 = load i8, ptr %result, align 8
@@ -2052,7 +2052,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsset_i64(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qsset_i64(ptr noundef initializes((8, 32)) %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp.i = icmp slt i64 %a, 0
   br i1 %cmp.i, label %if.then.i, label %if.else3.split.i
@@ -2093,7 +2093,7 @@ mpd_qsset_ssize.exit:                             ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qsset_u64(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qsset_u64(ptr noundef initializes((8, 32)) %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -16
@@ -2122,7 +2122,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_ssize(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qset_ssize(ptr noundef initializes((8, 32)) %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %0 = load i8, ptr %result, align 8
@@ -2192,7 +2192,7 @@ mpd_qsset_ssize.exit:                             ; preds = %if.then.i7, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_uint(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qset_uint(ptr noundef initializes((8, 32)) %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i)
@@ -2252,7 +2252,7 @@ _settriple.exit:                                  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_settriple(ptr nocapture noundef %result, i8 noundef zeroext range(i8 0, 2) %sign, i64 noundef %a, i64 noundef %exp) unnamed_addr #8 {
+define internal fastcc void @_settriple(ptr nocapture noundef initializes((8, 32)) %result, i8 noundef zeroext range(i8 0, 2) %sign, i64 noundef %a, i64 noundef %exp) unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %0 = load i8, ptr %result, align 8
@@ -2310,7 +2310,7 @@ mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_i32(ptr noundef %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qset_i32(ptr noundef initializes((8, 32)) %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %conv = sext i32 %a to i64
   tail call void @mpd_qset_ssize(ptr noundef %result, i64 noundef %conv, ptr noundef %ctx, ptr noundef %status)
@@ -2318,7 +2318,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_u32(ptr noundef %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qset_u32(ptr noundef initializes((8, 32)) %result, i32 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i.i)
@@ -2375,14 +2375,14 @@ mpd_qset_uint.exit:                               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_i64(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qset_i64(ptr noundef initializes((8, 32)) %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   tail call void @mpd_qset_ssize(ptr noundef %result, i64 noundef %a, ptr noundef %ctx, ptr noundef %status)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_i64_exact(ptr noundef %result, i64 noundef %a, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qset_i64_exact(ptr noundef initializes((8, 32)) %result, i64 noundef %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %maxcontext = alloca %struct.mpd_context_t, align 8
@@ -2444,7 +2444,7 @@ if.end:                                           ; preds = %mpd_seterror.exit, 
 declare hidden void @mpd_maxcontext(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_u64(ptr noundef %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qset_u64(ptr noundef initializes((8, 32)) %result, i64 noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i.i)
@@ -2504,7 +2504,7 @@ mpd_qset_uint.exit:                               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mpd_qset_u64_exact(ptr noundef %result, i64 noundef %a, ptr noundef %status) local_unnamed_addr #8 {
+define hidden void @mpd_qset_u64_exact(ptr noundef initializes((8, 32)) %result, i64 noundef %a, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %err.i.i.i = alloca i8, align 1
@@ -4784,7 +4784,7 @@ return:                                           ; preds = %for.cond.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @mpd_compare_total(ptr nocapture noundef %result, ptr noundef %a, ptr noundef %b) local_unnamed_addr #8 {
+define hidden range(i32 -1, 2) i32 @mpd_compare_total(ptr nocapture noundef initializes((8, 32)) %result, ptr noundef %a, ptr noundef %b) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %call = tail call i32 @mpd_cmp_total(ptr noundef %a, ptr noundef %b)
@@ -4902,7 +4902,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @mpd_compare_total_mag(ptr nocapture noundef %result, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #8 {
+define hidden range(i32 -1, 2) i32 @mpd_compare_total_mag(ptr nocapture noundef initializes((8, 32)) %result, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %aa.i = alloca %struct.mpd_t, align 8
@@ -9111,7 +9111,7 @@ return:                                           ; preds = %if.then, %if.end7, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qaddsub_inf(ptr nocapture noundef %result, i8 %a.0.val, ptr nocapture noundef readonly %b, i8 noundef zeroext range(i8 0, 2) %sign_b, ptr nocapture noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qaddsub_inf(ptr nocapture noundef initializes((8, 32)) %result, i8 %a.0.val, ptr nocapture noundef readonly %b, i8 noundef zeroext range(i8 0, 2) %sign_b, ptr nocapture noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i17 = alloca i8, align 1
   %err.i.i6 = alloca i8, align 1
@@ -9258,7 +9258,7 @@ return:                                           ; preds = %mpd_seterror.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef %a, ptr noundef %b, i8 noundef zeroext range(i8 0, 2) %sign_b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qaddsub(ptr noundef initializes((8, 16)) %result, ptr noundef %a, ptr noundef %b, i8 noundef zeroext range(i8 0, 2) %sign_b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %big_aligned_data = alloca [64 x i64], align 16
@@ -16271,7 +16271,7 @@ if.end87:                                         ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qln(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef nonnull readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qln(ptr noundef initializes((8, 32)) %result, ptr noundef readonly %a, ptr nocapture noundef nonnull readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i89 = alloca i8, align 1
   %err.i.i76 = alloca i8, align 1
@@ -17743,7 +17743,7 @@ if.end92:                                         ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qlog10(i32 noundef range(i32 0, 2) %action, ptr noundef %result, ptr noundef %a, ptr nocapture noundef nonnull readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qlog10(i32 noundef range(i32 0, 2) %action, ptr noundef initializes((8, 32)) %result, ptr noundef %a, ptr nocapture noundef nonnull readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %workctx = alloca %struct.mpd_context_t, align 8
   %ln10_data = alloca [64 x i64], align 16
@@ -28370,7 +28370,7 @@ return:                                           ; preds = %mpd_qresize.exit, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @mpd_as_uint128_triple(ptr noalias nocapture writeonly sret(%struct.mpd_uint128_triple_t) align 8 %agg.result, ptr nocapture noundef readonly %a) local_unnamed_addr #19 {
+define hidden void @mpd_as_uint128_triple(ptr noalias nocapture writeonly sret(%struct.mpd_uint128_triple_t) align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef readonly %a) local_unnamed_addr #19 {
 entry:
   %coeff.i = alloca %struct.mpd_t, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) @__const.mpd_as_uint128_triple.triple, i64 32, i1 false)
@@ -30547,7 +30547,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #22
 declare double @llvm.ceil.f64(double) #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_mpd_mul_2_le2(ptr nocapture noundef nonnull writeonly %w, ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %v, i64 noundef %m) unnamed_addr #23 {
+define internal fastcc void @_mpd_mul_2_le2(ptr nocapture noundef nonnull writeonly initializes((0, 24)) %w, ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %v, i64 noundef %m) unnamed_addr #23 {
 entry:
   %0 = load i64, ptr %u, align 8
   %1 = load i64, ptr %v, align 8
@@ -30745,7 +30745,7 @@ declare hidden void @_mpd_basemul(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare hidden ptr @mpd_calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_mpd_kmul(ptr noundef %u, ptr noundef %v, i64 noundef range(i64 2, 1) %ulen, i64 noundef range(i64 257, -9223372036854775808) %vlen, ptr nocapture noundef nonnull writeonly %rsize) unnamed_addr #8 {
+define internal fastcc ptr @_mpd_kmul(ptr noundef %u, ptr noundef %v, i64 noundef range(i64 2, 1) %ulen, i64 noundef range(i64 257, -9223372036854775808) %vlen, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %rsize) unnamed_addr #8 {
 entry:
   %call = tail call fastcc i64 @_kmul_resultsize(i64 noundef %ulen, i64 noundef %vlen)
   store i64 %call, ptr %rsize, align 8
@@ -30990,7 +30990,7 @@ if.end53:                                         ; preds = %if.end53.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_mpd_kmul_fnt(ptr noundef %u, ptr noundef %v, i64 noundef range(i64 2, 1) %ulen, i64 noundef range(i64 257, -9223372036854775808) %vlen, ptr nocapture noundef nonnull writeonly %rsize) unnamed_addr #8 {
+define internal fastcc ptr @_mpd_kmul_fnt(ptr noundef %u, ptr noundef %v, i64 noundef range(i64 2, 1) %ulen, i64 noundef range(i64 257, -9223372036854775808) %vlen, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %rsize) unnamed_addr #8 {
 entry:
   %call = tail call fastcc i64 @_kmul_resultsize(i64 noundef %ulen, i64 noundef %vlen)
   store i64 %call, ptr %rsize, align 8

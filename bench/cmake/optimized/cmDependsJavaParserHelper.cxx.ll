@@ -893,7 +893,7 @@ define dso_local void @_ZNK25cmDependsJavaParserHelper5PrintEPKcS1_(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25cmDependsJavaParserHelper13CombineUnionsEPPcPKcS1_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, ptr noundef readonly %4) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN25cmDependsJavaParserHelper13CombineUnionsEPPcPKcS1_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef readonly %2, ptr nocapture noundef %3, ptr noundef readonly %4) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %6
 
@@ -995,13 +995,13 @@ define dso_local void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10Parser
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(248) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(248) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #11 align 2 {
   store ptr null, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25cmDependsJavaParserHelper18AllocateParserTypeEPNS_10ParserTypeEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25cmDependsJavaParserHelper18AllocateParserTypeEPNS_10ParserTypeEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %1, align 8
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %.thread
@@ -1419,7 +1419,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25cmDependsJavaParserHelper16GetFilesProducedB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.0") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25cmDependsJavaParserHelper16GetFilesProducedB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.0") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 176
   %4 = load ptr, ptr %3, align 8

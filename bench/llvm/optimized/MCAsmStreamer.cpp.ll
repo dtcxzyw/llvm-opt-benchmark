@@ -5393,7 +5393,7 @@ _ZN4llvm11raw_ostreamlsEc.exit30:                 ; preds = %106, %108
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer14emitTBSSSymbolEPN4llvm9MCSectionEPNS1_8MCSymbolEmNS1_5AlignE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i8 %4) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer14emitTBSSSymbolEPN4llvm9MCSectionEPNS1_8MCSymbolEmNS1_5AlignE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, i64 noundef %3, i8 %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %6, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -11511,7 +11511,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer18emitRelocDirectiveB5cxx11ERKN4llvm6MCExprENS1_9StringRefEPS3_NS1_5SMLocERKNS1_15MCSubtargetInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.221") align 8 %0, ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %3, i64 %4, ptr noundef %5, i64 %6, ptr nocapture nonnull readnone align 1 %7) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer18emitRelocDirectiveB5cxx11ERKN4llvm6MCExprENS1_9StringRefEPS3_NS1_5SMLocERKNS1_15MCSubtargetInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.221") align 8 initializes((40, 41)) %0, ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %3, i64 %4, ptr noundef %5, i64 %6, ptr nocapture nonnull readnone align 1 %7) unnamed_addr #0 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24

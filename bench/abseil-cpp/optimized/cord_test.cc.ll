@@ -96653,7 +96653,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias nonnull align 8 %agg.result, i64 noundef range(i64 0, 11) %size) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias nonnull align 8 initializes((0, 16)) %agg.result, i64 noundef range(i64 0, 11) %size) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %size) #34
   %cmp.not = icmp eq i64 %size, 0
@@ -101627,7 +101627,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119CordCompareTestCaseC2IN4absl4CordES3_EERKT_RKT0_b(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %lhs, ptr noundef nonnull align 8 dereferenceable(16) %rhs, i1 noundef zeroext %use_crc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119CordCompareTestCaseC2IN4absl4CordES3_EERKT_RKT0_b(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lhs, ptr noundef nonnull align 8 dereferenceable(16) %rhs, i1 noundef zeroext %use_crc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %lhs, align 8
   %1 = and i8 %0, 1
@@ -101713,7 +101713,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119CordCompareTestCaseC2IN4absl4CordEA11_cEERKT_RKT0_b(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %lhs, ptr noundef nonnull align 1 dereferenceable(11) %rhs, i1 noundef zeroext %use_crc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119CordCompareTestCaseC2IN4absl4CordEA11_cEERKT_RKT0_b(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lhs, ptr noundef nonnull align 1 dereferenceable(11) %rhs, i1 noundef zeroext %use_crc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %lhs, align 8
   %1 = and i8 %0, 1
@@ -101776,7 +101776,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119CordCompareTestCaseC2IN4absl4CordEA65_cEERKT_RKT0_b(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %lhs, ptr noundef nonnull align 1 dereferenceable(65) %rhs, i1 noundef zeroext %use_crc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119CordCompareTestCaseC2IN4absl4CordEA65_cEERKT_RKT0_b(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lhs, ptr noundef nonnull align 1 dereferenceable(65) %rhs, i1 noundef zeroext %use_crc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %lhs, align 8
   %1 = and i8 %0, 1
@@ -124820,7 +124820,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 %agg.result, i64 %data.coerce0, ptr %data.coerce1, ptr %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 initializes((0, 16)) %agg.result, i64 %data.coerce0, ptr %data.coerce1, ptr %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %data.coerce0, 0
@@ -125070,7 +125070,7 @@ _ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExtern
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 %agg.result, i64 %data.coerce0, ptr %data.coerce1, ptr %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 initializes((0, 16)) %agg.result, i64 %data.coerce0, ptr %data.coerce1, ptr %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %data.coerce0, 0
@@ -137399,7 +137399,7 @@ eh.resume.i:                                      ; preds = %lpad12.i, %ehcleanu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN12_GLOBAL__N_14$_238__invokeEv"(ptr noalias sret(%"class.absl::Cord") align 8 %agg.result) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN12_GLOBAL__N_14$_238__invokeEv"(ptr noalias sret(%"class.absl::Cord") align 8 initializes((0, 16)) %agg.result) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1731)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1734)

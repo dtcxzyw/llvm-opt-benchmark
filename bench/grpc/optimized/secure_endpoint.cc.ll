@@ -750,7 +750,7 @@ init.end:                                         ; preds = %init.check, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL13endpoint_readP13grpc_endpointP17grpc_slice_bufferP12grpc_closurebi(ptr noundef %secure_ep, ptr noundef %slices, ptr noundef %cb, i1 noundef zeroext %urgent, i32 %0) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL13endpoint_readP13grpc_endpointP17grpc_slice_bufferP12grpc_closurebi(ptr noundef initializes((56, 64), (104, 112)) %secure_ep, ptr noundef %slices, ptr noundef %cb, i1 noundef zeroext %urgent, i32 %0) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %read_cb = getelementptr inbounds i8, ptr %secure_ep, i64 56
@@ -2728,7 +2728,7 @@ declare noundef i32 @_Z36tsi_zero_copy_grpc_protector_protectP28tsi_zero_copy_gr
 declare noundef i32 @_Z27tsi_frame_protector_protectP19tsi_frame_protectorPKhPmPhS3_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL26flush_write_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_(ptr noundef %ep, ptr nocapture noundef nonnull writeonly %cur, ptr nocapture noundef nonnull writeonly %end) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL26flush_write_staging_bufferPN12_GLOBAL__N_115secure_endpointEPPhS3_(ptr noundef %ep, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %cur, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %end) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3.i.i.i.i.i.i = alloca %"class.std::shared_ptr.24", align 8
   %agg.tmp.i.i.i.i.i = alloca %"class.grpc_core::RefCountedPtr", align 8

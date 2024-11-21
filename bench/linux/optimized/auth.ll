@@ -1086,7 +1086,7 @@ define dso_local ptr @rpcauth_lookupcred(ptr noundef %0, i32 noundef %1) #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rpcauth_init_cred(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local void @rpcauth_init_cred(ptr noundef initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store volatile ptr %5, ptr %5, align 8

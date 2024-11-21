@@ -1214,7 +1214,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN4LIEF2PE18ResourceDialogItemESt6v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF2PE14ResourceDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF2PE14ResourceDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE14ResourceDialogE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
@@ -1515,7 +1515,7 @@ define noundef i32 @_ZNK4LIEF2PE14ResourceDialog14extended_styleEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE14ResourceDialog19extended_style_listEv(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE14ResourceDialog19extended_style_listEv(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1633,7 +1633,7 @@ define noundef i32 @_ZNK4LIEF2PE14ResourceDialog5styleEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE14ResourceDialog10style_listEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.53") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE14ResourceDialog10style_listEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.53") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1744,7 +1744,7 @@ define noundef zeroext i1 @_ZNK4LIEF2PE14ResourceDialog9has_styleENS0_13WINDOW_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE14ResourceDialog20dialogbox_style_listEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.64") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE14ResourceDialog20dialogbox_style_listEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.64") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1883,7 +1883,7 @@ define noundef signext i16 @_ZNK4LIEF2PE14ResourceDialog2cyEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF2PE14ResourceDialog5itemsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1) local_unnamed_addr #7 align 2 {
+define void @_ZNK4LIEF2PE14ResourceDialog5itemsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 168
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1909,14 +1909,14 @@ define noundef i32 @_ZNK4LIEF2PE14ResourceDialog8sub_langEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE14ResourceDialog4langEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF2PE14ResourceDialog4langEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((192, 196)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE14ResourceDialog8sub_langEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF2PE14ResourceDialog8sub_langEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((196, 200)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 196
   store i32 %1, ptr %3, align 4
   ret void

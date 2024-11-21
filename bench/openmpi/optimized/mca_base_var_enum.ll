@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.37 = private unnamed_addr constant [2 x i8] c" \00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_base_var_enum_constructor(ptr nocapture noundef writeonly %0) #0 {
+define internal void @mca_base_var_enum_constructor(ptr nocapture noundef writeonly initializes((16, 88)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %3, i8 0, i64 71, i1 false)
@@ -128,7 +128,7 @@ define internal void @mca_base_var_enum_destructor(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mca_base_var_enum_bool_get_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef i32 @mca_base_var_enum_bool_get_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
   store i32 2, ptr %1, align 4
   ret i32 0
 }
@@ -303,7 +303,7 @@ define internal range(i32 -2, 1) i32 @mca_base_var_enum_bool_dump(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mca_base_var_enum_auto_bool_get_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef i32 @mca_base_var_enum_auto_bool_get_count(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
   store i32 3, ptr %1, align 4
   ret i32 0
 }
@@ -455,7 +455,7 @@ define internal range(i32 -2, 1) i32 @mca_base_var_enum_auto_bool_dump(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @enum_get_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal noundef i32 @enum_get_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4
@@ -621,7 +621,7 @@ define internal range(i32 -18, 1) i32 @mca_base_var_enum_verbose_sfv(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 1) i32 @mca_base_var_enum_verbose_dump(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal range(i32 -2, 1) i32 @mca_base_var_enum_verbose_dump(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) #1 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %5 = icmp eq ptr %0, null
@@ -697,7 +697,7 @@ enum_dump.exit:                                   ; preds = %23, %.loopexit, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_base_var_enum_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @mca_base_var_enum_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #1 {
   store ptr null, ptr %2, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @mca_base_var_enum_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #18
@@ -844,7 +844,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_base_var_enum_create_flag(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @mca_base_var_enum_create_flag(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #1 {
   store ptr null, ptr %2, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @mca_base_var_enum_flag_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #18
@@ -1067,7 +1067,7 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 1) i32 @enum_dump(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal range(i32 -2, 1) i32 @enum_dump(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) #1 {
   store ptr null, ptr %1, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.critedge, label %5
@@ -1128,7 +1128,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_base_var_enum_flag_constructor(ptr nocapture noundef writeonly %0) #0 {
+define internal void @mca_base_var_enum_flag_constructor(ptr nocapture noundef writeonly initializes((16, 17), (24, 72), (88, 96)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1510,7 +1510,7 @@ define internal i32 @enum_string_from_value_flag(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 1) i32 @enum_dump_flag(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal range(i32 -2, 1) i32 @enum_dump_flag(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) #1 {
   store ptr null, ptr %1, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5

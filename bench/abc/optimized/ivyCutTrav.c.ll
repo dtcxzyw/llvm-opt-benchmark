@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @Ivy_NodeFindCutsTravAll(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture noundef %4, ptr noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define noundef nonnull ptr @Ivy_NodeFindCutsTravAll(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture noundef initializes((4, 8)) %4, ptr noundef initializes((4, 8)) %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
   tail call void @Ivy_NodeComputeVolumeTrav1_rec(ptr noundef %1, i32 noundef 6)
   %9 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %9, align 4
@@ -1314,7 +1314,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_NodeComputeVolume2(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Ivy_NodeComputeVolume2(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 4

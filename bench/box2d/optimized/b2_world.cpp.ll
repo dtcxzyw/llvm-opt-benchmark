@@ -194,7 +194,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7b2World22SetDestructionListenerEP21b2DestructionListener(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(103284) %this, ptr noundef %listener) local_unnamed_addr #8 align 2 {
+define void @_ZN7b2World22SetDestructionListenerEP21b2DestructionListener(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(103284) initializes((103224, 103232)) %this, ptr noundef %listener) local_unnamed_addr #8 align 2 {
 entry:
   %m_destructionListener = getelementptr inbounds i8, ptr %this, i64 103224
   store ptr %listener, ptr %m_destructionListener, align 8
@@ -202,7 +202,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7b2World16SetContactFilterEP15b2ContactFilter(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(103284) %this, ptr noundef %filter) local_unnamed_addr #8 align 2 {
+define void @_ZN7b2World16SetContactFilterEP15b2ContactFilter(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(103284) initializes((103160, 103168)) %this, ptr noundef %filter) local_unnamed_addr #8 align 2 {
 entry:
   %m_contactFilter = getelementptr inbounds i8, ptr %this, i64 103160
   store ptr %filter, ptr %m_contactFilter, align 8
@@ -210,7 +210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7b2World18SetContactListenerEP17b2ContactListener(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(103284) %this, ptr noundef %listener) local_unnamed_addr #8 align 2 {
+define void @_ZN7b2World18SetContactListenerEP17b2ContactListener(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(103284) initializes((103168, 103176)) %this, ptr noundef %listener) local_unnamed_addr #8 align 2 {
 entry:
   %m_contactListener = getelementptr inbounds i8, ptr %this, i64 103168
   store ptr %listener, ptr %m_contactListener, align 8
@@ -218,7 +218,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7b2World12SetDebugDrawEP6b2Draw(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(103284) %this, ptr noundef %debugDraw) local_unnamed_addr #8 align 2 {
+define void @_ZN7b2World12SetDebugDrawEP6b2Draw(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(103284) initializes((103232, 103240)) %this, ptr noundef %debugDraw) local_unnamed_addr #8 align 2 {
 entry:
   %m_debugDraw = getelementptr inbounds i8, ptr %this, i64 103232
   store ptr %debugDraw, ptr %m_debugDraw, align 8
@@ -794,7 +794,7 @@ if.end13:                                         ; preds = %_ZN6b2Body8SetAwake
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7b2World5SolveERK10b2TimeStep(ptr noundef nonnull align 8 dereferenceable(103284) %this, ptr noundef nonnull align 4 dereferenceable(24) %step) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7b2World5SolveERK10b2TimeStep(ptr noundef nonnull align 8 dereferenceable(103284) initializes((103264, 103276)) %this, ptr noundef nonnull align 4 dereferenceable(24) %step) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %island = alloca %class.b2Island, align 8
   %profile = alloca %struct.b2Profile, align 4

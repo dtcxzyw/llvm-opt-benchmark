@@ -1056,7 +1056,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #7
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale4initEPKca(ptr noundef nonnull returned align 8 dereferenceable(217) %this, ptr noundef %localeID, i8 noundef signext %canonicalize) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale4initEPKca(ptr noundef nonnull returned align 8 dereferenceable(217) initializes((216, 217)) %this, ptr noundef %localeID, i8 noundef signext %canonicalize) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newKnownCanonicalizedMap.i.i = alloca %"class.icu_75::LocalUHashtablePointer", align 8
   %status.i = alloca i32, align 4
@@ -1718,7 +1718,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756LocaleD2Ev(ptr noundef nonnull align 8 dereferenceable(217) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756LocaleD2Ev(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756LocaleE, i64 16), ptr %this, align 8
   %baseName = getelementptr inbounds i8, ptr %this, i64 208
@@ -1777,7 +1777,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756LocaleC2Ev(ptr noundef nonnull align 8 dereferenceable(217) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756LocaleC2Ev(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756LocaleE, i64 16), ptr %this, align 8
   %fullName = getelementptr inbounds i8, ptr %this, i64 40
@@ -1802,7 +1802,7 @@ lpad:                                             ; preds = %entry
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756LocaleC2ENS0_11ELocaleTypeE(ptr noundef nonnull align 8 dereferenceable(217) %this, i32 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756LocaleC2ENS0_11ELocaleTypeE(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8)) %this, i32 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756LocaleE, i64 16), ptr %this, align 8
   %fullName = getelementptr inbounds i8, ptr %this, i64 40
@@ -1893,7 +1893,7 @@ if.end15:                                         ; preds = %if.then10, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756LocaleC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr noundef %newLanguage, ptr noundef %newCountry, ptr noundef %newVariant, ptr noundef %newKeywords) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756LocaleC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8)) %this, ptr noundef %newLanguage, ptr noundef %newCountry, ptr noundef %newVariant, ptr noundef %newKeywords) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %togo = alloca %"class.icu_75::CharString", align 8
@@ -2285,7 +2285,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756LocaleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr noundef nonnull align 8 dereferenceable(217) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756LocaleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756LocaleE, i64 16), ptr %this, align 8
   %fullName = getelementptr inbounds i8, ptr %this, i64 40
@@ -2418,7 +2418,7 @@ return:                                           ; preds = %if.then30, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756LocaleC2EOS0_(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr noundef nonnull align 8 dereferenceable(217) %other) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756LocaleC2EOS0_(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %other) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756LocaleE, i64 16), ptr %this, align 8
   %fullName = getelementptr inbounds i8, ptr %this, i64 40
@@ -2559,7 +2559,7 @@ entry:
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @ulocimp_getKnownCanonicalizedLocaleForTest_75(ptr nocapture noundef writeonly %length) local_unnamed_addr #13 {
+define noundef nonnull ptr @ulocimp_getKnownCanonicalizedLocaleForTest_75(ptr nocapture noundef writeonly initializes((0, 4)) %length) local_unnamed_addr #13 {
 entry:
   store i32 178, ptr %length, align 4
   ret ptr @_ZN6icu_7512_GLOBAL__N_119KNOWN_CANONICALIZEDE
@@ -5675,7 +5675,7 @@ entry:
 declare ptr @uloc_getISOLanguages_75() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756Locale14setFromPOSIXIDEPKc(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr noundef %posixID) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756Locale14setFromPOSIXIDEPKc(ptr noundef nonnull align 8 dereferenceable(217) initializes((216, 217)) %this, ptr noundef %posixID) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale4initEPKca(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr noundef %posixID, i8 noundef signext 1)
   ret void
@@ -6132,7 +6132,7 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7518KeywordEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518KeywordEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518KeywordEnumerationE, i64 16), ptr %this, align 8
   %keywords = getelementptr inbounds i8, ptr %this, i64 120
@@ -6169,7 +6169,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7525UnicodeKeywordEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7525UnicodeKeywordEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518KeywordEnumerationE, i64 16), ptr %this, align 8
   %keywords.i = getelementptr inbounds i8, ptr %this, i64 120

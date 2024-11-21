@@ -165,7 +165,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @crypto_onetimeauth_poly1305_donna_init(ptr nocapture noundef writeonly %state, ptr nocapture noundef readonly %key) #1 {
+define internal noundef i32 @crypto_onetimeauth_poly1305_donna_init(ptr nocapture noundef writeonly initializes((0, 72), (88, 89)) %state, ptr nocapture noundef readonly %key) #1 {
 entry:
   %key.val.i = load i64, ptr %key, align 1
   %arrayidx1.i = getelementptr i8, ptr %key, i64 8
@@ -292,14 +292,14 @@ poly1305_update.exit:                             ; preds = %for.end.i, %if.end2
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal noundef i32 @crypto_onetimeauth_poly1305_donna_final(ptr noundef %state, ptr nocapture noundef writeonly %out) #0 {
+define internal noundef i32 @crypto_onetimeauth_poly1305_donna_final(ptr noundef %state, ptr nocapture noundef writeonly initializes((0, 16)) %out) #0 {
 entry:
   tail call fastcc void @poly1305_finish(ptr noundef %state, ptr noundef %out)
   ret i32 0
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @poly1305_finish(ptr noundef %st, ptr nocapture noundef writeonly %mac) unnamed_addr #0 {
+define internal fastcc void @poly1305_finish(ptr noundef %st, ptr nocapture noundef writeonly initializes((0, 16)) %mac) unnamed_addr #0 {
 entry:
   %leftover = getelementptr inbounds i8, ptr %st, i64 64
   %0 = load i64, ptr %leftover, align 8

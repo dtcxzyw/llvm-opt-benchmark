@@ -54,7 +54,7 @@ declare void @_ZN13CollectedHeap17post_full_gc_dumpEP7GCTimer(ptr noundef nonnul
 declare void @_ZN15G1JFRTracerMarkD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1FullGCScopeC2EP19G1MonitoringSupportbbP14G1FullGCTracer(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN13G1FullGCScopeC2EP19G1MonitoringSupportbbP14G1FullGCTracer(ptr noundef nonnull align 8 dereferenceable(464) initializes((8, 49), (56, 64)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %3 to i8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

@@ -731,7 +731,7 @@ define dso_local zeroext i1 @fsnotify_prepare_user_wait(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @fsnotify_finish_user_wait(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @fsnotify_finish_user_wait(ptr nocapture noundef initializes((52, 56)) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @__srcu_read_lock(ptr noundef nonnull @fsnotify_mark_srcu) #6
   %3 = getelementptr inbounds i8, ptr %0, i64 52
   store i32 %2, ptr %3, align 4
@@ -1979,7 +1979,7 @@ fsnotify_detach_connector_from_object.exit:       ; preds = %.loopexit, %.thread
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @fsnotify_init_mark(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local void @fsnotify_init_mark(ptr noundef initializes((0, 72)) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   store volatile i32 1, ptr %3, align 4

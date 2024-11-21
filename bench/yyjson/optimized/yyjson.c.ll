@@ -58519,7 +58519,7 @@ do.end111:                                        ; preds = %do.body103, %do.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @bigint_set_buf(ptr nocapture noundef nonnull %big, i64 noundef %sig, ptr nocapture noundef nonnull %exp, ptr noundef %sig_cut, ptr noundef %sig_end, ptr noundef readnone %dot_pos) unnamed_addr #21 {
+define internal fastcc void @bigint_set_buf(ptr nocapture noundef nonnull initializes((0, 4), (8, 16)) %big, i64 noundef %sig, ptr nocapture noundef nonnull %exp, ptr noundef %sig_cut, ptr noundef %sig_end, ptr noundef readnone %dot_pos) unnamed_addr #21 {
 entry:
   %tobool.not = icmp eq ptr %sig_cut, null
   br i1 %tobool.not, label %if.then, label %if.else

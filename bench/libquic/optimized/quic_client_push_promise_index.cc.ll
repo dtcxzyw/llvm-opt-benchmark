@@ -23,7 +23,7 @@ $_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairI
 @_ZN3net26QuicClientPushPromiseIndex9TryHandleD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net26QuicClientPushPromiseIndex9TryHandleD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net26QuicClientPushPromiseIndexC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net26QuicClientPushPromiseIndexC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26QuicClientPushPromiseIndexE, i64 16), ptr %this, align 8
   %promised_by_url_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net26QuicClientPushPromiseIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net26QuicClientPushPromiseIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26QuicClientPushPromiseIndexE, i64 16), ptr %this, align 8
   %promised_by_url_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -80,7 +80,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net26QuicClientPushPromiseIndexD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net26QuicClientPushPromiseIndexD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net26QuicClientPushPromiseIndexE, i64 16), ptr %this, align 8
   %promised_by_url_.i = getelementptr inbounds i8, ptr %this, i64 8

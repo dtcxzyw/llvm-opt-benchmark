@@ -6145,7 +6145,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8TGParser22ParseSubClassReferenceEPNS_6RecordEb(ptr dead_on_unwind noalias writable sret(%"struct.llvm::SubClassReference") align 8 %0, ptr noundef nonnull align 8 dereferenceable(394) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8TGParser22ParseSubClassReferenceEPNS_6RecordEb(ptr dead_on_unwind noalias writable sret(%"struct.llvm::SubClassReference") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(394) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 24, i1 false)
@@ -6761,7 +6761,7 @@ _ZN4llvm6Record8getValueEPKNS_4InitE.exit:        ; preds = %.lr.ph.i.i, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8TGParser27ParseSubMultiClassReferenceEPNS_10MultiClassE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::SubMultiClassReference") align 8 %0, ptr noundef nonnull align 8 dereferenceable(394) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8TGParser27ParseSubMultiClassReferenceEPNS_10MultiClassE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::SubMultiClassReference") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(394) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 24, i1 false)

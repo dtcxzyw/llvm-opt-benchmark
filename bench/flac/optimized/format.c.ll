@@ -1008,14 +1008,14 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr nocapture noundef writeonly %object) local_unnamed_addr #9 {
+define hidden void @FLAC__format_entropy_coding_method_partitioned_rice_contents_init(ptr nocapture noundef writeonly initializes((0, 20)) %object) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %object, i8 0, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr nocapture noundef %object) local_unnamed_addr #10 {
+define hidden void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr nocapture noundef initializes((16, 20)) %object) local_unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr %object, align 8
   %cmp.not = icmp eq ptr %0, null

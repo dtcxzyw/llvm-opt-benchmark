@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @__ompi_datatype_allocate(ptr noundef %0) #0 {
+define internal void @__ompi_datatype_allocate(ptr noundef initializes((200, 224), (240, 241)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 204

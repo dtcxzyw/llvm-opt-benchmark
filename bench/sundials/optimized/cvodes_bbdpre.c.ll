@@ -531,7 +531,7 @@ define internal noundef i32 @cvBBDPrecFree(ptr nocapture noundef readonly %0) #0
 declare i32 @CVodeSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cvBBDPrecSetup(double noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, ptr nocapture noundef writeonly %4, double noundef %5, ptr nocapture noundef %6) #0 {
+define internal i32 @cvBBDPrecSetup(double noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, double noundef %5, ptr nocapture noundef %6) #0 {
   %8 = getelementptr inbounds i8, ptr %6, i64 152
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq i32 %3, 0

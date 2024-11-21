@@ -1580,7 +1580,7 @@ Vec_PtrPush.exit79:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_ManPrepareGroups(ptr noundef %0) local_unnamed_addr #3 {
+define void @Llb_ManPrepareGroups(ptr noundef initializes((64, 72)) %0) local_unnamed_addr #3 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4

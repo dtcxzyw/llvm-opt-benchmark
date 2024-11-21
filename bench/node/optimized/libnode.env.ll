@@ -3453,7 +3453,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10AsyncHooks26DefaultTriggerAsyncIdScopeC2EPNS_11EnvironmentEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %env, double noundef %default_trigger_async_id) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10AsyncHooks26DefaultTriggerAsyncIdScopeC2EPNS_11EnvironmentEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %this, ptr noundef %env, double noundef %default_trigger_async_id) unnamed_addr #3 align 2 {
 entry:
   %async_hooks_.i = getelementptr inbounds i8, ptr %env, i64 880
   store ptr %async_hooks_.i, ptr %this, align 8
@@ -3498,7 +3498,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10AsyncHooks26DefaultTriggerAsyncIdScopeC2EPNS_9AsyncWrapE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %async_wrap) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10AsyncHooks26DefaultTriggerAsyncIdScopeC2EPNS_9AsyncWrapE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %this, ptr nocapture noundef readonly %async_wrap) unnamed_addr #3 align 2 {
 entry:
   %realm_.i = getelementptr inbounds i8, ptr %async_wrap, i64 16
   %0 = load ptr, ptr %realm_.i, align 8
@@ -3652,7 +3652,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11IsolateData9SerializeEPN2v815SnapshotCreatorE(ptr noalias sret(%"struct.node::IsolateDataSerializeInfo") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(4192) %this, ptr noundef nonnull %creator) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11IsolateData9SerializeEPN2v815SnapshotCreatorE(ptr noalias sret(%"struct.node::IsolateDataSerializeInfo") align 8 initializes((0, 48)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(4192) %this, ptr noundef nonnull %creator) local_unnamed_addr #3 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp4111 = alloca %"struct.node::PropInfo", align 8
@@ -33329,7 +33329,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11IsolateData21DeserializePropertiesEPKNS_24IsolateDataSerializeInfoE(ptr noundef nonnull align 8 dereferenceable(4192) %this, ptr noundef %info) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11IsolateData21DeserializePropertiesEPKNS_24IsolateDataSerializeInfoE(ptr noundef nonnull align 8 dereferenceable(4192) initializes((72, 2568), (2928, 3408)) %this, ptr noundef %info) local_unnamed_addr #3 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %isolate_ = getelementptr inbounds i8, ptr %this, i64 4056
@@ -42617,7 +42617,7 @@ if.end10552:                                      ; preds = %if.end10546, %land.
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11IsolateData16CreatePropertiesEv(ptr noundef nonnull align 8 dereferenceable(4192) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11IsolateData16CreatePropertiesEv(ptr noundef nonnull align 8 dereferenceable(4192) initializes((72, 2568), (2584, 2592), (2928, 3408), (3544, 4056)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %isolate_ = getelementptr inbounds i8, ptr %this, i64 4056
@@ -48813,7 +48813,7 @@ _ZNSt10_HashtableItSt4pairIKtSt10unique_ptrIN4node21PerIsolateWrapperDataESt14de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11IsolateDataC2EPN2v87IsolateEP9uv_loop_sPNS_20MultiIsolatePlatformEPNS_20ArrayBufferAllocatorEPKNS_12SnapshotDataE(ptr noundef nonnull align 8 dereferenceable(4192) %this, ptr noundef %isolate, ptr noundef %event_loop, ptr noundef %platform, ptr noundef %node_allocator, ptr noundef %snapshot_data) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11IsolateDataC2EPN2v87IsolateEP9uv_loop_sPNS_20MultiIsolatePlatformEPNS_20ArrayBufferAllocatorEPKNS_12SnapshotDataE(ptr noundef nonnull align 8 dereferenceable(4192) initializes((0, 16)) %this, ptr noundef %isolate, ptr noundef %event_loop, ptr noundef %platform, ptr noundef %node_allocator, ptr noundef %snapshot_data) unnamed_addr #3 align 2 {
 entry:
   %cppgc_id = alloca i16, align 2
   %ref.tmp = alloca %"class.std::unique_ptr.318", align 8
@@ -49188,7 +49188,7 @@ declare void @_ZN2v87CppHeap6CreateEPNS_8PlatformERKNS_19CppHeapCreateParamsE(pt
 declare void @_ZN2v87Isolate13AttachCppHeapEPNS_7CppHeapE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11IsolateDataD2Ev(ptr noundef nonnull align 8 dereferenceable(4192) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11IsolateDataD2Ev(ptr noundef nonnull align 8 dereferenceable(4192) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11IsolateDataE, i64 16), ptr %this, align 8
   %cpp_heap_ = getelementptr inbounds i8, ptr %this, i64 4152
@@ -49349,7 +49349,7 @@ declare void @_ZN2v87Isolate13DetachCppHeapEv(ptr noundef nonnull align 1 derefe
 declare void @_ZN2v87CppHeap9TerminateEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11IsolateDataD0Ev(ptr noundef nonnull align 8 dereferenceable(4192) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11IsolateDataD0Ev(ptr noundef nonnull align 8 dereferenceable(4192) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node11IsolateDataD2Ev(ptr noundef nonnull align 8 dereferenceable(4192) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
@@ -65426,7 +65426,7 @@ declare noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 de
 declare noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11Environment22release_managed_bufferERK8uv_buf_t(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.437") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2872) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %buf) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11Environment22release_managed_bufferERK8uv_buf_t(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.437") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(2872) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %buf) local_unnamed_addr #3 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %0 = load ptr, ptr %buf, align 8
@@ -65563,7 +65563,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11EnvironmentC2EPNS_11IsolateDataEPN2v87IsolateERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESG_PKNS_16EnvSerializeInfoENS_16EnvironmentFlags5FlagsENS_8ThreadIdE(ptr noundef nonnull align 8 dereferenceable(2872) %this, ptr noundef %isolate_data, ptr noundef %isolate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exec_args, ptr noundef %env_info, i64 noundef %flags, i64 %thread_id.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11EnvironmentC2EPNS_11IsolateDataEPN2v87IsolateERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESG_PKNS_16EnvSerializeInfoENS_16EnvironmentFlags5FlagsENS_8ThreadIdE(ptr noundef nonnull align 8 dereferenceable(2872) initializes((0, 8)) %this, ptr noundef %isolate_data, ptr noundef %isolate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exec_args, ptr noundef %env_info, i64 noundef %flags, i64 %thread_id.coerce) unnamed_addr #3 align 2 {
 entry:
   %arg_convertibles.i.i = alloca [2 x %"class.std::unique_ptr.722"], align 16
   %arg1_name.addr.i = alloca ptr, align 8
@@ -67695,7 +67695,7 @@ _ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEE11DeserializeENS1_5LocalINS1_7Co
 declare void @_ZN4node11performance16PerformanceState4MarkENS0_20PerformanceMilestoneEm(ptr noundef nonnull align 8 dereferenceable(178), i32 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11EnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(2872) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11EnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(2872) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   %arg_convertibles.i.i = alloca [2 x %"class.std::unique_ptr.722"], align 16
   %handle_scope = alloca %"class.v8::HandleScope", align 8
@@ -69359,7 +69359,7 @@ _ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit9: ; preds = %_ZN4node
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11EnvironmentD0Ev(ptr noundef nonnull align 8 dereferenceable(2872) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11EnvironmentD0Ev(ptr noundef nonnull align 8 dereferenceable(2872) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node11EnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(2872) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
@@ -70448,7 +70448,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11Environment10RunCleanupEv(ptr noundef nonnull align 8 dereferenceable(2872) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11Environment10RunCleanupEv(ptr noundef nonnull align 8 dereferenceable(2872) initializes((2632, 2633)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %arg_convertibles.i.i = alloca [2 x %"class.std::unique_ptr.722"], align 16
   %trace_event_unique_tracer1179 = alloca %"class.node::tracing::ScopedTracer", align 8
@@ -71730,7 +71730,7 @@ declare ptr @uv_err_name(i32 noundef) local_unnamed_addr #0
 declare ptr @uv_strerror(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node13ImmediateInfoC2EPN2v87IsolateEPKNS0_13SerializeInfoE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %isolate, ptr noundef %info) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node13ImmediateInfoC2EPN2v87IsolateEPKNS0_13SerializeInfoE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, ptr noundef %isolate, ptr noundef %info) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13ImmediateInfoE, i64 16), ptr %this, align 8
   %fields_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -71753,7 +71753,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node13ImmediateInfo11DeserializeEN2v85LocalINS1_7ContextEEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nonnull %context.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node13ImmediateInfo11DeserializeEN2v85LocalINS1_7ContextEEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((40, 48)) %this, ptr nonnull %context.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %index_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %index_.i, align 8
@@ -71930,7 +71930,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node8TickInfo11DeserializeEN2v85LocalINS1_7ContextEEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nonnull %context.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node8TickInfo11DeserializeEN2v85LocalINS1_7ContextEEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((40, 48)) %this, ptr nonnull %context.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %index_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %index_.i, align 8
@@ -72093,7 +72093,7 @@ _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node8TickInfoC2EPN2v87IsolateEPKNS0_13SerializeInfoE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %isolate, ptr noundef %info) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node8TickInfoC2EPN2v87IsolateEPKNS0_13SerializeInfoE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, ptr noundef %isolate, ptr noundef %info) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node8TickInfoE, i64 16), ptr %this, align 8
   %fields_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -72193,7 +72193,7 @@ return:                                           ; preds = %do.end5, %_ZN2v814P
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10AsyncHooksC2EPN2v87IsolateEPKNS0_13SerializeInfoE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %isolate, ptr noundef %info) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10AsyncHooksC2EPN2v87IsolateEPKNS0_13SerializeInfoE(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %this, ptr noundef %isolate, ptr noundef %info) unnamed_addr #3 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10AsyncHooksE, i64 16), ptr %this, align 8
@@ -72339,7 +72339,7 @@ return:                                           ; preds = %do.end5, %_ZN2v814P
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10AsyncHooks11DeserializeEN2v85LocalINS1_7ContextEEE(ptr nocapture noundef nonnull align 8 dereferenceable(248) %this, ptr nonnull %context.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10AsyncHooks11DeserializeEN2v85LocalINS1_7ContextEEE(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((40, 48), (96, 104), (152, 160)) %this, ptr nonnull %context.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %index_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %index_.i, align 8
@@ -72603,7 +72603,7 @@ _ZN4nodelsERSoRKSt6vectorImSaImEE.exit:           ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10AsyncHooks9SerializeEN2v85LocalINS1_7ContextEEEPNS1_15SnapshotCreatorE(ptr noalias sret(%"struct.node::AsyncHooks::SerializeInfo") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, ptr %context.coerce, ptr noundef %creator) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10AsyncHooks9SerializeEN2v85LocalINS1_7ContextEEEPNS1_15SnapshotCreatorE(ptr noalias sret(%"struct.node::AsyncHooks::SerializeInfo") align 8 initializes((0, 56)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, ptr %context.coerce, ptr noundef %creator) local_unnamed_addr #3 align 2 {
 entry:
   %native_execution_async_resources.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %native_execution_async_resources.i, i8 0, i64 24, i1 false)
@@ -73665,7 +73665,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN4node5Realm20PrintInfoForSnapshotEv(ptr noundef nonnull align 8 dereferenceable(872)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11Environment9SerializeEPN2v815SnapshotCreatorE(ptr noalias sret(%"struct.node::EnvSerializeInfo") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2872) %this, ptr noundef %creator) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11Environment9SerializeEPN2v815SnapshotCreatorE(ptr noalias sret(%"struct.node::EnvSerializeInfo") align 8 initializes((0, 200)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2872) %this, ptr noundef %creator) local_unnamed_addr #3 align 2 {
 _ZN4node10AsyncHooks13SerializeInfoD2Ev.exit:
   %ref.tmp = alloca %"struct.node::AsyncHooks::SerializeInfo", align 8
   %ref.tmp27 = alloca %"struct.node::performance::PerformanceState::SerializeInfo", align 8
@@ -77612,7 +77612,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZN4node11Environment22RegisterHandleCleanupsEvEN3$_08__invokeEPS0_P11uv_handle_sPv"(ptr noundef %env, ptr noundef %handle, ptr nocapture readnone %arg) #3 align 2 {
+define internal void @"_ZZN4node11Environment22RegisterHandleCleanupsEvEN3$_08__invokeEPS0_P11uv_handle_sPv"(ptr noundef %env, ptr noundef initializes((0, 8)) %handle, ptr nocapture readnone %arg) #3 align 2 {
 entry:
   store ptr %env, ptr %handle, align 8
   %handle_cleanup_waiting_.i.i = getelementptr inbounds i8, ptr %env, i64 2232
@@ -81617,7 +81617,7 @@ declare void @_ZN4node11performance16PerformanceStateC1EPN2v87IsolateEmPKNS1_13S
 declare void @_ZN4node14PrincipalRealmC1EPNS_11EnvironmentEN2v85LocalINS3_7ContextEEEPKNS_18RealmSerializeInfoE(ptr noundef nonnull align 8 dereferenceable(872), ptr noundef, ptr, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS1_7ExitEnvENS_9StopFlags5FlagsEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS1_7ExitEnvENS_9StopFlags5FlagsEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -81638,7 +81638,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS1_7ExitEnvENS_9StopFlags5FlagsEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS1_7ExitEnvENS_9StopFlags5FlagsEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16

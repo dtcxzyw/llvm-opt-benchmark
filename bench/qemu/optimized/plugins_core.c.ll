@@ -1141,7 +1141,7 @@ declare i32 @atexit(ptr noundef) local_unnamed_addr #6
 declare void @async_run_on_cpu(ptr noundef, ptr noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @plugin_cpu_update__async(ptr noundef %cpu, i64 %data.coerce) #0 {
+define internal void @plugin_cpu_update__async(ptr noundef initializes((696, 704)) %cpu, i64 %data.coerce) #0 {
 entry:
   %plugin_mask = getelementptr inbounds i8, ptr %cpu, i64 696
   store i64 %data.coerce, ptr %plugin_mask, align 8

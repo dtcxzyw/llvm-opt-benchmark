@@ -2952,7 +2952,7 @@ signalInitComplete.exit:                          ; preds = %70, %76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i8 @getFirstTransport(ptr noundef %0, ptr nocapture noundef writeonly %1) #7 {
+define internal noundef zeroext i8 @getFirstTransport(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #7 {
   store ptr %0, ptr %1, align 8
   ret i8 0
 }
@@ -2999,7 +2999,7 @@ declare ptr @bagAdd(ptr noundef) local_unnamed_addr #1
 declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @get_boolean(ptr nocapture noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #12 {
+define internal fastcc zeroext range(i8 0, 2) i8 @get_boolean(ptr nocapture noundef nonnull %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) unnamed_addr #12 {
   %3 = alloca [80 x i8], align 16
   store i8 0, ptr %1, align 1
   %4 = load ptr, ptr %0, align 8

@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @dtls_1_funcs = external global %struct.record_functions_st, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef %rl) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initializes((4048, 4072)) %rl) local_unnamed_addr #0 {
 entry:
   %md.i = alloca [64 x i8], align 16
   %macbuf.i = alloca %struct.ssl_mac_buf_st, align 8
@@ -831,7 +831,7 @@ declare i32 @tls_setup_read_buffer(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dtls_prepare_record_header(ptr noundef %rl, ptr noundef %thispkt, ptr nocapture noundef readonly %templ, i8 noundef zeroext %rectype, ptr noundef %recdata) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dtls_prepare_record_header(ptr noundef %rl, ptr noundef %thispkt, ptr nocapture noundef readonly %templ, i8 noundef zeroext %rectype, ptr noundef initializes((0, 8)) %recdata) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %recdata, align 8
   %buflen = getelementptr inbounds i8, ptr %templ, i64 16
@@ -1166,7 +1166,7 @@ declare void @tls_set_first_handshake(ptr noundef, i32 noundef) #1
 declare void @tls_set_max_pipelines(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @dtls_set_in_init(ptr nocapture noundef writeonly %rl, i32 noundef %in_init) #3 {
+define internal void @dtls_set_in_init(ptr nocapture noundef writeonly initializes((4368, 4372)) %rl, i32 noundef %in_init) #3 {
 entry:
   %in_init1 = getelementptr inbounds i8, ptr %rl, i64 4368
   store i32 %in_init, ptr %in_init1, align 8

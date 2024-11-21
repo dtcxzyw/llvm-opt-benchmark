@@ -71,7 +71,7 @@ define noundef nonnull ptr @Pg_magic_func() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_PG_output_plugin_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
+define void @_PG_output_plugin_init(ptr nocapture noundef writeonly initializes((0, 64), (72, 168)) %0) local_unnamed_addr #1 {
   store ptr @pgoutput_startup, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @pgoutput_begin_txn, ptr %2, align 8
@@ -115,7 +115,7 @@ define void @_PG_output_plugin_init(ptr nocapture noundef writeonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pgoutput_startup(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) #2 {
+define internal void @pgoutput_startup(ptr nocapture noundef initializes((264, 272)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, i1 noundef zeroext %2) #2 {
   %4 = alloca %struct.HASHCTL, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @palloc0(i64 noundef 48) #13
@@ -615,7 +615,7 @@ init_rel_sync_cache.exit:                         ; preds = %230, %233, %238
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pgoutput_begin_txn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal void @pgoutput_begin_txn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((296, 304)) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @MemoryContextAllocZero(ptr noundef %3, i64 noundef 1) #13
   %5 = getelementptr inbounds i8, ptr %1, i64 296

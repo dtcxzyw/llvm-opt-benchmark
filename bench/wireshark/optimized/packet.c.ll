@@ -957,7 +957,7 @@ declare ptr @except_pop() local_unnamed_addr #1
 declare void @wtap_block_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden void @dissect_file(ptr noundef initializes((8, 16), (24, 40), (104, 128), (136, 280), (288, 296), (304, 308), (328, 332), (336, 352), (372, 376), (384, 392), (408, 412), (440, 448)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.file_data_s, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3657,7 +3657,7 @@ define i32 @dissector_table_get_type(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @dissector_table_allow_decode_as(ptr nocapture noundef writeonly %0) local_unnamed_addr #13 {
+define void @dissector_table_allow_decode_as(ptr nocapture noundef writeonly initializes((48, 52)) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 1, ptr %2, align 8
   ret void
@@ -3812,7 +3812,7 @@ define internal void @dissector_table_foreach_changed_func(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissector_all_tables_foreach_func(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal void @dissector_all_tables_foreach_func(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((24, 36)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %0, ptr %4, align 8
   %5 = load ptr, ptr @dissector_tables, align 8
@@ -4525,7 +4525,7 @@ declare void @proto_add_deregistered_data(ptr noundef) local_unnamed_addr #1
 declare void @proto_add_deregistered_slice(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, ptr noundef %1, ptr noundef initializes((330, 332)) %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %7
 
@@ -4791,7 +4791,7 @@ declare i32 @proto_is_protocol_enabled(ptr noundef) local_unnamed_addr #1
 declare i32 @proto_get_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_layer(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @add_layer(ptr nocapture noundef initializes((377, 378)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 376
   %4 = load i8, ptr %3, align 8
   %5 = add i8 %4, 1

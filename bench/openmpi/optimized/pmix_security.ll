@@ -892,7 +892,7 @@ pmix_obj_run_destructors.exit209:                 ; preds = %.lr.ph.i206, %357
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mycdcb(i32 noundef %0, ptr noundef readonly %1, ptr nocapture readnone %2, i64 %3, ptr noundef %4) #0 {
+define internal void @mycdcb(i32 noundef %0, ptr noundef readonly %1, ptr nocapture readnone %2, i64 %3, ptr noundef initializes((476, 480)) %4) #0 {
   fence acquire
   %6 = getelementptr inbounds i8, ptr %4, i64 476
   store i32 %0, ptr %6, align 4
@@ -2321,7 +2321,7 @@ pmix_obj_run_destructors.exit251:                 ; preds = %.lr.ph.i248, %412
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @myvalcb(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal void @myvalcb(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((476, 480)) %3) #0 {
   fence acquire
   %5 = getelementptr inbounds i8, ptr %3, i64 476
   store i32 %0, ptr %5, align 4

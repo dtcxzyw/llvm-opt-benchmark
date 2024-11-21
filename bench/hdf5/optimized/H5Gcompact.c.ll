@@ -151,7 +151,7 @@ define range(i32 -1, 1) i32 @H5G__compact_get_name_by_idx(ptr noundef %0, ptr no
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5G__compact_build_table(ptr noundef %0, i64 %.24.val, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5G__compact_build_table(ptr noundef %0, i64 %.24.val, i32 noundef %1, i32 noundef %2, ptr noundef nonnull initializes((0, 16)) %3) unnamed_addr #0 {
   %5 = alloca %struct.H5G_iter_bt_t, align 8
   %6 = alloca %struct.H5O_mesg_operator_t, align 8
   store i64 %.24.val, ptr %3, align 8

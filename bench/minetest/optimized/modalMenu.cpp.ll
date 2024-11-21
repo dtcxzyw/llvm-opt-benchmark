@@ -707,7 +707,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12GUIModalMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef %vtt) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12GUIModalMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !8
@@ -808,7 +808,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12GUIModalMenu17allowFocusRemovalEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %this, i1 noundef zeroext %allow) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN12GUIModalMenu17allowFocusRemovalEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((353, 354)) %this, i1 noundef zeroext %allow) local_unnamed_addr #13 align 2 {
 entry:
   %frombool = zext i1 %allow to i8
   %m_allow_focus_removal = getelementptr inbounds i8, ptr %this, i64 353
@@ -913,7 +913,7 @@ return:                                           ; preds = %if.end10, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIModalMenu8quitMenuEv(ptr noundef nonnull align 8 dereferenceable(384) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN12GUIModalMenu8quitMenuEv(ptr noundef nonnull align 8 dereferenceable(384) initializes((353, 354)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_allow_focus_removal.i = getelementptr inbounds i8, ptr %this, i64 353
   store i8 1, ptr %m_allow_focus_removal.i, align 1, !tbaa !44

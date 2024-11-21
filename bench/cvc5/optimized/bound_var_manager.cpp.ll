@@ -59,7 +59,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal15BoundVarManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal15BoundVarManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 1)) %this) unnamed_addr #3 align 2 {
 entry:
   store i8 0, ptr %this, align 8
   %d_cacheVals = getelementptr inbounds i8, ptr %this, i64 8
@@ -141,7 +141,7 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_to
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal15BoundVarManager21enableKeepCacheValuesEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, i1 noundef zeroext %isEnabled) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal15BoundVarManager21enableKeepCacheValuesEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 1)) %this, i1 noundef zeroext %isEnabled) local_unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %isEnabled to i8
   store i8 %frombool, ptr %this, align 8

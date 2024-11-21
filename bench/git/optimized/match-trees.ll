@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [32 x i8] c"entry %.*s not found in tree %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @shift_tree(ptr noundef %r, ptr noundef %hash1, ptr noundef %hash2, ptr noundef %shifted, i32 noundef %depth_limit) local_unnamed_addr #0 {
+define dso_local void @shift_tree(ptr noundef %r, ptr noundef %hash1, ptr noundef %hash2, ptr noundef initializes((0, 36)) %shifted, i32 noundef %depth_limit) local_unnamed_addr #0 {
 entry:
   %add_prefix = alloca ptr, align 8
   %del_prefix = alloca ptr, align 8

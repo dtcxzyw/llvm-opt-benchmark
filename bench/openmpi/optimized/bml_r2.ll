@@ -2009,7 +2009,7 @@ mca_bml_base_btl_array_get_index.exit.thread:     ; preds = %31, %37, %mca_bml_b
 declare ptr @ompi_pmix_print_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @mca_bml_r2_compute_endpoint_metrics(ptr nocapture noundef nonnull %0) unnamed_addr #6 {
+define internal fastcc void @mca_bml_r2_compute_endpoint_metrics(ptr nocapture noundef nonnull initializes((216, 224)) %0) unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 136
   %.val44 = load i64, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 184

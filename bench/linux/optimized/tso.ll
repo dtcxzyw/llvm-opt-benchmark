@@ -199,7 +199,7 @@ define dso_local void @tso_build_data(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef %1) #5 align 16 {
+define dso_local i32 @tso_start(ptr noundef %0, ptr nocapture noundef initializes((0, 4), (16, 19), (20, 24)) %1) #5 align 16 {
   %3 = alloca %struct.vlan_hdr, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8

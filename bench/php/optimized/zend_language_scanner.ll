@@ -149,7 +149,7 @@ define internal void @heredoc_label_dtor(ptr nocapture noundef readonly %0) #0 {
 declare void @zend_ptr_stack_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @zend_save_lexical_state(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @zend_save_lexical_state(ptr nocapture noundef writeonly initializes((0, 4), (8, 52), (56, 148), (152, 248)) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 %2, ptr %0, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 24), align 8
@@ -1296,7 +1296,7 @@ define ptr @zend_compile_string_to_ast(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_prepare_string_for_scanning(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @zend_prepare_string_for_scanning(ptr nocapture noundef initializes((8, 12)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -2082,7 +2082,7 @@ define void @zend_multibyte_yyinput_again(ptr nocapture noundef readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -128, 407) i32 @lex_scan(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -128, 407) i32 @lex_scan(ptr noundef initializes((8, 12)) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca %struct._zend_nest_location, align 4
   %5 = alloca %struct._zend_nest_location, align 4
@@ -20649,7 +20649,7 @@ report_bad_nesting.exit:                          ; preds = %3, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @zend_scan_escape_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef signext range(i8 0, 97) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @zend_scan_escape_string(ptr noundef initializes((0, 12)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef signext range(i8 0, 97) %3) unnamed_addr #0 {
   %5 = alloca [3 x i8], align 1
   %6 = alloca [4 x i8], align 4
   %7 = alloca i64, align 8

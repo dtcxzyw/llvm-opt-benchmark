@@ -2677,7 +2677,7 @@ _ZNSt10shared_ptrIN18OpenImageIO_v2_6_08Filter2DEED2Ev.exit: ; preds = %cleanup,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L15get_warp_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufE(ptr noalias nonnull align 8 %agg.result, ptr %filtername_.0.val, i64 %filtername_.8.val, float noundef %filterwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L15get_warp_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufE(ptr noalias nonnull align 8 initializes((0, 16)) %agg.result, ptr %filtername_.0.val, i64 %filtername_.8.val, float noundef %filterwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %filtername = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6484,7 +6484,7 @@ ehcleanup:                                        ; preds = %lpad17, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L17get_resize_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufEff(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %filtername, float noundef %fwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst, float noundef %wratio, float noundef %hratio) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L17get_resize_filterENS_17basic_string_viewIcSt11char_traitsIcEEEfRNS_8ImageBufEff(ptr noalias nonnull align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull %filtername, float noundef %fwidth, ptr noundef nonnull align 8 dereferenceable(16) %dst, float noundef %wratio, float noundef %hratio) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %fd = alloca %"class.OpenImageIO_v2_6_0::FilterDesc", align 8
   %agg.tmp24 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8

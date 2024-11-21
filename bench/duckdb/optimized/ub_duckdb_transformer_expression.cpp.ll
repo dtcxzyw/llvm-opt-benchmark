@@ -570,7 +570,7 @@ $_ZTIN6duckdb21InvalidInputExceptionE = comdat any
 @_ZTVN6duckdb13EmptyTableRefE = external unnamed_addr constant { [8 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer20TransformArrayAccessERN17duckdb_libpgquery14PGAIndirectionE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %indirection_node) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer20TransformArrayAccessERN17duckdb_libpgquery14PGAIndirectionE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %indirection_node) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i645 = alloca %"class.duckdb::vector.31", align 8
   %agg.tmp.i556 = alloca %"class.duckdb::vector.31", align 8
@@ -7730,7 +7730,7 @@ declare void @_ZN6duckdb23NotImplementedExceptionC1ERKNSt7__cxx1112basic_stringI
 declare void @_ZN6duckdb11Transformer10StackCheckEm(ptr dead_on_unwind writable sret(%"class.duckdb::StackChecker") align 8, ptr noundef nonnull align 8 dereferenceable(208), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer17TransformBoolExprERN17duckdb_libpgquery10PGBoolExprE(ptr dead_on_unwind noalias nocapture writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %root) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer17TransformBoolExprERN17duckdb_libpgquery10PGBoolExprE(ptr dead_on_unwind noalias nocapture writable sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %root) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i144 = alloca %"class.duckdb::unique_ptr", align 8
   %agg.tmp3.i = alloca %"class.duckdb::unique_ptr", align 8

@@ -44,7 +44,7 @@ $_ZNK7rocksdb13HistogramImpl3numEv = comdat any
 @_ZN7rocksdb13HistogramStatC1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb13HistogramStatC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21HistogramBucketMapperC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21HistogramBucketMapperC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %_M_end_of_storage.i.i14 = getelementptr inbounds i8, ptr %this, i64 16
@@ -286,7 +286,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb13HistogramStatC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(920) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb13HistogramStatC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(920) initializes((912, 920)) %this) unnamed_addr #4 align 2 {
 entry:
   %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 912
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112bucketMapperE, i64 8), align 8

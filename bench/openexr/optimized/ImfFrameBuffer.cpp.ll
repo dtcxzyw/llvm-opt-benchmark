@@ -54,7 +54,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_25SliceC2ENS_9PixelTypeEPcmmiidbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) %this, i32 noundef %t, ptr noundef %b, i64 noundef %xst, i64 noundef %yst, i32 noundef %xsm, i32 noundef %ysm, double noundef %fv, i1 noundef zeroext %xtc, i1 noundef zeroext %ytc) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_25SliceC2ENS_9PixelTypeEPcmmiidbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) initializes((0, 4), (8, 50)) %this, i32 noundef %t, ptr noundef %b, i64 noundef %xst, i64 noundef %yst, i32 noundef %xsm, i32 noundef %ysm, double noundef %fv, i1 noundef zeroext %xtc, i1 noundef zeroext %ytc) unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %xtc to i8
   %frombool1 = zext i1 %ytc to i8

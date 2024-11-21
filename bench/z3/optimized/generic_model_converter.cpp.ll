@@ -1065,7 +1065,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN23generic_model_converter7set_envEP11ast_pp_util(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %visitor) unnamed_addr #3 align 2 {
+define hidden void @_ZN23generic_model_converter7set_envEP11ast_pp_util(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %this, ptr noundef %visitor) unnamed_addr #3 align 2 {
 entry:
   %tobool.not = icmp eq ptr %visitor, null
   br i1 %tobool.not, label %if.then, label %if.else

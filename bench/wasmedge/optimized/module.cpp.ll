@@ -882,7 +882,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader17loadModuleInBoundERNS_3AST6ModuleESt8optionalImE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(705) %2, i64 %3, i8 %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader17loadModuleInBoundERNS_3AST6ModuleESt8optionalImE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) initializes((304, 305)) %1, ptr noundef nonnull align 8 dereferenceable(705) %2, i64 %3, i8 %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 .split:
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.spdlog::source_loc", align 8
@@ -1771,7 +1771,7 @@ declare void @_ZN8WasmEdge6Loader6Loader18setTagFunctionTypeERNS_3AST10TagSectio
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader10loadModuleERNS_3AST6ModuleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(705) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge6Loader6Loader10loadModuleERNS_3AST6ModuleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) initializes((304, 305)) %1, ptr noundef nonnull align 8 dereferenceable(705) %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN8WasmEdge6Loader6Loader17loadModuleInBoundERNS_3AST6ModuleESt8optionalImE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(705) %2, i64 undef, i8 0)
   ret void
 }

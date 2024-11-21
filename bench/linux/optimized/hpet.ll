@@ -617,7 +617,7 @@ define internal fastcc noundef zeroext i1 @hpet_counting() unnamed_addr #4 secti
 declare dso_local zeroext i1 @tsc_clocksource_watchdog_disabled() local_unnamed_addr #8
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @hpet_legacy_clockevent_register(ptr noundef %0) unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc void @hpet_legacy_clockevent_register(ptr noundef initializes((260, 264)) %0) unnamed_addr #4 section ".init.text" align 16 {
 hpet_init_clockevent.exit:
   %1 = load i16, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 302), align 2
   %2 = zext i16 %1 to i32

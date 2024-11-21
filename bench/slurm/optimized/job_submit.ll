@@ -305,7 +305,7 @@ declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #1
 declare i32 @plugin_context_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @job_submit_g_submit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @job_submit_g_submit(ptr noundef initializes((620, 624)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.timeval, align 8
   %6 = alloca [20 x i8], align 16
@@ -373,7 +373,7 @@ declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #1
 declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @job_submit_g_modify(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @job_submit_g_modify(ptr noundef initializes((620, 624)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca %struct.timeval, align 8
   %7 = alloca [20 x i8], align 16

@@ -1177,7 +1177,7 @@ define dso_local noundef zeroext i1 @intel_ddi_get_hw_state(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_ddi_get_encoder_pipes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_ddi_get_encoder_pipes(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 132
   %6 = load i32, ptr %5, align 4

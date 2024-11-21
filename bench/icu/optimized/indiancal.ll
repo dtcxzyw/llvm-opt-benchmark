@@ -300,7 +300,7 @@ if.end:                                           ; preds = %cond.true.i5, %if.e
 declare noundef i32 @_ZNK6icu_758Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514IndianCalendar19handleComputeFieldsEiR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) %this, i32 noundef %julianDay, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7514IndianCalendar19handleComputeFieldsEiR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) initializes((12, 24), (32, 40), (88, 92), (104, 111), (113, 115), (127, 128), (131, 144), (152, 160), (208, 212), (224, 228)) %this, i32 noundef %julianDay, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #0 align 2 {
 entry:
   %doy_unused.i.i = alloca i32, align 4
   %gdow.i = alloca i32, align 4

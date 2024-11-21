@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [9 x i8] c"__states\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @php_random_mt19937_seed32(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @php_random_mt19937_seed32(ptr nocapture noundef initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 4
   br label %3
 
@@ -355,7 +355,7 @@ define internal zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_random_mt19937_seed_default(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @php_random_mt19937_seed_default(ptr nocapture noundef initializes((0, 4)) %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %3 = call i32 @php_random_bytes(ptr noundef nonnull %2, i64 noundef 4, i1 noundef zeroext false) #6

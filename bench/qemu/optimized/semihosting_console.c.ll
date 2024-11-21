@@ -249,7 +249,7 @@ declare void @fifo8_push(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @console_wake_up(ptr noundef %data, ptr nocapture readnone %user_data) #0 {
+define internal void @console_wake_up(ptr noundef initializes((724, 728)) %data, ptr nocapture readnone %user_data) #0 {
 entry:
   %halted = getelementptr inbounds i8, ptr %data, i64 724
   store i32 0, ptr %halted, align 4

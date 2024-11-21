@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [18 x i8] c"x11-compound-text\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17_CompoundTextOpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr nocapture noundef %cnv, ptr nocapture noundef readonly %pArgs, ptr noundef %errorCode) #0 {
+define internal void @_ZL17_CompoundTextOpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr nocapture noundef initializes((16, 24)) %cnv, ptr nocapture noundef readonly %pArgs, ptr noundef %errorCode) #0 {
 entry:
   %stackPieces = alloca %struct.UConverterNamePieces, align 4
   %stackArgs = alloca %struct.UConverterLoadArgs, align 8

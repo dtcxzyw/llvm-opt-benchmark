@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.brotli_do_write = private unnamed_addr constant [30 x i32] [i32 27, i32 23, i32 23, i32 27, i32 27, i32 27, i32 23, i32 23, i32 27, i32 27, i32 61, i32 23, i32 23, i32 23, i32 23, i32 61, i32 61, i32 61, i32 61, i32 61, i32 61, i32 61, i32 61, i32 61, i32 61, i32 61, i32 61, i32 61, i32 23, i32 61], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_all_content_encodings(ptr noundef %buf, i64 noundef %blen) local_unnamed_addr #0 {
+define hidden void @Curl_all_content_encodings(ptr noundef initializes((0, 1)) %buf, i64 noundef %blen) local_unnamed_addr #0 {
 entry:
   store i8 0, ptr %buf, align 1
   br label %for.body
@@ -347,7 +347,7 @@ declare i32 @Curl_cwriter_def_write(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare void @Curl_cwriter_def_close(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 62) i32 @deflate_do_init(ptr noundef %data, ptr noundef %writer) #0 {
+define internal range(i32 0, 62) i32 @deflate_do_init(ptr noundef %data, ptr noundef initializes((96, 112)) %writer) #0 {
 entry:
   %z1 = getelementptr inbounds i8, ptr %writer, i64 32
   %zalloc = getelementptr inbounds i8, ptr %writer, i64 96
@@ -889,7 +889,7 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %data, ptr noundef %writer) #0 {
+define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %data, ptr noundef initializes((96, 112)) %writer) #0 {
 entry:
   %z1 = getelementptr inbounds i8, ptr %writer, i64 32
   %zalloc = getelementptr inbounds i8, ptr %writer, i64 96
@@ -1466,7 +1466,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @Curl_saferealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @brotli_do_init(ptr nocapture readnone %data, ptr nocapture noundef writeonly %writer) #0 {
+define internal range(i32 0, 28) i32 @brotli_do_init(ptr nocapture readnone %data, ptr nocapture noundef writeonly initializes((24, 32)) %writer) #0 {
 entry:
   %call = tail call ptr @BrotliDecoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null) #7
   %br = getelementptr inbounds i8, ptr %writer, i64 24
@@ -1599,7 +1599,7 @@ declare void @BrotliDecoderDestroyInstance(ptr noundef) local_unnamed_addr #1
 declare i32 @BrotliDecoderGetErrorCode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @zstd_do_init(ptr nocapture readnone %data, ptr nocapture noundef writeonly %writer) #0 {
+define internal range(i32 0, 28) i32 @zstd_do_init(ptr nocapture readnone %data, ptr nocapture noundef writeonly initializes((24, 40)) %writer) #0 {
 entry:
   %call = tail call ptr @ZSTD_createDStream() #7
   %zds = getelementptr inbounds i8, ptr %writer, i64 24

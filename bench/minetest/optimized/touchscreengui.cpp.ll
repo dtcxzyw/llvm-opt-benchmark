@@ -427,7 +427,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.2: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17AutoHideButtonBarC2EPN3irr14IrrlichtDeviceEPNS0_14IEventReceiverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(172) %this, ptr noundef %device, ptr noundef %receiver) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17AutoHideButtonBarC2EPN3irr14IrrlichtDeviceEPNS0_14IEventReceiverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(172) initializes((0, 32), (48, 80), (84, 154), (156, 165), (168, 172)) %this, ptr noundef %device, ptr noundef %receiver) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8, !tbaa !15
   %m_driver = getelementptr inbounds i8, ptr %this, i64 8
@@ -520,7 +520,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %if.then.i.i.i4, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17AutoHideButtonBar4initEP20ISimpleTextureSourceRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKN3irr4core8vector2dIiEESF_23autohide_button_bar_dirf(ptr nocapture noundef nonnull align 8 dereferenceable(172) %this, ptr noundef %tsrc, ptr noundef nonnull align 8 dereferenceable(32) %starter_img, i32 noundef %button_id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %UpperLeft, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %LowerRight, i32 noundef %dir, float noundef %timeout) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17AutoHideButtonBar4initEP20ISimpleTextureSourceRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKN3irr4core8vector2dIiEESF_23autohide_button_bar_dirf(ptr nocapture noundef nonnull align 8 dereferenceable(172) initializes((0, 8), (32, 36), (40, 44), (72, 81), (136, 152)) %this, ptr noundef %tsrc, ptr noundef nonnull align 8 dereferenceable(32) %starter_img, i32 noundef %button_id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %UpperLeft, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %LowerRight, i32 noundef %dir, float noundef %timeout) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %starter_rect = alloca %"class.irr::core::rect", align 16
   store ptr %tsrc, ptr %this, align 8, !tbaa !15
@@ -2404,7 +2404,7 @@ if.end4:                                          ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17AutoHideButtonBar10deactivateEv(ptr nocapture noundef nonnull align 8 dereferenceable(172) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN17AutoHideButtonBar10deactivateEv(ptr nocapture noundef nonnull align 8 dereferenceable(172) initializes((152, 153)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_visible = getelementptr inbounds i8, ptr %this, i64 153
   %0 = load i8, ptr %m_visible, align 1, !tbaa !42, !range !81, !noundef !82
@@ -2460,7 +2460,7 @@ for.body:                                         ; preds = %if.end, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17AutoHideButtonBar4hideEv(ptr nocapture noundef nonnull align 8 dereferenceable(172) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN17AutoHideButtonBar4hideEv(ptr nocapture noundef nonnull align 8 dereferenceable(172) initializes((153, 154)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_visible = getelementptr inbounds i8, ptr %this, i64 153
   store i8 0, ptr %m_visible, align 1, !tbaa !42
@@ -2507,7 +2507,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17AutoHideButtonBar4showEv(ptr nocapture noundef nonnull align 8 dereferenceable(172) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN17AutoHideButtonBar4showEv(ptr nocapture noundef nonnull align 8 dereferenceable(172) initializes((153, 154)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_visible = getelementptr inbounds i8, ptr %this, i64 153
   store i8 1, ptr %m_visible, align 1, !tbaa !42
@@ -2563,7 +2563,7 @@ if.end:                                           ; preds = %for.body, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14TouchScreenGUIC2EPN3irr14IrrlichtDeviceEPNS0_14IEventReceiverE(ptr noundef nonnull align 8 dereferenceable(1120) %this, ptr noundef %device, ptr noundef %receiver) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14TouchScreenGUIC2EPN3irr14IrrlichtDeviceEPNS0_14IEventReceiverE(ptr noundef nonnull align 8 dereferenceable(1120) initializes((0, 1), (8, 32), (40, 48)) %this, ptr noundef %device, ptr noundef %receiver) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__dnew.i.i202 = alloca i64, align 8
   %__dnew.i.i184 = alloca i64, align 8
@@ -3298,7 +3298,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %invoke.cont.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14TouchScreenGUI18initJoystickButtonE19touch_gui_button_idRKN3irr4core4rectIiEEib(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1120) %this, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %button_rect, i32 noundef %texture_id, i1 noundef zeroext %visible) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14TouchScreenGUI18initJoystickButtonE19touch_gui_button_idRKN3irr4core4rectIiEEib(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1120) %this, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %button_rect, i32 noundef %texture_id, i1 noundef zeroext %visible) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_guienv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_guienv, align 8, !tbaa !141
@@ -3412,7 +3412,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14TouchScreenGUI4initEP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(1120) %this, ptr noundef %tsrc) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14TouchScreenGUI4initEP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(1120) initializes((32, 40), (64, 65)) %this, ptr noundef %tsrc) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i1104 = alloca i64, align 8
   %starter_rect.i1018 = alloca %"class.irr::core::rect", align 16

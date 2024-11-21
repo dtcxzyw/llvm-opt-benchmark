@@ -347,7 +347,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vuf_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config) #0 {
+define internal void @vuf_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly initializes((0, 40)) %config) #0 {
 entry:
   %fscfg = alloca %struct.virtio_fs_config, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8

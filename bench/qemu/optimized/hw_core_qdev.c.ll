@@ -359,7 +359,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @module_object_class_by_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @device_listener_register(ptr noundef %listener) local_unnamed_addr #0 {
+define dso_local void @device_listener_register(ptr noundef initializes((24, 40)) %listener) local_unnamed_addr #0 {
 entry:
   %link = getelementptr inbounds i8, ptr %listener, i64 24
   store ptr null, ptr %link, align 8
@@ -954,7 +954,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @error_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @device_class_set_parent_reset(ptr nocapture noundef %dc, ptr noundef %dev_reset, ptr nocapture noundef writeonly %parent_reset) local_unnamed_addr #9 {
+define dso_local void @device_class_set_parent_reset(ptr nocapture noundef %dc, ptr noundef %dev_reset, ptr nocapture noundef writeonly initializes((0, 8)) %parent_reset) local_unnamed_addr #9 {
 entry:
   %reset = getelementptr inbounds i8, ptr %dc, i64 136
   %0 = load ptr, ptr %reset, align 8
@@ -964,7 +964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @device_class_set_parent_realize(ptr nocapture noundef %dc, ptr noundef %dev_realize, ptr nocapture noundef writeonly %parent_realize) local_unnamed_addr #9 {
+define dso_local void @device_class_set_parent_realize(ptr nocapture noundef %dc, ptr noundef %dev_realize, ptr nocapture noundef writeonly initializes((0, 8)) %parent_realize) local_unnamed_addr #9 {
 entry:
   %realize = getelementptr inbounds i8, ptr %dc, i64 144
   %0 = load ptr, ptr %realize, align 8
@@ -974,7 +974,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @device_class_set_parent_unrealize(ptr nocapture noundef %dc, ptr noundef %dev_unrealize, ptr nocapture noundef writeonly %parent_unrealize) local_unnamed_addr #9 {
+define dso_local void @device_class_set_parent_unrealize(ptr nocapture noundef %dc, ptr noundef %dev_unrealize, ptr nocapture noundef writeonly initializes((0, 8)) %parent_unrealize) local_unnamed_addr #9 {
 entry:
   %unrealize = getelementptr inbounds i8, ptr %dc, i64 152
   %0 = load ptr, ptr %unrealize, align 8

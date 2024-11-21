@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_zddSubSet(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 488
   %5 = load i32, ptr %4, align 8
   store i32 0, ptr %4, align 8
@@ -214,7 +214,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_zddSupSet(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 488
   %5 = load i32, ptr %4, align 8
   store i32 0, ptr %4, align 8
@@ -438,7 +438,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_zddNotSubSet(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 488
   %5 = load i32, ptr %4, align 8
   store i32 0, ptr %4, align 8
@@ -657,7 +657,7 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_zddNotSupSet(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 488
   %5 = load i32, ptr %4, align 8
   store i32 0, ptr %4, align 8
@@ -881,7 +881,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_zddMaxNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_zddMaxNotSupSet(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 488
   %5 = load i32, ptr %4, align 8
   store i32 0, ptr %4, align 8

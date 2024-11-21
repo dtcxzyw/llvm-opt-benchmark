@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 
 ; Function Attrs: nounwind uwtable
-define void @Bdc_SuppMinimize2(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Bdc_SuppMinimize2(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = load ptr, ptr %0, align 8
@@ -204,7 +204,7 @@ declare i32 @Kit_TruthSupport(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @Kit_TruthExistNew(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Bdc_SuppMinimize(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Bdc_SuppMinimize(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = load ptr, ptr %0, align 8
@@ -894,7 +894,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i61, 
 declare void @Kit_TruthForallNew(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Bdc_DecomposeOr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @Bdc_DecomposeOr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 24)) %2, ptr nocapture noundef initializes((0, 24)) %3) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %5, align 4

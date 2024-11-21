@@ -209,7 +209,7 @@ declare zeroext i1 @gvtextlayout(ptr noundef, ptr noundef, ptr noundef) local_un
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @textfont_dict_open(ptr noundef %0) local_unnamed_addr #0 {
+define void @textfont_dict_open(ptr noundef initializes((216, 228), (232, 256)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 220

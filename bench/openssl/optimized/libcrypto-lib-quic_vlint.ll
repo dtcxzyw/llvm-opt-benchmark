@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_vlint_encode_n(ptr nocapture noundef writeonly %buf, i64 noundef %v, i32 noundef %n) local_unnamed_addr #0 {
+define void @ossl_quic_vlint_encode_n(ptr nocapture noundef writeonly initializes((0, 1)) %buf, i64 noundef %v, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   switch i32 %n, label %if.else25 [
     i32 1, label %if.then
@@ -86,7 +86,7 @@ if.end52:                                         ; preds = %if.then3, %if.else2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_vlint_encode(ptr nocapture noundef writeonly %buf, i64 noundef %v) local_unnamed_addr #0 {
+define void @ossl_quic_vlint_encode(ptr nocapture noundef writeonly initializes((0, 1)) %buf, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ult i64 %v, 64
   br i1 %cmp.i, label %if.then.i, label %if.end.i

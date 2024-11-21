@@ -3832,7 +3832,7 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #8
 declare void @_efree(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @zend_gc_get_status(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define void @zend_gc_get_status(ptr nocapture noundef writeonly initializes((0, 3), (4, 56)) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @gc_globals, i64 9), align 1
   %4 = and i8 %3, 1
@@ -3899,7 +3899,7 @@ define nonnull ptr @zend_get_gc_buffer_create() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_get_gc_buffer_grow(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @zend_get_gc_buffer_grow(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

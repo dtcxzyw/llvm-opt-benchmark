@@ -160,7 +160,7 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr #1 {
   %2 = alloca [512 x i8], align 16
   %3 = alloca %struct._GHashTableIter, align 8
   %4 = alloca ptr, align 8
@@ -2359,7 +2359,7 @@ define noundef ptr @get_params(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_piwigo_api_authenticate(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @_piwigo_api_authenticate(ptr nocapture noundef initializes((40, 48)) %0) unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #14
   %3 = tail call i64 @g_strlcpy(ptr noundef %2, ptr noundef nonnull @.str.59, i64 noundef 100) #13
   %4 = getelementptr inbounds i8, ptr %2, i64 100

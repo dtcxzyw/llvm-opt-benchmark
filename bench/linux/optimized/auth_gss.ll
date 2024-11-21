@@ -5291,7 +5291,7 @@ declare dso_local void @rpc_sleep_on_timeout(ptr noundef, ptr noundef, ptr nound
 declare dso_local void @rpc_sleep_on(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gss_upcall_callback(ptr nocapture noundef %0) #2 align 16 {
+define internal void @gss_upcall_callback(ptr nocapture noundef initializes((4, 8)) %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 160

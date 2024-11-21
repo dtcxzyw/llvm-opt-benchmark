@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8QuantLib14BrownianBridgeC1ERKNS_8TimeGridE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib14BrownianBridgeC2ERKNS_8TimeGridE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14BrownianBridgeC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, i64 noundef %steps) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14BrownianBridgeC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this, i64 noundef %steps) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 %steps, ptr %this, align 8, !tbaa !3
   %t_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -614,7 +614,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14BrownianBridgeC2ERKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %times) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14BrownianBridgeC2ERKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %times) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %times, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !21
@@ -1024,7 +1024,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit183:                 ; preds = %ehcleanup34, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14BrownianBridgeC2ERKNS_8TimeGridE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %timeGrid) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14BrownianBridgeC2ERKNS_8TimeGridE(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %timeGrid) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %timeGrid, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !21

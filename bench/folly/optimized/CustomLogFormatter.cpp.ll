@@ -1300,7 +1300,7 @@ cleanup156:                                       ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly18CustomLogFormatterC2ENS_5RangeIPKcEEb(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr %format.coerce0, ptr %format.coerce1, i1 noundef zeroext %colored) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18CustomLogFormatterC2ENS_5RangeIPKcEEb(ptr noundef nonnull align 8 dereferenceable(105) initializes((0, 8)) %this, ptr %format.coerce0, ptr %format.coerce1, i1 noundef zeroext %colored) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %colored to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18CustomLogFormatterE, i64 16), ptr %this, align 8, !tbaa !7
@@ -1363,7 +1363,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly18CustomLogFormatter17parseFormatStringENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr %input.coerce0, ptr %input.coerce1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18CustomLogFormatter17parseFormatStringENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(105) initializes((80, 104)) %this, ptr %input.coerce0, ptr %input.coerce1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i24 = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8

@@ -350,7 +350,7 @@ declare noundef zeroext i1 @_ZN2os15uncommit_memoryEPcmb(ptr noundef, i64 nounde
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace16VirtualSpaceNodeC2E13ReservedSpacebPNS_13CommitLimiterEPNS_15AbstractCounterImEES6_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace16VirtualSpaceNodeC2E13ReservedSpacebPNS_13CommitLimiterEPNS_15AbstractCounterImEES6_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 65), (72, 96)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %2 to i8
   store ptr null, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8

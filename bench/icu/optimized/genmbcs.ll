@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL12MBCSAddTableP12NewConverterP8UCMTableP20UConverterStaticData(ptr noundef %cnvData, ptr nocapture noundef readonly %table, ptr nocapture noundef writeonly %staticData) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL12MBCSAddTableP12NewConverterP8UCMTableP20UConverterStaticData(ptr noundef %cnvData, ptr nocapture noundef readonly %table, ptr nocapture noundef writeonly initializes((79, 80)) %staticData) #2 {
 entry:
   %map.i61.i = alloca [1007 x i16], align 16
   %map.i27.i = alloca [1007 x i16], align 16

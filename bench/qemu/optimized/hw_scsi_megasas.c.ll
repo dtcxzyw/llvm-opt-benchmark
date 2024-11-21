@@ -5541,7 +5541,7 @@ return:                                           ; preds = %if.end, %trace_mega
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @megasas_ctrl_shutdown(ptr nocapture noundef writeonly %s, ptr nocapture readnone %cmd) #6 {
+define internal noundef i32 @megasas_ctrl_shutdown(ptr nocapture noundef writeonly initializes((3428, 3432)) %s, ptr nocapture readnone %cmd) #6 {
 entry:
   %fw_state = getelementptr inbounds i8, ptr %s, i64 3428
   store i32 -1342177280, ptr %fw_state, align 4
@@ -7411,7 +7411,7 @@ megasas_build_sense.exit:                         ; preds = %entry, %if.end12.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @megasas_map_sgl(ptr noundef %s, ptr noundef nonnull %cmd, ptr noundef readonly %sgl) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @megasas_map_sgl(ptr noundef %s, ptr noundef nonnull initializes((4, 6)) %cmd, ptr noundef readonly %sgl) unnamed_addr #0 {
 entry:
   %_now.i.i84 = alloca %struct.timeval, align 8
   %_now.i.i70 = alloca %struct.timeval, align 8
@@ -8566,7 +8566,7 @@ entry:
 declare ptr @scsi_req_get_buf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @megasas_complete_command(ptr noundef %cmd) unnamed_addr #0 {
+define internal fastcc void @megasas_complete_command(ptr noundef initializes((16, 24), (104, 120)) %cmd) unnamed_addr #0 {
 entry:
   %iov_size = getelementptr inbounds i8, ptr %cmd, i64 104
   %req = getelementptr inbounds i8, ptr %cmd, i64 48

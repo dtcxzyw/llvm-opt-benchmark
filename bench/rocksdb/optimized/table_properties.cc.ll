@@ -3915,7 +3915,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb15TableProperties30GetAggregatablePropertiesAsMapB5cxx11Ev(ptr noalias sret(%"class.std::map.8") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb15TableProperties30GetAggregatablePropertiesAsMapB5cxx11Ev(ptr noalias sret(%"class.std::map.8") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1

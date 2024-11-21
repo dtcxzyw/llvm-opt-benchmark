@@ -49,7 +49,7 @@ define noundef nonnull align 8 dereferenceable(568) ptr @_ZN2ui10components5labe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$4size17h9e6fce2bfba553f2E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1, i8 noundef %2) unnamed_addr #1 {
+define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$4size17h9e6fce2bfba553f2E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((816, 817)) %1, i8 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 816
   store i8 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
@@ -57,7 +57,7 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$6weight17h5cc2b37b60c61f06E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1, float noundef %2) unnamed_addr #1 {
+define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$6weight17h5cc2b37b60c61f06E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((720, 728)) %1, float noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 720
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 724
@@ -67,7 +67,7 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$17line_height_style17h963548aa88a1adc5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1, i1 noundef zeroext %2) unnamed_addr #1 {
+define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$17line_height_style17h963548aa88a1adc5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((812, 813)) %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 812
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 4
@@ -76,7 +76,7 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$5color17h938e0cf7f65714cbE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %2) unnamed_addr #1 {
+define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$5color17h938e0cf7f65714cbE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((792, 812)) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 792
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
@@ -84,7 +84,7 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$13strikethrough17h9002c6bbac7cf8d0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1, i1 noundef zeroext %2) unnamed_addr #1 {
+define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$13strikethrough17h9002c6bbac7cf8d0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((813, 814)) %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 813
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 1
@@ -93,7 +93,7 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$6italic17hf912349a11ee0610E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1, i1 noundef zeroext %2) unnamed_addr #1 {
+define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$6italic17hf912349a11ee0610E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((814, 815)) %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 814
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 2
@@ -102,7 +102,7 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$9underline17h516f7976ce099958E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1, i1 noundef zeroext %2) unnamed_addr #1 {
+define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$9underline17h516f7976ce099958E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((815, 816)) %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 815
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 1
@@ -111,7 +111,7 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$5alpha17hcb2fb7660ac60e43E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) %1, float noundef %2) unnamed_addr #1 {
+define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$5alpha17hcb2fb7660ac60e43E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((728, 736)) %1, float noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 728
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 732
@@ -758,7 +758,7 @@ _ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %149, %.noexc.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN91_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$gpui..element..IntoElement$GT$12into_element17h2b74901a0669b4d9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(824) %1) unnamed_addr #1 {
+define void @"_ZN91_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$gpui..element..IntoElement$GT$12into_element17h2b74901a0669b4d9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(824) %1) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
 }

@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @PADDING = internal constant <{ i8, [127 x i8] }> <{ i8 1, [127 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_3HAVAL128Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_3HAVAL128Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -644,7 +644,7 @@ Decode.exit.preheader:                            ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_3HAVAL160Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_3HAVAL160Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -895,7 +895,7 @@ Encode.exit50:                                    ; preds = %140
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_3HAVAL192Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_3HAVAL192Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -1142,7 +1142,7 @@ Encode.exit44:                                    ; preds = %135
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_3HAVAL224Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_3HAVAL224Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -1380,7 +1380,7 @@ Encode.exit38:                                    ; preds = %125
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_3HAVAL256Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_3HAVAL256Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -1577,7 +1577,7 @@ Encode.exit24:                                    ; preds = %91
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_4HAVAL128Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_4HAVAL128Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -1951,7 +1951,7 @@ Decode.exit.preheader:                            ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_4HAVAL160Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_4HAVAL160Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -1967,7 +1967,7 @@ define void @PHP_4HAVAL160Init(ptr nocapture noundef writeonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_4HAVAL192Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_4HAVAL192Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -1983,7 +1983,7 @@ define void @PHP_4HAVAL192Init(ptr nocapture noundef writeonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_4HAVAL224Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_4HAVAL224Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -1999,7 +1999,7 @@ define void @PHP_4HAVAL224Init(ptr nocapture noundef writeonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_4HAVAL256Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_4HAVAL256Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -2015,7 +2015,7 @@ define void @PHP_4HAVAL256Init(ptr nocapture noundef writeonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_5HAVAL128Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_5HAVAL128Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -2463,7 +2463,7 @@ Decode.exit.preheader:                            ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_5HAVAL160Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_5HAVAL160Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -2479,7 +2479,7 @@ define void @PHP_5HAVAL160Init(ptr nocapture noundef writeonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_5HAVAL192Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_5HAVAL192Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -2495,7 +2495,7 @@ define void @PHP_5HAVAL192Init(ptr nocapture noundef writeonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_5HAVAL224Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_5HAVAL224Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -2511,7 +2511,7 @@ define void @PHP_5HAVAL224Init(ptr nocapture noundef writeonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PHP_5HAVAL256Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_5HAVAL256Init(ptr nocapture noundef writeonly initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4

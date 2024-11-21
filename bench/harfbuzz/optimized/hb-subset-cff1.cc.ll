@@ -10802,7 +10802,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %while.body.lr.ph.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @"_ZorI10hb_array_tIKN3CFF23cff1_font_dict_values_tEE24hb_filter_iter_factory_tIZN2OT16cff1_subset_plan6createERKNS6_4cff120accelerator_subset_tEP16hb_subset_plan_tEUlRS3_E_RK4$_11ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSL_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISL_Efp_EEEOSL_OSR_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %lhs.0.val, i64 %lhs.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rhs) unnamed_addr #8 {
+define internal fastcc void @"_ZorI10hb_array_tIKN3CFF23cff1_font_dict_values_tEE24hb_filter_iter_factory_tIZN2OT16cff1_subset_plan6createERKNS6_4cff120accelerator_subset_tEP16hb_subset_plan_tEUlRS3_E_RK4$_11ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSL_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISL_Efp_EEEOSL_OSR_"(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 40)) %agg.result, ptr %lhs.0.val, i64 %lhs.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rhs) unnamed_addr #8 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %rhs, align 8, !noalias !105
