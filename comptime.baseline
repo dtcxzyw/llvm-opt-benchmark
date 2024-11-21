@@ -24123,7 +24123,7 @@ openjdk/zUncoloredRoot.ll 114190204
 openjdk/zUncommitter.ll 620214031
 openjdk/zUnload.ll 271057822
 openjdk/zUnmapper.ll 651305203
-openjdk/zUtils.ll 53016828
+openjdk/zUtils.ll 52963811
 openjdk/zUtils_posix.ll 36255361
 openjdk/zVerify.ll 2586200807
 openjdk/zVirtualMemory.ll 131124967
@@ -25095,7 +25095,7 @@ openmpi/pcomm_failure_get_acked.ll 66485599
 openmpi/pcomm_get_failed.ll 66457011
 openmpi/pcomm_iagree.ll 70640222
 openmpi/pcomm_is_revoked.ll 46802591
-openmpi/pcomm_ishrink.ll 69380076
+openmpi/pcomm_ishrink.ll 69310669
 openmpi/pcomm_revoke.ll 66274351
 openmpi/pcomm_set_name_f.ll 62008672
 openmpi/pcomm_shrink.ll 67779911
