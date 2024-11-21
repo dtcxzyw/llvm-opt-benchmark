@@ -17575,7 +17575,7 @@ minetest/CMeshManipulator.cpp.ll 1198427007
 minetest/CMeshSceneNode.cpp.ll 508496755
 minetest/CNullDriver.cpp.ll 1679611452
 minetest/COBJMeshFileLoader.cpp.ll 1889754745
-minetest/COSOperator.cpp.ll 64214505
+minetest/COSOperator.cpp.ll 64278722
 minetest/COpenGLCacheHandler.cpp.ll 100832611
 minetest/COpenGLDriver.cpp.ll 3219730578
 minetest/COpenGLExtensionHandler.cpp.ll 920122658
@@ -21351,7 +21351,7 @@ opencv/imagelogpolprojection.cpp.ll 289376778
 opencv/img_hash_base.cpp.ll 74446514
 opencv/imgcodecs_imwrite.cpp.ll 280148835
 opencv/imgcodecs_jpeg.cpp.ll 233117951
-opencv/imgproc_HoughLinesCircles.cpp.ll 113920941
+opencv/imgproc_HoughLinesCircles.cpp.ll 114034863
 opencv/imgproc_HoughLinesP.cpp.ll 108312473
 opencv/imgproc_HoughLinesPointSet.cpp.ll 167512216
 opencv/imgproc_applyColorMap.cpp.ll 55741965
@@ -23631,7 +23631,7 @@ openjdk/pngrtran.ll 2379194746
 openjdk/pngrutil.ll 916906416
 openjdk/pngset.ll 366594756
 openjdk/pngtrans.ll 182961383
-openjdk/portconfig.ll 40441880
+openjdk/portconfig.ll 40482327
 openjdk/postaloc.ll 1100356484
 openjdk/predicates.ll 404092433
 openjdk/preserveException.ll 81816758
@@ -23888,7 +23888,7 @@ openjdk/threadCrashProtection_posix.ll 43161580
 openjdk/threadCritical_posix.ll 39118715
 openjdk/threadHeapSampler.ll 109538339
 openjdk/threadIdTable.ll 498275682
-openjdk/threadIdentifier.ll 41952771
+openjdk/threadIdentifier.ll 41994767
 openjdk/threadLocalAllocBuffer.ll 276070137
 openjdk/threadLocalStorage_posix.ll 38140184
 openjdk/threadSMR.ll 1148823428
